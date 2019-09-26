@@ -17,6 +17,7 @@ This folder contains the AsciiDoc source files of the _The Hugo Book_.
 
 # Book Status
 
+This is the current status of the initial Word-to-AsciiDoc porting stage:
 
 - [ ] _COLOPHON_
 - [ ] _AUTHOR'S FOREWORD_
@@ -53,12 +54,13 @@ This folder contains the AsciiDoc source files of the _The Hugo Book_.
     + [ ] 10. _THE EVENT TABLE_
     + [ ] 11. _THE DICTIONARY AND SPECIAL WORDS_
     + [ ] 12. _RESOURCEFILES_
-    + [ ] 13. _THE HUGO COMPILER AND HOW IT WORKS_
+    + [x] 13. _THE HUGO COMPILER AND HOW IT WORKS_
     + [ ] 14. _THE HUGO ENGINE AND HOW IT WORKS_
     + [ ] 15. _DARK SECRETS OF THE HUGO DEBUGGER_
     + [ ] APP. A. _CODE PATTERNS_
 - [ ] _INDEX_
 
+Once all chapter are fuly ported, the whole book needs to be checked over again, from scratch, to ensure that formatting and sytles are consistent.
 
 <!-----------------------------------------------------------------------------
                                REFERENCE LINKS
