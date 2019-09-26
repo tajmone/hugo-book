@@ -43,7 +43,7 @@ This is the current status of the initial Word-to-AsciiDoc porting stage:
     + [ ] APP. G. _ADDITIONAL RESOURCES_
 - [ ] BOOK 2. **TECHNICAL SYSTEM SPECIFICATION**
     + [x] 1. _INTRODUCTION_
-    + [ ] 2. _ORGANIZATION OF THE .HEX FILE_
+    + [x] 2. _ORGANIZATION OF THE .HEX FILE_
     + [ ] 3. _TOKENS AND DATA TYPES_
     + [ ] 4. _ENGINE PARSING_
     + [ ] 5. _GRAMMAR_

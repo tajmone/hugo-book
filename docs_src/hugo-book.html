@@ -446,7 +446,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <span id="email" class="email"><a href="mailto:general@generalcoffee.com">general@generalcoffee.com</a></span><br>
 <span id="revnumber">version 1,</span>
 <span id="revdate">2018-10-04</span>
-<br><span id="revremark">Draft 13 -- Porting to AsciiDoc</span>
+<br><span id="revremark">Draft 14 -- Porting to AsciiDoc</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -12880,22 +12880,27 @@ These low-level operations are, for the most part, transparent to the programmer
 </div>
 </div>
 <div class="paragraph">
-<p>Each new segment begins on a boundary divisible by 16; an end-of-segment is padded with zeroes until the next boundary. For each segment, data is general stored in sequential chunks, following two or more bytes giving information about the size of the table.</p>
+<p>Each new segment begins on a boundary divisible by 16; an end-of-segment is padded with zeroes until the next boundary.
+For each segment, data is general stored in sequential chunks, following two or more bytes giving information about the size of the table.</p>
 </div>
 <div class="paragraph">
-<p><strong>Dictionary table:</strong> the first two bytes give the total number of entries. The third byte is always 0, so that dictionary entry 0 is an empty string (<code>""</code>). Following the dictionary table, a number of bytes may optionally be written for runtime dictionary expansion (where $MAXDICTEXTEND is specified at compile-time).</p>
+<p><strong>Dictionary table:</strong> the first two bytes give the total number of entries.
+The third byte is always 0, so that dictionary entry 0 is an empty string (<code>""</code>).
+Following the dictionary table, a number of bytes may optionally be written for runtime dictionary expansion (where <code>$MAXDICTEXTEND</code> is specified at compile-time).</p>
 </div>
 <div class="paragraph">
 <p><strong>Special words:</strong> the first two bytes give the total number of special words.</p>
 </div>
 <div class="paragraph">
-<p><strong>Array space:</strong> the first 480 bytes give the global variable defaults (2 bytes each). For each array entry, the first two bytes give the array length.</p>
+<p><strong>Array space:</strong> the first 480 bytes give the global variable defaults (2 bytes each).
+For each array entry, the first two bytes give the array length.</p>
 </div>
 <div class="paragraph">
 <p><strong>Event table:</strong> the first two bytes give the total number of events.</p>
 </div>
 <div class="paragraph">
-<p><strong>Property table:</strong> the first two bytes give the total number (<em>n</em>) of properties. The following <em>n</em>*2 bytes give the property defaults.</p>
+<p><strong>Property table:</strong> the first two bytes give the total number (<em>n</em>) of properties.
+The following <em>n</em>*2 bytes give the property defaults.</p>
 </div>
 <div class="paragraph">
 <p><strong>Object table:</strong> the first two bytes give the total number of objects.</p>
@@ -12904,85 +12909,190 @@ These low-level operations are, for the most part, transparent to the programmer
 <div class="sect2">
 <h3 id="_the_header">14.2. The Header</h3>
 <div class="paragraph">
-<p>The header is reserved a total of 64 bytes at the start of the compiled .HEX file, immediately preceding the grammar table. It contains the bulk of information regarding table offsets, junction routine addresses, etc.: essentially, it is a map to where to find things in the file.</p>
+<p>The header is reserved a total of 64 bytes at the start of the compiled .HEX file, immediately preceding the grammar table.
+It contains the bulk of information regarding table offsets, junction routine addresses, etc.: essentially, it is a map to where to find things in the file.</p>
 </div>
 <div class="paragraph">
 <p>Compile with the -u switch to display a map of memory usage in the .HEX file that reflects the offsets and addresses encoded in the header.</p>
 </div>
-<div class="paragraph">
-<p><strong>Byte Length Description</strong></p>
-</div>
-<div class="paragraph">
-<p><strong>$00</strong> 1 Version of Hugo Compiler used<sup class="footnote">[<a id="_footnoteref_62" class="footnote" href="#_footnotedef_62" title="View footnote.">62</a>]</sup></p>
-</div>
-<div class="paragraph">
-<p><strong>01</strong> 2 ID string (compiler-generated)<sup class="footnote">[<a id="_footnoteref_63" class="footnote" href="#_footnotedef_63" title="View footnote.">63</a>]</sup></p>
-</div>
-<div class="paragraph">
-<p><strong>03</strong> 8 Serial number</p>
-</div>
-<div class="paragraph">
-<p><strong>0B</strong> 2 Address of start of executable code</p>
-</div>
-<div class="paragraph">
-<p><strong>0D</strong> 2 Object table offset<sup class="footnote">[<a id="_footnoteref_64" class="footnote" href="#_footnotedef_64" title="View footnote.">64</a>]</sup></p>
-</div>
-<div class="paragraph">
-<p><strong>0F</strong> 2 Property table offset</p>
-</div>
-<div class="paragraph">
-<p><strong>11</strong> 2 Event table offset</p>
-</div>
-<div class="paragraph">
-<p><strong>13</strong> 2 Array space offset</p>
-</div>
-<div class="paragraph">
-<p><strong>15</strong> 2 Dictionary offset</p>
-</div>
-<div class="paragraph">
-<p><strong>17</strong> 2 Special words table offset</p>
-</div>
-<div class="paragraph">
-<p><strong>19</strong> 2 Init routine indexed address</p>
-</div>
-<div class="paragraph">
-<p><strong>1B</strong> 2 Main routine indexed address</p>
-</div>
-<div class="paragraph">
-<p><strong>1D</strong> 2 Parse routine indexed address</p>
-</div>
-<div class="paragraph">
-<p><strong>1F</strong> 2 ParseError routine indexed address</p>
-</div>
-<div class="paragraph">
-<p><strong>21</strong> 2 FindObject routine indexed address</p>
-</div>
-<div class="paragraph">
-<p><strong>23</strong> 2 EndGame routine indexed address</p>
-</div>
-<div class="paragraph">
-<p><strong>25</strong> 2 SpeakTo routine indexed address</p>
-</div>
-<div class="paragraph">
-<p><strong>27</strong> 2 Perform routine indexed address<sup class="footnote">[<a id="_footnoteref_65" class="footnote" href="#_footnotedef_65" title="View footnote.">65</a>]</sup></p>
-</div>
-<div class="paragraph">
-<p><strong>29</strong> 2 Text bank offset</p>
-</div>
+<table class="tableblock frame-all grid-none stripes-even fit-content">
+<colgroup>
+<col>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-right valign-top">Byte</th>
+<th class="tableblock halign-right valign-top">Length</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>$00</code></p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Version of Hugo Compiler used<sup class="footnote">[<a id="_footnoteref_62" class="footnote" href="#_footnotedef_62" title="View footnote.">62</a>]</sup></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>01</code></p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock">2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ID string (compiler-generated)<sup class="footnote">[<a id="_footnoteref_63" class="footnote" href="#_footnotedef_63" title="View footnote.">63</a>]</sup></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>03</code></p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock">8</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Serial number</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" colspan="3"><div class="content"><div class="paragraph">
+<p></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>0B</code></p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock">2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Address of start of executable code</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" colspan="3"><div class="content"><div class="paragraph">
+<p></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>0D</code></p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock">2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Object table offset<sup class="footnote">[<a id="_footnoteref_64" class="footnote" href="#_footnotedef_64" title="View footnote.">64</a>]</sup></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>0F</code></p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock">2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Property table offset</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>11</code></p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock">2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Event table offset</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>13</code></p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock">2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Array space offset</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>15</code></p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock">2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Dictionary offset</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>17</code></p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock">2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Special words table offset</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" colspan="3"><div class="content"><div class="paragraph">
+<p></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>19</code></p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock">2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Init</code> routine indexed address</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>1B</code></p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock">2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Main</code> routine indexed address</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>1D</code></p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock">2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Parse</code> routine indexed address</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>1F</code></p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock">2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ParseError</code> routine indexed address</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>21</code></p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock">2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>FindObject</code> routine indexed address</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>23</code></p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock">2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>EndGame</code> routine indexed address</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>25</code></p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock">2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>SpeakTo</code> routine indexed address</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>27</code></p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock">2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Perform</code> routine indexed address<sup class="footnote">[<a id="_footnoteref_65" class="footnote" href="#_footnotedef_65" title="View footnote.">65</a>]</sup></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" colspan="3"><div class="content"><div class="paragraph">
+<p></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>29</code></p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock">2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Text bank offset</p></td>
+</tr>
+</tbody>
+</table>
 <div class="paragraph">
 <p>In .HDX (debuggable) Hugo executables only:</p>
 </div>
+<table class="tableblock frame-all grid-none stripes-even fit-content">
+<colgroup>
+<col>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-right valign-top">Byte</th>
+<th class="tableblock halign-right valign-top">Length</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>3A</code></p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Debuggable flag, set to 1</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>3B</code></p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock">3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Absolute start of debugging information</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>3E</code></p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock">2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Debug workspace (in array table)</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
 <div class="paragraph">
-<p><strong>3A</strong> 1 Debuggable flag, set to 1</p>
+<p><strong>A note on data storage:</strong> whenever 16-bit words (i.e., two bytes representing a single value) are written or read, it is in low-byte/high-byte order, with the first byte being the remainder of <em>x</em>/256 (or the modulus <em>x</em>%256), and the second byte being the integer value <em>x</em>/256.<sup class="footnote">[<a id="_footnoteref_66" class="footnote" href="#_footnotedef_66" title="View footnote.">66</a>]</sup></p>
 </div>
-<div class="paragraph">
-<p><strong>3B</strong> 3 Absolute start of debugging information</p>
-</div>
-<div class="paragraph">
-<p><strong>3E</strong> 2 Debug workspace (in array table)</p>
-</div>
-<div class="paragraph">
-<p>A note on data storage: whenever 16-bit words (i.e., two bytes representing a single value) are written or read, it is in low-byte/high-byte order, with the first byte being the remainder of <em>x</em>/256 (or the modulus <em>x</em>%256), and the second byte being the integer value <em>x</em>/256.<sup class="footnote">[<a id="_footnoteref_66" class="footnote" href="#_footnotedef_66" title="View footnote.">66</a>]</sup></p>
+</td>
+</tr>
+</table>
 </div>
 </div>
 </div>
@@ -16835,7 +16945,7 @@ If <em>n</em> is 0, the byte <em>n</em>+1 gives the value from the memory image.
 <a href="#_footnoteref_62">62</a>. The version format was changed between v2.0 and v2.1. Version 2.0 programs contained the value 2; version 2.1 programs contain the value 21, version 2.2 programs contain 22, etc.
 </div>
 <div class="footnote" id="_footnotedef_63">
-<a href="#_footnoteref_63">63</a>. Pre-v2.3 allowed the programmer to specify an ID string, an unnecessary convention now&#8212;&#8203;the ID string used to be used to create the default savefile name. The ID string is now auto-generated by the compiler and is compared by the engine to the ID of a saved game to see if they match. Precompiled headers have the ID string <code>$$</code>.
+<a href="#_footnoteref_63">63</a>. Pre-v2.3 allowed the programmer to specify an ID string, an unnecessary convention now&#8201;&#8212;&#8201;the ID string used to be used to create the default savefile name. The ID string is now auto-generated by the compiler and is compared by the engine to the ID of a saved game to see if they match. Precompiled headers have the ID string <code>$$</code>.
 </div>
 <div class="footnote" id="_footnotedef_64">
 <a href="#_footnoteref_64">64</a>. Table offsets are equal to the offset of the beginning of the table from the start of data, divided by 16.
@@ -16844,7 +16954,7 @@ If <em>n</em> is 0, the byte <em>n</em>+1 gives the value from the memory image.
 <a href="#_footnoteref_65">65</a>. Pre-v2.5 had no Perform junction routine; verb routines were called directly by the engine.
 </div>
 <div class="footnote" id="_footnotedef_66">
-<a href="#_footnoteref_66">66</a>. For another example, see <em>APPENDIX A:</em> <em>CODE PATTERNS</em>. Several of the conditional statements&#8212;&#8203;if, elseif, etc.--use two bytes to give the absolute skip distance to the next statement if the conditional test fails. The pair is coded in low-byte/high-byte order.
+<a href="#_footnoteref_66">66</a>. For another example, see <em>APPENDIX A:</em> <em>CODE PATTERNS</em>. Several of the conditional statements&#8201;&#8212;&#8201;if, elseif, etc.&#8201;&#8212;&#8201;use two bytes to give the absolute skip distance to the next statement if the conditional test fails. The pair is coded in low-byte/high-byte order.
 </div>
 <div class="footnote" id="_footnotedef_67">
 <a href="#_footnoteref_67">67</a>. v3.0 and later
