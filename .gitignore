@@ -3,6 +3,9 @@
 #  https://github.com/tajmone/hugo-book  #
 ##########################################
 
+# Local previews:
+/docs_src/hugo-book?_*.html
+
 ## TMP Work Files
 #################
 ___*.*
