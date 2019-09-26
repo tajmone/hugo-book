@@ -1,24 +1,35 @@
 = INTRODUCTION
 
+Most Hugo programmers will likely never need to bother with the detailed information in this technical guide, but anyone porting Hugo to a new platform, writing an interface or tool for the language, or just interested in taking a closer look at how the Hugo Compiler generates a compiled program (and how the Hugo Engine interprets it) might find a technical specification useful, even if only to verify the occasional behavior or detail.
+What this look under the hood attempts to do is to outline the configuration of data and code storage used by Hugo, as well as giving an extensive overview of how the various aspects of the language are compiled and interpreted.
 
+// @TODO XRef: Link to Book I.
 
-Most Hugo programmers will likely never need to bother with the detailed information in this technical guide, but anyone porting Hugo to a new platform, writing an interface or tool for the language, or just interested in taking a closer look at how the Hugo Compiler generates a compiled program (and how the Hugo Engine interprets it) might find a technical specification useful, even if only to verify the occasional behavior or detail. What this look under the hood attempts to do is to outline the configuration of data and code storage used by Hugo, as well as giving an extensive overview of how the various aspects of the language are compiled and interpreted.
+This technical specification of the language internals is not a complete programming guide; familiarity with the language and a handy copy of the _Hugo Programming Manual_ will be helpful, as will access to the Hugo source code (written in ANSI C and available at the time of this writing at _ftp://ftp.ifarchive.org/if-archive/programming/hugo/source_).
 
-This technical specification of the language internals is not a complete programming guide; familiarity with the language and a handy copy of the Hugo Programming Manual will be helpful, as will access to the Hugo source code (written in ANSI C and available at the time of this writing at _ftp://ftp.ifarchive.org/if-archive/programming/hugo/source_).
+The standard Hugo source distribution is *hugov31_source.tar.gz*.
+Operating-system-specific sources (i.e., implementations of non-portable functions) are typically *hugov31_OSname_source.zip*.
 
-The standard Hugo source distribution is *hugov31_source.tar.gz*. Operating-system-specific sources (i.e., implementations of non-portable functions) are typically *hugov31_OSname_source.zip*.
-
-Please note that while this document does address differences between the current version of Hugo and previous versions, it is by no means complete in that respect. For example, a current-version implementation of the Hugo Engine that conforms to this specification is not guaranteed to run programs compiled with all previous versions of Hugo. For further elaboration on such differences, please see the Hugo source itself.
+Please note that while this document does address differences between the current version of Hugo and previous versions, it is by no means complete in that respect.
+For example, a current-version implementation of the Hugo Engine that conforms to this specification is not guaranteed to run programs compiled with all previous versions of Hugo.
+For further elaboration on such differences, please see the Hugo source itself.
 
 == How Hugo Works
 
 
 
-The Hugo system is composed of two parts: the compiler and the engine (the interpreter). (The debugger is actually a modified build of the engine, with an additional command layer to facilitate debugging examination and manipulation of the runtime state.)
+The Hugo system is composed of two parts: the compiler and the engine (the interpreter).
 
-The compiler is responsible for reading source files and writing executable code; it does this by first tokenizing a given line of code--breaking it down into a series of byte values representing its contents--and then determining how the line(s) should be written (i.e., identified, optimized, and encoded) in order to fit properly into the current construct. The compiler is also responsible for organizing and writing tables representing object data, property data, the dictionary, etc.
+[NOTE]
+================================================================================
+The debugger is actually a modified build of the engine, with an additional command layer to facilitate debugging examination and manipulation of the runtime state.
+================================================================================
 
-The engine in turn reads the file produced by the compiler (called a .HEX file, after the default extension), and follows the compiled instructions to execute low-level functions such as object movement, property assignment, text output, and expression evaluation. These low-level operations are, for the most part, transparent to the programmer.
+The compiler is responsible for reading source files and writing executable code; it does this by first tokenizing a given line of code -- breaking it down into a series of byte values representing its contents -- and then determining how the line(s) should be written (i.e., identified, optimized, and encoded) in order to fit properly into the current construct.
+The compiler is also responsible for organizing and writing tables representing object data, property data, the dictionary, etc.
+
+The engine in turn reads the file produced by the compiler (called a .HEX file, after the default extension), and follows the compiled instructions to execute low-level functions such as object movement, property assignment, text output, and expression evaluation.
+These low-level operations are, for the most part, transparent to the programmer.
 
 
 // EOF //

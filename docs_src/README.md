@@ -42,7 +42,7 @@ This is the current status of the initial Word-to-AsciiDoc porting stage:
     + [ ] APP. F. _HUGO VERSIONS_
     + [ ] APP. G. _ADDITIONAL RESOURCES_
 - [ ] BOOK 2. **TECHNICAL SYSTEM SPECIFICATION**
-    + [ ] 1. _INTRODUCTION_
+    + [x] 1. _INTRODUCTION_
     + [ ] 2. _ORGANIZATION OF THE .HEX FILE_
     + [ ] 3. _TOKENS AND DATA TYPES_
     + [ ] 4. _ENGINE PARSING_

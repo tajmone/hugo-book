@@ -446,7 +446,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <span id="email" class="email"><a href="mailto:general@generalcoffee.com">general@generalcoffee.com</a></span><br>
 <span id="revnumber">version 1,</span>
 <span id="revdate">2018-10-04</span>
-<br><span id="revremark">Draft 12 -- Porting to AsciiDoc</span>
+<br><span id="revremark">Draft 13 -- Porting to AsciiDoc</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -12795,27 +12795,47 @@ UNDER THE HOOD OF HUGO AND THE .HEX FILE FORMAT
 <h2 id="_introduction_3">13. INTRODUCTION</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Most Hugo programmers will likely never need to bother with the detailed information in this technical guide, but anyone porting Hugo to a new platform, writing an interface or tool for the language, or just interested in taking a closer look at how the Hugo Compiler generates a compiled program (and how the Hugo Engine interprets it) might find a technical specification useful, even if only to verify the occasional behavior or detail. What this look under the hood attempts to do is to outline the configuration of data and code storage used by Hugo, as well as giving an extensive overview of how the various aspects of the language are compiled and interpreted.</p>
+<p>Most Hugo programmers will likely never need to bother with the detailed information in this technical guide, but anyone porting Hugo to a new platform, writing an interface or tool for the language, or just interested in taking a closer look at how the Hugo Compiler generates a compiled program (and how the Hugo Engine interprets it) might find a technical specification useful, even if only to verify the occasional behavior or detail.
+What this look under the hood attempts to do is to outline the configuration of data and code storage used by Hugo, as well as giving an extensive overview of how the various aspects of the language are compiled and interpreted.</p>
 </div>
 <div class="paragraph">
-<p>This technical specification of the language internals is not a complete programming guide; familiarity with the language and a handy copy of the Hugo Programming Manual will be helpful, as will access to the Hugo source code (written in ANSI C and available at the time of this writing at <em><a href="ftp://ftp.ifarchive.org/if-archive/programming/hugo/source" class="bare">ftp://ftp.ifarchive.org/if-archive/programming/hugo/source</a></em>).</p>
+<p>This technical specification of the language internals is not a complete programming guide; familiarity with the language and a handy copy of the <em>Hugo Programming Manual</em> will be helpful, as will access to the Hugo source code (written in ANSI C and available at the time of this writing at <em><a href="ftp://ftp.ifarchive.org/if-archive/programming/hugo/source" class="bare">ftp://ftp.ifarchive.org/if-archive/programming/hugo/source</a></em>).</p>
 </div>
 <div class="paragraph">
-<p>The standard Hugo source distribution is <strong>hugov31_source.tar.gz</strong>. Operating-system-specific sources (i.e., implementations of non-portable functions) are typically <strong>hugov31_OSname_source.zip</strong>.</p>
+<p>The standard Hugo source distribution is <strong>hugov31_source.tar.gz</strong>.
+Operating-system-specific sources (i.e., implementations of non-portable functions) are typically <strong>hugov31_OSname_source.zip</strong>.</p>
 </div>
 <div class="paragraph">
-<p>Please note that while this document does address differences between the current version of Hugo and previous versions, it is by no means complete in that respect. For example, a current-version implementation of the Hugo Engine that conforms to this specification is not guaranteed to run programs compiled with all previous versions of Hugo. For further elaboration on such differences, please see the Hugo source itself.</p>
+<p>Please note that while this document does address differences between the current version of Hugo and previous versions, it is by no means complete in that respect.
+For example, a current-version implementation of the Hugo Engine that conforms to this specification is not guaranteed to run programs compiled with all previous versions of Hugo.
+For further elaboration on such differences, please see the Hugo source itself.</p>
 </div>
 <div class="sect2">
 <h3 id="_how_hugo_works">13.1. How Hugo Works</h3>
 <div class="paragraph">
-<p>The Hugo system is composed of two parts: the compiler and the engine (the interpreter). (The debugger is actually a modified build of the engine, with an additional command layer to facilitate debugging examination and manipulation of the runtime state.)</p>
+<p>The Hugo system is composed of two parts: the compiler and the engine (the interpreter).</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>The debugger is actually a modified build of the engine, with an additional command layer to facilitate debugging examination and manipulation of the runtime state.</p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
-<p>The compiler is responsible for reading source files and writing executable code; it does this by first tokenizing a given line of code&#8212;&#8203;breaking it down into a series of byte values representing its contents&#8212;&#8203;and then determining how the line(s) should be written (i.e., identified, optimized, and encoded) in order to fit properly into the current construct. The compiler is also responsible for organizing and writing tables representing object data, property data, the dictionary, etc.</p>
+<p>The compiler is responsible for reading source files and writing executable code; it does this by first tokenizing a given line of code&#8201;&#8212;&#8201;breaking it down into a series of byte values representing its contents&#8201;&#8212;&#8201;and then determining how the line(s) should be written (i.e., identified, optimized, and encoded) in order to fit properly into the current construct.
+The compiler is also responsible for organizing and writing tables representing object data, property data, the dictionary, etc.</p>
 </div>
 <div class="paragraph">
-<p>The engine in turn reads the file produced by the compiler (called a .HEX file, after the default extension), and follows the compiled instructions to execute low-level functions such as object movement, property assignment, text output, and expression evaluation. These low-level operations are, for the most part, transparent to the programmer.</p>
+<p>The engine in turn reads the file produced by the compiler (called a .HEX file, after the default extension), and follows the compiled instructions to execute low-level functions such as object movement, property assignment, text output, and expression evaluation.
+These low-level operations are, for the most part, transparent to the programmer.</p>
 </div>
 </div>
 </div>
