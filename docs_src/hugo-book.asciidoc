@@ -1,6 +1,6 @@
 = The Hugo Book
 Kent Tessman <general@generalcoffee.com>
-v1, 2018-10-04: Draft 8 -- Porting to AsciiDoc
+v1, 2018-10-04: Draft 9 -- Porting to AsciiDoc
 :lang: en
 :doctype: book
 // TOC Settings:
@@ -47,6 +47,18 @@ endif::[]
 // By Kent Tessman
 // First Edition
 // -----------------------------------------------------------------------------
+
+
+.ABOUT THE AUTHOR
+--
+=========================================================
+Kent Tessman is a filmmaker and accidental game designer.
+
+*The General Coffee Company Press* +
+Toronto, Canada
+=========================================================
+--
+
 
 [colophon]
 = COLOPHON
