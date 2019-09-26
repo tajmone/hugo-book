@@ -25,28 +25,67 @@
 ## Shell scripts
 ## =============
 *.bat      text eol=crlf
+*.com      text eol=crlf
 *.sh       text eol=lf
+*.ps1      text eol=crlf
 
 ## =================
 ## WEB-RELATED FILES
 ## =================
+*.htm      text
 *.html     text
 *.css      text
+*.js       text
+highlight.min.js  eol=lf
 
 ## ===================
 ## Documentation files
 ## ===================
 *.adoc         text
 *.asciidoc     text
+*.docx         binary
+*.markdown     text
 *.md           text
+*.odt          binary
+*.pdf          binary
 *.txt          text
+*COPYRIGHT*    text
+*README*       text
+AUTHORS        text
+CHANGELOG      text
+CHANGES        text
+CONTRIBUTING   text
+COPYING        text
+copyright      text
+INSTALL        text
+license        text
 LICENSE        text
+NEWS           text
+readme         text
 
-## ===================
-## Configuration files
-## ===================
-.editorconfig  text
-.gitattributes text
-.gitignore     text
+## ======================
+## IMAGE & GRAPHICS FILES
+## ======================
+*.ai         binary
+*.bmp        binary
+*.eps        binary
+*.gif        binary
+*.ico        binary
+*.jng        binary
+*.jp2        binary
+*.jpeg       binary
+*.jpg        binary
+*.jpx        binary
+*.jxr        binary
+*.pdf        binary
+*.png        binary
+*.psb        binary
+*.psd        binary
+*.svg        binary
+*.svgz       binary
+*.tif        binary
+*.tiff       binary
+*.wbmp       binary
+*.webp       binary
 
 # EOF #
