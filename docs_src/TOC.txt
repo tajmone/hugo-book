@@ -1,0 +1,158 @@
+BOOK 1  THE HUGO PROGRAMMING MANUAL
+
+I.  INTRODUCTION
+    I.a.    Why You’re Here (or, Just What Is Hugo?)
+    I.b.    Legal Information
+    I.c.    Names And Acknowledgments
+    I.d.    Manual Conventions
+    I.e.    Packing List
+    I.f.    The Truth About Programming
+    I.g.    Working With Hugo
+    I.h.    Getting Started
+    I.i.    Compiler Switches
+    I.j.    Limit Settings
+    I.k.    Directories
+    I.l.    The Hugo Engine
+    I.m.    What Should I Be Able To Do Now?
+II. A FIRST LOOK AT HUGO
+    II.a.   Basic Concepts
+    II.b.   Hello, Sailor!
+    II.c.   Data Types
+    II.d.   Multiple Lines
+    II.e.   Comments
+    II.f.   Compiler Errors And Warnings
+    II.g.   Compiler Directives
+    II.h.   What Should I Be Able To Do Now?
+III.    OBJECTS
+    III.a.  Getting To Know Your Objects
+    III.b.  The Object Tree
+    III.c.  Attributes
+    III.d.  Properties
+    III.e.  Classes
+    III.f.  What Should I Be Able To Do Now?
+IV. HUGO PROGRAMMING
+    IV.a.   Variables
+    IV.b.   Constants
+    IV.c.   Printing Text
+    IV.d.   More Formatting Sequences
+    IV.e.   Operators and Assignments
+    IV.f.   Efficient Operators
+    IV.g.   Arrays And Strings
+    IV.h.   Conditional Expressions and Program Flow
+    IV.i.   What Should I Be Able To Do Now?
+        Example:  Mixing Text Styles
+        Example:  Managing Strings
+V.  ROUTINES AND EVENTS
+    V.a.    Routines
+    V.b.    Property Routines
+    V.c.    Before And After Routines
+    V.d.    Init And Main
+    V.e.    Events
+    V.f.    What Should I Be Able To Do Now?
+        Example:  “Borrowing” Property Routines
+        Example:  Building a (More) Complex Object
+        Example:  Building a Clock Event
+VI. FUSES, DAEMONS, AND SCRIPTS
+    VI.a.   Introduction
+    VI.b.   Fuses And Daemons
+    VI.c.   Scripts
+    VI.d.   A Note About The event_flag Global
+    VI.e.   What Should I Be Able To Do Now?
+        Example:  A Simple Daemon and a Simpler Fuse
+VII.    GRAMMAR AND PARSING
+    VII.a.  Grammar Definition
+    VII.b.  The Parser
+    VII.c.  What Should I Be Able To Do Now?
+VIII.   JUNCTION ROUTINES
+    VIII.a. Before We Get To The Routines
+    VIII.b. Parse
+    VIII.c. ParseError
+    VIII.d. EndGame
+    VIII.e. FindObject
+    VIII.f. SpeakTo
+    VIII.g. Perform
+IX. THE GAME LOOP
+    IX.a.   Overview Of The Game Loop
+    IX.b.   What Should I Be Able To Do Now?
+X.  USING THE OBJECT LIBRARY
+    X.a.    Rooms and Directions
+    X.b.    Characters
+    X.c.    Character responses
+    X.d.    Scenery and Components
+    X.e.    Doors
+    X.f.    Vehicles
+    X.g.    Plural and Identical Objects
+    X.h.    Attachables
+    X.i.    What Should I Be Able To Do Now?
+XI. ADVANCED FEATURES
+    XI.a.   The Display Object
+    XI.b.   Windows
+    XI.c.   Reading And Writing Files
+    XI.d.   Mouse Input
+XII.    RESOURCES
+    XII.a.  Creating And Using Resources
+    XII.b.  Pictures
+    XII.c.  Sound And Music
+    XII.d.  Video
+APPENDIX A: SUMMARY OF KEYWORDS AND COMMANDS
+APPENDIX B: THE HUGO LIBRARY
+    ATTRIBUTES
+    GLOBALS
+    ARRAYS
+    CONSTANTS
+    PROPERTIES
+    VERB ROUTINES
+    UTILITY ROUTINES, ETC.
+    AUXILIARY MATH ROUTINES:
+    STRING ARRAY ROUTINES:
+    FUSE/DAEMON ROUTINES:
+    CHARACTER SCRIPT ROUTINES:
+    CHARACTER ACTION ROUTINES:
+    CONDITIONAL COMPILATION:
+APPENDIX C: LIMIT SETTINGS
+APPENDIX D: HUGOFIX AND THE HUGO DEBUGGER
+    The HugoFix Debugging Library
+    The Hugo Debugger
+APPENDIX E: PRECOMPILED HEADERS
+APPENDIX F: HUGO VERSIONS
+APPENDIX G: ADDITIONAL RESOURCES
+
+BOOK 2  TECHNICAL SYSTEM SPECIFICATION
+
+I.  INTRODUCTION
+    I.a.    How Hugo Works
+II. ORGANIZATION OF THE .HEX FILE
+    II.a.   Memory Map
+    II.b.   The Header
+III.    TOKENS AND DATA TYPES
+    III.a.  Tokens
+    III.b.  Data Types
+IV. ENGINE PARSING
+V.  GRAMMAR
+VI. EXECUTABLE CODE
+    VI.a.   A Simple Program
+    VI.b.   Expressions
+VII.    ENCODING TEXT
+VIII.   THE OBJECT TABLE
+    VIII.a. Objects
+VIII.b. Attributes
+IX. THE PROPERTY TABLE
+    IX.a.   Before, After, and Other Complex Properties
+X.  THE EVENT TABLE
+XI. THE DICTIONARY AND SPECIAL WORDS
+    XI.a.   Dictionary
+    XI.b.   Special Words
+XII.    RESOURCEFILES
+XIII.   THE HUGO COMPILER AND HOW IT WORKS
+    XIII.a. Compile-Time Symbol Data
+    XIII.b. The Linker
+XIV.    THE HUGO ENGINE AND HOW IT WORKS
+    XIV.a.  Runtime Symbol Data
+    XIV.b.  Non-Portable Functionality
+    XIV.c.  Savefile Format
+XV. DARK SECRETS OF THE HUGO DEBUGGER
+    XV.a.   Debugger Expression Evaluation
+    XV.b.   The .HDX File Format
+APPENDIX A: CODE PATTERNS
+
+INDEX
