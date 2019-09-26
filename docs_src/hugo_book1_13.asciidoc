@@ -1,0 +1,788 @@
+[appendix]
+= SUMMARY OF KEYWORDS AND COMMANDS
+
+and
+
+*Description:* Logical AND.
+
+*Syntax:* x = <value1> and <value2>
+
+*Result:* x will be true if <value1> and <value2> are both non-zero, false if one or both is zero.
+
+anything
+
+*Description:* Object specifier in grammar syntax line, indicating that any nameable object in the object tree is valid.
+
+array
+
+*Description:* When used as a data type modifier, specifies that the following value is to be treated as an array address.
+
+*Example:* <var1> = array <var2>[<n>]
+
+The variable <var2> will be treated as an array address.
+
+break
+
+*Description:* Terminates the immediate enclosing loop.
+
+*Example:* while <expression1>
+
+\{
+
+while <expression2>
+
+\{
+
+if <expression3>
+
+break
+
+...
+
+}
+
+...
+
+}
+
+The break statement, if encountered, will terminate the innermost loop.
+
+call
+
+*Description:* Calls a routine indirectly, i.e., when the routine address has been stored in a variable, object property, etc.
+
+*Syntax:* call <value>[(<arg1>, <arg2>,...)]
+
+or
+
+x = call <value>(...)
+
+where <value> is a valid data type holding the routine address.
+
+*Value:* When used as a function, returns the value returned by the specified routine.
+
+capital
+
+*Description:* Print statement modifier, indicating that the next word should be printed with the first letter capitalized.
+
+*Syntax:* print capital <address>
+
+where <address> is any dictionary word, such as, for example, an object.name property.
+
+case
+
+*Description:* Specifies a conditional case in a select structure.
+
+*Syntax:* select <val>
+
+case <case1>[, <case2>,...]
+
+...
+
+case <case3>[, <case4>,...]
+
+...
+
+where <val> is value such as a variable, routine return value, object property, array element, etc., and each <case> is a single value for comparison (not an expression).
+
+child
+
+*Syntax:* x = child(<parent>)
+
+*Return value:* The object number of the immediate child object of <parent>, or 0 if <parent> has no children.
+
+children
+
+*Syntax:* x = children(<parent>)
+
+*Return value:* The number of child objects possessed by <parent>.
+
+cls
+
+*Description:* Clears the current text window repositions the output coordinates at the bottom left of the text window.
+
+*Syntax:* cls
+
+color (colour)
+
+*Description:* Sets the display colors for text output.
+
+*Syntax:* color <foreground>[, <background>]
+
+where <background> is optional
+
+*Parameters:* Standard color values for <foreground> and <background> with constants defined in *hugolib.h* (see page 64) are:
+
+0 Black BLACK
+
+1 Blue BLUE
+
+2 Green GREEN
+
+3 Cyan CYAN
+
+4 Red RED
+
+5 Magenta MAGENTA
+
+6 Brown BROWN
+
+7 White WHITE
+
+8 Dark gray DARK_GRAY
+
+9 Light blue LIGHT_BLUE
+
+10 Light green LIGHT_GREEN
+
+11 Light cyan LIGHT_CYAN
+
+12 Light red LIGHT_RED
+
+13 Light magenta LIGHT_MAGENTA
+
+14 Light yellow LIGHT_YELLOW
+
+15 Bright white BRIGHT_WHITE
+
+dict
+
+*Description:* Dynamically creates a new dictionary entry at runtime.
+
+*Syntax:* x = dict(<array>, <maxlen>)
+
+x = dict(parse$, <maxlen>)
+
+where <array> or parse$ holds the string to be written into the dictionary, and <maxlen> represents the maximum number of characters to be written. Returns the new dictionary address.
+
+[NOTE]
+================================================================================
+Space should be reserved for any dictionary entries to be created at runtime using the $MAXDICTEXTEND setting during compilation.
+================================================================================
+
+
+
+do
+
+*Description:* Marks the starting point of a do-while loop.
+
+*Syntax:* do
+
+\{
+
+...
+
+}
+
+while <expr>
+
+The loop will continue to run as long as <expr> holds true.
+
+elder
+
+*Syntax:* x = elder(<object>)
+
+*Return value:* The object number of the object preceding <object> on the same branch in the object tree. The reverse of sibling.
+
+eldest
+
+Same as child.
+
+else
+
+*Description:* In an if-elseif-else conditional block, indicates the default operation if no previous condition has been met.
+
+*Syntax:* if <condition>
+
+...
+
+else
+
+...
+
+elseif
+
+*Description:* In an if-elseif-else conditional block, indicates a condition that will be checked only if no preceding condition has been met.
+
+*Syntax:* if <condition1>
+
+...
+
+elseif <condition2>
+
+...
+
+elseif <condition3>
+
+...
+
+false
+
+*Description:* A predefined constant value: 0.
+
+for
+
+*Description:* Loop construction.
+
+*Syntax:* for (<initial>; <test>; <mod>)
+
+\{
+
+...
+
+}
+
+for <var> in <object>
+
+\{
+
+...
+
+}
+
+For the first form, where <initial> is the initial assignment expression (e.g. a = 1), <test> is the test expression (e.g. a < 10), and <mod> is the modifying expression (e.g. a = a + 1). The loop will execute as long as <test> holds true.
+
+The second form loops through all the children of <object> (if any), setting <var> to each child object in sequence.
+
+held
+
+*Description:* Object specifier in grammar syntax line, indicating that any single object possessed by the player object is valid.
+
+hex
+
+*Description:* Print statement modifier signifying that the following value is not a dictionary address, but should be printed as a hexadecimal number.
+
+*Syntax:* print hex <var>
+
+where, for example, <var> is equal to 26, will print "`1A`".
+
+if
+
+*Description:* A conditional expression.
+
+*Syntax:* if <condition>
+
+...
+
+where <condition> is an expression or value, will run the following statement block only if <condition> is true.
+
+in
+
+*Description:* When used in an object definition, places the object in the object tree as a possession of the specified parent. When used in an expression, returns true if the object is in the specified parent.
+
+*Syntax:* in <parent>
+
+or, for example:
+
+if <object> [not] in <parent>
+
+\{
+
+...
+
+}
+
+input
+
+*Description:* Receive input from keyboard, storing the dictionary addresses of the individual words in the word array. Unrecognized words are given a value of 0.
+
+*Syntax:* input
+
+is
+
+*Description:* Attribute assignment/testing.
+
+*Syntax:* <object> is [not] <attribute>
+
+*Usage:* When used as an assignment on its own, will set (or clear, if not is used) the specified attribute for the given object. May also be used in an expression.
+
+*Return value:* When used in an expression, returns true if <object> has the specified attribute set (or cleared, if not is used). Otherwise, it returns false.
+
+jump
+
+*Description:* Jumps to a specified label.
+
+*Syntax:* jump <label>
+
+where a unique <label> exists on a separate line somewhere in the program, in the form:
+
+:<label>
+
+local
+
+*Description:* Defines one or more variables local to the current routine.
+
+*Syntax:* local <var1>[, <var2>, <var3>,...]
+
+locate
+
+*Description:* Sets the cursor position within the current text window.
+
+*Syntax:* locate(<row>, <column>)
+
+*Note:* The maximum horizontal/vertical cursor position is constrained by the boundaries of the current text window. The cursor position is calculated in fixed-width character coordinates.
+
+move
+
+*Description:* Moves an object with all its possessions to a new parent.
+
+*Syntax:* move <object> to <new parent>
+
+multi
+
+*Description:* Object specifier in grammar syntax line, indicating that multiple available objects are valid.
+
+multiheld
+
+*Description:* Object specifier in grammar syntax line, indicating that multiple objects possessed by the player object are valid.
+
+multinotheld
+
+*Description:* Object specifier in grammar syntax line, indicating that multiple objects explicitly not held by the player object are valid.
+
+music
+
+*Description:* Load and play a music resource (if audio output is available).
+
+*Syntax:* music [repeat] "file", "song"[, vol]
+
+music 0
+
+where <file> is a compiled Hugo resourcefile, and <song> is a music module in MOD, S3M, or XM format. The optional <vol> argument, if given, ranges from 0 to 100 and gives a percentage of volume for playback. If the repeat token is used, the song continues to loop until either a new song is played, or the current song is stopped (using `music 0`).
+
+nearby
+
+*Description:* Used in an object definition to place the object in the specified position in the object tree.
+
+*Syntax:* nearby <object>
+
+Gives the current object the same parent as <object>.
+
+nearby
+
+Gives the current object the same parent as the last-defined object.
+
+newline
+
+*Description:* Print statement modifier, indicating that a line feed and carriage return should be issued if the current output position is not already at the start of a blank line.
+
+*Syntax:* print newline
+
+not
+
+*Description:* Logical not.
+
+*Syntax:* x = not <value>
+
+<object> is not <attribute>
+
+*Result:* In the first example, x will be true if <value> is false, or false if <value> is true.
+
+In the second, the specified attribute will be cleared for <object> when used alone as an assignment. As part of an expression, it will return true only if <object> does not have <attribute> set.
+
+notheld
+
+*Description:* Object specifier in grammar syntax line, indicating that a single object explicitly not held by the player object is valid.
+
+number
+
+*Description:* When used in a grammar syntax line, indicates that a single positive integer number is valid.
+
+When used as a print statement modifier, indicates that the following value is not a dictionary address, but should be printed as a positive integer number.
+
+*Syntax:* (for usage as a print statement modifier)
+
+print number <val>
+
+where, for example, <val> is equal to 100, will print "`100`" instead of the word beginning at the address 100 in the dictionary table.
+
+object
+
+*Description:* Global variable holding the object number of the direct object, if any, specified in the input line.
+
+When used in a grammar syntax line, indicates that a single available object is valid.
+
+or
+
+*Description:* Logical OR.
+
+*Syntax:* x = <value1> or <value2>
+
+*Result:* x will be true if either <value1> or <value2> is non-false, or false if both are false.
+
+parent
+
+(Usage 1)
+
+*Syntax:* x = parent(<object>)
+
+*Return value:* The object number of <object>'s parent object.
+
+(Usage 2)
+
+*Description:* When used in a grammar syntax line, indicates that the domain for validating the availability of the specified direct object should be set to the parent object specified in the input line.
+
+parse$
+
+*Description:* Read-only engine variable that contains either the offending portion of an invalid input line or any section of the input line enclosed in quotes.
+
+pause
+
+*Description:* Pauses until a key is pressed. The value of the key is stored in word[0].
+
+picture
+
+*Description:* Load and display an image resource in the currently defined window (if graphics are available).
+
+*Syntax:* picture "<resourcefile>", "<picture>"
+
+picture "<picturefile>"
+
+where, while <resourcefile> is optional, it is very highly recommended (otherwise, <picturefile> will likely not be named in a cross-platform portable format).
+
+playback
+
+*Description:* Plays back recorded commands from a file in place of keyboard input (by prompting the user).
+
+*Syntax:* x = playback
+
+*Return value:* True if successful, false if not.
+
+print
+
+*Description:* Print text output.
+
+*Syntax:* print <output>
+
+where <output> can consist of both test strings enclosed in quotation marks ("`...`"), and values representing dictionary addresses, such as object names. Separate components of <output> are separated by a semicolon (`;`). Each component may also be preceded by a modifier such as capital, hex, or number.
+
+printchar
+
+*Description:* Prints a character or series of characters at the current cursor position. No newline is printed.
+
+*Syntax:* printchar <val1>[, <val2>,...]
+
+quit
+
+*Description:* Terminates the game loop.
+
+*Syntax:* quit
+
+random
+
+*Description:* Engine function which generates a random number.
+
+*Syntax:* x = random(<val>)
+
+*Return value:* Where <val> is a positive integer number, will return a random number between 1 and <val>, inclusively.
+
+readfile
+
+*Description:* A structure that allows values to be read from a file written using writefile.
+
+*Syntax:* readfile <filename>
+
+\{
+
+...
+
+}
+
+The file is opened and positioned to the start at the beginning of the readfile block, and closed at the end.
+
+readval
+
+*Description:* Reads a value in a readfile block.
+
+*Syntax:* x = readval
+
+*Value:* The value read, or 0 in the case of an error. Use the FILE_CHECK constant defined in *hugolib.h* to determine if a readfile block has been executed successfully.
+
+recordoff
+
+*Description:* Ends recording commands to a file.
+
+*Syntax:* x = recordoff
+
+*Value:* True if successful, false if not.
+
+recordon
+
+*Description:* Begins recording commands to a file (by prompting the user).
+
+*Syntax:* x = recordon
+
+*Value:* True if successful, false if not.
+
+remove
+
+*Description:* Removes an object from the object tree.
+
+*Syntax:* remove <object>
+
+(The same as: move <object> to 0)
+
+restart
+
+*Description:* Reloads the initial game data from the .HEX file and calls the Init routine.
+
+*Syntax:* x = restart
+
+*Note:* The restart statement does not technically restart the engine; the game loop continues uninterrupted after Init is called, only with the game data restored to its initial state.
+
+*Value:* True if successful, false if not.
+
+restore
+
+*Description:* Restores a saved game's state data from a previously saved file (by prompting the user).
+
+*Syntax:* x = restore
+
+*Value:* True if successful, false if not.
+
+return
+
+*Description:* Returns from a called routine.
+
+*Syntax:* return [<expression>]
+
+*Return value:* Returns <expression> if provided, otherwise returns false.
+
+run
+
+*Description:* Runs an object property routine if one exists.
+
+*Syntax:* run <object>.<property>
+
+*Return value:* None; any value returned by the property routine is discarded.
+
+runevents
+
+*Description:* Calls all events which are either global or currently within the event scope of the player object.
+
+*Syntax:* runevents
+
+save
+
+*Description:* Saves the current game state to a file (by prompting the user).
+
+*Syntax:* x = save
+
+*Value:* True if successful, false if not.
+
+scriptoff
+
+*Description:* Turns transcription off.
+
+*Syntax:* x = scriptoff
+
+*Value:* True if successful, false if not.
+
+scripton
+
+*Description:* Turns transcription (i.e., recording output to a file or to a printer) on.
+
+*Syntax:* x = scripton
+
+*Value:* True if successful, false if not.
+
+select
+
+*Description:* Specifies the value for comparison in a select-case conditional structure.
+
+*Syntax:* select <val>
+
+case <case1>[, <case2>,...]
+
+...
+
+case <case3>[, <case4>,...]
+
+...
+
+where <val> is value such as a variable, routine return value, object property, array element, etc., and each <case> is a single value for comparison (not an expression).
+
+serial$
+
+*Description:* Read-only engine variable that contains the serial number as written by the compiler.
+
+sibling
+
+*Syntax:* x = sibling(<object>)
+
+*Return value:* The number of the object next to <object> on the same branch of the object tree.
+
+sound
+
+*Description:* Load and play an audio sample resource (if waveform audio output is available).
+
+*Syntax:* sound [repeat] "file", "sample"[, vol]
+
+sound 0
+
+where <file> is a compiled Hugo resourcefile, and <sample> is a waveform sample in RIFF/WAV format. The optional <vol> argument, if given, ranges from 0 to 100 and gives a percentage of volume for playback. If the repeat token is used, the sample continues to loop until either a new sample is played, or the current sample is stopped (using `sound 0`).
+
+string
+
+*Description:* When used in a grammar syntax line, indicates that a string array enclosed in quotation marks is valid.
+
+When used as a function, stores a dictionary entry in a string array.
+
+*Syntax:* x = string(<array>, <dict>, <maxlen>)
+
+x = string(<array>, parse$, <maxlen>)
+
+where <array> is an array address, stores the either the dictionary entry given by <dict> or the contents of parse$ as a series of characters, to a maximum of <maxlen> characters. Returns the length of the string stored in <array>.
+
+system
+
+*Description:* Built-in function to call low-level system functions.
+
+*Syntax:* system(<function>)
+
+*[.underline]#FUNC. LABEL DESCRIPTION#*
+
+11 READ_KEY Read keypress
+
+21 NORMALIZE_RANDOM Make random values predictable
+
+22 INIT_RANDOM Restore `random` random values
+
+31 PAUSE_SECOND Pause for one second
+
+32 PAUSE_100TH_SECOND Pause for 1/100th of a second
+
+41 GAME_RESET Returns true after restore or undo
+
+51 SYSTEM_TIME Stores system time in parse$
+
+61 MINIMAL_INTERFACE Returns true for minimal ports
+
+_(Labels are defined as a constants in_ **system.h**__.)__
+
+If <function> is unavailable, the engine may set system_status to -1 (STAT_UNAVAILABLE).
+
+text
+
+text to <val> Sends text to the array table, beginning at address <val>.
+
+text to 0 Restores normal printing.
+
+to
+
+*Description:* In a print statement, prints blank spaces in the current background color to the specified position.
+
+*Syntax:* print to <val>
+
+where <val> is a positive integer less than or equal to the maximum column position
+
+true
+
+*Description:* Predefined constant: 1.
+
+undo
+
+*Description:* Attempts to recover the state of the game data before the last player command.
+
+*Syntax:* x = undo
+
+*Value:* True if successful, false if not.
+
+verb
+
+*Description:* Begins definition of a regular verb. Upon returning true from the verb routine, Main is called.
+
+*Syntax:* verb "<word1>"[, "<word2>",...]
+
+while
+
+*Description:* Component of while or do-while loop construct.
+
+*Syntax:* while <expr>
+
+\{
+
+...
+
+}
+
+or
+
+do
+
+\{
+
+...
+
+}
+
+while <expr>
+
+where the loop will run as long as <expr> holds true.
+
+window
+
+*Description:* Switches output to the status window.
+
+*Syntax:* window a[, b, c, d]
+
+\{...}
+
+or
+
+window
+
+\{...}
+
+or
+
+window 0
+
+If only a single value <a> is given, a window of <a> lines from the top of the screen is created. If more values are given, a window from top-left (a, b) to bottom-right (c, d) is created. If no values are given, the last-defined window is recreated. The new boundaries apply for the length of the following `{...}` code block.
+
+`window 0` restores full-screen display. There is no following code block.
+
+writefile
+
+*Description:* A structure that writes values to a file that may be read using readfile.
+
+*Syntax:* writefile <filename>
+
+\{
+
+...
+
+}
+
+The file is opened and positioned to the start at the beginning of the writefile block, and closed at the end.
+
+writeval
+
+*Description:* Writes one or more values in a writefile block.
+
+*Syntax:* writefile value1[, value2, ...]
+
+xobject
+
+*Description:* Global variable holding the object number of the indirect object, if any, specified in the input line.
+
+When used in a grammar syntax line, indicates that a single available object is valid.
+
+xverb
+
+*Description:* Begins definition of non-action verb. Upon returning from the verb routine, Main is not called.
+
+*Syntax:* xverb "<word1>"[, "<word2>", ...]
+
+younger
+
+Same as sibling.
+
+youngest
+
+*Syntax:* x = youngest(<parent>)
+
+*Return value:* The number of the object most recently added to parent <parent>.
+
+
+// EOF //

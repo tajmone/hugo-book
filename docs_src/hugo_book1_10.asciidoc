@@ -1,0 +1,621 @@
+= USING THE OBJECT LIBRARY
+
+The Hugo Object Library (*objlib.h*), included by default by *hugolib.h* as part of the standard Hugo Library, provides a number of useful classes for common elements of many games. These classes can be used as-is to create objects or as base classes for more complex and/or game-specific classes.
+
+== Rooms and Directions
+
+
+
+Most games will make use of rooms, directions, and possibly characters. A room in this context is an object which specifically functions as a location in the game world, and as such contains other objects as children in branches beneath it in the object tree. Despite being called "`rooms`", these generic locations aren't explicitly indoors or outdoors; most games won't make a distinction except in the textual description (the long_desc) of the location.
+
+A room is defined like this:
+
+room living_room "living room"
+
+\{
+
+long_desc
+
+"The living room is about fifteen feet
+
+square, with a bay window on one wall
+
+looking out over the garden. The kitchen
+
+is to the south, or you can walk into the
+
+back hallway to the east."
+
+}
+
+Since a room is not placed within another object in the object tree (using the in directive), it automatically has a parent of 0 or nothing. By inheriting from the room class, the living_room object acquires the characteristics defined in the object library, including being static and lightfootnote:[This also means that in order to create a dark location--i.e., one that has no intrinsic lighting--it is necessary to put an explicit `not light` in the object's definition. In that case, in order for the player to see anything in the location, light will have to be provided either by an object in the location (such as a lamp) or by something portable that can be brought into the location (like a flashlight).].
+
+Additionally, as with other classes in the object library, the type property of an object can be checked to see which class it was derived from. In this case, living_room.type would equal room. (Of course, living_room or an object subsequently derived from living_room could set its type property to something other than room.)
+
+Travel between rooms is managed by default using the eight cardinal compass directions (north, northeast, east, southeast, south, southwest, west, northwest) as well as up, down, in, and out. These are represented in object form as n_obj, ne_obj, e_obj, se_obj, s_obj, sw_obj, w_obj, nw_obj, u_obj, d_obj, in_obj, and out_obj (each derived from the direction class). Each of these objects is defined in the object library as a child of the compass parent object, and each defines an appropriate dir_to property reflecting the direction of travel it describes. For instance, n_obj.dir_to equals n_to, in_obj.dir_to equals in_to, etc. It is the dir_to property of a direction that is used to map out travel from one location to another.
+
+The living_room object's description claims that the kitchen is to the south and the back hallway is to the east, but neither connection is known to the game until those directional links are added to the object definition (and, of course, assuming that the kitchen and back_hallway objects also exist).
+
+room living_room "living room"
+
+\{
+
+long_desc
+
+"The living room is about fifteen feet
+
+square, with a bay window on one wall
+
+looking out over the garden. The kitchen
+
+is to the south, or you can walk into the
+
+back hallway to the east."
+
+s_to kitchen
+
+e_to back_hallway
+
+}
+
+The player will now be able to go either south or east from the kitchen. Keep in mind, however, that it is possible to make travel from one location to another one-way. In order to allow the player to travel back to the living kitchen in the same direction, you would need to add
+
+n_to living_room
+
+to the kitchen object and
+
+w_to living_room
+
+to the back_hallway object.
+
+== Characters
+
+
+
+The basic character class takes care of defining the basic elements that the library expects character objects to have. These include obvious attributes such as living, as well as useful properties such as capacity and holding for carrying objects. Also importantly, the character class defines its pronouns property as:
+
+pronouns "he", "him", "his", "himself"
+
+The accompanying female_character class (which is identical to the character class but with the female attribute) defines:
+
+pronouns "she", "her", "her", "herself"
+
+The order of pronouns is _subject_, _object_, _possessive_, _reflexive_, so that the library can refer to the pronouns property to print appropriate messages such as:
+
+print capital object.pronoun; " is in the room."
+
+He is in the room.
+
+print "Bob gave "; object.pronoun #2; " the box. "
+
+Bob gave him the box.
+
+print capital object.pronoun; " opened "; object.pronoun #3; " box. "
+
+He opened his box.
+
+print capital object.pronoun; " looked at "; object.pronoun #4; " in the mirror. "
+
+He looked at himself in the mirror.
+
+A player_character class is also provided that will usually be the basis for the player character (PC). A game's PC can be defined easily as:
+
+player_character you "you"
+
+\{}
+
+The PC is by default named in the second person (as opposed to the first-person "`I`" or the third-person "`he`", "`she`", "`it`", or "`them`"). To change to another form, it will be necessary to redefine the PC's pronouns property accordingly, as well as to change the global variable player_personfootnote:[The library uses the player_person global to properly format messages to the player.] (which defaults to 2) to 1 or 3, as appropriate, and optionally to give a plural PC the plural attribute (in the rare case where that may be desired).
+
+== Character responses
+
+
+
+One thing that will likely be important for NPCs (non-player characters) is enabling them to respond to questions and otherwise interact with the player. This is traditionally accomplished by implementing NPC responses to the verbroutines DoAsk, DoTell, DoShow, and DoGive.
+
+>ASK GUSTAV ABOUT APPLE
+
+"I must admit I rather prefer them to bananas," Gustav tells you.
+
+>GIVE BANANA TO GUSTAV
+
+"No, thank you," Gustav says. "I would rather have an apple."
+
+The grammar for asking an NPC about something looks something like this:
+
+verb "ask"
+
+* living about xobject DoAsk
+
+The object is the NPC being asked, the xobject is whatever is being asked about, and the verbroutine is DoAsk. The response is handled in the NPC's after property routine:
+
+after
+
+\{
+
+object DoAsk
+
+\{
+
+select xobject
+
+case apple
+
+"\"I must admit I rather prefer them to bananas,\" Gustav tells you."
+
+case else
+
+return false ! important
+
+}
+
+}
+
+Note that it's necessary to return false if the routine fails to find an appropriate response.
+
+DoTell responses are handled similarly to DoAsk, since the NPC is the object and whatever is being told about is the xobject:
+
+verb "tell"
+
+* living about xobject DoTell
+
+DoGive and DoShow, however, are handled differently, since the word ordering is different:
+
+verb "give"
+
+* object to living DoGive
+
+verb "show"
+
+* object to living DoShow
+
+For these, the after property routine will look something like:
+
+after
+
+\{
+
+object DoAsk
+
+\{
+
+...
+
+}
+
+xobject DoGive
+
+\{
+
+select object
+
+case banana
+
+"\"No thank you,\" Gustav says. \"I would rather have an apple.\""
+
+case else
+
+return false
+
+}
+
+xobject DoShow
+
+\{
+
+select object
+
+...
+
+case else
+
+return false
+
+}
+
+}
+
+== Scenery and Components
+
+
+
+It has become more and more expected of interactive fiction that objects mentioned in the textual description of a location should be implemented in a manipulable fashion. With this goal in mind, something like the following would be less than desirable:
+
+PRISON CELL
+
+The entire place is probably just shy of fifty square feet. The bars on the doors and single small window ensure that you won't be going anywhere anytime soon.
+
+>EXAMINE WINDOW
+
+You don't need to use the word "window".
+
+Depending on the game (and, arguably, the player) that response may be somewhat jarring in light of the window just mentioned in the room description. It may be gotten around by adding an embellishment like this:
+
+scenery prison_window "prison window"
+
+\{
+
+in prison_cell
+
+article "a"
+
+adjectives "single", "small", "prison", "cell"
+
+noun "window"
+
+}
+
+The most important characteristic of a scenery object created using the scenery class is that it will not be listed by the library as part of the room's contents (in this case, the contents of prison_cell). The scenery class is otherwise relatively unadorned: looking at a scenery object will produce a generic message about seeing nothing special, attempting to take a scenery object will generate a generic "`You can't take that`"-type response, etc.footnote:[The scenery class has the static attribute, which makes scenery objects untakeable. This is largely the point of scenery objects.] The scenery object can be fleshed out with a long_desc property and before/after handling for desired verbroutines.
+
+Components are similar to scenery objects in two important respects in that they're not intended to be taken and they're not specifically listed in any itemization of contents. Consider a case where a game might contain a machine (for fun, a nefarious machine) and a lever. The intention might be that the lever can be manipulated separately from the nefarious machine itself so that "`>PULL LEVER`" elicits a different response than simply "`>PULL MACHINE`". At the same time, however, something like the following is probably undesirable:
+
+A nefarious machine whirs and buzzes in the corner.
+
+There is also a lever here.
+
+What is needed is a way to implement the lever as a separate though inseparable part of the nefarious machine object. The component class provides for this.
+
+component lever "lever"
+
+\{
+
+part_of nefarious_machine
+
+article "a"
+
+noun "lever"
+
+}
+
+The part_of property specifies the primary object (the nefarious machine) of which this object (the lever) is a component; it is not necessary to place the component object _in_ the primary object; in fact, doing so will probably lead to all manner of extra complications especially if the primary object isn't a container or platform, isn't open, etc. A component object will automatically be available to the player whenever the primary object is.
+
+== Doors
+
+
+
+Doors are fairly common objects, and a given game--particularly one with a significant number of indoor locations--will likely make frequent use of them. The unfortunate thing is that they can be somewhat finicky and repetitive to code, ensuring that they respond to opening, closing, locking (if applicable), providing an appropriate open or closed description, and behaving appropriately from either side. The object library's door class provides a simple implementation that will largely suffice for most basic doors.
+
+Here's how to put a simple door between the kitchen and living_room locations created above:
+
+door kitchen_door "kitchen door"
+
+\{
+
+between kitchen, living_room
+
+article "the"
+
+adjective "kitchen"
+
+noun "door"
+
+}
+
+The between property takes care of making the room available in both locations as well as determining where the player travels to when leaving either location. In order to incorporate the door into the kitchen and living_room locations, it's only necessary to change the two room objects to specify:
+
+n_to
+
+\{
+
+return kitchen_door.door_to
+
+}
+
+for the kitchen object and
+
+s_to
+
+\{
+
+return kitchen_door.door_to
+
+}
+
+for the living_room object. Notice that the use of kitchen_door.door_to is the same for both; the door class's door_to property returns the appropriate location from the between property depending on where the player is when the door_to property is checked. The door_to property will also automatically result in an attempt to open a closed door (by calling the DoOpen verbroutine), resulting in an additional turn by calling the Main routine.
+
+== Vehicles
+
+
+
+Less frequently used but somewhat more complex than doors are vehicles. Anything from a car to a UFO to a wild zebra may make an appearance in a game, and often it is necessary that the player be able to use that object--whatever it may be--as a means of moving around the game's geography. The object library's vehicle class provides a generic class that can be used to implement any of these (just for starters), allowing behavior like the following:
+
+>GET ON THE HORSE
+
+You get on the wild mustang.
+
+>RIDE WEST
+
+Dusty Trail
+
+This trail leads southwest out of town toward the river valley and the old prospector's camp.
+
+[NOTE]
+================================================================================
+Before using vehicle objects it is necessary to set the compiler flag USE_VEHICLES.
+================================================================================
+
+
+
+Create a vehicle from the vehicle class like this:
+
+vehicle mustang "wild mustang"
+
+\{
+
+article "a"
+
+adjectives "wild", "untamed"
+
+nouns "mustang", "horse"
+
+vehicle_verb "ride"
+
+preposition "on", "off"
+
+}
+
+The vehicle_verb property provides one or more synonyms for the verb used to "`drive`" this particular vehicle object. In the case of a horse, it is appropriately "`ride`". The preposition property defaults in the vehicle class itself defaults to "`in`" and "`out`", but in the case of a horse should be changed to the more suitable "`on`" and "`off`".
+
+It is also necessary to provide grammar to relate the words in the vehicle_verb list to the object library's DoMoveInVehicle routine.Grammar he following is recommended:
+
+verb "<verb1>"[, "<verb2>",...]
+
+* DoMoveinVehicle
+
+* object DoMoveinVehicle
+
+So, for our horse "`vehicle`", something like the following might suffice:
+
+verb "ride
+
+* DoMoveinVehicle
+
+* object DoMoveinVehicle
+
+It is possible to easily maintain some control over whether a vehicle is currently capable of moving via the vehicle_move property. This property, which is true by default, can return false (after printing an appropriate failure message) if the vehicle is currently not capable of being driven (or ridden or sailed or whatever the appropriate action may be).
+
+To prevent the player from riding the mustang until the horse has been fed, implement a vehicle_move property similar to this:
+
+vehicle_move
+
+\{
+
+if self is not fed ! assuming a 'fed' attribute
+
+\{
+
+"This horse isn't going anywhere until you feed it."
+
+return false
+
+}
+
+else
+
+return true
+
+}
+
+And finally, it is also necessary to give the vehicle some idea about where it is able to move. Every location that a vehicle may travel to must contain the vehicle in a vehicle_path property. For instance, a location to which both the mustang and a wagon object may move would need:
+
+vehicle_path mustang, wagon
+
+== Plural and Identical Objects
+
+
+
+Sometimes it is desirable to have a player be able to (or required to) refer to multiple objects as a group, or to be able to refer to only a certain number of such objects out of a larger group even if all the objects are identical. The object library's plural_class and identical_class make these sorts of things possible.
+
+[NOTE]
+================================================================================
+Before using plural or identical objects it is necessary to set the compiler flag USE_PLURAL_OBJECTS and call InitPluralObjects (usually in the Init routine).
+================================================================================
+
+
+
+The plural_class is used in situations where two or more similar objects may be grouped together and referred to as a unit. For instance:
+
+There are a fudge sundae and a butterscotch sundae here.
+
+>GET BUTTERSCOTCH SUNDAE
+
+Taken.
+
+>GET FUDGE SUNDAE
+
+Taken.
+
+All's well and good. But it would also maybe be nice to be able to take both at the same time.
+
+>GET SUNDAES
+
+fudge sundae: Taken.
+
+butterscotch sundae: Taken.
+
+That's where the plural_class comes in.
+
+plural_class sundaes "sundaes"
+
+\{
+
+plural_of fudge_sundae, butterscotch_sundae
+
+noun "sundaes"
+
+single_noun "sundae"
+
+}
+
+object fudge_sundae "fudge sundae"
+
+\{
+
+article "a"
+
+adjective "fudge"
+
+noun "sundae"
+
+plural_is sundaes
+
+}
+
+object butterscotch_sundae "butterscotch_sundae"
+
+\{
+
+article "a"
+
+adjective "butterscotch"
+
+noun "sundae"
+
+plural_is sundaes
+
+}footnote:[One could prevent duplication of properties and other parts of the object definitions by creating a common sundae class and deriving both fudge_sundae and butterscotch_sundae from it, changing only the adjective property.]
+
+The plural_of property on the plural class enumerates the objects which it encompasses; each object encompassed by the plural class then points back to the plural class in its plural_is property.
+
+The plural_verbs property governs which verbs may be used on the plural object. The plural_class class itself provides a default plural_verbs which allows basic verbroutines like DoLook, DoDrop, DoGet, and DoPutIn to be used. Other actions will result in a response on the order of "`You'll have to do that one at a time`". To change the possible actions for a given plural object, provide a custom plural_verbs replacement that returns true only if the verbroutine global variable is a valid verbroutine for the object.
+
+Now, consider the following:
+
+There are five bananas here.
+
+>GET TWO BANANAS
+
+banana: Taken.
+
+banana: Taken.
+
+>INVENTORY
+
+You are carrying two bananas.
+
+>LOOK
+
+There are three bananas here.
+
+Something like that can be done easily by creating an identical object from the identical_class in the object library. The identical_class is similar to the plural_class except for a couple details of implementation and behavior.
+
+identical_class bananas "bananas"
+
+\{
+
+plural_of banana1, banana2, banana3,
+
+banana4, banana5
+
+noun "bananas"
+
+single_noun "banana"
+
+}
+
+object banana1 "banana"
+
+\{
+
+noun "banana"
+
+identical_to bananas
+
+}
+
+banana1 banana2 "banana"footnote:[Using banana1 as a class to build subsequent banana objects from is a simple way of copying objects (and saves typing and/or copying-and-pasting).]
+
+\{}
+
+banana1 banana3 "banana"
+
+\{}
+
+...
+
+The identical object bananas will allow a player to use all the facilities of the identical_class in order to manipulate one or more otherwise indistinguishable banana objects.footnote:[The author encourages the implementation of bananas in any game. More bananas mean more monkeys, and monkeys are always fun.]
+
+== Attachables
+
+
+
+Ropes and other similar objects--anything, really, which ties onto something else or, even worse, ties _between_ two or more objects--are notoriously difficult to code. Safe advice on how to code a rope used to be: code a block of wood instead. The object library provides an attachable class which has successfully been used for everything from ropes to blankets to three-ended chains and darts.footnote:[See *sample.hug* for examples of the last two.]
+
+[NOTE]
+================================================================================
+Before using attachable objects it is necessary to set the compiler flag USE_ATTACHABLES.
+================================================================================
+
+
+
+The attachable class's attachable_to property contains a list of all items to which the object may be attached. The attached_to property contains a list of all the objects to which the attachable object currently _is_ attached. When defined, it must be given an appropriate number of elements. For instance, something that is attachable to only one object would have
+
+attached_to 0
+
+while, for instance, a rope that can be tied between two other objects must have:
+
+attached_to 0, 0
+
+The 0 value (the nothing object) is just an empty placeholder for the attached_to property. If the attachable's initial state is to be attached to a given object, that object can be used instead. For example, a harness that is already attached to a wagon, but which can also be attached to six horses (objects) at the same time, might be initialized as follows:
+
+attached_to wagon, 0, 0, 0, 0, 0, 0
+
+with room for seven elements.
+
+The attach_take and attach_drop properties are less frequently used. If attach_take is true, an attempt to take (via calling the DoTake verbroutine) the attachable is made before attaching (or detaching) it. If attach_drop is true, the object is automatically dropped after it is attached.
+
+The attach_verbs and detach_verbs properties contain lists of all valid verbs to attach or detach the object. The DoAttachObject and DoDetachObject verbroutines can be used by all basic attachables, with new grammar specified for the object (corresponding exactly to the verb lists in attach_verbs and detach_verbs) as in:
+
+verb "<verb1>"[, "<verb2>",...]
+
+* DoVague
+
+* object DoAttachObject
+
+* object "to" xobject DoAttachObject
+
+...
+
+For instance:
+
+verb "tie", "fasten"
+
+* DoVague
+
+* object DoAttachObject
+
+* object "to" xobject DoAttachObject
+
+DoAttachObject expects a second object (the xobject) to be given as the target for the object to be attached to; the routine itself contains appropriate error-handling if only one object is supplied.
+
+To attach and detach an attachable from an object, use the AttachObject and DetachObject routines:
+
+AttachObject(attachable_object, to_object)
+
+and
+
+DetachObject(attachable_object, from_object)
+
+Either routine returns true on success or false on failure.
+
+To check if a particular object is kept immovable by an attachable, call ObjectisAttached(this_object); it returns the object number of the attachable keeping this_object from moving, or false if there is no such impediment and this_object is free to move. Also, any routine that moves the player or player's parent--such as MovePlayer or DoMoveinVehicle--should call MoveAllAttachables to reconcile the location of attached objects (since they are not necessarily connected via the object tree).
+
+Objects with the mobile attribute set may be dragged. Non-attachables may have an attach_immobile property, which governs whether they may be pulled, dragged, etc. by returning false when freely moveable or true if something is keeping it from moving. In the second case, attach_immobile is also responsible for printing any explanatory message.
+
+== __What Should I Be Able To Do Now?__
+
+
+
+By now you should feel comfortable experimenting with the classes in the object library. You should be able to look at the various implementations of scenery, components, characters, doors, vehicles, identical/plural objects, and attachables in existing code (such as in *sample.hug*) and not only understand what the various properties of the objects are for, but also how to modify them to achieve a desired effect.
+
+You should, for instance, be able to implement the following:
+
+[arabic]
+. Two rooms, such as a garden and a shed;
+. A door leading into the shed;
+. Various static scenery objects in each location;
+. A dozen identical roses;
+. A rideable bicycle vehicle kept from going anywhere by a locked attachable bicycle lock; and even
+. A gardener character who is capable of answering questions about the things in the shed and the garden.
+
+
+// EOF //

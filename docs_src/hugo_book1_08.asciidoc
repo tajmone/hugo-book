@@ -1,0 +1,303 @@
+= JUNCTION ROUTINES
+
+
+== Before We Get To The Routines
+
+
+
+Because, the engine is unaware of such things as attributes, properties, and objects in anything but a technical sensefootnote:[In other words, it is the library that defines all the rules and useful-sounding names for properties, routines, and the like; the engine doesn't really have any idea about the higher-level work being done by the library.], there are provided a number of routines to facilitate communication between the engine and the program proper. Along with these junction routines are certain global variables and properties that are pre-defined by the compiler and accessed directly by the engine. They are:
+
+*[.underline]#GLOBALS#*
+
+object the direct object of a verb
+
+xobject the indirect object
+
+self self-referential object
+
+words total number of words
+
+player the player object
+
+actor the player, or character obj. (for scripts)
+
+location location of the player
+
+verbroutine the verb routine address
+
+endflag if not false (0), call EndGame
+
+prompt for the player input line
+
+objects total number of objects
+
+system_status after certain operations
+
+*[.underline]#PROPERTIES#*
+
+name basic object name
+
+before pre-verb routines
+
+after post-verb routines
+
+noun noun(s) for referring to object
+
+adjective adjective(s) for referring to object
+
+article "`a`", "`an`", "`the`", "`some`", etc.
+
+(Additionally, the aliases nouns and adjectives for noun and adjective, respectively, are defined by the library.)
+
+Junction routines are not required. The engine has built-in default routines, although it's likely that not all of these will be satisfactory for most programmers. *hugolib.h* contains each of the following routines which fully implement all the features of the library. If a different routine is desired in place of a provided one, the routine should be substituted using replace.
+
+== Parse
+
+
+
+The Parse routine, if one exists, is called by the engine parser. Here, the program itself may modify the input line before grammar matching is attempted. What happens is:
+
+{empty}1. The input line is split into discrete words (by the engine).
+
+{empty}2. The Parse routine, if it exists, is called.
+
+{empty}3. Control returns to the engine for grammar matching.
+
+{empty}4. During grammar matching, the FindObject routine may be called (possibly repeatedly).
+
+For example, the Parse routine in *hugolib.h* takes care of such things as pronouns ("`he`", "`she`", "`it`", "`them`") and repeating the last legal command (with "`again`" or simply "`g`").
+
+Returning true from the Parse routine calls the engine parser again (i.e., returns to step 1 in the process above); returning false continues normally. This is useful in case the Parse routine has changed the input line substantially, requiring a reconfiguration of the already split words.
+
+The HugoFix debugging library can be used at runtime to monitor the goings-on of the Parse routine by enabling parser monitoring with the `$pm` command.footnote:[For more information on debugging using HugoFix, see _APPENDIX D:_ _HUGOFIX AND THE HUGO DEBUGGER_.]
+
+[NOTE]
+================================================================================
+Since the library's Parse routine is rather extensive, a provision is made for a PreParse routine--which in the library is defined as being empty--which may more easily be replaced for additional parsing.
+================================================================================
+
+
+
+== ParseError
+
+
+
+The ParseError routine is called whenever a command is invalid. ParseError is called in the form:
+
+ParseError(<errornumber>, <object>)
+
+where <object> is the object number (if any) of the object involved in the error.
+
+[NOTE]
+================================================================================
+The engine also sets up the special variable parse$, which represents the illegal component of an input line, whether it is the verb itself, an object name, a partial object name, or any other word combination.
+================================================================================
+
+
+
+For example:
+
+print "The illegal word was: "; parse$; "."
+
+The default responses provided by the engine parse error routine are:
+
+*ERROR NUMBER RESPONSE*
+
+0 `What?`
+
+1 `You can't use the word _<parse$>_.`
+
+2 `Better start with a verb.`
+
+3 `You can't _<parse$>_ multiple objects.`
+
+4 `Can't do that.`
+
+5 `You haven't seen any _<parse$>_, nor are you likely to in the near future even if such a thing exists.`
+
+6 `That doesn't make any sense.`
+
+7 `You can't use multiple objects like that.`
+
+8 `Which _<parse$>_ do you mean,...?`
+
+9 `Nothing to _<parse$>_.`
+
+10 `You haven't seen anything like that.`
+
+11 `You don't see that.`
+
+12 `You can't do that with the _<parse$>_.`
+
+13 `You'll have to be a little more specific.`
+
+14 `You don't see that there.`
+
+15 `You don't have that.`
+
+16 `You'll have to make a mistake first.`
+
+17 `You can only correct one word at a time.`
+
+The ParseError routine in *hugolib.h* provides customized responses that take into account such things as, for example, whether the player is first or second-person, whether or not an object is a character or not, and if so, if it is male or female, etc.
+
+If the ParseError routine does not provide a response for a particular <errornumber>, it should return false. Returning false is a signal that the engine should continue with the default message. Returning 2 is a signal to reparse the entire existing line (useful in cases where a peculiar syntax is trapped as an error, changed, and must then be reparsed).
+
+[NOTE]
+================================================================================
+If custom error messages are desired for user parsing routines, replace the routine CustomError with a new routine (called with the same parameters as ParseError), providing that <errornumber> is greater than or equal to 100.
+================================================================================
+
+
+
+== EndGame
+
+
+
+The EndGame routine is called immediately whenever the global variable endflag is non-zero, regardless of whether or not the current function has not yet been terminated.
+
+*hugolib.h*'s EndGame routine behaves according to the value to which endflag is set:
+
+*endflag RESULT*
+
+1 Player wins
+
+2 Player's demise
+
+0 Other ending--not provided for by default PrintEndGame routine)
+
+Returning false from Endgame terminates the game completely; returning non-false restarts.
+
+[NOTE]
+================================================================================
+To modify only the message displayed at the end of the game (defaults: `*** YOU'VE WON THE GAME! ***` and `*** YOU ARE DEAD ***`), replace the PrintEndGame routine.
+Other than being non-false, the various values of endflag are insignificant except to PrintEndGame.
+================================================================================
+
+
+
+== FindObject
+
+
+
+The FindObject routine takes into account all the relevant properties, attributes, and object hierarchy to determine whether or not a particular object is available in the current context. For example, the child of a parent object may be available if the parent is a platform, but unavailable if the parent is a container (and closed)--although internally, the object hierarchy is the same. FindObject is called via:
+
+FindObject(<object>, <location>)
+
+where <object> is the object in question, and <location> is the object where its availability is being tested. (Usually <location> is a room, unless a different parent has been specified in the input line.)
+
+FindObject returns true (1) if the object is available, false (0) if unavailable. It returns 2 if the object is visible but not physically accessible.
+
+The FindObject routine in *hugolib.h* considers not only the location of <object> in the object tree, but also tests the attributes of the parent to see if it is open or closed. As well, it checks the found_in property, in case <object> has been assigned multiple locations instead of an explicit parent, and then scans the in_scope property of the object (if one exists).
+
+Finally, the default behavior of the library's FindObject requires that a player have encountered an object for it to be valid in an action, i.e., it must have the known attribute set. To override this, replace the routine ObjectisKnown with a routine that returns an unconditional true value.
+
+There is one special case in which the engine expects the FindObject routine to be especially helpful: that is if the routine is called with <location> equal to 0. This occurs whenever the engine needs to determine if an object is available _at all_--regardless of any rules normally governing object availability--such as when an anything grammar token is encountered, or the engine needs to disambiguate two or more seemingly identical objects. (Also, FindObject may be called by the engine with both <object> and <location> equal to 0 to reset any library-based object disambiguation.)
+
+The HugoFix debugging library can be used at runtime to monitor calls to FindObject by enabling the `$fi` command. footnote:[For more information on debugging using HugoFix, see _APPENDIX D:_ _HUGOFIX AND THE HUGO DEBUGGER_.]
+
+== SpeakTo
+
+
+
+The SpeakTo routine is called whenever an input line begins with a valid object name instead of a verb. This is so the player may direct commands to (usually) characters in the game. For example:
+
+>Professor Plum, drop the lead pipe
+
+It is up to the SpeakTo routine to properly interpret the instruction. SpeakTo is called via:
+
+SpeakTo(<character>)
+
+where <character> in the above example would be the Professor Plum object. The globals object, xobject, and verbroutine are all set up as normal. For the above example, then, these would be
+
+object leadpipe
+
+xobject nothing
+
+verbroutine &DoDrop
+
+when SpeakTo is called.
+
+*hugolib.h*'s SpeakTo routine provides basic interpretation of questions, so that
+
+>Professor Plum, what about the lead pipe?
+
+may be directed to the proper verb routine, as if the player had typed:
+
+>ask Professor Plum about the lead pipe
+
+Imperative commands are, such as
+
+>Colonel Mustard, stand up
+
+are first directed to the order_response property of the character object in question. It is subsequently up to <character>.order_response to analyze verbroutine (as well as object and xobject, if applicable) to see if the request is a valid one. If no response is provided, order_response should return false.
+
+The HugoFix debugging library can be used at runtime to monitor calls to SpeakTo by enabling the `$pm` command. footnote:[For more information on debugging using HugoFix, see _APPENDIX D:_ _HUGOFIX AND THE HUGO DEBUGGER_.]
+
+order_response
+
+\{
+
+if verbroutine = &DoGet
+
+"I would, but my back is too sore."
+
+else
+
+return false
+
+}
+
+[NOTE]
+================================================================================
+It is important to check in an order_response property if any objects to be acted upon are present (or otherwise available), since this check is not necessarily done before SpeakTo is called.
+================================================================================
+
+
+
+When something like the following is directed toward a character:
+
+>BOB, GET THE PACKAGE
+
+SpeakTo(bob) will be called with verbroutine = &DoGet and object = package, even if the package object is not physically present.
+
+== Perform
+
+
+
+The Perform routine is what is called by the engine in order to execute the appropriate verbroutine with the given object(s) and/or indirect object, if either or both are applicable. It is the responsibility of Perform to do the appropriate checking of before routines to determine if execution actually gets to the verbroutine. Perform is called as:
+
+Perform(<verbroutine>, <object>, <xobject>, <queue>, <isxverb>)
+
+The first three arguments represent the match verb (always), object (if given), and indirect object, i.e., the xobject (if given). The <queue> is 0 unless the verbroutine is being called more than once for multiple objects. (As a special case, <queue> is –1 if object or xobject is a number supplied in the input as one or more digits, in order to signal Perform not to do normal before/after routine calling.) The <isxverb> argument is true if the grammar for invoking Perform designates an xverbfootnote:[The <isxverb> argument is new in v3.1.].
+
+For example, various player commands might (approximately, depending on verbroutine and object names) result in the routine calls:
+
+>i
+
+Perform(&DoInventory, 0, 0, 0)
+
+>get key
+
+Perform(&DoGet, key_object, 0, 0)
+
+>put the key on the table
+
+Perform(&DoGet, key_object, 0, 0)
+
+>turn the dial to 127
+
+Perform(&DoTurn, dial, 127, -1)
+
+>get key and banana
+
+Perform(&DoGet, key_object, 0, 1)
+
+Perform(&DoGet, banana, 0, 2)
+
+(If no Perform routine exists, the engine performs a default calling of player.before, location.before, xobject.before, object.before, and finally verbroutine if none of those returns true.)
+
+Using HugoFix's parser monitoring (`$pm`) at runtime will trace calls to Perform. footnote:[For more information on debugging using HugoFix, see _APPENDIX D:_ _HUGOFIX AND THE HUGO DEBUGGER_.]
+
+
+// EOF //

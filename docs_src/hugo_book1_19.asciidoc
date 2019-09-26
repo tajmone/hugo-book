@@ -1,0 +1,21 @@
+[appendix]
+= ADDITIONAL RESOURCES
+
+(Please note that while these links were up-to-date as of this writing, the ephemeral nature of the Internet may result in changes, relocations, old sites closing and new sites appearing.)
+
+The Interactive Fiction Archive is the world's number-one repository of publicly available information and tools relating to interactive fiction work and play. It can be found at _*http://www.ifarchive.org*_, with a mirror at _*http://mirror.ifarchive.org*_.
+
+Two newsgroups serve as the hubs of the interactive fiction community: _*rec.arts.int-fiction*_, where the focus is on writing games, and _*rec.games.int-fiction*_, which talks about playing them.
+
+The Developers Laboratory at the _Future Boy!_ Forum (_*http://www.generalcoffee.com/futureboy*_) provides a place for Hugo programming discussion.
+
+The Hugonomicon by Cena Mayo at _*http://hugonomicon.sf.net*_ provides additional resources for Hugo use and development.
+
+Gilles Duschesne has made available an excellent introduction to Hugo programming in the form of a tutorial available from _*http://www.ifarchive.org/if-archive/programming/hugo/examples/ ScavHuntFull.zip*_.
+
+A host of general IF-related materials are available at Brass Lantern (_*http://www.brasslantern.org*_) and PARSIFAL (_*http://www.firthworks.com/roger/parsifal/index.html*_).
+
+Graham Nelson's Inform (_*http://www.inform-fiction.org*_) and TADS, the Text Adventure Design System by Mike Roberts (_*http://www.tads.org*_), are two other interactive-fiction programming languages.
+
+
+// EOF //
