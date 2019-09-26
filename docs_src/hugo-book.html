@@ -446,7 +446,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <span id="email" class="email"><a href="mailto:general@generalcoffee.com">general@generalcoffee.com</a></span><br>
 <span id="revnumber">version 1,</span>
 <span id="revdate">2018-10-04</span>
-<br><span id="revremark">Draft 15 -- Porting to AsciiDoc</span>
+<br><span id="revremark">Draft 16 -- Porting to AsciiDoc</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -13133,164 +13133,340 @@ It contains the bulk of information regarding table offsets, junction routine ad
 </div>
 <div class="sect2">
 <h3 id="_tokens">15.1. Tokens</h3>
+<table class="tableblock frame-all grid-all stripes-even stretch">
+<colgroup>
+<col style="width: 4%;">
+<col style="width: 16%;">
+<col style="width: 4%;">
+<col style="width: 16%;">
+<col style="width: 4%;">
+<col style="width: 16%;">
+<col style="width: 4%;">
+<col style="width: 16%;">
+<col style="width: 4%;">
+<col style="width: 16%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>00</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>(not used)</code></p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>01</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>(</code></p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>02</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>)</code></p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>03</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>.</code></p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>04</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>:</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>05</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>=</code></p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>06</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>07</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>+</code></p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>08</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>09</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>/</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>0A</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>|</code></p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>0B</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>;</code></p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>0C</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>{</code></p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>0D</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>}</code></p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>0E</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>0F</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>]</code></p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>10</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>#</code></p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>11</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>~</code></p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>12</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>&gt;=</code></p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>13</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>&lt;=</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>14</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>~=</code></p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>15</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>&amp;</code></p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>16</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>&gt;</code></p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>17</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>&lt;</code></p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>18</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>if</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>19</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>,</code></p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>1A</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>else</code></p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>1B</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>elseif</code></p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>1C</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>while</code></p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>1D</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>do</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>1E</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>select</code></p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>1F</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>case</code></p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>20</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>for</code></p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>21</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>return</code></p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>22</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>break</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>23</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>and</code></p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>24</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>or</code></p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>25</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>jump</code></p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>26</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>run</code></p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>27</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>is</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>28</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>not</code></p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>29</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code></p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>2A</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>2B</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>local</code></p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>2C</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>verb</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>2D</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>xverb</code></p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>2E</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>held</code></p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>2F</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>multi</code></p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>30</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>multiheld</code></p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>31</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>newline</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>32</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>anything</code></p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>33</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>print</code></p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>34</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>number</code></p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>35</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>capital</code></p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>36</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>text</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>37</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>graphics</code></p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>38</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>color</code></p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>39</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>remove</code></p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>3A</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>move</code></p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>3B</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>to</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>3C</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>parent</code></p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>3D</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>sibling</code></p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>3E</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>child</code></p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>3F</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>youngest</code></p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>40</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>eldest</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>41</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>younger</code></p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>42</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>elder</code></p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>43</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>prop#</code></p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>44</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>attr#</code></p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>45</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>var#</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>46</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>dictentry#</code></p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>47</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>textdata#</code></p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>48</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>routine#</code></p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>49</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>label#</code></p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>4A</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>object#</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>4B</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>value#</code></p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>4C</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>eol#</code></p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>4D</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>system</code></p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>4E</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>notheld</code></p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>4F</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>multinotheld</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>50</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>window</code></p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>51</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>random</code></p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>52</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>word</code></p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>53</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>locate</code></p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>54</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>parse$</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>55</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>children</code></p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>56</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>in</code></p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>57</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>pause</code></p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>58</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>runevents</code></p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>59</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>arraydata#</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>5A</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>call</code></p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>5B</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>stringdata#</code></p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>5C</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>save</code></p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>5D</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>restore</code></p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>5E</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>quit</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>5F</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>input</code></p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>60</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>serial$</code></p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>61</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cls</code></p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>62</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>scripton</code></p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>63</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>scriptoff</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>64</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>restart</code></p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>65</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>hex</code></p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>66</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>object</code></p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>67</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>xobject</code></p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>68</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>string</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>69</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>array</code></p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>6A</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>printchar</code></p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>6B</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>undo</code></p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>6C</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>dict</code></p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>6D</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>recordon</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>6E</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>recordoff</code></p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>6F</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>writefile</code></p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>70</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>readfile</code></p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>71</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>writeval</code></p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>72</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>readval</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>73</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>playback</code></p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>75</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>colour</code></p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>76</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>picture</code></p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>77</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>sound</code></p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>78</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>music</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>79</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>repeat</code></p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>7A</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>addcontext<sup class="footnote">[<a id="_footnoteref_67" class="footnote" href="#_footnotedef_67" title="View footnote.">67</a>]</sup></code></p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>7B</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>video<sup class="footnote">[<a id="_footnoteref_68" class="footnote" href="#_footnotedef_68" title="View footnote.">68</a>]</sup></code></p></td>
+<td class="tableblock halign-right valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-right valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
 <div class="paragraph">
-<p>00 (not used) 10 # 20 for</p>
+<p>Some of these, particularly the early tokens, are as simple as punctuation marks that are recognized by the engine as delimiting expressions, arguments, etc.
+Non-punctuation stand-alone tokens (to, in, is) are used for similar purposes, to give form to a particular construction.
+Others, such as save, undo, recordon, and others are engine functions that, when read, trigger a specific action.</p>
 </div>
 <div class="paragraph">
-<p>01 ( 11 ~ 21 return</p>
-</div>
-<div class="paragraph">
-<p>02 ) 12 &gt;= 22 break</p>
-</div>
-<div class="paragraph">
-<p>03 . 13 &#8656; 23 and</p>
-</div>
-<div class="paragraph">
-<p>04 : 14 ~= 24 or</p>
-</div>
-<div class="paragraph">
-<p>05 = 15 &amp; 25 jump</p>
-</div>
-<div class="paragraph">
-<p>06 - 16 &gt; 26 run</p>
-</div>
-<div class="paragraph">
-<p>07 + 17 &lt; 27 is</p>
-</div>
-<div class="paragraph">
-<p>08 * 18 if 28 not</p>
-</div>
-<div class="paragraph">
-<p>09 / 19 , 29 true</p>
-</div>
-<div class="paragraph">
-<p>0A | 1A else 2A false</p>
-</div>
-<div class="paragraph">
-<p>0B ; 1B elseif 2B local</p>
-</div>
-<div class="paragraph">
-<p>0C \{ 1C while 2C verb</p>
-</div>
-<div class="paragraph">
-<p>0D } 1D do 2D xverb</p>
-</div>
-<div class="paragraph">
-<p>0E [ 1E select 2E held</p>
-</div>
-<div class="paragraph">
-<p>0F ] 1F case 2F multi</p>
-</div>
-<div class="paragraph">
-<p>30 multiheld 40 eldest 50 window</p>
-</div>
-<div class="paragraph">
-<p>31 newline 41 younger 51 random</p>
-</div>
-<div class="paragraph">
-<p>32 anything 42 elder 52 word</p>
-</div>
-<div class="paragraph">
-<p>33 print 43 prop# 53 locate</p>
-</div>
-<div class="paragraph">
-<p>34 number 44 attr# 54 parse$</p>
-</div>
-<div class="paragraph">
-<p>35 capital 45 var# 55 children</p>
-</div>
-<div class="paragraph">
-<p>36 text 46 dictentry# 56 in</p>
-</div>
-<div class="paragraph">
-<p>37 graphics 47 textdata# 57 pause</p>
-</div>
-<div class="paragraph">
-<p>38 color 48 routine# 58 runevents</p>
-</div>
-<div class="paragraph">
-<p>39 remove 49 label# 59 arraydata#</p>
-</div>
-<div class="paragraph">
-<p>3A move 4A object# 5A call</p>
-</div>
-<div class="paragraph">
-<p>3B to 4B value# 5B stringdata#</p>
-</div>
-<div class="paragraph">
-<p>3C parent 4C eol# 5C save</p>
-</div>
-<div class="paragraph">
-<p>3D sibling 4D system 5D restore</p>
-</div>
-<div class="paragraph">
-<p>3E child 4E notheld 5E quit</p>
-</div>
-<div class="paragraph">
-<p>3F youngest 4F multinotheld 5F input</p>
-</div>
-<div class="paragraph">
-<p>60 serial$ 70 readfile</p>
-</div>
-<div class="paragraph">
-<p>61 cls 71 writeval</p>
-</div>
-<div class="paragraph">
-<p>62 scripton 72 readval</p>
-</div>
-<div class="paragraph">
-<p>63 scriptoff 73 playback</p>
-</div>
-<div class="paragraph">
-<p>64 restart 75 colour</p>
-</div>
-<div class="paragraph">
-<p>65 hex 76 picture</p>
-</div>
-<div class="paragraph">
-<p>66 object 77 sound</p>
-</div>
-<div class="paragraph">
-<p>67 xobject 78 music</p>
-</div>
-<div class="paragraph">
-<p>68 string 79 repeat</p>
-</div>
-<div class="paragraph">
-<p>69 array 7A addcontext<sup class="footnote">[<a id="_footnoteref_67" class="footnote" href="#_footnotedef_67" title="View footnote.">67</a>]</sup></p>
-</div>
-<div class="paragraph">
-<p>6A printchar 7B video<sup class="footnote">[<a id="_footnoteref_68" class="footnote" href="#_footnotedef_68" title="View footnote.">68</a>]</sup></p>
-</div>
-<div class="paragraph">
-<p>6B undo</p>
-</div>
-<div class="paragraph">
-<p>6C dict</p>
-</div>
-<div class="paragraph">
-<p>6D recordon</p>
-</div>
-<div class="paragraph">
-<p>6E recordoff</p>
-</div>
-<div class="paragraph">
-<p>6F writefile</p>
-</div>
-<div class="paragraph">
-<p>Some of these, particularly the early tokens, are as simple as punctuation marks that are recognized by the engine as delimiting expressions, arguments, etc. Non-punctuation stand-alone tokens (to, in, is) are used for similar purposes, to give form to a particular construction. Others, such as save, undo, recordon, and others are engine functions that, when read, trigger a specific action.</p>
-</div>
-<div class="paragraph">
-<p>Note also tokens ending with <code><mark></code>: these primarily represent data types that are not directly enterable as part of a program&#8212;&#8203;the <code></mark></code> character is separated and read as a discrete word in a parsed line of Hugo source. For example, the occurrence of a variable name in the source will be compiled into var# (token $45) followed by two bytes giving the number of the variable being referenced. (See the following section on Data Types for more details.)</p>
+<p>Note also tokens ending with <code><mark></code>: these primarily represent data types that are not directly enterable as part of a program&#8201;&#8212;&#8201;the <code></mark></code> character is separated and read as a discrete word in a parsed line of Hugo source.
+For example, the occurrence of a variable name in the source will be compiled into var# (token $45) followed by two bytes giving the number of the variable being referenced. (See the following section on Data Types for more details.)</p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_data_types_2">15.2. Data Types</h3>
 <div class="paragraph">
-<p>Internally, all data is stored as 16-bit integers (that may be treated as unsigned as appropriate). The valid range is -32768 to 32767.</p>
+<p>Internally, all data is stored as 16-bit integers (that may be treated as unsigned as appropriate).
+The valid range is -32768 to 32767.</p>
 </div>
 <div class="paragraph">
-<p>Following are the formats for the various data types used by Hugo; to see them in practice, it is recommended to consult the Hugo C source code and the functions CodeLine() in <strong>hccode.c</strong>--for writing them in the compiler&#8212;&#8203;and GetValue() and GetVal() in <strong>heexpr.c</strong>--for reading them via the engine.</p>
+<p>Following are the formats for the various data types used by Hugo; to see them in practice, it is recommended to consult the Hugo C source code and the functions CodeLine() in <strong>hccode.c</strong>&#8201;&#8212;&#8201;for writing them in the compiler&#8201;&#8212;&#8201;and GetValue() and GetVal() in <strong>heexpr.c</strong>&#8201;&#8212;&#8201;for reading them via the engine.</p>
 </div>
 <div class="paragraph">
 <p>ATTRIBUTE:</p>
@@ -13314,7 +13490,8 @@ It contains the bulk of information regarding table offsets, junction routine ad
 <p>&lt;dictentry#&gt; &lt;2 bytes&gt;</p>
 </div>
 <div class="paragraph">
-<p>The 2 bytes (one 16-bit word) represent the address of the word in the dictionary table. The empty string (<code>""</code>) is $00.</p>
+<p>The 2 bytes (one 16-bit word) represent the address of the word in the dictionary table.
+The empty string (<code>""</code>) is $00.</p>
 </div>
 <div class="paragraph">
 <p>If the word &#8220;apple&#8221; was stored at the address $21A0, it would be written as:</p>
@@ -13362,7 +13539,8 @@ It contains the bulk of information regarding table offsets, junction routine ad
 <p>&lt;routine#&gt; &lt;2 bytes&gt;</p>
 </div>
 <div class="paragraph">
-<p>The two bytes (one 16-bit word) give the indexed address of the routine. All blocks of executable code begin on an address divisible by 16<sup class="footnote">[<a id="_footnoteref_69" class="footnote" href="#_footnotedef_69" title="View footnote.">69</a>]</sup>; this allows 1024K of memory to be addressable via the range 0 to 65536. (Code is padded with empty ($00) values to the next address divisible by the address scale.)</p>
+<p>The two bytes (one 16-bit word) give the indexed address of the routine.
+All blocks of executable code begin on an address divisible by 16<sup class="footnote">[<a id="_footnoteref_69" class="footnote" href="#_footnotedef_69" title="View footnote.">69</a>]</sup>; this allows 1024K of memory to be addressable via the range 0 to 65536. (Code is padded with empty ($00) values to the next address divisible by the address scale.)</p>
 </div>
 <div class="paragraph">
 <p>For example, a routine beginning at $004004 would be divided by 16 and encoded as the indexed address $0401, in the form:</p>
@@ -13401,10 +13579,12 @@ It contains the bulk of information regarding table offsets, junction routine ad
 <p>&lt;var#&gt; &lt;1 byte&gt;</p>
 </div>
 <div class="paragraph">
-<p>A program may have up to 240 global variables (numbered 0 to 239), and 16 local variables for the current routine (numbered 240 to 255). Since 240 + 16 = 256, the number of the variable being specified will fit into a single byte.</p>
+<p>A program may have up to 240 global variables (numbered 0 to 239), and 16 local variables for the current routine (numbered 240 to 255).
+Since 240 + 16 = 256, the number of the variable being specified will fit into a single byte.</p>
 </div>
 <div class="paragraph">
-<p>In the compiler, the first global variable (i.e. variable 0) is predefined as <code>object</code>. It would be written as a sequence of two bytes:</p>
+<p>In the compiler, the first global variable (i.e. variable 0) is predefined as <code>object</code>.
+It would be written as a sequence of two bytes:</p>
 </div>
 <div class="paragraph">
 <p>$45 00</p>

@@ -1,120 +1,34 @@
 = TOKENS AND DATA TYPES
 
-
-
 The first two places to start inspecting how the Hugo compiler writes a .HEX file are: (1) what byte values are written to represent each individual token (i.e. keywords, built-in functions, etc.), and (2) how different data types and values are formatted.
+
 
 == Tokens
 
+// @NOTE: 123 tokens | 5 tokens x col = 2 empty cells
+
+// @NOTE: Two footnotes inside CSV file!
+
+[cols=">2m,<8m,>2m,<8m,>2m,<8m,>2m,<8m,>2m,<8m",format=csv,stripes=even]
+|===============================================================================
+include::hugo-book_tokens-list.csv[]
+|===============================================================================
 
 
-00 (not used) 10 # 20 for
+Some of these, particularly the early tokens, are as simple as punctuation marks that are recognized by the engine as delimiting expressions, arguments, etc.
+Non-punctuation stand-alone tokens (to, in, is) are used for similar purposes, to give form to a particular construction.
+Others, such as save, undo, recordon, and others are engine functions that, when read, trigger a specific action.
 
-01 ( 11 ~ 21 return
+Note also tokens ending with `#`: these primarily represent data types that are not directly enterable as part of a program -- the `#` character is separated and read as a discrete word in a parsed line of Hugo source.
+For example, the occurrence of a variable name in the source will be compiled into var# (token $45) followed by two bytes giving the number of the variable being referenced. (See the following section on Data Types for more details.)
 
-02 ) 12 >= 22 break
-
-03 . 13 <= 23 and
-
-04 : 14 ~= 24 or
-
-05 = 15 & 25 jump
-
-06 - 16 > 26 run
-
-07 + 17 < 27 is
-
-08 * 18 if 28 not
-
-09 / 19 , 29 true
-
-0A | 1A else 2A false
-
-0B ; 1B elseif 2B local
-
-0C \{ 1C while 2C verb
-
-0D } 1D do 2D xverb
-
-0E [ 1E select 2E held
-
-0F ] 1F case 2F multi
-
-30 multiheld 40 eldest 50 window
-
-31 newline 41 younger 51 random
-
-32 anything 42 elder 52 word
-
-33 print 43 prop# 53 locate
-
-34 number 44 attr# 54 parse$
-
-35 capital 45 var# 55 children
-
-36 text 46 dictentry# 56 in
-
-37 graphics 47 textdata# 57 pause
-
-38 color 48 routine# 58 runevents
-
-39 remove 49 label# 59 arraydata#
-
-3A move 4A object# 5A call
-
-3B to 4B value# 5B stringdata#
-
-3C parent 4C eol# 5C save
-
-3D sibling 4D system 5D restore
-
-3E child 4E notheld 5E quit
-
-3F youngest 4F multinotheld 5F input
-
-60 serial$ 70 readfile
-
-61 cls 71 writeval
-
-62 scripton 72 readval
-
-63 scriptoff 73 playback
-
-64 restart 75 colour
-
-65 hex 76 picture
-
-66 object 77 sound
-
-67 xobject 78 music
-
-68 string 79 repeat
-
-69 array 7A addcontextfootnote:[v3.0 and later]
-
-6A printchar 7B videofootnote:[v3.0 and later]
-
-6B undo
-
-6C dict
-
-6D recordon
-
-6E recordoff
-
-6F writefile
-
-Some of these, particularly the early tokens, are as simple as punctuation marks that are recognized by the engine as delimiting expressions, arguments, etc. Non-punctuation stand-alone tokens (to, in, is) are used for similar purposes, to give form to a particular construction. Others, such as save, undo, recordon, and others are engine functions that, when read, trigger a specific action.
-
-Note also tokens ending with `#`: these primarily represent data types that are not directly enterable as part of a program--the `#` character is separated and read as a discrete word in a parsed line of Hugo source. For example, the occurrence of a variable name in the source will be compiled into var# (token $45) followed by two bytes giving the number of the variable being referenced. (See the following section on Data Types for more details.)
 
 == Data Types
 
+Internally, all data is stored as 16-bit integers (that may be treated as unsigned as appropriate).
+The valid range is -32768 to 32767.
 
-
-Internally, all data is stored as 16-bit integers (that may be treated as unsigned as appropriate). The valid range is -32768 to 32767.
-
-Following are the formats for the various data types used by Hugo; to see them in practice, it is recommended to consult the Hugo C source code and the functions CodeLine() in *hccode.c*--for writing them in the compiler--and GetValue() and GetVal() in *heexpr.c*--for reading them via the engine.
+Following are the formats for the various data types used by Hugo; to see them in practice, it is recommended to consult the Hugo C source code and the functions CodeLine() in *hccode.c* -- for writing them in the compiler -- and GetValue() and GetVal() in *heexpr.c* -- for reading them via the engine.
 
 ATTRIBUTE:
 
@@ -130,7 +44,8 @@ DICTIONARY ENTRY:
 
 <dictentry#> <2 bytes>
 
-The 2 bytes (one 16-bit word) represent the address of the word in the dictionary table. The empty string (`+""+`) is $00.
+The 2 bytes (one 16-bit word) represent the address of the word in the dictionary table.
+The empty string (`+""+`) is $00.
 
 If the word "`apple`" was stored at the address $21A0, it would be written as:
 
@@ -162,7 +77,8 @@ ROUTINE:
 
 <routine#> <2 bytes>
 
-The two bytes (one 16-bit word) give the indexed address of the routine. All blocks of executable code begin on an address divisible by 16footnote:[Prior to version 3.1, this scaling factor was 4.]; this allows 1024K of memory to be addressable via the range 0 to 65536. (Code is padded with empty ($00) values to the next address divisible by the address scale.)
+The two bytes (one 16-bit word) give the indexed address of the routine.
+All blocks of executable code begin on an address divisible by 16footnote:[Prior to version 3.1, this scaling factor was 4.]; this allows 1024K of memory to be addressable via the range 0 to 65536. (Code is padded with empty ($00) values to the next address divisible by the address scale.)
 
 For example, a routine beginning at $004004 would be divided by 16 and encoded as the indexed address $0401, in the form:
 
@@ -188,9 +104,11 @@ VARIABLE:
 
 <var#> <1 byte>
 
-A program may have up to 240 global variables (numbered 0 to 239), and 16 local variables for the current routine (numbered 240 to 255). Since 240 + 16 = 256, the number of the variable being specified will fit into a single byte.
+A program may have up to 240 global variables (numbered 0 to 239), and 16 local variables for the current routine (numbered 240 to 255).
+Since 240 + 16 = 256, the number of the variable being specified will fit into a single byte.
 
-In the compiler, the first global variable (i.e. variable 0) is predefined as `object`. It would be written as a sequence of two bytes:
+In the compiler, the first global variable (i.e. variable 0) is predefined as `object`.
+It would be written as a sequence of two bytes:
 
 $45 00
 
