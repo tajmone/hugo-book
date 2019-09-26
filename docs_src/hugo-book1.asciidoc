@@ -18,61 +18,61 @@ HOW TO WRITE GAMES AND INFLUENCE PEOPLE
 :leveloffset: +1
 
 //  1. INTRODUCTION
-include::hugo_book1_01.asciidoc[]
+include::hugo-book1_01.asciidoc[]
 
 //  2. A FIRST LOOK AT HUGO
-include::hugo_book1_02.asciidoc[]
+include::hugo-book1_02.asciidoc[]
 
 //  3. OBJECTS
-include::hugo_book1_03.asciidoc[]
+include::hugo-book1_03.asciidoc[]
 
 //  4. HUGO PROGRAMMING
-include::hugo_book1_04.asciidoc[]
+include::hugo-book1_04.asciidoc[]
 
 //  5. ROUTINES AND EVENTS
-include::hugo_book1_05.asciidoc[]
+include::hugo-book1_05.asciidoc[]
 
 //  6. FUSES, DAEMONS, AND SCRIPTS
-include::hugo_book1_06.asciidoc[]
+include::hugo-book1_06.asciidoc[]
 
 //  7. GRAMMAR AND PARSING
-include::hugo_book1_07.asciidoc[]
+include::hugo-book1_07.asciidoc[]
 
 //  8. JUNCTION ROUTINES
-include::hugo_book1_08.asciidoc[]
+include::hugo-book1_08.asciidoc[]
 
 //  9. THE GAME LOOP
-include::hugo_book1_09.asciidoc[]
+include::hugo-book1_09.asciidoc[]
 
 // 10. USING THE OBJECT LIBRARY
-include::hugo_book1_10.asciidoc[]
+include::hugo-book1_10.asciidoc[]
 
 // 11. ADVANCED FEATURES
-include::hugo_book1_11.asciidoc[]
+include::hugo-book1_11.asciidoc[]
 
 // 12. RESOURCES
-include::hugo_book1_12.asciidoc[]
+include::hugo-book1_12.asciidoc[]
 
 // APPENDIX A: SUMMARY OF KEYWORDS AND COMMANDS
-include::hugo_book1_13.asciidoc[]
+include::hugo-book1_13.asciidoc[]
 
 // APPENDIX B: THE HUGO LIBRARY
-include::hugo_book1_14.asciidoc[]
+include::hugo-book1_14.asciidoc[]
 
 // APPENDIX C: LIMIT SETTINGS
-include::hugo_book1_15.asciidoc[]
+include::hugo-book1_15.asciidoc[]
 
 // APPENDIX D: HUGOFIX AND THE HUGO DEBUGGER
-include::hugo_book1_16.asciidoc[]
+include::hugo-book1_16.asciidoc[]
 
 // APPENDIX E: PRECOMPILED HEADERS
-include::hugo_book1_17.asciidoc[]
+include::hugo-book1_17.asciidoc[]
 
 // APPENDIX F: HUGO VERSIONS
-include::hugo_book1_18.asciidoc[]
+include::hugo-book1_18.asciidoc[]
 
 // APPENDIX G: ADDITIONAL RESOURCES
-include::hugo_book1_19.asciidoc[]
+include::hugo-book1_19.asciidoc[]
 
 :leveloffset: 0
 

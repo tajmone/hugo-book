@@ -19,52 +19,52 @@ UNDER THE HOOD OF HUGO AND THE .HEX FILE FORMAT
 :leveloffset: +1
 
 //  1. INTRODUCTION
-include::hugo_book2_01.asciidoc[]
+include::hugo-book2_01.asciidoc[]
 
 //  2. ORGANIZATION OF THE .HEX FILE
-include::hugo_book2_02.asciidoc[]
+include::hugo-book2_02.asciidoc[]
 
 //  3. TOKENS AND DATA TYPES
-include::hugo_book2_03.asciidoc[]
+include::hugo-book2_03.asciidoc[]
 
 //  4. ENGINE PARSING
-include::hugo_book2_04.asciidoc[]
+include::hugo-book2_04.asciidoc[]
 
 //  5. GRAMMAR
-include::hugo_book2_05.asciidoc[]
+include::hugo-book2_05.asciidoc[]
 
 //  6. EXECUTABLE CODE
-include::hugo_book2_06.asciidoc[]
+include::hugo-book2_06.asciidoc[]
 
 //  7. ENCODING TEXT
-include::hugo_book2_07.asciidoc[]
+include::hugo-book2_07.asciidoc[]
 
 //  8. THE OBJECT TABLE
-include::hugo_book2_08.asciidoc[]
+include::hugo-book2_08.asciidoc[]
 
 //  9. THE PROPERTY TABLE
-include::hugo_book2_09.asciidoc[]
+include::hugo-book2_09.asciidoc[]
 
 // 10. THE EVENT TABLE
-include::hugo_book2_10.asciidoc[]
+include::hugo-book2_10.asciidoc[]
 
 // 11. THE DICTIONARY AND SPECIAL WORDS
-include::hugo_book2_11.asciidoc[]
+include::hugo-book2_11.asciidoc[]
 
 // 12. RESOURCEFILES
-include::hugo_book2_12.asciidoc[]
+include::hugo-book2_12.asciidoc[]
 
 // 13. THE HUGO COMPILER AND HOW IT WORKS
-include::hugo_book2_13.asciidoc[]
+include::hugo-book2_13.asciidoc[]
 
 // 14. THE HUGO ENGINE AND HOW IT WORKS
-include::hugo_book2_14.asciidoc[]
+include::hugo-book2_14.asciidoc[]
 
 // 15. DARK SECRETS OF THE HUGO DEBUGGER
-include::hugo_book2_15.asciidoc[]
+include::hugo-book2_15.asciidoc[]
 
 // APPENDIX A: CODE PATTERNS
-include::hugo_book2_16.asciidoc[]
+include::hugo-book2_16.asciidoc[]
 
 
 :leveloffset: 0

@@ -93,7 +93,7 @@ _2004_
 // *                                                                           *
 // *****************************************************************************
 
-include::hugo_book1.asciidoc[]
-include::hugo_book2.asciidoc[]
+include::hugo-book1.asciidoc[]
+include::hugo-book2.asciidoc[]
 
 // EOF //

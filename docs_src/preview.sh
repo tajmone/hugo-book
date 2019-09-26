@@ -1,6 +1,6 @@
 #!/bin/bash
 # ------------------------------------------------------------------------------
-source=hugo_book.asciidoc
+source=hugo-book.asciidoc
 
 echo -e "\n\e[94m###########################"
 echo -e "#\e[93m Hugo Book: HTML Preview \e[94m#"
