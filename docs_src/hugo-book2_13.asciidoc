@@ -86,108 +86,173 @@ If a debuggable executable (called an .HDX file) is being generated, the last th
 Here are the various structures, arrays, and variables used by the compiler to keep track of symbols at compile-time:
 
 .Objects:
-[horizontal]
-`objctr`         :: total number of objects
-`object[n]`      :: symbolic name of object _n_
-`object_hash[n]` :: hash value of symbol name
-`objattr[n][s]`  :: attribute set _s_ (32 attributes/set)
-`oprop[n]`       :: location in `propdata[]` array
-`objpropaddr[n]` :: location in property table
-`parent[n]`      :: physical parent
-`sibling[n]`     :: physical sibling
-`child[n]`       :: physical child
-`oreplace[n]`    :: number of times replaced using the `replace` directive
+--
+[cols="<m,<d",options=autowidth,grid=none,stripes=even]
+|===============================================================================
+| objctr         | total number of objects
+| object[n]      | symbolic name of object _n_
+| object_hash[n] | hash value of symbol name
+| objattr[n][s]  | attribute set _s_ (32 attributes/set)
+| oprop[n]       | location in `propdata[]` array
+| objpropaddr[n] | location in property table
+| parent[n]      | physical parent
+| sibling[n]     | physical sibling
+| child[n]       | physical child
+| oreplace[n]    | number of times replaced using the `replace` directive
+|===============================================================================
+--
+
 
 .Attributes:
-[horizontal]
-`attrctr total`     :: number of attributes
-`attribute[n]`      :: symbolic name of attribute _n_
-`attribute_hash[n]` :: hash value of symbol name
+--
+[cols="<m,<d",options=autowidth,grid=none,stripes=even]
+|===============================================================================
+| attrctr total     | number of attributes
+| attribute[n]      | symbolic name of attribute _n_
+| attribute_hash[n] | hash value of symbol name
+|===============================================================================
+--
+
 
 .Properties:
-[horizontal]
-`propctr`          :: total number of properties
-`property[n]`      :: symbolic name of property _n_
-`property_hash[n]` :: hash value of symbol name
-`propset[p]`       :: true if property _p_ has been defined for current object
-`propadd[p]`       :: `ADDITIVE_FLAG` bit is true if property _p_ is additive; +
-`COMPLEX_FLAG` bit is true if property _p_ is a complex property
-`propdata[a][b]`   :: array of all property data
-`propheap`         :: size of property table
+--
+[cols="<m,<d",options=autowidth,grid=none,stripes=even]
+|===============================================================================
+| propctr          | total number of properties
+| property[n]      | symbolic name of property _n_
+| property_hash[n] | hash value of symbol name
+| propset[p]       | true if property _p_ has been defined for current object
+| propadd[p]       | `ADDITIVE_FLAG` bit is true if property _p_ is additive; +
+| COMPLEX_FLAG     | bit is true if property _p_ is a complex property
+| propdata[a][b]   | array of all property data
+| propheap         | size of property table
+|===============================================================================
+--
+
 
 .Labels:
-[horizontal]
-`labelctr`      :: total number of labels
-`label[n]`      :: symbolic name of label _n_
-`label_hash[n]` :: hash value of symbol name
-`laddr[n]`      :: indexed address of label
+--
+[cols="<m,<d",options=autowidth,grid=none,stripes=even]
+|===============================================================================
+| labelctr      | total number of labels
+| label[n]      | symbolic name of label _n_
+| label_hash[n] | hash value of symbol name
+| laddr[n]      | indexed address of label
+|===============================================================================
+--
+
 
 .Routines:
-[horizontal]
-`routinectr`      :: total number of routines
-`routine[n]`      :: symbolic name of routine _n_
-`routine_hash[n]` :: hash value of symbol name
-`raddr[n]`        :: indexed address of routine
-`rreplace[n]`     :: number of times replaced using the `replace` directive
+--
+[cols="<m,<d",options=autowidth,grid=none,stripes=even]
+|===============================================================================
+| routinectr      | total number of routines
+| routine[n]      | symbolic name of routine _n_
+| routine_hash[n] | hash value of symbol name
+| raddr[n]        | indexed address of routine
+| rreplace[n]     | number of times replaced using the `replace` directive
+|===============================================================================
+--
+
 
 .Events (although not really symbols):
-[horizontal]
-`eventctr`     :: total number of events
-`eventin[n]`   :: object to which event _n_ is attached
-`eventaddr[n]` :: indexed address of event code
+--
+[cols="<m,<d",options=autowidth,grid=none,stripes=even]
+|===============================================================================
+| eventctr     | total number of events
+| eventin[n]   | object to which event _n_ is attached
+| eventaddr[n] | indexed address of event code
+|===============================================================================
+--
+
 
 .Aliases:
-[horizontal]
-`aliasctr`      :: total number of aliases
-`alias[n]`      :: symbolic name of alias _n_
-`alias_hash[n]` :: hash value of symbol name
-`aliasof[n]`    :: attribute or property aliased +
+--
+[cols="<m,<d",options=autowidth,grid=none,stripes=even]
+|===============================================================================
+| aliasctr      | total number of aliases
+| alias[n]      | symbolic name of alias _n_
+| alias_hash[n] | hash value of symbol name
+| aliasof[n]    | attribute or property aliased +
 (either the attribute number, or the property number plus `MAXATTRIBUTES`)
+|===============================================================================
+--
+
 
 .Global variables:
-[horizontal]
-`globalctr`      :: total number of global variables
-`global[n]`      :: symbolic name of global _n_
-`global_hash[n]` :: hash value of symbol name
-`globaldef[n]`   :: initial value of global at startup
+--
+[cols="<m,<d",options=autowidth,grid=none,stripes=even]
+|===============================================================================
+| globalctr      | total number of global variables
+| global[n]      | symbolic name of global _n_
+| global_hash[n] | hash value of symbol name
+| globaldef[n]   | initial value of global at startup
+|===============================================================================
+--
+
 
 .Local variables:
-[horizontal]
-`localctr`      :: total number of locals defined in the current code block
-`local[n]`      :: symbolic name of local _n_
-`local_hash[n]` :: hash value of symbol name
-`unused[n]`     :: true until local _n_ is used
+--
+[cols="<m,<d",options=autowidth,grid=none,stripes=even]
+|===============================================================================
+| localctr      | total number of locals defined in the current code block
+| local[n]      | symbolic name of local _n_
+| local_hash[n] | hash value of symbol name
+| unused[n]     | true until local _n_ is used
+|===============================================================================
+--
+
 
 .Constants:
-[horizontal]
-`constctr`         :: total number of constants
-`constant[n]`      :: symbolic name of constant _n_
-`constant_hash[n]` :: hash value of symbol name
-`constantval[n]`   :: defined value of constant
+--
+[cols="<m,<d",options=autowidth,grid=none,stripes=even]
+|===============================================================================
+| constctr         | total number of constants
+| constant[n]      | symbolic name of constant _n_
+| constant_hash[n] | hash value of symbol name
+| constantval[n]   | defined value of constant
+|===============================================================================
+--
+
 
 .Array:
-[horizontal]
-`arrayctr`      :: total number of arrays
-`array[n]`      :: symbolic name of array _n_
-`array_hash[n]` :: hash value of symbol name
-`arrayaddr[n]`  :: location in array table
-`arraylen[n]`   :: length of array _n_
-`arraysize`     :: current size of array table
+--
+[cols="<m,<d",options=autowidth,grid=none,stripes=even]
+|===============================================================================
+| arrayctr      | total number of arrays
+| array[n]      | symbolic name of array _n_
+| array_hash[n] | hash value of symbol name
+| arrayaddr[n]  | location in array table
+| arraylen[n]   | length of array _n_
+| arraysize     | current size of array table
+|===============================================================================
+--
+
 
 .Dictionary:
-[horizontal]
-`dictcount`   :: total number of dictionary entries
-`dicttable`   :: current size of dictionary
-`lexentry[n]` :: dictionary entry _n_
-`lexaddr[n]`  :: location of entry _n_ in dictionary table
-`lexnext[n]`  :: location of word following _n_ in the `lexentry[]` array
-`lexstart[c]` :: location of first word beginning with character _c_ in `lexentry[]`
-`lexlast[c]`  :: location of last word beginning with character _c_ in `lexentry[]`
+--
+[cols="<m,<d",options=autowidth,grid=none,stripes=even]
+|===============================================================================
+| dictcount   | total number of dictionary entries
+| dicttable   | current size of dictionary
+| lexentry[n] | dictionary entry _n_
+| lexaddr[n]  | location of entry _n_ in dictionary table
+| lexnext[n]  | location of word following _n_ in the `lexentry[]` array
+| lexstart[c] | location of first word beginning with character _c_ in `lexentry[]`
+| lexlast[c]  | location of last word beginning with character _c_ in `lexentry[]`
+|===============================================================================
+--
+
 
 .Special words:
-[horizontal]
-`syncount`   :: total number of synonyms, compounds, removals, and user-defined punctuation
-`syndata[n]` :: `synstruct` structure of _n_
+--
+[cols="<m,<d",options=autowidth,grid=none,stripes=even]
+|===============================================================================
+| syncount   | total number of synonyms, compounds, removals, and user-defined punctuation
+| syndata[n] | `synstruct` structure of _n_
+|===============================================================================
+--
+
 
 The use of ``...++_hash[n]++`` is a rough form of hash-table coding.
 The compiler, in `FindHash()` in *hcdef.c*, produces an _almost_ unique value for a given symbol based on the characters in it.
