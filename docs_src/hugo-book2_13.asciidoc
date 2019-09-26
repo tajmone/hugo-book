@@ -85,8 +85,8 @@ If a debuggable executable (called an .HDX file) is being generated, the last th
 
 Here are the various structures, arrays, and variables used by the compiler to keep track of symbols at compile-time:
 
+[caption=]
 .Objects:
---
 [cols="<m,<d",options=autowidth,grid=none,stripes=even]
 |===============================================================================
 | objctr         | total number of objects
@@ -100,22 +100,20 @@ Here are the various structures, arrays, and variables used by the compiler to k
 | child[n]       | physical child
 | oreplace[n]    | number of times replaced using the `replace` directive
 |===============================================================================
---
 
 
+[caption=]
 .Attributes:
---
 [cols="<m,<d",options=autowidth,grid=none,stripes=even]
 |===============================================================================
 | attrctr total     | number of attributes
 | attribute[n]      | symbolic name of attribute _n_
 | attribute_hash[n] | hash value of symbol name
 |===============================================================================
---
 
 
+[caption=]
 .Properties:
---
 [cols="<m,<d",options=autowidth,grid=none,stripes=even]
 |===============================================================================
 | propctr          | total number of properties
@@ -127,11 +125,10 @@ Here are the various structures, arrays, and variables used by the compiler to k
 | propdata[a][b]   | array of all property data
 | propheap         | size of property table
 |===============================================================================
---
 
 
+[caption=]
 .Labels:
---
 [cols="<m,<d",options=autowidth,grid=none,stripes=even]
 |===============================================================================
 | labelctr      | total number of labels
@@ -139,11 +136,10 @@ Here are the various structures, arrays, and variables used by the compiler to k
 | label_hash[n] | hash value of symbol name
 | laddr[n]      | indexed address of label
 |===============================================================================
---
 
 
+[caption=]
 .Routines:
---
 [cols="<m,<d",options=autowidth,grid=none,stripes=even]
 |===============================================================================
 | routinectr      | total number of routines
@@ -152,22 +148,20 @@ Here are the various structures, arrays, and variables used by the compiler to k
 | raddr[n]        | indexed address of routine
 | rreplace[n]     | number of times replaced using the `replace` directive
 |===============================================================================
---
 
 
+[caption=]
 .Events (although not really symbols):
---
 [cols="<m,<d",options=autowidth,grid=none,stripes=even]
 |===============================================================================
 | eventctr     | total number of events
 | eventin[n]   | object to which event _n_ is attached
 | eventaddr[n] | indexed address of event code
 |===============================================================================
---
 
 
+[caption=]
 .Aliases:
---
 [cols="<m,<d",options=autowidth,grid=none,stripes=even]
 |===============================================================================
 | aliasctr      | total number of aliases
@@ -176,11 +170,10 @@ Here are the various structures, arrays, and variables used by the compiler to k
 | aliasof[n]    | attribute or property aliased +
 (either the attribute number, or the property number plus `MAXATTRIBUTES`)
 |===============================================================================
---
 
 
+[caption=]
 .Global variables:
---
 [cols="<m,<d",options=autowidth,grid=none,stripes=even]
 |===============================================================================
 | globalctr      | total number of global variables
@@ -188,11 +181,10 @@ Here are the various structures, arrays, and variables used by the compiler to k
 | global_hash[n] | hash value of symbol name
 | globaldef[n]   | initial value of global at startup
 |===============================================================================
---
 
 
+[caption=]
 .Local variables:
---
 [cols="<m,<d",options=autowidth,grid=none,stripes=even]
 |===============================================================================
 | localctr      | total number of locals defined in the current code block
@@ -200,11 +192,10 @@ Here are the various structures, arrays, and variables used by the compiler to k
 | local_hash[n] | hash value of symbol name
 | unused[n]     | true until local _n_ is used
 |===============================================================================
---
 
 
+[caption=]
 .Constants:
---
 [cols="<m,<d",options=autowidth,grid=none,stripes=even]
 |===============================================================================
 | constctr         | total number of constants
@@ -212,11 +203,10 @@ Here are the various structures, arrays, and variables used by the compiler to k
 | constant_hash[n] | hash value of symbol name
 | constantval[n]   | defined value of constant
 |===============================================================================
---
 
 
+[caption=]
 .Array:
---
 [cols="<m,<d",options=autowidth,grid=none,stripes=even]
 |===============================================================================
 | arrayctr      | total number of arrays
@@ -226,11 +216,10 @@ Here are the various structures, arrays, and variables used by the compiler to k
 | arraylen[n]   | length of array _n_
 | arraysize     | current size of array table
 |===============================================================================
---
 
 
+[caption=]
 .Dictionary:
---
 [cols="<m,<d",options=autowidth,grid=none,stripes=even]
 |===============================================================================
 | dictcount   | total number of dictionary entries
@@ -241,17 +230,15 @@ Here are the various structures, arrays, and variables used by the compiler to k
 | lexstart[c] | location of first word beginning with character _c_ in `lexentry[]`
 | lexlast[c]  | location of last word beginning with character _c_ in `lexentry[]`
 |===============================================================================
---
 
 
+[caption=]
 .Special words:
---
 [cols="<m,<d",options=autowidth,grid=none,stripes=even]
 |===============================================================================
 | syncount   | total number of synonyms, compounds, removals, and user-defined punctuation
 | syndata[n] | `synstruct` structure of _n_
 |===============================================================================
---
 
 
 The use of ``...++_hash[n]++`` is a rough form of hash-table coding.

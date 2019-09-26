@@ -446,7 +446,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <span id="email" class="email"><a href="mailto:general@generalcoffee.com">general@generalcoffee.com</a></span><br>
 <span id="revnumber">version 1,</span>
 <span id="revdate">2018-10-04</span>
-<br><span id="revremark">Draft 14 -- Porting to AsciiDoc</span>
+<br><span id="revremark">Draft 15 -- Porting to AsciiDoc</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -12848,37 +12848,65 @@ These low-level operations are, for the most part, transparent to the programmer
 <div class="paragraph">
 <p>If all the separate segments of a .HEX file were stacked contiguously on top of each other, the resulting pile would look something like this:</p>
 </div>
-<div class="literalblock">
-<div class="content">
-<pre>   DATA STORAGE:    MAXIMUM SIZE:
-+-----------------+---------------+
-| (Link data for  |               |
-| .HLB files)     |               |
-+-----------------+---------------+
-| Text bank       |        16384K |
-+-----------------+---------------+
-| Dictionary      |           64K |
-+-----------------+---------------+
-| Special words   |           64K |
-+-----------------+---------------+
-| Array space     |           64K |
-+-----------------+---------------+
-| Event table     |           64K |
-+-----------------+---------------+
-| Property table  |           64K |
-+-----------------+---------------+
-| Object table    |           64K |
-+-----------------+---------------+
-| Grammar and     |               |
-| Executable code |         1024K |
-+-----------------+---------------+
-| Header          |      64 bytes |
-+-----------------+---------------+
-         (Bottom: $000000)
-
-     MAXIMUM SIZE: 17792K bytes<sup class="footnote">[<a id="_footnoteref_61" class="footnote" href="#_footnotedef_61" title="View footnote.">61</a>]</sup></pre>
-</div>
-</div>
+<table class="tableblock frame-all grid-all stripes-even fit-content center">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">DATA STORAGE:</th>
+<th class="tableblock halign-right valign-top">MAXIMUM SIZE:</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">(Link data for .HLB files)</p></td>
+<td class="tableblock halign-right valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Text bank</p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock">16384K</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Dictionary</p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock">64K</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Special words</p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock">64K</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Array space</p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock">64K</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Event table</p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock">64K</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Property table</p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock">64K</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Object table</p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock">64K</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Grammar and Executable code</p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock">1024K</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Header</p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock">64 bytes</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" colspan="2"><p class="tableblock">(Bottom: <code>$000000</code>)<br>
+<br>
+MAXIMUM SIZE: 17792K bytes<sup class="footnote">[<a id="_footnoteref_61" class="footnote" href="#_footnotedef_61" title="View footnote.">61</a>]</sup></p></td>
+</tr>
+</tbody>
+</table>
 <div class="paragraph">
 <p>Each new segment begins on a boundary divisible by 16; an end-of-segment is padded with zeroes until the next boundary.
 For each segment, data is general stored in sequential chunks, following two or more bytes giving information about the size of the table.</p>
@@ -14200,10 +14228,8 @@ First, <code>ResolveAddr()</code> (from <strong>hcmisc.c</strong>) patches all r
 <div class="paragraph">
 <p>Here are the various structures, arrays, and variables used by the compiler to keep track of symbols at compile-time:</p>
 </div>
-<div class="openblock">
-<div class="title">Objects:</div>
-<div class="content">
 <table class="tableblock frame-all grid-none stripes-even fit-content">
+<caption class="title">Objects:</caption>
 <colgroup>
 <col>
 <col>
@@ -14251,12 +14277,8 @@ First, <code>ResolveAddr()</code> (from <strong>hcmisc.c</strong>) patches all r
 </tr>
 </tbody>
 </table>
-</div>
-</div>
-<div class="openblock">
-<div class="title">Attributes:</div>
-<div class="content">
 <table class="tableblock frame-all grid-none stripes-even fit-content">
+<caption class="title">Attributes:</caption>
 <colgroup>
 <col>
 <col>
@@ -14276,12 +14298,8 @@ First, <code>ResolveAddr()</code> (from <strong>hcmisc.c</strong>) patches all r
 </tr>
 </tbody>
 </table>
-</div>
-</div>
-<div class="openblock">
-<div class="title">Properties:</div>
-<div class="content">
 <table class="tableblock frame-all grid-none stripes-even fit-content">
+<caption class="title">Properties:</caption>
 <colgroup>
 <col>
 <col>
@@ -14321,12 +14339,8 @@ First, <code>ResolveAddr()</code> (from <strong>hcmisc.c</strong>) patches all r
 </tr>
 </tbody>
 </table>
-</div>
-</div>
-<div class="openblock">
-<div class="title">Labels:</div>
-<div class="content">
 <table class="tableblock frame-all grid-none stripes-even fit-content">
+<caption class="title">Labels:</caption>
 <colgroup>
 <col>
 <col>
@@ -14350,12 +14364,8 @@ First, <code>ResolveAddr()</code> (from <strong>hcmisc.c</strong>) patches all r
 </tr>
 </tbody>
 </table>
-</div>
-</div>
-<div class="openblock">
-<div class="title">Routines:</div>
-<div class="content">
 <table class="tableblock frame-all grid-none stripes-even fit-content">
+<caption class="title">Routines:</caption>
 <colgroup>
 <col>
 <col>
@@ -14383,12 +14393,8 @@ First, <code>ResolveAddr()</code> (from <strong>hcmisc.c</strong>) patches all r
 </tr>
 </tbody>
 </table>
-</div>
-</div>
-<div class="openblock">
-<div class="title">Events (although not really symbols):</div>
-<div class="content">
 <table class="tableblock frame-all grid-none stripes-even fit-content">
+<caption class="title">Events (although not really symbols):</caption>
 <colgroup>
 <col>
 <col>
@@ -14408,12 +14414,8 @@ First, <code>ResolveAddr()</code> (from <strong>hcmisc.c</strong>) patches all r
 </tr>
 </tbody>
 </table>
-</div>
-</div>
-<div class="openblock">
-<div class="title">Aliases:</div>
-<div class="content">
 <table class="tableblock frame-all grid-none stripes-even fit-content">
+<caption class="title">Aliases:</caption>
 <colgroup>
 <col>
 <col>
@@ -14438,12 +14440,8 @@ First, <code>ResolveAddr()</code> (from <strong>hcmisc.c</strong>) patches all r
 </tr>
 </tbody>
 </table>
-</div>
-</div>
-<div class="openblock">
-<div class="title">Global variables:</div>
-<div class="content">
 <table class="tableblock frame-all grid-none stripes-even fit-content">
+<caption class="title">Global variables:</caption>
 <colgroup>
 <col>
 <col>
@@ -14467,12 +14465,8 @@ First, <code>ResolveAddr()</code> (from <strong>hcmisc.c</strong>) patches all r
 </tr>
 </tbody>
 </table>
-</div>
-</div>
-<div class="openblock">
-<div class="title">Local variables:</div>
-<div class="content">
 <table class="tableblock frame-all grid-none stripes-even fit-content">
+<caption class="title">Local variables:</caption>
 <colgroup>
 <col>
 <col>
@@ -14496,12 +14490,8 @@ First, <code>ResolveAddr()</code> (from <strong>hcmisc.c</strong>) patches all r
 </tr>
 </tbody>
 </table>
-</div>
-</div>
-<div class="openblock">
-<div class="title">Constants:</div>
-<div class="content">
 <table class="tableblock frame-all grid-none stripes-even fit-content">
+<caption class="title">Constants:</caption>
 <colgroup>
 <col>
 <col>
@@ -14525,12 +14515,8 @@ First, <code>ResolveAddr()</code> (from <strong>hcmisc.c</strong>) patches all r
 </tr>
 </tbody>
 </table>
-</div>
-</div>
-<div class="openblock">
-<div class="title">Array:</div>
-<div class="content">
 <table class="tableblock frame-all grid-none stripes-even fit-content">
+<caption class="title">Array:</caption>
 <colgroup>
 <col>
 <col>
@@ -14562,12 +14548,8 @@ First, <code>ResolveAddr()</code> (from <strong>hcmisc.c</strong>) patches all r
 </tr>
 </tbody>
 </table>
-</div>
-</div>
-<div class="openblock">
-<div class="title">Dictionary:</div>
-<div class="content">
 <table class="tableblock frame-all grid-none stripes-even fit-content">
+<caption class="title">Dictionary:</caption>
 <colgroup>
 <col>
 <col>
@@ -14603,12 +14585,8 @@ First, <code>ResolveAddr()</code> (from <strong>hcmisc.c</strong>) patches all r
 </tr>
 </tbody>
 </table>
-</div>
-</div>
-<div class="openblock">
-<div class="title">Special words:</div>
-<div class="content">
 <table class="tableblock frame-all grid-none stripes-even fit-content">
+<caption class="title">Special words:</caption>
 <colgroup>
 <col>
 <col>
@@ -14624,8 +14602,6 @@ First, <code>ResolveAddr()</code> (from <strong>hcmisc.c</strong>) patches all r
 </tr>
 </tbody>
 </table>
-</div>
-</div>
 <div class="paragraph">
 <p>The use of <code>&#8230;&#8203;_hash[n]</code> is a rough form of hash-table coding.
 The compiler, in <code>FindHash()</code> in <strong>hcdef.c</strong>, produces an <em>almost</em> unique value for a given symbol based on the characters in it.
@@ -14799,10 +14775,8 @@ The expression currently in <code>eval[]</code> is solved by calling <code>EvalE
 </div>
 <div class="sect2">
 <h3 id="_runtime_symbol_data">26.1. Runtime Symbol Data</h3>
-<div class="openblock">
-<div class="title">Code execution:</div>
-<div class="content">
 <table class="tableblock frame-all grid-none stripes-even fit-content">
+<caption class="title">Code execution:</caption>
 <colgroup>
 <col>
 <col>
@@ -14830,12 +14804,8 @@ The expression currently in <code>eval[]</code> is solved by calling <code>EvalE
 </tr>
 </tbody>
 </table>
-</div>
-</div>
-<div class="openblock">
-<div class="title">Display:</div>
-<div class="content">
 <table class="tableblock frame-all grid-none stripes-even fit-content">
+<caption class="title">Display:</caption>
 <colgroup>
 <col>
 <col>
@@ -14901,12 +14871,8 @@ The expression currently in <code>eval[]</code> is solved by calling <code>EvalE
 </tr>
 </tbody>
 </table>
-</div>
-</div>
-<div class="openblock">
-<div class="title">Parsing:</div>
-<div class="content">
 <table class="tableblock frame-all grid-none stripes-even fit-content">
+<caption class="title">Parsing:</caption>
 <colgroup>
 <col>
 <col>
@@ -14926,12 +14892,8 @@ The expression currently in <code>eval[]</code> is solved by calling <code>EvalE
 </tr>
 </tbody>
 </table>
-</div>
-</div>
-<div class="openblock">
-<div class="title">Arguments and expressions:</div>
-<div class="content">
 <table class="tableblock frame-all grid-none stripes-even fit-content">
+<caption class="title">Arguments and expressions:</caption>
 <colgroup>
 <col>
 <col>
@@ -14959,12 +14921,8 @@ The expression currently in <code>eval[]</code> is solved by calling <code>EvalE
 </tr>
 </tbody>
 </table>
-</div>
-</div>
-<div class="openblock">
-<div class="title">Undo management:</div>
-<div class="content">
 <table class="tableblock frame-all grid-none stripes-even fit-content">
+<caption class="title">Undo management:</caption>
 <colgroup>
 <col>
 <col>
@@ -14993,16 +14951,12 @@ The expression currently in <code>eval[]</code> is solved by calling <code>EvalE
 </tbody>
 </table>
 </div>
-</div>
-</div>
 <div class="sect2">
 <h3 id="_non_portable_functionality">26.2. Non-Portable Functionality</h3>
 <div class="paragraph">
 <p>The Hugo Engine requires a number of non-portable functions which provide the interface layer between the engine and the operating system on which it is running.
 These functions are:</p>
 </div>
-<div class="openblock">
-<div class="content">
 <table class="tableblock frame-all grid-none stripes-even fit-content">
 <colgroup>
 <col>
@@ -15164,8 +15118,6 @@ These functions are:</p>
 </tr>
 </tbody>
 </table>
-</div>
-</div>
 <div class="paragraph">
 <p>For elaboration of the intent and implementation of these functions, see <strong>heblank.c</strong> in the standard source distribution (<strong>hugov31_source.tar.gz</strong>), or one of the implementations such as <strong>hemsvc.c</strong> (in <strong>hugov31_win32_source.zip</strong>, the Windows source package), <strong>hegcc.c</strong> (in <strong>hugov31_unix_source.tar.gz</strong>, the gcc/Unix package), etc.</p>
 </div>
@@ -15179,8 +15131,6 @@ It does this, however, in a format that only notes if the data has changed from 
 <div class="paragraph">
 <p>The structure of a Hugo savefile looks like this:</p>
 </div>
-<div class="openblock">
-<div class="content">
 <table class="tableblock frame-all grid-none stripes-even fit-content">
 <colgroup>
 <col>
@@ -15240,8 +15190,6 @@ It does this, however, in a format that only notes if the data has changed from 
 </tr>
 </tbody>
 </table>
-</div>
-</div>
 <div class="paragraph">
 <p>In saving from the object table up to the start of the text bank, the engine performs a comparison of the original gamefile against in-memory dynamic data (which may have changed).</p>
 </div>

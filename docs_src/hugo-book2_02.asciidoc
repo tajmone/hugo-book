@@ -5,43 +5,25 @@
 
 If all the separate segments of a .HEX file were stacked contiguously on top of each other, the resulting pile would look something like this:
 
-[subs=macros]
-...................................
-+++
-   DATA STORAGE:    MAXIMUM SIZE:
-+-----------------+---------------+
-| (Link data for  |               |
-| .HLB files)     |               |
-+-----------------+---------------+
-| Text bank       |        16384K |
-+-----------------+---------------+
-| Dictionary      |           64K |
-+-----------------+---------------+
-| Special words   |           64K |
-+-----------------+---------------+
-| Array space     |           64K |
-+-----------------+---------------+
-| Event table     |           64K |
-+-----------------+---------------+
-| Property table  |           64K |
-+-----------------+---------------+
-| Object table    |           64K |
-+-----------------+---------------+
-| Grammar and     |               |
-| Executable code |         1024K |
-+-----------------+---------------+
-| Header          |      64 bytes |
-+-----------------+---------------+
-         (Bottom: $000000)
-+++
-     MAXIMUM SIZE: 17792K bytesfootnote:[Previously to version 3.1, the size of the grammar and executable code segment was limited to 256K, and the maximum size was 17024K.]
-...................................
+[.center]
+[cols="<,>",options="autowidth",stripes=even]
+|===============================================================================
+| DATA STORAGE:               | MAXIMUM SIZE:
 
-// @FIXME FOOTNOTE: The following footnore should be anchored to "17792K"  of
-// 	the above diagram. When I convert it to an SVG image, I'll need to
-// 	convert the footnote to an admonition note.
-
-// bytesfootnote:[Previously to version 3.1, the size of the grammar and executable code segment was limited to 256K, and the maximum size was 17024K.]
+| (Link data for .HLB files)  |
+| Text bank                   | 16384K
+| Dictionary                  |    64K
+| Special words               |    64K
+| Array space                 |    64K
+| Event table                 |    64K
+| Property table              |    64K
+| Object table                |    64K
+| Grammar and Executable code |  1024K
+| Header                      |      64 bytes
+2+^| (Bottom: `$000000`) +
+ +
+MAXIMUM SIZE: 17792K bytesfootnote:[Previously to version 3.1, the size of the grammar and executable code segment was limited to 256K, and the maximum size was 17024K.]
+|===============================================================================
 
 Each new segment begins on a boundary divisible by 16; an end-of-segment is padded with zeroes until the next boundary.
 For each segment, data is general stored in sequential chunks, following two or more bytes giving information about the size of the table.

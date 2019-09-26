@@ -86,8 +86,8 @@ The expression currently in `eval[]` is solved by calling `EvalExpr()`.
 
 == Runtime Symbol Data
 
+[caption=]
 .Code execution:
---
 [cols="<m,<d",options=autowidth,grid=none,stripes=even]
 |===============================================================================
 | mem[]       | loaded .HEX file image
@@ -96,10 +96,9 @@ The expression currently in `eval[]` is solved by calling `EvalExpr()`.
 | codeptr     | current code position
 | stack_depth | current calling depth
 |===============================================================================
---
 
+[caption=]
 .Display:
---
 [cols="<m,<d",options=autowidth,grid=none,stripes=even]
 |===============================================================================
 | pbuffer[]   | print buffer for line-wrapping
@@ -128,20 +127,18 @@ The expression currently in `eval[]` is solved by calling `EvalExpr()`.
   current_text_x +
   current_text_y | for font output management
 |===============================================================================
---
 
+[caption=]
 .Parsing:
---
 [cols="<m,<d",options=autowidth,grid=none,stripes=even]
 |===============================================================================
 | words  | number of parsed words in input
 | word[] | breakdown of input into words
 | wd[]   | breakdown of input into dictionary entries
 |===============================================================================
---
 
+[caption=]
 .Arguments and expressions:
---
 [cols="<m,<d",options=autowidth,grid=none,stripes=even]
 |===============================================================================
 | var[]            | global and local variables
@@ -150,10 +147,9 @@ The expression currently in `eval[]` is solved by calling `EvalExpr()`.
 | ret              | return value (from a routine)
 | incdec           | amount a value is being incremented or decremented
 |===============================================================================
---
 
+[caption=]
 .Undo management:
---
 [cols="<m,<d",options=autowidth,grid=none,stripes=even]
 |===============================================================================
 | undostack[] | for saving undo information
@@ -162,14 +158,12 @@ The expression currently in `eval[]` is solved by calling `EvalExpr()`.
 | undoinvalid | when undo is invalid
 | undorecord  | true when recording undo info
 |===============================================================================
---
 
 == Non-Portable Functionality
 
 The Hugo Engine requires a number of non-portable functions which provide the interface layer between the engine and the operating system on which it is running.
 These functions are:
 
---
 [cols="<m,<d",options=autowidth,grid=none,stripes=even]
 |===============================================================================
 | hugo_blockalloc      | Large-block `malloc()`
@@ -210,7 +204,6 @@ These functions are:
 2+^a| {blank}
 | hugo_hasvideo        | Returns video availabilityfootnote:[v3.0 and later]
 |===============================================================================
---
 
 
 For elaboration of the intent and implementation of these functions, see *heblank.c* in the standard source distribution (*hugov31_source.tar.gz*), or one of the implementations such as *hemsvc.c* (in *hugov31_win32_source.zip*, the Windows source package), *hegcc.c* (in *hugov31_unix_source.tar.gz*, the gcc/Unix package), etc.
@@ -223,7 +216,6 @@ It does this, however, in a format that only notes if the data has changed from 
 
 The structure of a Hugo savefile looks like this:
 
---
 [cols="<m,<d",options=autowidth,grid=none,stripes=even]
 |===============================================================================
 | 0000 -- 0001 | ID (assigned by compiler at compile-time)
@@ -239,7 +231,6 @@ The structure of a Hugo savefile looks like this:
 | 1 byte       | undoinvalid
 | 1 byte       | undorecord
 |===============================================================================
---
 
 
 In saving from the object table up to the start of the text bank, the engine performs a comparison of the original gamefile against in-memory dynamic data (which may have changed).
