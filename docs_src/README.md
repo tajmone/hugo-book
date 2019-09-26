@@ -55,7 +55,7 @@ This is the current status of the initial Word-to-AsciiDoc porting stage:
     + [ ] 11. _THE DICTIONARY AND SPECIAL WORDS_
     + [ ] 12. _RESOURCEFILES_
     + [x] 13. _THE HUGO COMPILER AND HOW IT WORKS_
-    + [ ] 14. _THE HUGO ENGINE AND HOW IT WORKS_
+    + [x] 14. _THE HUGO ENGINE AND HOW IT WORKS_
     + [ ] 15. _DARK SECRETS OF THE HUGO DEBUGGER_
     + [ ] APP. A. _CODE PATTERNS_
 - [ ] _INDEX_

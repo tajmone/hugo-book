@@ -446,7 +446,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <span id="email" class="email"><a href="mailto:general@generalcoffee.com">general@generalcoffee.com</a></span><br>
 <span id="revnumber">version 1,</span>
 <span id="revdate">2018-10-04</span>
-<br><span id="revremark">Draft 10 -- Porting to AsciiDoc</span>
+<br><span id="revremark">Draft 11 -- Porting to AsciiDoc</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -14773,276 +14773,413 @@ Additionally, those properties with a &#8220;length&#8221; of 254 are adjusted s
 </div>
 </div>
 <div class="paragraph">
-<p>The functions in <strong>herun.c</strong> comprise most of the core game loop and calling points. RunGame() manages the game loop itself [1.1], which can be thought of as being:</p>
+<p>The functions in <strong>herun.c</strong> comprise most of the core game loop and calling points. <code>RunGame()</code> manages the game loop itself [1.1], which can be thought of as being:</p>
 </div>
-<div class="paragraph">
-<p><strong>Main routine  Player input  Parsing  Action (if valid)</strong></p>
+<div class="paragraph text-center">
+<p><strong>Main routine</strong> &#8594; <strong>Player input</strong> &#8594; <strong>Parsing</strong> &#8594; <strong>Action</strong> (if valid)</p>
 </div>
 <div class="paragraph">
 <p><strong>Player input</strong> [1.2] is the point at which the engine requests a new input line (usually from the keyboard, but possibly from another source such as a file during command playback).</p>
 </div>
 <div class="paragraph">
-<p>The <strong>Parsing</strong> section [2.1] refers to the in-engine breakdown and analysis of the input line. The input line is matched against the grammar table in MatchCommand() [2.2]--using MatchWord() and MatchObject() [2.3] to identify either individual words as specified in the grammar, or groups of words that may represent an object name.</p>
+<p>The <strong>Parsing</strong> section [2.1] refers to the in-engine breakdown and analysis of the input line.
+The input line is matched against the grammar table in <code>MatchCommand()</code> [2.2]&#8201;&#8212;&#8201;using <code>MatchWord()</code> and <code>MatchObject()</code> [2.3] to identify either individual words as specified in the grammar, or groups of words that may represent an object name.</p>
 </div>
 <div class="paragraph">
-<p>If a match is made, the appropriate globals (object, xobject, verbroutine) are set, and Perform() is called [3.1] (or, if Perform() has not been defined, the built-in substitute). (Note that if the command is directed to an object&#8212;&#8203;i.e., another character&#8212;&#8203;SpeakTo() is called instead of Perform().)</p>
+<p>If a match is made, the appropriate globals (<code>object</code>, <code>xobject</code>, <code>verbroutine</code>) are set, and <code>Perform()</code> is called [3.1] (or, if <code>Perform()</code> has not been defined, the built-in substitute).</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Note that if the command is directed to an object&#8201;&#8212;&#8201;i.e., another character&#8201;&#8212;&#8201;<code>SpeakTo()</code> is called instead of <code>Perform()</code>.</p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
-<p>RunRoutine() is the method by which any function calls are executed. At any point in RunRoutine() (or in functions called by it), the value mem[codeptr] is the byte value (i.e., the token number) of the current instruction. The value of codeptr advances as execution progresses.</p>
+<p><code>RunRoutine()</code> is the method by which any function calls are executed.
+At any point in <code>RunRoutine()</code> (or in functions called by it), the value <code>mem[codeptr]</code> is the byte value (i.e., the token number) of the current instruction.
+The value of <code>codeptr</code> advances as execution progresses.</p>
 </div>
 <div class="paragraph">
-<p>Whenever it is necessary for the engine to evaluate an expression, the expression evaluator subsystem in <strong>heexpr.c</strong> is invoked [4.1]. Here, the eval[] array is initialized with the expression to be evaluated by calling SetupExpr() (which will in turn call GetValue() to sequentially retrieve the elements of the expression). The expression currently in eval[] is solved by calling EvalExpr().</p>
+<p>Whenever it is necessary for the engine to evaluate an expression, the expression evaluator subsystem in <strong>heexpr.c</strong> is invoked [4.1].
+Here, the <code>eval[]</code> array is initialized with the expression to be evaluated by calling <code>SetupExpr()</code> (which will in turn call <code>GetValue()</code> to sequentially retrieve the elements of the expression).
+The expression currently in <code>eval[]</code> is solved by calling <code>EvalExpr()</code>.</p>
 </div>
 <div class="sect2">
 <h3 id="_runtime_symbol_data">26.1. Runtime Symbol Data</h3>
-<div class="paragraph">
-<p><strong>Code execution:</strong></p>
+<div class="openblock">
+<div class="title">Code execution:</div>
+<div class="content">
+<table class="tableblock frame-all grid-none stripes-even fit-content">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>mem[]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">loaded .HEX file image</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>defseg</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">current memory segment</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>codeseg</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">code segment (i.e., 0)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>codeptr</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">current code position</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>stack_depth</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">current calling depth</p></td>
+</tr>
+</tbody>
+</table>
 </div>
-<div class="paragraph">
-<p>mem[] loaded .HEX file image</p>
 </div>
-<div class="paragraph">
-<p>defseg current memory segment</p>
+<div class="openblock">
+<div class="title">Display:</div>
+<div class="content">
+<table class="tableblock frame-all grid-none stripes-even fit-content">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>pbuffer[]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">print buffer for line-wrapping</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>currentpos</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">current position (pixel or character)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>currentline</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">current row (line)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>full</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">counter for <code>PromptMore()</code> page-ending</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>fcolor<br>
+  bgcolor<br>
+  icolor<br>
+  default_bgcolor</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">colors for foreground, background, input, and default background</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>currentfont</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">current font bitmask</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>textto</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">if non-zero, text is printed to this array</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>SCREENWIDTH<br>
+  SCREENHEIGHT</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">maximum possible screen dimensions</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>inwindow</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">true if in a window</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>physical_windowwidth<br>
+  physical_windowheight<br>
+  physical_windowleft<br>
+  physical_windowtop<br>
+  physical_windowright<br>
+  physical_windowbottom</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&#8220;physical&#8221; window dimensions, in pixels or characters</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>charwidth<br>
+  lineheight<br>
+  FIXEDCHARWIDTH<br>
+  FIXEDLINEHEIGHT<br>
+  current_text_x<br>
+  current_text_y</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">for font output management</p></td>
+</tr>
+</tbody>
+</table>
 </div>
-<div class="paragraph">
-<p>codeseg code segment (i.e., 0)</p>
 </div>
-<div class="paragraph">
-<p>codeptr current code position</p>
+<div class="openblock">
+<div class="title">Parsing:</div>
+<div class="content">
+<table class="tableblock frame-all grid-none stripes-even fit-content">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>words</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">number of parsed words in input</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>word[]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">breakdown of input into words</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>wd[]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">breakdown of input into dictionary entries</p></td>
+</tr>
+</tbody>
+</table>
 </div>
-<div class="paragraph">
-<p>stack_depth current calling depth</p>
 </div>
-<div class="paragraph">
-<p><strong>Display:</strong></p>
+<div class="openblock">
+<div class="title">Arguments and expressions:</div>
+<div class="content">
+<table class="tableblock frame-all grid-none stripes-even fit-content">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>var[]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">global and local variables</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>passlocal[]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">locals passed to a routine</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>arguments_passed</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">number of arguments passed</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ret</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">return value (from a routine)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>incdec</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">amount a value is being incremented or decremented</p></td>
+</tr>
+</tbody>
+</table>
 </div>
-<div class="paragraph">
-<p>pbuffer[] print buffer for line-wrapping</p>
 </div>
-<div class="paragraph">
-<p>currentpos current position (pixel or character)</p>
+<div class="openblock">
+<div class="title">Undo management:</div>
+<div class="content">
+<table class="tableblock frame-all grid-none stripes-even fit-content">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>undostack[]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">for saving undo information</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>undoptr</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">number of operations undoable</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>undoturn</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">number of operations for this turn</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>undoinvalid</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">when undo is invalid</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>undorecord</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">true when recording undo info</p></td>
+</tr>
+</tbody>
+</table>
 </div>
-<div class="paragraph">
-<p>currentline current row (line)</p>
-</div>
-<div class="paragraph">
-<p>full counter for PromptMore() page-ending</p>
-</div>
-<div class="paragraph">
-<p>fcolor, bgcolor, colors for foreground, background,</p>
-</div>
-<div class="paragraph">
-<p>icolor, input, and default background</p>
-</div>
-<div class="paragraph">
-<p>default_bgcolor</p>
-</div>
-<div class="paragraph">
-<p>currentfont current font bitmask</p>
-</div>
-<div class="paragraph">
-<p>textto if non-zero, text is printed to this</p>
-</div>
-<div class="paragraph">
-<p>array</p>
-</div>
-<div class="paragraph">
-<p>SCREENWIDTH, maximum possible screen dimensions</p>
-</div>
-<div class="paragraph">
-<p>SCREENHEIGHT</p>
-</div>
-<div class="paragraph">
-<p>inwindow true if in a window</p>
-</div>
-<div class="paragraph">
-<p>physical_windowwidth, &#8220;physical&#8221; window dimensions,</p>
-</div>
-<div class="paragraph">
-<p>physical_windowheight, in pixels or characters</p>
-</div>
-<div class="paragraph">
-<p>physical_windowleft,</p>
-</div>
-<div class="paragraph">
-<p>physical_windowtop,</p>
-</div>
-<div class="paragraph">
-<p>physical_windowright,</p>
-</div>
-<div class="paragraph">
-<p>physical_windowbottom</p>
-</div>
-<div class="paragraph">
-<p>charwidth, lineheight, for font output management</p>
-</div>
-<div class="paragraph">
-<p>FIXEDCHARWIDTH,</p>
-</div>
-<div class="paragraph">
-<p>FIXEDLINEHEIGHT,</p>
-</div>
-<div class="paragraph">
-<p>current_text_x,</p>
-</div>
-<div class="paragraph">
-<p>current_text_y</p>
-</div>
-<div class="paragraph">
-<p><strong>Parsing:</strong></p>
-</div>
-<div class="paragraph">
-<p>words number of parsed words in input</p>
-</div>
-<div class="paragraph">
-<p>word[] breakdown of input into words</p>
-</div>
-<div class="paragraph">
-<p>wd[] breakdown of input into dictionary</p>
-</div>
-<div class="paragraph">
-<p>entries</p>
-</div>
-<div class="paragraph">
-<p><strong>Arguments and expressions:</strong></p>
-</div>
-<div class="paragraph">
-<p>var[] global and local variables</p>
-</div>
-<div class="paragraph">
-<p>passlocal[] locals passed to a routine</p>
-</div>
-<div class="paragraph">
-<p>arguments_passed number of arguments passed</p>
-</div>
-<div class="paragraph">
-<p>ret return value (from a routine)</p>
-</div>
-<div class="paragraph">
-<p>incdec amount a value is being incremented</p>
-</div>
-<div class="paragraph">
-<p>or decremented</p>
-</div>
-<div class="paragraph">
-<p><strong>Undo management:</strong></p>
-</div>
-<div class="paragraph">
-<p>undostack[] for saving undo information</p>
-</div>
-<div class="paragraph">
-<p>undoptr number of operations undoable</p>
-</div>
-<div class="paragraph">
-<p>undoturn number of operations for this turn</p>
-</div>
-<div class="paragraph">
-<p>undoinvalid when undo is invalid</p>
-</div>
-<div class="paragraph">
-<p>undorecord true when recording undo info</p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_non_portable_functionality">26.2. Non-Portable Functionality</h3>
 <div class="paragraph">
-<p>The Hugo Engine requires a number of non-portable functions which provide the interface layer between the engine and the operating system on which it is running. These functions are:</p>
+<p>The Hugo Engine requires a number of non-portable functions which provide the interface layer between the engine and the operating system on which it is running.
+These functions are:</p>
 </div>
-<div class="paragraph">
-<p>hugo_blockalloc Large-block malloc()</p>
+<div class="openblock">
+<div class="content">
+<table class="tableblock frame-all grid-none stripes-even fit-content">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>hugo_blockalloc</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Large-block <code>malloc()</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>hugo_blockfree</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Large-block <code>free()</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>hugo_splitpath</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">For splitting/combining filename/path</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>hugo_makepath</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">elements as per OS naming conventions</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>hugo_getfilename</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Asks the user for a filename</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>hugo_overwrite</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Verifies overwrite of a filename</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>hugo_closefiles</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>fcloseall()</code> or equivalent</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>hugo_getkey</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>getch()</code> or equivalent</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>hugo_getline</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Keyboard line input</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>hugo_waitforkey</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Cycles while waiting for a keypress</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>hugo_iskeywaiting</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Reports if a keypress is waiting</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>hugo_timewait</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Waits for 1/<em>n</em> seconds</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>hugo_init_screen</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Performs necessary display setup</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>hugo_hasgraphics</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Returns graphics availability</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>hugo_setgametitle</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Sets title of window/screen</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>hugo_cleanup_screen</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Performs necessary screen cleanup</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>hugo_clearfullscreen</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Clears entire display area</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>hugo_clearwindow</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Clears currently defined window</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>hugo_settextmode</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Performs necessary text setup</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>hugo_settextwindow</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Defines window in display area</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>hugo_settextpos</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Sets cursor/text-output position</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>hugo_scrollwindowup</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Scrolls currently defined window</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>hugo_font</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Sets font for text output</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>hugo_settextcolor</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Sets foreground color for text</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>hugo_setbackcolor</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Sets background color for text</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>hugo_color</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Returns a valid color reference</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>hugo_print</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Outputs formatted text</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>hugo_charwidth</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Returns width of a given character</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>hugo_textwidth</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Returns width of a given string</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>hugo_strlen</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>strlen()</code> for embedded codes</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>hugo_specialchar</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Translation for special characters</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>hugo_hasvideo</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Returns video availability<sup class="footnote">[<a id="_footnoteref_73" class="footnote" href="#_footnotedef_73" title="View footnote.">73</a>]</sup></p></td>
+</tr>
+</tbody>
+</table>
 </div>
-<div class="paragraph">
-<p>hugo_blockfree Large-block free()</p>
-</div>
-<div class="paragraph">
-<p>hugo_splitpath For splitting/combining filename/path</p>
-</div>
-<div class="paragraph">
-<p>hugo_makepath elements as per OS naming conventions</p>
-</div>
-<div class="paragraph">
-<p>hugo_getfilename Asks the user for a filename</p>
-</div>
-<div class="paragraph">
-<p>hugo_overwrite Verifies overwrite of a filename</p>
-</div>
-<div class="paragraph">
-<p>hugo_closefiles fcloseall() or equivalent</p>
-</div>
-<div class="paragraph">
-<p>hugo_getkey getch() or equivalent</p>
-</div>
-<div class="paragraph">
-<p>hugo_getline Keyboard line input</p>
-</div>
-<div class="paragraph">
-<p>hugo_waitforkey Cycles while waiting for a keypress</p>
-</div>
-<div class="paragraph">
-<p>hugo_iskeywaiting Reports if a keypress is waiting</p>
-</div>
-<div class="paragraph">
-<p>hugo_timewait Waits for 1/<em>n</em> seconds</p>
-</div>
-<div class="paragraph">
-<p>hugo_init_screen Performs necessary display setup</p>
-</div>
-<div class="paragraph">
-<p>hugo_hasgraphics Returns graphics availability</p>
-</div>
-<div class="paragraph">
-<p>hugo_setgametitle Sets title of window/screen</p>
-</div>
-<div class="paragraph">
-<p>hugo_cleanup_screen Performs necessary screen cleanup</p>
-</div>
-<div class="paragraph">
-<p>hugo_clearfullscreen Clears entire display area</p>
-</div>
-<div class="paragraph">
-<p>hugo_clearwindow Clears currently defined window</p>
-</div>
-<div class="paragraph">
-<p>hugo_settextmode Performs necessary text setup</p>
-</div>
-<div class="paragraph">
-<p>hugo_settextwindow Defines window in display area</p>
-</div>
-<div class="paragraph">
-<p>hugo_settextpos Sets cursor/text-output position</p>
-</div>
-<div class="paragraph">
-<p>hugo_scrollwindowup Scrolls currently defined window</p>
-</div>
-<div class="paragraph">
-<p>hugo_font Sets font for text output</p>
-</div>
-<div class="paragraph">
-<p>hugo_settextcolor Sets foreground color for text</p>
-</div>
-<div class="paragraph">
-<p>hugo_setbackcolor Sets background color for text</p>
-</div>
-<div class="paragraph">
-<p>hugo_color Returns a valid color reference</p>
-</div>
-<div class="paragraph">
-<p>hugo_print Outputs formatted text</p>
-</div>
-<div class="paragraph">
-<p>hugo_charwidth Returns width of a given character</p>
-</div>
-<div class="paragraph">
-<p>hugo_textwidth Returns width of a given string</p>
-</div>
-<div class="paragraph">
-<p>hugo_strlen strlen() for embedded codes</p>
-</div>
-<div class="paragraph">
-<p>hugo_specialchar Translation for special characters</p>
-</div>
-<div class="paragraph">
-<p>hugo_hasvideo Returns video availability<sup class="footnote">[<a id="_footnoteref_73" class="footnote" href="#_footnotedef_73" title="View footnote.">73</a>]</sup></p>
 </div>
 <div class="paragraph">
 <p>For elaboration of the intent and implementation of these functions, see <strong>heblank.c</strong> in the standard source distribution (<strong>hugov31_source.tar.gz</strong>), or one of the implementations such as <strong>hemsvc.c</strong> (in <strong>hugov31_win32_source.zip</strong>, the Windows source package), <strong>hegcc.c</strong> (in <strong>hugov31_unix_source.tar.gz</strong>, the gcc/Unix package), etc.</p>
@@ -15051,46 +15188,84 @@ Additionally, those properties with a &#8220;length&#8221; of 254 are adjusted s
 <div class="sect2">
 <h3 id="_savefile_format">26.3. Savefile Format</h3>
 <div class="paragraph">
-<p>Hugo saves the game state by (among other things) saving the dynamic memory from start of the object table to the start of the text bank (i.e., including objects, properties, array data, and the dictionary). It does this, however, in a format that only notes if the data has changed from its initial state.</p>
+<p>Hugo saves the game state by (among other things) saving the dynamic memory from start of the object table to the start of the text bank (i.e., including objects, properties, array data, and the dictionary).
+It does this, however, in a format that only notes if the data has changed from its initial state.</p>
 </div>
 <div class="paragraph">
 <p>The structure of a Hugo savefile looks like this:</p>
 </div>
-<div class="paragraph">
-<p><strong>0000 - 0001</strong> ID (assigned by compiler at compile-time)</p>
+<div class="openblock">
+<div class="content">
+<table class="tableblock frame-all grid-none stripes-even fit-content">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>0000&#8201;&#8212;&#8201;0001</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ID (assigned by compiler at compile-time)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>0002&#8201;&#8212;&#8201;0009</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Serial number</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>000A&#8201;&#8212;&#8201;0209</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">All variables (global and local, 256*2 bytes)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>020A&#8201;&#8212;&#8201;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Object table to text bank (see below)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>n bytes</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Undo data (where <em>n</em> = <code>MAXUNDO</code>*5*2 bytes)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>2 bytes</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">undoptr</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>2 bytes</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">undoturn</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>1 byte</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">undoinvalid</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>1 byte</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">undorecord</p></td>
+</tr>
+</tbody>
+</table>
 </div>
-<div class="paragraph">
-<p><strong>0002 - 0009</strong> Serial number</p>
-</div>
-<div class="paragraph">
-<p><strong>000A - 0209</strong> All variables (global and local, 256*2 bytes)</p>
-</div>
-<div class="paragraph">
-<p><strong>020A -</strong> Object table to text bank (see below)</p>
-</div>
-<div class="paragraph">
-<p><strong>n bytes</strong> Undo data (where n = MAXUNDO*5*2 bytes)</p>
-</div>
-<div class="paragraph">
-<p><strong>2 bytes</strong> undoptr</p>
-</div>
-<div class="paragraph">
-<p><strong>2 bytes</strong> undoturn</p>
-</div>
-<div class="paragraph">
-<p><strong>1 byte</strong> undoinvalid</p>
-</div>
-<div class="paragraph">
-<p><strong>1 byte</strong> undorecord</p>
 </div>
 <div class="paragraph">
 <p>In saving from the object table up to the start of the text bank, the engine performs a comparison of the original gamefile against in-memory dynamic data (which may have changed).</p>
 </div>
 <div class="paragraph">
-<p>If a given byte <em>n</em> in a savefile is non-zero, it represents that the next <em>n</em> sequential bytes are identical between the gamefile and the saved data. If <em>n</em> is 0, the byte <em>n</em>+1 gives the value from the memory image. (Although it takes 2 bytes to represent a single changed byte, the position within both the gamefile and the memory image only increases by 1.)</p>
+<p>If a given byte <em>n</em> in a savefile is non-zero, it represents that the next <em>n</em> sequential bytes are identical between the gamefile and the saved data.
+If <em>n</em> is 0, the byte <em>n</em>+1 gives the value from the memory image. (Although it takes 2 bytes to represent a single changed byte, the position within both the gamefile and the memory image only increases by 1.)</p>
 </div>
 <div class="paragraph">
-<p>The practical implementation of the Hugo savefile format is found in RunSave() and RunRestore() in <strong>herun.c</strong>.</p>
+<p>The practical implementation of the Hugo savefile format is found in <code>RunSave()</code> and <code>RunRestore()</code> in <strong>herun.c</strong>.</p>
 </div>
 </div>
 </div>
