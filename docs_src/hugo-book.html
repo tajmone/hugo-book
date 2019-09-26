@@ -446,7 +446,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <span id="email" class="email"><a href="mailto:general@generalcoffee.com">general@generalcoffee.com</a></span><br>
 <span id="revnumber">version 1,</span>
 <span id="revdate">2018-10-04</span>
-<br><span id="revremark">Draft 6 -- Porting to AsciiDoc</span>
+<br><span id="revremark">Draft 7 -- Porting to AsciiDoc</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -14359,111 +14359,59 @@ UNDER THE HOOD OF HUGO AND THE .HEX FILE FORMAT
 </div>
 <div class="literalblock">
 <div class="content">
-<pre>+-------------+ +----------------------------+
-
-| RunGame() |----| RunRoutine("init" routine) |
-
-| herun.c | | herun.c |
-
-+-------------+ +----------------------------+
-
-/|\ \|/
-
-| |
-
-| | \+----------------------------+
-
-| +----| RunRoutine("main" routine) | MAIN EXECUTION
-
-| | /| herun.c | LOOP [1.1]
-
-| | +----------------------------+
-
-| | |
-
-| | \ |
-
-| +-------Player input [1.2]
-
-| | / |
-
-| | \|/
-
-| | +----------------+
-
-| | | Parse() | [2.1]
-
-| | | heparse.c |
-
-| | +----------------+
-
-/|\ /|\ |
-
-| | +----------------+ +---------------------------+
-
-| | | MatchCommand() |--| MatchWord() - heparse.c |
-
-| | | heparse.c | | MatchObject() - heparse.c |
-
-| | +----------------+ +---------------------------+
-
-| | | [2.2] [2.3]
-
-| If input |
-
-| is not-------+
-
-| valid |
-
-| |
-
-| If input
-
-| is valid
-
-| |
-
-| \|/
-
-| +-------------------------+
-
-| | RunRoutine(performaddr) | [3.1]
-
-| | herun.c |
-
-| +-------------------------+
-
-|/ | .
-
-+-----------------+ .
-
-\ .
-
-.
-
-.
-
-.
-
-+-----------------------+
-
-| Expression evaluator: | [4.1]
-
-| heexpr.c |
-
-| |
-
-| SetupExpr() |
-
-| | |
-
-| GetValue()--GetVal() |
-
-| | |
-
-| EvalExpr() |
-
-+-----------------------+</pre>
+<pre>+-------------+    +----------------------------+
+| RunGame()   |----| RunRoutine("init" routine) |
+|  herun.c    |    |          herun.c           |
++-------------+    +----------------------------+
+    /|\  \|/
+     |    |
+     |    |   \+----------------------------+
+     |    +----| RunRoutine("main" routine) | MAIN EXECUTION
+     |    |   /|          herun.c           | LOOP [1.1]
+     |    |    +----------------------------+
+     |    |            |
+     |    |      \     |
+     |    +-------Player input [1.2]
+     |    |      /     |
+     |    |           \|/
+     |    |    +----------------+
+     |    |    |    Parse()     | [2.1]
+     |    |    |   heparse.c    |
+     |    |    +----------------+
+    /|\  /|\           |
+     |    |    +----------------+  +---------------------------+
+     |    |    | MatchCommand() |--| MatchWord()   - heparse.c |
+     |    |    |   heparse.c    |  | MatchObject() - heparse.c |
+     |    |    +----------------+  +---------------------------+
+     |    |            | [2.2]       [2.3]
+     |    If input     |
+     |    is not-------+
+     |    valid        |
+     |                 |
+     |              If input
+     |              is valid
+     |                 |
+     |                \|/
+     |         +-------------------------+
+     |         | RunRoutine(performaddr) | [3.1]
+     |         |        herun.c          |
+     |         +-------------------------+
+     |/                |           .
+     +-----------------+           .
+      \                            .
+                                   .
+                                   .
+                                   .
+                          +-----------------------+
+                          | Expression evaluator: | [4.1]
+                          |       heexpr.c        |
+                          |                       |
+                          | SetupExpr()           |
+                          |     |                 |
+                          | GetValue()--GetVal()  |
+                          |     |                 |
+                          | EvalExpr()            |
+                          +-----------------------+</pre>
 </div>
 </div>
 <div class="paragraph">

@@ -5,111 +5,59 @@
 Here is a simple map of the main engine loop and the associated functions:
 
 ................................................................................
-+-------------+ +----------------------------+
-
-| RunGame() |----| RunRoutine("init" routine) |
-
-| herun.c | | herun.c |
-
-+-------------+ +----------------------------+
-
-/|\ \|/
-
-| |
-
-| | \+----------------------------+
-
-| +----| RunRoutine("main" routine) | MAIN EXECUTION
-
-| | /| herun.c | LOOP [1.1]
-
-| | +----------------------------+
-
-| | |
-
-| | \ |
-
-| +-------Player input [1.2]
-
-| | / |
-
-| | \|/
-
-| | +----------------+
-
-| | | Parse() | [2.1]
-
-| | | heparse.c |
-
-| | +----------------+
-
-/|\ /|\ |
-
-| | +----------------+ +---------------------------+
-
-| | | MatchCommand() |--| MatchWord() - heparse.c |
-
-| | | heparse.c | | MatchObject() - heparse.c |
-
-| | +----------------+ +---------------------------+
-
-| | | [2.2] [2.3]
-
-| If input |
-
-| is not-------+
-
-| valid |
-
-| |
-
-| If input
-
-| is valid
-
-| |
-
-| \|/
-
-| +-------------------------+
-
-| | RunRoutine(performaddr) | [3.1]
-
-| | herun.c |
-
-| +-------------------------+
-
-|/ | .
-
-+-----------------+ .
-
-\ .
-
-.
-
-.
-
-.
-
-+-----------------------+
-
-| Expression evaluator: | [4.1]
-
-| heexpr.c |
-
-| |
-
-| SetupExpr() |
-
-| | |
-
-| GetValue()--GetVal() |
-
-| | |
-
-| EvalExpr() |
-
-+-----------------------+
++-------------+    +----------------------------+
+| RunGame()   |----| RunRoutine("init" routine) |
+|  herun.c    |    |          herun.c           |
++-------------+    +----------------------------+
+    /|\  \|/
+     |    |
+     |    |   \+----------------------------+
+     |    +----| RunRoutine("main" routine) | MAIN EXECUTION
+     |    |   /|          herun.c           | LOOP [1.1]
+     |    |    +----------------------------+
+     |    |            |
+     |    |      \     |
+     |    +-------Player input [1.2]
+     |    |      /     |
+     |    |           \|/
+     |    |    +----------------+
+     |    |    |    Parse()     | [2.1]
+     |    |    |   heparse.c    |
+     |    |    +----------------+
+    /|\  /|\           |
+     |    |    +----------------+  +---------------------------+
+     |    |    | MatchCommand() |--| MatchWord()   - heparse.c |
+     |    |    |   heparse.c    |  | MatchObject() - heparse.c |
+     |    |    +----------------+  +---------------------------+
+     |    |            | [2.2]       [2.3]
+     |    If input     |
+     |    is not-------+
+     |    valid        |
+     |                 |
+     |              If input
+     |              is valid
+     |                 |
+     |                \|/
+     |         +-------------------------+
+     |         | RunRoutine(performaddr) | [3.1]
+     |         |        herun.c          |
+     |         +-------------------------+
+     |/                |           .
+     +-----------------+           .
+      \                            .
+                                   .
+                                   .
+                                   .
+                          +-----------------------+
+                          | Expression evaluator: | [4.1]
+                          |       heexpr.c        |
+                          |                       |
+                          | SetupExpr()           |
+                          |     |                 |
+                          | GetValue()--GetVal()  |
+                          |     |                 |
+                          | EvalExpr()            |
+                          +-----------------------+
 ................................................................................
 
 The functions in *herun.c* comprise most of the core game loop and calling points. RunGame() manages the game loop itself [1.1], which can be thought of as being:
