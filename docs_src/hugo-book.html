@@ -446,7 +446,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <span id="email" class="email"><a href="mailto:general@generalcoffee.com">general@generalcoffee.com</a></span><br>
 <span id="revnumber">version 1,</span>
 <span id="revdate">2018-10-04</span>
-<br><span id="revremark">Draft 4 -- Porting to AsciiDoc</span>
+<br><span id="revremark">Draft 5 -- Porting to AsciiDoc</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -12808,83 +12808,36 @@ UNDER THE HOOD OF HUGO AND THE .HEX FILE FORMAT
 <div class="paragraph">
 <p>If all the separate segments of a .HEX file were stacked contiguously on top of each other, the resulting pile would look something like this:</p>
 </div>
-<div class="paragraph">
-<p>DATA STORAGE: MAXIMUM SIZE:</p>
+<div class="literalblock">
+<div class="content">
+<pre>   DATA STORAGE:    MAXIMUM SIZE:
++-----------------+---------------+
+| (Link data for  |               |
+| .HLB files)     |               |
++-----------------+---------------+
+| Text bank       |        16384K |
++-----------------+---------------+
+| Dictionary      |           64K |
++-----------------+---------------+
+| Special words   |           64K |
++-----------------+---------------+
+| Array space     |           64K |
++-----------------+---------------+
+| Event table     |           64K |
++-----------------+---------------+
+| Property table  |           64K |
++-----------------+---------------+
+| Object table    |           64K |
++-----------------+---------------+
+| Grammar and     |               |
+| Executable code |         1024K |
++-----------------+---------------+
+| Header          |      64 bytes |
++-----------------+---------------+
+         (Bottom: $000000)
+
+     MAXIMUM SIZE: 17792K bytes<sup class="footnote">[<a id="_footnoteref_61" class="footnote" href="#_footnotedef_61" title="View footnote.">61</a>]</sup></pre>
 </div>
-<div class="paragraph">
-<p>--------------------------------+</p>
-</div>
-<div class="paragraph">
-<p>| (Link data for | |</p>
-</div>
-<div class="paragraph">
-<p>| .HLB files) | |</p>
-</div>
-<div class="paragraph">
-<p>--------------------------------+</p>
-</div>
-<div class="paragraph">
-<p>| Text bank | 16384K |</p>
-</div>
-<div class="paragraph">
-<p>--------------------------------+</p>
-</div>
-<div class="paragraph">
-<p>| Dictionary | 64K |</p>
-</div>
-<div class="paragraph">
-<p>--------------------------------+</p>
-</div>
-<div class="paragraph">
-<p>| Special words | 64K |</p>
-</div>
-<div class="paragraph">
-<p>--------------------------------+</p>
-</div>
-<div class="paragraph">
-<p>| Array space | 64K |</p>
-</div>
-<div class="paragraph">
-<p>--------------------------------+</p>
-</div>
-<div class="paragraph">
-<p>| Event table | 64K |</p>
-</div>
-<div class="paragraph">
-<p>--------------------------------+</p>
-</div>
-<div class="paragraph">
-<p>| Property table | 64K |</p>
-</div>
-<div class="paragraph">
-<p>--------------------------------+</p>
-</div>
-<div class="paragraph">
-<p>| Object table | 64K |</p>
-</div>
-<div class="paragraph">
-<p>--------------------------------+</p>
-</div>
-<div class="paragraph">
-<p>| Grammar and | |</p>
-</div>
-<div class="paragraph">
-<p>| Executable code | 1024K |</p>
-</div>
-<div class="paragraph">
-<p>--------------------------------+</p>
-</div>
-<div class="paragraph">
-<p>| Header | 64 bytes |</p>
-</div>
-<div class="paragraph">
-<p>--------------------------------+</p>
-</div>
-<div class="paragraph">
-<p>(Bottom: $000000)</p>
-</div>
-<div class="paragraph">
-<p>MAXIMUM SIZE: 17792K bytes<sup class="footnote">[<a id="_footnoteref_61" class="footnote" href="#_footnotedef_61" title="View footnote.">61</a>]</sup></p>
 </div>
 <div class="paragraph">
 <p>Each new segment begins on a boundary divisible by 16; an end-of-segment is padded with zeroes until the next boundary. For each segment, data is general stored in sequential chunks, following two or more bytes giving information about the size of the table.</p>
