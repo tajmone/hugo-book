@@ -1,0 +1,33 @@
+= THE DICTIONARY AND SPECIAL WORDS
+
+
+== Dictionary
+
+
+
+The dictionary begins with two bytes giving the total number of entries. Each dictionary entry is composed of 1 or more bytes:
+
+*Byte*
+
+0 Length of entry (number of characters)
+
+1 - Entry as an encrypted string
+
+== Special Words
+
+
+
+The special words table begins with two bytes giving the total number of entries. Each entry requires 5 bytes:
+
+*Byte*
+
+0 Type (0 = synonym, 1 = removal, 2 = compound,
+
+3 = user-defined punctuation)
+
+1 - 2 First dictionary address
+
+3 - 4 Second address (for synonyms and compounds)
+
+
+// EOF //

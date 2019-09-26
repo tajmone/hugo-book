@@ -1,0 +1,14 @@
+= THE EVENT TABLE
+
+
+
+The event table begins with two bytes giving the total number of events. Each event requires 2 bytes:
+
+*Bytes*
+
+0 - 1 Associated object (0 for a global event)
+
+2 - 3 Address of event routine
+
+
+// EOF //

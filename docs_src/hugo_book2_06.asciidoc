@@ -1,0 +1,153 @@
+= EXECUTABLE CODE
+
+
+== A Simple Program
+
+
+
+The following is a simple Hugo program:
+
+routine main
+
+\{
+
+print "Hello, Sailor!"
+
+pause
+
+return
+
+}
+
+It will print "`Hello, Sailor!`", wait for a keypress, and exit. When compiled, the grammar table and executable code look like this:
+
+000040: FF 00 00 00 33 6B 0E 00 5C 79 80 80 83 40 34 67
+
+000050: 75 7D 80 83 86 35 4C 57 21 4C 0D 21 4C 00 00 00
+
+Here is what those 32 bytes represent:
+
+000040: FF
+
+The grammar table is empty; no grammar has been defined. The first entry in the grammar table is $FF, signifying end-of-table.
+
+000041: 00 00 00
+
+Padding to the next address boundary.
+
+000044: 33
+
+A print token.
+
+000045: 5B 0E 00 5C 79 80 80 83 40 34 67 75 7D 80 83 86 35
+
+H e l l o , S a i l o r !
+
+A stringdata# ($5B) token of 14 characters ($000E), followed by the encoded string "`Hello, Sailor!`" (Since this is a print statement, the text is written directly into the code instead of in the text bank.)
+
+000056: 4C
+
+An eol# token, to signal end-of-line for the current print statement.
+
+000057: 57
+
+A pause token.
+
+000058: 21 4C
+
+A return token, followed by eol#. (If there is a value being returned, that expression comes between $21 and $4C. Since in this case the expression is blank--since there is no value being explicitly returned--the $4C comes immediately.)
+
+00005A: 0D 21 4C
+
+The closing brace symbol $0D marks the end of the routine. All routines are automatically followed by a default $21 and $4C--the equivalent of `return false`.
+
+== Expressions
+
+
+
+Expressions are encoded as the tokenized representation of the expression. Consider the following code excerpts, assuming that global initializations have included:
+
+global glob
+
+array arr[10]
+
+and, within the current routine:
+
+local loc
+
+(Assume also that glob and loc are the first global variable and first local variable defined.)
+
+{empty}1. loc = 10
+
+This is coded using the pattern
+
+<var#> <1 byte> = <value#> <2 bytes> <eol#>
+
+so that the resulting code looks like:
+
+45 F0 05 4B 0A 00 4C
+
+loc = 10
+
+The variable number $F0 specifies the first local variable (i.e., local variable 0, where the variable number of local variable _n_ is 240+__n__).
+
+{empty}2. glob = 5 * (2 + 1)
+
+Again, this is coded as a variable assignment:
+
+<var#> <1 byte> = <expression> <eol#>
+
+45 0C 05 4B 05 00 08 01 4B 02 00 07 4B 01 00 02 4C
+
+glob = 5 * ( 2 + 1 )
+
+Since the compiler always defines a number of global variables itself, the first-defined global is never 0. If there are 12 pre-defined globals, the first user-defined global has variable number $0C.
+
+{empty}3. arr[loc] = word[2]
+
+The pattern for this array element assignment is:
+
+<arraydata#> [ <expr> ] = <word> [ <expr> ] <eol#>
+
+59 F0 00 0E 45 F0 0F 05 52 0E 4B 02 00 0F 4C
+
+arr [ loc ] = word [ 2 ]
+
+(Note that word[n] is not handled the same as array[n].)
+
+{empty}4. array[1] = random(obj.prop #2)
+
+(Assuming that obj and prop are the first-defined object and property, respectively.)
+
+<arraydata#> [ <expr> ] = random ( <expr> ) <eol#>
+
+59 F0 00 0E 4B 01 00 0F 05 51
+
+arr [ 1 ] = random
+
+01 4A 00 00 03 43 06 10 4B 02 00 02 4C
+
+( obj . prop # 2 )
+
+{empty}5. glob += (loc++ * arr[7])
+
+45 0C 07 05 01 45 F0 07 07 08
+
+glob + = ( loc + + *
+
+59 F0 00 0E 4B 07 00 0F 02 4C
+
+arr [ 7 ] )
+
+{empty}6. if loc = glob + 11
+
+(See _APPENDIX A:_ _CODE PATTERNS_ for details on how if statements and other conditionals are coded.)
+
+18 21 00 45 F0 05 45 0C 07 4B 0B 00 4C
+
+if loc = glob + 11
+
+2 bytes give the skip distance (i.e., $0021 bytes) to the next-executed instruction if the current expression evaluates false.
+
+
+// EOF //

@@ -1,0 +1,1982 @@
+[appendix]
+= CODE PATTERNS
+
+What follows is a detailed breakdown of how the set of valid tokens in Hugo is encoded and read within compiled code.
+
+Tokens simply marked *TOKEN* are coded just as the byte value of the token in question; no other formatting or necessary token/value is required to follow. These are typically used for delimitation, signaling the end of a structure or structure component, etc.
+
+*STATEMENTS* are those tokens that are read by the engine as some sort of operation--typically, these are "`start of line`" tokens, with some exceptions.
+
+*VALUES* return an integer value to the engine within the context of an expression. See _III.b_ _Data Types_, which describes all the valid types of values.
+
+*INTERNAL* tokens never appear in source code. These are added by the compiler for use by the engine.
+
+A "`code block`" is any executable statement or statements followed by a terminating $0D (`}`).
+
+Constructions may include _expressions_ or _values_; the difference between the two is that values are expected to be discrete data types. Note also that GetVal() in *heexpr.c* allows a solvable expression bracketed by $01 (`(`) and $02 (`)`) to be treated as a discrete value.
+
+Source references point to places in the Hugo C source code that may help to clarify how a particular construction is coded/interpreted. While not specifically mentioned, the compiling of many tokens is localized in CodeLine() in *hccode.c*, and the execution of many simple statements is localized in RunRoutine() in *herun.c*. The reading of values from data types or expressions begins with GetValue() in *heexpr.c*, with the basic identification of values in GetVal().
+
+*01 ( TOKEN*
+
+*02 ) TOKEN*
+
+*03 . TOKEN*
+
+*04 : reserved (not coded)*
+
+*05 = TOKEN*
+
+*06 - TOKEN*
+
+*07 + TOKEN*
+
+*08 * TOKEN*
+
+*09 / TOKEN*
+
+*0A | TOKEN*
+
+*0B ; TOKEN*
+
+*0C \{ TOKEN*
+
+*0D } TOKEN*
+
+(Signifies the end of a code block)
+
+*0E [ TOKEN*
+
+*0F ] TOKEN*
+
+*10 # TOKEN*
+
+*11 ~ TOKEN*
+
+*12 >= TOKEN*
+
+*13 <= TOKEN*
+
+*14 ~= TOKEN*
+
+*15 & TOKEN*
+
+*16 > TOKEN*
+
+*17 < TOKEN*
+
+18 if STATEMENT
+
+18 <skip distance> <expression> 4C
+
+<conditional block>
+
+<next statement>
+
+*As in:* if <expression>
+
+\{...}
+
+Where the two bytes of <skip distance> are the absolute distance--in low-byte/high-byte order--from the first byte of the pair to the next line of code that will execute if <expression> evaluates to false, i.e., the distance to <next statement>. If <expression> evaluates to a non-false value, <conditional block> is run. Note that $4C indicates end-of-line.
+
+<expression> is simply a tokenized representation of the expression as it appears in the source line.
+
+*Source: hccode.c* – CodeIf()
+
+*herun.c* – RunIf()
+
+*19 , TOKEN*
+
+1A else STATEMENT
+
+1A <skip distance>
+
+<conditional block>
+
+<next statement>
+
+*As in:* else
+
+\{...}
+
+Where <conditional block> runs only if no immediately preceding if or elseif condition has been met. If a previous condition has been met, control passes ahead to <next statment>, i.e., forward the number of bytes given by the two bytes of <skip distance>.
+
+*Source:* *hccode.c* – CodeLine()
+
+*herun.c* – RunIf()
+
+1B elseif STATEMENT
+
+1B <skip distance> <expression> 4C
+
+<conditional block>
+
+<next statement>
+
+*As in:* elseif <expression>
+
+\{...}
+
+See if.
+
+*Source:* *hccode.c* – CodeIf()
+
+*herun.c* – RunIf()
+
+1C while STATEMENT
+
+:<starting point>
+
+1C <skip distance> <expression> 4C
+
+<conditional block>
+
+25 <starting point>
+
+<next statement>
+
+*As in:* while <expression>
+
+\{...}
+
+As long as <expression> evaluates to a non-false value, <conditional block> is run. Note the implicit jump ($25) coded by the compiler to maintain the loop--<starting point> is only an address; only the two-byte address following $25 is written as a jump-back point. See if.
+
+Note that because the <starting point> is written as a two-byte indexed address, it must begin on an address boundary, padded with empty ($00) values, if necessary.
+
+*Source:* *hccode.c* – CodeWhile()
+
+*herun.c* – RunIf()
+
+1D do STATEMENT
+
+1D <skip distance>
+
+:<starting point>
+
+<block>
+
+1C <two bytes> <expression> 4C
+
+<next statement>
+
+*As in:* do
+
+\{...}
+
+while <expression>
+
+If, after <block> executes, <expression> evaluates to a non-false value, the engine returns to <starting point> (which must begin on an address boundary). The two bytes following while ($1C) match the syntax of the normal while loop, but are undefined for this usage. Instead, the distance to the next statement is given after the do token ($1D) in the two bytes of <skip distance>.
+
+Source: *hccode.c* – CodeDo()
+
+*herun.c* – RunDo()
+
+1E select STATEMENT
+
+1E
+
+When encountered by the engine, resets the conditional-statement evaluator, i.e., so that the next case conditional is treated as an if instead of an elseif. Note that the variable that follows select in a line of source code is not coded here (but it is needed by the compiler to construct subsequent case statements).
+
+See case.
+
+*Source:* *hccode.c* – CodeSelect()
+
+*herun.c* – RunIf()
+
+1F case STATEMENT
+
+Treated identically by the engine to elseif once a select token ($1E) has reset the conditional-statement evaluator to no previous matches.
+
+In other words, what the compiler does is take:
+
+select <expression>
+
+case <test1>
+
+<first conditional block>
+
+case <test2>
+
+<second conditional block>
+
+...
+
+case else
+
+<default conditional block>
+
+and restructure it into:
+
+1F <skip distance> <expression> 05 <test1> 4C
+
+<first conditional block>
+
+1F <skip distance> <expression> 05 <test2> 4C
+
+<second conditional block>
+
+1A <skip distance>
+
+<default conditional block>
+
+Note that $1A is the else token, $05 is the `=` token, and that the two bytes of <skip distance> give the distance to the next case.
+
+*Source:* *hccode.c* – CodeSelect()
+
+*herun.c* – RunIf()
+
+20 for STATEMENT
+
+<assignment>
+
+:<starting point>
+
+20 <skip distance> <expression> 4C
+
+<conditional block>
+
+<modifying expression>
+
+25 <starting point>
+
+<next statement>
+
+*As in:* for (<assign>; <expr>; <modifying>)
+
+\{...}
+
+The <assignment>, if given in the source code, is coded as a regular executable assignment of some data type. Again, nothing is explicitly coded at <starting point>--it is simply a reference point for the jump ($25) to return to. The for ($20) line operates as a regular conditional test (see if). The <modifying expression> is appended after the conditional block is coded. This, like the <assignment> is simply a regular executable assignment.
+
+*Source:* *hccode.c* – CodeFor()
+
+*herun.c* – RunIf()
+
+21 return STATEMENT
+
+21 <expression> 4C
+
+*As in:* return <expression>
+
+Where <expression> is optional, so that a standalone return order can be coded as:
+
+21 4C
+
+22 break STATEMENT
+
+22
+
+*23 and TOKEN*
+
+*24 or TOKEN*
+
+25 jump STATEMENT
+
+25 <address>
+
+*As in:* jump <label>
+
+Where <address> is two bytes giving the indexed address of the next statement to be executed. (The <label> is coded as <address>.)
+
+26 run STATEMENT
+
+26 <value> 4Cfootnote:[Pre-v2.3 omitted the eol# marker ($4C).]
+
+Where <value> is simply read and forgotten, as in running an object.property property routine and throwing away the value.
+
+27 is TOKEN
+
+As in: <object> is <attribute> (statement form)
+
+<object> is <attribute> (value form).
+
+*28 not TOKEN*
+
+29 true VALUE
+
+29
+
+Hard-coded Boolean constant meaning 1.
+
+2A false VALUE
+
+2A
+
+Hard-coded Boolean constant meaning 0.
+
+*2B local reserved (not coded)*
+
+2C verb STATEMENT
+
+2C <n> <dict_1> <dict_2>...<dict_n>
+
+Occurs in the grammar table and explicitly denotes the beginning of a new verb, where the single byte <n> gives the number of dictionary words coded immediately following representing synonyms for this verb.
+
+2D xverb STATEMENT
+
+2D <n> <dict_1> <dict_2>...<dict_n>
+
+Coded and handled identically to verb, except that it is flagged differently so the engine knows it is a "`non-action`".
+
+*2E held GRAMMAR TOKEN*
+
+*2F multi GRAMMAR TOKEN*
+
+*30 multiheld GRAMMAR TOKEN*
+
+31 newline PRINT TOKEN
+
+Signals a print statement to issue a newline _only_ if one is needed.
+
+*32 anything GRAMMAR TOKEN*
+
+33 print STATEMENT
+
+33 <print data> 4C
+
+33 <print data> 0B <print data> ... 4C
+
+Where <print data> is one of the following:
+
+stringdata#
+
+any value, treated as a dictionary entry
+
+parse$
+
+serial$
+
+newline
+
+capital
+
+number
+
+hex
+
+Multiple <print data> sequences are separated by a semicolon (`;`) token ($0B).
+
+*Source:* *herun.c* – RunPrint()
+
+34 number GRAMMAR TOKEN or PRINT TOKEN
+
+In a print statement, signals that the following value should be printed as a number, not as the corresponding dictionary entry.
+
+In a grammar line, represents any integer number.
+
+35 capital PRINT TOKEN
+
+Signals that the following dictionary entry should have its first letter capitalized.
+
+36 text STATEMENT
+
+36 3B <value> 4Cfootnote:[Pre-v2.3 omitted the eol# marker ($4C).]
+
+*As in:* text to n
+
+Where <value> is either an address in the array table, or constant 0 (to restore text output to the standard display).
+
+37 graphics STATEMENT
+
+(Not implemented.)
+
+38 color STATEMENT
+
+38 <value> 4C
+
+38 <value> 19 <value> 4C
+
+38 <value> 19 <value> 19 <value> 4C
+
+*As in:* color foreground
+
+color foreground, background
+
+color foreground, background, inputcolor
+
+Where <value> is a Hugo color value from 0 to 17 giving the foreground text color. If a second value is given, separated by a comma ($19), it represents the background color. If a third value is given, separated by a comma ($19), it represents the input color.
+
+39 remove STATEMENT
+
+39 <value> 4Cfootnote:[Pre-v2.3 omitted the eol# marker ($4C).]
+
+*As in:* remove <object>
+
+*Source:* *herun.c* – RunMove()
+
+3A move STATEMENT
+
+3A <value> 3B <value> 4Cfootnote:[Pre-v2.3 omitted the eol# marker ($4C).]
+
+*As in:* move <object1> to <object2>
+
+*Source:* *herun.c* – RunMove()
+
+3B to TOKEN
+
+Followed by a value, as in:
+
+3B <value>
+
+Typically found in `print to n`, `text to n`, etc., in which case the line will finish with eol#:
+
+...3B <value> 4C
+
+3C parent VALUE
+
+3C 01 <expression> 02
+
+*As in:* parent(...)
+
+Returns the parent object of the object resulting from <expression>.
+
+(Alternate usage is as a grammar token, coded simply as $3C with no following parenthetical expression.)
+
+3D sibling VALUE
+
+3D 01 <expression> 02
+
+*As in:* sibling(...)
+
+Returns the sibling of the object resulting from <expression>.
+
+3E child VALUE
+
+3E 01 <expression> 02
+
+*As in:* child(...)
+
+Returns the child object of the object resulting from <expression>.
+
+3F youngest VALUE
+
+3F 01 <expression> 02
+
+*As in:* youngest(...)
+
+Returns the youngest (most recently added) child object of the object resulting from <expression>.
+
+40 eldest VALUE
+
+40 01 <expression> 02
+
+*As in:* eldest(...)
+
+Iinterpreted identically to `child(...)`.
+
+41 younger VALUE
+
+41 01 <expression> 02
+
+*As in:* younger(...)
+
+Interpreted identically to `sibling(...)`.
+
+42 elder VALUE
+
+42 01 <expression> 02
+
+*As in:* elder(...)
+
+Returns the object number of the object more recently added to the parent of the object resulting from <expression>.
+
+43 prop# INTERNAL VALUE
+
+43 <property>
+
+Where <property> is a single byte giving the property number.
+
+44 attr# INTERNAL VALUE
+
+44 <attribute>
+
+Where <attribute> is a single byte giving the attribute number.
+
+45 var# INTERNAL VALUE
+
+45 <variable>
+
+Where <variable> is a single byte giving the variable number. 0-239 are global variables, and 240-255 are local to this routine/event/etc.
+
+46 dictentry# INTERNAL VALUE
+
+46 <dictionary entry>
+
+Where <dictionary entry> is two bytes (in low-byte/high-byte order) giving the address of the entry in the dictionary table.
+
+47 text# INTERNAL STATEMENT
+
+47 <text address>
+
+Where <text address> is three bytes (in lowest-to-highest byte order) giving the address of the entry in the text bank.
+
+48 routine# INTERNAL STATEMENT or VALUE
+
+48 <routine address>
+
+Where <routine address> is two bytes giving the indexed address of the specified routine.
+
+49 debugdata# INTERNAL DATA
+
+Is followed by data that is helpful to the engine at runtime--not visible in, for example, the debugger's code window.
+
+E.g., local variable name:
+
+49 45 <byte> <data>
+
+Where <byte> is a single byte giving the number of following <data> bytes, which give the name of the next local variable as an ASCII string. Read by the debugger; ignored by the engine.
+
+4A object# INTERNAL VALUE
+
+4A <object number>
+
+Where <object number> is two bytes giving the number of the specified object.
+
+4B value# INTERNAL VALUE
+
+4B <number>
+
+Where <number> is two bytes giving the specified constant value.
+
+4C eol# INTERNAL TOKEN
+
+End-of-line marker.
+
+4D system INTERNAL STATEMENT or VALUE
+
+4D 01 <value> 02 4Cfootnote:[Pre-v2.3 omitted the eol# marker ($4C).]
+
+*As in:* system(<value>)
+
+Calls the system-level function designated by <value>. (See _The Hugo Programming Manual_ for further elaboration on the system statement.)
+
+Obsolete usage:footnote:[Not implemented post-v2.2.]
+
+4D <value>
+
+Where <value> is some Hugo data type giving the number of the system function to call.
+
+*Source:* *herun.c* – RunSystem()
+
+*4E notheld GRAMMAR TOKEN*
+
+*4F multinotheld GRAMMAR TOKEN*
+
+50 window STATEMENT
+
+window n
+
+50 <value> 4C
+
+window left, top, right, bottom
+
+50 <v1> 19 <v2> 19 <v3> 19 <v4> 4C
+
+window
+
+50 4C
+
+window 0
+
+50 4B 00 00 4C
+
+Where <value> or <v__n__>, if present, gives a number of lines or screen coordinate. All instances of the window statement are followed by a code block except for `window 0`. (See _The Hugo Programming Manual_ for further elaboration on the window statement.)
+
+(Prior to v2.4, the third syntax, i.e., `window` alone, complied as `50 4C` in v2.3 or simply `50` in early versions, followed by a code block, was the only usage. The result was a window beginning at the top of the screen, reaching down to the current cursor row at the termination of the block, and protected then from scrolling of the bottom/main window.)
+
+*Source:* *herun.c* – RunWindow()
+
+51 random VALUE
+
+51 01 <expression> 02
+
+*As in:* random(...)
+
+Returns a random value between 1 and <expression>.
+
+52 word VALUE
+
+52 0E <expression> 0F
+
+*As in:* word[...]
+
+Returns the dictionary address of word[<expression>].
+
+53 locate STATEMENT
+
+53 <value> 4C
+
+53 <value> 19 <value> 4C
+
+*As in:* locate x
+
+locate x, y
+
+Where <value> is the column position to reposition the cursor to within the currently defined window. If a second value is given, it represents the new row position.
+
+54 parse$ TOKEN
+
+Read-only engine variable representing the engine parser's internal parse$ string.
+
+*Source:* *herun.c* – RunPrint()
+
+*hemisc.c* – Dict(), GetWord()
+
+55 children VALUE
+
+55 01 <expression> 02
+
+*As in:* children(...)
+
+Returns the number of children owned by the object resulting from <expression>.
+
+56 in TOKEN
+
+*As in:* for <object> in <parent>
+
+or
+
+if <object> [not] in <parent>
+
+57 pause STATEMENT
+
+57
+
+Waits for a keypress. Stores the resulting key value in word[0].
+
+58 runevents STATEMENT
+
+58
+
+Runs all events in scope.
+
+59 arraydata# VALUE
+
+array[<expression>] – element <expression> of array <array>
+
+59 <array> 0E <value> 0F
+
+array[]– length of array <array>
+
+59 <array> 0E 0F
+
+array – address of array <array>
+
+59 <array>
+
+Where <array> is two bytes giving the address of the array in the array table.
+
+5A call STATEMENT or VALUE
+
+5A <value> 4Cfootnote:[Pre-v2.3 omitted the eol# marker ($4C) when used as a statement.]
+
+*As in:* call <routine address>
+
+Where <value> gives the indexed address of the routine to be called.
+
+5B stringdata# PRINT TOKEN
+
+5B <__n__> <char1> <char2> <char3> ... <char__n__>
+
+Valid only in a print statement. <__n__> gives the number of characters contained in the print string.
+
+*Source:* *herun.c* – RunPrint()
+
+5C save VALUE
+
+*As in:* x = save
+
+Calls the engine's save-game procedure (which includes filename input); returns a true value on success, or false on failure.
+
+*Source: herun.c* – RunSave()
+
+5D restore VALUE
+
+*As in:* x = restore
+
+Calls the engine's restore-game procedure (which includes filename input); returns a true value on success, or false on failure.
+
+*Source:* *herun.c* – RunRestore()
+
+5E quit STATEMENT
+
+5E
+
+Terminates program execution and exits the engine.
+
+5F input STATEMENT
+
+5F
+
+Prompts for user input, storing the resulting word(s) in the word[] array. Unknown (i.e., non-dictionary) words become 0, or `+""+`; the last unknown word is stored in parse$.
+
+*Source: herun.c* – RunInput()
+
+60 serial$ PRINT TOKEN
+
+Read-only engine variable representing the compiler-determined serial number.
+
+*Source:* *hemisc.c* – GetWord()
+
+61 cls STATEMENT
+
+61
+
+Clears the currently defined text window.
+
+62 scripton VALUE
+
+*As in:* x = scripton
+
+Calls the engine's begin-scripting procedure (which includes filename input); returns a true value on success, or false on failure.
+
+*Source:* *herun.c* – RunScript()
+
+63 scriptoff VALUE
+
+*As in:* x = scriptoff
+
+Calls the engine's end-scripting procedure; returns a true value on success, or false on failure.
+
+*Source: herun.c* – RunScript()
+
+64 restart VALUE
+
+*As in:* x = restart
+
+Attempts to reload the dynamic game data and restart the game loop; returns a true value on success or false on failure.
+
+65 hex PRINT TOKEN
+
+Signals that the following value should be printed as a hexadecimal number, not as the corresponding dictionary entry.
+
+66 object GRAMMAR TOKEN
+
+(Removed as a token after grammar table is compiled so that `object` can refer to the object global variable.)
+
+67 xobject GRAMMAR TOKEN
+
+(Removed as a token after grammar table is compiled so that `xobject` can refer to the xobject global variable.)
+
+68 string VALUE
+
+68 01 <expr1> 19 <expr2> 19 <expr3> 02
+
+*As in:* x = string(a, "apple", 8)
+
+Calls the engine string-writing function to write the dictionary entry <expr2> into the array table at the array address given by <expr1>, to a maximum of <expr3> characters. <expr1> is any data type or expression; <expr2> is either a value or the parse$ token ($54); <expr3> is optional, and if it is not given, the $02 token comes in place of the second $19.
+
+*Source:* *herun.c* – RunString()
+
+69 array VALUE
+
+69 <value>
+
+Forces <value> to be used as an address in the array table, so that `array <value>` can be used as arraydata#.
+
+*Source:* *heexpr.c* – GetVal()
+
+6A printchar STATEMENT
+
+6A <value1> 19 <value2> 19 ... 4C
+
+*As in:* printchar 'A', 'B',...
+
+Outputs a single ASCII character value at the current screen position. Multiple values are separated by $19; the sequence is terminated by $4C.
+
+6B undo VALUE
+
+*As in:* x = undo
+
+Attempts to restore all data changes made since the last typed input; returns a true value on success or false on failure.
+
+*Source:* *hemisc.c* – SaveUndo(),Undo()
+
+6C dict VALUE
+
+6C 01 <expr1> 19 <expr2> 02
+
+*As in:* x = dict(<array>, <len>)
+
+Calls the engine dictionary-writing function to write the given string into the dictionary, to a maximum of <len> characters. If <expr1> is parse$ ($54), then the value of parse$ is used; otherwise <expr1> is an array address in the array table. If the string is already a dictionary entry, its location is returned. Otherwise, it is appended to the end of the table, and the new location is returned.
+
+*Source:* *hemisc.c* – Dict()
+
+6D recordon VALUE
+
+*As in:* x = recordon
+
+Calls the engine's begin-command-recording procedure (which includes filename input); returns a true value on success, or false on failure.
+
+*Source:* *hemisc.c* – RecordCommands()
+
+6E recordoff VALUE
+
+*As in:* x = recordoff
+
+Calls the engine's end-command-recording procedure; returns a true value on success, or false on failure.
+
+*Source:* *hemisc.c* – RecordCommands()
+
+6F writefile STATEMENT
+
+6F <value> 4Cfootnote:[Pre-v2.3 omitted the eol# marker ($4C).]
+
+...file i/o code block...
+
+*As in:* writefile <file>
+
+\{...}
+
+Opens the file named by the dictionary entry <value>, erasing it if it previously exists, and runs the following code block. Upon any error, jumps to the end of the file i/o code block and closes <file>.
+
+*Source:* *hemisc.c* – FileIO()
+
+70 readfile STATEMENT
+
+70 <value> 4Cfootnote:[Pre-v2.3 omitted the eol# marker ($4C).]
+
+...file i/o code block...
+
+*As in:* readfile <file>
+
+\{...}
+
+Opens the file named by the dictionary entry <value> and runs the following code block. Upon any error, jumps to the end of the file i/o code block and closes <file>.
+
+71 writeval STATEMENT
+
+71 <value> 19 <value> 19 ... 4Cfootnote:[Pre-v2.3 omitted the eol# marker ($4C).]
+
+Valid only in a writefile block. Writes <value> as a 16-bit integer to the currently open file. Multiple values are separated by $19.
+
+72 readval VALUE
+
+*As in:* x = readval
+
+Valid only in a readfile block. Reads a 16-bit integer from the currently open file.
+
+73 playback VALUE
+
+*As in:* x = playback
+
+Calls the engines command-playback procedure (including filename input) and attempts to begin command playback from the requested file. If found, player input in RunGame() is overridden by commands in the file until end-of-file. Returns true on success, false on failure.
+
+74 colour STATEMENT
+
+Treated identically to $38: color.
+
+75 picture STATEMENT
+
+75 <value1> 19 <value2> 4C
+
+75 <value1> 4C
+
+Attempts to load and display a JPEG-format picture either as resource <value2> in resourcefile <value1>, or, if <value2> is not given, simply as filename <value1>. (All <values> are dictionary entries.) If there is an error, the system_status global variable is set.
+
+*76 label# INTERNAL DATA*
+
+77 sound STATEMENT
+
+77 [79] <value1> 19 <value2> [19 <value3>] 4C
+
+77 <value1> 4C
+
+Attempts to load and play a WAV-format sample as resource <value2> in resourcefile <value1>. (<value1> and <value2> are dictionary entries.) If <value3> is given, the sample output volume is set to <value3> (as a percentage of normal output). If <value1> is 0, the current sound is stopped. If there is an error, the system_status global variable is set.
+
+78 music STATEMENT
+
+78 [79] <value1> 19 <value2> [19 <value3>] 4C
+
+78 <value1> 4C
+
+Attempts to load and play a music resourcefootnote:[Version 2.5 supports MOD, S3M, and XM-format music modules. Version 3.0 and later additionally support MIDI and MP3 files.] as resource <value2> in resourcefile <value1>. (<value1> and <value2> are dictionary entries.) If <value3> is given, the music output volume is set to <value3> (as a percentage of normal output). If <value1> is 0, the current music is stopped. If there is an error, the system_status global variable is set.
+
+79 repeat TOKEN
+
+Used by sound and music statements.
+
+*INDEX*
+
+.HDX file format, 264
+
+.HEX file format, 225
+
+abs (library routine), 202
+
+accented characters, 62, 63, 95, 261
+
+Acquire (library routine), 42, 43, 192
+
+Activate (library routine), 100, 101, 105, 106, 204, 212
+
+adjective (property, compiler-defined), 45, 48, 49, 51, 97, 113, 118, 135, 138, 140, 183
+
+AFTER_PERIOD (library global variable), 180
+
+aliases, 45, 118, 208, 252, 253, 255, 265
+
+already_listed (library attribute), 40, 180
+
+AND_WORD (library constant), 182
+
+AnyVerb (library routine), 92, 192
+
+ARE_WORD (library constant), 182
+
+arguments of routines, 82, 158
+
+Arnold, Julian, 3
+
+array space, 69, 208
+
+arrays, 20, 66, 68, 69, 70, 93, 102, 149, 159, 173, 208, 239, 252, 254, 265, 284
+
+definition, 68
+
+ASCII characters, 19, 62, 63, 151, 241, 280, 288
+
+assignments, 24
+
+AssignPronoun (library routine), 189, 190, 192
+
+attachable objects, 142
+
+attributes, 20, 39, 40, 41, 42, 45, 48, 49, 50, 51, 53, 117, 121, 122, 132, 149, 195, 198, 199, 208, 216, 242, 251, 252, 255, 264
+
+aliases, 40
+
+definition, 39
+
+BANNER (library constant), 20, 93, 181
+
+Baranov, Dmitry, 3
+
+before and after routines, 88, 89, 91, 104, 124, 126, 129, 198, 246
+
+BeOS, 3, 13, 219
+
+BGCOLOR (library global variable), 93, 180
+
+Bijster, Mark, 3
+
+bitwise operators, 65
+
+Blasius, Volker, 3
+
+Blask, Jonathan, 3
+
+BOLD_OFF (font style mask constant), 62, 93, 182
+
+BOLD_ON (font style mask constant), 62, 93, 182
+
+Bostock, Gerald, 3
+
+Bowes, Cam, 3
+
+Brown, Jason, 3
+
+CalculateHolding (library routine), 94, 192, 193
+
+CancelScript (library routine), 103, 205
+
+cant_go (library property), 44, 185
+
+capacity (library property), 42, 44, 46, 97, 132, 183, 192
+
+Cardenas, Daniel, 3
+
+CArt (library routine), 191, 211
+
+Cebrian, Jose Luis, 3
+
+CenterTitle (library routine), 193, 197
+
+character class, 132
+
+character scripts, 102, 103, 181, 205
+
+routines, 94, 95, 102, 103, 104, 126, 205, 206, 211
+
+CheckReach (library routine), 193
+
+classes
+
+definition, 48
+
+clothing (library attribute), 39, 179
+
+command-line, 7, 9, 13, 15, 16, 28, 213, 250
+
+comments, 3, 25, 31, 32
+
+multiple-line, 25
+
+compiler
+
+directives, 27, 31, 251
+
+errors, 25, 32
+
+invocation, 9, 13, 14, 28
+
+limit settings, 12, 13, 16, 28, 30
+
+precompiled headers, 6, 11, 28, 216, 217
+
+compiler internal data structures, 252
+
+compiling, 9, 13, 14, 28
+
+component class, 136
+
+compounds, 113
+
+conditional compilation, 28, 209, 217
+
+constants, 19, 20, 22, 23, 43, 52, 54, 55, 56, 59, 62, 65, 66, 68, 93, 94, 150, 155, 160, 162, 170, 175, 176, 182, 187, 195, 208, 251, 254, 255, 273, 275, 280
+
+enumerating, 55
+
+container (library attribute), 39, 40, 98, 110, 121, 136, 179, 183, 184
+
+Contains (library routine), 105, 193
+
+contains_desc (library property), 45, 97, 98, 185
+
+counter (library global variable), 93, 94, 98, 105, 126, 181, 195, 196, 259
+
+CThe (library routine), 129, 191, 192, 210
+
+cursor_column (display object property), 45, 146, 147, 187
+
+cursor_row (display object property), 45, 146, 187
+
+CustomError (library routine), 121, 181, 190, 194
+
+customerror_flag (library global variable), 181
+
+d_to (library property), 44, 185
+
+daemons (see also fuses), 100
+
+DarkWarning (library routine), 194, 198
+
+data types, 19, 21, 30, 31, 43, 52, 55, 57, 58, 59, 65, 157, 158, 228, 229, 230, 266, 272, 281, 287
+
+Deactivate (library routine), 101, 105, 106, 204, 212
+
+debugger, 2, 3, 5, 11, 213, 263
+
+debugging, 10, 11, 16, 28, 33, 58, 118, 122, 123, 125, 210, 211, 213, 223, 227, 264
+
+DEF_FOREGROUND (color constant), 60, 93, 182
+
+DEF_SL_FOREGROUND (color constant), 60, 93, 182
+
+DEFAULT_FONT (library global variable), 93, 180
+
+DeleteWord (library routine), 194
+
+desc_detail (library property), 45, 186
+
+DESCFORM_F (printing format mask constant), 182
+
+DescribePlace (library routine), 17, 94, 194
+
+dictionary entries, 11, 12, 13, 55, 56, 70, 72, 160, 197, 214, 241, 254, 290, 291
+
+dictionary table, 20, 72, 80, 112, 167, 209, 213, 226, 230, 233, 241, 279
+
+direction class, 131
+
+disambiguation, 122, 189, 210
+
+display object, 34, 45, 146, 147, 151, 187
+
+properties, 187
+
+door class, 136, 137
+
+door_to (library property), 44, 98, 137, 186
+
+DOS, 3, 7, 9, 11, 61, 63, 79, 213
+
+do-while loops, 75, 77, 161, 176
+
+DOWN_ARROW (library constant), 182
+
+Duchesne, Gilles, 3
+
+Dyer, Jason, 3
+
+e_to (library property), 44, 131, 185
+
+endflag (global variable, compiler-defined), 127, 189
+
+EndGame (junction routine), 54, 121, 128, 227
+
+engine globals (compiler-defined), 180
+
+engine internal data structures, 259
+
+engine properties (compiler-defined), 183
+
+ENTER_KEY (library constant), 182
+
+enterable (library attribute), 39, 98, 179, 184, 229
+
+ESCAPE_KEY (library constant), 182
+
+event table, 247, 251
+
+event_flag (library global variable), 104, 181
+
+events, 247
+
+global, 95, 247
+
+exclude_from_all (library property), 44, 183
+
+ExcludeFromAll (library routine), 189, 194
+
+expressions, 24, 56, 65, 68, 74, 213, 215, 229, 260, 263, 264, 266
+
+conditional, 77, 163
+
+female (library attribute), 39, 120, 132, 179
+
+FILE_CHECK (library constant), 150, 170, 183
+
+files
+
+reading, 149, 150, 170, 171, 177, 183, 229, 289, 290
+
+writing, 149, 150, 170, 177, 178, 183, 229, 289, 290
+
+FindLight (library routine), 20, 65, 68, 94, 195
+
+FindObject (junction routine), 95, 118, 121, 122, 210, 227
+
+Font (library routine), 62, 93, 182, 195
+
+font style mask constants, 182
+
+for loops, 76
+
+FORMAT (library global variable), 180, 182, 196, 197, 202, 221
+
+found_in (library property), 20, 42, 43, 44, 47, 88, 122, 183, 184
+
+fuses (see also daemons), 101
+
+_Future Boy!_ (Hugo game), 16, 220
+
+game loop, 54, 126, 127, 128, 129, 170, 171, 257, 258, 286
+
+Garza, Miguel, 3
+
+GetInput (library routine), 195
+
+GMD, 3
+
+grammar definition, 5, 107, 108, 113, 235
+
+grammar table, 113, 126, 226, 235, 236, 237, 245, 255, 258, 274, 287
+
+GROUPPLURALS_F (printing format mask constant), 182
+
+hasgraphics (display object property), 45, 146, 154, 187, 260
+
+hasvideo (display object property), 146, 187, 261
+
+Hello, Sailor!, 18, 237, 238
+
+her_obj (library global variable), 181, 193
+
+HERE_WORD (library constant), 182
+
+hexadecimal numbers, 58, 163, 286
+
+hidden (library attribute), 40, 179, 187
+
+higher (library routine), 22, 202
+
+him_obj (library global variable), 181, 193
+
+holding (library property), 42, 44, 97, 132, 158, 167, 178, 184, 192, 193
+
+hours:minutes, 233
+
+HoursMinutes (library routine), 195
+
+Hugo Library, 2, 36, 210
+
+Hugo License, 2
+
+hugofix.g (library file), 6, 28
+
+hugofix.h (library file), 6, 28, 217
+
+hugolib.h (library file), 5, 6, 28, 34, 39, 42, 43, 59, 60, 62, 79, 85, 93, 95, 97, 99, 102, 103, 104, 114, 118, 120, 121, 122, 123, 126, 127, 128, 130, 146, 150, 151, 160, 170, 187, 188, 197, 206, 210, 216, 217
+
+identical objects, 94, 122, 139, 141, 142
+
+IF Archive, 3
+
+if-elseif, 74, 161
+
+ignore_response (library property), 45, 186
+
+in_scope (library property), 44, 101, 122, 184, 200
+
+in_to (library property), 44, 131, 185
+
+IN_WORD (library constant), 182
+
+Indent (library routine), 196
+
+INDENT_SIZE (library global variable), 180, 196
+
+Inform, 2, 4, 220
+
+Init (junction routine), 18, 93, 126, 139, 171, 227
+
+initial_desc (library property), 44, 184, 186, 187, 201
+
+InList (library routine), 196
+
+InsertWord (library routine), 196
+
+inv_desc (library property), 45, 186, 201
+
+IS_WORD (library constant), 182
+
+IsorAre (library routine), 191
+
+IsPossibleXobject (library routine), 196
+
+it_obj (library global variable), 181, 193
+
+ITALIC_OFF (font style mask constant), 182
+
+ITALIC_ON (font style mask constant), 182
+
+Jenness, Jeff, 3
+
+Jones, Doug, 3
+
+junction routines, 117, 127, 128, 189, 226, 227
+
+key_object (library property), 45, 97, 124, 125, 186
+
+Kinder, David, 3
+
+known (library attribute), 39, 122, 179, 199, 212, 213
+
+Lash, Bill, 3
+
+last_object (library global variable), 181
+
+LEFT_ARROW (library constant), 182
+
+legal information, 2
+
+library files, 3, 10, 16, 20, 27, 28, 50, 82, 111, 148, 188, 217
+
+light (library attribute), 20, 39, 60, 66, 94, 130, 135, 179, 181, 194, 195, 199
+
+light_source (library global variable), 181, 195, 199
+
+limit settings (compiler), 12, 13, 16, 28, 30
+
+linelength (display object property), 45, 60, 146, 187
+
+Linux, 3, 7
+
+list_contents (library property), 44, 184
+
+LIST_F (printing format mask constant), 182, 197
+
+list_nest (library global variable), 181
+
+ListObjects (library routine), 181, 197, 202
+
+living (library attribute), 39, 179
+
+location (global variable, compiler-defined), 92
+
+lockable (library attribute), 39, 45, 98, 108, 179, 186
+
+locked (library attribute), 39, 42, 77, 78, 86, 87, 145, 179
+
+long_desc (library property), 42, 44, 48, 49, 97, 130, 131, 135, 184, 194
+
+lower (library routine), 203
+
+MacDonald, Alan, 3
+
+Macintosh, 3, 5, 6, 7, 63, 219
+
+Main (junction routine), 18, 19, 94, 100, 108, 126, 127, 137, 227, 258
+
+MATCH_FOREGROUND (color constant), 60, 182
+
+MatchPlural (library routine), 129, 191
+
+MatchSubject (library routine), 192
+
+mathematical operators, 64
+
+MAX_RANK (library global variable), 180
+
+MAX_SCORE (library global variable), 180
+
+MAX_SCRIPTS (library constant), 182, 205
+
+MAX_WORDS (library constant), 182
+
+MAXALIASES (compiler limit setting), 12, 208
+
+MAXARRAYS (compiler limit setting), 12, 208
+
+MAXATTRIBUTES (compiler limit setting), 12, 208, 253
+
+MAXCONSTANTS (compiler limit setting), 12, 208
+
+MAXDICT (compiler limit setting), 12, 13, 209
+
+MAXDICTEXTEND (compiler limit setting), 13, 72, 73, 160, 209, 226
+
+MAXEVENTS (compiler limit setting), 13, 209
+
+MAXFLAGS (compiler limit setting), 13, 209
+
+MAXGLOBALS (compiler limit setting), 12, 208
+
+MAXLABELS (compiler limit setting), 13, 209
+
+MAXLOCALS (compiler limit setting), 12, 208
+
+MAXOBJECTS (compiler limit setting), 13, 16, 30, 31, 209
+
+MAXPROPERTIES (compiler limit setting), 13, 209
+
+MAXROUTINES (compiler limit setting), 13, 209
+
+Mayo, Cena, 3, 220
+
+McGrew, Jesse, 3
+
+Menichelli, John, 3
+
+Menu (library routine), 181, 197, 206
+
+MENU_BGCOLOR (library constant), 183
+
+MENU_SELECTBGCOLOR (library constant), 183
+
+MENU_SELECTCOLOR (library constant), 183
+
+MENU_TEXTCOLOR (library constant), 183
+
+menuitem (library array), 181
+
+Merrick, Iain, 3
+
+Message (library routine), 197
+
+misc (library property), 45, 184
+
+mobile (library attribute), 39, 144, 179
+
+mod (library routine), 162, 203
+
+mouse input, 151, 219
+
+MOUSE_CLICK (library constant), 151, 182
+
+moved (library attribute), 39, 40, 179
+
+MovePlayer (library routine), 143, 194, 198, 211
+
+multiple lines, 24, 31
+
+music resources, 155, 166
+
+MIDI, 152, 291
+
+MOD/S3M/XM, 152, 166, 291
+
+MP3, 152, 291
+
+n_to (library property), 44, 47, 48, 86, 131, 137, 185
+
+name (property, compiler-defined), 33, 48, 85, 158
+
+ne_to (library property), 44, 185
+
+need_newline (library global variable), 181
+
+needs_repaint (display object property), 147, 187
+
+Nelson, Graham, 2, 4, 220
+
+Newland, Jim, 3
+
+newsgroups
+
+_rec.arts.int-fiction_, 3, 220
+
+_rec.games.int-fiction_, 3, 220
+
+Nichols, Jerome, 3
+
+NO_AUX_MATH (library compilation flag), 206
+
+NO_FUSES (library compilation flag), 206
+
+NO_MENUS (library compilation flag), 206
+
+NO_OBJLIB (library compilation flag), 206
+
+NO_RECORDING (library compilation flag), 206
+
+NO_SCRIPTS (library compilation flag), 206
+
+NO_STRING_ARRAYS (library compilation flag), 206
+
+NO_VERBS (library compilation flag), 206
+
+NO_XVERBS (library compilation flag), 206
+
+NOINDENT_F (printing format mask constant), 182, 196
+
+NORECURSE_F (printing format mask constant), 182, 197
+
+noun (property, compiler-defined), 20, 24, 42, 43, 45, 46, 51, 97, 108, 113, 118, 138, 183
+
+number_scripts (library global variable), 181
+
+NumberWord (library routine), 99, 198
+
+nw_to (library property), 44, 185
+
+object (global variable, compiler-defined), 34, 43, 53, 89, 109, 110, 117, 167, 168, 180, 245, 287
+
+object library (objlib.h), 130, 131, 136, 137, 138, 139, 141, 142, 145, 213
+
+object specifications (grammar), 109, 110
+
+object table, 12, 37, 242, 244, 251, 255, 261, 262, 265
+
+object tree, 16, 34, 35, 36, 37, 38, 44, 49, 51, 122, 130, 143, 157, 161, 163, 166, 171, 174, 184, 212, 215
+
+ObjectIs (library routine), 199
+
+ObjectisKnown (library routine), 122, 189, 199
+
+ObjectisLight (library routine), 64, 199
+
+objects
+
+definition, 33, 37, 40
+
+objects (global variable, compiler-defined), 34, 54, 117, 180, 226, 242, 252, 265
+
+objlib.h (library file), 5, 50, 93, 94, 111, 130, 185, 197, 206
+
+ObjWord (library routine), 199
+
+obstacle (library global variable), 181
+
+old_location (library global variable), 94, 181
+
+oldword (library array), 181
+
+ON_WORD (library constant), 182
+
+open (library attribute), 39, 41, 42, 46, 48, 49, 65, 77, 78, 97, 122, 170, 177, 179, 186
+
+openable (library attribute), 39, 49, 98, 179, 186
+
+order of operations, 64
+
+order_response (library property), 45, 123, 128, 186
+
+out_to (library property), 44, 185
+
+override_indent (library global variable), 181
+
+packing list, 4, 9
+
+Palm, 3
+
+Parse (junction routine), 115, 118, 119, 126, 199, 227, 233
+
+parse$, 71, 72, 110, 112, 119, 120, 129, 160, 168, 174, 175, 228, 233, 234, 275, 283, 285, 287, 288
+
+parse_rank (library array), 181
+
+parse_rank (library property), 44, 181, 184, 212
+
+ParseError (junction routine), 119, 120, 128, 227, 234
+
+parser
+
+engine parser, 118, 283
+
+parser errors, 128, 194, 233, 234
+
+parsing, 13, 14, 111, 115, 119, 121, 189, 190, 196, 211, 212, 233, 234
+
+PauseScript (library routine), 103, 205
+
+Penney, Jason C., 3
+
+Perform (junction routine), 124, 125, 127, 227
+
+picture resources (graphics, images), 153, 154, 169
+
+JPEG, 152, 290
+
+Pini, Giacomo, 3
+
+platform (library attribute), 39, 40, 121, 136, 179, 183, 184
+
+player_person (library global variable), 133, 180
+
+Plotkin, Andrew, 3
+
+plural (library attribute), 133, 191, 192
+
+plural objects, 39, 139, 140, 141, 145, 179
+
+Pocket PC (WinCE), 3
+
+pointer_x (display object property), 146, 151, 187
+
+pointer_y (display object property), 146, 151, 187
+
+Pontious, Andrew, 3
+
+postfix operators, 66, 67
+
+pow (library routine), 203
+
+prefix operators, 66, 67
+
+PreParse (library routine), 119, 189, 199
+
+preposition (property, compiler-defined), 138
+
+PrintEndGame (library routine), 121, 189, 199
+
+printing format mask constants, 182
+
+printing text, 22, 56, 57, 58, 59, 60, 61, 63, 76, 167, 175, 180, 186, 238, 241, 245, 251, 274, 275, 284
+
+formatting, 56, 61, 62, 83
+
+printing numbers, 58, 66, 67, 68, 80, 84, 167
+
+special characters, 62, 63, 95, 261
+
+printing to an array, 175, 275, 277
+
+PrintScore (library routine), 189, 200
+
+PrintStatusLine (library routine), 94, 126, 200
+
+prompt (global variable, compiler-defined), 54, 93
+
+pronoun (library property), 44, 45, 132, 184
+
+PROP_OFF (font style mask constant), 62, 182
+
+PROP_ON (font style mask constant), 180, 182
+
+properties, 20, 42, 43, 51, 83, 86, 87, 90, 91, 127, 148, 187, 188, 201, 209, 212, 231, 244, 251, 252, 256
+
+additive, 91
+
+aliases, 45
+
+compiler-defined (engine properties), 33, 43, 48, 85, 108, 138, 140, 158
+
+complex, 43, 244, 245, 252
+
+definition, 43, 88, 91
+
+routines, 43, 83, 86, 90, 91, 127, 148, 187, 188, 201, 209, 231, 244, 251, 256
+
+property table, 12, 47, 242, 244, 245, 251, 252
+
+PropertyList (library routine), 200
+
+punctuation (parser), 112
+
+PutInScope (library routine), 184, 200
+
+quiet (library attribute), 40, 179
+
+random numbers, 170, 175, 212, 213, 228, 239, 240, 282
+
+ranking (library array), 181
+
+Ravindran, Vikram, 3
+
+reach (library property), 12, 44, 75, 184, 193
+
+react_after (library property), 44, 127, 185
+
+react_before (library property), 44, 127, 185
+
+readable (library attribute), 39, 179
+
+removals, 112
+
+RemoveFromScope (library routine), 184, 201
+
+replace_pronoun (library array), 181
+
+replacement (of routines, classes, objects), 50, 82
+
+resource.h (library file), 6, 153, 154, 155
+
+resources, 152, 153, 154, 155, 166, 169, 174, 249, 290, 291
+
+ResumeScript (library routine), 103, 205
+
+return values, 18, 20, 54
+
+default, 86
+
+RIGHT_ARROW (library constant), 182
+
+Roberts, Mike, 2, 220
+
+room class, 50, 130
+
+routines
+
+addresses, 21, 22, 43, 52, 88, 158, 236, 244, 279, 284
+
+definition, 82
+
+RunScripts (library routine), 94, 95, 103, 104, 126, 205, 206
+
+s_to (library property), 44, 131, 137, 185
+
+savefile format, 262
+
+scenery class, 135
+
+Schmidl, Gunther, 3
+
+score (library global variable), 19, 93, 180, 181, 200
+
+screenheight (display object property), 45, 146, 147, 154, 187
+
+screenwidth (display object property), 45, 146, 148, 154, 187
+
+Script (library routine), 102, 103, 205, 211
+
+scriptdata (library array), 181
+
+se_to (library property), 44, 185
+
+self (global variable, compiler-defined), 54, 95, 99
+
+serial$, 71, 174, 229, 275, 285
+
+SetObjWord (library routine), 189, 201
+
+setscript (library array), 181
+
+shell game (shell.hug), 6, 37, 51, 60, 93, 94
+
+Sherwin, Robb, 4
+
+short_desc (library property), 20, 42, 44, 45, 97, 184, 185, 186, 187, 201
+
+ShortDescribe (library routine), 201
+
+size (library property), 42, 43, 44, 46, 85, 185
+
+SkipScript (library routine), 104, 205
+
+SL_BGCOLOR (library global variable), 93, 180
+
+SL_TEXTCOLOR (library global variable), 93, 180
+
+sound resources, 155, 174
+
+wave files, 152, 174
+
+speaking (library global variable), 95, 112, 181
+
+SpeakTo (junction routine), 122, 123, 227
+
+special words, 126, 226, 248
+
+special words table, 248
+
+SpecialDesc (library routine), 201, 202
+
+static (library attribute), 13, 20, 39, 98, 108, 129, 130, 135, 145, 155, 179, 208, 233
+
+statusline_height (display object property), 45, 147, 187
+
+STATUSTYPE (library global variable), 93, 180, 200
+
+string arrays, 70, 71, 72, 110, 174, 204
+
+routines, 71, 72, 80, 81, 203, 204
+
+StringCompare (library routine), 71, 72, 80, 81, 203, 204
+
+StringCopy (library routine), 71, 72, 203
+
+StringDictCompare (library routine), 72, 204
+
+StringEqual (library routine), 71, 204
+
+StringLength (library routine), 71, 204
+
+StringPrint (library routine), 71, 72, 80, 204
+
+sw_to (library property), 44, 185
+
+switchable (library attribute), 39, 179
+
+switchedon (library attribute), 39, 179
+
+synonyms, 113
+
+system.h (library file), 6, 175
+
+system_status (global variable, compiler-defined), 54, 117, 153, 175, 180, 290, 291
+
+TADS, 2, 220
+
+Tate, Christopher, 4
+
+Tessman, Dean, 4
+
+text
+
+color, 59, 159
+
+formatting, 56, 61, 62
+
+Latin-1 encoding, 62, 63
+
+special characters, 63, 95, 261
+
+TEXTCOLOR (library global variable), 19, 93, 180
+
+them_obj (library global variable), 181, 193
+
+Tilford, Mark J., 4
+
+title_caption (display object property), 45, 146, 187
+
+transparent (library attribute), 20, 40, 179, 224
+
+Turnbull, Colin, 3
+
+type (library property), 44, 131, 185
+
+u_to (library property), 44, 185
+
+UNDERLINE_OFF (font style mask constant), 62, 182
+
+UNDERLINE_ON (font style mask constant), 62, 182
+
+unfriendly (library attribute), 39, 179
+
+Unix, 3, 5, 7, 9, 11, 13, 14, 16, 61, 63, 79, 213, 261
+
+UP_ARROW (library constant), 182
+
+variables
+
+global, 53
+
+compiler-defined (engine globals), 53, 54, 60, 92, 95, 99, 109, 127, 141, 190, 245, 287
+
+enumerating, 56
+
+local, 53
+
+Vece, Paolo, 4
+
+vehicle class, 137, 138
+
+verb stub routines, 6, 188, 217
+
+verblib.g (library file), 5, 28, 107, 111
+
+verblib.h (library file), 5, 28, 43, 188, 197
+
+verbosity (library global variable), 181
+
+verbroutine (global variable, compiler-defined), 54, 89, 127, 141, 245
+
+verbroutines, 5, 6, 43, 44, 89, 104, 110, 117, 123, 127, 176, 178, 180, 183, 188, 190, 227
+
+DoAsk, 133, 134, 188
+
+DoAskQuestion, 188
+
+DoBrief, 188
+
+DoClose, 188
+
+DoDrink, 188
+
+DoDrop, 123, 140, 188
+
+DoEat, 89, 90, 188
+
+DoEmpty, 188
+
+DoEnter, 107, 188
+
+DoExit, 107, 188
+
+DoGet, 43, 90, 91, 98, 107, 108, 110, 111, 116, 123, 124, 125, 129, 140, 188, 235, 236, 245
+
+DoGive, 133, 134, 188
+
+DoGo, 87, 188
+
+DoHello, 188
+
+DoHit, 188
+
+DoInventory, 124, 188
+
+DoListen, 188
+
+DoLock, 98, 188
+
+DoLook, 140, 188
+
+DoLookAround, 188
+
+DoLookIn, 188
+
+DoLookThrough, 188
+
+DoLookUnder, 97, 188
+
+DoMove, 188
+
+DoOpen, 137, 188
+
+DoPutIn, 90, 140, 188
+
+DoPutOnGround, 188
+
+DoQuit, 188
+
+DoRecordOnOff, 188
+
+DoRestart, 188
+
+DoRestore, 188
+
+DoSave, 108, 188
+
+DoScore, 188
+
+DoScriptOnOff, 188
+
+DoShow, 133, 134, 188
+
+DoSit, 188
+
+DoSuperbrief, 188
+
+DoSwitchOff, 188
+
+DoSwitchOn, 188
+
+DoTakeOff, 107, 188
+
+DoTalk, 188
+
+DoTell, 133, 134, 188
+
+DoUndo, 188
+
+DoUnlock, 188
+
+DoVague, 107, 108, 143, 188
+
+DoVerbose, 188
+
+DoWait, 104, 181, 188
+
+DoWaitforChar, 188
+
+DoWaitUntil, 188
+
+DoWear, 188
+
+verbs, 92
+
+verbstub.g (library file), 6
+
+verbstub.h (library file), 6, 188, 217
+
+VerbWord (library routine), 202
+
+video resources (movies), 155
+
+AVI, 152
+
+MPEG, 152
+
+visited (library attribute), 39, 40, 94, 179
+
+w_to (library property), 44, 131, 185
+
+WhatsIn (library routine), 40, 180, 197, 201, 202
+
+when_closed (library property), 45, 186, 201
+
+when_open (library property), 45, 97, 98, 186, 201
+
+while loops, 75, 269, 270
+
+window.h (library file), 6, 148
+
+windowlines (display object property), 45, 146, 187
+
+windows, 45, 61, 146, 147, 148, 154, 159, 165, 187, 281, 286
+
+Windows (Microsoft Windows), 3, 5, 6, 7, 9, 11, 14, 147, 152, 153, 213, 214, 219, 261
+
+word array, 70, 77, 78, 114, 115, 151, 164, 168, 194, 195, 196, 201, 233, 239, 251, 259, 282, 283, 285
+
+workflag (library attribute), 40, 180
+
+worn (library attribute), 39, 179, 199
+
+xobject (global variable, compiler-defined), 190, 287
+
+xverbs, 92
+
+YesorNo (library routine), 202
+
+*ABOUT THE AUTHOR*
+
+Kent Tessman is a filmmaker and accidental game designer.
+
+**The General Coffee Company Press +
+**Toronto, Canada
+
+
+// EOF //

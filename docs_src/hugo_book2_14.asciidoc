@@ -1,0 +1,336 @@
+= THE HUGO ENGINE AND HOW IT WORKS
+
+
+
+Here is a simple map of the main engine loop and the associated functions:
+
+................................................................................
++-------------+ +----------------------------+
+
+| RunGame() |----| RunRoutine("init" routine) |
+
+| herun.c | | herun.c |
+
++-------------+ +----------------------------+
+
+/|\ \|/
+
+| |
+
+| | \+----------------------------+
+
+| +----| RunRoutine("main" routine) | MAIN EXECUTION
+
+| | /| herun.c | LOOP [1.1]
+
+| | +----------------------------+
+
+| | |
+
+| | \ |
+
+| +-------Player input [1.2]
+
+| | / |
+
+| | \|/
+
+| | +----------------+
+
+| | | Parse() | [2.1]
+
+| | | heparse.c |
+
+| | +----------------+
+
+/|\ /|\ |
+
+| | +----------------+ +---------------------------+
+
+| | | MatchCommand() |--| MatchWord() - heparse.c |
+
+| | | heparse.c | | MatchObject() - heparse.c |
+
+| | +----------------+ +---------------------------+
+
+| | | [2.2] [2.3]
+
+| If input |
+
+| is not-------+
+
+| valid |
+
+| |
+
+| If input
+
+| is valid
+
+| |
+
+| \|/
+
+| +-------------------------+
+
+| | RunRoutine(performaddr) | [3.1]
+
+| | herun.c |
+
+| +-------------------------+
+
+|/ | .
+
++-----------------+ .
+
+\ .
+
+.
+
+.
+
+.
+
++-----------------------+
+
+| Expression evaluator: | [4.1]
+
+| heexpr.c |
+
+| |
+
+| SetupExpr() |
+
+| | |
+
+| GetValue()--GetVal() |
+
+| | |
+
+| EvalExpr() |
+
++-----------------------+
+................................................................................
+
+The functions in *herun.c* comprise most of the core game loop and calling points. RunGame() manages the game loop itself [1.1], which can be thought of as being:
+
+*Main routine  Player input  Parsing  Action (if valid)*
+
+*Player input* [1.2] is the point at which the engine requests a new input line (usually from the keyboard, but possibly from another source such as a file during command playback).
+
+The *Parsing* section [2.1] refers to the in-engine breakdown and analysis of the input line. The input line is matched against the grammar table in MatchCommand() [2.2]--using MatchWord() and MatchObject() [2.3] to identify either individual words as specified in the grammar, or groups of words that may represent an object name.
+
+If a match is made, the appropriate globals (object, xobject, verbroutine) are set, and Perform() is called [3.1] (or, if Perform() has not been defined, the built-in substitute). (Note that if the command is directed to an object--i.e., another character--SpeakTo() is called instead of Perform().)
+
+RunRoutine() is the method by which any function calls are executed. At any point in RunRoutine() (or in functions called by it), the value mem[codeptr] is the byte value (i.e., the token number) of the current instruction. The value of codeptr advances as execution progresses.
+
+Whenever it is necessary for the engine to evaluate an expression, the expression evaluator subsystem in *heexpr.c* is invoked [4.1]. Here, the eval[] array is initialized with the expression to be evaluated by calling SetupExpr() (which will in turn call GetValue() to sequentially retrieve the elements of the expression). The expression currently in eval[] is solved by calling EvalExpr().
+
+== Runtime Symbol Data
+
+
+
+*Code execution:*
+
+mem[] loaded .HEX file image
+
+defseg current memory segment
+
+codeseg code segment (i.e., 0)
+
+codeptr current code position
+
+stack_depth current calling depth
+
+*Display:*
+
+pbuffer[] print buffer for line-wrapping
+
+currentpos current position (pixel or character)
+
+currentline current row (line)
+
+full counter for PromptMore() page-ending
+
+fcolor, bgcolor, colors for foreground, background,
+
+icolor, input, and default background
+
+default_bgcolor
+
+currentfont current font bitmask
+
+textto if non-zero, text is printed to this
+
+array
+
+SCREENWIDTH, maximum possible screen dimensions
+
+SCREENHEIGHT
+
+inwindow true if in a window
+
+physical_windowwidth, "`physical`" window dimensions,
+
+physical_windowheight, in pixels or characters
+
+physical_windowleft,
+
+physical_windowtop,
+
+physical_windowright,
+
+physical_windowbottom
+
+charwidth, lineheight, for font output management
+
+FIXEDCHARWIDTH,
+
+FIXEDLINEHEIGHT,
+
+current_text_x,
+
+current_text_y
+
+*Parsing:*
+
+words number of parsed words in input
+
+word[] breakdown of input into words
+
+wd[] breakdown of input into dictionary
+
+entries
+
+*Arguments and expressions:*
+
+var[] global and local variables
+
+passlocal[] locals passed to a routine
+
+arguments_passed number of arguments passed
+
+ret return value (from a routine)
+
+incdec amount a value is being incremented
+
+or decremented
+
+*Undo management:*
+
+undostack[] for saving undo information
+
+undoptr number of operations undoable
+
+undoturn number of operations for this turn
+
+undoinvalid when undo is invalid
+
+undorecord true when recording undo info
+
+== Non-Portable Functionality
+
+
+
+The Hugo Engine requires a number of non-portable functions which provide the interface layer between the engine and the operating system on which it is running. These functions are:
+
+hugo_blockalloc Large-block malloc()
+
+hugo_blockfree Large-block free()
+
+hugo_splitpath For splitting/combining filename/path
+
+hugo_makepath elements as per OS naming conventions
+
+hugo_getfilename Asks the user for a filename
+
+hugo_overwrite Verifies overwrite of a filename
+
+hugo_closefiles fcloseall() or equivalent
+
+hugo_getkey getch() or equivalent
+
+hugo_getline Keyboard line input
+
+hugo_waitforkey Cycles while waiting for a keypress
+
+hugo_iskeywaiting Reports if a keypress is waiting
+
+hugo_timewait Waits for 1/_n_ seconds
+
+hugo_init_screen Performs necessary display setup
+
+hugo_hasgraphics Returns graphics availability
+
+hugo_setgametitle Sets title of window/screen
+
+hugo_cleanup_screen Performs necessary screen cleanup
+
+hugo_clearfullscreen Clears entire display area
+
+hugo_clearwindow Clears currently defined window
+
+hugo_settextmode Performs necessary text setup
+
+hugo_settextwindow Defines window in display area
+
+hugo_settextpos Sets cursor/text-output position
+
+hugo_scrollwindowup Scrolls currently defined window
+
+hugo_font Sets font for text output
+
+hugo_settextcolor Sets foreground color for text
+
+hugo_setbackcolor Sets background color for text
+
+hugo_color Returns a valid color reference
+
+hugo_print Outputs formatted text
+
+hugo_charwidth Returns width of a given character
+
+hugo_textwidth Returns width of a given string
+
+hugo_strlen strlen() for embedded codes
+
+hugo_specialchar Translation for special characters
+
+hugo_hasvideo Returns video availabilityfootnote:[v3.0 and later]
+
+For elaboration of the intent and implementation of these functions, see *heblank.c* in the standard source distribution (*hugov31_source.tar.gz*), or one of the implementations such as *hemsvc.c* (in *hugov31_win32_source.zip*, the Windows source package), *hegcc.c* (in *hugov31_unix_source.tar.gz*, the gcc/Unix package), etc.
+
+== Savefile Format
+
+
+
+Hugo saves the game state by (among other things) saving the dynamic memory from start of the object table to the start of the text bank (i.e., including objects, properties, array data, and the dictionary). It does this, however, in a format that only notes if the data has changed from its initial state.
+
+The structure of a Hugo savefile looks like this:
+
+*0000 - 0001* ID (assigned by compiler at compile-time)
+
+*0002 - 0009* Serial number
+
+*000A - 0209* All variables (global and local, 256*2 bytes)
+
+*020A -* Object table to text bank (see below)
+
+*n bytes* Undo data (where n = MAXUNDO*5*2 bytes)
+
+*2 bytes* undoptr
+
+*2 bytes* undoturn
+
+*1 byte* undoinvalid
+
+*1 byte* undorecord
+
+In saving from the object table up to the start of the text bank, the engine performs a comparison of the original gamefile against in-memory dynamic data (which may have changed).
+
+If a given byte _n_ in a savefile is non-zero, it represents that the next _n_ sequential bytes are identical between the gamefile and the saved data. If _n_ is 0, the byte __n__+1 gives the value from the memory image. (Although it takes 2 bytes to represent a single changed byte, the position within both the gamefile and the memory image only increases by 1.)
+
+The practical implementation of the Hugo savefile format is found in RunSave() and RunRestore() in *herun.c*.
+
+
+// EOF //
