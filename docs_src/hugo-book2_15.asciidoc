@@ -6,25 +6,18 @@ The Hugo Debugger is basically a modified build of the Hugo Engine; the two shar
 
 The key difference with the debugger build of the engine is in RunRoutine(), which in the debugger looks more like this:
 
-...
-
-|
-
-|
-
-+--------------+ +------------+
-
+..............................................................
+      ...
+       |
+       |
++--------------+     +------------+
 | RunRoutine() |---->| Debugger() | (if debugger_interrupt
-
-| herun.c | | hd.c | is non-false)
-
-+--------------+ +------------+
-
-|
-
-|
-
-...
+|   herun.c    |     |   hd.c     |  is non-false)
++--------------+     +------------+
+       |
+       |
+      ...
+..............................................................
 
 The debugger build contains a global flag called debugger_interrupt; if this flag is non-false, RunRoutine() is interrupted before executing the next instruction.
 

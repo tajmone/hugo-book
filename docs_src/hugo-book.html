@@ -446,7 +446,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <span id="email" class="email"><a href="mailto:general@generalcoffee.com">general@generalcoffee.com</a></span><br>
 <span id="revnumber">version 1,</span>
 <span id="revdate">2018-10-04</span>
-<br><span id="revremark">Draft 7 -- Porting to AsciiDoc</span>
+<br><span id="revremark">Draft 8 -- Porting to AsciiDoc</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -14746,35 +14746,19 @@ UNDER THE HOOD OF HUGO AND THE .HEX FILE FORMAT
 <div class="paragraph">
 <p>The key difference with the debugger build of the engine is in RunRoutine(), which in the debugger looks more like this:</p>
 </div>
-<div class="paragraph">
-<p>&#8230;&#8203;</p>
+<div class="literalblock">
+<div class="content">
+<pre>      ...
+       |
+       |
++--------------+     +------------+
+| RunRoutine() |----&gt;| Debugger() | (if debugger_interrupt
+|   herun.c    |     |   hd.c     |  is non-false)
++--------------+     +------------+
+       |
+       |
+      ...</pre>
 </div>
-<div class="paragraph">
-<p>|</p>
-</div>
-<div class="paragraph">
-<p>|</p>
-</div>
-<div class="paragraph">
-<p>-------------- ------------</p>
-</div>
-<div class="paragraph">
-<p>| RunRoutine() |---&#8594;| Debugger() | (if debugger_interrupt</p>
-</div>
-<div class="paragraph">
-<p>| herun.c | | hd.c | is non-false)</p>
-</div>
-<div class="paragraph">
-<p>-------------- ------------</p>
-</div>
-<div class="paragraph">
-<p>|</p>
-</div>
-<div class="paragraph">
-<p>|</p>
-</div>
-<div class="paragraph">
-<p>&#8230;&#8203;</p>
 </div>
 <div class="paragraph">
 <p>The debugger build contains a global flag called debugger_interrupt; if this flag is non-false, RunRoutine() is interrupted before executing the next instruction.</p>
