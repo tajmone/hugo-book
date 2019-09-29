@@ -1,0 +1,42 @@
+##########################################
+#  The HUGO Book, by Kent Tessman 2004:  #
+#  https://github.com/tajmone/hugo-book  #
+##########################################
+
+## TMP Work Files
+#################
+___*.*
+
+# Links and URLs:
+*.lnk
+*.url
+
+############################
+## COMMON IGNORE PATTERNS ##
+############################
+
+## Linux
+########
+*~
+.directory
+.fuse_hidden*
+.nfs*
+.Trash-*
+
+## macOS
+########
+*.DS_Store
+._*
+.AppleDouble
+.LSOverride
+Icon
+
+## Windows
+##########
+Thumbs.db
+ehthumbs.db
+ehthumbs_vista.db
+Desktop.ini
+.BIN/
+
+# EOF #

@@ -1,0 +1,52 @@
+##########################################
+#  The HUGO Book, by Kent Tessman 2004:  #
+#  https://github.com/tajmone/hugo-book  #
+##########################################
+
+* text=auto
+
+## ===========================
+## Highlight langDefs & themes
+## ===========================
+*.lang    text
+*.theme   text
+## -------------------------
+## GitHub Linguist Settings:
+## -------------------------
+*.lang    linguist-language=Lua
+*.theme   linguist-language=Lua
+## -------------------------
+## GitLab Linguist Settings:
+## -------------------------
+*.lang    gitlab-language=Lua
+*.theme   gitlab-language=Lua
+
+## =============
+## Shell scripts
+## =============
+*.bat      text eol=crlf
+*.sh       text eol=lf
+
+## =================
+## WEB-RELATED FILES
+## =================
+*.html     text
+*.css      text
+
+## ===================
+## Documentation files
+## ===================
+*.adoc         text
+*.asciidoc     text
+*.md           text
+*.txt          text
+LICENSE        text
+
+## ===================
+## Configuration files
+## ===================
+.editorconfig  text
+.gitattributes text
+.gitignore     text
+
+# EOF #
