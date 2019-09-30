@@ -168,7 +168,7 @@ Hugo is a beautiful tool, as well an historical pillar of the Interactive Fictio
 [Dan Allen]: https://github.com/mojavelinux "View Dan Allen's GitHub profile"
 [Dannii Willis]: https://github.com/curiousdannii "View Dannii Willis's GitHub profile"
 [Tristano Ajmone]: https://github.com/tajmone "View Tristano Ajmone's GitHub profile"
-[Kent Tessman]: https://www.generalcoffee.com/ "Visit the website of Kent Tessman's General Coffee Company"
+[Kent Tessman]: https://github.com/tessman "View Kent Tessman's GitHub profile"
 
 <!-- organizations -->
 
