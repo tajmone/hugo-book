@@ -22,7 +22,7 @@
 *.theme   gitlab-language=Lua
 
 ## =============
-## Shell scripts
+## Shell Scripts
 ## =============
 *.bat      text eol=crlf
 *.com      text eol=crlf
@@ -30,7 +30,7 @@
 *.ps1      text eol=crlf
 
 ## =================
-## WEB-RELATED FILES
+## Web-Related Files
 ## =================
 *.htm      text
 *.html     text
@@ -39,7 +39,7 @@
 highlight.min.js  eol=lf
 
 ## ===================
-## Documentation files
+## Documentation Files
 ## ===================
 *.adoc         text
 *.asciidoc     text
@@ -64,7 +64,7 @@ NEWS           text
 readme         text
 
 ## ======================
-## IMAGE & GRAPHICS FILES
+## Image & Graphics Files
 ## ======================
 *.ai         binary
 *.bmp        binary
@@ -87,5 +87,13 @@ readme         text
 *.tiff       binary
 *.wbmp       binary
 *.webp       binary
+
+## ==============================
+## Third Party Tools File Formats
+## ==============================
+# Dia Diagram Editor: http://dia-installer.de/
+*.dia   binary
+# ColorImpact 4 palettes: http://www.tigercolor.com
+*.cifc  binary
 
 # EOF #
