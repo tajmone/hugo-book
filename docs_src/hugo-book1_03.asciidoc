@@ -83,8 +83,8 @@ nothing
 Room
 |
 Table ------ Chair ------ Book ------ Player
-|                   |
-Bowl                Bookmark
+|                         |
+Bowl                      Bookmark
 |
 Spoon
 ..................................
@@ -139,7 +139,7 @@ nothing
 |
 Room
 |
-Table ------ Chair ------ Book
+Table ——— Chair ——— Book
 |         |         |
 Bowl      Player    Bookmark
 |
@@ -256,7 +256,7 @@ nothing
 |
 Room
 |
-Table ------ Chair ----- Book ------ Player
+Table ——— Chair ——- Book ——— Player
                     |        |
                     Bookmark Bowl
                              |
