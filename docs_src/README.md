@@ -20,14 +20,14 @@ This folder contains the AsciiDoc source files of the _The Hugo Book_.
 # Folder Contents
 
 
-- [hugo-book.asciidoc] — the main AsciiDoc source file that imports all contents:
-    + [hugo-book1.asciidoc] — imports chapters of _Book I_:
-        * hugo-book1_??.asciidoc — individual chapters from _Book I_.
-    + [hugo-book2.asciidoc] — imports chapters of _Book II_:
-        * hugo-book2_??.asciidoc — individual chapters from _Book II_.
-        * [hugo-book_tokens-list.csv] — list of Hugo tokens in CSV format, used to populate the table in _§15.1. Tokens_.
-- [preview.sh] — generates a quick HTML preview of the book:
-    + [hugo-book.html] ( [HTML Live Preview] ) — no syntax highlighting, no custom template.
+- [`hugo-book.asciidoc`][HB] — the main AsciiDoc source file that imports all contents:
+    + [`hugo-book1.asciidoc`][HB1] — imports chapters of _Book I_:
+        * [`hugo-book1_01`][HB1:01]..[`19.asciidoc`][HB1:19] — individual chapters from _Book I_.
+    + [`hugo-book2.asciidoc`][HB2] — imports chapters of _Book II_:
+        * [`hugo-book2_01`][HB2:01]..[`16.asciidoc`][HB2:16] — individual chapters from _Book II_.
+        * [`hugo-book_tokens-list.csv`][HB Tokens.csv] — list of Hugo tokens in CSV format, used to populate the table in _§15.1. Tokens_.
+- [`preview.sh`][preview.sh] — generates a quick HTML preview of the book:
+    + [`hugo-book.html`][HB.html] ( [HTML Live Preview] ) — no syntax highlighting, no custom template.
 
 # Book Preview and Status
 
@@ -77,7 +77,7 @@ Every chapter in the list provides an [HTML Live Preview] link to quickly jump t
     + [ ]  [APP. H. _CODE PATTERNS_][AppH]
 - [ ] _INDEX_ (supported only in PDF format)
 
-Once all chapter are fuly ported, the whole book needs to be checked over again, from scratch, to ensure that formatting and sytles are consistent.
+Once all chapters are fully ported, the whole book needs to be checked over again, from scratch, to ensure that formatting and styles are consistent.
 
 <!-----------------------------------------------------------------------------
                                REFERENCE LINKS
@@ -129,20 +129,55 @@ Once all chapter are fuly ported, the whole book needs to be checked over again,
 [Ch27]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/docs_src/hugo-book.html#_dark_secrets_of_the_hugo_debugger "Jump to Live HTML Preview of: Book II » 27. DARK SECRETS OF THE HUGO DEBUGGER"
 [AppH]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/docs_src/hugo-book.html#_code_patterns "Jump to Live HTML Preview of: Book II » Appendix H: CODE PATTERNS"
 
-
-
 <!-- project files -->
 
-[hugo-book.html]: ./hugo-book.html "View source file"
+[HB.html]: ./hugo-book.html "View source file"
 [preview.sh]: ./preview.sh "View source file"
 
 <!-- ADoc sources -->
 
-[hugo-book.asciidoc]: ./hugo-book.asciidoc "View source file"
-[hugo-book1.asciidoc]: ./hugo-book1.asciidoc "View source file"
-[hugo-book2.asciidoc]: ./hugo-book2.asciidoc "View source file"
+[HB]: ./hugo-book.asciidoc "View AsciiDoc source"
 
-[hugo-book_tokens-list.csv]: ./hugo-book_tokens-list.csv "View CSV source file"
+[HB1]: ./hugo-book1.asciidoc "View AsciiDoc source"
+[HB1:01]: ./hugo-book1_01.asciidoc "View AsciiDoc source"
+[HB1:02]: ./hugo-book1_02.asciidoc "View AsciiDoc source"
+[HB1:03]: ./hugo-book1_03.asciidoc "View AsciiDoc source"
+[HB1:04]: ./hugo-book1_04.asciidoc "View AsciiDoc source"
+[HB1:05]: ./hugo-book1_05.asciidoc "View AsciiDoc source"
+[HB1:06]: ./hugo-book1_06.asciidoc "View AsciiDoc source"
+[HB1:07]: ./hugo-book1_07.asciidoc "View AsciiDoc source"
+[HB1:08]: ./hugo-book1_08.asciidoc "View AsciiDoc source"
+[HB1:09]: ./hugo-book1_09.asciidoc "View AsciiDoc source"
+[HB1:10]: ./hugo-book1_10.asciidoc "View AsciiDoc source"
+[HB1:11]: ./hugo-book1_11.asciidoc "View AsciiDoc source"
+[HB1:12]: ./hugo-book1_12.asciidoc "View AsciiDoc source"
+[HB1:13]: ./hugo-book1_13.asciidoc "View AsciiDoc source"
+[HB1:14]: ./hugo-book1_14.asciidoc "View AsciiDoc source"
+[HB1:15]: ./hugo-book1_15.asciidoc "View AsciiDoc source"
+[HB1:16]: ./hugo-book1_16.asciidoc "View AsciiDoc source"
+[HB1:17]: ./hugo-book1_17.asciidoc "View AsciiDoc source"
+[HB1:18]: ./hugo-book1_18.asciidoc "View AsciiDoc source"
+[HB1:19]: ./hugo-book1_19.asciidoc "View AsciiDoc source"
+
+[HB2]: ./hugo-book2.asciidoc "View AsciiDoc source"
+[HB2:01]: ./hugo-book2_01.asciidoc "View AsciiDoc source"
+[HB2:02]: ./hugo-book2_02.asciidoc "View AsciiDoc source"
+[HB2:03]: ./hugo-book2_03.asciidoc "View AsciiDoc source"
+[HB2:04]: ./hugo-book2_04.asciidoc "View AsciiDoc source"
+[HB2:05]: ./hugo-book2_05.asciidoc "View AsciiDoc source"
+[HB2:06]: ./hugo-book2_06.asciidoc "View AsciiDoc source"
+[HB2:07]: ./hugo-book2_07.asciidoc "View AsciiDoc source"
+[HB2:08]: ./hugo-book2_08.asciidoc "View AsciiDoc source"
+[HB2:09]: ./hugo-book2_09.asciidoc "View AsciiDoc source"
+[HB2:10]: ./hugo-book2_10.asciidoc "View AsciiDoc source"
+[HB2:11]: ./hugo-book2_11.asciidoc "View AsciiDoc source"
+[HB2:12]: ./hugo-book2_12.asciidoc "View AsciiDoc source"
+[HB2:13]: ./hugo-book2_13.asciidoc "View AsciiDoc source"
+[HB2:14]: ./hugo-book2_14.asciidoc "View AsciiDoc source"
+[HB2:15]: ./hugo-book2_15.asciidoc "View AsciiDoc source"
+[HB2:16]: ./hugo-book2_16.asciidoc "View AsciiDoc source"
+
+[HB Tokens.csv]: ./hugo-book_tokens-list.csv "View CSV source file"
 
 
 <!-- EOF -->
