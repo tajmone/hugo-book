@@ -14,6 +14,7 @@ echo -e "\e[91m *\e[0m No syntax highlighting."
 asciidoctor \
   --verbose \
   --safe-mode unsafe \
+  -a data-uri \
   -a experimental \
   -a icons=font \
   -a sectanchors \
