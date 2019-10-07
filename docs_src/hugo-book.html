@@ -446,7 +446,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <span id="email" class="email"><a href="mailto:general@generalcoffee.com">general@generalcoffee.com</a></span><br>
 <span id="revnumber">version 1,</span>
 <span id="revdate">2018-10-04</span>
-<br><span id="revremark">Draft 30 -- Porting to AsciiDoc</span>
+<br><span id="revremark">Draft 31 -- Porting to AsciiDoc</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -14632,38 +14632,60 @@ Each event requires 2 bytes:</p>
 <div class="sect2">
 <h3 id="_dictionary"><a class="anchor" href="#_dictionary"></a>23.1. Dictionary</h3>
 <div class="paragraph">
-<p>The dictionary begins with two bytes giving the total number of entries. Each dictionary entry is composed of 1 or more bytes:</p>
+<p>The dictionary begins with two bytes giving the total number of entries.
+Each dictionary entry is composed of 1 or more bytes:</p>
 </div>
-<div class="paragraph">
-<p><strong>Byte</strong></p>
-</div>
-<div class="paragraph">
-<p>0 Length of entry (number of characters)</p>
-</div>
-<div class="paragraph">
-<p>1 - Entry as an encrypted string</p>
-</div>
+<table class="tableblock frame-all grid-none stripes-odd fit-content center">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock">Bytes</p></th>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>0</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Length of entry (number of characters)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>1 -</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Entry as an encrypted string</p></td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="sect2">
 <h3 id="_special_words"><a class="anchor" href="#_special_words"></a>23.2. Special Words</h3>
 <div class="paragraph">
-<p>The special words table begins with two bytes giving the total number of entries. Each entry requires 5 bytes:</p>
+<p>The special words table begins with two bytes giving the total number of entries.
+Each entry requires 5 bytes:</p>
 </div>
-<div class="paragraph">
-<p><strong>Byte</strong></p>
-</div>
-<div class="paragraph">
-<p>0 Type (0 = synonym, 1 = removal, 2 = compound,</p>
-</div>
-<div class="paragraph">
-<p>3 = user-defined punctuation)</p>
-</div>
-<div class="paragraph">
-<p>1 - 2 First dictionary address</p>
-</div>
-<div class="paragraph">
-<p>3 - 4 Second address (for synonyms and compounds)</p>
-</div>
+<table class="tableblock frame-all grid-none stripes-odd fit-content center">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock">Bytes</p></th>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>0</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Type (0 = synonym, 1 = removal, 2 = compound, 3 = user-defined punctuation)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>1 - 2</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">First dictionary address</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>3 - 4</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Second address (for synonyms and compounds)</p></td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 </div>

@@ -113,7 +113,7 @@ Every chapter in the list provides an [HTML Live Preview] link to quickly jump t
     + [x]  [20. _THE OBJECT TABLE_][Ch20]
     + [x]  [21. _THE PROPERTY TABLE_][Ch21]
     + [x]  [22. _THE EVENT TABLE_][Ch22]
-    + [ ]  [23. _THE DICTIONARY AND SPECIAL WORDS_][Ch23]
+    + [x]  [23. _THE DICTIONARY AND SPECIAL WORDS_][Ch23]
     + [ ]  [24. _RESOURCEFILES_][Ch24]
     + [x]  [25. _THE HUGO COMPILER AND HOW IT WORKS_][Ch25]
     + [x]  [26. _THE HUGO ENGINE AND HOW IT WORKS_][Ch26]
