@@ -111,7 +111,7 @@ Every chapter in the list provides an [HTML Live Preview] link to quickly jump t
     + [x]  [18. _EXECUTABLE CODE_][Ch18]
     + [x]  [19. _ENCODING TEXT_][Ch19]
     + [x]  [20. _THE OBJECT TABLE_][Ch20]
-    + [ ]  [21. _THE PROPERTY TABLE_][Ch21]
+    + [x]  [21. _THE PROPERTY TABLE_][Ch21]
     + [ ]  [22. _THE EVENT TABLE_][Ch22]
     + [ ]  [23. _THE DICTIONARY AND SPECIAL WORDS_][Ch23]
     + [ ]  [24. _RESOURCEFILES_][Ch24]

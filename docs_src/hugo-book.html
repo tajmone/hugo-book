@@ -446,7 +446,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <span id="email" class="email"><a href="mailto:general@generalcoffee.com">general@generalcoffee.com</a></span><br>
 <span id="revnumber">version 1,</span>
 <span id="revdate">2018-10-04</span>
-<br><span id="revremark">Draft 27 -- Porting to AsciiDoc</span>
+<br><span id="revremark">Draft 28 -- Porting to AsciiDoc</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -14357,138 +14357,242 @@ Essentially, if the bits are thought of sequentially in that the first byte repr
 <h2 id="_the_property_table"><a class="anchor" href="#_the_property_table"></a>21. THE PROPERTY TABLE</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The property table begins with two bytes giving the total number of properties. This is followed by a list of default property values, each of one 16-bit (2 byte) word each. After this, the properties themselves begin, starting with object 0.</p>
+<p>The property table begins with two bytes giving the total number of properties.
+This is followed by a list of default property values, each of one 16-bit (2 byte) word each.
+After this, the properties themselves begin, starting with object 0.</p>
 </div>
 <div class="paragraph">
-<p>The property values are entered sequentially, with no explicit identification of what object a particular value belongs to. It is the object&#8217;s object-table entry that gives the location of a given object&#8217;s property data in the property table.</p>
+<p>The property values are entered sequentially, with no explicit identification of what object a particular value belongs to.
+It is the object&#8217;s object-table entry that gives the location of a given object&#8217;s property data in the property table.</p>
 </div>
 <div class="paragraph">
 <p>Each property requires at least 2 bytes:</p>
 </div>
-<div class="paragraph">
-<p><strong>Byte</strong></p>
-</div>
-<div class="paragraph">
-<p>0 Property number</p>
-</div>
-<div class="paragraph">
-<p>1 Number of data words</p>
-</div>
-<div class="paragraph">
-<p>2 - Data in 16-bit word form (2 bytes each)</p>
-</div>
+<table class="tableblock frame-all grid-none stripes-odd fit-content center">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock">Bytes</p></th>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Property number</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Number of data words</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock">2 -</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Data in 16-bit word form (2 bytes each)</p></td>
+</tr>
+</tbody>
+</table>
 <div class="paragraph">
 <p>Property routines are given a &#8220;length&#8221; of 255 ($FF), which indicates that one word of data follows, representing the (indexed) address of the routine.</p>
 </div>
 <div class="paragraph">
-<p>At the end of each object in the property table comes the property number 255 ($FF)--not to be confused with the &#8220;length&#8221; 255, which denotes a routine address. &#8220;Property&#8221; number 255 is an exception to the two-byte minimum; it does not have any attached length byte or data words. Each object has a place in the object table, even if it has no properties per se. A propertyless object simply has the value 255 at its position in the property table.</p>
+<p>At the end of each object in the property table comes the property number 255 ($FF)&#8201;&#8212;&#8201;not to be confused with the &#8220;length&#8221; 255, which denotes a routine address. &#8220;Property&#8221; number 255 is an exception to the two-byte minimum; it does not have any attached length byte or data words.
+Each object has a place in the object table, even if it has no properties per se.
+A propertyless object simply has the value 255 at its position in the property table.</p>
 </div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
 <div class="paragraph">
-<p>(Property data being written for an .HLB linkable file is slightly altered. For example, property routines are marked by $FE instead of $FF. See <em>XIII.b</em> <em>The Linker</em>.)</p>
+<p>Property data being written for an <strong>.HLB</strong> linkable file is slightly altered.
+For example, property routines are marked by $FE instead of $FF.
+See <em>XIII.b The Linker</em>.</p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 <div class="sect2">
 <h3 id="_before_after_and_other_complex_properties"><a class="anchor" href="#_before_after_and_other_complex_properties"></a>21.1. Before, After, and Other Complex Properties</h3>
 <div class="paragraph">
 <p>Consider the following complex property for an unspecified object:</p>
 </div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-hugo" data-lang="hugo">after
+{
+    object DoGet
+    {
+        "You pick up the object."
+    }
+    object
+    {
+        "You can't do that with the object."
+    }
+}</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
 <div class="paragraph">
-<p>after</p>
+<p>A simple explanation of the above is that <code>&lt;object&gt;.after</code> is called following a call to a verbroutine with which <code>&lt;object&gt;</code> was involved.
+If <code>&lt;object&gt;</code> was the object of the verbroutine (i.e., the <code>object</code> global), and the <code>verbroutine</code> global was <code>DoGet</code>, the first block runs.
+The second block will run if no previous block has run.
+For a full description of complex properties, see the Hugo Manual.</p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
-<p>\{</p>
+<p>First of all, the entry in the property table for <code>&lt;object&gt;.after</code> will point to the first line of code in the property routine.
+Arbitrarily, let&#8217;s assume this is $000044: the earliest possible code address following a blank grammar table.</p>
 </div>
-<div class="paragraph">
-<p>object DoGet</p>
+<div class="literalblock">
+<div class="content">
+<pre>000040: FF 00 00 00 45 00 48 1A 00 25 15 00 47 00 00 00
+000050: 0D 00 00 00 45 00 25 18 00 47 00 16 00 0D 00 00
+000060: 0D 21 29</pre>
 </div>
-<div class="paragraph">
-<p>\{</p>
-</div>
-<div class="paragraph">
-<p>"You pick up the object."</p>
-</div>
-<div class="paragraph">
-<p>}</p>
-</div>
-<div class="paragraph">
-<p>object</p>
-</div>
-<div class="paragraph">
-<p>\{</p>
-</div>
-<div class="paragraph">
-<p>"You can&#8217;t do that with the object."</p>
-</div>
-<div class="paragraph">
-<p>}</p>
-</div>
-<div class="paragraph">
-<p>}</p>
-</div>
-<div class="paragraph">
-<p>(A simple explanation of the above is that &lt;object&gt;.after is called following a call to a verbroutine with which &lt;object&gt; was involved. If &lt;object&gt; was the object of the verbroutine (i.e., the object global), and the verbroutine global was DoGet, the first block runs. The second block will run if no previous block has run. For a full description of complex properties, see the Hugo Manual.)</p>
-</div>
-<div class="paragraph">
-<p>First of all, the entry in the property table for &lt;object&gt;.after will point to the first line of code in the property routine. Arbitrarily, let&#8217;s assume this is $000044: the earliest possible code address following a blank grammar table.</p>
-</div>
-<div class="paragraph">
-<p>000040: FF 00 00 00 45 00 48 1A 00 25 15 00 47 00 00 00</p>
-</div>
-<div class="paragraph">
-<p>000050: 0D 00 00 00 45 00 25 18 00 47 00 16 00 0D 00 00</p>
-</div>
-<div class="paragraph">
-<p>000060: 0D 21 29</p>
 </div>
 <div class="paragraph">
 <p>That can be compared to the original source code as:</p>
 </div>
-<div class="paragraph">
-<p>000044: 45 00 48 1A 00</p>
+<div class="ulist">
+<ul>
+<li>
+<p></p>
+<div class="openblock">
+<div class="content">
+<div class="literalblock">
+<div class="content">
+<pre>000044: 45 00 48 1A 00</pre>
+</div>
 </div>
 <div class="paragraph">
-<p>The initial <code>object DoGet</code> block header, assuming that the engine-defined global object is global variable number 0, and that the address of DoGet is $000068 (represented as an indexed address as $001A).</p>
+<p>The initial <code>object DoGet</code> block header, assuming that the engine-defined global <code>object</code> is global variable number 0, and that the address of <code>DoGet</code> is $000068 (represented as an indexed address as $001A).</p>
+</div>
+</div>
+</div>
+</li>
+<li>
+<p></p>
+<div class="openblock">
+<div class="content">
+<div class="literalblock">
+<div class="content">
+<pre>000049: 25 15 00</pre>
+</div>
 </div>
 <div class="paragraph">
-<p>000049: 25 15 00</p>
+<p>Following the <code>jump</code> token ($25) is the indexed address to jump to if <code>object DoGet</code> isn&#8217;t matched.
+In this case, it is $0015, which translates to the absolute address $000054 (i.e., the address of the next header).</p>
+</div>
+</div>
+</div>
+</li>
+<li>
+<p></p>
+<div class="openblock">
+<div class="content">
+<div class="literalblock">
+<div class="content">
+<pre>00004C: 47 00 00 00</pre>
+</div>
 </div>
 <div class="paragraph">
-<p>Following the jump token ($25) is the indexed address to jump to if <code>object DoGet</code> isn&#8217;t matched. In this case, it is $0015, which translates to the absolute address $000054 (i.e., the address of the next header).</p>
+<p>The <code>&lt;textdata#&gt;</code> label is followed by three bytes giving the address in the text bank of the printed string &#8220;You pick up the object.&#8221;</p>
 </div>
-<div class="paragraph">
-<p>00004C: 47 00 00 00</p>
 </div>
-<div class="paragraph">
-<p>The &lt;textdata#&gt; label is followed by three bytes giving the address in the text bank of the printed string &#8220;You pick up the object.&#8221;</p>
 </div>
-<div class="paragraph">
-<p>000050: 0D 00 00 00</p>
+</li>
+<li>
+<p></p>
+<div class="openblock">
+<div class="content">
+<div class="literalblock">
+<div class="content">
+<pre>000050: 0D 00 00 00</pre>
+</div>
 </div>
 <div class="paragraph">
 <p>$0D signals the end of this block of executable code, followed by zeroes padding to the next address boundary.</p>
 </div>
-<div class="paragraph">
-<p>000054: 45 00</p>
+</div>
+</div>
+</li>
+<li>
+<p></p>
+<div class="openblock">
+<div class="content">
+<div class="literalblock">
+<div class="content">
+<pre>000054: 45 00</pre>
+</div>
 </div>
 <div class="paragraph">
 <p>This block header is simply <code>object</code>.</p>
 </div>
-<div class="paragraph">
-<p>000056: 25 18 00</p>
+</div>
+</div>
+</li>
+<li>
+<p></p>
+<div class="openblock">
+<div class="content">
+<div class="literalblock">
+<div class="content">
+<pre>000056: 25 18 00</pre>
+</div>
 </div>
 <div class="paragraph">
-<p>As above, following the jump token ($25) is the indexed address to jump to if the block header isn&#8217;t matched. In this case, it is $0018, which translates to $000060 (i.e., the closing $0D of the after routine).</p>
+<p>As above, following the <code>jump</code> token ($25) is the indexed address to jump to if the block header isn&#8217;t matched.
+In this case, it is $0018, which translates to $000060 (i.e., the closing $0D of the <code>after</code> routine).</p>
 </div>
-<div class="paragraph">
-<p>000059: 47 00 19 00 0D 00 00</p>
+</div>
+</div>
+</li>
+<li>
+<p></p>
+<div class="openblock">
+<div class="content">
+<div class="literalblock">
+<div class="content">
+<pre>000059: 47 00 19 00 0D 00 00</pre>
+</div>
 </div>
 <div class="paragraph">
 <p>The second line of text is printed here, followed by $0D to signal the end of this block of code and zero-padding to the next address boundary.</p>
 </div>
-<div class="paragraph">
-<p>000060: 0D 21 29 4C</p>
+</div>
+</div>
+</li>
+<li>
+<p></p>
+<div class="openblock">
+<div class="content">
+<div class="literalblock">
+<div class="content">
+<pre>000060: 0D 21 29 4C</pre>
+</div>
 </div>
 <div class="paragraph">
-<p>A $0D signals the end of the after routine. Property routines are followed by an automatic $21, $29, and $4C (i.e., <code>return true</code>).</p>
+<p>A $0D signals the end of the <code>after</code> routine.
+Property routines are followed by an automatic $21, $29, and $4C (i.e., <code>return true</code>).</p>
+</div>
+</div>
+</div>
+</li>
+</ul>
 </div>
 </div>
 </div>

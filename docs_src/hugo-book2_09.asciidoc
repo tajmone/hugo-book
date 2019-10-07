@@ -1,98 +1,135 @@
 = THE PROPERTY TABLE
 
 
+The property table begins with two bytes giving the total number of properties.
+This is followed by a list of default property values, each of one 16-bit (2 byte) word each.
+After this, the properties themselves begin, starting with object 0.
 
-The property table begins with two bytes giving the total number of properties. This is followed by a list of default property values, each of one 16-bit (2 byte) word each. After this, the properties themselves begin, starting with object 0.
-
-The property values are entered sequentially, with no explicit identification of what object a particular value belongs to. It is the object's object-table entry that gives the location of a given object's property data in the property table.
+The property values are entered sequentially, with no explicit identification of what object a particular value belongs to.
+It is the object's object-table entry that gives the location of a given object's property data in the property table.
 
 Each property requires at least 2 bytes:
 
-*Byte*
-
-0 Property number
-
-1 Number of data words
-
-2 - Data in 16-bit word form (2 bytes each)
+[.center,caption=]
+[cols=">d,<d",options=autowidth,grid=none,stripes=odd]
+|===============================================================================
+^h| Bytes | {blank}
+|0   | Property number
+|1   | Number of data words
+|2 - | Data in 16-bit word form (2 bytes each)
+|===============================================================================
 
 Property routines are given a "`length`" of 255 ($FF), which indicates that one word of data follows, representing the (indexed) address of the routine.
 
-At the end of each object in the property table comes the property number 255 ($FF)--not to be confused with the "`length`" 255, which denotes a routine address. "`Property`" number 255 is an exception to the two-byte minimum; it does not have any attached length byte or data words. Each object has a place in the object table, even if it has no properties per se. A propertyless object simply has the value 255 at its position in the property table.
+At the end of each object in the property table comes the property number 255 ($FF) -- not to be confused with the "`length`" 255, which denotes a routine address. "`Property`" number 255 is an exception to the two-byte minimum; it does not have any attached length byte or data words.
+Each object has a place in the object table, even if it has no properties per se.
+A propertyless object simply has the value 255 at its position in the property table.
 
-(Property data being written for an .HLB linkable file is slightly altered. For example, property routines are marked by $FE instead of $FF. See _XIII.b_ _The Linker_.)
+// @TODO: Missing XREf: "XIII.b The Linker"
+
+[NOTE]
+================================================================================
+Property data being written for an *.HLB* linkable file is slightly altered.
+For example, property routines are marked by $FE instead of $FF.
+See _XIII.b The Linker_.
+================================================================================
 
 == Before, After, and Other Complex Properties
 
-
-
 Consider the following complex property for an unspecified object:
 
+[source,hugo]
+--------------------------------------------------------------------------------
 after
-
-\{
-
-object DoGet
-
-\{
-
-"You pick up the object."
-
+{
+    object DoGet
+    {
+        "You pick up the object."
+    }
+    object
+    {
+        "You can't do that with the object."
+    }
 }
+--------------------------------------------------------------------------------
 
-object
+// @TODO: Missing XREf: "Hugo Manual"
 
-\{
+[NOTE]
+================================================================================
+A simple explanation of the above is that `<object>.after` is called following a call to a verbroutine with which `<object>` was involved.
+If `<object>` was the object of the verbroutine (i.e., the `object` global), and the `verbroutine` global was `DoGet`, the first block runs.
+The second block will run if no previous block has run.
+For a full description of complex properties, see the Hugo Manual.
+================================================================================
 
-"You can't do that with the object."
+First of all, the entry in the property table for `<object>.after` will point to the first line of code in the property routine.
+Arbitrarily, let's assume this is $000044: the earliest possible code address following a blank grammar table.
 
-}
-
-}
-
-(A simple explanation of the above is that <object>.after is called following a call to a verbroutine with which <object> was involved. If <object> was the object of the verbroutine (i.e., the object global), and the verbroutine global was DoGet, the first block runs. The second block will run if no previous block has run. For a full description of complex properties, see the Hugo Manual.)
-
-First of all, the entry in the property table for <object>.after will point to the first line of code in the property routine. Arbitrarily, let's assume this is $000044: the earliest possible code address following a blank grammar table.
-
-000040: FF 00 00 00 45 00 48 1A 00 25 15 00 47 00 00 00
-
-000050: 0D 00 00 00 45 00 25 18 00 47 00 16 00 0D 00 00
-
-000060: 0D 21 29
+    000040: FF 00 00 00 45 00 48 1A 00 25 15 00 47 00 00 00
+    000050: 0D 00 00 00 45 00 25 18 00 47 00 16 00 0D 00 00
+    000060: 0D 21 29
 
 That can be compared to the original source code as:
 
-000044: 45 00 48 1A 00
+* {blank}
++
+--
+    000044: 45 00 48 1A 00
 
-The initial `object DoGet` block header, assuming that the engine-defined global object is global variable number 0, and that the address of DoGet is $000068 (represented as an indexed address as $001A).
+The initial `object DoGet` block header, assuming that the engine-defined global `object` is global variable number 0, and that the address of `DoGet` is $000068 (represented as an indexed address as $001A).
+--
+* {blank}
++
+--
+    000049: 25 15 00
 
-000049: 25 15 00
+Following the `jump` token ($25) is the indexed address to jump to if `object DoGet` isn't matched.
+In this case, it is $0015, which translates to the absolute address $000054 (i.e., the address of the next header).
+--
+* {blank}
++
+--
+    00004C: 47 00 00 00
 
-Following the jump token ($25) is the indexed address to jump to if `object DoGet` isn't matched. In this case, it is $0015, which translates to the absolute address $000054 (i.e., the address of the next header).
-
-00004C: 47 00 00 00
-
-The <textdata#> label is followed by three bytes giving the address in the text bank of the printed string "`You pick up the object.`"
-
-000050: 0D 00 00 00
+The `<textdata#>` label is followed by three bytes giving the address in the text bank of the printed string "`You pick up the object.`"
+--
+* {blank}
++
+--
+    000050: 0D 00 00 00
 
 $0D signals the end of this block of executable code, followed by zeroes padding to the next address boundary.
-
-000054: 45 00
+--
+* {blank}
++
+--
+    000054: 45 00
 
 This block header is simply `object`.
+--
+* {blank}
++
+--
+    000056: 25 18 00
 
-000056: 25 18 00
-
-As above, following the jump token ($25) is the indexed address to jump to if the block header isn't matched. In this case, it is $0018, which translates to $000060 (i.e., the closing $0D of the after routine).
-
-000059: 47 00 19 00 0D 00 00
+As above, following the `jump` token ($25) is the indexed address to jump to if the block header isn't matched.
+In this case, it is $0018, which translates to $000060 (i.e., the closing $0D of the `after` routine).
+--
+* {blank}
++
+--
+    000059: 47 00 19 00 0D 00 00
 
 The second line of text is printed here, followed by $0D to signal the end of this block of code and zero-padding to the next address boundary.
+--
+* {blank}
++
+--
+    000060: 0D 21 29 4C
 
-000060: 0D 21 29 4C
-
-A $0D signals the end of the after routine. Property routines are followed by an automatic $21, $29, and $4C (i.e., `return true`).
-
+A $0D signals the end of the `after` routine.
+Property routines are followed by an automatic $21, $29, and $4C (i.e., `return true`).
+--
 
 // EOF //
