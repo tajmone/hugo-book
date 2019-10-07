@@ -1,41 +1,49 @@
 = RESOURCEFILES
 
-
-
-A resourcefile is used to store multiple images, sounds, music tracks, etc. in one manageable file format. The format of a Hugo resourcefile is fairly straightforward.
+A resourcefile is used to store multiple images, sounds, music tracks, etc. in one manageable file format.
+The format of a Hugo resourcefile is fairly straightforward.
 
 Every resourcefile starts with a header of 6 bytes:
 
-*00* `r` *[Note: old 24-bit resourcefiles used `R`]*
+[.center,caption=]
+[cols="<m,<d",options=autowidth,grid=none,stripes=odd]
+|===============================================================================
+^h| Bytes | {blank}
+| 00      | `r` *[Note: old 24-bit resourcefiles used `R`]*
+| 01      | Version number (i.e., 31 for version 3.1)
+| 02 - 03 | Number of resources
+| 04 - 05 | Length of index, in bytes
+|===============================================================================
 
-*01* Version number (i.e., 31 for version 3.1)
+Following the header is the index itself.
+Each resource entry in the index looks like:
 
-*02 - 03* Number of resources
+[.center,caption=]
+[cols="<m,<d",options=autowidth,grid=none,stripes=odd]
+|===============================================================================
+^h| Bytes  | {blank}
+| 00       | Length of entry name (i.e., _n_ bytes)
+| 01 - _n_ | Entry name
+| 4 bytes  | Offset in resourcefile from end of index
+| 4 bytes  | Length of resource, in bytes
+|===============================================================================
 
-*04 - 05* Length of index, in bytes
-
-Following the header is the index itself. Each resource entry in the index looks like:
-
-*00* Length of entry name (i.e., _n_ bytes)
-
-*01 - n* Entry name
-
-*4 bytes* Offset in resourcefile from end of index
-
-*4 bytes* Length of resource, in bytes
 
 [NOTE]
 ================================================================================
 Older resourcefiles (designated by `R` in the header) had a limit of 17 MB on resourcefile size (or of any contained resource) and used the following for offset and length:
+
+
+[.center,caption=]
+[cols="<m,<d",options=autowidth,grid=none,stripes=odd]
+|===============================================================================
+^h| Bytes | {blank}
+| 3 bytes | Offset in resourcefile from end of index
+| 3 bytes | Length of resource, in bytes
+|===============================================================================
+
+These are still supported by the Hugo Engine, but the compiler now writes 32-bit resourcefiles.
 ================================================================================
-
-
-
-*3 bytes* Offset in resourcefile from end of index
-
-*3 bytes* Length of resource, in bytes
-
-*These are still supported by the Hugo Engine, but the compiler now writes 32-bit resourcefiles.*
 
 Resources are then appended sequentially immediately following the index.
 
