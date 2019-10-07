@@ -446,7 +446,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <span id="email" class="email"><a href="mailto:general@generalcoffee.com">general@generalcoffee.com</a></span><br>
 <span id="revnumber">version 1,</span>
 <span id="revdate">2018-10-04</span>
-<br><span id="revremark">Draft 33 -- Porting to AsciiDoc</span>
+<br><span id="revremark">Draft 34 -- Porting to AsciiDoc</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -16281,7 +16281,7 @@ The reading of values from data types or expressions begins with <code>GetValue(
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>18</strong></p></td>
+<td class="tableblock halign-center valign-top" rowspan="3"><p class="tableblock"><strong>18</strong></p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock"><code>if</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><strong>STATEMENT</strong></p>
@@ -16294,9 +16294,12 @@ The reading of values from data types or expressions begins with <code>GetValue(
 </div>
 </div>
 <div class="paragraph">
-<p><strong>As in:</strong></p>
-</div>
-<div class="listingblock">
+<p></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><strong>As in:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-hugo" data-lang="hugo">if &lt;expression&gt;
 {...}</code></pre>
@@ -16309,11 +16312,11 @@ Note that $4C indicates end-of-line.</p>
 </div>
 <div class="paragraph">
 <p><code>&lt;expression&gt;</code> is simply a tokenized representation of the expression as it appears in the source line.</p>
-</div>
-<div class="paragraph">
-<p><strong>Source:</strong></p>
-</div>
-<div class="ulist">
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><strong>Source:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
 <ul>
 <li>
 <p><strong>hccode.c</strong>&#8201;&#8212;&#8201;<code>CodeIf()</code></p>
@@ -16332,7 +16335,7 @@ Note that $4C indicates end-of-line.</p>
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>1A</strong></p></td>
+<td class="tableblock halign-center valign-top" rowspan="3"><p class="tableblock"><strong>1A</strong></p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock"><code>else</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><strong>STATEMENT</strong></p>
@@ -16345,9 +16348,12 @@ Note that $4C indicates end-of-line.</p>
 </div>
 </div>
 <div class="paragraph">
-<p><strong>As in:</strong></p>
-</div>
-<div class="listingblock">
+<p></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><strong>As in:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-hugo" data-lang="hugo">else
 {...}</code></pre>
@@ -16356,23 +16362,23 @@ Note that $4C indicates end-of-line.</p>
 <div class="paragraph">
 <p>Where <code>&lt;conditional block&gt;</code> runs only if no immediately preceding <code>if</code> or <code>elseif</code> condition has been met.
 If a previous condition has been met, control passes ahead to <code>&lt;next statment&gt;</code>, i.e., forward the number of bytes given by the two bytes of <code>&lt;skip distance&gt;</code>.</p>
-</div>
-<div class="paragraph">
-<p><strong>Source:</strong></p>
-</div>
-<div class="ulist">
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><strong>Source:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
 <ul>
 <li>
 <p><strong>hccode.c</strong>&#8201;&#8212;&#8201;<code>CodeLine()</code></p>
 </li>
 <li>
-<p><strong>*herun.c</strong>&#8201;&#8212;&#8201;<code>RunIf()</code></p>
+<p><strong>herun.c</strong>&#8201;&#8212;&#8201;<code>RunIf()</code></p>
 </li>
 </ul>
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>1B</strong></p></td>
+<td class="tableblock halign-center valign-top" rowspan="3"><p class="tableblock"><strong>1B</strong></p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock"><code>elseif</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><strong>STATEMENT</strong></p>
@@ -16385,9 +16391,12 @@ If a previous condition has been met, control passes ahead to <code>&lt;next sta
 </div>
 </div>
 <div class="paragraph">
-<p><strong>As in:</strong></p>
-</div>
-<div class="listingblock">
+<p></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><strong>As in:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-hugo" data-lang="hugo">elseif &lt;expression&gt;
 {...}</code></pre>
@@ -16395,11 +16404,11 @@ If a previous condition has been met, control passes ahead to <code>&lt;next sta
 </div>
 <div class="paragraph">
 <p>See if.</p>
-</div>
-<div class="paragraph">
-<p><strong>Source:</strong></p>
-</div>
-<div class="ulist">
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><strong>Source:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
 <ul>
 <li>
 <p><strong>hccode.c</strong>&#8201;&#8212;&#8201;<code>CodeIf()</code></p>
@@ -16411,7 +16420,7 @@ If a previous condition has been met, control passes ahead to <code>&lt;next sta
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>1C</strong></p></td>
+<td class="tableblock halign-center valign-top" rowspan="3"><p class="tableblock"><strong>1C</strong></p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock"><code>while</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><strong>STATEMENT</strong></p>
@@ -16426,9 +16435,12 @@ If a previous condition has been met, control passes ahead to <code>&lt;next sta
 </div>
 </div>
 <div class="paragraph">
-<p><strong>As in:</strong></p>
-</div>
-<div class="listingblock">
+<p></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><strong>As in:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-hugo" data-lang="hugo">while &lt;expression&gt;
 {...}</code></pre>
@@ -16441,11 +16453,11 @@ See if.</p>
 </div>
 <div class="paragraph">
 <p>Note that because the <code>&lt;starting point&gt;</code> is written as a two-byte indexed address, it must begin on an address boundary, padded with empty ($00) values, if necessary.</p>
-</div>
-<div class="paragraph">
-<p><strong>Source:</strong></p>
-</div>
-<div class="ulist">
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><strong>Source:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
 <ul>
 <li>
 <p><strong>hccode.c</strong>&#8201;&#8212;&#8201;<code>CodeWhile()</code></p>
@@ -16457,7 +16469,7 @@ See if.</p>
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>1D</strong></p></td>
+<td class="tableblock halign-center valign-top" rowspan="3"><p class="tableblock"><strong>1D</strong></p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock"><code>do</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><strong>STATEMENT</strong></p>
@@ -16472,9 +16484,12 @@ See if.</p>
 </div>
 </div>
 <div class="paragraph">
-<p><strong>As in:</strong></p>
-</div>
-<div class="listingblock">
+<p></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><strong>As in:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-hugo" data-lang="hugo">do
 {...}
@@ -16485,11 +16500,11 @@ while &lt;expression&gt;</code></pre>
 <p>If, after <code>&lt;block&gt;</code> executes, <code>&lt;expression&gt;</code> evaluates to a non-false value, the engine returns to <code>&lt;starting point&gt;</code> (which must begin on an address boundary).
 The two bytes following while ($1C) match the syntax of the normal while loop, but are undefined for this usage.
 Instead, the distance to the next statement is given after the do token ($1D) in the two bytes of <code>&lt;skip distance&gt;</code>.</p>
-</div>
-<div class="paragraph">
-<p><strong>Source:</strong></p>
-</div>
-<div class="ulist">
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><strong>Source:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
 <ul>
 <li>
 <p><strong>hccode.c</strong>&#8201;&#8212;&#8201;<code>CodeDo()</code></p>
@@ -16501,7 +16516,7 @@ Instead, the distance to the next statement is given after the do token ($1D) in
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>1E</strong></p></td>
+<td class="tableblock halign-center valign-top" rowspan="2"><p class="tableblock"><strong>1E</strong></p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock"><code>select</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><strong>STATEMENT</strong></p>
@@ -16517,11 +16532,11 @@ Note that the variable that follows <code>select</code> in a line of source code
 </div>
 <div class="paragraph">
 <p>See case.</p>
-</div>
-<div class="paragraph">
-<p><strong>Source:</strong></p>
-</div>
-<div class="ulist">
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><strong>Source:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
 <ul>
 <li>
 <p><strong>hccode.c</strong>&#8201;&#8212;&#8201;<code>CodeSelect()</code></p>
@@ -16533,7 +16548,7 @@ Note that the variable that follows <code>select</code> in a line of source code
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>1F</strong></p></td>
+<td class="tableblock halign-center valign-top" rowspan="2"><p class="tableblock"><strong>1F</strong></p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock"><code>case</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><strong>STATEMENT</strong></p>
@@ -16571,11 +16586,11 @@ Note that the variable that follows <code>select</code> in a line of source code
 </div>
 <div class="paragraph">
 <p>Note that $1A is the <code>else</code> token, $05 is the <code>=</code> token, and that the two bytes of <code>&lt;skip distance&gt;</code> give the distance to the next <code>case</code>.</p>
-</div>
-<div class="paragraph">
-<p><strong>Source:</strong></p>
-</div>
-<div class="ulist">
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><strong>Source:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
 <ul>
 <li>
 <p><strong>hccode.c</strong>&#8201;&#8212;&#8201;<code>CodeSelect()</code></p>
@@ -16587,7 +16602,7 @@ Note that the variable that follows <code>select</code> in a line of source code
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>20</strong></p></td>
+<td class="tableblock halign-center valign-top" rowspan="3"><p class="tableblock"><strong>20</strong></p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock"><code>for</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><strong>STATEMENT</strong></p>
@@ -16604,9 +16619,12 @@ Note that the variable that follows <code>select</code> in a line of source code
 </div>
 </div>
 <div class="paragraph">
-<p><strong>As in:</strong></p>
-</div>
-<div class="listingblock">
+<p></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><strong>As in:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-hugo" data-lang="hugo">for (&lt;assign&gt;; &lt;expr&gt;; &lt;modifying&gt;)
 {...}</code></pre>
@@ -16618,11 +16636,11 @@ Again, nothing is explicitly coded at <code>&lt;starting point&gt;</code>&#8201;
 The <code>for</code> ($20) line operates as a regular conditional test (see <code>if</code>).
 The <code>&lt;modifying expression&gt;</code> is appended after the conditional block is coded.
 This, like the <code>&lt;assignment&gt;</code> is simply a regular executable assignment.</p>
-</div>
-<div class="paragraph">
-<p><strong>Source:</strong></p>
-</div>
-<div class="ulist">
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><strong>Source:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
 <ul>
 <li>
 <p><strong>hccode.c</strong>&#8201;&#8212;&#8201;<code>CodeFor()</code></p>
@@ -16634,7 +16652,7 @@ This, like the <code>&lt;assignment&gt;</code> is simply a regular executable as
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>21</strong></p></td>
+<td class="tableblock halign-center valign-top" rowspan="2"><p class="tableblock"><strong>21</strong></p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock"><code>return</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><strong>STATEMENT</strong></p>
@@ -16645,9 +16663,12 @@ This, like the <code>&lt;assignment&gt;</code> is simply a regular executable as
 </div>
 </div>
 <div class="paragraph">
-<p><strong>As in:</strong></p>
-</div>
-<div class="listingblock">
+<p></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><strong>As in:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-hugo" data-lang="hugo">return &lt;expression&gt;</code></pre>
 </div>
@@ -16694,7 +16715,7 @@ This, like the <code>&lt;assignment&gt;</code> is simply a regular executable as
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>25</strong></p></td>
+<td class="tableblock halign-center valign-top" rowspan="2"><p class="tableblock"><strong>25</strong></p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock"><code>jump</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><strong>STATEMENT</strong></p>
@@ -16705,9 +16726,12 @@ This, like the <code>&lt;assignment&gt;</code> is simply a regular executable as
 </div>
 </div>
 <div class="paragraph">
-<p><strong>As in:</strong></p>
-</div>
-<div class="listingblock">
+<p></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><strong>As in:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-hugo" data-lang="hugo">jump &lt;label&gt;</code></pre>
 </div>
@@ -16739,15 +16763,15 @@ This, like the <code>&lt;assignment&gt;</code> is simply a regular executable as
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>27</strong></p></td>
+<td class="tableblock halign-center valign-top" rowspan="2"><p class="tableblock"><strong>27</strong></p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock"><code>is</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><strong>TOKEN</strong></p>
-</div>
-<div class="paragraph">
-<p><strong>As in:</strong></p>
-</div>
-<div class="paragraph">
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><strong>As in:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><code>&lt;object&gt; is &lt;attribute&gt;</code> (statement form)<br>
 <code>&lt;object&gt; is &lt;attribute&gt;</code> (value form).</p>
 </div></div></td>
@@ -16865,7 +16889,7 @@ This, like the <code>&lt;assignment&gt;</code> is simply a regular executable as
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>33</strong></p></td>
+<td class="tableblock halign-center valign-top" rowspan="2"><p class="tableblock"><strong>33</strong></p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock"><code>print</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><strong>STATEMENT</strong></p>
@@ -16913,11 +16937,11 @@ This, like the <code>&lt;assignment&gt;</code> is simply a regular executable as
 </div>
 <div class="paragraph">
 <p>Multiple <code>&lt;print data&gt;</code> sequences are separated by a semicolon (<code>;</code>) token ($0B).</p>
-</div>
-<div class="paragraph">
-<p><strong>Source:</strong></p>
-</div>
-<div class="ulist">
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><strong>Source:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
 <ul>
 <li>
 <p><strong>herun.c</strong>&#8201;&#8212;&#8201;<code>RunPrint()</code></p>
@@ -16949,7 +16973,7 @@ This, like the <code>&lt;assignment&gt;</code> is simply a regular executable as
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>36</strong></p></td>
+<td class="tableblock halign-center valign-top" rowspan="2"><p class="tableblock"><strong>36</strong></p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock"><code>text</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><strong>STATEMENT</strong></p>
@@ -16959,22 +16983,22 @@ This, like the <code>&lt;assignment&gt;</code> is simply a regular executable as
 <pre>36 3B &lt;value&gt; 4C<sup class="footnote">[<a id="_footnoteref_75" class="footnote" href="#_footnotedef_75" title="View footnote.">75</a>]</sup></pre>
 </div>
 </div>
-<div class="paragraph">
-<p><strong>As in:</strong></p>
+<div id="footnotes">
+<hr>
+<div class="footnote" id="_footnotedef_75">
+<a href="#_footnoteref_75">75</a>. Pre-v2.3 omitted the <code>eol#</code> marker ($4C).
 </div>
-<div class="listingblock">
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><strong>As in:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-hugo" data-lang="hugo">text to n</code></pre>
 </div>
 </div>
 <div class="paragraph">
 <p>Where <code>&lt;value&gt;</code> is either an address in the array table, or constant 0 (to restore text output to the standard display).</p>
-</div>
-<div id="footnotes">
-<hr>
-<div class="footnote" id="_footnotedef_75">
-<a href="#_footnoteref_75">75</a>. Pre-v2.3 omitted the <code>eol#</code> marker ($4C).
-</div>
 </div></div></td>
 </tr>
 <tr>
@@ -16988,7 +17012,7 @@ This, like the <code>&lt;assignment&gt;</code> is simply a regular executable as
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>38</strong></p></td>
+<td class="tableblock halign-center valign-top" rowspan="2"><p class="tableblock"><strong>38</strong></p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock"><code>color</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><strong>STATEMENT</strong></p>
@@ -17001,9 +17025,12 @@ This, like the <code>&lt;assignment&gt;</code> is simply a regular executable as
 </div>
 </div>
 <div class="paragraph">
-<p><strong>As in:</strong></p>
-</div>
-<div class="listingblock">
+<p></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><strong>As in:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-hugo" data-lang="hugo">color foreground
 color foreground, background
@@ -17017,7 +17044,7 @@ If a third value is given, separated by a comma ($19), it represents the input c
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>39</strong></p></td>
+<td class="tableblock halign-center valign-top" rowspan="3"><p class="tableblock"><strong>39</strong></p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock"><code>remove</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><strong>STATEMENT</strong></p>
@@ -17028,22 +17055,7 @@ If a third value is given, separated by a comma ($19), it represents the input c
 </div>
 </div>
 <div class="paragraph">
-<p><strong>As in:</strong></p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-hugo" data-lang="hugo">remove &lt;object&gt;</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p><strong>Source:</strong></p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>herun.c</strong>&#8201;&#8212;&#8201;<code>RunMove()</code></p>
-</li>
-</ul>
+<p></p>
 </div>
 <div id="footnotes">
 <hr>
@@ -17053,7 +17065,28 @@ If a third value is given, separated by a comma ($19), it represents the input c
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>3A</strong></p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><strong>As in:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-hugo" data-lang="hugo">remove &lt;object&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><strong>Source:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p><strong>herun.c</strong>&#8201;&#8212;&#8201;<code>RunMove()</code></p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" rowspan="3"><p class="tableblock"><strong>3A</strong></p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock"><code>move</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><strong>STATEMENT</strong></p>
@@ -17064,28 +17097,34 @@ If a third value is given, separated by a comma ($19), it represents the input c
 </div>
 </div>
 <div class="paragraph">
-<p><strong>As in:</strong></p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-hugo" data-lang="hugo">move &lt;object1&gt; to &lt;object2&gt;</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p><strong>Source:</strong></p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>herun.c</strong>&#8201;&#8212;&#8201;<code>RunMove()</code></p>
-</li>
-</ul>
+<p></p>
 </div>
 <div id="footnotes">
 <hr>
 <div class="footnote" id="_footnotedef_77">
 <a href="#_footnoteref_77">77</a>. Pre-v2.3 omitted the <code>eol#</code> marker ($4C).
 </div>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><strong>As in:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-hugo" data-lang="hugo">move &lt;object1&gt; to &lt;object2&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><strong>Source:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p><strong>herun.c</strong>&#8201;&#8212;&#8201;<code>RunMove()</code></p>
+</li>
+</ul>
 </div></div></td>
 </tr>
 <tr>
@@ -17115,7 +17154,7 @@ If a third value is given, separated by a comma ($19), it represents the input c
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>3C</strong></p></td>
+<td class="tableblock halign-center valign-top" rowspan="2"><p class="tableblock"><strong>3C</strong></p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock"><code>parent</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><strong>VALUE</strong></p>
@@ -17126,9 +17165,12 @@ If a third value is given, separated by a comma ($19), it represents the input c
 </div>
 </div>
 <div class="paragraph">
-<p><strong>As in:</strong></p>
-</div>
-<div class="listingblock">
+<p></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><strong>As in:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-hugo" data-lang="hugo">parent(...)</code></pre>
 </div>
@@ -17150,7 +17192,7 @@ Alternate usage is as a grammar token, coded simply as $3C with no following par
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>3D</strong></p></td>
+<td class="tableblock halign-center valign-top" rowspan="2"><p class="tableblock"><strong>3D</strong></p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock"><code>sibling</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><strong>VALUE</strong></p>
@@ -17161,9 +17203,12 @@ Alternate usage is as a grammar token, coded simply as $3C with no following par
 </div>
 </div>
 <div class="paragraph">
-<p><strong>As in:</strong></p>
-</div>
-<div class="listingblock">
+<p></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><strong>As in:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-hugo" data-lang="hugo">sibling(...)</code></pre>
 </div>
@@ -17173,7 +17218,7 @@ Alternate usage is as a grammar token, coded simply as $3C with no following par
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>3E</strong></p></td>
+<td class="tableblock halign-center valign-top" rowspan="2"><p class="tableblock"><strong>3E</strong></p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock"><code>child</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><strong>VALUE</strong></p>
@@ -17184,9 +17229,12 @@ Alternate usage is as a grammar token, coded simply as $3C with no following par
 </div>
 </div>
 <div class="paragraph">
-<p><strong>As in:</strong></p>
-</div>
-<div class="listingblock">
+<p></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><strong>As in:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-hugo" data-lang="hugo">child(...)</code></pre>
 </div>
@@ -17196,7 +17244,7 @@ Alternate usage is as a grammar token, coded simply as $3C with no following par
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>3F</strong></p></td>
+<td class="tableblock halign-center valign-top" rowspan="2"><p class="tableblock"><strong>3F</strong></p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock"><code>youngest</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><strong>VALUE</strong></p>
@@ -17207,9 +17255,12 @@ Alternate usage is as a grammar token, coded simply as $3C with no following par
 </div>
 </div>
 <div class="paragraph">
-<p><strong>As in:</strong></p>
-</div>
-<div class="listingblock">
+<p></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><strong>As in:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-hugo" data-lang="hugo">youngest(...)</code></pre>
 </div>
@@ -17219,7 +17270,7 @@ Alternate usage is as a grammar token, coded simply as $3C with no following par
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>40</strong></p></td>
+<td class="tableblock halign-center valign-top" rowspan="2"><p class="tableblock"><strong>40</strong></p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock"><code>eldest</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><strong>VALUE</strong></p>
@@ -17230,9 +17281,12 @@ Alternate usage is as a grammar token, coded simply as $3C with no following par
 </div>
 </div>
 <div class="paragraph">
-<p><strong>As in:</strong></p>
-</div>
-<div class="listingblock">
+<p></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><strong>As in:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-hugo" data-lang="hugo">eldest(...)</code></pre>
 </div>
@@ -17242,7 +17296,7 @@ Alternate usage is as a grammar token, coded simply as $3C with no following par
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>41</strong></p></td>
+<td class="tableblock halign-center valign-top" rowspan="2"><p class="tableblock"><strong>41</strong></p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock"><code>younger</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><strong>VALUE</strong></p>
@@ -17253,9 +17307,12 @@ Alternate usage is as a grammar token, coded simply as $3C with no following par
 </div>
 </div>
 <div class="paragraph">
-<p><strong>As in:</strong></p>
-</div>
-<div class="listingblock">
+<p></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><strong>As in:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-hugo" data-lang="hugo">younger(...)</code></pre>
 </div>
@@ -17265,7 +17322,7 @@ Alternate usage is as a grammar token, coded simply as $3C with no following par
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>42</strong></p></td>
+<td class="tableblock halign-center valign-top" rowspan="2"><p class="tableblock"><strong>42</strong></p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock"><code>elder</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><strong>VALUE</strong></p>
@@ -17276,9 +17333,12 @@ Alternate usage is as a grammar token, coded simply as $3C with no following par
 </div>
 </div>
 <div class="paragraph">
-<p><strong>As in:</strong></p>
-</div>
-<div class="listingblock">
+<p></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><strong>As in:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-hugo" data-lang="hugo">elder(...)</code></pre>
 </div>
@@ -17440,7 +17500,7 @@ Read by the debugger; ignored by the engine.</p>
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>4D</strong></p></td>
+<td class="tableblock halign-center valign-top" rowspan="3"><p class="tableblock"><strong>4D</strong></p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock"><code>system</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><strong>INTERNAL STATEMENT</strong> or <strong>VALUE</strong></p>
@@ -17451,9 +17511,18 @@ Read by the debugger; ignored by the engine.</p>
 </div>
 </div>
 <div class="paragraph">
-<p><strong>As in:</strong></p>
+<p></p>
 </div>
-<div class="listingblock">
+<div id="footnotes">
+<hr>
+<div class="footnote" id="_footnotedef_78">
+<a href="#_footnoteref_78">78</a>. Pre-v2.3 omitted the <code>eol#</code> marker ($4C).
+</div>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><strong>As in:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-hugo" data-lang="hugo">system(&lt;value&gt;)</code></pre>
 </div>
@@ -17484,24 +17553,21 @@ See <em>The Hugo Programming Manual</em> for further elaboration on the <code>sy
 <div class="paragraph">
 <p>Where <code>&lt;value&gt;</code> is some Hugo data type giving the number of the system function to call.</p>
 </div>
-<div class="paragraph">
-<p><strong>Source:</strong></p>
+<div id="footnotes">
+<hr>
+<div class="footnote" id="_footnotedef_79">
+<a href="#_footnoteref_79">79</a>. Not implemented post-v2.2.
 </div>
-<div class="ulist">
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><strong>Source:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
 <ul>
 <li>
 <p><strong>herun.c</strong>&#8201;&#8212;&#8201;<code>RunSystem()</code></p>
 </li>
 </ul>
-</div>
-<div id="footnotes">
-<hr>
-<div class="footnote" id="_footnotedef_78">
-<a href="#_footnoteref_78">78</a>. Pre-v2.3 omitted the <code>eol#</code> marker ($4C).
-</div>
-<div class="footnote" id="_footnotedef_79">
-<a href="#_footnoteref_79">79</a>. Not implemented post-v2.2.
-</div>
 </div></div></td>
 </tr>
 <tr>
@@ -17519,7 +17585,7 @@ See <em>The Hugo Programming Manual</em> for further elaboration on the <code>sy
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>50</strong></p></td>
+<td class="tableblock halign-center valign-top" rowspan="2"><p class="tableblock"><strong>50</strong></p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock"><code>window</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><strong>STATEMENT</strong></p>
@@ -17594,11 +17660,11 @@ The result was a window beginning at the top of the screen, reaching down to the
 </td>
 </tr>
 </table>
-</div>
-<div class="paragraph">
-<p><strong>Source:</strong></p>
-</div>
-<div class="ulist">
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><strong>Source:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
 <ul>
 <li>
 <p><strong>herun.c</strong>&#8201;&#8212;&#8201;<code>RunWindow()</code></p>
@@ -17607,7 +17673,7 @@ The result was a window beginning at the top of the screen, reaching down to the
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>51</strong></p></td>
+<td class="tableblock halign-center valign-top" rowspan="2"><p class="tableblock"><strong>51</strong></p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock"><code>random</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><strong>VALUE</strong></p>
@@ -17618,9 +17684,12 @@ The result was a window beginning at the top of the screen, reaching down to the
 </div>
 </div>
 <div class="paragraph">
-<p><strong>As in:</strong></p>
-</div>
-<div class="listingblock">
+<p></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><strong>As in:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-hugo" data-lang="hugo">random(...)</code></pre>
 </div>
@@ -17630,7 +17699,7 @@ The result was a window beginning at the top of the screen, reaching down to the
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>52</strong></p></td>
+<td class="tableblock halign-center valign-top" rowspan="2"><p class="tableblock"><strong>52</strong></p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock"><code>word</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><strong>VALUE</strong></p>
@@ -17641,6 +17710,12 @@ The result was a window beginning at the top of the screen, reaching down to the
 </div>
 </div>
 <div class="paragraph">
+<p></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><strong>As in:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><strong>As in:</strong></p>
 </div>
 <div class="listingblock">
@@ -17653,7 +17728,7 @@ The result was a window beginning at the top of the screen, reaching down to the
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>53</strong></p></td>
+<td class="tableblock halign-center valign-top" rowspan="2"><p class="tableblock"><strong>53</strong></p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock"><code>locate</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><strong>STATEMENT</strong></p>
@@ -17665,9 +17740,12 @@ The result was a window beginning at the top of the screen, reaching down to the
 </div>
 </div>
 <div class="paragraph">
-<p><strong>As in:</strong></p>
-</div>
-<div class="listingblock">
+<p></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><strong>As in:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-hugo" data-lang="hugo">locate x
 locate x, y</code></pre>
@@ -17679,18 +17757,18 @@ If a second value is given, it represents the new row position.</p>
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>54</strong></p></td>
+<td class="tableblock halign-center valign-top" rowspan="2"><p class="tableblock"><strong>54</strong></p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock"><code>parse$</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><strong>TOKEN</strong></p>
 </div>
 <div class="paragraph">
 <p>Read-only engine variable representing the engine parser&#8217;s internal <code>parse$</code> string.</p>
-</div>
-<div class="paragraph">
-<p><strong>Source:</strong></p>
-</div>
-<div class="ulist">
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><strong>Source:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
 <ul>
 <li>
 <p><strong>herun.c</strong>&#8201;&#8212;&#8201;<code>RunPrint()</code></p>
@@ -17702,7 +17780,7 @@ If a second value is given, it represents the new row position.</p>
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>55</strong></p></td>
+<td class="tableblock halign-center valign-top" rowspan="2"><p class="tableblock"><strong>55</strong></p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock"><code>children</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><strong>VALUE</strong></p>
@@ -17713,9 +17791,12 @@ If a second value is given, it represents the new row position.</p>
 </div>
 </div>
 <div class="paragraph">
-<p><strong>As in:</strong></p>
-</div>
-<div class="listingblock">
+<p></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><strong>As in:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-hugo" data-lang="hugo">children(...)</code></pre>
 </div>
@@ -17725,15 +17806,15 @@ If a second value is given, it represents the new row position.</p>
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>56</strong></p></td>
+<td class="tableblock halign-center valign-top" rowspan="2"><p class="tableblock"><strong>56</strong></p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock"><code>in</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><strong>TOKEN</strong></p>
-</div>
-<div class="paragraph">
-<p><strong>As in:</strong></p>
-</div>
-<div class="listingblock">
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><strong>As in:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-hugo" data-lang="hugo">for &lt;object&gt; in &lt;parent&gt;</code></pre>
 </div>
@@ -17820,7 +17901,7 @@ Stores the resulting key value in <code>word[0]</code>.</p>
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>5A</strong></p></td>
+<td class="tableblock halign-center valign-top" rowspan="2"><p class="tableblock"><strong>5A</strong></p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock"><code>call</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>STATEMENT or VALUE</p>
@@ -17831,15 +17912,7 @@ Stores the resulting key value in <code>word[0]</code>.</p>
 </div>
 </div>
 <div class="paragraph">
-<p><strong>As in:</strong></p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-hugo" data-lang="hugo">call &lt;routine address&gt;</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Where <code>&lt;value&gt;</code> gives the indexed address of the routine to be called.</p>
+<p></p>
 </div>
 <div id="footnotes">
 <hr>
@@ -17849,7 +17922,18 @@ Stores the resulting key value in <code>word[0]</code>.</p>
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>5B</strong></p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><strong>As in:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-hugo" data-lang="hugo">call &lt;routine address&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Where <code>&lt;value&gt;</code> gives the indexed address of the routine to be called.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" rowspan="2"><p class="tableblock"><strong>5B</strong></p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock"><code>stringdata#</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><strong>PRINT TOKEN</strong></p>
@@ -17862,11 +17946,11 @@ Stores the resulting key value in <code>word[0]</code>.</p>
 <div class="paragraph">
 <p>Valid only in a <code>print</code> statement.
 <code>&lt;<em>n</em>&gt;</code> gives the number of characters contained in the print string.</p>
-</div>
-<div class="paragraph">
-<p><strong>Source:</strong></p>
-</div>
-<div class="ulist">
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><strong>Source:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
 <ul>
 <li>
 <p><strong>herun.c</strong>&#8201;&#8212;&#8201;<code>RunPrint()</code></p>
@@ -17875,26 +17959,26 @@ Stores the resulting key value in <code>word[0]</code>.</p>
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>5C</strong></p></td>
+<td class="tableblock halign-center valign-top" rowspan="3"><p class="tableblock"><strong>5C</strong></p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock"><code>save</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><strong>VALUE</strong></p>
-</div>
-<div class="paragraph">
-<p><strong>As in:</strong></p>
-</div>
-<div class="listingblock">
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><strong>As in:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-hugo" data-lang="hugo">x = save</code></pre>
 </div>
 </div>
 <div class="paragraph">
 <p>Calls the engine&#8217;s save-game procedure (which includes filename input); returns a true value on success, or false on failure.</p>
-</div>
-<div class="paragraph">
-<p><strong>Source:</strong></p>
-</div>
-<div class="ulist">
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><strong>Source:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
 <ul>
 <li>
 <p><strong>herun.c</strong>&#8201;&#8212;&#8201;<code>RunSave()</code></p>
@@ -17903,26 +17987,26 @@ Stores the resulting key value in <code>word[0]</code>.</p>
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>5D</strong></p></td>
+<td class="tableblock halign-center valign-top" rowspan="3"><p class="tableblock"><strong>5D</strong></p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock"><code>restore</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><strong>VALUE</strong></p>
-</div>
-<div class="paragraph">
-<p><strong>As in:</strong></p>
-</div>
-<div class="listingblock">
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><strong>As in:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-hugo" data-lang="hugo">x = restore</code></pre>
 </div>
 </div>
 <div class="paragraph">
 <p>Calls the engine&#8217;s restore-game procedure (which includes filename input); returns a true value on success, or false on failure.</p>
-</div>
-<div class="paragraph">
-<p><strong>Source:</strong></p>
-</div>
-<div class="ulist">
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><strong>Source:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
 <ul>
 <li>
 <p><strong>herun.c</strong>&#8201;&#8212;&#8201;<code>RunRestore()</code></p>
@@ -17946,7 +18030,7 @@ Stores the resulting key value in <code>word[0]</code>.</p>
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>5F</strong></p></td>
+<td class="tableblock halign-center valign-top" rowspan="2"><p class="tableblock"><strong>5F</strong></p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock"><code>input</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><strong>STATEMENT</strong></p>
@@ -17959,11 +18043,11 @@ Stores the resulting key value in <code>word[0]</code>.</p>
 <div class="paragraph">
 <p>Prompts for user input, storing the resulting word(s) in the <code>word[]</code> array.
 Unknown (i.e., non-dictionary) words become 0, or <code>""</code>; the last unknown word is stored in <code>parse$</code>.</p>
-</div>
-<div class="paragraph">
-<p><strong>Source:</strong></p>
-</div>
-<div class="ulist">
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><strong>Source:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
 <ul>
 <li>
 <p><strong>herun.c</strong>&#8201;&#8212;&#8201;<code>RunInput()</code></p>
@@ -17972,18 +18056,18 @@ Unknown (i.e., non-dictionary) words become 0, or <code>""</code>; the last unkn
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>60</strong></p></td>
+<td class="tableblock halign-center valign-top" rowspan="2"><p class="tableblock"><strong>60</strong></p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock"><code>serial$</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><strong>PRINT TOKEN</strong></p>
 </div>
 <div class="paragraph">
 <p>Read-only engine variable representing the compiler-determined serial number.</p>
-</div>
-<div class="paragraph">
-<p><strong>Source:</strong></p>
-</div>
-<div class="ulist">
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><strong>Source:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
 <ul>
 <li>
 <p><strong>hemisc.c</strong>&#8201;&#8212;&#8201;<code>GetWord()</code></p>
@@ -18007,7 +18091,7 @@ Unknown (i.e., non-dictionary) words become 0, or <code>""</code>; the last unkn
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>62</strong></p></td>
+<td class="tableblock halign-center valign-top" rowspan="2"><p class="tableblock"><strong>62</strong></p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock"><code>scripton</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><strong>VALUE</strong>
@@ -18020,11 +18104,11 @@ Unknown (i.e., non-dictionary) words become 0, or <code>""</code>; the last unkn
 </div>
 <div class="paragraph">
 <p>Calls the engine&#8217;s begin-scripting procedure (which includes filename input); returns a true value on success, or false on failure.</p>
-</div>
-<div class="paragraph">
-<p><strong>Source:</strong></p>
-</div>
-<div class="ulist">
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><strong>Source:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
 <ul>
 <li>
 <p><strong>herun.c</strong>&#8201;&#8212;&#8201;<code>RunScript()</code></p>
@@ -18033,26 +18117,26 @@ Unknown (i.e., non-dictionary) words become 0, or <code>""</code>; the last unkn
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>63</strong></p></td>
+<td class="tableblock halign-center valign-top" rowspan="3"><p class="tableblock"><strong>63</strong></p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock"><code>scriptoff</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><strong>VALUE</strong></p>
-</div>
-<div class="paragraph">
-<p><strong>As in:</strong></p>
-</div>
-<div class="listingblock">
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><strong>As in:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-hugo" data-lang="hugo">x = scriptoff</code></pre>
 </div>
 </div>
 <div class="paragraph">
 <p>Calls the engine&#8217;s end-scripting procedure; returns a true value on success, or false on failure.</p>
-</div>
-<div class="paragraph">
-<p><strong>Source:</strong></p>
-</div>
-<div class="ulist">
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><strong>Source:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
 <ul>
 <li>
 <p><strong>herun.c</strong>&#8201;&#8212;&#8201;<code>RunScript()</code></p>
@@ -18061,15 +18145,15 @@ Unknown (i.e., non-dictionary) words become 0, or <code>""</code>; the last unkn
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>64</strong></p></td>
+<td class="tableblock halign-center valign-top" rowspan="2"><p class="tableblock"><strong>64</strong></p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock"><code>restart</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><strong>VALUE</strong></p>
-</div>
-<div class="paragraph">
-<p><strong>As in:</strong></p>
-</div>
-<div class="listingblock">
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><strong>As in:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-hugo" data-lang="hugo">x = restart</code></pre>
 </div>
@@ -18127,7 +18211,7 @@ Removed as a token after grammar table is compiled so that <code>xobject</code> 
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>68</strong></p></td>
+<td class="tableblock halign-center valign-top" rowspan="3"><p class="tableblock"><strong>68</strong></p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock"><code>string</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><strong>VALUE</strong></p>
@@ -18138,9 +18222,12 @@ Removed as a token after grammar table is compiled so that <code>xobject</code> 
 </div>
 </div>
 <div class="paragraph">
-<p><strong>As in:</strong></p>
-</div>
-<div class="listingblock">
+<p></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><strong>As in:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-hugo" data-lang="hugo">x = string(a, "apple", 8)</code></pre>
 </div>
@@ -18148,11 +18235,11 @@ Removed as a token after grammar table is compiled so that <code>xobject</code> 
 <div class="paragraph">
 <p>Calls the engine string-writing function to write the dictionary entry <code>&lt;expr2&gt;</code> into the array table at the array address given by <code>&lt;expr1&gt;</code>, to a maximum of <code>&lt;expr3&gt;</code> characters.
 <code>&lt;expr1&gt;</code> is any data type or expression; <code>&lt;expr2&gt;</code> is either a value or the <code>parse$</code> token ($54); <code>&lt;expr3&gt;</code> is optional, and if it is not given, the $02 token comes in place of the second $19.</p>
-</div>
-<div class="paragraph">
-<p><strong>Source:</strong></p>
-</div>
-<div class="ulist">
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><strong>Source:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
 <ul>
 <li>
 <p><strong>herun.c</strong>&#8201;&#8212;&#8201;<code>RunString()</code></p>
@@ -18161,7 +18248,7 @@ Removed as a token after grammar table is compiled so that <code>xobject</code> 
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>69</strong></p></td>
+<td class="tableblock halign-center valign-top" rowspan="2"><p class="tableblock"><strong>69</strong></p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock"><code>array</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><strong>VALUE</strong></p>
@@ -18173,11 +18260,11 @@ Removed as a token after grammar table is compiled so that <code>xobject</code> 
 </div>
 <div class="paragraph">
 <p>Forces <code>&lt;value&gt;</code> to be used as an address in the array table, so that <code>array &lt;value&gt;</code> can be used as <code>arraydata#</code>.</p>
-</div>
-<div class="paragraph">
-<p><strong>Source:</strong></p>
-</div>
-<div class="ulist">
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><strong>Source:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
 <ul>
 <li>
 <p><strong>heexpr.c</strong>&#8201;&#8212;&#8201;<code>GetVal()</code></p>
@@ -18186,7 +18273,7 @@ Removed as a token after grammar table is compiled so that <code>xobject</code> 
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>6A</strong></p></td>
+<td class="tableblock halign-center valign-top" rowspan="2"><p class="tableblock"><strong>6A</strong></p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock"><code>printchar</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><strong>STATEMENT</strong></p>
@@ -18197,9 +18284,12 @@ Removed as a token after grammar table is compiled so that <code>xobject</code> 
 </div>
 </div>
 <div class="paragraph">
-<p><strong>As in:</strong></p>
-</div>
-<div class="listingblock">
+<p></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><strong>As in:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-hugo" data-lang="hugo">printchar 'A', 'B',...</code></pre>
 </div>
@@ -18210,26 +18300,26 @@ Multiple values are separated by $19; the sequence is terminated by $4C.</p>
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>6B</strong></p></td>
+<td class="tableblock halign-center valign-top" rowspan="3"><p class="tableblock"><strong>6B</strong></p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock"><code>undo</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><strong>VALUE</strong></p>
-</div>
-<div class="paragraph">
-<p><strong>As in:</strong></p>
-</div>
-<div class="listingblock">
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><strong>As in:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-hugo" data-lang="hugo">x = undo</code></pre>
 </div>
 </div>
 <div class="paragraph">
 <p>Attempts to restore all data changes made since the last typed input; returns a true value on success or false on failure.</p>
-</div>
-<div class="paragraph">
-<p><strong>Source:</strong></p>
-</div>
-<div class="ulist">
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><strong>Source:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
 <ul>
 <li>
 <p><strong>hemisc.c</strong>&#8201;&#8212;&#8201;<code>SaveUndo()</code>, <code>Undo()</code></p>
@@ -18238,7 +18328,7 @@ Multiple values are separated by $19; the sequence is terminated by $4C.</p>
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>6C</strong></p></td>
+<td class="tableblock halign-center valign-top" rowspan="3"><p class="tableblock"><strong>6C</strong></p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock"><code>dict</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><strong>VALUE</strong></p>
@@ -18249,9 +18339,12 @@ Multiple values are separated by $19; the sequence is terminated by $4C.</p>
 </div>
 </div>
 <div class="paragraph">
-<p><strong>As in:</strong></p>
-</div>
-<div class="listingblock">
+<p></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><strong>As in:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-hugo" data-lang="hugo">x = dict(&lt;array&gt;, &lt;len&gt;)</code></pre>
 </div>
@@ -18261,11 +18354,11 @@ Multiple values are separated by $19; the sequence is terminated by $4C.</p>
 If <code>&lt;expr1&gt;</code> is <code>parse$</code> ($54), then the value of <code>parse$</code> is used; otherwise <code>&lt;expr1&gt;</code> is an array address in the array table.
 If the string is already a dictionary entry, its location is returned.
 Otherwise, it is appended to the end of the table, and the new location is returned.</p>
-</div>
-<div class="paragraph">
-<p><strong>Source:</strong></p>
-</div>
-<div class="ulist">
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><strong>Source:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
 <ul>
 <li>
 <p><strong>hemisc.c</strong>&#8201;&#8212;&#8201;<code>Dict()</code></p>
@@ -18274,26 +18367,26 @@ Otherwise, it is appended to the end of the table, and the new location is retur
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>6D</strong></p></td>
+<td class="tableblock halign-center valign-top" rowspan="3"><p class="tableblock"><strong>6D</strong></p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock"><code>recordon</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><strong>VALUE</strong></p>
-</div>
-<div class="paragraph">
-<p><strong>As in:</strong></p>
-</div>
-<div class="listingblock">
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><strong>As in:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-hugo" data-lang="hugo">x = recordon</code></pre>
 </div>
 </div>
 <div class="paragraph">
 <p>Calls the engine&#8217;s begin-command-recording procedure (which includes filename input); returns a true value on success, or false on failure.</p>
-</div>
-<div class="paragraph">
-<p><strong>Source:</strong></p>
-</div>
-<div class="ulist">
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><strong>Source:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
 <ul>
 <li>
 <p><strong>hemisc.c</strong>&#8201;&#8212;&#8201;<code>RecordCommands()</code></p>
@@ -18302,26 +18395,26 @@ Otherwise, it is appended to the end of the table, and the new location is retur
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>6E</strong></p></td>
+<td class="tableblock halign-center valign-top" rowspan="3"><p class="tableblock"><strong>6E</strong></p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock"><code>recordoff</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><strong>VALUE</strong></p>
-</div>
-<div class="paragraph">
-<p><strong>As in:</strong></p>
-</div>
-<div class="listingblock">
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><strong>As in:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-hugo" data-lang="hugo">x = recordoff</code></pre>
 </div>
 </div>
 <div class="paragraph">
 <p>Calls the engine&#8217;s end-command-recording procedure; returns a true value on success, or false on failure.</p>
-</div>
-<div class="paragraph">
-<p><strong>Source:</strong></p>
-</div>
-<div class="ulist">
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><strong>Source:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
 <ul>
 <li>
 <p><strong>hemisc.c</strong>&#8201;&#8212;&#8201;<code>RecordCommands()</code></p>
@@ -18330,7 +18423,7 @@ Otherwise, it is appended to the end of the table, and the new location is retur
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>6F</strong></p></td>
+<td class="tableblock halign-center valign-top" rowspan="3"><p class="tableblock"><strong>6F</strong></p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock"><code>writefile</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><strong>STATEMENT</strong></p>
@@ -18342,27 +18435,7 @@ Otherwise, it is appended to the end of the table, and the new location is retur
 </div>
 </div>
 <div class="paragraph">
-<p><strong>As in:</strong></p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-hugo" data-lang="hugo">writefile &lt;file&gt;
-{...}</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Opens the file named by the dictionary entry <code>&lt;value&gt;</code>, erasing it if it previously exists, and runs the following code block.
-Upon any error, jumps to the end of the file i/o code block and closes <code>&lt;file&gt;</code>.</p>
-</div>
-<div class="paragraph">
-<p><strong>Source:</strong></p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>hemisc.c</strong>&#8201;&#8212;&#8201;<code>FileIO()</code></p>
-</li>
-</ul>
+<p></p>
 </div>
 <div id="footnotes">
 <hr>
@@ -18372,7 +18445,30 @@ Upon any error, jumps to the end of the file i/o code block and closes <code>&lt
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>70</strong></p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><strong>As in:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-hugo" data-lang="hugo">writefile &lt;file&gt;
+{...}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Opens the file named by the dictionary entry <code>&lt;value&gt;</code>, erasing it if it previously exists, and runs the following code block.
+Upon any error, jumps to the end of the file i/o code block and closes <code>&lt;file&gt;</code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><strong>Source:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p><strong>hemisc.c</strong>&#8201;&#8212;&#8201;<code>FileIO()</code></p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" rowspan="2"><p class="tableblock"><strong>70</strong></p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock"><code>readfile</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><strong>STATEMENT</strong></p>
@@ -18384,9 +18480,18 @@ Upon any error, jumps to the end of the file i/o code block and closes <code>&lt
 </div>
 </div>
 <div class="paragraph">
-<p><strong>As in:</strong></p>
+<p></p>
 </div>
-<div class="listingblock">
+<div id="footnotes">
+<hr>
+<div class="footnote" id="_footnotedef_82">
+<a href="#_footnoteref_82">82</a>. Pre-v2.3 omitted the <code>eol#</code> marker ($4C).
+</div>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><strong>As in:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-hugo" data-lang="hugo">readfile &lt;file&gt;
 {...}</code></pre>
@@ -18395,12 +18500,6 @@ Upon any error, jumps to the end of the file i/o code block and closes <code>&lt
 <div class="paragraph">
 <p>Opens the file named by the dictionary entry <code>&lt;value&gt;</code> and runs the following code block.
 Upon any error, jumps to the end of the file i/o code block and closes <code>&lt;file&gt;</code>.</p>
-</div>
-<div id="footnotes">
-<hr>
-<div class="footnote" id="_footnotedef_82">
-<a href="#_footnoteref_82">82</a>. Pre-v2.3 omitted the <code>eol#</code> marker ($4C).
-</div>
 </div></div></td>
 </tr>
 <tr>
@@ -18427,15 +18526,15 @@ Multiple values are separated by $19.</p>
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>72</strong></p></td>
+<td class="tableblock halign-center valign-top" rowspan="2"><p class="tableblock"><strong>72</strong></p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock"><code>readval</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><strong>VALUE</strong></p>
-</div>
-<div class="paragraph">
-<p><strong>As in:</strong></p>
-</div>
-<div class="listingblock">
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><strong>As in:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-hugo" data-lang="hugo">x = readval</code></pre>
 </div>
@@ -18446,15 +18545,15 @@ Reads a 16-bit integer from the currently open file.</p>
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>73</strong></p></td>
+<td class="tableblock halign-center valign-top" rowspan="2"><p class="tableblock"><strong>73</strong></p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock"><code>playback</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><strong>VALUE</strong></p>
-</div>
-<div class="paragraph">
-<p><strong>As in:</strong></p>
-</div>
-<div class="listingblock">
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><strong>As in:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-hugo" data-lang="hugo">x = playback</code></pre>
 </div>

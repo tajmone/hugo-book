@@ -53,15 +53,16 @@ The reading of values from data types or expressions begins with `GetValue()` in
 | 15 | &  | *TOKEN*
 | 16 | >  | *TOKEN*
 | 17 | <  | *TOKEN*
-| 18 | if | *STATEMENT*
+.3+| 18 | if | *STATEMENT*
 
 ..................................
 18 <skip distance> <expression> 4C
     <conditional block>
 <next statement>
 ..................................
+{blank}
 
-*As in:*
+>s| As in:  <a|
 
 [source,hugo]
 ---------------
@@ -75,20 +76,22 @@ Note that $4C indicates end-of-line.
 
 `<expression>` is simply a tokenized representation of the expression as it appears in the source line.
 
-*Source:*
+>s| Source: <a|
 
 * *hccode.c* -- `CodeIf()`
 * *herun.c*  -- `RunIf()`
 // -----------------------------------------------------------------------------
 | 19 | ,    | *TOKEN*
-| 1A | else | *STATEMENT*
+.3+| 1A | else | *STATEMENT*
 
+........................
+1A <skip distance>
+    <conditional block>
+<next statement>
+........................
+{blank}
 
-    1A <skip distance>
-        <conditional block>
-    <next statement>
-
-*As in:*
+>s| As in:  <a|
 
 [source,hugo]
 ---------------
@@ -99,18 +102,21 @@ else
 Where `<conditional block>` runs only if no immediately preceding `if` or `elseif` condition has been met.
 If a previous condition has been met, control passes ahead to `<next statment>`, i.e., forward the number of bytes given by the two bytes of `<skip distance>`.
 
-*Source:*
+>s| Source: <a|
 
 * *hccode.c* -- `CodeLine()`
-* **herun.c* -- `RunIf()`
+* *herun.c* -- `RunIf()`
 // -----------------------------------------------------------------------------
-| 1B | elseif | *STATEMENT*
+.3+| 1B | elseif | *STATEMENT*
 
-    1B <skip distance> <expression> 4C
-        <conditional block>
-    <next statement>
+..................................
+1B <skip distance> <expression> 4C
+    <conditional block>
+<next statement>
+..................................
+{blank}
 
-*As in:*
+>s| As in:  <a|
 
 [source,hugo]
 -------------------
@@ -118,22 +124,26 @@ elseif <expression>
 {...}
 -------------------
 
+// @TODO: Missing XRef:
 See if.
 
-*Source:*
+>s| Source: <a|
 
 * *hccode.c* -- `CodeIf()`
 * *herun.c* -- `RunIf()`
 // -----------------------------------------------------------------------------
-| 1C | while | *STATEMENT*
+.3+| 1C | while | *STATEMENT*
 
-    :<starting point>
-    1C <skip distance> <expression> 4C
-        <conditional block>
-    25 <starting point>
-    <next statement>
+..................................
+:<starting point>
+1C <skip distance> <expression> 4C
+    <conditional block>
+25 <starting point>
+<next statement>
+..................................
+{blank}
 
-*As in:*
+>s| As in:  <a|
 
 [source,hugo]
 ------------------
@@ -147,20 +157,23 @@ See if.
 
 Note that because the `<starting point>` is written as a two-byte indexed address, it must begin on an address boundary, padded with empty ($00) values, if necessary.
 
-*Source:*
+>s| Source: <a|
 
 * *hccode.c* -- `CodeWhile()`
 * *herun.c* -- `RunIf()`
 // -----------------------------------------------------------------------------
-| 1D | do | *STATEMENT*
+.3+| 1D | do | *STATEMENT*
 
-    1D <skip distance>
-    :<starting point>
-        <block>
-    1C <two bytes> <expression> 4C
-    <next statement>
+..............................
+1D <skip distance>
+:<starting point>
+    <block>
+1C <two bytes> <expression> 4C
+<next statement>
+..............................
+{blank}
 
-*As in:*
+>s| As in:  <a|
 
 [source,hugo]
 ------------------
@@ -173,12 +186,12 @@ If, after `<block>` executes, `<expression>` evaluates to a non-false value, the
 The two bytes following while ($1C) match the syntax of the normal while loop, but are undefined for this usage.
 Instead, the distance to the next statement is given after the do token ($1D) in the two bytes of `<skip distance>`.
 
-*Source:*
+>s| Source: <a|
 
 * *hccode.c* -- `CodeDo()`
 * *herun.c* -- `RunDo()`
 // -----------------------------------------------------------------------------
-| 1E | select | *STATEMENT*
+.2+| 1E | select | *STATEMENT*
 
     1E
 
@@ -188,12 +201,12 @@ Note that the variable that follows `select` in a line of source code is not cod
 // @TODO: Missing XRef:
 See case.
 
-*Source:*
+>s| Source: <a|
 
 * *hccode.c* -- `CodeSelect()`
 * *herun.c* -- `RunIf()`
 // -----------------------------------------------------------------------------
-| 1F | case | *STATEMENT*
+.2+| 1F | case | *STATEMENT*
 
 Treated identically by the engine to `elseif` once a select `token` ($1E) has reset the conditional-statement evaluator to no previous matches.
 
@@ -219,22 +232,25 @@ and restructure it into:
 
 Note that $1A is the `else` token, $05 is the `=` token, and that the two bytes of `<skip distance>` give the distance to the next `case`.
 
-*Source:*
+>s| Source: <a|
 
 * *hccode.c* -- `CodeSelect()`
 * *herun.c* -- `RunIf()`
 // -----------------------------------------------------------------------------
-| 20 | for | *STATEMENT*
+.3+| 20 | for | *STATEMENT*
 
-    <assignment>
-    :<starting point>
-    20 <skip distance> <expression> 4C
-        <conditional block>
-        <modifying expression>
-        25 <starting point>
-    <next statement>
+..................................
+<assignment>
+:<starting point>
+20 <skip distance> <expression> 4C
+    <conditional block>
+    <modifying expression>
+    25 <starting point>
+<next statement>
+..................................
+{blank}
 
-*As in:*
+>s| As in:  <a|
 
 [source,hugo]
 ------------------
@@ -250,16 +266,19 @@ The `for` ($20) line operates as a regular conditional test (see `if`).
 The `<modifying expression>` is appended after the conditional block is coded.
 This, like the `<assignment>` is simply a regular executable assignment.
 
-*Source:*
+>s| Source: <a|
 
 * *hccode.c* -- `CodeFor()`
 * *herun.c* -- `RunIf()`
 // -----------------------------------------------------------------------------
-| 21 | return | *STATEMENT*
+.2+| 21 | return | *STATEMENT*
 
-    21 <expression> 4C
+..................
+21 <expression> 4C
+..................
+{blank}
 
-*As in:*
+>s| As in:  <a|
 
 [source,hugo]
 ------------------
@@ -281,11 +300,14 @@ Where `<expression>` is optional, so that a standalone return order can be coded
 // -----------------------------------------------------------------------------
 | 23 | and  | *TOKEN*
 | 24 | or   | *TOKEN*
-| 25 | jump | *STATEMENT*
+.2+| 25 | jump | *STATEMENT*
 
-    25 <address>
+............
+25 <address>
+............
+{blank}
 
-*As in:*
+>s| As in:  <a|
 
 [source,hugo]
 ------------------
@@ -302,9 +324,9 @@ Where `<address>` is two bytes giving the indexed address of the next statement 
 
 Where `<value>` is simply read and forgotten, as in running an `object.property` property routine and throwing away the value.
 // -----------------------------------------------------------------------------
-| 27 | is | *TOKEN*
+.2+| 27 | is | *TOKEN*
 
-*As in:*
+>s| As in:  <a|
 
 `<object> is <attribute>` (statement form) +
 `<object> is <attribute>` (value form).
@@ -344,7 +366,7 @@ Coded and handled identically to `verb`, except that it is flagged differently s
 Signals a `print` statement to issue a newline _only_ if one is needed.
 // -----------------------------------------------------------------------------
 | 32 | anything  | **GRAMMAR TOKEN**
-| 33 | print     | *STATEMENT*
+.2+| 33 | print     | *STATEMENT*
 
     33 <print data> 4C
 
@@ -363,7 +385,7 @@ Where `<print data>` is one of the following:
 
 Multiple `<print data>` sequences are separated by a semicolon (`;`) token ($0B).
 
-*Source:*
+>s| Source: <a|
 
 * *herun.c* -- `RunPrint()`
 // -----------------------------------------------------------------------------
@@ -377,12 +399,12 @@ In a grammar line, represents any integer number.
 
 Signals that the following dictionary entry should have its first letter capitalized.
 // -----------------------------------------------------------------------------
-| 36 | text | *STATEMENT*
+.2+| 36 | text | *STATEMENT*
 
 [literal,subs="+macros"]
 36 3B <value> 4Cfootnote:[pass:q[Pre-v2.3 omitted the `eol#` marker ($4C).]]
 
-*As in:*
+>s| As in:  <a|
 
 [source,hugo]
 -------------
@@ -395,13 +417,16 @@ Where `<value>` is either an address in the array table, or constant 0 (to resto
 
 (Not implemented.)
 // -----------------------------------------------------------------------------
-| 38 | color | *STATEMENT*
+.2+| 38 | color | *STATEMENT*
 
-    38 <value> 4C
-    38 <value> 19 <value> 4C
-    38 <value> 19 <value> 19 <value> 4C
+...................................
+38 <value> 4C
+38 <value> 19 <value> 4C
+38 <value> 19 <value> 19 <value> 4C
+...................................
+{blank}
 
-*As in:*
+>s| As in:  <a|
 
 [source,hugo]
 ------------------
@@ -414,35 +439,41 @@ Where `<value>` is a Hugo color value from 0 to 17 giving the foreground text co
 If a second value is given, separated by a comma ($19), it represents the background color.
 If a third value is given, separated by a comma ($19), it represents the input color.
 // -----------------------------------------------------------------------------
-| 39 | remove | *STATEMENT*
+.3+| 39 | remove | *STATEMENT*
 
 [literal,subs="+macros"]
 39 <value> 4Cfootnote:[pass:q[Pre-v2.3 omitted the `eol#` marker ($4C).]]
 
-*As in:*
+{blank}
+
+>s| As in:  <a|
 
 [source,hugo]
 ------------------
 remove <object>
 ------------------
+{blank}
 
-*Source:*
+>s| Source: <a|
 
 * *herun.c* -- `RunMove()`
 // -----------------------------------------------------------------------------
-| 3A | move | *STATEMENT*
+.3+| 3A | move | *STATEMENT*
 
 [literal,subs="+macros"]
 3A <value> 3B <value> 4footnote:[pass:q[Pre-v2.3 omitted the `eol#` marker ($4C).]]
 
-*As in:*
+{blank}
+
+>s| As in:  <a|
 
 [source,hugo]
 ------------------
 move <object1> to <object2>
 ------------------
+{blank}
 
-*Source:*
+>s| Source: <a|
 
 * *herun.c* -- `RunMove()`
 // -----------------------------------------------------------------------------
@@ -458,11 +489,14 @@ Typically found in `print to n`, `text to n`, etc., in which case the line will 
 
 {blank}
 // -----------------------------------------------------------------------------
-| 3C | parent | *VALUE*
+.2+| 3C | parent | *VALUE*
 
-    3C 01 <expression> 02
+.....................
+3C 01 <expression> 02
+.....................
+{blank}
 
-*As in:*
+>s| As in:  <a|
 
 [source,hugo]
 -------------
@@ -473,11 +507,14 @@ Returns the parent object of the object resulting from `<expression>`.
 
 NOTE: Alternate usage is as a grammar token, coded simply as $3C with no following parenthetical expression.
 // -----------------------------------------------------------------------------
-| 3D | sibling | *VALUE*
+.2+| 3D | sibling | *VALUE*
 
-    3D 01 <expression> 02
+.....................
+3D 01 <expression> 02
+.....................
+{blank}
 
-*As in:*
+>s| As in:  <a|
 
 [source,hugo]
 -------------
@@ -486,11 +523,14 @@ sibling(...)
 
 Returns the sibling of the object resulting from `<expression>`.
 // -----------------------------------------------------------------------------
-| 3E | child | *VALUE*
+.2+| 3E | child | *VALUE*
 
-    3E 01 <expression> 02
+.....................
+3E 01 <expression> 02
+.....................
+{blank}
 
-*As in:*
+>s| As in:  <a|
 
 [source,hugo]
 -------------
@@ -499,11 +539,14 @@ child(...)
 
 Returns the child object of the object resulting from `<expression>`.
 // -----------------------------------------------------------------------------
-| 3F | youngest | *VALUE*
+.2+| 3F | youngest | *VALUE*
 
-    3F 01 <expression> 02
+.....................
+3F 01 <expression> 02
+.....................
+{blank}
 
-*As in:*
+>s| As in:  <a|
 
 [source,hugo]
 -------------
@@ -512,11 +555,14 @@ youngest(...)
 
 Returns the youngest (most recently added) child object of the object resulting from `<expression>`.
 // -----------------------------------------------------------------------------
-| 40 | eldest | *VALUE*
+.2+| 40 | eldest | *VALUE*
 
-    40 01 <expression> 02
+.....................
+40 01 <expression> 02
+.....................
+{blank}
 
-*As in:*
+>s| As in:  <a|
 
 [source,hugo]
 ------------------
@@ -525,11 +571,14 @@ eldest(...)
 
 Interpreted identically to `child(...)`.
 // -----------------------------------------------------------------------------
-| 41 | younger | *VALUE*
+.2+| 41 | younger | *VALUE*
 
-    41 01 <expression> 02
+.....................
+41 01 <expression> 02
+.....................
+{blank}
 
-*As in:*
+>s| As in:  <a|
 
 [source,hugo]
 -------------
@@ -538,11 +587,14 @@ younger(...)
 
 Interpreted identically to `sibling(...)`.
 // -----------------------------------------------------------------------------
-| 42 | elder | *VALUE*
+.2+| 42 | elder | *VALUE*
 
-    42 01 <expression> 02
+.....................
+42 01 <expression> 02
+.....................
+{blank}
 
-*As in:*
+>s| As in:  <a|
 
 [source,hugo]
 -------------
@@ -614,12 +666,14 @@ Where `<number>` is two bytes giving the specified constant value.
 
 End-of-line marker.
 // -----------------------------------------------------------------------------
-| 4D | system | *INTERNAL STATEMENT* or *VALUE*
+.3+| 4D | system | *INTERNAL STATEMENT* or *VALUE*
 
 [literal,subs="+macros"]
 4D 01 <value> 02 4Cfootnote:[pass:q[Pre-v2.3 omitted the `eol#` marker ($4C).]]
 
-*As in:*
+{blank}
+
+>s| As in:  <a|
 
 [source,hugo]
 ---------------
@@ -638,13 +692,13 @@ Obsolete usage:footnote:[Not implemented post-v2.2.]
 
 Where `<value>` is some Hugo data type giving the number of the system function to call.
 
-*Source:*
+>s| Source: <a|
 
 * *herun.c* -- `RunSystem()`
 // -----------------------------------------------------------------------------
 | 4E | notheld | **GRAMMAR TOKEN**
 | 4F | multinotheld | **GRAMMAR TOKEN**
-| 50 | window | *STATEMENT*
+.2+| 50 | window | *STATEMENT*
 
 [source,hugo]
 -------------
@@ -686,15 +740,18 @@ Prior to v2.4, the third syntax, i.e., `window` alone, complied as `50 4C` in v2
 The result was a window beginning at the top of the screen, reaching down to the current cursor row at the termination of the block, and protected then from scrolling of the bottom/main window.
 ================================================================================
 
-*Source:*
+>s| Source: <a|
 
 * *herun.c* -- `RunWindow()`
 // -----------------------------------------------------------------------------
-| 51 | random | *VALUE*
+.2+| 51 | random | *VALUE*
 
-    51 01 <expression> 02
+.....................
+51 01 <expression> 02
+.....................
+{blank}
 
-*As in:*
+>s| As in:  <a|
 
 [source,hugo]
 -------------
@@ -703,9 +760,14 @@ random(...)
 
 Returns a random value between 1 and `<expression>`.
 // -----------------------------------------------------------------------------
-| 52 | word | *VALUE*
+.2+| 52 | word | *VALUE*
 
-    52 0E <expression> 0F
+.....................
+52 0E <expression> 0F
+.....................
+{blank}
+
+>s| As in:  <a|
 
 *As in:*
 
@@ -716,12 +778,15 @@ word[...]
 
 Returns the dictionary address of `word[<expression>`].
 // -----------------------------------------------------------------------------
-| 53 | locate | *STATEMENT*
+.2+| 53 | locate | *STATEMENT*
 
-    53 <value> 4C
-    53 <value> 19 <value> 4C
+........................
+53 <value> 4C
+53 <value> 19 <value> 4C
+........................
+{blank}
 
-*As in:*
+>s| As in:  <a|
 
 [source,hugo]
 -------------
@@ -732,20 +797,23 @@ locate x, y
 Where `<value>` is the column position to reposition the cursor to within the currently defined window.
 If a second value is given, it represents the new row position.
 // -----------------------------------------------------------------------------
-| 54 | parse$ | *TOKEN*
+.2+| 54 | parse$ | *TOKEN*
 
 Read-only engine variable representing the engine parser's internal `parse$` string.
 
-*Source:*
+>s| Source: <a|
 
 * *herun.c* -- `RunPrint()`
 * *hemisc.c* -- `Dict()`, `GetWord()`
 // -----------------------------------------------------------------------------
-| 55 | children | *VALUE*
+.2+| 55 | children | *VALUE*
 
-    55 01 <expression> 02
+.....................
+55 01 <expression> 02
+.....................
+{blank}
 
-*As in:*
+>s| As in:  <a|
 
 [source,hugo]
 -------------
@@ -754,9 +822,9 @@ children(...)
 
 Returns the number of children owned by the object resulting from `<expression>`.
 // -----------------------------------------------------------------------------
-| 56 | in | *TOKEN*
+.2+| 56 | in | *TOKEN*
 
-*As in:*
+>s| As in:  <a|
 
 [source,hugo]
 ------------------------
@@ -804,12 +872,14 @@ Runs all events in scope.
 +
 Where `<array>` is two bytes giving the address of the array in the array table.
 // -----------------------------------------------------------------------------
-| 5A | call | STATEMENT or VALUE
+.2+| 5A | call | STATEMENT or VALUE
 
 [literal,subs="+macros"]
 5A <value> 4Cfootnote:[pass:q[Pre-v2.3 omitted the `eol#` marker ($4C) when used as a statement.]]
 
-*As in:*
+{blank}
+
+>s| As in:  <a|
 
 [source,hugo]
 ----------------------
@@ -818,7 +888,7 @@ call <routine address>
 
 Where `<value>` gives the indexed address of the routine to be called.
 // -----------------------------------------------------------------------------
-| 5B | stringdata# | *PRINT TOKEN*
+.2+| 5B | stringdata# | *PRINT TOKEN*
 
 [literal,subs="+quotes"]
 ..................................................
@@ -828,13 +898,13 @@ Where `<value>` gives the indexed address of the routine to be called.
 Valid only in a `print` statement.
 `<__n__>` gives the number of characters contained in the print string.
 
-*Source:*
+>s| Source: <a|
 
 * *herun.c* -- `RunPrint()`
 // -----------------------------------------------------------------------------
-| 5C | save | *VALUE*
+.3+| 5C | save | *VALUE*
 
-*As in:*
+>s| As in:  <a|
 
 [source,hugo]
 -------------
@@ -843,13 +913,13 @@ x = save
 
 Calls the engine's save-game procedure (which includes filename input); returns a true value on success, or false on failure.
 
-*Source:*
+>s| Source: <a|
 
 * *herun.c* -- `RunSave()`
 // -----------------------------------------------------------------------------
-| 5D | restore | *VALUE*
+.3+| 5D | restore | *VALUE*
 
-*As in:*
+>s| As in:  <a|
 
 [source,hugo]
 ------------------
@@ -858,7 +928,7 @@ x = restore
 
 Calls the engine's restore-game procedure (which includes filename input); returns a true value on success, or false on failure.
 
-*Source:*
+>s| Source: <a|
 
 * *herun.c* -- `RunRestore()`
 // -----------------------------------------------------------------------------
@@ -868,22 +938,22 @@ Calls the engine's restore-game procedure (which includes filename input); retur
 
 Terminates program execution and exits the engine.
 // -----------------------------------------------------------------------------
-| 5F | input | *STATEMENT*
+.2+| 5F | input | *STATEMENT*
 
     5F
 
 Prompts for user input, storing the resulting word(s) in the `word[]` array.
 Unknown (i.e., non-dictionary) words become 0, or `+""+`; the last unknown word is stored in `parse$`.
 
-*Source:*
+>s| Source: <a|
 
 * *herun.c* -- `RunInput()`
 // -----------------------------------------------------------------------------
-| 60 | serial$ | *PRINT TOKEN*
+.2+| 60 | serial$ | *PRINT TOKEN*
 
 Read-only engine variable representing the compiler-determined serial number.
 
-*Source:*
+>s| Source: <a|
 
 * *hemisc.c* -- `GetWord()`
 // -----------------------------------------------------------------------------
@@ -893,7 +963,7 @@ Read-only engine variable representing the compiler-determined serial number.
 
 Clears the currently defined text window.
 // -----------------------------------------------------------------------------
-| 62 | scripton | *VALUE*
+.2+| 62 | scripton | *VALUE*
 *As in:*
 
 [source,hugo]
@@ -903,13 +973,13 @@ x = scripton
 
 Calls the engine's begin-scripting procedure (which includes filename input); returns a true value on success, or false on failure.
 
-*Source:*
+>s| Source: <a|
 
 * *herun.c* -- `RunScript()`
 // -----------------------------------------------------------------------------
-| 63 | scriptoff | *VALUE*
+.3+| 63 | scriptoff | *VALUE*
 
-*As in:*
+>s| As in:  <a|
 
 [source,hugo]
 -------------
@@ -918,13 +988,13 @@ x = scriptoff
 
 Calls the engine's end-scripting procedure; returns a true value on success, or false on failure.
 
-*Source:*
+>s| Source: <a|
 
 * *herun.c* -- `RunScript()`
 // -----------------------------------------------------------------------------
-| 64 | restart | *VALUE*
+.2+| 64 | restart | *VALUE*
 
-*As in:*
+>s| As in:  <a|
 
 [source,hugo]
 -------------
@@ -945,11 +1015,14 @@ NOTE: Removed as a token after grammar table is compiled so that `object` can re
 
 NOTE: Removed as a token after grammar table is compiled so that `xobject` can refer to the xobject global variable.
 // -----------------------------------------------------------------------------
-| 68 | string | *VALUE*
+.3+| 68 | string | *VALUE*
 
-    68 01 <expr1> 19 <expr2> 19 <expr3> 02
+......................................
+68 01 <expr1> 19 <expr2> 19 <expr3> 02
+......................................
+{blank}
 
-*As in:*
+>s| As in:  <a|
 
 [source,hugo]
 -------------------------
@@ -959,25 +1032,28 @@ x = string(a, "apple", 8)
 Calls the engine string-writing function to write the dictionary entry `<expr2>` into the array table at the array address given by `<expr1>`, to a maximum of `<expr3>` characters.
 `<expr1>` is any data type or expression; `<expr2>` is either a value or the `parse$` token ($54); `<expr3>` is optional, and if it is not given, the $02 token comes in place of the second $19.
 
-*Source:*
+>s| Source: <a|
 
 * *herun.c* -- `RunString()`
 // -----------------------------------------------------------------------------
-| 69 | array | *VALUE*
+.2+| 69 | array | *VALUE*
 
     69 <value>
 
 Forces `<value>` to be used as an address in the array table, so that `array <value>` can be used as `arraydata#`.
 
-*Source:*
+>s| Source: <a|
 
 * *heexpr.c* -- `GetVal()`
 // -----------------------------------------------------------------------------
-| 6A | printchar | *STATEMENT*
+.2+| 6A | printchar | *STATEMENT*
 
-    6A <value1> 19 <value2> 19 ... 4C
+..................................
+6A <value1> 19 <value2> 19 ... 4C
+..................................
+{blank}
 
-*As in:*
+>s| As in:  <a|
 
 [source,hugo]
 ----------------------
@@ -987,9 +1063,9 @@ printchar 'A', 'B',...
 Outputs a single ASCII character value at the current screen position.
 Multiple values are separated by $19; the sequence is terminated by $4C.
 // -----------------------------------------------------------------------------
-| 6B | undo | *VALUE*
+.3+| 6B | undo | *VALUE*
 
-*As in:*
+>s| As in:  <a|
 
 [source,hugo]
 -------------
@@ -998,15 +1074,18 @@ x = undo
 
 Attempts to restore all data changes made since the last typed input; returns a true value on success or false on failure.
 
-*Source:*
+>s| Source: <a|
 
 * *hemisc.c* -- `SaveUndo()`, `Undo()`
 // -----------------------------------------------------------------------------
-| 6C | dict | *VALUE*
+.3+| 6C | dict | *VALUE*
 
-    6C 01 <expr1> 19 <expr2> 02
+...........................
+6C 01 <expr1> 19 <expr2> 02
+...........................
+{blank}
 
-*As in:*
+>s| As in:  <a|
 
 [source,hugo]
 ------------------------
@@ -1018,13 +1097,13 @@ If `<expr1>` is `parse$` ($54), then the value of `parse$` is used; otherwise `<
 If the string is already a dictionary entry, its location is returned.
 Otherwise, it is appended to the end of the table, and the new location is returned.
 
-*Source:*
+>s| Source: <a|
 
 * *hemisc.c* -- `Dict()`
 // -----------------------------------------------------------------------------
-| 6D | recordon | *VALUE*
+.3+| 6D | recordon | *VALUE*
 
-*As in:*
+>s| As in:  <a|
 
 [source,hugo]
 ------------------
@@ -1033,13 +1112,13 @@ x = recordon
 
 Calls the engine's begin-command-recording procedure (which includes filename input); returns a true value on success, or false on failure.
 
-*Source:*
+>s| Source: <a|
 
 * *hemisc.c* -- `RecordCommands()`
 // -----------------------------------------------------------------------------
-| 6E | recordoff | *VALUE*
+.3+| 6E | recordoff | *VALUE*
 
-*As in:*
+>s| As in:  <a|
 
 [source,hugo]
 -------------
@@ -1048,17 +1127,19 @@ x = recordoff
 
 Calls the engine's end-command-recording procedure; returns a true value on success, or false on failure.
 
-*Source:*
+>s| Source: <a|
 
 * *hemisc.c* -- `RecordCommands()`
 // -----------------------------------------------------------------------------
-| 6F | writefile | *STATEMENT*
+.3+| 6F | writefile | *STATEMENT*
 
 [literal,subs="+macros"]
 6F <value> 4Cfootnote:[pass:q[Pre-v2.3 omitted the `eol#` marker ($4C).]]
     ...file i/o code block...
 
-*As in:*
+{blank}
+
+>s| As in:  <a|
 
 [source,hugo]
 ----------------
@@ -1070,17 +1151,19 @@ writefile <file>
 Opens the file named by the dictionary entry `<value>`, erasing it if it previously exists, and runs the following code block.
 Upon any error, jumps to the end of the file i/o code block and closes `<file>`.
 
-*Source:*
+>s| Source: <a|
 
 * *hemisc.c* -- `FileIO()`
 // -----------------------------------------------------------------------------
-| 70 | readfile | *STATEMENT*
+.2+| 70 | readfile | *STATEMENT*
 
 [literal,subs="+macros"]
 70 <value> 4Cfootnote:[pass:q[Pre-v2.3 omitted the `eol#` marker ($4C).]]
     ...file i/o code block...
 
-*As in:*
+{blank}
+
+>s| As in:  <a|
 
 [source,hugo]
 ---------------
@@ -1100,9 +1183,9 @@ Valid only in a `writefile` block.
 Writes `<value>` as a 16-bit integer to the currently open file.
 Multiple values are separated by $19.
 // -----------------------------------------------------------------------------
-| 72 | readval | *VALUE*
+.2+| 72 | readval | *VALUE*
 
-*As in:*
+>s| As in:  <a|
 
 [source,hugo]
 ------------------
@@ -1112,9 +1195,9 @@ x = readval
 Valid only in a `readfile` block.
 Reads a 16-bit integer from the currently open file.
 // -----------------------------------------------------------------------------
-| 73 | playback | *VALUE*
+.2+| 73 | playback | *VALUE*
 
-*As in:*
+>s| As in:  <a|
 
 [source,hugo]
 -------------
