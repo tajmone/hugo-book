@@ -105,7 +105,7 @@ Every chapter in the list provides an [HTML Live Preview] link to quickly jump t
 - [ ]  [BOOK 2. **TECHNICAL SYSTEM SPECIFICATION**][Book II]
     + [x]  [13. _INTRODUCTION_][Ch13]
     + [x]  [14. _ORGANIZATION OF THE .HEX FILE_][Ch14]
-    + [ ]  [15. _TOKENS AND DATA TYPES_][Ch15]
+    + [x]  [15. _TOKENS AND DATA TYPES_][Ch15]
     + [ ]  [16. _ENGINE PARSING_][Ch16]
     + [ ]  [17. _GRAMMAR_][Ch17]
     + [ ]  [18. _EXECUTABLE CODE_][Ch18]

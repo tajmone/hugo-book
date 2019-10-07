@@ -1,6 +1,6 @@
 = TOKENS AND DATA TYPES
 
-The first two places to start inspecting how the Hugo compiler writes a .HEX file are: (1) what byte values are written to represent each individual token (i.e. keywords, built-in functions, etc.), and (2) how different data types and values are formatted.
+The first two places to start inspecting how the Hugo compiler writes a *.HEX* file are: (1) what byte values are written to represent each individual token (i.e. keywords, built-in functions, etc.), and (2) how different data types and values are formatted.
 
 
 == Tokens
@@ -18,105 +18,137 @@ include::hugo-book2_03_tokens-list.csv[]
 
 
 Some of these, particularly the early tokens, are as simple as punctuation marks that are recognized by the engine as delimiting expressions, arguments, etc.
-Non-punctuation stand-alone tokens (to, in, is) are used for similar purposes, to give form to a particular construction.
-Others, such as save, undo, recordon, and others are engine functions that, when read, trigger a specific action.
+Non-punctuation stand-alone tokens (`to`, `in`, `is`) are used for similar purposes, to give form to a particular construction.
+Others, such as `save`, `undo`, `recordon`, and others are engine functions that, when read, trigger a specific action.
 
-Note also tokens ending with `#`: these primarily represent data types that are not directly enterable as part of a program -- the `#` character is separated and read as a discrete word in a parsed line of Hugo source.
-For example, the occurrence of a variable name in the source will be compiled into var# (token $45) followed by two bytes giving the number of the variable being referenced. (See the following section on Data Types for more details.)
-
+Note also tokens ending with `++#++`: these primarily represent data types that are not directly enterable as part of a program -- the `++#++` character is separated and read as a discrete word in a parsed line of Hugo source.
+For example, the occurrence of a variable name in the source will be compiled into `var#` (token $45) followed by two bytes giving the number of the variable being referenced. (See the following section on Data Types for more details.)
 
 == Data Types
 
 Internally, all data is stored as 16-bit integers (that may be treated as unsigned as appropriate).
 The valid range is -32768 to 32767.
 
-Following are the formats for the various data types used by Hugo; to see them in practice, it is recommended to consult the Hugo C source code and the functions CodeLine() in *hccode.c* -- for writing them in the compiler -- and GetValue() and GetVal() in *heexpr.c* -- for reading them via the engine.
+Following are the formats for the various data types used by Hugo; to see them in practice, it is recommended to consult the Hugo C source code and the functions `CodeLine()` in *hccode.c* -- for writing them in the compiler -- and `GetValue()` and `GetVal()` in *heexpr.c* -- for reading them via the engine.
 
-ATTRIBUTE:
 
+[horizontal]
+ATTRIBUTE: ::
++
+--
+................
 <attr#> <1 byte>
+................
 
 The single byte represents the number of the attribute, which may range from $00 to $7F (0 to 127).
 
 Attribute $10, for example, would be written as:
 
-$44 10
-
-DICTIONARY ENTRY:
-
+`$44 10`
+--
+// -----------------------------------------------------------------------------
+DICTIONARY{nbsp}ENTRY: ::
++
+--
+......................
 <dictentry#> <2 bytes>
+......................
 
 The 2 bytes (one 16-bit word) represent the address of the word in the dictionary table.
 The empty string (`+""+`) is $00.
 
 If the word "`apple`" was stored at the address $21A0, it would be written as:
 
-$46 A0 21
-
-OBJECT:
-
+`$46 A0 21`
+--
+// -----------------------------------------------------------------------------
+OBJECT: ::
++
+--
+...................
 <object#> <2 bytes>
+...................
 
 The two bytes (one 16-bit word) give the object number.
 
 Objects $0002 and $01B0 would be written as, respectively:
 
-$4A 02 00
+`$4A 02 00`
 
-$4A B0 01
-
-PROPERTY:
-
+`$4A B0 01`
+--
+// -----------------------------------------------------------------------------
+PROPERTY: ::
++
+--
+................
 <prop#> <1 byte>
+................
 
 The single byte gives the number of the property being referenced.
 
 Property $21 would be written as:
 
-$43 21
-
-ROUTINE:
-
+`$43 21`
+--
+// -----------------------------------------------------------------------------
+ROUTINE: ::
++
+--
+....................
 <routine#> <2 bytes>
+....................
 
 The two bytes (one 16-bit word) give the indexed address of the routine.
 All blocks of executable code begin on an address divisible by 16footnote:[Prior to version 3.1, this scaling factor was 4.]; this allows 1024K of memory to be addressable via the range 0 to 65536. (Code is padded with empty ($00) values to the next address divisible by the address scale.)
 
 For example, a routine beginning at $004004 would be divided by 16 and encoded as the indexed address $0401, in the form:
 
-$48 01 04
+`$48 01 04`
 
-This goes for routines, events, property routines, and even conditional code blocks following if, while, etc.
-
-VALUE (i.e., INTEGER CONSTANT):
-
+This goes for routines, events, property routines, and even conditional code blocks following `if`, `while`, etc.
+--
+// -----------------------------------------------------------------------------
+// VALUE (i.e., INTEGER CONSTANT): ::
+VALUE: ::
+// VALUE{nbsp}(i.e.,{nbsp}INTEGER{nbsp}CONSTANT): ::
++
+--
+(i.e., *INTEGER CONSTANT*)
+..................
 <value#> <2 bytes>
+..................
 
 A value may range from -32768 to 32767; negative numbers follow signed-value 16-bit convention by being _x_ + 65536 where _x_ is a negative number.
 
 For example, the values 10 ($0A), 16384 ($4000), and -2 would be written as:
 
-$4B 0A 00
+`$4B 0A 00`
 
-$4B 00 40
+`$4B 00 40`
 
-$4B FE FF ($FFFE = 65534 = -2 + 65536)
-
-VARIABLE:
-
+`$4B FE FF` ($FFFE = 65534 = -2 + 65536)
+--
+// -----------------------------------------------------------------------------
+VARIABLE: ::
++
+--
+...............
 <var#> <1 byte>
+...............
 
 A program may have up to 240 global variables (numbered 0 to 239), and 16 local variables for the current routine (numbered 240 to 255).
 Since 240 + 16 = 256, the number of the variable being specified will fit into a single byte.
 
-In the compiler, the first global variable (i.e. variable 0) is predefined as `object`.
+In the compiler, the first global variable (i.e. variable 0) is predefined as "`object`".
 It would be written as a sequence of two bytes:
 
-$45 00
+`$45 00`
 
 A routine's second argument or local would be numbered 241 (since 240 ($F0) is the first local variable), and would be written as:
 
-$45 F1
+`$45 F1`
+--
 
 
 // EOF //

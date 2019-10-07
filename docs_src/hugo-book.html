@@ -446,7 +446,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <span id="email" class="email"><a href="mailto:general@generalcoffee.com">general@generalcoffee.com</a></span><br>
 <span id="revnumber">version 1,</span>
 <span id="revdate">2018-10-04</span>
-<br><span id="revremark">Draft 20 -- Porting to AsciiDoc</span>
+<br><span id="revremark">Draft 21 -- Porting to AsciiDoc</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -13129,7 +13129,7 @@ It contains the bulk of information regarding table offsets, junction routine ad
 <h2 id="_tokens_and_data_types"><a class="anchor" href="#_tokens_and_data_types"></a>15. TOKENS AND DATA TYPES</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The first two places to start inspecting how the Hugo compiler writes a .HEX file are: (1) what byte values are written to represent each individual token (i.e. keywords, built-in functions, etc.), and (2) how different data types and values are formatted.</p>
+<p>The first two places to start inspecting how the Hugo compiler writes a <strong>.HEX</strong> file are: (1) what byte values are written to represent each individual token (i.e. keywords, built-in functions, etc.), and (2) how different data types and values are formatted.</p>
 </div>
 <div class="sect2">
 <h3 id="_tokens"><a class="anchor" href="#_tokens"></a>15.1. Tokens</h3>
@@ -13451,12 +13451,12 @@ It contains the bulk of information regarding table offsets, junction routine ad
 </table>
 <div class="paragraph">
 <p>Some of these, particularly the early tokens, are as simple as punctuation marks that are recognized by the engine as delimiting expressions, arguments, etc.
-Non-punctuation stand-alone tokens (to, in, is) are used for similar purposes, to give form to a particular construction.
-Others, such as save, undo, recordon, and others are engine functions that, when read, trigger a specific action.</p>
+Non-punctuation stand-alone tokens (<code>to</code>, <code>in</code>, <code>is</code>) are used for similar purposes, to give form to a particular construction.
+Others, such as <code>save</code>, <code>undo</code>, <code>recordon</code>, and others are engine functions that, when read, trigger a specific action.</p>
 </div>
 <div class="paragraph">
-<p>Note also tokens ending with <code><mark></code>: these primarily represent data types that are not directly enterable as part of a program&#8201;&#8212;&#8201;the <code></mark></code> character is separated and read as a discrete word in a parsed line of Hugo source.
-For example, the occurrence of a variable name in the source will be compiled into var# (token $45) followed by two bytes giving the number of the variable being referenced. (See the following section on Data Types for more details.)</p>
+<p>Note also tokens ending with <code>#</code>: these primarily represent data types that are not directly enterable as part of a program&#8201;&#8212;&#8201;the <code>#</code> character is separated and read as a discrete word in a parsed line of Hugo source.
+For example, the occurrence of a variable name in the source will be compiled into <code>var#</code> (token $45) followed by two bytes giving the number of the variable being referenced. (See the following section on Data Types for more details.)</p>
 </div>
 </div>
 <div class="sect2">
@@ -13466,13 +13466,21 @@ For example, the occurrence of a variable name in the source will be compiled in
 The valid range is -32768 to 32767.</p>
 </div>
 <div class="paragraph">
-<p>Following are the formats for the various data types used by Hugo; to see them in practice, it is recommended to consult the Hugo C source code and the functions CodeLine() in <strong>hccode.c</strong>&#8201;&#8212;&#8201;for writing them in the compiler&#8201;&#8212;&#8201;and GetValue() and GetVal() in <strong>heexpr.c</strong>&#8201;&#8212;&#8201;for reading them via the engine.</p>
+<p>Following are the formats for the various data types used by Hugo; to see them in practice, it is recommended to consult the Hugo C source code and the functions <code>CodeLine()</code> in <strong>hccode.c</strong>&#8201;&#8212;&#8201;for writing them in the compiler&#8201;&#8212;&#8201;and <code>GetValue()</code> and <code>GetVal()</code> in <strong>heexpr.c</strong>&#8201;&#8212;&#8201;for reading them via the engine.</p>
 </div>
-<div class="paragraph">
-<p>ATTRIBUTE:</p>
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+ATTRIBUTE: 
+</td>
+<td class="hdlist2">
+<div class="openblock">
+<div class="content">
+<div class="literalblock">
+<div class="content">
+<pre>&lt;attr#&gt; &lt;1 byte&gt;</pre>
 </div>
-<div class="paragraph">
-<p>&lt;attr#&gt; &lt;1 byte&gt;</p>
 </div>
 <div class="paragraph">
 <p>The single byte represents the number of the attribute, which may range from $00 to $7F (0 to 127).</p>
@@ -13481,13 +13489,23 @@ The valid range is -32768 to 32767.</p>
 <p>Attribute $10, for example, would be written as:</p>
 </div>
 <div class="paragraph">
-<p>$44 10</p>
+<p><code>$44 10</code></p>
 </div>
-<div class="paragraph">
-<p>DICTIONARY ENTRY:</p>
 </div>
-<div class="paragraph">
-<p>&lt;dictentry#&gt; &lt;2 bytes&gt;</p>
+</div>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+DICTIONARY&#160;ENTRY: 
+</td>
+<td class="hdlist2">
+<div class="openblock">
+<div class="content">
+<div class="literalblock">
+<div class="content">
+<pre>&lt;dictentry#&gt; &lt;2 bytes&gt;</pre>
+</div>
 </div>
 <div class="paragraph">
 <p>The 2 bytes (one 16-bit word) represent the address of the word in the dictionary table.
@@ -13497,13 +13515,23 @@ The empty string (<code>""</code>) is $00.</p>
 <p>If the word &#8220;apple&#8221; was stored at the address $21A0, it would be written as:</p>
 </div>
 <div class="paragraph">
-<p>$46 A0 21</p>
+<p><code>$46 A0 21</code></p>
 </div>
-<div class="paragraph">
-<p>OBJECT:</p>
 </div>
-<div class="paragraph">
-<p>&lt;object#&gt; &lt;2 bytes&gt;</p>
+</div>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+OBJECT: 
+</td>
+<td class="hdlist2">
+<div class="openblock">
+<div class="content">
+<div class="literalblock">
+<div class="content">
+<pre>&lt;object#&gt; &lt;2 bytes&gt;</pre>
+</div>
 </div>
 <div class="paragraph">
 <p>The two bytes (one 16-bit word) give the object number.</p>
@@ -13512,16 +13540,26 @@ The empty string (<code>""</code>) is $00.</p>
 <p>Objects $0002 and $01B0 would be written as, respectively:</p>
 </div>
 <div class="paragraph">
-<p>$4A 02 00</p>
+<p><code>$4A 02 00</code></p>
 </div>
 <div class="paragraph">
-<p>$4A B0 01</p>
+<p><code>$4A B0 01</code></p>
 </div>
-<div class="paragraph">
-<p>PROPERTY:</p>
 </div>
-<div class="paragraph">
-<p>&lt;prop#&gt; &lt;1 byte&gt;</p>
+</div>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+PROPERTY: 
+</td>
+<td class="hdlist2">
+<div class="openblock">
+<div class="content">
+<div class="literalblock">
+<div class="content">
+<pre>&lt;prop#&gt; &lt;1 byte&gt;</pre>
+</div>
 </div>
 <div class="paragraph">
 <p>The single byte gives the number of the property being referenced.</p>
@@ -13530,13 +13568,23 @@ The empty string (<code>""</code>) is $00.</p>
 <p>Property $21 would be written as:</p>
 </div>
 <div class="paragraph">
-<p>$43 21</p>
+<p><code>$43 21</code></p>
 </div>
-<div class="paragraph">
-<p>ROUTINE:</p>
 </div>
-<div class="paragraph">
-<p>&lt;routine#&gt; &lt;2 bytes&gt;</p>
+</div>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+ROUTINE: 
+</td>
+<td class="hdlist2">
+<div class="openblock">
+<div class="content">
+<div class="literalblock">
+<div class="content">
+<pre>&lt;routine#&gt; &lt;2 bytes&gt;</pre>
+</div>
 </div>
 <div class="paragraph">
 <p>The two bytes (one 16-bit word) give the indexed address of the routine.
@@ -13546,16 +13594,29 @@ All blocks of executable code begin on an address divisible by 16<sup class="foo
 <p>For example, a routine beginning at $004004 would be divided by 16 and encoded as the indexed address $0401, in the form:</p>
 </div>
 <div class="paragraph">
-<p>$48 01 04</p>
+<p><code>$48 01 04</code></p>
 </div>
 <div class="paragraph">
-<p>This goes for routines, events, property routines, and even conditional code blocks following if, while, etc.</p>
+<p>This goes for routines, events, property routines, and even conditional code blocks following <code>if</code>, <code>while</code>, etc.</p>
 </div>
-<div class="paragraph">
-<p>VALUE (i.e., INTEGER CONSTANT):</p>
 </div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+VALUE: 
+</td>
+<td class="hdlist2">
+<div class="openblock">
+<div class="content">
 <div class="paragraph">
-<p>&lt;value#&gt; &lt;2 bytes&gt;</p>
+<p>(i.e., <strong>INTEGER CONSTANT</strong>)</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>&lt;value#&gt; &lt;2 bytes&gt;</pre>
+</div>
 </div>
 <div class="paragraph">
 <p>A value may range from -32768 to 32767; negative numbers follow signed-value 16-bit convention by being <em>x</em> + 65536 where <em>x</em> is a negative number.</p>
@@ -13564,36 +13625,52 @@ All blocks of executable code begin on an address divisible by 16<sup class="foo
 <p>For example, the values 10 ($0A), 16384 ($4000), and -2 would be written as:</p>
 </div>
 <div class="paragraph">
-<p>$4B 0A 00</p>
+<p><code>$4B 0A 00</code></p>
 </div>
 <div class="paragraph">
-<p>$4B 00 40</p>
+<p><code>$4B 00 40</code></p>
 </div>
 <div class="paragraph">
-<p>$4B FE FF ($FFFE = 65534 = -2 + 65536)</p>
+<p><code>$4B FE FF</code> ($FFFE = 65534 = -2 + 65536)</p>
 </div>
-<div class="paragraph">
-<p>VARIABLE:</p>
 </div>
-<div class="paragraph">
-<p>&lt;var#&gt; &lt;1 byte&gt;</p>
+</div>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+VARIABLE: 
+</td>
+<td class="hdlist2">
+<div class="openblock">
+<div class="content">
+<div class="literalblock">
+<div class="content">
+<pre>&lt;var#&gt; &lt;1 byte&gt;</pre>
+</div>
 </div>
 <div class="paragraph">
 <p>A program may have up to 240 global variables (numbered 0 to 239), and 16 local variables for the current routine (numbered 240 to 255).
 Since 240 + 16 = 256, the number of the variable being specified will fit into a single byte.</p>
 </div>
 <div class="paragraph">
-<p>In the compiler, the first global variable (i.e. variable 0) is predefined as <code>object</code>.
+<p>In the compiler, the first global variable (i.e. variable 0) is predefined as &#8220;object&#8221;.
 It would be written as a sequence of two bytes:</p>
 </div>
 <div class="paragraph">
-<p>$45 00</p>
+<p><code>$45 00</code></p>
 </div>
 <div class="paragraph">
 <p>A routine&#8217;s second argument or local would be numbered 241 (since 240 ($F0) is the first local variable), and would be written as:</p>
 </div>
 <div class="paragraph">
-<p>$45 F1</p>
+<p><code>$45 F1</code></p>
+</div>
+</div>
+</div>
+</td>
+</tr>
+</table>
 </div>
 </div>
 </div>
