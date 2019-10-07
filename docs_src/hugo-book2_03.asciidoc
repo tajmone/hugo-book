@@ -11,7 +11,9 @@ The first two places to start inspecting how the Hugo compiler writes a .HEX fil
 
 [cols=">2m,<8m,>2m,<8m,>2m,<8m,>2m,<8m,>2m,<8m",format=csv,stripes=even]
 |===============================================================================
-include::hugo-book_tokens-list.csv[]
+include::hugo-book2_03_tokens-list.csv[]
+,
+,
 |===============================================================================
 
 
