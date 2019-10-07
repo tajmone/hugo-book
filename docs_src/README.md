@@ -106,7 +106,7 @@ Every chapter in the list provides an [HTML Live Preview] link to quickly jump t
     + [x]  [13. _INTRODUCTION_][Ch13]
     + [x]  [14. _ORGANIZATION OF THE .HEX FILE_][Ch14]
     + [x]  [15. _TOKENS AND DATA TYPES_][Ch15]
-    + [ ]  [16. _ENGINE PARSING_][Ch16]
+    + [x]  [16. _ENGINE PARSING_][Ch16]
     + [ ]  [17. _GRAMMAR_][Ch17]
     + [ ]  [18. _EXECUTABLE CODE_][Ch18]
     + [ ]  [19. _ENCODING TEXT_][Ch19]

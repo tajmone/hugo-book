@@ -446,7 +446,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <span id="email" class="email"><a href="mailto:general@generalcoffee.com">general@generalcoffee.com</a></span><br>
 <span id="revnumber">version 1,</span>
 <span id="revdate">2018-10-04</span>
-<br><span id="revremark">Draft 21 -- Porting to AsciiDoc</span>
+<br><span id="revremark">Draft 22 -- Porting to AsciiDoc</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -13679,7 +13679,10 @@ It would be written as a sequence of two bytes:</p>
 <h2 id="_engine_parsing"><a class="anchor" href="#_engine_parsing"></a>16. ENGINE PARSING</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The engine is responsible for all the low-level parsing of an input line (i.e., player command). Upon receiving an input, the engine parses the line into separate words, storing them in the word array. The word array&#8212;&#8203;i.e., that which is referenced in a Hugo program via word[<em>n</em>]--is an internal structure coded using the word token instead of array#. A static, read-only parser string called parse$ is used for storage of important data, such as a parser-error-causing word/phrase that cannot otherwise be communicated as an existing dictionary entry.</p>
+<p>The engine is responsible for all the low-level parsing of an input line (i.e., player command).
+Upon receiving an input, the engine parses the line into separate words, storing them in the word array.
+The word array&#8201;&#8212;&#8201;i.e., that which is referenced in a Hugo program via <code>word[<em>n</em>]</code>&#8201;&#8212;&#8201;is an internal structure coded using the <code>word</code> token instead of <code>array#</code>.
+A static, read-only parser string called <code>parse$</code> is used for storage of important data, such as a parser-error-causing word/phrase that cannot otherwise be communicated as an existing dictionary entry.</p>
 </div>
 <div class="paragraph">
 <p>The first parsing pass also does the following:</p>
@@ -13690,10 +13693,11 @@ It would be written as a sequence of two bytes:</p>
 <p>Allows integer numbers for -32768 to 32767.</p>
 </li>
 <li>
-<p>Time given in “<em>hh</em>:_mm_” (hours:minutes) format is converted to an integer number representing the total minutes since midnight, i.e., through the formula: <em>hh</em> * 60 + <em>mm</em>. The original “<em>hh</em>:_mm_” is stored in parse$.</p>
+<p>Time given in &#8220;<em>hh</em>:<em>mm</em>&#8221; (hours:minutes) format is converted to an integer number representing the total minutes since midnight, i.e., through the formula: <em>hh</em> * 60 + <em>mm</em>.
+The original &#8220;<em>hh</em>:<em>mm</em>&#8221; is stored in <code>parse$</code>.</p>
 </li>
 <li>
-<p>Up to one word (or set of words) in quotation marks is allowed; if found, it is stored in parse$.</p>
+<p>Up to one word (or set of words) in quotation marks is allowed; if found, it is stored in <code>parse$</code>.</p>
 </li>
 <li>
 <p>Special words are processed, i.e., removals and user-defined punctuation are removed, compounds are combined, and synonyms are replaced.<sup class="footnote">[<a id="_footnoteref_70" class="footnote" href="#_footnotedef_70" title="View footnote.">70</a>]</sup></p>
@@ -13701,13 +13705,15 @@ It would be written as a sequence of two bytes:</p>
 </ol>
 </div>
 <div class="paragraph">
-<p>If a user-defined Parse routine exists (i.e., if bytes $1D-1E in the header are not $0000), it is called next. If the routine returns true, the engine parsing routine is called a second time to reconcile any changes to the word set.</p>
+<p>If a user-defined <code>Parse</code> routine exists (i.e., if bytes $1D-1E in the header are not $0000), it is called next.
+If the routine returns true, the engine parsing routine is called a second time to reconcile any changes to the word set.</p>
 </div>
 <div class="paragraph">
-<p>If at any point the parser is unable to continue, either because an unknown word&#8212;&#8203;one not found in the dictionary table&#8212;&#8203;is found, or because there is a problem later, in grammar matching (described below), a parser error is generated, and parsing is stopped. (The unknown or otherwise problem-causing word is stored in parse$.)</p>
+<p>If at any point the parser is unable to continue, either because an unknown word&#8201;&#8212;&#8201;one not found in the dictionary table&#8201;&#8212;&#8201;is found, or because there is a problem later, in grammar matching (described below), a parser error is generated, and parsing is stopped. (The unknown or otherwise problem-causing word is stored in <code>parse$</code>.)</p>
 </div>
 <div class="paragraph">
-<p>The engine has a set of standard parser errors that may be overridden by a user-provided ParseError (i.e., if bytes $1F-20 in the header are not $0000). If there is no ParseError routine, or if ParseError returns false, the default parser error message is printed.</p>
+<p>The engine has a set of standard parser errors that may be overridden by a user-provided <code>ParseError</code> (i.e., if bytes $1F-20 in the header are not $0000).
+If there is no <code>ParseError</code> routine, or if <code>ParseError</code> returns false, the default parser error message is printed.</p>
 </div>
 </div>
 </div>
