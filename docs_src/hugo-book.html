@@ -446,7 +446,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <span id="email" class="email"><a href="mailto:general@generalcoffee.com">general@generalcoffee.com</a></span><br>
 <span id="revnumber">version 1,</span>
 <span id="revdate">2018-10-04</span>
-<br><span id="revremark">Draft 22 -- Porting to AsciiDoc</span>
+<br><span id="revremark">Draft 23 -- Porting to AsciiDoc</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -13721,7 +13721,8 @@ If there is no <code>ParseError</code> routine, or if <code>ParseError</code> re
 <h2 id="_grammar"><a class="anchor" href="#_grammar"></a>17. GRAMMAR</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The grammar table starts immediately following the header (at $40, or 64 bytes into the .HEX file). It is used for matching against the player&#8217;s input line to determine the verbroutine to be called, and if applicable, the object(s) and xobject (i.e, the indirect object).</p>
+<p>The grammar table starts immediately following the header (at $40, or 64 bytes into the <strong>.HEX</strong> file).
+It is used for matching against the player&#8217;s input line to determine the verbroutine to be called, and if applicable, the object(s) and xobject (i.e, the indirect object).</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -13731,94 +13732,114 @@ If there is no <code>ParseError</code> routine, or if <code>ParseError</code> re
 </td>
 <td class="content">
 <div class="paragraph">
-<p>If the input line begins with an object instead of a verb&#8212;&#8203;i.e., if it is directed toward a character, as in &#8220;Bob, get the object&#8221;, then grammar is matched against the phrase immediately following the initial object.)</p>
+<p>If the input line begins with an object instead of a verb&#8201;&#8212;&#8201;i.e., if it is directed toward a character, as in &#8220;Bob, get the object&#8221;, then grammar is matched against the phrase immediately following the initial object.</p>
 </div>
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>The grammar table is comprised of a series of verb or xverb (i.e., non-action verb) blocks, each beginning with either verb ($2C) or xverb ($2D). A $FF value instead of either verb or xverb indicates the end of the grammar table. A grammar table that looks like</p>
+<p>The grammar table is comprised of a series of verb or xverb (i.e., non-action verb) blocks, each beginning with either <code>verb</code> ($2C) or <code>xverb</code> ($2D).
+A $FF value instead of either <code>verb</code> or <code>xverb</code> indicates the end of the grammar table.
+A grammar table that looks like</p>
 </div>
-<div class="paragraph">
-<p>000040: FF</p>
+<div class="literalblock">
+<div class="content">
+<pre>000040: FF</pre>
+</div>
 </div>
 <div class="paragraph">
 <p>has no entries.</p>
 </div>
 <div class="paragraph">
-<p>Following the verb type indicator is a single byte giving the number of words (i.e., synonyms) for this particular verb. Following that are the dictionary addresses of the individual words.</p>
+<p>Following the verb type indicator is a single byte giving the number of words (i.e., synonyms) for this particular verb.
+Following that are the dictionary addresses of the individual words.</p>
 </div>
 <div class="paragraph">
 <p>Think of the simple grammar definition:</p>
 </div>
-<div class="paragraph">
-<p>verb "get", "take"</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-hugo" data-lang="hugo">verb "get", "take"
+    * object DoGet</code></pre>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p>object DoGet</p>
-</li>
-</ul>
 </div>
 <div class="paragraph">
 <p>If this were the first verb defined, the start of the grammar table would look like:</p>
 </div>
-<div class="paragraph">
-<p>000040: 2C 02 x2 x1 y2 y1</p>
+<div class="literalblock">
+<div class="content">
+<pre>000040: 2C 02 x2 x1 y2 y1</pre>
+</div>
 </div>
 <div class="paragraph">
 <p>where $<em>x1x2</em> is the dictionary address of &#8220;get&#8221;, and $<em>y1y2</em> is the dictionary address of &#8220;take&#8221;.</p>
 </div>
 <div class="paragraph">
-<p>With v2.5 was introduced a separate&#8212;&#8203;although rarely used&#8212;&#8203;variation to the verb header. A verb or xverb definition can contain something like</p>
+<p>With v2.5 was introduced a separate&#8201;&#8212;&#8201;although rarely used&#8201;&#8212;&#8201;variation to the verb header.
+A verb or xverb definition can contain something like</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-hugo" data-lang="hugo">verb get_object</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>verb get_object</p>
+<p>where <code>get_object</code> is an object or some other value.
+In this case, the verb word is <code>get_object.noun</code> instead of an explicitly defined word.
+The grammar table in this case would look like</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>000040: 2C 01 FF FF 4A x2 x1</pre>
+</div>
 </div>
 <div class="paragraph">
-<p>where get_object is an object or some other value. In this case, the verb word is get_object.noun instead of an explicitly defined word. The grammar table in this case would look like”</p>
+<p>where $FFFF is the signal that instead of a dictionary word address, the engine must read the following discrete value, where $4A is the <code>object#</code> token, and $<em>x1x2</em> is the object number of <code>get_object</code>.
+This extension is provided so that grammar may be dynamically coded and changed at runtime.</p>
 </div>
 <div class="paragraph">
-<p>000040: 2C 01 FF FF 4A x2 x1</p>
+<p>Following the verb header giving the number of verb words and the dictionary address of each is one or more grammar lines, each beginning with a <code>*</code> signifying the matched verb word.</p>
 </div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
 <div class="paragraph">
-<p>where $FFFF is the signal that instead of a dictionary word address, the engine must read the following discrete value, where $4A is the object# token, and $<em>x1x2</em> is the object number of get_object. This extension is provided so that grammar may be dynamically coded and changed at runtime.</p>
+<p>For an elaboration of valid grammar syntax specification, please see the Hugo Manual.</p>
 </div>
-<div class="paragraph">
-<p>Following the verb header giving the number of verb words and the dictionary address of each is one or more grammar lines, each beginning with a <code>*</code> signifying the matched verb word. (For an elaboration of valid grammar syntax specification, please see the Hugo Manual.)</p>
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>Grammar lines are encoded immediately following the verb header, so that in the first example given above,</p>
 </div>
-<div class="paragraph">
-<p>verb "get", "take"</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-hugo" data-lang="hugo">verb "get", "take"
+    * object DoGet</code></pre>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p>object DoGet</p>
-</li>
-</ul>
 </div>
 <div class="paragraph">
 <p>becomes:</p>
 </div>
-<div class="paragraph">
-<p>000040: 2C 02 x2 x1 y2 y1</p>
+<div class="literalblock">
+<div class="content">
+<pre>000040: 2C 02 x2 x1 y2 y1
+000046: 08 66 48 r2 r1
+00004B: FF</pre>
+</div>
 </div>
 <div class="paragraph">
-<p>000046: 08 66 48 r2 r1</p>
+<p>where $<em>r1r2</em> is the indexed routine address of <code>DoGet</code>.</p>
 </div>
 <div class="paragraph">
-<p>00004B: FF</p>
-</div>
-<div class="paragraph">
-<p>where $r<em>1r2</em> is the indexed routine address of DoGet.</p>
-</div>
-<div class="paragraph">
-<p>The $FF byte marks the end of the current verb definition. Immediately following this is either another verb or xverb token, or a second $FF to indicate the end of the verb table.</p>
+<p>The $FF byte marks the end of the current verb definition.
+Immediately following this is either another <code>verb</code> or <code>xverb</code> token, or a second $FF to indicate the end of the verb table.</p>
 </div>
 </div>
 </div>
