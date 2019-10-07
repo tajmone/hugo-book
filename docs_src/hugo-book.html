@@ -446,7 +446,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <span id="email" class="email"><a href="mailto:general@generalcoffee.com">general@generalcoffee.com</a></span><br>
 <span id="revnumber">version 1,</span>
 <span id="revdate">2018-10-04</span>
-<br><span id="revremark">Draft 32 -- Porting to AsciiDoc</span>
+<br><span id="revremark">Draft 33 -- Porting to AsciiDoc</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -16083,1343 +16083,2481 @@ Remember that the address of the debug workspace&#8201;&#8212;&#8201;256 bytes a
 <p>What follows is a detailed breakdown of how the set of valid tokens in Hugo is encoded and read within compiled code.</p>
 </div>
 <div class="paragraph">
-<p>Tokens simply marked <strong>TOKEN</strong> are coded just as the byte value of the token in question; no other formatting or necessary token/value is required to follow. These are typically used for delimitation, signaling the end of a structure or structure component, etc.</p>
+<p>Tokens simply marked <strong>TOKEN</strong> are coded just as the byte value of the token in question; no other formatting or necessary token/value is required to follow.
+These are typically used for delimitation, signaling the end of a structure or structure component, etc.</p>
 </div>
 <div class="paragraph">
-<p><strong>STATEMENTS</strong> are those tokens that are read by the engine as some sort of operation&#8212;&#8203;typically, these are &#8220;start of line&#8221; tokens, with some exceptions.</p>
+<p><strong>STATEMENTS</strong> are those tokens that are read by the engine as some sort of operation&#8201;&#8212;&#8201;typically, these are &#8220;start of line&#8221; tokens, with some exceptions.</p>
 </div>
 <div class="paragraph">
-<p><strong>VALUES</strong> return an integer value to the engine within the context of an expression. See <em>III.b</em> <em>Data Types</em>, which describes all the valid types of values.</p>
+<p><strong>VALUES</strong> return an integer value to the engine within the context of an expression.
+See <em>III.b Data Types</em>, which describes all the valid types of values.</p>
 </div>
 <div class="paragraph">
-<p><strong>INTERNAL</strong> tokens never appear in source code. These are added by the compiler for use by the engine.</p>
+<p><strong>INTERNAL</strong> tokens never appear in source code.
+These are added by the compiler for use by the engine.</p>
 </div>
 <div class="paragraph">
 <p>A &#8220;code block&#8221; is any executable statement or statements followed by a terminating $0D (<code>}</code>).</p>
 </div>
 <div class="paragraph">
-<p>Constructions may include <em>expressions</em> or <em>values</em>; the difference between the two is that values are expected to be discrete data types. Note also that GetVal() in <strong>heexpr.c</strong> allows a solvable expression bracketed by $01 (<code>(</code>) and $02 (<code>)</code>) to be treated as a discrete value.</p>
+<p>Constructions may include <em>expressions</em> or <em>values</em>; the difference between the two is that values are expected to be discrete data types.
+Note also that <code>GetVal()</code> in <strong>heexpr.c</strong> allows a solvable expression bracketed by $01 (<code>(</code>) and $02 (<code>)</code>) to be treated as a discrete value.</p>
 </div>
 <div class="paragraph">
-<p>Source references point to places in the Hugo C source code that may help to clarify how a particular construction is coded/interpreted. While not specifically mentioned, the compiling of many tokens is localized in CodeLine() in <strong>hccode.c</strong>, and the execution of many simple statements is localized in RunRoutine() in <strong>herun.c</strong>. The reading of values from data types or expressions begins with GetValue() in <strong>heexpr.c</strong>, with the basic identification of values in GetVal().</p>
+<p>Source references point to places in the Hugo C source code that may help to clarify how a particular construction is coded/interpreted.
+While not specifically mentioned, the compiling of many tokens is localized in <code>CodeLine()</code> in <strong>hccode.c</strong>, and the execution of many simple statements is localized in <code>RunRoutine()</code> in <strong>herun.c</strong>.
+The reading of values from data types or expressions begins with <code>GetValue()</code> in <strong>heexpr.c</strong>, with the basic identification of values in <code>GetVal()</code>.</p>
 </div>
-<div class="paragraph">
-<p><strong>01 ( TOKEN</strong></p>
-</div>
-<div class="paragraph">
-<p><strong>02 ) TOKEN</strong></p>
-</div>
-<div class="paragraph">
-<p><strong>03 . TOKEN</strong></p>
-</div>
-<div class="paragraph">
-<p><strong>04 : reserved (not coded)</strong></p>
-</div>
-<div class="paragraph">
-<p><strong>05 = TOKEN</strong></p>
-</div>
-<div class="paragraph">
-<p><strong>06 - TOKEN</strong></p>
-</div>
-<div class="paragraph">
-<p><strong>07 + TOKEN</strong></p>
-</div>
-<div class="paragraph">
-<p><strong>08 * TOKEN</strong></p>
-</div>
-<div class="paragraph">
-<p><strong>09 / TOKEN</strong></p>
-</div>
-<div class="paragraph">
-<p><strong>0A | TOKEN</strong></p>
-</div>
-<div class="paragraph">
-<p><strong>0B ; TOKEN</strong></p>
-</div>
-<div class="paragraph">
-<p><strong>0C \{ TOKEN</strong></p>
-</div>
-<div class="paragraph">
-<p><strong>0D } TOKEN</strong></p>
+<table class="tableblock frame-all grid-rows stripes-none fit-content">
+<colgroup>
+<col>
+<col>
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>01</strong></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>(</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>TOKEN</strong></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>02</strong></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>)</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>TOKEN</strong></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>03</strong></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>.</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>TOKEN</strong></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>04</strong></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>:</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><em><strong>reserved</strong></em> (not coded)</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>05</strong></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>=</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>TOKEN</strong></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>06</strong></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>-</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>TOKEN</strong></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>07</strong></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>+</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>TOKEN</strong></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>08</strong></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>*</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>TOKEN</strong></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>09</strong></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>/</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>TOKEN</strong></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>0A</strong></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>|</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>TOKEN</strong></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>0B</strong></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>;</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>TOKEN</strong></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>0C</strong></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>{</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>TOKEN</strong></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>0D</strong></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>}</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>TOKEN</strong></p>
 </div>
 <div class="paragraph">
 <p>(Signifies the end of a code block)</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>0E</strong></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>[</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>TOKEN</strong></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>0F</strong></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>]</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>TOKEN</strong></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>10</strong></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>#</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>TOKEN</strong></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>11</strong></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>~</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>TOKEN</strong></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>12</strong></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>&gt;=</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>TOKEN</strong></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>13</strong></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>&#8656;</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>TOKEN</strong></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>14</strong></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>~=</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>TOKEN</strong></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>15</strong></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>&amp;</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>TOKEN</strong></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>16</strong></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>TOKEN</strong></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>17</strong></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>&lt;</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>TOKEN</strong></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>18</strong></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>if</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>STATEMENT</strong></p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>18 &lt;skip distance&gt; &lt;expression&gt; 4C
+    &lt;conditional block&gt;
+&lt;next statement&gt;</pre>
+</div>
 </div>
 <div class="paragraph">
-<p><strong>0E [ TOKEN</strong></p>
+<p><strong>As in:</strong></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-hugo" data-lang="hugo">if &lt;expression&gt;
+{...}</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p><strong>0F ] TOKEN</strong></p>
+<p>Where the two bytes of <code>&lt;skip distance&gt;</code> are the absolute distance&#8201;&#8212;&#8201;in low-byte/high-byte order&#8201;&#8212;&#8201;from the first byte of the pair to the next line of code that will execute if <code>&lt;expression&gt;</code> evaluates to false, i.e., the distance to <code>&lt;next statement&gt;</code>.
+If <code>&lt;expression&gt;</code> evaluates to a non-false value, <code>&lt;conditional block&gt;</code> is run.
+Note that $4C indicates end-of-line.</p>
 </div>
 <div class="paragraph">
-<p><strong>10 # TOKEN</strong></p>
+<p><code>&lt;expression&gt;</code> is simply a tokenized representation of the expression as it appears in the source line.</p>
 </div>
 <div class="paragraph">
-<p><strong>11 ~ TOKEN</strong></p>
+<p><strong>Source:</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>hccode.c</strong>&#8201;&#8212;&#8201;<code>CodeIf()</code></p>
+</li>
+<li>
+<p><strong>herun.c</strong> &#8201;&#8212;&#8201;<code>RunIf()</code></p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>19</strong></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>,</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>TOKEN</strong></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>1A</strong></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>else</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>STATEMENT</strong></p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>1A &lt;skip distance&gt;
+    &lt;conditional block&gt;
+&lt;next statement&gt;</pre>
+</div>
 </div>
 <div class="paragraph">
-<p><strong>12 &gt;= TOKEN</strong></p>
+<p><strong>As in:</strong></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-hugo" data-lang="hugo">else
+{...}</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p><strong>13 &#8656; TOKEN</strong></p>
+<p>Where <code>&lt;conditional block&gt;</code> runs only if no immediately preceding <code>if</code> or <code>elseif</code> condition has been met.
+If a previous condition has been met, control passes ahead to <code>&lt;next statment&gt;</code>, i.e., forward the number of bytes given by the two bytes of <code>&lt;skip distance&gt;</code>.</p>
 </div>
 <div class="paragraph">
-<p><strong>14 ~= TOKEN</strong></p>
+<p><strong>Source:</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>hccode.c</strong>&#8201;&#8212;&#8201;<code>CodeLine()</code></p>
+</li>
+<li>
+<p><strong>*herun.c</strong>&#8201;&#8212;&#8201;<code>RunIf()</code></p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>1B</strong></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>elseif</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>STATEMENT</strong></p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>1B &lt;skip distance&gt; &lt;expression&gt; 4C
+    &lt;conditional block&gt;
+&lt;next statement&gt;</pre>
+</div>
 </div>
 <div class="paragraph">
-<p><strong>15 &amp; TOKEN</strong></p>
+<p><strong>As in:</strong></p>
 </div>
-<div class="paragraph">
-<p><strong>16 &gt; TOKEN</strong></p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-hugo" data-lang="hugo">elseif &lt;expression&gt;
+{...}</code></pre>
 </div>
-<div class="paragraph">
-<p><strong>17 &lt; TOKEN</strong></p>
-</div>
-<div class="paragraph">
-<p>18 if STATEMENT</p>
-</div>
-<div class="paragraph">
-<p>18 &lt;skip distance&gt; &lt;expression&gt; 4C</p>
-</div>
-<div class="paragraph">
-<p>&lt;conditional block&gt;</p>
-</div>
-<div class="paragraph">
-<p>&lt;next statement&gt;</p>
-</div>
-<div class="paragraph">
-<p><strong>As in:</strong> if &lt;expression&gt;</p>
-</div>
-<div class="paragraph">
-<p>\{&#8230;&#8203;}</p>
-</div>
-<div class="paragraph">
-<p>Where the two bytes of &lt;skip distance&gt; are the absolute distance&#8212;&#8203;in low-byte/high-byte order&#8212;&#8203;from the first byte of the pair to the next line of code that will execute if &lt;expression&gt; evaluates to false, i.e., the distance to &lt;next statement&gt;. If &lt;expression&gt; evaluates to a non-false value, &lt;conditional block&gt; is run. Note that $4C indicates end-of-line.</p>
-</div>
-<div class="paragraph">
-<p>&lt;expression&gt; is simply a tokenized representation of the expression as it appears in the source line.</p>
-</div>
-<div class="paragraph">
-<p><strong>Source: hccode.c</strong> – CodeIf()</p>
-</div>
-<div class="paragraph">
-<p><strong>herun.c</strong> – RunIf()</p>
-</div>
-<div class="paragraph">
-<p><strong>19 , TOKEN</strong></p>
-</div>
-<div class="paragraph">
-<p>1A else STATEMENT</p>
-</div>
-<div class="paragraph">
-<p>1A &lt;skip distance&gt;</p>
-</div>
-<div class="paragraph">
-<p>&lt;conditional block&gt;</p>
-</div>
-<div class="paragraph">
-<p>&lt;next statement&gt;</p>
-</div>
-<div class="paragraph">
-<p><strong>As in:</strong> else</p>
-</div>
-<div class="paragraph">
-<p>\{&#8230;&#8203;}</p>
-</div>
-<div class="paragraph">
-<p>Where &lt;conditional block&gt; runs only if no immediately preceding if or elseif condition has been met. If a previous condition has been met, control passes ahead to &lt;next statment&gt;, i.e., forward the number of bytes given by the two bytes of &lt;skip distance&gt;.</p>
-</div>
-<div class="paragraph">
-<p><strong>Source:</strong> <strong>hccode.c</strong> – CodeLine()</p>
-</div>
-<div class="paragraph">
-<p><strong>herun.c</strong> – RunIf()</p>
-</div>
-<div class="paragraph">
-<p>1B elseif STATEMENT</p>
-</div>
-<div class="paragraph">
-<p>1B &lt;skip distance&gt; &lt;expression&gt; 4C</p>
-</div>
-<div class="paragraph">
-<p>&lt;conditional block&gt;</p>
-</div>
-<div class="paragraph">
-<p>&lt;next statement&gt;</p>
-</div>
-<div class="paragraph">
-<p><strong>As in:</strong> elseif &lt;expression&gt;</p>
-</div>
-<div class="paragraph">
-<p>\{&#8230;&#8203;}</p>
 </div>
 <div class="paragraph">
 <p>See if.</p>
 </div>
 <div class="paragraph">
-<p><strong>Source:</strong> <strong>hccode.c</strong> – CodeIf()</p>
+<p><strong>Source:</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>hccode.c</strong>&#8201;&#8212;&#8201;<code>CodeIf()</code></p>
+</li>
+<li>
+<p><strong>herun.c</strong>&#8201;&#8212;&#8201;<code>RunIf()</code></p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>1C</strong></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>while</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>STATEMENT</strong></p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>:&lt;starting point&gt;
+1C &lt;skip distance&gt; &lt;expression&gt; 4C
+    &lt;conditional block&gt;
+25 &lt;starting point&gt;
+&lt;next statement&gt;</pre>
+</div>
 </div>
 <div class="paragraph">
-<p><strong>herun.c</strong> – RunIf()</p>
+<p><strong>As in:</strong></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-hugo" data-lang="hugo">while &lt;expression&gt;
+{...}</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>1C while STATEMENT</p>
+<p>As long as <code>&lt;expression&gt;</code> evaluates to a non-false value, &lt;conditional block&gt; is run.
+Note the implicit jump ($25) coded by the compiler to maintain the loop&#8201;&#8212;&#8201;<code>&lt;starting point&gt;</code> is only an address; only the two-byte address following $25 is written as a jump-back point.
+See if.</p>
 </div>
 <div class="paragraph">
-<p>:&lt;starting point&gt;</p>
+<p>Note that because the <code>&lt;starting point&gt;</code> is written as a two-byte indexed address, it must begin on an address boundary, padded with empty ($00) values, if necessary.</p>
 </div>
 <div class="paragraph">
-<p>1C &lt;skip distance&gt; &lt;expression&gt; 4C</p>
+<p><strong>Source:</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>hccode.c</strong>&#8201;&#8212;&#8201;<code>CodeWhile()</code></p>
+</li>
+<li>
+<p><strong>herun.c</strong>&#8201;&#8212;&#8201;<code>RunIf()</code></p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>1D</strong></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>do</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>STATEMENT</strong></p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>1D &lt;skip distance&gt;
+:&lt;starting point&gt;
+    &lt;block&gt;
+1C &lt;two bytes&gt; &lt;expression&gt; 4C
+&lt;next statement&gt;</pre>
+</div>
 </div>
 <div class="paragraph">
-<p>&lt;conditional block&gt;</p>
+<p><strong>As in:</strong></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-hugo" data-lang="hugo">do
+{...}
+while &lt;expression&gt;</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>25 &lt;starting point&gt;</p>
+<p>If, after <code>&lt;block&gt;</code> executes, <code>&lt;expression&gt;</code> evaluates to a non-false value, the engine returns to <code>&lt;starting point&gt;</code> (which must begin on an address boundary).
+The two bytes following while ($1C) match the syntax of the normal while loop, but are undefined for this usage.
+Instead, the distance to the next statement is given after the do token ($1D) in the two bytes of <code>&lt;skip distance&gt;</code>.</p>
 </div>
 <div class="paragraph">
-<p>&lt;next statement&gt;</p>
+<p><strong>Source:</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>hccode.c</strong>&#8201;&#8212;&#8201;<code>CodeDo()</code></p>
+</li>
+<li>
+<p><strong>herun.c</strong>&#8201;&#8212;&#8201;<code>RunDo()</code></p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>1E</strong></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>select</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>STATEMENT</strong></p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>1E</pre>
+</div>
 </div>
 <div class="paragraph">
-<p><strong>As in:</strong> while &lt;expression&gt;</p>
-</div>
-<div class="paragraph">
-<p>\{&#8230;&#8203;}</p>
-</div>
-<div class="paragraph">
-<p>As long as &lt;expression&gt; evaluates to a non-false value, &lt;conditional block&gt; is run. Note the implicit jump ($25) coded by the compiler to maintain the loop--&lt;starting point&gt; is only an address; only the two-byte address following $25 is written as a jump-back point. See if.</p>
-</div>
-<div class="paragraph">
-<p>Note that because the &lt;starting point&gt; is written as a two-byte indexed address, it must begin on an address boundary, padded with empty ($00) values, if necessary.</p>
-</div>
-<div class="paragraph">
-<p><strong>Source:</strong> <strong>hccode.c</strong> – CodeWhile()</p>
-</div>
-<div class="paragraph">
-<p><strong>herun.c</strong> – RunIf()</p>
-</div>
-<div class="paragraph">
-<p>1D do STATEMENT</p>
-</div>
-<div class="paragraph">
-<p>1D &lt;skip distance&gt;</p>
-</div>
-<div class="paragraph">
-<p>:&lt;starting point&gt;</p>
-</div>
-<div class="paragraph">
-<p>&lt;block&gt;</p>
-</div>
-<div class="paragraph">
-<p>1C &lt;two bytes&gt; &lt;expression&gt; 4C</p>
-</div>
-<div class="paragraph">
-<p>&lt;next statement&gt;</p>
-</div>
-<div class="paragraph">
-<p><strong>As in:</strong> do</p>
-</div>
-<div class="paragraph">
-<p>\{&#8230;&#8203;}</p>
-</div>
-<div class="paragraph">
-<p>while &lt;expression&gt;</p>
-</div>
-<div class="paragraph">
-<p>If, after &lt;block&gt; executes, &lt;expression&gt; evaluates to a non-false value, the engine returns to &lt;starting point&gt; (which must begin on an address boundary). The two bytes following while ($1C) match the syntax of the normal while loop, but are undefined for this usage. Instead, the distance to the next statement is given after the do token ($1D) in the two bytes of &lt;skip distance&gt;.</p>
-</div>
-<div class="paragraph">
-<p>Source: <strong>hccode.c</strong> – CodeDo()</p>
-</div>
-<div class="paragraph">
-<p><strong>herun.c</strong> – RunDo()</p>
-</div>
-<div class="paragraph">
-<p>1E select STATEMENT</p>
-</div>
-<div class="paragraph">
-<p>1E</p>
-</div>
-<div class="paragraph">
-<p>When encountered by the engine, resets the conditional-statement evaluator, i.e., so that the next case conditional is treated as an if instead of an elseif. Note that the variable that follows select in a line of source code is not coded here (but it is needed by the compiler to construct subsequent case statements).</p>
+<p>When encountered by the engine, resets the conditional-statement evaluator, i.e., so that the next case conditional is treated as an <code>if</code> instead of an <code>elseif</code>.
+Note that the variable that follows <code>select</code> in a line of source code is not coded here (but it is needed by the compiler to construct subsequent <code>case</code> statements).</p>
 </div>
 <div class="paragraph">
 <p>See case.</p>
 </div>
 <div class="paragraph">
-<p><strong>Source:</strong> <strong>hccode.c</strong> – CodeSelect()</p>
+<p><strong>Source:</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>hccode.c</strong>&#8201;&#8212;&#8201;<code>CodeSelect()</code></p>
+</li>
+<li>
+<p><strong>herun.c</strong>&#8201;&#8212;&#8201;<code>RunIf()</code></p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>1F</strong></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>case</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>STATEMENT</strong></p>
 </div>
 <div class="paragraph">
-<p><strong>herun.c</strong> – RunIf()</p>
-</div>
-<div class="paragraph">
-<p>1F case STATEMENT</p>
-</div>
-<div class="paragraph">
-<p>Treated identically by the engine to elseif once a select token ($1E) has reset the conditional-statement evaluator to no previous matches.</p>
+<p>Treated identically by the engine to <code>elseif</code> once a select <code>token</code> ($1E) has reset the conditional-statement evaluator to no previous matches.</p>
 </div>
 <div class="paragraph">
 <p>In other words, what the compiler does is take:</p>
 </div>
-<div class="paragraph">
-<p>select &lt;expression&gt;</p>
+<div class="literalblock">
+<div class="content">
+<pre>select &lt;expression&gt;
+    case &lt;test1&gt;
+        &lt;first conditional block&gt;
+    case &lt;test2&gt;
+        &lt;second conditional block&gt;
+    ...
+    case else
+        &lt;default conditional block&gt;</pre>
 </div>
-<div class="paragraph">
-<p>case &lt;test1&gt;</p>
-</div>
-<div class="paragraph">
-<p>&lt;first conditional block&gt;</p>
-</div>
-<div class="paragraph">
-<p>case &lt;test2&gt;</p>
-</div>
-<div class="paragraph">
-<p>&lt;second conditional block&gt;</p>
-</div>
-<div class="paragraph">
-<p>&#8230;&#8203;</p>
-</div>
-<div class="paragraph">
-<p>case else</p>
-</div>
-<div class="paragraph">
-<p>&lt;default conditional block&gt;</p>
 </div>
 <div class="paragraph">
 <p>and restructure it into:</p>
 </div>
-<div class="paragraph">
-<p>1F &lt;skip distance&gt; &lt;expression&gt; 05 &lt;test1&gt; 4C</p>
+<div class="literalblock">
+<div class="content">
+<pre>1F &lt;skip distance&gt; &lt;expression&gt; 05 &lt;test1&gt; 4C
+    &lt;first conditional block&gt;
+1F &lt;skip distance&gt; &lt;expression&gt; 05 &lt;test2&gt; 4C
+    &lt;second conditional block&gt;
+1A &lt;skip distance&gt;
+    &lt;default conditional block&gt;</pre>
+</div>
 </div>
 <div class="paragraph">
-<p>&lt;first conditional block&gt;</p>
+<p>Note that $1A is the <code>else</code> token, $05 is the <code>=</code> token, and that the two bytes of <code>&lt;skip distance&gt;</code> give the distance to the next <code>case</code>.</p>
 </div>
 <div class="paragraph">
-<p>1F &lt;skip distance&gt; &lt;expression&gt; 05 &lt;test2&gt; 4C</p>
+<p><strong>Source:</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>hccode.c</strong>&#8201;&#8212;&#8201;<code>CodeSelect()</code></p>
+</li>
+<li>
+<p><strong>herun.c</strong>&#8201;&#8212;&#8201;<code>RunIf()</code></p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>20</strong></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>for</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>STATEMENT</strong></p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>&lt;assignment&gt;
+:&lt;starting point&gt;
+20 &lt;skip distance&gt; &lt;expression&gt; 4C
+    &lt;conditional block&gt;
+    &lt;modifying expression&gt;
+    25 &lt;starting point&gt;
+&lt;next statement&gt;</pre>
+</div>
 </div>
 <div class="paragraph">
-<p>&lt;second conditional block&gt;</p>
+<p><strong>As in:</strong></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-hugo" data-lang="hugo">for (&lt;assign&gt;; &lt;expr&gt;; &lt;modifying&gt;)
+{...}</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>1A &lt;skip distance&gt;</p>
+<p>The <code>&lt;assignment&gt;</code>, if given in the source code, is coded as a regular executable assignment of some data type.
+Again, nothing is explicitly coded at <code>&lt;starting point&gt;</code>&#8201;&#8212;&#8201;it is simply a reference point for the <code>jump</code> ($25) to return to.
+The <code>for</code> ($20) line operates as a regular conditional test (see <code>if</code>).
+The <code>&lt;modifying expression&gt;</code> is appended after the conditional block is coded.
+This, like the <code>&lt;assignment&gt;</code> is simply a regular executable assignment.</p>
 </div>
 <div class="paragraph">
-<p>&lt;default conditional block&gt;</p>
+<p><strong>Source:</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>hccode.c</strong>&#8201;&#8212;&#8201;<code>CodeFor()</code></p>
+</li>
+<li>
+<p><strong>herun.c</strong>&#8201;&#8212;&#8201;<code>RunIf()</code></p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>21</strong></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>return</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>STATEMENT</strong></p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>21 &lt;expression&gt; 4C</pre>
+</div>
 </div>
 <div class="paragraph">
-<p>Note that $1A is the else token, $05 is the <code>=</code> token, and that the two bytes of &lt;skip distance&gt; give the distance to the next case.</p>
+<p><strong>As in:</strong></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-hugo" data-lang="hugo">return &lt;expression&gt;</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p><strong>Source:</strong> <strong>hccode.c</strong> – CodeSelect()</p>
+<p>Where <code>&lt;expression&gt;</code> is optional, so that a standalone return order can be coded as:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>21 4C</pre>
+</div>
 </div>
 <div class="paragraph">
-<p><strong>herun.c</strong> – RunIf()</p>
+<p></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>22</strong></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>break</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>STATEMENT</strong></p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>22</pre>
+</div>
 </div>
 <div class="paragraph">
-<p>20 for STATEMENT</p>
+<p></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>23</strong></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>and</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>TOKEN</strong></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>24</strong></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>or</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>TOKEN</strong></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>25</strong></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>jump</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>STATEMENT</strong></p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>25 &lt;address&gt;</pre>
+</div>
 </div>
 <div class="paragraph">
-<p>&lt;assignment&gt;</p>
+<p><strong>As in:</strong></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-hugo" data-lang="hugo">jump &lt;label&gt;</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>:&lt;starting point&gt;</p>
+<p>Where <code>&lt;address&gt;</code> is two bytes giving the indexed address of the next statement to be executed.<br>
+(The <code>&lt;label&gt;</code> is coded as <code>&lt;address&gt;</code>.)</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>26</strong></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>run</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>STATEMENT</strong></p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>26 &lt;value&gt; 4C<sup class="footnote">[<a id="_footnoteref_74" class="footnote" href="#_footnotedef_74" title="View footnote.">74</a>]</sup></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>20 &lt;skip distance&gt; &lt;expression&gt; 4C</p>
+<p>Where <code>&lt;value&gt;</code> is simply read and forgotten, as in running an <code>object.property</code> property routine and throwing away the value.</p>
+</div>
+<div id="footnotes">
+<hr>
+<div class="footnote" id="_footnotedef_74">
+<a href="#_footnoteref_74">74</a>. Pre-v2.3 omitted the <code>eol#</code> marker ($4C).
+</div>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>27</strong></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>is</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>TOKEN</strong></p>
 </div>
 <div class="paragraph">
-<p>&lt;conditional block&gt;</p>
+<p><strong>As in:</strong></p>
 </div>
 <div class="paragraph">
-<p>&lt;modifying expression&gt;</p>
+<p><code>&lt;object&gt; is &lt;attribute&gt;</code> (statement form)<br>
+<code>&lt;object&gt; is &lt;attribute&gt;</code> (value form).</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>28</strong></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>not</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>TOKEN</strong></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>29</strong></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>true</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>VALUE</strong></p>
 </div>
-<div class="paragraph">
-<p>25 &lt;starting point&gt;</p>
+<div class="literalblock">
+<div class="content">
+<pre>29</pre>
 </div>
-<div class="paragraph">
-<p>&lt;next statement&gt;</p>
-</div>
-<div class="paragraph">
-<p><strong>As in:</strong> for (&lt;assign&gt;; &lt;expr&gt;; &lt;modifying&gt;)</p>
-</div>
-<div class="paragraph">
-<p>\{&#8230;&#8203;}</p>
-</div>
-<div class="paragraph">
-<p>The &lt;assignment&gt;, if given in the source code, is coded as a regular executable assignment of some data type. Again, nothing is explicitly coded at &lt;starting point&gt;--it is simply a reference point for the jump ($25) to return to. The for ($20) line operates as a regular conditional test (see if). The &lt;modifying expression&gt; is appended after the conditional block is coded. This, like the &lt;assignment&gt; is simply a regular executable assignment.</p>
-</div>
-<div class="paragraph">
-<p><strong>Source:</strong> <strong>hccode.c</strong> – CodeFor()</p>
-</div>
-<div class="paragraph">
-<p><strong>herun.c</strong> – RunIf()</p>
-</div>
-<div class="paragraph">
-<p>21 return STATEMENT</p>
-</div>
-<div class="paragraph">
-<p>21 &lt;expression&gt; 4C</p>
-</div>
-<div class="paragraph">
-<p><strong>As in:</strong> return &lt;expression&gt;</p>
-</div>
-<div class="paragraph">
-<p>Where &lt;expression&gt; is optional, so that a standalone return order can be coded as:</p>
-</div>
-<div class="paragraph">
-<p>21 4C</p>
-</div>
-<div class="paragraph">
-<p>22 break STATEMENT</p>
-</div>
-<div class="paragraph">
-<p>22</p>
-</div>
-<div class="paragraph">
-<p><strong>23 and TOKEN</strong></p>
-</div>
-<div class="paragraph">
-<p><strong>24 or TOKEN</strong></p>
-</div>
-<div class="paragraph">
-<p>25 jump STATEMENT</p>
-</div>
-<div class="paragraph">
-<p>25 &lt;address&gt;</p>
-</div>
-<div class="paragraph">
-<p><strong>As in:</strong> jump &lt;label&gt;</p>
-</div>
-<div class="paragraph">
-<p>Where &lt;address&gt; is two bytes giving the indexed address of the next statement to be executed. (The &lt;label&gt; is coded as &lt;address&gt;.)</p>
-</div>
-<div class="paragraph">
-<p>26 run STATEMENT</p>
-</div>
-<div class="paragraph">
-<p>26 &lt;value&gt; 4C<sup class="footnote">[<a id="_footnoteref_74" class="footnote" href="#_footnotedef_74" title="View footnote.">74</a>]</sup></p>
-</div>
-<div class="paragraph">
-<p>Where &lt;value&gt; is simply read and forgotten, as in running an object.property property routine and throwing away the value.</p>
-</div>
-<div class="paragraph">
-<p>27 is TOKEN</p>
-</div>
-<div class="paragraph">
-<p>As in: &lt;object&gt; is &lt;attribute&gt; (statement form)</p>
-</div>
-<div class="paragraph">
-<p>&lt;object&gt; is &lt;attribute&gt; (value form).</p>
-</div>
-<div class="paragraph">
-<p><strong>28 not TOKEN</strong></p>
-</div>
-<div class="paragraph">
-<p>29 true VALUE</p>
-</div>
-<div class="paragraph">
-<p>29</p>
 </div>
 <div class="paragraph">
 <p>Hard-coded Boolean constant meaning 1.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>2A</strong></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>false</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>VALUE</strong></p>
 </div>
-<div class="paragraph">
-<p>2A false VALUE</p>
+<div class="literalblock">
+<div class="content">
+<pre>2A</pre>
 </div>
-<div class="paragraph">
-<p>2A</p>
 </div>
 <div class="paragraph">
 <p>Hard-coded Boolean constant meaning 0.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>2B</strong></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>local</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><em><strong>reserved</strong></em> (not coded)</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>2C</strong></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>verb</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>STATEMENT</strong></p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>2C &lt;n&gt; &lt;dict_1&gt; &lt;dict_2&gt;...&lt;dict_n&gt;</pre>
+</div>
 </div>
 <div class="paragraph">
-<p><strong>2B local reserved (not coded)</strong></p>
+<p>Occurs in the grammar table and explicitly denotes the beginning of a new verb, where the single byte <code>&lt;n&gt;</code> gives the number of dictionary words coded immediately following representing synonyms for this verb.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>2D</strong></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>xverb</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>STATEMENT</strong></p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>2D &lt;n&gt; &lt;dict_1&gt; &lt;dict_2&gt;...&lt;dict_n&gt;</pre>
+</div>
 </div>
 <div class="paragraph">
-<p>2C verb STATEMENT</p>
+<p>Coded and handled identically to <code>verb</code>, except that it is flagged differently so the engine knows it is a &#8220;non-action&#8221;.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>2E</strong></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>held</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>GRAMMAR TOKEN</strong></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>2F</strong></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>multi</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>GRAMMAR TOKEN</strong></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>30</strong></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>multiheld</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>GRAMMAR TOKEN</strong></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>31</strong></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>newline</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>PRINT TOKEN</strong></p>
 </div>
 <div class="paragraph">
-<p>2C &lt;n&gt; &lt;dict_1&gt; &lt;dict_2&gt;&#8230;&#8203;&lt;dict_n&gt;</p>
+<p>Signals a <code>print</code> statement to issue a newline <em>only</em> if one is needed.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>32</strong></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>anything</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>GRAMMAR TOKEN</strong></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>33</strong></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>print</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>STATEMENT</strong></p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>33 &lt;print data&gt; 4C</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>33 &lt;print data&gt; 0B &lt;print data&gt; ... 4C</pre>
+</div>
 </div>
 <div class="paragraph">
-<p>Occurs in the grammar table and explicitly denotes the beginning of a new verb, where the single byte &lt;n&gt; gives the number of dictionary words coded immediately following representing synonyms for this verb.</p>
+<p>Where <code>&lt;print data&gt;</code> is one of the following:</p>
 </div>
-<div class="paragraph">
-<p>2D xverb STATEMENT</p>
-</div>
-<div class="paragraph">
-<p>2D &lt;n&gt; &lt;dict_1&gt; &lt;dict_2&gt;&#8230;&#8203;&lt;dict_n&gt;</p>
-</div>
-<div class="paragraph">
-<p>Coded and handled identically to verb, except that it is flagged differently so the engine knows it is a &#8220;non-action&#8221;.</p>
-</div>
-<div class="paragraph">
-<p><strong>2E held GRAMMAR TOKEN</strong></p>
-</div>
-<div class="paragraph">
-<p><strong>2F multi GRAMMAR TOKEN</strong></p>
-</div>
-<div class="paragraph">
-<p><strong>30 multiheld GRAMMAR TOKEN</strong></p>
-</div>
-<div class="paragraph">
-<p>31 newline PRINT TOKEN</p>
-</div>
-<div class="paragraph">
-<p>Signals a print statement to issue a newline <em>only</em> if one is needed.</p>
-</div>
-<div class="paragraph">
-<p><strong>32 anything GRAMMAR TOKEN</strong></p>
-</div>
-<div class="paragraph">
-<p>33 print STATEMENT</p>
-</div>
-<div class="paragraph">
-<p>33 &lt;print data&gt; 4C</p>
-</div>
-<div class="paragraph">
-<p>33 &lt;print data&gt; 0B &lt;print data&gt; &#8230;&#8203; 4C</p>
-</div>
-<div class="paragraph">
-<p>Where &lt;print data&gt; is one of the following:</p>
-</div>
-<div class="paragraph">
-<p>stringdata#</p>
-</div>
-<div class="paragraph">
+<div class="ulist">
+<ul>
+<li>
+<p><code>stringdata#</code></p>
+</li>
+<li>
 <p>any value, treated as a dictionary entry</p>
+</li>
+<li>
+<p><code>parse$</code></p>
+</li>
+<li>
+<p><code>serial$</code></p>
+</li>
+<li>
+<p><code>newline</code></p>
+</li>
+<li>
+<p><code>capital</code></p>
+</li>
+<li>
+<p><code>number</code></p>
+</li>
+<li>
+<p><code>hex</code></p>
+</li>
+</ul>
 </div>
 <div class="paragraph">
-<p>parse$</p>
+<p>Multiple <code>&lt;print data&gt;</code> sequences are separated by a semicolon (<code>;</code>) token ($0B).</p>
 </div>
 <div class="paragraph">
-<p>serial$</p>
+<p><strong>Source:</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>herun.c</strong>&#8201;&#8212;&#8201;<code>RunPrint()</code></p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>34</strong></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>number</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>GRAMMAR TOKEN</strong> or <strong>PRINT TOKEN</strong></p>
 </div>
 <div class="paragraph">
-<p>newline</p>
-</div>
-<div class="paragraph">
-<p>capital</p>
-</div>
-<div class="paragraph">
-<p>number</p>
-</div>
-<div class="paragraph">
-<p>hex</p>
-</div>
-<div class="paragraph">
-<p>Multiple &lt;print data&gt; sequences are separated by a semicolon (<code>;</code>) token ($0B).</p>
-</div>
-<div class="paragraph">
-<p><strong>Source:</strong> <strong>herun.c</strong> – RunPrint()</p>
-</div>
-<div class="paragraph">
-<p>34 number GRAMMAR TOKEN or PRINT TOKEN</p>
-</div>
-<div class="paragraph">
-<p>In a print statement, signals that the following value should be printed as a number, not as the corresponding dictionary entry.</p>
+<p>In a <code>print</code> statement, signals that the following value should be printed as a number, not as the corresponding dictionary entry.</p>
 </div>
 <div class="paragraph">
 <p>In a grammar line, represents any integer number.</p>
-</div>
-<div class="paragraph">
-<p>35 capital PRINT TOKEN</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>35</strong></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>capital</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>PRINT TOKEN</strong></p>
 </div>
 <div class="paragraph">
 <p>Signals that the following dictionary entry should have its first letter capitalized.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>36</strong></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>text</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>STATEMENT</strong></p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>36 3B &lt;value&gt; 4C<sup class="footnote">[<a id="_footnoteref_75" class="footnote" href="#_footnotedef_75" title="View footnote.">75</a>]</sup></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>36 text STATEMENT</p>
+<p><strong>As in:</strong></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-hugo" data-lang="hugo">text to n</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>36 3B &lt;value&gt; 4C<sup class="footnote">[<a id="_footnoteref_75" class="footnote" href="#_footnotedef_75" title="View footnote.">75</a>]</sup></p>
+<p>Where <code>&lt;value&gt;</code> is either an address in the array table, or constant 0 (to restore text output to the standard display).</p>
 </div>
-<div class="paragraph">
-<p><strong>As in:</strong> text to n</p>
+<div id="footnotes">
+<hr>
+<div class="footnote" id="_footnotedef_75">
+<a href="#_footnoteref_75">75</a>. Pre-v2.3 omitted the <code>eol#</code> marker ($4C).
 </div>
-<div class="paragraph">
-<p>Where &lt;value&gt; is either an address in the array table, or constant 0 (to restore text output to the standard display).</p>
-</div>
-<div class="paragraph">
-<p>37 graphics STATEMENT</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>37</strong></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>graphics</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>STATEMENT</strong></p>
 </div>
 <div class="paragraph">
 <p>(Not implemented.)</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>38</strong></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>color</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>STATEMENT</strong></p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>38 &lt;value&gt; 4C
+38 &lt;value&gt; 19 &lt;value&gt; 4C
+38 &lt;value&gt; 19 &lt;value&gt; 19 &lt;value&gt; 4C</pre>
+</div>
 </div>
 <div class="paragraph">
-<p>38 color STATEMENT</p>
+<p><strong>As in:</strong></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-hugo" data-lang="hugo">color foreground
+color foreground, background
+color foreground, background, inputcolor</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>38 &lt;value&gt; 4C</p>
+<p>Where <code>&lt;value&gt;</code> is a Hugo color value from 0 to 17 giving the foreground text color.
+If a second value is given, separated by a comma ($19), it represents the background color.
+If a third value is given, separated by a comma ($19), it represents the input color.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>39</strong></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>remove</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>STATEMENT</strong></p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>39 &lt;value&gt; 4C<sup class="footnote">[<a id="_footnoteref_76" class="footnote" href="#_footnotedef_76" title="View footnote.">76</a>]</sup></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>38 &lt;value&gt; 19 &lt;value&gt; 4C</p>
+<p><strong>As in:</strong></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-hugo" data-lang="hugo">remove &lt;object&gt;</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>38 &lt;value&gt; 19 &lt;value&gt; 19 &lt;value&gt; 4C</p>
+<p><strong>Source:</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>herun.c</strong>&#8201;&#8212;&#8201;<code>RunMove()</code></p>
+</li>
+</ul>
+</div>
+<div id="footnotes">
+<hr>
+<div class="footnote" id="_footnotedef_76">
+<a href="#_footnoteref_76">76</a>. Pre-v2.3 omitted the <code>eol#</code> marker ($4C).
+</div>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>3A</strong></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>move</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>STATEMENT</strong></p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>3A &lt;value&gt; 3B &lt;value&gt; 4<sup class="footnote">[<a id="_footnoteref_77" class="footnote" href="#_footnotedef_77" title="View footnote.">77</a>]</sup></pre>
+</div>
 </div>
 <div class="paragraph">
-<p><strong>As in:</strong> color foreground</p>
+<p><strong>As in:</strong></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-hugo" data-lang="hugo">move &lt;object1&gt; to &lt;object2&gt;</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>color foreground, background</p>
+<p><strong>Source:</strong></p>
 </div>
-<div class="paragraph">
-<p>color foreground, background, inputcolor</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>herun.c</strong>&#8201;&#8212;&#8201;<code>RunMove()</code></p>
+</li>
+</ul>
 </div>
-<div class="paragraph">
-<p>Where &lt;value&gt; is a Hugo color value from 0 to 17 giving the foreground text color. If a second value is given, separated by a comma ($19), it represents the background color. If a third value is given, separated by a comma ($19), it represents the input color.</p>
+<div id="footnotes">
+<hr>
+<div class="footnote" id="_footnotedef_77">
+<a href="#_footnoteref_77">77</a>. Pre-v2.3 omitted the <code>eol#</code> marker ($4C).
 </div>
-<div class="paragraph">
-<p>39 remove STATEMENT</p>
-</div>
-<div class="paragraph">
-<p>39 &lt;value&gt; 4C<sup class="footnote">[<a id="_footnoteref_76" class="footnote" href="#_footnotedef_76" title="View footnote.">76</a>]</sup></p>
-</div>
-<div class="paragraph">
-<p><strong>As in:</strong> remove &lt;object&gt;</p>
-</div>
-<div class="paragraph">
-<p><strong>Source:</strong> <strong>herun.c</strong> – RunMove()</p>
-</div>
-<div class="paragraph">
-<p>3A move STATEMENT</p>
-</div>
-<div class="paragraph">
-<p>3A &lt;value&gt; 3B &lt;value&gt; 4C<sup class="footnote">[<a id="_footnoteref_77" class="footnote" href="#_footnotedef_77" title="View footnote.">77</a>]</sup></p>
-</div>
-<div class="paragraph">
-<p><strong>As in:</strong> move &lt;object1&gt; to &lt;object2&gt;</p>
-</div>
-<div class="paragraph">
-<p><strong>Source:</strong> <strong>herun.c</strong> – RunMove()</p>
-</div>
-<div class="paragraph">
-<p>3B to TOKEN</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>3B</strong></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>to</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>TOKEN</strong></p>
 </div>
 <div class="paragraph">
 <p>Followed by a value, as in:</p>
 </div>
-<div class="paragraph">
-<p>3B &lt;value&gt;</p>
+<div class="literalblock">
+<div class="content">
+<pre>3B &lt;value&gt;</pre>
+</div>
 </div>
 <div class="paragraph">
-<p>Typically found in <code>print to n</code>, <code>text to n</code>, etc., in which case the line will finish with eol#:</p>
+<p>Typically found in <code>print to n</code>, <code>text to n</code>, etc., in which case the line will finish with <code>eol#</code>:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>...3B &lt;value&gt; 4C</pre>
+</div>
 </div>
 <div class="paragraph">
-<p>&#8230;&#8203;3B &lt;value&gt; 4C</p>
+<p></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>3C</strong></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>parent</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>VALUE</strong></p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>3C 01 &lt;expression&gt; 02</pre>
+</div>
 </div>
 <div class="paragraph">
-<p>3C parent VALUE</p>
+<p><strong>As in:</strong></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-hugo" data-lang="hugo">parent(...)</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>3C 01 &lt;expression&gt; 02</p>
+<p>Returns the parent object of the object resulting from <code>&lt;expression&gt;</code>.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Alternate usage is as a grammar token, coded simply as $3C with no following parenthetical expression.
+</td>
+</tr>
+</table>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>3D</strong></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>sibling</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>VALUE</strong></p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>3D 01 &lt;expression&gt; 02</pre>
+</div>
 </div>
 <div class="paragraph">
-<p><strong>As in:</strong> parent(&#8230;&#8203;)</p>
+<p><strong>As in:</strong></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-hugo" data-lang="hugo">sibling(...)</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>Returns the parent object of the object resulting from &lt;expression&gt;.</p>
+<p>Returns the sibling of the object resulting from <code>&lt;expression&gt;</code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>3E</strong></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>child</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>VALUE</strong></p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>3E 01 &lt;expression&gt; 02</pre>
+</div>
 </div>
 <div class="paragraph">
-<p>(Alternate usage is as a grammar token, coded simply as $3C with no following parenthetical expression.)</p>
+<p><strong>As in:</strong></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-hugo" data-lang="hugo">child(...)</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>3D sibling VALUE</p>
+<p>Returns the child object of the object resulting from <code>&lt;expression&gt;</code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>3F</strong></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>youngest</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>VALUE</strong></p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>3F 01 &lt;expression&gt; 02</pre>
+</div>
 </div>
 <div class="paragraph">
-<p>3D 01 &lt;expression&gt; 02</p>
+<p><strong>As in:</strong></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-hugo" data-lang="hugo">youngest(...)</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p><strong>As in:</strong> sibling(&#8230;&#8203;)</p>
+<p>Returns the youngest (most recently added) child object of the object resulting from <code>&lt;expression&gt;</code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>40</strong></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>eldest</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>VALUE</strong></p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>40 01 &lt;expression&gt; 02</pre>
+</div>
 </div>
 <div class="paragraph">
-<p>Returns the sibling of the object resulting from &lt;expression&gt;.</p>
+<p><strong>As in:</strong></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-hugo" data-lang="hugo">eldest(...)</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>3E child VALUE</p>
+<p>Interpreted identically to <code>child(&#8230;&#8203;)</code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>41</strong></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>younger</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>VALUE</strong></p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>41 01 &lt;expression&gt; 02</pre>
+</div>
 </div>
 <div class="paragraph">
-<p>3E 01 &lt;expression&gt; 02</p>
+<p><strong>As in:</strong></p>
 </div>
-<div class="paragraph">
-<p><strong>As in:</strong> child(&#8230;&#8203;)</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-hugo" data-lang="hugo">younger(...)</code></pre>
 </div>
-<div class="paragraph">
-<p>Returns the child object of the object resulting from &lt;expression&gt;.</p>
-</div>
-<div class="paragraph">
-<p>3F youngest VALUE</p>
-</div>
-<div class="paragraph">
-<p>3F 01 &lt;expression&gt; 02</p>
-</div>
-<div class="paragraph">
-<p><strong>As in:</strong> youngest(&#8230;&#8203;)</p>
-</div>
-<div class="paragraph">
-<p>Returns the youngest (most recently added) child object of the object resulting from &lt;expression&gt;.</p>
-</div>
-<div class="paragraph">
-<p>40 eldest VALUE</p>
-</div>
-<div class="paragraph">
-<p>40 01 &lt;expression&gt; 02</p>
-</div>
-<div class="paragraph">
-<p><strong>As in:</strong> eldest(&#8230;&#8203;)</p>
-</div>
-<div class="paragraph">
-<p>Iinterpreted identically to <code>child(&#8230;&#8203;)</code>.</p>
-</div>
-<div class="paragraph">
-<p>41 younger VALUE</p>
-</div>
-<div class="paragraph">
-<p>41 01 &lt;expression&gt; 02</p>
-</div>
-<div class="paragraph">
-<p><strong>As in:</strong> younger(&#8230;&#8203;)</p>
 </div>
 <div class="paragraph">
 <p>Interpreted identically to <code>sibling(&#8230;&#8203;)</code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>42</strong></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>elder</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>VALUE</strong></p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>42 01 &lt;expression&gt; 02</pre>
+</div>
 </div>
 <div class="paragraph">
-<p>42 elder VALUE</p>
+<p><strong>As in:</strong></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-hugo" data-lang="hugo">elder(...)</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>42 01 &lt;expression&gt; 02</p>
+<p>Returns the object number of the object more recently added to the parent of the object resulting from <code>&lt;expression&gt;</code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>43</strong></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>prop#</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>INTERNAL VALUE</strong></p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>43 &lt;property&gt;</pre>
+</div>
 </div>
 <div class="paragraph">
-<p><strong>As in:</strong> elder(&#8230;&#8203;)</p>
+<p>Where <code>&lt;property&gt;</code> is a single byte giving the property number.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>44</strong></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>attr#</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>INTERNAL VALUE</strong></p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>44 &lt;attribute&gt;</pre>
+</div>
 </div>
 <div class="paragraph">
-<p>Returns the object number of the object more recently added to the parent of the object resulting from &lt;expression&gt;.</p>
+<p>Where <code>&lt;attribute&gt;</code> is a single byte giving the attribute number.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>45</strong></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>var#</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>INTERNAL VALUE</strong></p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>45 &lt;variable&gt;</pre>
+</div>
 </div>
 <div class="paragraph">
-<p>43 prop# INTERNAL VALUE</p>
+<p>Where <code>&lt;variable&gt;</code> is a single byte giving the variable number. 0-239 are global variables, and 240-255 are local to this routine/event/etc.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>46</strong></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>dictentry#</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>INTERNAL VALUE</strong></p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>46 &lt;dictionary entry&gt;</pre>
+</div>
 </div>
 <div class="paragraph">
-<p>43 &lt;property&gt;</p>
+<p>Where <code>&lt;dictionary entry&gt;</code> is two bytes (in low-byte/high-byte order) giving the address of the entry in the dictionary table.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>47</strong></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>text#</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>INTERNAL STATEMENT</strong></p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>47 &lt;text address&gt;</pre>
+</div>
 </div>
 <div class="paragraph">
-<p>Where &lt;property&gt; is a single byte giving the property number.</p>
+<p>Where <code>&lt;text address&gt;</code> is three bytes (in lowest-to-highest byte order) giving the address of the entry in the text bank.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>48</strong></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>routine#</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>INTERNAL STATEMENT</strong> or <strong>VALUE</strong></p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>48 &lt;routine address&gt;</pre>
+</div>
 </div>
 <div class="paragraph">
-<p>44 attr# INTERNAL VALUE</p>
+<p>Where <code>&lt;routine address&gt;</code> is two bytes giving the indexed address of the specified routine.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>49</strong></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>debugdata#</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>INTERNAL DATA</strong></p>
 </div>
 <div class="paragraph">
-<p>44 &lt;attribute&gt;</p>
-</div>
-<div class="paragraph">
-<p>Where &lt;attribute&gt; is a single byte giving the attribute number.</p>
-</div>
-<div class="paragraph">
-<p>45 var# INTERNAL VALUE</p>
-</div>
-<div class="paragraph">
-<p>45 &lt;variable&gt;</p>
-</div>
-<div class="paragraph">
-<p>Where &lt;variable&gt; is a single byte giving the variable number. 0-239 are global variables, and 240-255 are local to this routine/event/etc.</p>
-</div>
-<div class="paragraph">
-<p>46 dictentry# INTERNAL VALUE</p>
-</div>
-<div class="paragraph">
-<p>46 &lt;dictionary entry&gt;</p>
-</div>
-<div class="paragraph">
-<p>Where &lt;dictionary entry&gt; is two bytes (in low-byte/high-byte order) giving the address of the entry in the dictionary table.</p>
-</div>
-<div class="paragraph">
-<p>47 text# INTERNAL STATEMENT</p>
-</div>
-<div class="paragraph">
-<p>47 &lt;text address&gt;</p>
-</div>
-<div class="paragraph">
-<p>Where &lt;text address&gt; is three bytes (in lowest-to-highest byte order) giving the address of the entry in the text bank.</p>
-</div>
-<div class="paragraph">
-<p>48 routine# INTERNAL STATEMENT or VALUE</p>
-</div>
-<div class="paragraph">
-<p>48 &lt;routine address&gt;</p>
-</div>
-<div class="paragraph">
-<p>Where &lt;routine address&gt; is two bytes giving the indexed address of the specified routine.</p>
-</div>
-<div class="paragraph">
-<p>49 debugdata# INTERNAL DATA</p>
-</div>
-<div class="paragraph">
-<p>Is followed by data that is helpful to the engine at runtime&#8212;&#8203;not visible in, for example, the debugger&#8217;s code window.</p>
+<p>Is followed by data that is helpful to the engine at runtime&#8201;&#8212;&#8201;not visible in, for example, the debugger&#8217;s code window.</p>
 </div>
 <div class="paragraph">
 <p>E.g., local variable name:</p>
 </div>
-<div class="paragraph">
-<p>49 45 &lt;byte&gt; &lt;data&gt;</p>
+<div class="literalblock">
+<div class="content">
+<pre>49 45 &lt;byte&gt; &lt;data&gt;</pre>
+</div>
 </div>
 <div class="paragraph">
-<p>Where &lt;byte&gt; is a single byte giving the number of following &lt;data&gt; bytes, which give the name of the next local variable as an ASCII string. Read by the debugger; ignored by the engine.</p>
+<p>Where <code>&lt;byte&gt;</code> is a single byte giving the number of following <code>&lt;data&gt;</code> bytes, which give the name of the next local variable as an ASCII string.
+Read by the debugger; ignored by the engine.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>4A</strong></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>object#</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>INTERNAL VALUE</strong></p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>4A &lt;object number&gt;</pre>
+</div>
 </div>
 <div class="paragraph">
-<p>4A object# INTERNAL VALUE</p>
+<p>Where <code>&lt;object number&gt;</code> is two bytes giving the number of the specified object.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>4B</strong></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>value#</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>INTERNAL VALUE</strong></p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>4B &lt;number&gt;</pre>
+</div>
 </div>
 <div class="paragraph">
-<p>4A &lt;object number&gt;</p>
-</div>
-<div class="paragraph">
-<p>Where &lt;object number&gt; is two bytes giving the number of the specified object.</p>
-</div>
-<div class="paragraph">
-<p>4B value# INTERNAL VALUE</p>
-</div>
-<div class="paragraph">
-<p>4B &lt;number&gt;</p>
-</div>
-<div class="paragraph">
-<p>Where &lt;number&gt; is two bytes giving the specified constant value.</p>
-</div>
-<div class="paragraph">
-<p>4C eol# INTERNAL TOKEN</p>
+<p>Where <code>&lt;number&gt;</code> is two bytes giving the specified constant value.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>4C</strong></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>eol#</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>INTERNAL TOKEN</strong></p>
 </div>
 <div class="paragraph">
 <p>End-of-line marker.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>4D</strong></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>system</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>INTERNAL STATEMENT</strong> or <strong>VALUE</strong></p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>4D 01 &lt;value&gt; 02 4C<sup class="footnote">[<a id="_footnoteref_78" class="footnote" href="#_footnotedef_78" title="View footnote.">78</a>]</sup></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>4D system INTERNAL STATEMENT or VALUE</p>
+<p><strong>As in:</strong></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-hugo" data-lang="hugo">system(&lt;value&gt;)</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>4D 01 &lt;value&gt; 02 4C<sup class="footnote">[<a id="_footnoteref_78" class="footnote" href="#_footnotedef_78" title="View footnote.">78</a>]</sup></p>
+<p>Calls the system-level function designated by <code>&lt;value&gt;</code>.</p>
 </div>
-<div class="paragraph">
-<p><strong>As in:</strong> system(&lt;value&gt;)</p>
-</div>
-<div class="paragraph">
-<p>Calls the system-level function designated by &lt;value&gt;. (See <em>The Hugo Programming Manual</em> for further elaboration on the system statement.)</p>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+See <em>The Hugo Programming Manual</em> for further elaboration on the <code>system</code> statement.
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>Obsolete usage:<sup class="footnote">[<a id="_footnoteref_79" class="footnote" href="#_footnotedef_79" title="View footnote.">79</a>]</sup></p>
 </div>
-<div class="paragraph">
-<p>4D &lt;value&gt;</p>
+<div class="literalblock">
+<div class="content">
+<pre>4D &lt;value&gt;</pre>
+</div>
 </div>
 <div class="paragraph">
-<p>Where &lt;value&gt; is some Hugo data type giving the number of the system function to call.</p>
+<p>Where <code>&lt;value&gt;</code> is some Hugo data type giving the number of the system function to call.</p>
 </div>
 <div class="paragraph">
-<p><strong>Source:</strong> <strong>herun.c</strong> – RunSystem()</p>
+<p><strong>Source:</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>herun.c</strong>&#8201;&#8212;&#8201;<code>RunSystem()</code></p>
+</li>
+</ul>
+</div>
+<div id="footnotes">
+<hr>
+<div class="footnote" id="_footnotedef_78">
+<a href="#_footnoteref_78">78</a>. Pre-v2.3 omitted the <code>eol#</code> marker ($4C).
+</div>
+<div class="footnote" id="_footnotedef_79">
+<a href="#_footnoteref_79">79</a>. Not implemented post-v2.2.
+</div>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>4E</strong></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>notheld</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>GRAMMAR TOKEN</strong></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>4F</strong></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>multinotheld</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>GRAMMAR TOKEN</strong></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>50</strong></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>window</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>STATEMENT</strong></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-hugo" data-lang="hugo">window n</code></pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>50 &lt;value&gt; 4C</pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-hugo" data-lang="hugo">window left, top, right, bottom</code></pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>50 &lt;v1&gt; 19 &lt;v2&gt; 19 &lt;v3&gt; 19 &lt;v4&gt; 4C</pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-hugo" data-lang="hugo">window</code></pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>50 4C</pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-hugo" data-lang="hugo">window 0</code></pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>50 4B 00 00 4C</pre>
+</div>
 </div>
 <div class="paragraph">
-<p><strong>4E notheld GRAMMAR TOKEN</strong></p>
+<p>Where <code>&lt;value&gt;</code> or <code>&lt;v<em>n</em>&gt;</code>, if present, gives a number of lines or screen coordinate.
+All instances of the <code>window</code> statement are followed by a code block except for <code>window 0</code>.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+See <em>The Hugo Programming Manual</em> for further elaboration on the <code>window</code> statement.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Prior to v2.4, the third syntax, i.e., <code>window</code> alone, complied as <code>50 4C</code> in v2.3 or simply <code>50</code> in early versions, followed by a code block, was the only usage.
+The result was a window beginning at the top of the screen, reaching down to the current cursor row at the termination of the block, and protected then from scrolling of the bottom/main window.</p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
-<p><strong>4F multinotheld GRAMMAR TOKEN</strong></p>
+<p><strong>Source:</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>herun.c</strong>&#8201;&#8212;&#8201;<code>RunWindow()</code></p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>51</strong></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>random</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>VALUE</strong></p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>51 01 &lt;expression&gt; 02</pre>
+</div>
 </div>
 <div class="paragraph">
-<p>50 window STATEMENT</p>
+<p><strong>As in:</strong></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-hugo" data-lang="hugo">random(...)</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>window n</p>
+<p>Returns a random value between 1 and <code>&lt;expression&gt;</code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>52</strong></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>word</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>VALUE</strong></p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>52 0E &lt;expression&gt; 0F</pre>
+</div>
 </div>
 <div class="paragraph">
-<p>50 &lt;value&gt; 4C</p>
+<p><strong>As in:</strong></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-hugo" data-lang="hugo">word[...]</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>window left, top, right, bottom</p>
+<p>Returns the dictionary address of <code>word[&lt;expression&gt;</code>].</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>53</strong></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>locate</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>STATEMENT</strong></p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>53 &lt;value&gt; 4C
+53 &lt;value&gt; 19 &lt;value&gt; 4C</pre>
+</div>
 </div>
 <div class="paragraph">
-<p>50 &lt;v1&gt; 19 &lt;v2&gt; 19 &lt;v3&gt; 19 &lt;v4&gt; 4C</p>
+<p><strong>As in:</strong></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-hugo" data-lang="hugo">locate x
+locate x, y</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>window</p>
+<p>Where <code>&lt;value&gt;</code> is the column position to reposition the cursor to within the currently defined window.
+If a second value is given, it represents the new row position.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>54</strong></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>parse$</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>TOKEN</strong></p>
 </div>
 <div class="paragraph">
-<p>50 4C</p>
+<p>Read-only engine variable representing the engine parser&#8217;s internal <code>parse$</code> string.</p>
 </div>
 <div class="paragraph">
-<p>window 0</p>
+<p><strong>Source:</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>herun.c</strong>&#8201;&#8212;&#8201;<code>RunPrint()</code></p>
+</li>
+<li>
+<p><strong>hemisc.c</strong>&#8201;&#8212;&#8201;<code>Dict()</code>, <code>GetWord()</code></p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>55</strong></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>children</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>VALUE</strong></p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>55 01 &lt;expression&gt; 02</pre>
+</div>
 </div>
 <div class="paragraph">
-<p>50 4B 00 00 4C</p>
+<p><strong>As in:</strong></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-hugo" data-lang="hugo">children(...)</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>Where &lt;value&gt; or &lt;v<em>n</em>&gt;, if present, gives a number of lines or screen coordinate. All instances of the window statement are followed by a code block except for <code>window 0</code>. (See <em>The Hugo Programming Manual</em> for further elaboration on the window statement.)</p>
+<p>Returns the number of children owned by the object resulting from <code>&lt;expression&gt;</code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>56</strong></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>in</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>TOKEN</strong></p>
 </div>
 <div class="paragraph">
-<p>(Prior to v2.4, the third syntax, i.e., <code>window</code> alone, complied as <code>50 4C</code> in v2.3 or simply <code>50</code> in early versions, followed by a code block, was the only usage. The result was a window beginning at the top of the screen, reaching down to the current cursor row at the termination of the block, and protected then from scrolling of the bottom/main window.)</p>
+<p><strong>As in:</strong></p>
 </div>
-<div class="paragraph">
-<p><strong>Source:</strong> <strong>herun.c</strong> – RunWindow()</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-hugo" data-lang="hugo">for &lt;object&gt; in &lt;parent&gt;</code></pre>
 </div>
-<div class="paragraph">
-<p>51 random VALUE</p>
-</div>
-<div class="paragraph">
-<p>51 01 &lt;expression&gt; 02</p>
-</div>
-<div class="paragraph">
-<p><strong>As in:</strong> random(&#8230;&#8203;)</p>
-</div>
-<div class="paragraph">
-<p>Returns a random value between 1 and &lt;expression&gt;.</p>
-</div>
-<div class="paragraph">
-<p>52 word VALUE</p>
-</div>
-<div class="paragraph">
-<p>52 0E &lt;expression&gt; 0F</p>
-</div>
-<div class="paragraph">
-<p><strong>As in:</strong> word[&#8230;&#8203;]</p>
-</div>
-<div class="paragraph">
-<p>Returns the dictionary address of word[&lt;expression&gt;].</p>
-</div>
-<div class="paragraph">
-<p>53 locate STATEMENT</p>
-</div>
-<div class="paragraph">
-<p>53 &lt;value&gt; 4C</p>
-</div>
-<div class="paragraph">
-<p>53 &lt;value&gt; 19 &lt;value&gt; 4C</p>
-</div>
-<div class="paragraph">
-<p><strong>As in:</strong> locate x</p>
-</div>
-<div class="paragraph">
-<p>locate x, y</p>
-</div>
-<div class="paragraph">
-<p>Where &lt;value&gt; is the column position to reposition the cursor to within the currently defined window. If a second value is given, it represents the new row position.</p>
-</div>
-<div class="paragraph">
-<p>54 parse$ TOKEN</p>
-</div>
-<div class="paragraph">
-<p>Read-only engine variable representing the engine parser&#8217;s internal parse$ string.</p>
-</div>
-<div class="paragraph">
-<p><strong>Source:</strong> <strong>herun.c</strong> – RunPrint()</p>
-</div>
-<div class="paragraph">
-<p><strong>hemisc.c</strong> – Dict(), GetWord()</p>
-</div>
-<div class="paragraph">
-<p>55 children VALUE</p>
-</div>
-<div class="paragraph">
-<p>55 01 &lt;expression&gt; 02</p>
-</div>
-<div class="paragraph">
-<p><strong>As in:</strong> children(&#8230;&#8203;)</p>
-</div>
-<div class="paragraph">
-<p>Returns the number of children owned by the object resulting from &lt;expression&gt;.</p>
-</div>
-<div class="paragraph">
-<p>56 in TOKEN</p>
-</div>
-<div class="paragraph">
-<p><strong>As in:</strong> for &lt;object&gt; in &lt;parent&gt;</p>
 </div>
 <div class="paragraph">
 <p>or</p>
 </div>
-<div class="paragraph">
-<p>if &lt;object&gt; [not] in &lt;parent&gt;</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-hugo" data-lang="hugo">if &lt;object&gt; [not] in &lt;parent&gt;</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>57 pause STATEMENT</p>
+<p></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>57</strong></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>pause</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>STATEMENT</strong></p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>57</pre>
+</div>
 </div>
 <div class="paragraph">
-<p>57</p>
+<p>Waits for a keypress.
+Stores the resulting key value in <code>word[0]</code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>58</strong></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>runevents</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>STATEMENT</strong></p>
 </div>
-<div class="paragraph">
-<p>Waits for a keypress. Stores the resulting key value in word[0].</p>
+<div class="literalblock">
+<div class="content">
+<pre>58</pre>
 </div>
-<div class="paragraph">
-<p>58 runevents STATEMENT</p>
-</div>
-<div class="paragraph">
-<p>58</p>
 </div>
 <div class="paragraph">
 <p>Runs all events in scope.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>59</strong></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>arraydata#</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>VALUE</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>array[&lt;expression&gt;]</code>&#8201;&#8212;&#8201;element <code>&lt;expression&gt;</code> of array <code>&lt;array&gt;</code></p>
+<div class="literalblock">
+<div class="content">
+<pre>59 &lt;array&gt; 0E &lt;value&gt; 0F</pre>
+</div>
+</div>
+</li>
+<li>
+<p><code>array[]</code> -– length of array <code>&lt;array&gt;</code></p>
+<div class="literalblock">
+<div class="content">
+<pre>59 &lt;array&gt; 0E 0F</pre>
+</div>
+</div>
+</li>
+<li>
+<p><code>array</code> -– address of array <code>&lt;array&gt;</code></p>
+<div class="literalblock">
+<div class="content">
+<pre>59 &lt;array&gt;</pre>
+</div>
 </div>
 <div class="paragraph">
-<p>59 arraydata# VALUE</p>
+<p>Where <code>&lt;array&gt;</code> is two bytes giving the address of the array in the array table.</p>
+</div>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>5A</strong></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>call</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>STATEMENT or VALUE</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>5A &lt;value&gt; 4C<sup class="footnote">[<a id="_footnoteref_80" class="footnote" href="#_footnotedef_80" title="View footnote.">80</a>]</sup></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>array[&lt;expression&gt;] – element &lt;expression&gt; of array &lt;array&gt;</p>
+<p><strong>As in:</strong></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-hugo" data-lang="hugo">call &lt;routine address&gt;</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>59 &lt;array&gt; 0E &lt;value&gt; 0F</p>
+<p>Where <code>&lt;value&gt;</code> gives the indexed address of the routine to be called.</p>
+</div>
+<div id="footnotes">
+<hr>
+<div class="footnote" id="_footnotedef_80">
+<a href="#_footnoteref_80">80</a>. Pre-v2.3 omitted the <code>eol#</code> marker ($4C) when used as a statement.
+</div>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>5B</strong></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>stringdata#</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>PRINT TOKEN</strong></p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>5B &lt;<em>n</em>&gt; &lt;char1&gt; &lt;char2&gt; &lt;char3&gt; ... &lt;char<em>n</em>&gt;</pre>
+</div>
 </div>
 <div class="paragraph">
-<p>array[]– length of array &lt;array&gt;</p>
+<p>Valid only in a <code>print</code> statement.
+<code>&lt;<em>n</em>&gt;</code> gives the number of characters contained in the print string.</p>
 </div>
 <div class="paragraph">
-<p>59 &lt;array&gt; 0E 0F</p>
+<p><strong>Source:</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>herun.c</strong>&#8201;&#8212;&#8201;<code>RunPrint()</code></p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>5C</strong></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>save</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>VALUE</strong></p>
 </div>
 <div class="paragraph">
-<p>array – address of array &lt;array&gt;</p>
+<p><strong>As in:</strong></p>
 </div>
-<div class="paragraph">
-<p>59 &lt;array&gt;</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-hugo" data-lang="hugo">x = save</code></pre>
 </div>
-<div class="paragraph">
-<p>Where &lt;array&gt; is two bytes giving the address of the array in the array table.</p>
-</div>
-<div class="paragraph">
-<p>5A call STATEMENT or VALUE</p>
-</div>
-<div class="paragraph">
-<p>5A &lt;value&gt; 4C<sup class="footnote">[<a id="_footnoteref_80" class="footnote" href="#_footnotedef_80" title="View footnote.">80</a>]</sup></p>
-</div>
-<div class="paragraph">
-<p><strong>As in:</strong> call &lt;routine address&gt;</p>
-</div>
-<div class="paragraph">
-<p>Where &lt;value&gt; gives the indexed address of the routine to be called.</p>
-</div>
-<div class="paragraph">
-<p>5B stringdata# PRINT TOKEN</p>
-</div>
-<div class="paragraph">
-<p>5B &lt;<em>n</em>&gt; &lt;char1&gt; &lt;char2&gt; &lt;char3&gt; &#8230;&#8203; &lt;char<em>n</em>&gt;</p>
-</div>
-<div class="paragraph">
-<p>Valid only in a print statement. &lt;<em>n</em>&gt; gives the number of characters contained in the print string.</p>
-</div>
-<div class="paragraph">
-<p><strong>Source:</strong> <strong>herun.c</strong> – RunPrint()</p>
-</div>
-<div class="paragraph">
-<p>5C save VALUE</p>
-</div>
-<div class="paragraph">
-<p><strong>As in:</strong> x = save</p>
 </div>
 <div class="paragraph">
 <p>Calls the engine&#8217;s save-game procedure (which includes filename input); returns a true value on success, or false on failure.</p>
 </div>
 <div class="paragraph">
-<p><strong>Source: herun.c</strong> – RunSave()</p>
+<p><strong>Source:</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>herun.c</strong>&#8201;&#8212;&#8201;<code>RunSave()</code></p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>5D</strong></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>restore</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>VALUE</strong></p>
 </div>
 <div class="paragraph">
-<p>5D restore VALUE</p>
+<p><strong>As in:</strong></p>
 </div>
-<div class="paragraph">
-<p><strong>As in:</strong> x = restore</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-hugo" data-lang="hugo">x = restore</code></pre>
+</div>
 </div>
 <div class="paragraph">
 <p>Calls the engine&#8217;s restore-game procedure (which includes filename input); returns a true value on success, or false on failure.</p>
 </div>
 <div class="paragraph">
-<p><strong>Source:</strong> <strong>herun.c</strong> – RunRestore()</p>
+<p><strong>Source:</strong></p>
 </div>
-<div class="paragraph">
-<p>5E quit STATEMENT</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>herun.c</strong>&#8201;&#8212;&#8201;<code>RunRestore()</code></p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>5E</strong></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>quit</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>STATEMENT</strong></p>
 </div>
-<div class="paragraph">
-<p>5E</p>
+<div class="literalblock">
+<div class="content">
+<pre>5E</pre>
+</div>
 </div>
 <div class="paragraph">
 <p>Terminates program execution and exits the engine.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>5F</strong></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>input</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>STATEMENT</strong></p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>5F</pre>
+</div>
 </div>
 <div class="paragraph">
-<p>5F input STATEMENT</p>
+<p>Prompts for user input, storing the resulting word(s) in the <code>word[]</code> array.
+Unknown (i.e., non-dictionary) words become 0, or <code>""</code>; the last unknown word is stored in <code>parse$</code>.</p>
 </div>
 <div class="paragraph">
-<p>5F</p>
+<p><strong>Source:</strong></p>
 </div>
-<div class="paragraph">
-<p>Prompts for user input, storing the resulting word(s) in the word[] array. Unknown (i.e., non-dictionary) words become 0, or <code>""</code>; the last unknown word is stored in parse$.</p>
-</div>
-<div class="paragraph">
-<p><strong>Source: herun.c</strong> – RunInput()</p>
-</div>
-<div class="paragraph">
-<p>60 serial$ PRINT TOKEN</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>herun.c</strong>&#8201;&#8212;&#8201;<code>RunInput()</code></p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>60</strong></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>serial$</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>PRINT TOKEN</strong></p>
 </div>
 <div class="paragraph">
 <p>Read-only engine variable representing the compiler-determined serial number.</p>
 </div>
 <div class="paragraph">
-<p><strong>Source:</strong> <strong>hemisc.c</strong> – GetWord()</p>
+<p><strong>Source:</strong></p>
 </div>
-<div class="paragraph">
-<p>61 cls STATEMENT</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>hemisc.c</strong>&#8201;&#8212;&#8201;<code>GetWord()</code></p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>61</strong></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>cls</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>STATEMENT</strong></p>
 </div>
-<div class="paragraph">
-<p>61</p>
+<div class="literalblock">
+<div class="content">
+<pre>61</pre>
+</div>
 </div>
 <div class="paragraph">
 <p>Clears the currently defined text window.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>62</strong></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>scripton</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>VALUE</strong>
+<strong>As in:</strong></p>
 </div>
-<div class="paragraph">
-<p>62 scripton VALUE</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-hugo" data-lang="hugo">x = scripton</code></pre>
 </div>
-<div class="paragraph">
-<p><strong>As in:</strong> x = scripton</p>
 </div>
 <div class="paragraph">
 <p>Calls the engine&#8217;s begin-scripting procedure (which includes filename input); returns a true value on success, or false on failure.</p>
 </div>
 <div class="paragraph">
-<p><strong>Source:</strong> <strong>herun.c</strong> – RunScript()</p>
+<p><strong>Source:</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>herun.c</strong>&#8201;&#8212;&#8201;<code>RunScript()</code></p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>63</strong></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>scriptoff</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>VALUE</strong></p>
 </div>
 <div class="paragraph">
-<p>63 scriptoff VALUE</p>
+<p><strong>As in:</strong></p>
 </div>
-<div class="paragraph">
-<p><strong>As in:</strong> x = scriptoff</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-hugo" data-lang="hugo">x = scriptoff</code></pre>
+</div>
 </div>
 <div class="paragraph">
 <p>Calls the engine&#8217;s end-scripting procedure; returns a true value on success, or false on failure.</p>
 </div>
 <div class="paragraph">
-<p><strong>Source: herun.c</strong> – RunScript()</p>
+<p><strong>Source:</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>herun.c</strong>&#8201;&#8212;&#8201;<code>RunScript()</code></p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>64</strong></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>restart</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>VALUE</strong></p>
 </div>
 <div class="paragraph">
-<p>64 restart VALUE</p>
+<p><strong>As in:</strong></p>
 </div>
-<div class="paragraph">
-<p><strong>As in:</strong> x = restart</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-hugo" data-lang="hugo">x = restart</code></pre>
+</div>
 </div>
 <div class="paragraph">
 <p>Attempts to reload the dynamic game data and restart the game loop; returns a true value on success or false on failure.</p>
-</div>
-<div class="paragraph">
-<p>65 hex PRINT TOKEN</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>65</strong></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>hex</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>PRINT TOKEN</strong></p>
 </div>
 <div class="paragraph">
 <p>Signals that the following value should be printed as a hexadecimal number, not as the corresponding dictionary entry.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>66</strong></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>object</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>GRAMMAR TOKEN</strong></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Removed as a token after grammar table is compiled so that <code>object</code> can refer to the object global variable.
+</td>
+</tr>
+</table>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>67</strong></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>xobject</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>GRAMMAR TOKEN</strong></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Removed as a token after grammar table is compiled so that <code>xobject</code> can refer to the xobject global variable.
+</td>
+</tr>
+</table>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>68</strong></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>string</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>VALUE</strong></p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>68 01 &lt;expr1&gt; 19 &lt;expr2&gt; 19 &lt;expr3&gt; 02</pre>
+</div>
 </div>
 <div class="paragraph">
-<p>66 object GRAMMAR TOKEN</p>
+<p><strong>As in:</strong></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-hugo" data-lang="hugo">x = string(a, "apple", 8)</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>(Removed as a token after grammar table is compiled so that <code>object</code> can refer to the object global variable.)</p>
+<p>Calls the engine string-writing function to write the dictionary entry <code>&lt;expr2&gt;</code> into the array table at the array address given by <code>&lt;expr1&gt;</code>, to a maximum of <code>&lt;expr3&gt;</code> characters.
+<code>&lt;expr1&gt;</code> is any data type or expression; <code>&lt;expr2&gt;</code> is either a value or the <code>parse$</code> token ($54); <code>&lt;expr3&gt;</code> is optional, and if it is not given, the $02 token comes in place of the second $19.</p>
 </div>
 <div class="paragraph">
-<p>67 xobject GRAMMAR TOKEN</p>
+<p><strong>Source:</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>herun.c</strong>&#8201;&#8212;&#8201;<code>RunString()</code></p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>69</strong></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>array</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>VALUE</strong></p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>69 &lt;value&gt;</pre>
+</div>
 </div>
 <div class="paragraph">
-<p>(Removed as a token after grammar table is compiled so that <code>xobject</code> can refer to the xobject global variable.)</p>
+<p>Forces <code>&lt;value&gt;</code> to be used as an address in the array table, so that <code>array &lt;value&gt;</code> can be used as <code>arraydata#</code>.</p>
 </div>
 <div class="paragraph">
-<p>68 string VALUE</p>
+<p><strong>Source:</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>heexpr.c</strong>&#8201;&#8212;&#8201;<code>GetVal()</code></p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>6A</strong></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>printchar</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>STATEMENT</strong></p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>6A &lt;value1&gt; 19 &lt;value2&gt; 19 ... 4C</pre>
+</div>
 </div>
 <div class="paragraph">
-<p>68 01 &lt;expr1&gt; 19 &lt;expr2&gt; 19 &lt;expr3&gt; 02</p>
+<p><strong>As in:</strong></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-hugo" data-lang="hugo">printchar 'A', 'B',...</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p><strong>As in:</strong> x = string(a, "apple", 8)</p>
+<p>Outputs a single ASCII character value at the current screen position.
+Multiple values are separated by $19; the sequence is terminated by $4C.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>6B</strong></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>undo</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>VALUE</strong></p>
 </div>
 <div class="paragraph">
-<p>Calls the engine string-writing function to write the dictionary entry &lt;expr2&gt; into the array table at the array address given by &lt;expr1&gt;, to a maximum of &lt;expr3&gt; characters. &lt;expr1&gt; is any data type or expression; &lt;expr2&gt; is either a value or the parse$ token ($54); &lt;expr3&gt; is optional, and if it is not given, the $02 token comes in place of the second $19.</p>
+<p><strong>As in:</strong></p>
 </div>
-<div class="paragraph">
-<p><strong>Source:</strong> <strong>herun.c</strong> – RunString()</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-hugo" data-lang="hugo">x = undo</code></pre>
 </div>
-<div class="paragraph">
-<p>69 array VALUE</p>
-</div>
-<div class="paragraph">
-<p>69 &lt;value&gt;</p>
-</div>
-<div class="paragraph">
-<p>Forces &lt;value&gt; to be used as an address in the array table, so that <code>array &lt;value&gt;</code> can be used as arraydata#.</p>
-</div>
-<div class="paragraph">
-<p><strong>Source:</strong> <strong>heexpr.c</strong> – GetVal()</p>
-</div>
-<div class="paragraph">
-<p>6A printchar STATEMENT</p>
-</div>
-<div class="paragraph">
-<p>6A &lt;value1&gt; 19 &lt;value2&gt; 19 &#8230;&#8203; 4C</p>
-</div>
-<div class="paragraph">
-<p><strong>As in:</strong> printchar 'A', 'B',&#8230;&#8203;</p>
-</div>
-<div class="paragraph">
-<p>Outputs a single ASCII character value at the current screen position. Multiple values are separated by $19; the sequence is terminated by $4C.</p>
-</div>
-<div class="paragraph">
-<p>6B undo VALUE</p>
-</div>
-<div class="paragraph">
-<p><strong>As in:</strong> x = undo</p>
 </div>
 <div class="paragraph">
 <p>Attempts to restore all data changes made since the last typed input; returns a true value on success or false on failure.</p>
 </div>
 <div class="paragraph">
-<p><strong>Source:</strong> <strong>hemisc.c</strong> – SaveUndo(),Undo()</p>
+<p><strong>Source:</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>hemisc.c</strong>&#8201;&#8212;&#8201;<code>SaveUndo()</code>, <code>Undo()</code></p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>6C</strong></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>dict</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>VALUE</strong></p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>6C 01 &lt;expr1&gt; 19 &lt;expr2&gt; 02</pre>
+</div>
 </div>
 <div class="paragraph">
-<p>6C dict VALUE</p>
+<p><strong>As in:</strong></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-hugo" data-lang="hugo">x = dict(&lt;array&gt;, &lt;len&gt;)</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>6C 01 &lt;expr1&gt; 19 &lt;expr2&gt; 02</p>
+<p>Calls the engine dictionary-writing function to write the given string into the dictionary, to a maximum of <code>&lt;len&gt;</code> characters.
+If <code>&lt;expr1&gt;</code> is <code>parse$</code> ($54), then the value of <code>parse$</code> is used; otherwise <code>&lt;expr1&gt;</code> is an array address in the array table.
+If the string is already a dictionary entry, its location is returned.
+Otherwise, it is appended to the end of the table, and the new location is returned.</p>
 </div>
 <div class="paragraph">
-<p><strong>As in:</strong> x = dict(&lt;array&gt;, &lt;len&gt;)</p>
+<p><strong>Source:</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>hemisc.c</strong>&#8201;&#8212;&#8201;<code>Dict()</code></p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>6D</strong></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>recordon</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>VALUE</strong></p>
 </div>
 <div class="paragraph">
-<p>Calls the engine dictionary-writing function to write the given string into the dictionary, to a maximum of &lt;len&gt; characters. If &lt;expr1&gt; is parse$ ($54), then the value of parse$ is used; otherwise &lt;expr1&gt; is an array address in the array table. If the string is already a dictionary entry, its location is returned. Otherwise, it is appended to the end of the table, and the new location is returned.</p>
+<p><strong>As in:</strong></p>
 </div>
-<div class="paragraph">
-<p><strong>Source:</strong> <strong>hemisc.c</strong> – Dict()</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-hugo" data-lang="hugo">x = recordon</code></pre>
 </div>
-<div class="paragraph">
-<p>6D recordon VALUE</p>
-</div>
-<div class="paragraph">
-<p><strong>As in:</strong> x = recordon</p>
 </div>
 <div class="paragraph">
 <p>Calls the engine&#8217;s begin-command-recording procedure (which includes filename input); returns a true value on success, or false on failure.</p>
 </div>
 <div class="paragraph">
-<p><strong>Source:</strong> <strong>hemisc.c</strong> – RecordCommands()</p>
+<p><strong>Source:</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>hemisc.c</strong>&#8201;&#8212;&#8201;<code>RecordCommands()</code></p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>6E</strong></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>recordoff</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>VALUE</strong></p>
 </div>
 <div class="paragraph">
-<p>6E recordoff VALUE</p>
+<p><strong>As in:</strong></p>
 </div>
-<div class="paragraph">
-<p><strong>As in:</strong> x = recordoff</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-hugo" data-lang="hugo">x = recordoff</code></pre>
+</div>
 </div>
 <div class="paragraph">
 <p>Calls the engine&#8217;s end-command-recording procedure; returns a true value on success, or false on failure.</p>
 </div>
 <div class="paragraph">
-<p><strong>Source:</strong> <strong>hemisc.c</strong> – RecordCommands()</p>
+<p><strong>Source:</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>hemisc.c</strong>&#8201;&#8212;&#8201;<code>RecordCommands()</code></p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>6F</strong></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>writefile</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>STATEMENT</strong></p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>6F &lt;value&gt; 4C<sup class="footnote">[<a id="_footnoteref_81" class="footnote" href="#_footnotedef_81" title="View footnote.">81</a>]</sup>
+    ...file i/o code block...</pre>
+</div>
 </div>
 <div class="paragraph">
-<p>6F writefile STATEMENT</p>
+<p><strong>As in:</strong></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-hugo" data-lang="hugo">writefile &lt;file&gt;
+{...}</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>6F &lt;value&gt; 4C<sup class="footnote">[<a id="_footnoteref_81" class="footnote" href="#_footnotedef_81" title="View footnote.">81</a>]</sup></p>
+<p>Opens the file named by the dictionary entry <code>&lt;value&gt;</code>, erasing it if it previously exists, and runs the following code block.
+Upon any error, jumps to the end of the file i/o code block and closes <code>&lt;file&gt;</code>.</p>
 </div>
 <div class="paragraph">
-<p>&#8230;&#8203;file i/o code block&#8230;&#8203;</p>
+<p><strong>Source:</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>hemisc.c</strong>&#8201;&#8212;&#8201;<code>FileIO()</code></p>
+</li>
+</ul>
+</div>
+<div id="footnotes">
+<hr>
+<div class="footnote" id="_footnotedef_81">
+<a href="#_footnoteref_81">81</a>. Pre-v2.3 omitted the <code>eol#</code> marker ($4C).
+</div>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>70</strong></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>readfile</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>STATEMENT</strong></p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>70 &lt;value&gt; 4C<sup class="footnote">[<a id="_footnoteref_82" class="footnote" href="#_footnotedef_82" title="View footnote.">82</a>]</sup>
+    ...file i/o code block...</pre>
+</div>
 </div>
 <div class="paragraph">
-<p><strong>As in:</strong> writefile &lt;file&gt;</p>
+<p><strong>As in:</strong></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-hugo" data-lang="hugo">readfile &lt;file&gt;
+{...}</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>\{&#8230;&#8203;}</p>
+<p>Opens the file named by the dictionary entry <code>&lt;value&gt;</code> and runs the following code block.
+Upon any error, jumps to the end of the file i/o code block and closes <code>&lt;file&gt;</code>.</p>
+</div>
+<div id="footnotes">
+<hr>
+<div class="footnote" id="_footnotedef_82">
+<a href="#_footnoteref_82">82</a>. Pre-v2.3 omitted the <code>eol#</code> marker ($4C).
+</div>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>71</strong></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>writeval</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>STATEMENT</strong></p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>71 &lt;value&gt; 19 &lt;value&gt; 19 ... 4C<sup class="footnote">[<a id="_footnoteref_83" class="footnote" href="#_footnotedef_83" title="View footnote.">83</a>]</sup></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>Opens the file named by the dictionary entry &lt;value&gt;, erasing it if it previously exists, and runs the following code block. Upon any error, jumps to the end of the file i/o code block and closes &lt;file&gt;.</p>
+<p>Valid only in a <code>writefile</code> block.
+Writes <code>&lt;value&gt;</code> as a 16-bit integer to the currently open file.
+Multiple values are separated by $19.</p>
+</div>
+<div id="footnotes">
+<hr>
+<div class="footnote" id="_footnotedef_83">
+<a href="#_footnoteref_83">83</a>. Pre-v2.3 omitted the <code>eol#</code> marker ($4C).
+</div>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>72</strong></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>readval</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>VALUE</strong></p>
 </div>
 <div class="paragraph">
-<p><strong>Source:</strong> <strong>hemisc.c</strong> – FileIO()</p>
+<p><strong>As in:</strong></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-hugo" data-lang="hugo">x = readval</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>70 readfile STATEMENT</p>
+<p>Valid only in a <code>readfile</code> block.
+Reads a 16-bit integer from the currently open file.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>73</strong></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>playback</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>VALUE</strong></p>
 </div>
 <div class="paragraph">
-<p>70 &lt;value&gt; 4C<sup class="footnote">[<a id="_footnoteref_82" class="footnote" href="#_footnotedef_82" title="View footnote.">82</a>]</sup></p>
+<p><strong>As in:</strong></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-hugo" data-lang="hugo">x = playback</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>&#8230;&#8203;file i/o code block&#8230;&#8203;</p>
+<p>Calls the engines command-playback procedure (including filename input) and attempts to begin command playback from the requested file.
+If found, player input in <code>RunGame()</code> is overridden by commands in the file until end-of-file.
+Returns true on success, false on failure.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>74</strong></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>colour</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>STATEMENT</strong></p>
 </div>
 <div class="paragraph">
-<p><strong>As in:</strong> readfile &lt;file&gt;</p>
+<p>Treated identically to $38: <code>color</code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>75</strong></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>picture</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>STATEMENT</strong></p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>75 &lt;value1&gt; 19 &lt;value2&gt; 4C
+75 &lt;value1&gt; 4C</pre>
+</div>
 </div>
 <div class="paragraph">
-<p>\{&#8230;&#8203;}</p>
+<p>Attempts to load and display a JPEG-format picture either as resource <code>&lt;value2&gt;</code> in resourcefile <code>&lt;value1&gt;</code>, or, if <code>&lt;value2&gt;</code> is not given, simply as filename <code>&lt;value1&gt;</code>.
+(All <code>&lt;values&gt;</code> are dictionary entries.)
+If there is an error, the <code>system_status</code> global variable is set.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>76</strong></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>label#</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>INTERNAL DATA</strong></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>77</strong></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>sound</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>STATEMENT</strong></p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>77 [79] &lt;value1&gt; 19 &lt;value2&gt; [19 &lt;value3&gt;] 4C
+77 &lt;value1&gt; 4C</pre>
+</div>
 </div>
 <div class="paragraph">
-<p>Opens the file named by the dictionary entry &lt;value&gt; and runs the following code block. Upon any error, jumps to the end of the file i/o code block and closes &lt;file&gt;.</p>
+<p>Attempts to load and play a WAV-format sample as resource <code>&lt;value2&gt;</code> in resourcefile <code>&lt;value1&gt;</code>.
+(<code>&lt;value1&gt;</code> and <code>&lt;value2&gt;</code> are dictionary entries.)
+If <code>&lt;value3&gt;</code> is given, the sample output volume is set to <code>&lt;value3&gt;</code> (as a percentage of normal output).
+If <code>&lt;value1&gt;</code> is 0, the current sound is stopped.
+If there is an error, the <code>system_status</code> global variable is set.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>78</strong></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>music</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>STATEMENT</strong></p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>78 [79] &lt;value1&gt; 19 &lt;value2&gt; [19 &lt;value3&gt;] 4C
+78 &lt;value1&gt; 4C</pre>
+</div>
 </div>
 <div class="paragraph">
-<p>71 writeval STATEMENT</p>
+<p>Attempts to load and play a music resource<sup class="footnote">[<a id="_footnoteref_84" class="footnote" href="#_footnotedef_84" title="View footnote.">84</a>]</sup> as resource <code>&lt;value2&gt;</code> in resourcefile <code>&lt;value1&gt;</code>.
+(<code>&lt;value1&gt;</code> and <code>&lt;value2&gt;</code> are dictionary entries.)
+If <code>&lt;value3&gt;</code> is given, the music output volume is set to <code>&lt;value3&gt;</code> (as a percentage of normal output).
+If <code>&lt;value1&gt;</code> is 0, the current music is stopped.
+If there is an error, the <code>system_status</code> global variable is set.</p>
+</div>
+<div id="footnotes">
+<hr>
+<div class="footnote" id="_footnotedef_84">
+<a href="#_footnoteref_84">84</a>. Version 2.5 supports MOD, S3M, and XM-format music modules. Version 3.0 and later additionally support MIDI and MP3 files.
+</div>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>79</strong></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>repeat</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>TOKEN</strong></p>
 </div>
 <div class="paragraph">
-<p>71 &lt;value&gt; 19 &lt;value&gt; 19 &#8230;&#8203; 4C<sup class="footnote">[<a id="_footnoteref_83" class="footnote" href="#_footnotedef_83" title="View footnote.">83</a>]</sup></p>
-</div>
-<div class="paragraph">
-<p>Valid only in a writefile block. Writes &lt;value&gt; as a 16-bit integer to the currently open file. Multiple values are separated by $19.</p>
-</div>
-<div class="paragraph">
-<p>72 readval VALUE</p>
-</div>
-<div class="paragraph">
-<p><strong>As in:</strong> x = readval</p>
-</div>
-<div class="paragraph">
-<p>Valid only in a readfile block. Reads a 16-bit integer from the currently open file.</p>
-</div>
-<div class="paragraph">
-<p>73 playback VALUE</p>
-</div>
-<div class="paragraph">
-<p><strong>As in:</strong> x = playback</p>
-</div>
-<div class="paragraph">
-<p>Calls the engines command-playback procedure (including filename input) and attempts to begin command playback from the requested file. If found, player input in RunGame() is overridden by commands in the file until end-of-file. Returns true on success, false on failure.</p>
-</div>
-<div class="paragraph">
-<p>74 colour STATEMENT</p>
-</div>
-<div class="paragraph">
-<p>Treated identically to $38: color.</p>
-</div>
-<div class="paragraph">
-<p>75 picture STATEMENT</p>
-</div>
-<div class="paragraph">
-<p>75 &lt;value1&gt; 19 &lt;value2&gt; 4C</p>
-</div>
-<div class="paragraph">
-<p>75 &lt;value1&gt; 4C</p>
-</div>
-<div class="paragraph">
-<p>Attempts to load and display a JPEG-format picture either as resource &lt;value2&gt; in resourcefile &lt;value1&gt;, or, if &lt;value2&gt; is not given, simply as filename &lt;value1&gt;. (All &lt;values&gt; are dictionary entries.) If there is an error, the system_status global variable is set.</p>
-</div>
-<div class="paragraph">
-<p><strong>76 label# INTERNAL DATA</strong></p>
-</div>
-<div class="paragraph">
-<p>77 sound STATEMENT</p>
-</div>
-<div class="paragraph">
-<p>77 [79] &lt;value1&gt; 19 &lt;value2&gt; [19 &lt;value3&gt;] 4C</p>
-</div>
-<div class="paragraph">
-<p>77 &lt;value1&gt; 4C</p>
-</div>
-<div class="paragraph">
-<p>Attempts to load and play a WAV-format sample as resource &lt;value2&gt; in resourcefile &lt;value1&gt;. (&lt;value1&gt; and &lt;value2&gt; are dictionary entries.) If &lt;value3&gt; is given, the sample output volume is set to &lt;value3&gt; (as a percentage of normal output). If &lt;value1&gt; is 0, the current sound is stopped. If there is an error, the system_status global variable is set.</p>
-</div>
-<div class="paragraph">
-<p>78 music STATEMENT</p>
-</div>
-<div class="paragraph">
-<p>78 [79] &lt;value1&gt; 19 &lt;value2&gt; [19 &lt;value3&gt;] 4C</p>
-</div>
-<div class="paragraph">
-<p>78 &lt;value1&gt; 4C</p>
-</div>
-<div class="paragraph">
-<p>Attempts to load and play a music resource<sup class="footnote">[<a id="_footnoteref_84" class="footnote" href="#_footnotedef_84" title="View footnote.">84</a>]</sup> as resource &lt;value2&gt; in resourcefile &lt;value1&gt;. (&lt;value1&gt; and &lt;value2&gt; are dictionary entries.) If &lt;value3&gt; is given, the music output volume is set to &lt;value3&gt; (as a percentage of normal output). If &lt;value1&gt; is 0, the current music is stopped. If there is an error, the system_status global variable is set.</p>
-</div>
-<div class="paragraph">
-<p>79 repeat TOKEN</p>
-</div>
-<div class="paragraph">
-<p>Used by sound and music statements.</p>
-</div>
+<p>Used by <code>sound</code> and <code>music</code> statements.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 </div>
@@ -17643,39 +18781,6 @@ Remember that the address of the debug workspace&#8201;&#8212;&#8201;256 bytes a
 </div>
 <div class="footnote" id="_footnotedef_73">
 <a href="#_footnoteref_73">73</a>. v3.0 and later
-</div>
-<div class="footnote" id="_footnotedef_74">
-<a href="#_footnoteref_74">74</a>. Pre-v2.3 omitted the eol# marker ($4C).
-</div>
-<div class="footnote" id="_footnotedef_75">
-<a href="#_footnoteref_75">75</a>. Pre-v2.3 omitted the eol# marker ($4C).
-</div>
-<div class="footnote" id="_footnotedef_76">
-<a href="#_footnoteref_76">76</a>. Pre-v2.3 omitted the eol# marker ($4C).
-</div>
-<div class="footnote" id="_footnotedef_77">
-<a href="#_footnoteref_77">77</a>. Pre-v2.3 omitted the eol# marker ($4C).
-</div>
-<div class="footnote" id="_footnotedef_78">
-<a href="#_footnoteref_78">78</a>. Pre-v2.3 omitted the eol# marker ($4C).
-</div>
-<div class="footnote" id="_footnotedef_79">
-<a href="#_footnoteref_79">79</a>. Not implemented post-v2.2.
-</div>
-<div class="footnote" id="_footnotedef_80">
-<a href="#_footnoteref_80">80</a>. Pre-v2.3 omitted the eol# marker ($4C) when used as a statement.
-</div>
-<div class="footnote" id="_footnotedef_81">
-<a href="#_footnoteref_81">81</a>. Pre-v2.3 omitted the eol# marker ($4C).
-</div>
-<div class="footnote" id="_footnotedef_82">
-<a href="#_footnoteref_82">82</a>. Pre-v2.3 omitted the eol# marker ($4C).
-</div>
-<div class="footnote" id="_footnotedef_83">
-<a href="#_footnoteref_83">83</a>. Pre-v2.3 omitted the eol# marker ($4C).
-</div>
-<div class="footnote" id="_footnotedef_84">
-<a href="#_footnoteref_84">84</a>. Version 2.5 supports MOD, S3M, and XM-format music modules. Version 3.0 and later additionally support MIDI and MP3 files.
 </div>
 </div>
 <div id="footer">

@@ -118,7 +118,8 @@ Every chapter in the list provides an [HTML Live Preview] link to quickly jump t
     + [x]  [25. _THE HUGO COMPILER AND HOW IT WORKS_][Ch25]
     + [x]  [26. _THE HUGO ENGINE AND HOW IT WORKS_][Ch26]
     + [x]  [27. _DARK SECRETS OF THE HUGO DEBUGGER_][Ch27]
-    + [ ]  [APP. H. _CODE PATTERNS_][AppH]
+    + [x]  [APP. H. _CODE PATTERNS_][AppH]
+        * [ ]  _needs to be proof-read once more, carefully!_
 - [ ] _INDEX_ (supported only in PDF format)
 
 Once all chapters are fully ported, the whole book needs to be checked over again, from scratch, to ensure that formatting and styles are consistent.
