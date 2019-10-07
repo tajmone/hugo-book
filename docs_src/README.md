@@ -108,7 +108,7 @@ Every chapter in the list provides an [HTML Live Preview] link to quickly jump t
     + [x]  [15. _TOKENS AND DATA TYPES_][Ch15]
     + [x]  [16. _ENGINE PARSING_][Ch16]
     + [x]  [17. _GRAMMAR_][Ch17]
-    + [ ]  [18. _EXECUTABLE CODE_][Ch18]
+    + [x]  [18. _EXECUTABLE CODE_][Ch18]
     + [ ]  [19. _ENCODING TEXT_][Ch19]
     + [ ]  [20. _THE OBJECT TABLE_][Ch20]
     + [ ]  [21. _THE PROPERTY TABLE_][Ch21]
