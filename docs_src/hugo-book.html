@@ -446,7 +446,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <span id="email" class="email"><a href="mailto:general@generalcoffee.com">general@generalcoffee.com</a></span><br>
 <span id="revnumber">version 1,</span>
 <span id="revdate">2018-10-04</span>
-<br><span id="revremark">Draft 25 -- Porting to AsciiDoc</span>
+<br><span id="revremark">Draft 26 -- Porting to AsciiDoc</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -14234,22 +14234,28 @@ if       loc   =  glob  +  11</pre>
 <h2 id="_encoding_text"><a class="anchor" href="#_encoding_text"></a>19. ENCODING TEXT</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Text is written uncompressed into the .HEX file (since there is not really any need for nor any great memory savings from whatever minor compression might be practical). All text, however&#8212;&#8203;including text in print statements, dictionary entries, and the text bank&#8212;&#8203;is encoded by adding $14 (decimal 20) to each 8-bit ASCII value in order to prevent casual browsing of game data.</p>
+<p>Text is written uncompressed into the <strong>.HEX</strong> file (since there is not really any need for nor any great memory savings from whatever minor compression might be practical).
+All text, however&#8201;&#8212;&#8201;including text in <code>print</code> statements, dictionary entries, and the text bank&#8201;&#8212;&#8201;is encoded by adding $14 (decimal 20) to each 8-bit ASCII value in order to prevent casual browsing of game data.</p>
 </div>
 <div class="paragraph">
-<p>Text in print statements is written directly into the code in the form:</p>
+<p>Text in <code>print</code> statements is written directly into the code in the form:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>&lt;stringdata#&gt; &lt;2 bytes&gt; ...encoded string...</pre>
+</div>
 </div>
 <div class="paragraph">
-<p>&lt;stringdata#&gt; &lt;2 bytes&gt; &#8230;&#8203;encoded string&#8230;&#8203;</p>
+<p>where the length of the string is given by the first two bytes following <code>&lt;stringdata#&gt;</code>.</p>
 </div>
 <div class="paragraph">
-<p>where the length of the string is given by the first two bytes following &lt;stringdata#&gt;.</p>
+<p>Text in dictionary entries is encoded in the dictionary table.
+A dictionary entry with a given address (<em>addr</em>) appears in the dictionary at <em>addr</em>+2 (since the first two bytes in the dictionary table are reserved for the number of entries) as:</p>
 </div>
-<div class="paragraph">
-<p>Text in dictionary entries is encoded in the dictionary table. A dictionary entry with a given address (<em>addr</em>) appears in the dictionary at <em>addr</em>+2 (since the first two bytes in the dictionary table are reserved for the number of entries) as:</p>
+<div class="literalblock">
+<div class="content">
+<pre>&lt;1 byte&gt; ...encoded dictionary entry...</pre>
 </div>
-<div class="paragraph">
-<p>&lt;1 byte&gt; &#8230;&#8203;encoded dictionary entry&#8230;&#8203;</p>
 </div>
 <div class="paragraph">
 <p>where the maximum allowable length of a dictionary entry is 255 characters.</p>
@@ -14257,11 +14263,25 @@ if       loc   =  glob  +  11</pre>
 <div class="paragraph">
 <p>Text written to the text bank is encoded at a given address in the text bank as:</p>
 </div>
-<div class="paragraph">
-<p>&lt;2 bytes&gt; &#8230;&#8203;encoded text&#8230;&#8203;</p>
+<div class="literalblock">
+<div class="content">
+<pre>&lt;2 bytes&gt; ...encoded text...</pre>
+</div>
 </div>
 <div class="paragraph">
-<p>where the length of the encoded text is given by the first two bytes. (Note that an address in the text bank requires 3 bytes in the game code, however, since the length of the text bank can exceed 64K.)</p>
+<p>where the length of the encoded text is given by the first two bytes</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Note that an address in the text bank requires 3 bytes in the game code, however, since the length of the text bank can exceed 64K.
+</td>
+</tr>
+</table>
 </div>
 </div>
 </div>

@@ -1,26 +1,28 @@
 = ENCODING TEXT
 
+Text is written uncompressed into the *.HEX* file (since there is not really any need for nor any great memory savings from whatever minor compression might be practical).
+All text, however -- including text in `print` statements, dictionary entries, and the text bank -- is encoded by adding $14 (decimal 20) to each 8-bit ASCII value in order to prevent casual browsing of game data.
 
+Text in `print` statements is written directly into the code in the form:
 
-Text is written uncompressed into the .HEX file (since there is not really any need for nor any great memory savings from whatever minor compression might be practical). All text, however--including text in print statements, dictionary entries, and the text bank--is encoded by adding $14 (decimal 20) to each 8-bit ASCII value in order to prevent casual browsing of game data.
+    <stringdata#> <2 bytes> ...encoded string...
 
-Text in print statements is written directly into the code in the form:
+where the length of the string is given by the first two bytes following `<stringdata#>`.
 
-<stringdata#> <2 bytes> ...encoded string...
+Text in dictionary entries is encoded in the dictionary table.
+A dictionary entry with a given address (_addr_) appears in the dictionary at __addr__+2 (since the first two bytes in the dictionary table are reserved for the number of entries) as:
 
-where the length of the string is given by the first two bytes following <stringdata#>.
-
-Text in dictionary entries is encoded in the dictionary table. A dictionary entry with a given address (_addr_) appears in the dictionary at __addr__+2 (since the first two bytes in the dictionary table are reserved for the number of entries) as:
-
-<1 byte> ...encoded dictionary entry...
+    <1 byte> ...encoded dictionary entry...
 
 where the maximum allowable length of a dictionary entry is 255 characters.
 
 Text written to the text bank is encoded at a given address in the text bank as:
 
-<2 bytes> ...encoded text...
+    <2 bytes> ...encoded text...
 
-where the length of the encoded text is given by the first two bytes. (Note that an address in the text bank requires 3 bytes in the game code, however, since the length of the text bank can exceed 64K.)
+where the length of the encoded text is given by the first two bytes
+
+NOTE: Note that an address in the text bank requires 3 bytes in the game code, however, since the length of the text bank can exceed 64K.
 
 
 // EOF //
