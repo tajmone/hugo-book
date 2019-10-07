@@ -446,7 +446,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <span id="email" class="email"><a href="mailto:general@generalcoffee.com">general@generalcoffee.com</a></span><br>
 <span id="revnumber">version 1,</span>
 <span id="revdate">2018-10-04</span>
-<br><span id="revremark">Draft 28 -- Porting to AsciiDoc</span>
+<br><span id="revremark">Draft 29 -- Porting to AsciiDoc</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -14601,17 +14601,29 @@ Property routines are followed by an automatic $21, $29, and $4C (i.e., <code>re
 <h2 id="_the_event_table"><a class="anchor" href="#_the_event_table"></a>22. THE EVENT TABLE</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The event table begins with two bytes giving the total number of events. Each event requires 2 bytes:</p>
+<p>The event table begins with two bytes giving the total number of events.
+Each event requires 2 bytes:</p>
 </div>
-<div class="paragraph">
-<p><strong>Bytes</strong></p>
-</div>
-<div class="paragraph">
-<p>0 - 1 Associated object (0 for a global event)</p>
-</div>
-<div class="paragraph">
-<p>2 - 3 Address of event routine</p>
-</div>
+<table class="tableblock frame-all grid-none stripes-odd fit-content center">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock">Bytes</p></th>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock">0 - 1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Associated object (0 for a global event)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock">2 - 3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Address of event routine</p></td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 <div class="sect1">
