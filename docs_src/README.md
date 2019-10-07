@@ -11,6 +11,9 @@ This folder contains the AsciiDoc source files of the _The Hugo Book_.
 <!-- MarkdownTOC autolink="true" bracket="round" autoanchor="false" lowercase="only_ascii" uri_encoding="true" levels="1,2,3" -->
 
 - [Folder Contents](#folder-contents)
+    - [AsciiDoc Sources](#asciidoc-sources)
+    - [Book Assets](#book-assets)
+    - [Build Scripts](#build-scripts)
 - [Book Preview and Status](#book-preview-and-status)
 
 <!-- /MarkdownTOC -->
@@ -19,13 +22,55 @@ This folder contains the AsciiDoc source files of the _The Hugo Book_.
 
 # Folder Contents
 
+## AsciiDoc Sources
 
-- [`hugo-book.asciidoc`][HB] — the main AsciiDoc source file that imports all contents:
+- [`hugo-book.asciidoc`][HB] — the main AsciiDoc source file (contains _[Colophon]_ and 
+_[Foreword]_) that imports all contents:
     + [`hugo-book1.asciidoc`][HB1] — imports chapters of _Book I_:
-        * [`hugo-book1_01`][HB1:01]..[`19.asciidoc`][HB1:19] — individual chapters from _Book I_.
+        * [`hugo-book1_01.asciidoc`][HB1:01] — [1. _Introduction_][Ch1]
+        * [`hugo-book1_02.asciidoc`][HB1:02] — [2. _A First Look at Hugo_][Ch2]
+        * [`hugo-book1_03.asciidoc`][HB1:03] — [3. _Objects_][Ch3]
+        * [`hugo-book1_04.asciidoc`][HB1:04] — [4. _Hugo Programming_][Ch4]
+        * [`hugo-book1_05.asciidoc`][HB1:05] — [5. _Routines and Events_][Ch5]
+        * [`hugo-book1_06.asciidoc`][HB1:06] — [6. _Fuses, Daemons, and Scripts_][Ch6]
+        * [`hugo-book1_07.asciidoc`][HB1:07] — [7. _Grammar and Parsing_][Ch7]
+        * [`hugo-book1_08.asciidoc`][HB1:08] — [8. _Junction Routines_][Ch8]
+        * [`hugo-book1_09.asciidoc`][HB1:09] — [9. _The Game Loop_][Ch9]
+        * [`hugo-book1_11.asciidoc`][HB1:11] — [10. _Using the Object Library_][Ch10]
+        * [`hugo-book1_10.asciidoc`][HB1:10] — [11. _Advanced Features_][Ch11]
+        * [`hugo-book1_12.asciidoc`][HB1:12] — [12. _Resources_][Ch12]
+        * [`hugo-book1_13.asciidoc`][HB1:13] — [App. A. _Summary of Keywords and Commands_][AppA]
+        * [`hugo-book1_14.asciidoc`][HB1:14] — [App. B. _The Hugo Library_][AppB]
+        * [`hugo-book1_15.asciidoc`][HB1:15] — [App. C. _Limit Settings_][AppC]
+        * [`hugo-book1_16.asciidoc`][HB1:16] — [App. D. _Hugofix and the Hugo Debugger_][AppD]
+        * [`hugo-book1_17.asciidoc`][HB1:17] — [App. E. _Precompiled Headers_][AppE]
+        * [`hugo-book1_18.asciidoc`][HB1:18] — [App. F. _Hugo Versions_][AppF]
+        * [`hugo-book1_19.asciidoc`][HB1:19] — [App. G. _Additional Resources_][AppG]
     + [`hugo-book2.asciidoc`][HB2] — imports chapters of _Book II_:
-        * [`hugo-book2_01`][HB2:01]..[`16.asciidoc`][HB2:16] — individual chapters from _Book II_.
-        * [`hugo-book_tokens-list.csv`][HB Tokens.csv] — list of Hugo tokens in CSV format, used to populate the table in _§15.1. Tokens_.
+        * [`hugo-book2_01.asciidoc`][HB2:01] — [13. _Introduction_][Ch13]
+        * [`hugo-book2_02.asciidoc`][HB2:02] — [14. _Organization of the .HEX File_][Ch14]
+        * [`hugo-book2_03.asciidoc`][HB2:03] — [15. _Tokens and Data Types_][Ch15]
+        * [`hugo-book2_04.asciidoc`][HB2:04] — [16. _Engine Parsing_][Ch16]
+        * [`hugo-book2_05.asciidoc`][HB2:05] — [17. _Grammar_][Ch17]
+        * [`hugo-book2_06.asciidoc`][HB2:06] — [18. _Executable Code_][Ch18]
+        * [`hugo-book2_07.asciidoc`][HB2:07] — [19. _Encoding Text_][Ch19]
+        * [`hugo-book2_08.asciidoc`][HB2:08] — [20. _The Object Table_][Ch20]
+        * [`hugo-book2_09.asciidoc`][HB2:09] — [21. _The Property Table_][Ch21]
+        * [`hugo-book2_10.asciidoc`][HB2:10] — [22. _The Event Table_][Ch22]
+        * [`hugo-book2_11.asciidoc`][HB2:11] — [23. _The Dictionary and Special Words_][Ch23]
+        * [`hugo-book2_12.asciidoc`][HB2:12] — [24. _Resourcefiles_][Ch24]
+        * [`hugo-book2_13.asciidoc`][HB2:13] — [25. _The Hugo Compiler and How It Works_][Ch25]
+        * [`hugo-book2_14.asciidoc`][HB2:14] — [26. _The Hugo Engine and How It Works_][Ch26]
+        * [`hugo-book2_15.asciidoc`][HB2:15] — [27. _Dark Secrets of the Hugo Debugger_][Ch27]
+        * [`hugo-book2_16.asciidoc`][HB2:16] — [App. H. _Code Patterns_][AppH]
+
+## Book Assets
+
+- [`hugo-book_tokens-list.csv`][HB Tokens.csv] — list of Hugo tokens in CSV format, used to populate the table in _§15.1. Tokens_.
+- [`hugo-book2_14_flowchart-engine.svg`][HB2:14 eng.svg] — SVG flowchart of Hugo engine ([generated via Dia]).
+
+## Build Scripts
+
 - [`preview.sh`][preview.sh] — generates a quick HTML preview of the book:
     + [`hugo-book.html`][HB.html] ( [HTML Live Preview] ) — no syntax highlighting, no custom template.
 
@@ -82,6 +127,8 @@ Once all chapters are fully ported, the whole book needs to be checked over agai
 <!-----------------------------------------------------------------------------
                                REFERENCE LINKS
 ------------------------------------------------------------------------------>
+
+[generated via Dia]: ../assets_src/diagrams/ "Go to folder of SVG Dia sources"
 
 <!-- Live HTML Links -->
 
@@ -179,5 +226,6 @@ Once all chapters are fully ported, the whole book needs to be checked over agai
 
 [HB Tokens.csv]: ./hugo-book_tokens-list.csv "View CSV source file"
 
+[HB2:14 eng.svg]: ./hugo-book2_14_flowchart-engine.svg "Open diagram image file"
 
 <!-- EOF -->
