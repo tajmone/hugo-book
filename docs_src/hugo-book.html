@@ -446,7 +446,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <span id="email" class="email"><a href="mailto:general@generalcoffee.com">general@generalcoffee.com</a></span><br>
 <span id="revnumber">version 1,</span>
 <span id="revdate">2018-10-04</span>
-<br><span id="revremark">Draft 26 -- Porting to AsciiDoc</span>
+<br><span id="revremark">Draft 27 -- Porting to AsciiDoc</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -14291,31 +14291,51 @@ Note that an address in the text bank requires 3 bytes in the game code, however
 <div class="sect2">
 <h3 id="_objects_2"><a class="anchor" href="#_objects_2"></a>20.1. Objects</h3>
 <div class="paragraph">
-<p>The object table begins with two bytes giving the total number of objects. The objects then follow in sequential order. Each object requires 24 bytes:<sup class="footnote">[<a id="_footnoteref_71" class="footnote" href="#_footnotedef_71" title="View footnote.">71</a>]</sup></p>
+<p>The object table begins with two bytes giving the total number of objects.
+The objects then follow in sequential order.
+Each object requires 24 bytes:<sup class="footnote">[<a id="_footnoteref_71" class="footnote" href="#_footnotedef_71" title="View footnote.">71</a>]</sup></p>
 </div>
-<div class="paragraph">
-<p><strong>Bytes</strong></p>
-</div>
-<div class="paragraph">
-<p>0 - 15 Attributes (128 bits in total, 1 bit/attribute)</p>
-</div>
-<div class="paragraph">
-<p>16 - 17 Parent</p>
-</div>
-<div class="paragraph">
-<p>18 - 19 Sibling</p>
-</div>
-<div class="paragraph">
-<p>20 - 21 Child</p>
-</div>
-<div class="paragraph">
-<p>22 - 23 Property table position</p>
-</div>
+<table class="tableblock frame-all grid-none stripes-odd fit-content center">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock">Bytes</p></th>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock">0 - 15</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Attributes (128 bits in total, 1 bit/attribute)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock">16 - 17</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Parent</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock">18 - 19</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Sibling</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock">20 - 21</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Child</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock">22 - 23</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Property table position</p></td>
+</tr>
+</tbody>
+</table>
 <div class="paragraph">
 <p>The offset of any given object <em>n</em> from the start of the object table can therefore be found using:</p>
 </div>
+<div class="exampleblock">
+<div class="content">
 <div class="paragraph">
 <p>offset = <em>n</em> * 24 + 2</p>
+</div>
+</div>
 </div>
 <div class="paragraph">
 <p>If a parent has no parent, sibling, and/or child, the appropriate two-byte word is set to $0000.</p>
@@ -14327,7 +14347,8 @@ Note that an address in the text bank requires 3 bytes in the game code, however
 <div class="sect2">
 <h3 id="_attributes_3"><a class="anchor" href="#_attributes_3"></a>20.2. Attributes</h3>
 <div class="paragraph">
-<p>The 16 bytes of the attribute array contain 8 bits each, giving a total of 128 possible attributes.<sup class="footnote">[<a id="_footnoteref_72" class="footnote" href="#_footnotedef_72" title="View footnote.">72</a>]</sup> Essentially, if the bits are thought of sequentially in that the first byte represents attributes 0 to 7, the second byte represents attributes 8 to 15, the third 16 to 23, and the fourth and final byte 24 to 31.</p>
+<p>The 16 bytes of the attribute array contain 8 bits each, giving a total of 128 possible attributes.<sup class="footnote">[<a id="_footnoteref_72" class="footnote" href="#_footnotedef_72" title="View footnote.">72</a>]</sup>
+Essentially, if the bits are thought of sequentially in that the first byte represents attributes 0 to 7, the second byte represents attributes 8 to 15, the third 16 to 23, and the fourth and final byte 24 to 31.</p>
 </div>
 </div>
 </div>
