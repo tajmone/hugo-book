@@ -446,7 +446,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <span id="email" class="email"><a href="mailto:general@generalcoffee.com">general@generalcoffee.com</a></span><br>
 <span id="revnumber">version 1,</span>
 <span id="revdate">2018-10-04</span>
-<br><span id="revremark">Draft 23 -- Porting to AsciiDoc</span>
+<br><span id="revremark">Draft 24 -- Porting to AsciiDoc</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -15439,10 +15439,10 @@ If <em>n</em> is 0, the byte <em>n</em>+1 gives the value from the memory image.
 <h2 id="_dark_secrets_of_the_hugo_debugger"><a class="anchor" href="#_dark_secrets_of_the_hugo_debugger"></a>27. DARK SECRETS OF THE HUGO DEBUGGER</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The Hugo Debugger is basically a modified build of the Hugo Engine; the two share the same core code for program execution, but the debugger wraps it in a calling framework that allows the user (or the debugger itself) to control&#8212;&#8203;i.e., start, stop, or step through&#8212;&#8203;execution.</p>
+<p>The Hugo Debugger is basically a modified build of the Hugo Engine; the two share the same core code for program execution, but the debugger wraps it in a calling framework that allows the user (or the debugger itself) to control&#8201;&#8212;&#8201;i.e., start, stop, or step through&#8201;&#8212;&#8201;execution.</p>
 </div>
 <div class="paragraph">
-<p>The key difference with the debugger build of the engine is in RunRoutine(), which in the debugger looks more like this:</p>
+<p>The key difference with the debugger build of the engine is in <code>RunRoutine()</code>, which in the debugger looks more like this:</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -15450,8 +15450,8 @@ If <em>n</em> is 0, the byte <em>n</em>+1 gives the value from the memory image.
        |
        |
 +--------------+     +------------+
-| RunRoutine() |----&gt;| Debugger() | (if debugger_interrupt
-|   herun.c    |     |   hd.c     |  is non-false)
+| RunRoutine() |----&gt;| Debugger() | (if debugger_interrupt is non-false)
+|   herun.c    |     |   hd.c     |
 +--------------+     +------------+
        |
        |
@@ -15459,132 +15459,226 @@ If <em>n</em> is 0, the byte <em>n</em>+1 gives the value from the memory image.
 </div>
 </div>
 <div class="paragraph">
-<p>The debugger build contains a global flag called debugger_interrupt; if this flag is non-false, RunRoutine() is interrupted before executing the next instruction.</p>
+<p>The debugger build contains a global flag called <code>debugger_interrupt</code>; if this flag is non-false, <code>RunRoutine()</code> is interrupted before executing the next instruction.</p>
 </div>
 <div class="paragraph">
-<p>The Debugger() function is responsible for switching to and updating the debugger display. Debugger() is also the hub for any debugger functions initiated by the user, such as setting breakpoints, setting watch expressions, changing values, moving objects, etc.</p>
+<p>The <code>Debugger()</code> function is responsible for switching to and updating the debugger display.
+<code>Debugger()</code> is also the hub for any debugger functions initiated by the user, such as setting breakpoints, setting watch expressions, changing values, moving objects, etc.</p>
 </div>
 <div class="paragraph">
-<p>The debugger controls program execution by returning from Debugger()to RunRoutine(). If debugger_interrupt is true, only the current instruction will execute, then control will pass back to Debugger() (i.e., stepping). In order to resume free execution, Debugger() returns with debugger_interrupt set to false.</p>
+<p>The debugger controls program execution by returning from <code>Debugger()</code> to <code>RunRoutine()</code>.
+If <code>debugger_interrupt</code> is true, only the current instruction will execute, then control will pass back to <code>Debugger()</code> (i.e., stepping).
+In order to resume free execution, <code>Debugger()</code> returns with <code>debugger_interrupt</code> set to false.</p>
 </div>
 <div class="paragraph">
-<p>A number of other variables in the debugger influence program execution in addition to debugger_interrupt:</p>
+<p>A number of other variables in the debugger influence program execution in addition to <code>debugger_interrupt</code>:</p>
 </div>
-<div class="paragraph">
-<p>debugger_run true when engine is running freely</p>
-</div>
-<div class="paragraph">
-<p>debugger_collapsing true when collapsing the call</p>
-</div>
-<div class="paragraph">
-<p>debugger_step_over true if stepping over (i.e., same-</p>
-</div>
-<div class="paragraph">
-<p>level stepping)</p>
-</div>
-<div class="paragraph">
-<p>debugger_skip true if skipping next instruction</p>
-</div>
-<div class="paragraph">
-<p>debugger_finish true if finishing current routine</p>
-</div>
-<div class="paragraph">
-<p>debugger_step_back true if stepping backward</p>
-</div>
-<div class="paragraph">
-<p>step_nest for stepping over nested calls (i.e.,</p>
-</div>
-<div class="paragraph">
-<p>with debugger_step_over)</p>
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+<code>debugger_run</code>        
+</td>
+<td class="hdlist2">
+<p>true when engine is running freely</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>debugger_collapsing</code> 
+</td>
+<td class="hdlist2">
+<p>true when collapsing the call</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>debugger_step_over</code>  
+</td>
+<td class="hdlist2">
+<p>true if stepping over (i.e., same-level stepping)</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>debugger_skip</code>       
+</td>
+<td class="hdlist2">
+<p>true if skipping next instruction</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>debugger_finish</code>     
+</td>
+<td class="hdlist2">
+<p>true if finishing current routine</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>debugger_step_back</code>  
+</td>
+<td class="hdlist2">
+<p>true if stepping backward</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>step_nest</code>           
+</td>
+<td class="hdlist2">
+<p>for stepping over nested calls (i.e., with <code>debugger_step_over</code>)</p>
+</td>
+</tr>
+</table>
 </div>
 <div class="sect2">
 <h3 id="_debugger_expression_evaluation"><a class="anchor" href="#_debugger_expression_evaluation"></a>27.1. Debugger Expression Evaluation</h3>
 <div class="paragraph">
-<p>The debugger must evaluate expressions in several contexts, including when solving watch expressions and when changing an existing value. (In-debugger expression management is contained primarily in <strong>hdval.c</strong>.)</p>
+<p>The debugger must evaluate expressions in several contexts, including when solving watch expressions and when changing an existing value.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+In-debugger expression management is contained primarily in <strong>hdval.c</strong>.
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
-<p>In order to do this, the debugger includes a minimal version of the compiler&#8217;s expression parser. It parses a user-supplied expression in the function ParseExpression(). What ParseExpression() does is to essentially compile that expression, storing the result in the debug workspace in the array table. (Remember that the address of the debug workspace&#8212;&#8203;256 bytes after any user-defined array storage&#8212;&#8203;is found in the header in .HDX files.)</p>
+<p>In order to do this, the debugger includes a minimal version of the compiler&#8217;s expression parser.
+It parses a user-supplied expression in the function <code>ParseExpression()</code>.
+What <code>ParseExpression()</code> does is to essentially compile that expression, storing the result in the debug workspace in the array table.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+Remember that the address of the debug workspace&#8201;&#8212;&#8201;256 bytes after any user-defined array storage&#8201;&#8212;&#8201;is found in the header in <strong>.HDX</strong> files.
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
-<p>After writing the expression, the debugger can then set codeptr to the start of the debug workspace, then call the engine&#8217;s SetupExpr() and EvalExpr() functions as it would to evaluate any other expression.</p>
+<p>After writing the expression, the debugger can then set <code>codeptr</code> to the start of the debug workspace, then call the engine&#8217;s <code>SetupExpr()</code> and <code>EvalExpr()</code> functions as it would to evaluate any other expression.</p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_the_hdx_file_format"><a class="anchor" href="#_the_hdx_file_format"></a>27.2. The .HDX File Format</h3>
 <div class="paragraph">
-<p>The .HDX file format for Hugo debuggable executables, as well as having some additional information in the header (see <em>II.b</em> <em>The Header</em>) and a 256 byte workspace reserved at the end of the array table, appends symbolic debugging data as follows:</p>
+<p>The <strong>.HDX</strong> file format for Hugo debuggable executables, as well as having some additional information in the header (see <em>II.b The Header</em>) and a 256 byte workspace reserved at the end of the array table, appends symbolic debugging data as follows:</p>
 </div>
+<table class="tableblock frame-all grid-none stripes-even fit-content center">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Object names</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">For each object: 1 byte giving the length, followed by the name as a string</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong># of properties</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2 bytes</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Property names</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">For each property: 1 byte (length), then the name</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong># of attributes</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2 bytes</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Attribute names</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">For each attribute: 1 byte (length), then the name</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong># of aliases</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2 bytes</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Alias names</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">For each alias: 1 byte (length), then the name, then two bytes for the association</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong># of routines</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2 bytes</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Routine names</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">For each routine: 1 byte (length), then the name</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong># of events</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2 bytes</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Event data</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4 bytes for each&#8201;&#8212;&#8201;2 bytes for the parent; 2 bytes for the address</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong># of arrays</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2 bytes</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Array data</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">For each array: 1 byte for the name length, followed by the name, followed by 2 bytes for the address</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
 <div class="paragraph">
-<p><strong>Object names</strong> For each object: 1 byte giving the</p>
+<p>Note that it isn&#8217;t necessary to store the total number of objects, since that is already available at the start of the normal object table.</p>
 </div>
-<div class="paragraph">
-<p>length, followed by the name as a</p>
-</div>
-<div class="paragraph">
-<p>string</p>
-</div>
-<div class="paragraph">
-<p><strong># of properties</strong> 2 bytes</p>
-</div>
-<div class="paragraph">
-<p><strong>Property names</strong> For each property: 1 byte (length),</p>
-</div>
-<div class="paragraph">
-<p>then the name</p>
-</div>
-<div class="paragraph">
-<p><strong># of attributes</strong> 2 bytes</p>
-</div>
-<div class="paragraph">
-<p><strong>Attribute names</strong> For each attribute: 1 byte</p>
-</div>
-<div class="paragraph">
-<p>(length), then the name</p>
-</div>
-<div class="paragraph">
-<p><strong># of aliases</strong> 2 bytes</p>
-</div>
-<div class="paragraph">
-<p><strong>Alias names</strong> For each alias: 1 byte (length),</p>
-</div>
-<div class="paragraph">
-<p>then the name, then two bytes for</p>
-</div>
-<div class="paragraph">
-<p>the association</p>
-</div>
-<div class="paragraph">
-<p><strong># of routines</strong> 2 bytes</p>
-</div>
-<div class="paragraph">
-<p><strong>Routine names</strong> For each routine: 1 byte (length),</p>
-</div>
-<div class="paragraph">
-<p>then the name</p>
-</div>
-<div class="paragraph">
-<p><strong># of events</strong> 2 bytes</p>
-</div>
-<div class="paragraph">
-<p><strong>Event data</strong> 4 bytes for each&#8212;&#8203;2 bytes for the</p>
-</div>
-<div class="paragraph">
-<p>parent; 2 bytes for the address</p>
-</div>
-<div class="paragraph">
-<p><strong># of arrays</strong> 2 bytes</p>
-</div>
-<div class="paragraph">
-<p><strong>Array data</strong> For each array: 1 byte for the name</p>
-</div>
-<div class="paragraph">
-<p>length, followed by the name,</p>
-</div>
-<div class="paragraph">
-<p>followed by 2 bytes for the address</p>
-</div>
-<div class="paragraph">
-<p>(Note that it isn&#8217;t necessary to store the total number of objects, since that is already available at the start of the normal object table.)</p>
+</td>
+</tr>
+</table>
 </div>
 </div>
 </div>

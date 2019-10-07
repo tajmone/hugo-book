@@ -117,7 +117,7 @@ Every chapter in the list provides an [HTML Live Preview] link to quickly jump t
     + [ ]  [24. _RESOURCEFILES_][Ch24]
     + [x]  [25. _THE HUGO COMPILER AND HOW IT WORKS_][Ch25]
     + [x]  [26. _THE HUGO ENGINE AND HOW IT WORKS_][Ch26]
-    + [ ]  [27. _DARK SECRETS OF THE HUGO DEBUGGER_][Ch27]
+    + [x]  [27. _DARK SECRETS OF THE HUGO DEBUGGER_][Ch27]
     + [ ]  [APP. H. _CODE PATTERNS_][AppH]
 - [ ] _INDEX_ (supported only in PDF format)
 
