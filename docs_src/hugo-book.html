@@ -446,7 +446,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <span id="email" class="email"><a href="mailto:general@generalcoffee.com">general@generalcoffee.com</a></span><br>
 <span id="revnumber">version 1,</span>
 <span id="revdate">2018-10-04</span>
-<br><span id="revremark">Draft 29 -- Porting to AsciiDoc</span>
+<br><span id="revremark">Draft 30 -- Porting to AsciiDoc</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -14306,23 +14306,23 @@ Each object requires 24 bytes:<sup class="footnote">[<a id="_footnoteref_71" cla
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
-<td class="tableblock halign-right valign-top"><p class="tableblock">0 - 15</p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>0 - 15</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Attributes (128 bits in total, 1 bit/attribute)</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-right valign-top"><p class="tableblock">16 - 17</p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>16 - 17</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Parent</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-right valign-top"><p class="tableblock">18 - 19</p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>18 - 19</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Sibling</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-right valign-top"><p class="tableblock">20 - 21</p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>20 - 21</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Child</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-right valign-top"><p class="tableblock">22 - 23</p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>22 - 23</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Property table position</p></td>
 </tr>
 </tbody>
@@ -14379,15 +14379,15 @@ It is the object&#8217;s object-table entry that gives the location of a given o
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
-<td class="tableblock halign-right valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>0</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Property number</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-right valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>1</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Number of data words</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-right valign-top"><p class="tableblock">2 -</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>2 -</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Data in 16-bit word form (2 bytes each)</p></td>
 </tr>
 </tbody>
@@ -14615,11 +14615,11 @@ Each event requires 2 bytes:</p>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
-<td class="tableblock halign-right valign-top"><p class="tableblock">0 - 1</p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>0 - 1</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Associated object (0 for a global event)</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-right valign-top"><p class="tableblock">2 - 3</p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>2 - 3</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Address of event routine</p></td>
 </tr>
 </tbody>

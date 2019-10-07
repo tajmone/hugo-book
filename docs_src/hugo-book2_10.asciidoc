@@ -4,7 +4,7 @@ The event table begins with two bytes giving the total number of events.
 Each event requires 2 bytes:
 
 [.center,caption=]
-[cols=">d,<d",options=autowidth,grid=none,stripes=odd]
+[cols=">m,<d",options=autowidth,grid=none,stripes=odd]
 |===============================================================================
 ^h| Bytes | {blank}
 | 0 - 1   | Associated object (0 for a global event)

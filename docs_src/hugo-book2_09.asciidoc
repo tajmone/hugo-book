@@ -11,12 +11,12 @@ It is the object's object-table entry that gives the location of a given object'
 Each property requires at least 2 bytes:
 
 [.center,caption=]
-[cols=">d,<d",options=autowidth,grid=none,stripes=odd]
+[cols="<m,<d",options=autowidth,grid=none,stripes=odd]
 |===============================================================================
 ^h| Bytes | {blank}
-|0   | Property number
-|1   | Number of data words
-|2 - | Data in 16-bit word form (2 bytes each)
+|0        | Property number
+|1        | Number of data words
+|2 -      | Data in 16-bit word form (2 bytes each)
 |===============================================================================
 
 Property routines are given a "`length`" of 255 ($FF), which indicates that one word of data follows, representing the (indexed) address of the routine.

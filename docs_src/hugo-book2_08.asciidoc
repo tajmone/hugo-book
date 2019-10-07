@@ -11,10 +11,10 @@ Each object requires 24 bytes:footnote:[Pre-v2.1 objects had only 32 possible at
 
 
 [.center,caption=]
-[cols=">d,<d",options=autowidth,grid=none,stripes=odd]
+[cols=">m,<d",options=autowidth,grid=none,stripes=odd]
 |===============================================================================
 ^h| Bytes | {blank}
-| 0 - 15  | Attributes (128 bits in total, 1 bit/attribute)
+|  0 - 15 | Attributes (128 bits in total, 1 bit/attribute)
 | 16 - 17 | Parent
 | 18 - 19 | Sibling
 | 20 - 21 | Child
