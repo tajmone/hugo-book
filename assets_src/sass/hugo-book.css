@@ -1,0 +1,87 @@
+/* Windows CMD */
+div.literalblock.cmd pre {
+  background-color: #0C0C0C;
+  color: #F2F2F2;
+}
+div.literalblock.cmd pre .conum {
+  background: #FFF945 !important;
+  color: #0C0C0C !important;
+}
+
+/* Game Transcripts */
+.exampleblock.gametranscript > .content {
+  background: #F7FDFF;
+  color: #0089B6;
+  border-color: #CCF2FF;
+}
+
+/* Highlight theme for Hugo syntax */
+.listingblock code[data-lang=hugo]::before {
+  color: #a09f93;
+}
+
+.listingblock pre[class=highlight][lang=hugo] {
+  background-color: #2d2d2d;
+  border-radius: 4px;
+  border: 1px solid #a09f93;
+}
+.listingblock pre[class=highlight][lang=hugo] > code {
+  color: #d3d0c8;
+  font-family: Consolas, Monaco, "Courier New", Courier, monospace;
+  font-size: 1em;
+}
+.listingblock pre[class=highlight][lang=hugo] .hl {
+  color: #d3d0c8;
+}
+.listingblock pre[class=highlight][lang=hugo] .hl.num {
+  color: #ffcc66;
+}
+.listingblock pre[class=highlight][lang=hugo] .hl.esc {
+  color: #f99157;
+}
+.listingblock pre[class=highlight][lang=hugo] .hl.ipl {
+  color: #ffcc66;
+}
+.listingblock pre[class=highlight][lang=hugo] .hl.str {
+  color: #99cc99;
+}
+.listingblock pre[class=highlight][lang=hugo] .hl.ppc {
+  color: #cc99cc;
+}
+.listingblock pre[class=highlight][lang=hugo] .hl.pps {
+  color: #66cccc;
+}
+.listingblock pre[class=highlight][lang=hugo] .hl.com {
+  color: #a09f93;
+  font-style: italic;
+}
+.listingblock pre[class=highlight][lang=hugo] .hl.slc {
+  color: #a09f93;
+  font-style: italic;
+}
+.listingblock pre[class=highlight][lang=hugo] .hl.lin {
+  color: #747369;
+}
+.listingblock pre[class=highlight][lang=hugo] .hl.opt {
+  color: #6699cc;
+}
+.listingblock pre[class=highlight][lang=hugo] .hl.kwa {
+  color: #f2777a;
+}
+.listingblock pre[class=highlight][lang=hugo] .hl.kwb {
+  color: #ffcc66;
+}
+.listingblock pre[class=highlight][lang=hugo] .hl.kwc {
+  color: #cc99cc;
+}
+.listingblock pre[class=highlight][lang=hugo] .hl.kwd {
+  color: #cc99cc;
+}
+.listingblock pre[class=highlight][lang=hugo] .hl.kwde {
+  color: #66cccc;
+}
+.listingblock pre[class=highlight][lang=hugo] .hl.kwf {
+  color: #d27b53;
+}
+
+/*# sourceMappingURL=hugo-book.css.map */

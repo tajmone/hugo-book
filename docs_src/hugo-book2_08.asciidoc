@@ -23,7 +23,6 @@ Each object requires 24 bytes:footnote:[Pre-v2.1 objects had only 32 possible at
 
 The offset of any given object _n_ from the start of the object table can therefore be found using:
 
-[EXAMPLE]
 =====================
 offset = _n_ * 24 + 2
 =====================

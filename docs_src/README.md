@@ -12,8 +12,10 @@ This folder contains the AsciiDoc source files of the _The Hugo Book_.
 
 - [Folder Contents](#folder-contents)
     - [Book Sources](#book-sources)
-    - [Build Scripts](#build-scripts)
+    - [Build Toolchain](#build-toolchain)
+- [Toolchain Dependencies](#toolchain-dependencies)
 - [Book Preview and Status](#book-preview-and-status)
+- [System Requirements](#system-requirements)
 
 <!-- /MarkdownTOC -->
 
@@ -25,6 +27,7 @@ This folder contains the AsciiDoc source files of the _The Hugo Book_.
 
 List of _The Hugo Book_ AsciiDoc sources and contents-assets:
 
+- [`docinfo.html`][docinfo.html] — [docinfo file] with custom CSS ([generated via Sass]).
 - [`hugo-book.asciidoc`][HB] — the main AsciiDoc source file (contains _[Colophon]_ and 
 _[Foreword]_) that imports all contents:
     + [`hugo-book1.asciidoc`][HB1] — imports chapters of _Book I_:
@@ -68,10 +71,28 @@ _[Foreword]_) that imports all contents:
         * [`hugo-book2_16.asciidoc`][HB2:16] — [App. H. _Code Patterns_][AppH]
 
 
-## Build Scripts
+## Build Toolchain
 
-- [`preview.sh`][preview.sh] — generates a quick HTML preview of the book:
-    + [`hugo-book.html`][HB.html] ( [HTML Live Preview] ) — no syntax highlighting, no custom template.
+- [`build.sh`][build.sh] — (***slow***) generates final HTML version of the book:
+    + [`hugo-book.html`][HB.html] ( [HTML Live Preview] ) — fully standalone, syntax highlighted, custom CSS.
+- [`preview.sh`][preview.sh] — (****fast****) generates a quick HTML preview of the book:
+    + [`preview.html`][HBP.html] — no syntax highlighting, default template.
+
+> __NOTE 1__ — Since the overhead introduced by using the external Highlight tool is considerable on a big document like this one, the `preview.sh` script is very handy when editing the document, for it provides a very fast-updating preview of the changes (without syntax highlighting).
+
+<!---------------------------------------------------------------------------->
+
+> __NOTE 2__ — In the future more build scripts will be added, to create other versions of the book in HTML format (e.g. splitting _Book I_ and _Book II_ into independent files, or dividing the book into single chapters for the WWW), as well as targeting other formats (PDF, CHM, ePub, etc.).
+
+# Toolchain Dependencies
+
+The build process depends on further assets stored elsewhere inside this project:
+
+- [`../assets/adoc/haml/`][haml src] — customized Haml templates.
+- [`../assets/adoc/highlight-treeprocessor_mod.rb`][HL rb] — customized Asciidoctor extension to support Highlight.
+- [`../assets/adoc/hl/`][hl] — custom Highlight DataDir assets.
+
+These assets are required to introduce support for Hugo highlighting in the [Asciidoctor] toolchain via the external [Highlight] tool and our custom syntax definition for Hugo.
 
 # Book Preview and Status
 
@@ -86,6 +107,10 @@ Every chapter in the list provides an [HTML Live Preview] link to quickly jump t
     + [ ]  [1. _INTRODUCTION_][Ch1]
     + [ ]  [2. _A FIRST LOOK AT HUGO_][Ch2]
     + [ ]  [3. _OBJECTS_][Ch3]
+        * [ ]  AsciiArt to SVG:
+            - [ ] §3.2. Object Tree diagram 1.
+            - [ ] §3.2. Object Tree diagram 2.
+            - [ ] §3.2. Object Tree diagram 3.
     + [ ]  [4. _HUGO PROGRAMMING_][Ch4]
     + [ ]  [5. _ROUTINES AND EVENTS_][Ch5]
     + [ ]  [6. _FUSES, DAEMONS, AND SCRIPTS_][Ch6]
@@ -116,19 +141,37 @@ Every chapter in the list provides an [HTML Live Preview] link to quickly jump t
     + [x]  [23. _THE DICTIONARY AND SPECIAL WORDS_][Ch23]
     + [x]  [24. _RESOURCEFILES_][Ch24]
     + [x]  [25. _THE HUGO COMPILER AND HOW IT WORKS_][Ch25]
+        * [ ]  AsciiArt to SVG: flowchart of Hugo compiler.
     + [x]  [26. _THE HUGO ENGINE AND HOW IT WORKS_][Ch26]
+        * [x]  AsciiArt to SVG: flowchart of Hugo engine.
     + [x]  [27. _DARK SECRETS OF THE HUGO DEBUGGER_][Ch27]
+        * [ ]  AsciiArt to SVG: flowchart of Hugo debugger.
     + [x]  [APP. H. _CODE PATTERNS_][AppH]
         * [ ]  _needs to be proof-read once more, carefully!_
 - [ ] _INDEX_ (supported only in PDF format)
 
 Once all chapters are fully ported, the whole book needs to be checked over again, from scratch, to ensure that formatting and styles are consistent.
 
+# System Requirements
+
+In order to convert _The Hugo Book_ to HTML you'll need to install the following tools on your system:
+
+- [AsciiDoctor]  (Ruby)
+- [Highlight]
+
 <!-----------------------------------------------------------------------------
                                REFERENCE LINKS
 ------------------------------------------------------------------------------>
 
-[generated via Dia]: ../assets_src/diagrams/ "Go to folder of SVG Dia sources"
+[generated via Dia]: ../assets_src/diagrams/ "Navigate to folder of SVG Dia sources"
+[generated via Sass]: ../assets_src/sass/ "Navigate to Sass sources folder"
+
+[docinfo file]: https://asciidoctor.org/docs/user-manual/#docinfo-file "Read about docinfo files in Asciidoctor Manual"
+
+<!-- 3rd party tools -->
+
+[AsciiDoctor]: https://asciidoctor.org/ "Visita Asciidoctor website"
+[Highlight]: http://www.andre-simon.de/ "Visit Highlight website"
 
 <!-- Live HTML Links -->
 
@@ -178,8 +221,20 @@ Once all chapters are fully ported, the whole book needs to be checked over agai
 
 <!-- project files -->
 
-[HB.html]: ./hugo-book.html "View source file"
-[preview.sh]: ./preview.sh "View source file"
+[HB.html]: ./hugo-book.html "View HTML file"
+[HBP.html]: ./preview.html "View HTML file"
+
+[HL rb]: ../assets/adoc/highlight-treeprocessor_mod.rb "View source file"
+
+[build.sh]: ./build.sh "View source script"
+[docinfo.html]: ./docinfo.html "View source file"
+[preview.sh]: ./preview.sh "View source script"
+
+<!-- project folders -->
+
+[haml src]: ../assets/adoc/haml/ "Navigate to the Haml HTML5 templates folder"
+[hl]: ../assets/hl/ "Navigate to the custom Highlight DataDir folder"
+[sass src]: ../assets_src/sass/ "Navigate to Sass sources folder"
 
 <!-- ADoc sources -->
 

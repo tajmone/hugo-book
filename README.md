@@ -20,6 +20,11 @@ Project created by [Tristano Ajmone] in 2019/09/29.
 - [Why AsciiDoc?](#why-asciidoc)
 - [License](#license)
 - [Acknowledgements](#acknowledgements)
+- [Credits](#credits)
+    - [Base16 Color Schemes](#base16-color-schemes)
+    - [The Asciidoctor Project](#the-asciidoctor-project)
+        - [Asciidoctor Extensions Lab](#asciidoctor-extensions-lab)
+    - [Asciidoctor Backends](#asciidoctor-backends)
 - [External Links](#external-links)
 
 <!-- /MarkdownTOC -->
@@ -114,6 +119,76 @@ Hugo is a beautiful tool, as well an historical pillar of the Interactive Fictio
 
 - __[Dan Allen]__ and the __[Asciidoctor Project team]__, for their relentless dedication to the development of [Asciidoctor] and the AsciiDoc echo-system.
 
+# Credits
+
+This project also employs resources created by third parties.
+
+## Base16 Color Schemes
+
+- [`/assets_src/sass/`](./assets_src/sass/)
+
+For the Sass/CSS themes this project uses the following Base16 color schemes:
+
+- _Base16 Eighties_ — by [Chris Kempson]  (MIT License).
+
+The __Base16__ project (MIT License) was created by Chris Kempson:
+
+- http://chriskempson.com/projects/base16
+
+The Base16 SCSS schemes are taken from the __Base16 Sass__ project by [Tristano Ajmone]:
+
+- https://github.com/tajmone/Base16-Sass
+
+__Base16 Sass__ is released under MIT License:
+
+    MIT License
+
+    Copyright (c) 2019 Tristano Ajmone <tajmone@gmail.com>
+    https://github.com/tajmone/Base16-Sass
+
+    Copyright (c) 2012 Chris Kempson (http://chriskempson.com)
+    https://github.com/chriskempson/base16-builder
+
+For more details and the full license text, see:
+
+- [`/assets_src/sass/README.md`](./assets_src/sass/README.md#credits)
+
+## The Asciidoctor Project
+
+This project employs various assets taken from [The Asciidoctor Project], mostly in adapted form. For more details and the full license texts, see:
+
+- [`/assets/adoc/README.md`](./assets/adoc/README.md#credits)
+
+### Asciidoctor Extensions Lab
+
+- [`/assets/adoc/highlight-treeprocessor_mod.rb`][HL rb]
+
+The __Highlight TreeProcessor__ Asciidoctor extension (Ruby) was adapted by [Tristano Ajmone] from the original [`highlight-treeprocessor.rb`][rb upstream] file from the __Asciidoctor Extensions Lab__:
+
+- https://github.com/asciidoctor/asciidoctor-extensions-lab
+
+Released under MIT License:
+
+    The MIT License
+
+    Copyright (C) 2014-2016 The Asciidoctor Project
+
+## Asciidoctor Backends
+
+- [`/assets/adoc/haml/`][haml]
+
+The files inside the [`/haml/`][haml] folder were adapted by [Tristano Ajmone] from the original [Haml HTML5 templates] taken from the
+__Asciidoctor Backends__ project:
+
+- https://github.com/asciidoctor/asciidoctor-backends
+
+Released under MIT License:
+
+    The MIT License
+    
+    Copyright (C) 2012-2016 Dan Allen and the Asciidoctor Project
+
+
 # External Links
 
 - [Hugo website]
@@ -144,6 +219,11 @@ Hugo is a beautiful tool, as well an historical pillar of the Interactive Fictio
 [Asciidoctor]: https://asciidoctor.org/ "Visit Asciidoctor website"
 [IF Archive]: https://www.ifarchive.org/ "Visit the IF Archive"
 
+<!-- 3rd party upstream links -->
+
+[Haml HTML5 templates]: https://github.com/asciidoctor/asciidoctor-backends/tree/master/haml/html5
+[rb upstream]: https://github.com/asciidoctor/asciidoctor-extensions-lab/blob/18bdf62/lib/highlight-treeprocessor.rb "View original source file"
+
 <!-- Hugo links official -->
 
 [Hugo]: https://www.generalcoffee.com/hugo/gethugo.html "Visit the Hugo website"
@@ -161,18 +241,25 @@ Hugo is a beautiful tool, as well an historical pillar of the Interactive Fictio
 
 <!-- project files -->
 
+[HL rb]: ./assets/adoc/highlight-treeprocessor_mod.rb "View source file"
 [LICENSE]: ./LICENSE "View License file"
+
+<!-- project folders -->
+
+[haml]: ./assets/adoc/haml/ "Navigate to the Haml HTML5 templates folder"
 
 <!-- people -->
 
+[Chris Kempson]: http://chriskempson.com "Visit Chris Kempson's website"
 [Dan Allen]: https://github.com/mojavelinux "View Dan Allen's GitHub profile"
 [Dannii Willis]: https://github.com/curiousdannii "View Dannii Willis's GitHub profile"
-[Tristano Ajmone]: https://github.com/tajmone "View Tristano Ajmone's GitHub profile"
 [Kent Tessman]: https://github.com/tessman "View Kent Tessman's GitHub profile"
+[Tristano Ajmone]: https://github.com/tajmone "View Tristano Ajmone's GitHub profile"
 
 <!-- organizations -->
 
-[Asciidoctor Project team]: https://github.com/orgs/asciidoctor/people "View the Asciidoctor Project's GitHub profile"
+[Asciidoctor Project team]: https://github.com/orgs/asciidoctor/people "View the profile of The Asciidoctor Project on GitHub"
+[The Asciidoctor Project]: https://github.com/orgs/asciidoctor/people "View the profile of The Asciidoctor Project on GitHub"
 [The people at the IF Archive]: https://www.ifarchive.org/misc/about.html "Learn more about the people behind the IF Archive"
 
 

@@ -25,9 +25,21 @@
 ## Shell Scripts
 ## =============
 *.bat      text eol=crlf
-*.com      text eol=crlf
 *.sh       text eol=lf
 *.ps1      text eol=crlf
+
+## ===============
+## AsciiDoc Assets
+## ===============
+*.css.map  text
+*.haml     text
+*.rb       text
+
+## ============
+## SASS/SCSS
+## ============
+*.sass     text
+*.scss     text
 
 ## =================
 ## Web-Related Files
@@ -88,6 +100,17 @@ readme         text
 *.wbmp       binary
 *.webp       binary
 
+## ==================
+## Misc. Data Formats
+## ==================
+*.csv      text
+*.json     text
+*.xhtml    text
+*.xml      text
+*.xsl      text
+*.yaml     text
+*.yml      text
+
 ## ==============================
 ## Third Party Tools File Formats
 ## ==============================
@@ -95,5 +118,22 @@ readme         text
 *.dia   binary
 # ColorImpact 4 palettes: http://www.tigercolor.com
 *.cifc  binary
+
+## ===================
+## Configuration files
+## ===================
+*.cnf          text
+*.conf         text
+*.config       text
+*.ini          text
+*.prefs        text
+.editorconfig  text
+## -------------
+## Git settings:
+## -------------
+.gitattributes text eol=lf
+.gitconfig     text eol=lf
+.gitignore     text eol=lf
+.gitmodules    text eol=lf
 
 # EOF #

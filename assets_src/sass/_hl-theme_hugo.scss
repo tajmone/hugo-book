@@ -1,0 +1,31 @@
+/* Highlight theme for Hugo syntax */
+
+@import 'hl-reset'; // Reset template vars for Highlight themes.
+
+$HL-Lang: "hugo";
+
+@import 'base16-eighties';  // Base16 Eighties color scheme.
+
+$HL-Canvas:         $base00;
+$HL-Default:        $base05;
+
+$HL-Border-color:   $base04;
+$HL-LineNum:        $base03;
+
+$HL-LineComment:    $base04;
+$HL-BlockComment: 	$HL-LineComment;
+$HL-Number:         $base0A;
+$HL-Escape:         $base09; // Escape sequences + style escapes
+$HL-Interpolation:  $base0A; // Special character escapes
+$HL-String:         $base0B;
+$HL-Operator:       $base0D;
+$HL-PreProcessor:   $base0E; // Compiler directives
+$HL-StringPreProc:  $base0C; // Strings in compiler directives
+
+$HL-Keywords1:      $base08; // Hugo keywords
+$HL-Keywords2:      $base0A; // ASCII Chars constants
+$HL-Keywords3:      $base0E; // Limits Settings
+
+@import 'hl-adoc-template'; // Reusable template for Highlight themes.
+
+// EOF //

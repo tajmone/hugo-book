@@ -1,0 +1,290 @@
+-- ********************************
+-- *  Hugo Interactive Fiction    *  v1.1.0-rc2    || by Tristano Ajmone:
+-- *  www.generalcoffee.com/hugo  *  2019/09/25    || https://github.com/tajmone
+-- ********************************  public domain || http://unlicense.org
+--------------------------------------------------------------------------------
+Description = "Hugo"  Categories = {"source", "interactive fiction"}
+--------------------------------------------------------------------------------
+-- file extensions:
+--   .hug -- adventure source
+--   .h   -- library source
+--   .g   -- grammar source
+--------------------------------------------------------------------------------
+-- Syntax definition for Hugo language v3.1.03 (2006).
+-- http://www.generalcoffee.com/hugo/gethugo.html
+
+-- The Hugo Interactive Fiction Development System (1995-2006) is a language and
+-- a set of cross-platform tools for creating text-adventures with sound and
+-- graphics, developed by Kent Tessman for The General Coffee Company Film
+-- Productions, released under BSD-2-Clause License.
+--------------------------------------------------------------------------------
+-- Syntax elements:
+--   * Comments       -- single line (!) and block (!/ .. /!).
+--   * Strings        -- double quotes (") escapable with (\")
+--   * Escape         -- various + ASCII escapes.
+--   * Interpolation  -- special non-ASCII characters.
+--   * PreProcessor
+--   * Operators
+--   * Digits         -- decimal integers only.
+--   * Keywords 1     -- Hugo reserved keywords.
+--   * Keywords 2     -- ASCII Chars constants.
+--   * Keywords 3     -- Limit Settings.
+--------------------------------------------------------------------------------
+IgnoreCase  = true    EnableIndentation = false
+Identifiers = [[ [\$]?[a-zA-Z_]\w*[#\$]? ]]
+Comments = {{
+  Block  = true,
+  Nested = false,
+  Delimiter = { [[  ^(?:\s*)!\\  ]],
+                [[  \\!$         ]]}},{
+  Block = false,
+  Delimiter = { [[  (?<!\\)!(?!\\)  ]]}}}
+Strings = {
+  Delimiter = [=[  (?<!\\)" ]=],
+  AssertEqualLength = true,
+--[[----------------------------------------------------------------------------
+                                ESCAPE SEQUENCES
+--------------------------------------------------------------------------------
+Hugo allows various escape sequences inside strings, some of them have been
+defined as Interpolation for visual improvement.
+
+Basic escapes:
+  \"  quotation marks
+  \\  a literal backslash character
+  \_  a forced space, overriding left-justification for the rest of the string
+  \n  a newline
+
+Formatting sequences for styles:
+  \B  boldface on
+  \b  boldface off
+  \I  italics on
+  \i  italics off
+  \P  proportional printing on
+  \p  proportional printing off
+  \U  underlining on
+  \u  underlining off
+
+ASCII Escapes:
+  \#xxx   any ASCII or Latin-1 character where xxx represents the three-digit
+          ASCII number (or Latin-1 code). --]]
+  Escape = [=[ (\\(?:["\\_nBbIiPpUu]|#\d{3})) ]=],
+--[[----------------------------------------------------------------------------
+                                  INTERPOLATION
+--------------------------------------------------------------------------------
+We define the special char sequences as Interpolation to allow visual separation
+between them and the other escape sequences, which will make the code easier to
+read since in real-code the prose strings might contain many of both in a same
+string, side by side.
+
+Special characters formatting sequences (ISO-8859-1):
+  \`  accent grave followed by a letter (e.g. "\`a" -> "à")
+  \’  accent acute followed by a letter (e.g. "\’E" -> "É")
+  \~  tilde followed by a letter        (e.g. "\~n" -> "ñ")
+  \^  circumflex followed by a letter   (e.g. "\^i" -> "î")
+  \:  umlaut followed by a letter       (e.g. "\:u" -> "ü")
+  \,  cedilla followed by c or C        (e.g. "\,c" -> "ç")
+  \< or \> Spanish quotation marks (« »)
+  \!  upside-down exclamation point (¡)
+  \?  upside-down question mark (¿)
+  \ae ae ligature (æ)
+  \AE AE ligature (Æ)
+  \c  cents symbol (¢)
+  \L  British pound (£)
+  \Y  Japanese Yen (¥)
+
+NOTE: The RegEx below defines twice the acute accent (´) char because depending
+      on wether the source is in ASCII/ISO-8859-1 or UTF-8 its encoding will
+      differ (the former is the expected encoding for Hugo sourceS, but the
+      latter might be encountered in documentation projects).               --]]
+  Interpolation = [=[ (?x)(\\(?:
+    \xC2\xB4[a-zA-Z]  | # Acute accent (´) in UTF-8 docs will be $c2 $b4.
+    [`´~\^:][a-zA-Z]  | # Note: acute accent in ASCII format also found here.
+    ,[cC]             | # Cedilla.
+    [<>!?]            | # Square brackets and upside-down ¡ ¿ marks.
+    ae|AE             | # Æ ligatures.
+    [cLY]               # Currencies: ¢ £ ¥.
+    )) ]=] }
+PreProcessor = {
+  Prefix = [[ # ]],
+  Continuation = "\\" }
+Operators = [[ \&|<|>|\||\=|\/|\*|\+|\-|~ ]]
+Digits = [[ \d+ ]]
+Keywords = {{
+  ------------------------------------------------------------------------------
+  Id = 1, List = {                                          -- Hugo keywords # 1
+  ------------------------------------------------------------------------------
+  "$additive",
+  "$complex",
+--------------------------------------------------------------------------------
+  "arraydata#",
+  "attr#",
+  "debugdata#",
+  "dictentry#",
+  "eol#",
+  "label#",
+  "objectnum#",
+  "prop#",
+  "routine#",
+  "stringdata#",
+  "textdata#",
+  "value#",
+  "var#",
+--------------------------------------------------------------------------------
+  "addcontext",
+  "adjective",
+  "adjectives",
+  "after",
+  "alias",
+  "and",
+  "anything",
+  "array",
+  "article",
+  "before",
+  "break",
+  "call",
+  "capital",
+  "case",
+  "child",
+  "children",
+  "class",
+  "cls",
+  "color",
+  "colour",
+  "compound",
+  "constant",
+  "dict",
+  "do",
+  "elder",
+  "eldest",
+  "else",
+  "elseif",
+  "enumerate",
+  "event",
+  "false",
+  "for",
+  "global",
+  "graphics",
+  "held",
+  "hex",
+  "if",
+  "in",
+  "input",
+  "is",
+  "jump",
+  "local",
+  "locate",
+  "move",
+  "multi",
+  "multiheld",
+  "multinotheld",
+  "music",
+  "name",
+  "nearby",
+  "newline",
+  "not",
+  "notheld",
+  "noun",
+  "nouns",
+  "number",
+  "object",
+  "or",
+  "parent",
+  "parse$",
+  "pause",
+  "picture",
+  "playback",
+  "print",
+  "printchar",
+  "property",
+  "punctuation",
+  "quit",
+  "random",
+  "readfile",
+  "readval",
+  "recordoff",
+  "recordon",
+  "removal",
+  "remove",
+  "repeat",
+  "replace",
+  "restart",
+  "restore",
+  "return",
+  "routine",
+  "run",
+  "runevents",
+  "save",
+  "scriptoff",
+  "scripton",
+  "select",
+  "serial$",
+  "sibling",
+  "sound",
+  "start",
+  "step",
+  "string",
+  "synonym",
+  "system",
+  "text",
+  "to",
+  "true",
+  "undo",
+  "verb",
+  "video",
+  "while",
+  "window",
+  "word",
+  "writefile",
+  "writeval",
+  "xobject",
+  "xverb",
+  "younger",
+  "youngest",
+  "~all",
+  "~and",
+  "~any",
+  "~except",
+  "~oops",
+    }},{
+  ------------------------------------------------------------------------------
+  Id = 2,                                           -- ASCII Chars constants # 2
+  ------------------------------------------------------------------------------
+    Regex = [=[  '[\x00-\x7F]'  ]=] },{
+  ------------------------------------------------------------------------------
+  Id = 3,                                                  -- Limit Settings # 3
+  ------------------------------------------------------------------------------
+    Regex = [=[ (?x-i)
+      (\$MAX(?:
+        ATTRIBUTES|GLOBALS|LOCALS|ALIASES|ARRAYS|CONSTANTS|DICTEXTEND|DICT|
+        DIRECTORIES|EVENTS|FLAGS|LABELS|OBJECTS|PROPERTIES|ROUTINES|SPECIALWORDS
+      )) ]=],
+      Group = 0
+  }}
+function OnStateChange(oldState, newState, token, kwgroup) --[[
+  ==============================================================================
+  #01 -- Ignore Escape Sequences Outside Strings
+  ==============================================================================
+  This function ensures that escape sequences outside strings are ignored:
+  tokens matching an escape sequence are rejected if the previously parsed token
+  was not a string, an interpolation or another escape sequence.
+
+  Based on André Simon's reply to Issue #23:
+      https://github.com/andre-simon/highlight/issues/23#issuecomment-332002639
+  ----------------------------------------------------------------------------]]
+  if  newState == HL_ESC_SEQ and
+      oldState ~= HL_STRING  and
+      oldState ~= HL_ESC_SEQ and
+      oldState ~= HL_INTERPOLATION then
+        return HL_REJECT
+  end
+  return newState
+end
+--[[============================================================================
+                                   CHANGELOG
+================================================================================
+v1.1.0 (2019/09/25) | Highlight v3.53
+  - Polish source.
+  - List keywords 1 one kwd per line (to visually track upcoming changes).
+  - New missing keywords tokens added.
+v1.0.0 (2019/05/24) | Highlight v3.51
+  - First release. --]]

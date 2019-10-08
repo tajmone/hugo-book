@@ -8,12 +8,19 @@
 
 ## TMP Work Files
 #################
+*.tmp
 ___*.*
+___*
 
 # Links and URLs:
 *.lnk
 *.url
 
+## Sass temp files
+##################
+*.css.map
+## Just in case someone still uses Ruby Sass:
+.sass-cache/
 
 ############################
 ## COMMON IGNORE PATTERNS ##

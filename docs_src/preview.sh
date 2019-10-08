@@ -1,11 +1,21 @@
 #!/bin/bash
+
+# "docs_src/preview.sh"                                    | v0.0.2 | 2019/10/08
+# ------------------------------------------------------------------------------
+# By Tristano Ajmone, released into the public domain via the Unlicense.
+# ------------------------------------------------------------------------------
+# This script requires installation of the following applications:
+#
+#     Asciidoctor (Ruby gem):
+#     https://asciidoctor.org
 # ------------------------------------------------------------------------------
 source=hugo-book.asciidoc
+output=preview.html
 
-echo -e "\n\e[94m###########################"
-echo -e "#\e[93m Hugo Book: HTML Preview \e[94m#"
-echo -e "###########################\e[0m"
-echo -e "Building a quick HTML preview:"
+. ../assets/sh/_print-funcs.sh
+
+printBanner "Hugo Book: HTML Preview"
+echo -e "Building a quick HTML preview (\e[93m$output\e[0m):"
 echo -e "\e[91m *\e[0m TOC levels: 1."
 echo -e "\e[91m *\e[0m Single document."
 echo -e "\e[91m *\e[0m Default template."
@@ -21,6 +31,7 @@ asciidoctor \
   -a toc=left \
   -a toclevels=1 \
   -a reproducible \
-  $source
+  -o  $output \
+      $source
 
 # EOF #

@@ -1,0 +1,14 @@
+// -----------------------------------------------------------------------------
+// Additional CSS styles for The Hugo Book".
+// Sass/SCSS sources created by Tristano Ajmone, 2019.
+// -----------------------------------------------------------------------------
+
+// Mockup Block Styles:
+@import 'mock_cmd'; // Win CMD -> literalblock.cmd
+@import 'mock_transcript'; // IF transcript -> exampleblock.gametranscript
+
+// $HL-Lang: "hugo";
+// @import 'hl-adoc-template';
+@import 'hl-theme_hugo'; // Highlight theme for Hugo syntax
+
+// EOF //
