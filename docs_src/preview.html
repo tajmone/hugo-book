@@ -446,7 +446,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <span id="email" class="email"><a href="mailto:general@generalcoffee.com">general@generalcoffee.com</a></span><br>
 <span id="revnumber">version 1,</span>
 <span id="revdate">2018-10-04</span>
-<br><span id="revremark">Draft 34 -- Porting to AsciiDoc</span>
+<br><span id="revremark">Draft 36 -- Porting to AsciiDoc</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -584,10 +584,14 @@ HOW TO WRITE GAMES AND INFLUENCE PEOPLE
 <div class="sect2">
 <h3 id="_why_youre_here_or_just_what_is_hugo"><a class="anchor" href="#_why_youre_here_or_just_what_is_hugo"></a>1.1. Why You&#8217;re Here (or, Just What Is Hugo?)</h3>
 <div class="paragraph">
-<p>Chances are if you&#8217;re reading this book you&#8217;re already at least a little familiar with adventure games, and maybe even more specifically interactive fiction or text adventures. <sup class="footnote">[<a id="_footnoteref_1" class="footnote" href="#_footnotedef_1" title="View footnote.">1</a>]</sup> Hugo is a system for designing, programming, and running these. It is not the first such system&#8212;&#8203;and it&#8217;s difficult to find substantial fault in any general way with the best of those systems that predate Hugo<sup class="footnote">[<a id="_footnoteref_2" class="footnote" href="#_footnotedef_2" title="View footnote.">2</a>]</sup>--but Hugo does hope to extend the concepts developed in earlier, similar systems in order to make interactive fiction programming less cryptic, and more flexible and accessible to designers, as well as to add functionality in certain areas where other systems are lacking.</p>
+<p>Chances are if you&#8217;re reading this book you&#8217;re already at least a little familiar with adventure games, and maybe even more specifically interactive fiction or text adventures. <sup class="footnote">[<a id="_footnoteref_1" class="footnote" href="#_footnotedef_1" title="View footnote.">1</a>]</sup>
+Hugo is a system for designing, programming, and running these.
+It is not the first such system&#8201;&#8212;&#8201;and it&#8217;s difficult to find substantial fault in any general way with the best of those systems that predate Hugo<sup class="footnote">[<a id="_footnoteref_2" class="footnote" href="#_footnotedef_2" title="View footnote.">2</a>]</sup>&#8201;&#8212;&#8201;but Hugo does hope to extend the concepts developed in earlier, similar systems in order to make interactive fiction programming less cryptic, and more flexible and accessible to designers, as well as to add functionality in certain areas where other systems are lacking.</p>
 </div>
 <div class="paragraph">
-<p>What does it mean to be a &#8220;system&#8221; for interactive fiction? In Hugo&#8217;s case, it means that not only does it provide an environment for running Hugo games&#8212;&#8203;the rather exciting-sounding Hugo Engine&#8212;&#8203;but also the means of creating them (the Hugo Compiler) and a tool for troubleshooting (the Hugo Debugger). Additionally, it includes the Hugo Library, in essence a suite of Hugo programming code providing the basic infrastructure for a Hugo game.</p>
+<p>What does it mean to be a &#8220;system&#8221; for interactive fiction?
+In Hugo&#8217;s case, it means that not only does it provide an environment for running Hugo games&#8201;&#8212;&#8201;the rather exciting-sounding Hugo Engine&#8201;&#8212;&#8201;but also the means of creating them (the Hugo Compiler) and a tool for troubleshooting (the Hugo Debugger).
+Additionally, it includes the Hugo Library, in essence a suite of Hugo programming code providing the basic infrastructure for a Hugo game.</p>
 </div>
 <div class="paragraph">
 <p>This book will serve as a means of becoming familiar with what Hugo is and what it does, and what is required to develop an interactive fiction game using Hugo, whether or not you have any prior programming experience.</p>
@@ -596,7 +600,13 @@ HOW TO WRITE GAMES AND INFLUENCE PEOPLE
 <div class="sect2">
 <h3 id="_legal_information"><a class="anchor" href="#_legal_information"></a>1.2. Legal Information</h3>
 <div class="paragraph">
-<p><strong>Please see the Hugo License for detailed legal information.</strong> Hugo is copyrighted by its Author. Programs created using the Hugo Compiler are the property of the individual user who created them. The use of the Hugo library files (the &#8220;Hugo Library&#8221;) and the distribution of the Hugo Engine are authorized for the creation of non-commercial or shareware-based software. The use of the Hugo Library is allowed in commercial software, although copyright of the library files themselves remains with the Author. Commercial distribution of the Hugo Compiler, the Hugo Engine, and/or the Hugo Debugger may be allowed by arrangement with the Author. The source code for the Hugo Compiler, the Hugo Engine, and the Hugo Debugger (the &#8220;Hugo Source Code&#8221;) is available for porting to new platforms. Public distribution of modified versions of the Hugo Source Code is not permitted.</p>
+<p><strong>Please see the Hugo License for detailed legal information.</strong> Hugo is copyrighted by its Author.
+Programs created using the Hugo Compiler are the property of the individual user who created them.
+The use of the Hugo library files (the &#8220;Hugo Library&#8221;) and the distribution of the Hugo Engine are authorized for the creation of non-commercial or shareware-based software.
+The use of the Hugo Library is allowed in commercial software, although copyright of the library files themselves remains with the Author.
+Commercial distribution of the Hugo Compiler, the Hugo Engine, and/or the Hugo Debugger may be allowed by arrangement with the Author.
+The source code for the Hugo Compiler, the Hugo Engine, and the Hugo Debugger (the &#8220;Hugo Source Code&#8221;) is available for porting to new platforms.
+Public distribution of modified versions of the Hugo Source Code is not permitted.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -616,10 +626,15 @@ HOW TO WRITE GAMES AND INFLUENCE PEOPLE
 <div class="sect2">
 <h3 id="_names_and_acknowledgments"><a class="anchor" href="#_names_and_acknowledgments"></a>1.3. Names And Acknowledgments</h3>
 <div class="paragraph">
-<p>Those who have taken upon themselves the task of porting Hugo to various platforms include Julian Arnold (Acorn/RiscOS port), Gerald Bostock (OS/2 port), David Kinder (Amiga port), Bill Lash (original Unix/Linux port), Andrew Plotkin (Macintosh port using his Glk library), and Colin Turnbull (original Acorn Archimedes port). The author is considerably indebted to them, for all their work as well as for their input on how to improve the compiler and engine. Without their efforts, Hugo and the games created with it would not be available for so nearly as wide an audience.<sup class="footnote">[<a id="_footnoteref_3" class="footnote" href="#_footnotedef_3" title="View footnote.">3</a>]</sup></p>
+<p>Those who have taken upon themselves the task of porting Hugo to various platforms include Julian Arnold (Acorn/RiscOS port), Gerald Bostock (OS/2 port), David Kinder (Amiga port), Bill Lash (original Unix/Linux port), Andrew Plotkin (Macintosh port using his Glk library), and Colin Turnbull (original Acorn Archimedes port).
+The author is considerably indebted to them, for all their work as well as for their input on how to improve the compiler and engine.
+Without their efforts, Hugo and the games created with it would not be available for so nearly as wide an audience.<sup class="footnote">[<a id="_footnoteref_3" class="footnote" href="#_footnotedef_3" title="View footnote.">3</a>]</sup></p>
 </div>
 <div class="paragraph">
-<p>More than a few words of appreciation must be given to Volker Blasius, the original maintainer of the Interactive Fiction Archive at GMD, one of the key resources for interactive fiction players and developers, and a primary hub of material for contributors to (and readers of) the Usenet newsgroups <em>rec.arts.int-fiction</em> and <em>rec.games.int-fiction</em>. For years, Volker (earlier with the help of David M. Baggett and later with the help of David Kinder) undertook the substantial task of organizing and cataloguing thousands of existing files and a steady stream of new submissions. The IF Archive is now, as of this writing, housed on the web at <em><a href="http://www.ifarchive.org" class="bare">http://www.ifarchive.org</a></em>, and is currently maintained by David Kinder and Stephen Granade.</p>
+<p>More than a few words of appreciation must be given to Volker Blasius, the original maintainer of the Interactive Fiction Archive at GMD, one of the key resources for interactive fiction players and developers, and a primary hub of material for contributors to (and readers of) the Usenet newsgroups <em>rec.arts.int-fiction</em> and <em>rec.games.int-fiction</em>.
+For years, Volker (earlier with the help of David M.
+Baggett and later with the help of David Kinder) undertook the substantial task of organizing and cataloguing thousands of existing files and a steady stream of new submissions.
+The IF Archive is now, as of this writing, housed on the web at <em><a href="http://www.ifarchive.org" class="bare">http://www.ifarchive.org</a></em>, and is currently maintained by David Kinder and Stephen Granade.</p>
 </div>
 <div class="paragraph">
 <p>Thanks also to those whose comments and suggestions have contributed to making Hugo as powerful and usable as it is: Torbjörn Andersson, Julian Arnold, Dmitry Baranov, Mark Bijster, Jonathan Blask, Cam Bowes, Jason Brown, Daniel Cardenas, Jose Luis Cebrian, Gilles Duchesne, Jason Dyer, Miguel Garza, Jeff Jenness, Doug Jones, Alan MacDonald, Cena Mayo, Jesse McGrew, John Menichelli, Iain Merrick, Jim Newland, Jerome Nichols, Jason C. Penney, Giacomo Pini, Andrew Pontious, Vikram Ravindran, Gunther Schmidl, Robb Sherwin, Christopher Tate, Mark J. Tilford, Paolo Vece, and Dean Tessman, as well as to many other Hugo users. Graham Nelson&#8217;s Inform language helped give early shape to some of the ideas in Hugo&#8217;s development with regard to syntax and structure. Finally, sincere apologies on my part for any omission of those who have contributed to Hugo over the years in any way.</p>
@@ -758,7 +773,7 @@ HOW TO WRITE GAMES AND INFLUENCE PEOPLE
 <p><strong>hugolib.hug</strong> To create a linkable version of <strong>hugolib.h</strong></p>
 </div>
 <div class="paragraph">
-<p><strong>Extras.</strong> The last essential remaining piece you&#8217;ll need to begin Hugo development in earnest is a <em>text editor</em> of some sort. This is what you&#8217;ll use to edit the Hugo source files that you&#8217;ll write and ultimately compile into working Hugo programs. On Windows or Macintosh you could use the pre-packaged Notepad or SimpleText (or TextEdit on Mac OS X) applications, respectively, but it&#8217;s really not recommended: there are far better inexpensive or even freeware editors available (and once you get deeper into programming, you&#8217;ll realize that the one sure investment you can make is an editor you&#8217;re comfortable with). On Unix-ish systems (including Linux), you&#8217;ll generally have a choice of editors including Emacs, vi, and a number of graphical user interface (GUI) programs. It&#8217;s a little beyond the scope of this book to even attempt to recommend an editor&#8212;&#8203;since it&#8217;s as much a matter of personal preference as anything-- so the best advice that can be given is to ask around, experiment, and find out what works best for you.</p>
+<p><strong>Extras.</strong> The last essential remaining piece you&#8217;ll need to begin Hugo development in earnest is a <em>text editor</em> of some sort. This is what you&#8217;ll use to edit the Hugo source files that you&#8217;ll write and ultimately compile into working Hugo programs. On Windows or Macintosh you could use the pre-packaged Notepad or SimpleText (or TextEdit on Mac OS X) applications, respectively, but it&#8217;s really not recommended: there are far better inexpensive or even freeware editors available (and once you get deeper into programming, you&#8217;ll realize that the one sure investment you can make is an editor you&#8217;re comfortable with). On Unix-ish systems (including Linux), you&#8217;ll generally have a choice of editors including Emacs, vi, and a number of graphical user interface (GUI) programs. It&#8217;s a little beyond the scope of this book to even attempt to recommend an editor&#8201;&#8212;&#8201;since it&#8217;s as much a matter of personal preference as anything-- so the best advice that can be given is to ask around, experiment, and find out what works best for you.</p>
 </div>
 <div class="paragraph">
 <p>It would also be good preparation to become familiar with the <em>terminal</em> or <em>console</em> on your system. On Windows, this is the &#8220;MS-DOS Prompt&#8221; or &#8220;Command Prompt&#8221; under the Start menu, or type &#8220;command&#8221; (Windows 95/98) or &#8220;cmd&#8221; (Windows NT/2000/XP) from the &#8220;Run&#8230;&#8203;&#8221; option; on Unix systems, this will be bash or tcsh or some other kind of command shell. Other systems will have different names for their command-line environments (although on something like a pre-OS X Macintosh, there is no such thing as a terminal or console, so you needn&#8217;t worry about it).</p>
@@ -776,16 +791,16 @@ HOW TO WRITE GAMES AND INFLUENCE PEOPLE
 <p>If you&#8217;ve never done any programming before, you can probably expect to be slightly baffled by at least some of the early going in this manual. The truth about <em>learning</em> programming is that you&#8217;re probably not going to be able to read through this book (or any book on programming in any other programming language, for that matter) once, in proper sequence, from cover to cover, and be able to write programs expertly in the language. Many of things will require the introduction of concepts that will only be discussed in full later on once a better grounding in the language is achieved. There will, in fact, be several places in this book (especially in the early sections) where readers will be encouraged to not worry if the subject matter at hand seems quite foreign. But rest assured that, after a brief initial period of acclimation, before long things like &#8220;objects&#8221;, &#8220;properties&#8221;, &#8220;routines&#8221;, &#8220;global variables&#8221;, &#8220;calling parameters&#8221;, and a host of others will be rolling off your tongue like the alphabet.</p>
 </div>
 <div class="paragraph">
-<p>To make everything even easier, Hugo is designed so that writing very basic games will consist largely of defining and describing objects and locations in a very straightforward manner. All of the complex inner workings of the game&#8212;&#8203;from the templates for standard rooms and objects and their related behaviors; to what happens when a player types &gt;GO NORTH or &gt;OPEN THE CARDBOARD BOX or any other command, recognized or unrecognized; to the rules of the game world for containment, edibility, bulk, switching things on or off, or any number of &#8220;physical&#8221; traits&#8212;&#8203;are handled by the Hugo Library, and a prospective doesn&#8217;t have to worry about where these things are handled or how until he or she is ready to investigate deeper.</p>
+<p>To make everything even easier, Hugo is designed so that writing very basic games will consist largely of defining and describing objects and locations in a very straightforward manner. All of the complex inner workings of the game&#8201;&#8212;&#8201;from the templates for standard rooms and objects and their related behaviors; to what happens when a player types &gt;GO NORTH or &gt;OPEN THE CARDBOARD BOX or any other command, recognized or unrecognized; to the rules of the game world for containment, edibility, bulk, switching things on or off, or any number of &#8220;physical&#8221; traits&#8201;&#8212;&#8201;are handled by the Hugo Library, and a prospective doesn&#8217;t have to worry about where these things are handled or how until he or she is ready to investigate deeper.</p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_working_with_hugo"><a class="anchor" href="#_working_with_hugo"></a>1.7. Working With Hugo</h3>
 <div class="paragraph">
-<p>The way Hugo works is fairly standard for a modern programming language. A programmer begins with a <em>source file</em>, which is a human-readable text file (created and edited in a separate text-editing application). The source file contains all the various definitions, instructions, and other text that will ultimately form the content of the game. The content of a source file is formatted in the particular structure of the <em>Hugo language</em>--the programming language with which the majority of this manual will endeavor to help you become acquainted.</p>
+<p>The way Hugo works is fairly standard for a modern programming language. A programmer begins with a <em>source file</em>, which is a human-readable text file (created and edited in a separate text-editing application). The source file contains all the various definitions, instructions, and other text that will ultimately form the content of the game. The content of a source file is formatted in the particular structure of the <em>Hugo language</em>&#8201;&#8212;&#8201;the programming language with which the majority of this manual will endeavor to help you become acquainted.</p>
 </div>
 <div class="paragraph">
-<p>The programmer inputs the source file to a <em>compiler</em> (here, specifically, the Hugo Compiler), which takes the source code and generates an <em>object file</em>. The object file is&#8212;&#8203;unlike a source file&#8212;&#8203;not human readable, but has instead been translated by the compiler into a series of optimized instructions that are easily understood by the computer. The computer can then take that object file and execute it as a program, just like any application users regularly use (applications&#8212;&#8203;like word processors and spreadsheets and browsers&#8212;&#8203;which were probably produced by a compiler in exactly the same process as described here). The difference between a Hugo-generated program and such other compiled programs is that a Hugo program may, once compiled, be run on any platform for which the Hugo Engine exists. Normally a compiled program can only be executed on the platform for which it was compiled; Hugo programs are much more portable, and can be compiled on one platform and subsequently be run on any other of the large number of platforms that Hugo supports.</p>
+<p>The programmer inputs the source file to a <em>compiler</em> (here, specifically, the Hugo Compiler), which takes the source code and generates an <em>object file</em>. The object file is&#8201;&#8212;&#8201;unlike a source file&#8201;&#8212;&#8201;not human readable, but has instead been translated by the compiler into a series of optimized instructions that are easily understood by the computer. The computer can then take that object file and execute it as a program, just like any application users regularly use (applications&#8201;&#8212;&#8201;like word processors and spreadsheets and browsers&#8201;&#8212;&#8201;which were probably produced by a compiler in exactly the same process as described here). The difference between a Hugo-generated program and such other compiled programs is that a Hugo program may, once compiled, be run on any platform for which the Hugo Engine exists. Normally a compiled program can only be executed on the platform for which it was compiled; Hugo programs are much more portable, and can be compiled on one platform and subsequently be run on any other of the large number of platforms that Hugo supports.</p>
 </div>
 <div class="paragraph">
 <p>The Hugo Engine is the <em>interpreter</em> or <em>runtime</em> for compiled Hugo object files (also referred to as <em>.HEX files</em>, after their default extension meaning &#8220;Hugo executable&#8221;). It functions as a hosting environment in which to load the .HEX file, in sort of the same way that a browser loads a web page from the Internet.</p>
@@ -853,7 +868,7 @@ HOW TO WRITE GAMES AND INFLUENCE PEOPLE
 </td>
 <td class="content">
 <div class="paragraph">
-<p>The next three sections--<em>I.i. Compiler Switches</em>,* <em>*I.j.<strong></em> *<em>Limit Settings</em>, and</strong> <em>*I.k.*</em> *<em>Directories</em>--may seem a little confusing to those without much compiler experience. Do look them over, but if you&#8217;re not exactly sure what it all means, don&#8217;t worry about it. You won&#8217;t need to tell the compiler to do anything particularly acrobatic at the outset, and the information is here for experimentation and for when you need it.</p>
+<p>The next three sections&#8201;&#8212;&#8201;<em>I.i. Compiler Switches</em>,* <em>*I.j.<strong></em> *<em>Limit Settings</em>, and</strong> <em>*I.k.*</em> *<em>Directories</em>&#8201;&#8212;&#8201;may seem a little confusing to those without much compiler experience. Do look them over, but if you&#8217;re not exactly sure what it all means, don&#8217;t worry about it. You won&#8217;t need to tell the compiler to do anything particularly acrobatic at the outset, and the information is here for experimentation and for when you need it.</p>
 </div>
 </td>
 </tr>
@@ -955,7 +970,7 @@ HOW TO WRITE GAMES AND INFLUENCE PEOPLE
 <p>When the <strong>-v</strong> switch (not available on all versions) is used, the compiler runs in verbose mode and maintains a real-time display of the number of lines compiled, and of the percentage of compilation complete.</p>
 </li>
 <li>
-<p>Normally if the compiler encounters any errors in the source code, it won&#8217;t generate the gamefile. Use the <strong>-w</strong> switch to generate <strong>&lt;objectfile&gt;</strong> regardless of any errors encountered. This is useful in a situation where you want to try out a section of code that has nothing to do with another section that may currently have errors, but is otherwise rarely used (for obvious reasons&#8212;&#8203;it&#8217;s always best to get rid of those pesky errors).</p>
+<p>Normally if the compiler encounters any errors in the source code, it won&#8217;t generate the gamefile. Use the <strong>-w</strong> switch to generate <strong>&lt;objectfile&gt;</strong> regardless of any errors encountered. This is useful in a situation where you want to try out a section of code that has nothing to do with another section that may currently have errors, but is otherwise rarely used (for obvious reasons&#8201;&#8212;&#8201;it&#8217;s always best to get rid of those pesky errors).</p>
 </li>
 <li>
 <p>The version 3.0 (or later) compiler may be invoked with the <strong>-25</strong> switch in order to generate a v2.5 gamefile. Note, however that it&#8217;s generally unnecessary to do so, since v2.5 and v3.x are compatible; i.e., the v3.0 (or later) engine will run v2.5 gamefiles, and most recent v2.5 builds of the engine will run v3.0 gamefiles. See <em>APPENDIX F:</em> HUGO VERSIONS for more information.</p>
@@ -1195,25 +1210,47 @@ Modify non-static default limits using: $&lt;setting&gt;=&lt;new limit&gt;</pre>
 <div class="sect2">
 <h3 id="_basic_concepts"><a class="anchor" href="#_basic_concepts"></a>2.1. Basic Concepts</h3>
 <div class="paragraph">
-<p>There are a couple of basic concepts to become familiar with in order to begin working with Hugo. Once you begin to become familiar with them, you will hopefully be able to look at a chunk of Hugo source code and&#8212;&#8203;even if you don&#8217;t understand everything it&#8217;s doing&#8212;&#8203;be able to at least get a sense of the general organization.</p>
+<p>There are a couple of basic concepts to become familiar with in order to begin working with Hugo.
+Once you begin to become familiar with them, you will hopefully be able to look at a chunk of Hugo source code and&#8201;&#8212;&#8201;even if you don&#8217;t understand everything it&#8217;s doing&#8201;&#8212;&#8201;be able to at least get a sense of the general organization.</p>
 </div>
 <div class="paragraph">
-<p>First of all, the bulk of programming in Hugo will involve the creation of what are called <em>objects</em>. The word &#8220;object&#8221; in this sense has two meanings. First of all, in a programming sense, objects are discrete subsections of source code. They are referred to by individual names, and they &#8220;do something&#8221;, whether that something is storing data or performing some set of functions or both. In the case of Hugo, however, these are not just abstract tools for structuring a program. Hugo objects are, more often than not, also representative of objects in the &#8220;physical world&#8221; of the game: people, places, and things. If, for example, you want to create a book in your game, you&#8217;ll create a book object that may comprise the description of the book, what&#8217;s written in it, how much it weighs, how many pages it has, what happens when you drop it, and anything else you choose to implement.</p>
+<p>First of all, the bulk of programming in Hugo will involve the creation of what are called <em>objects</em>.
+The word &#8220;object&#8221; in this sense has two meanings.
+First of all, in a programming sense, objects are discrete subsections of source code.
+They are referred to by individual names, and they &#8220;do something&#8221;, whether that something is storing data or performing some set of functions or both.
+In the case of Hugo, however, these are not just abstract tools for structuring a program.
+Hugo objects are, more often than not, also representative of objects in the &#8220;physical world&#8221; of the game: people, places, and things.
+If, for example, you want to create a book in your game, you&#8217;ll create a book object that may comprise the description of the book, what&#8217;s written in it, how much it weighs, how many pages it has, what happens when you drop it, and anything else you choose to implement.</p>
 </div>
 <div class="paragraph">
-<p>The rest of a Hugo program is mostly comprised of <em>routines</em>. These are the sections of code made up of commands or statements that facilitate the actual behavior of the program at different points in the story. (Routines can also be part of a containing object&#8212;&#8203;we&#8217;ll get to that in a little while.) Routines are less frequently (although more frequently in other languages) called &#8220;functions&#8221;--they may be thought of as performing an operation or series of operations, and then optionally <em>returning</em> some kind of answer or result. A program may have a routine called DescribePlace which, when invoked (or &#8220;called&#8221;, in the parlance of programming) would print the description of a given location. The point of routines is that you don&#8217;t have to repeat the same code every time you want a particular task done: you just have to call the routine. Write once, use many times.</p>
+<p>The rest of a Hugo program is mostly comprised of <em>routines</em>.
+These are the sections of code made up of commands or statements that facilitate the actual behavior of the program at different points in the story.
+(Routines can also be part of a containing object&#8201;&#8212;&#8201;we&#8217;ll get to that in a little while.) Routines are less frequently (although more frequently in other languages) called &#8220;functions&#8221;&#8201;&#8212;&#8201;they may be thought of as performing an operation or series of operations, and then optionally <em>returning</em> some kind of answer or result.
+A program may have a routine called DescribePlace which, when invoked (or &#8220;called&#8221;, in the parlance of programming) would print the description of a given location.
+The point of routines is that you don&#8217;t have to repeat the same code every time you want a particular task done: you just have to call the routine.
+Write once, use many times.</p>
 </div>
 <div class="paragraph">
-<p>The idea of return values from a routine is an important one and, while sometimes puzzling to novices, is actually quite uncomplicated. For instance, often a particular function will be described as &#8220;returning true&#8221; or &#8220;returning false&#8221;--all this means is that when it&#8217;s done it returns either a non-zero value (usually 1) or a zero value, usually to indicate whether the function was successful or not at whatever it was being asked to do. A program will constantly be checking the return values of the routines it calls to determine if particular operations have been successful in order to decide what to do next. A routine can return any kind of value (listed shortly in <em>II.c</em> <em>Data Types</em>). A very simple example is a routine that performs a needed operation, such as adding two supplied values, <em>a</em> and <em>b</em>. Let&#8217;s call it AddTwoValues. When AddTwoValues is called with the two supplied values, it will <em>return</em> the sum <em>a</em>+<em>b</em>.</p>
+<p>The idea of return values from a routine is an important one and, while sometimes puzzling to novices, is actually quite uncomplicated.
+For instance, often a particular function will be described as &#8220;returning true&#8221; or &#8220;returning false&#8221;&#8201;&#8212;&#8201;all this means is that when it&#8217;s done it returns either a non-zero value (usually 1) or a zero value, usually to indicate whether the function was successful or not at whatever it was being asked to do.
+A program will constantly be checking the return values of the routines it calls to determine if particular operations have been successful in order to decide what to do next.
+A routine can return any kind of value (listed shortly in <em>II.c</em> <em>Data Types</em>).
+A very simple example is a routine that performs a needed operation, such as adding two supplied values, <em>a</em> and <em>b</em>.
+Let&#8217;s call it AddTwoValues.
+When AddTwoValues is called with the two supplied values, it will <em>return</em> the sum <em>a</em>+<em>b</em>.</p>
 </div>
 <div class="paragraph">
-<p>For those familiar with the common programming languages such as C or Basic (including Visual Basic), Hugo will not be entirely visually unfamiliar. Individual objects and routines&#8212;&#8203;as well as conditional blocks&#8212;&#8203;are enclosed in braces as in C (<code>{&#8230;&#8203;}</code>), but unlike C and other C-like languages, a semicolon is not required at the end of each line to tell the compiler when the line is finished, and the language itself is considerably less cryptic. Keywords, variables, routine and object names, and other tokens are not case-sensitive.</p>
+<p>For those familiar with the common programming languages such as C or Basic (including Visual Basic), Hugo will not be entirely visually unfamiliar.
+Individual objects and routines&#8201;&#8212;&#8201;as well as conditional blocks&#8201;&#8212;&#8201;are enclosed in braces as in C (<code>{&#8230;&#8203;}</code>), but unlike C and other C-like languages, a semicolon is not required at the end of each line to tell the compiler when the line is finished, and the language itself is considerably less cryptic.
+Keywords, variables, routine and object names, and other tokens are not case-sensitive.</p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_hello_sailor"><a class="anchor" href="#_hello_sailor"></a>2.2. Hello, Sailor!</h3>
 <div class="paragraph">
-<p>In the time-honored tradition of programming texts, the introduction to a new programming language is quite often a description of how to print the optimistic phrase &#8220;Hello, world&#8221; as an example of that particular language&#8217;s form and substance. In the almost-equally time-honored tradition of interactive fiction, we&#8217;ll start with the rallying cry &#8220;Hello, Sailor!&#8221;. Here&#8217;s how one accomplishes that in Hugo:</p>
+<p>In the time-honored tradition of programming texts, the introduction to a new programming language is quite often a description of how to print the optimistic phrase &#8220;Hello, world&#8221; as an example of that particular language&#8217;s form and substance.
+In the almost-equally time-honored tradition of interactive fiction, we&#8217;ll start with the rallying cry &#8220;Hello, Sailor!&#8221;.
+Here&#8217;s how one accomplishes that in Hugo:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1231,16 +1268,24 @@ quit
 </div>
 </div>
 <div class="paragraph">
-<p>The entire program consists of one routine. (Two routines are normally required for any Hugo program, the other being the Init routine, which is omitted in this simple example since there isn&#8217;t anything required in the way of initialization.)</p>
+<p>The entire program consists of one routine.
+(Two routines are normally required for any Hugo program, the other being the Init routine, which is omitted in this simple example since there isn&#8217;t anything required in the way of initialization.)</p>
 </div>
 <div class="paragraph">
-<p>The Main routine is automatically called by the engine. It is from here that the central behavior of any Hugo program is controlled. In this case the task at hand is the printing of &#8220;Hello, Sailor!&#8221;, followed by a wait for a keypress (the pause) and an order to exit the program (i.e., quit it) so that we don&#8217;t strand the program waiting for input from the player, which is the normal order of Hugo business.<sup class="footnote">[<a id="_footnoteref_4" class="footnote" href="#_footnotedef_4" title="View footnote.">4</a>]</sup></p>
+<p>The Main routine is automatically called by the engine.
+It is from here that the central behavior of any Hugo program is controlled.
+In this case the task at hand is the printing of &#8220;Hello, Sailor!&#8221;, followed by a wait for a keypress (the pause) and an order to exit the program (i.e., quit it) so that we don&#8217;t strand the program waiting for input from the player, which is the normal order of Hugo business.<sup class="footnote">[<a id="_footnoteref_4" class="footnote" href="#_footnotedef_4" title="View footnote.">4</a>]</sup></p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_data_types"><a class="anchor" href="#_data_types"></a>2.3. Data Types</h3>
 <div class="paragraph">
-<p>Computer programs are mainly about two things: input and output (called <em>i/o</em>, for short), and modifying values. In fact, the bulk of a computer program (that is, what happens behind the scenes, whirring away, unbeknownst to the user) consists of setting, changing, and comparing various values. Hugo is no exception. All data in Hugo is represented in terms of 16-bit integers<sup class="footnote">[<a id="_footnoteref_5" class="footnote" href="#_footnotedef_5" title="View footnote.">5</a>]</sup>, treated as signed (-32768 to 32767) or unsigned (0 to 65535) as appropriate. It&#8217;s up to the compiler and engine to decide what a particular value means in a given context. The name of any individual data type may contain up to 32 alphanumeric characters (as well as the underscore <code>_</code>).</p>
+<p>Computer programs are mainly about two things: input and output (called <em>i/o</em>, for short), and modifying values.
+In fact, the bulk of a computer program (that is, what happens behind the scenes, whirring away, unbeknownst to the user) consists of setting, changing, and comparing various values.
+Hugo is no exception.
+All data in Hugo is represented in terms of 16-bit integers<sup class="footnote">[<a id="_footnoteref_5" class="footnote" href="#_footnotedef_5" title="View footnote.">5</a>]</sup>, treated as signed (-32768 to 32767) or unsigned (0 to 65535) as appropriate.
+It&#8217;s up to the compiler and engine to decide what a particular value means in a given context.
+The name of any individual data type may contain up to 32 alphanumeric characters (as well as the underscore <code>_</code>).</p>
 </div>
 <div class="paragraph">
 <p>All of the following are valid data types:</p>
@@ -1273,13 +1318,14 @@ quit
 <p>Constants true, false, BANNER</p>
 </div>
 <div class="paragraph">
-<p><em>(constant&#8212;&#8203;obviously&#8212;&#8203;values that are given a name similarly to a variable, but are non-modifiable)</em></p>
+<p><em>(constant&#8201;&#8212;&#8201;obviously&#8201;&#8212;&#8201;values that are given a name similarly to a variable, but are non-modifiable)</em></p>
 </div>
 <div class="paragraph">
 <p>Dictionary entries "a", "the", "basketball"</p>
 </div>
 <div class="paragraph">
-<p><em>_(The appearance of <code>the</code> in a line of code actually refers to the location in the dictionary table where the word &#8220;the&#8221; is stored. Dictionary entries are non-modifiable.)</em></p>
+<p><em>_(The appearance of <code>the</code> in a line of code actually refers to the location in the dictionary table where the word &#8220;the&#8221; is stored.
+Dictionary entries are non-modifiable.)</em></p>
 </div>
 <div class="paragraph">
 <p>Array elements ranking[1]</p>
@@ -1291,7 +1337,7 @@ quit
 <p>Array addresses ranking</p>
 </div>
 <div class="paragraph">
-<p><em>(the base point of an array&#8212;&#8203;see above; the array address itself is non-modifiable, unlike the contents of the array)</em></p>
+<p><em>(the base point of an array&#8201;&#8212;&#8201;see above; the array address itself is non-modifiable, unlike the contents of the array)</em></p>
 </div>
 <div class="paragraph">
 <p>Properties nouns, short_desc, found_in</p>
@@ -1306,7 +1352,11 @@ quit
 <p><em>(less complex attachments of data describing an object, which may be specified as either having or not having the given attribute)</em></p>
 </div>
 <div class="paragraph">
-<p>Most of these types are relatively straightforward, representing in most cases a simple value. As noted, some values are dynamic (modifiable), while others are static (non-modifiable). Dictionary entries are addresses in the dictionary table (comprising all dictionary words in the .HEX file), with the empty string <code>""</code> having the value 0. Array addresses (as opposed to separate array elements) represent the address at which the array begins in the array table (comprising all array data in the .HEX file). Properties and attributes treated as discrete values represent the number of that property or attribute, assigned sequentially as the individual property or attribute is defined.</p>
+<p>Most of these types are relatively straightforward, representing in most cases a simple value.
+As noted, some values are dynamic (modifiable), while others are static (non-modifiable).
+Dictionary entries are addresses in the dictionary table (comprising all dictionary words in the .HEX file), with the empty string <code>""</code> having the value 0.
+Array addresses (as opposed to separate array elements) represent the address at which the array begins in the array table (comprising all array data in the .HEX file).
+Properties and attributes treated as discrete values represent the number of that property or attribute, assigned sequentially as the individual property or attribute is defined.</p>
 </div>
 <div class="paragraph">
 <p>As mentioned, routines also return values, as do built-in<sup class="footnote">[<a id="_footnoteref_6" class="footnote" href="#_footnotedef_6" title="View footnote.">6</a>]</sup> engine functions, so that</p>
@@ -1328,7 +1378,8 @@ quit
 <p>are also valid integer data types. <sup class="footnote">[<a id="_footnoteref_7" class="footnote" href="#_footnotedef_7" title="View footnote.">7</a>]</sup></p>
 </div>
 <div class="paragraph">
-<p>It&#8217;s good medicine to be as descriptive as possible in naming symbols, regardless of what you&#8217;re naming. A variable that holds the count of a number of objects <em>could</em> be called n, but it&#8217;s almost always better (especially after the fact, when you&#8217;re looking at code you&#8217;ve written days or even months before) to call it something more helpful like object_count.</p>
+<p>It&#8217;s good medicine to be as descriptive as possible in naming symbols, regardless of what you&#8217;re naming.
+A variable that holds the count of a number of objects <em>could</em> be called n, but it&#8217;s almost always better (especially after the fact, when you&#8217;re looking at code you&#8217;ve written days or even months before) to call it something more helpful like object_count.</p>
 </div>
 <div class="paragraph">
 <p>At this point it&#8217;s probably helpful to know that you can assign a value to a variable using the form:</p>
@@ -1383,7 +1434,8 @@ quit
 </div>
 </div>
 <div class="paragraph">
-<p>again and hope that this time it will assign the address of Routine to the variable x, since that will assign to x the value <em>returned by</em> Routine. Instead, you can use the address operator <code>&amp;</code>, as in:</p>
+<p>again and hope that this time it will assign the address of Routine to the variable x, since that will assign to x the value <em>returned by</em> Routine.
+Instead, you can use the address operator <code>&amp;</code>, as in:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1465,7 +1517,8 @@ line."</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Care must be taken, however, to ensure that the closing quotes are not left off the string constant. Failing that, the compiler will likely generate a &#8220;Closing brace missing&#8221; or similar error when it overruns the object/routine/event boundary looking for a resolution to the odd number of quotation marks.</p>
+<p>Care must be taken, however, to ensure that the closing quotes are not left off the string constant.
+Failing that, the compiler will likely generate a &#8220;Closing brace missing&#8221; or similar error when it overruns the object/routine/event boundary looking for a resolution to the odd number of quotation marks.</p>
 </div>
 <div class="paragraph">
 <p>(Habitual double-space-after-a-period typists may find it useful to use the <code>\</code> character for line continuation in situations like this:</p>
@@ -1485,13 +1538,15 @@ line."</code></pre>
 <p>giving:</p>
 </div>
 <div class="paragraph">
-<p>Here, we&#8217;ll end a sentence on one line. However, we&#8217;d like to make sure there are two spaces before the second sentence.</p>
+<p>Here, we&#8217;ll end a sentence on one line.
+However, we&#8217;d like to make sure there are two spaces before the second sentence.</p>
 </div>
 <div class="paragraph">
 <p>since normally, if the <code>/</code> were omitted after &#8220;&#8230;&#8203;on one line.&#8221;, the compiler would assume only a single space before continuing with &#8220;However&#8230;&#8203;&#8221; from the next line.)</p>
 </div>
 <div class="paragraph">
-<p>Also, most lines ending in a comma, and, or or will automatically continue on to the next line (if they occur in a line of code). In other words:</p>
+<p>Also, most lines ending in a comma, and, or or will automatically continue on to the next line (if they occur in a line of code).
+In other words:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1536,7 +1591,7 @@ b = "tall"</code></pre>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Multiple lines that are not strictly code, such as property assignments in object definitions&#8212;&#8203;to be discussed shortly&#8212;&#8203;must still be joined with <code>\</code>, as in</p>
+<p>Multiple lines that are not strictly code, such as property assignments in object definitions&#8201;&#8212;&#8201;to be discussed shortly&#8201;&#8212;&#8201;must still be joined with <code>\</code>, as in</p>
 </div>
 </td>
 </tr>
@@ -1595,7 +1650,9 @@ y = 1</code></pre>
 <div class="sect2">
 <h3 id="_comments"><a class="anchor" href="#_comments"></a>2.5. Comments</h3>
 <div class="paragraph">
-<p>Comments allow you to insert notes into source code to serve as reminders, descriptions of what a particular chunk of code does, put a curse upon the libary/language author, or whatever else you want. Comments are <em>very helpful</em>, and beginning programmers tend to put in either too many comments or too few. Despite the complaints that some people may have about over-commented code&#8212;&#8203;generally referring to commenting a line like:</p>
+<p>Comments allow you to insert notes into source code to serve as reminders, descriptions of what a particular chunk of code does, put a curse upon the libary/language author, or whatever else you want.
+Comments are <em>very helpful</em>, and beginning programmers tend to put in either too many comments or too few.
+Despite the complaints that some people may have about over-commented code&#8201;&#8212;&#8201;generally referring to commenting a line like:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1603,10 +1660,14 @@ y = 1</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>with the rather obvious explanation of <code>set x equal to 5</code>--it&#8217;s always better to err on the side of too many comments in order to avoid the situation that every programmer find himself or herself in at least once (and once only if very, very lucky) of trying to remember what a piece of code does that you wrote yesterday, or last week, or several months ago. Comment, comment, comment.<sup class="footnote">[<a id="_footnoteref_9" class="footnote" href="#_footnotedef_9" title="View footnote.">9</a>]</sup></p>
+<p>with the rather obvious explanation of <code>set x equal to 5</code>&#8201;&#8212;&#8201;it&#8217;s always better to err on the side of too many comments in order to avoid the situation that every programmer find himself or herself in at least once (and once only if very, very lucky) of trying to remember what a piece of code does that you wrote yesterday, or last week, or several months ago.
+Comment, comment, comment.<sup class="footnote">[<a id="_footnoteref_9" class="footnote" href="#_footnotedef_9" title="View footnote.">9</a>]</sup></p>
 </div>
 <div class="paragraph">
-<p>There are two types of comments. Comments on a single line begin with a <code>!</code>. Anything following on the line is ignored. Multiple-line comments are begun with <code>!\</code> and ended with <code>\!</code>.</p>
+<p>There are two types of comments.
+Comments on a single line begin with a <code>!</code>.
+Anything following on the line is ignored.
+Multiple-line comments are begun with <code>!\</code> and ended with <code>\!</code>.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1625,7 +1686,8 @@ comment \!</code></pre>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>The <code>!\</code> combination must come at the start of a line to be significant; it cannot be preceded by any other statements or remarks. Similarly, the <code>\!</code> combination must come at the end of a line (or alone on an otherwise blank line).</p>
+<p>The <code>!\</code> combination must come at the start of a line to be significant; it cannot be preceded by any other statements or remarks.
+Similarly, the <code>\!</code> combination must come at the end of a line (or alone on an otherwise blank line).</p>
 </div>
 </td>
 </tr>
@@ -1635,10 +1697,12 @@ comment \!</code></pre>
 <div class="sect2">
 <h3 id="_compiler_errors_and_warnings"><a class="anchor" href="#_compiler_errors_and_warnings"></a>2.6. Compiler Errors And Warnings</h3>
 <div class="paragraph">
-<p>The compiler is pretty good about catching you when you do something that isn&#8217;t going to work. When it encounters something in your source code that doesn&#8217;t make sense, or is illegal in terms of the Hugo language, it&#8217;ll tell you.</p>
+<p>The compiler is pretty good about catching you when you do something that isn&#8217;t going to work.
+When it encounters something in your source code that doesn&#8217;t make sense, or is illegal in terms of the Hugo language, it&#8217;ll tell you.</p>
 </div>
 <div class="paragraph">
-<p>A compiler error is generally of one of two types. A fatal error looks like this:</p>
+<p>A compiler error is generally of one of two types.
+A fatal error looks like this:</p>
 </div>
 <div class="literalblock cmd">
 <div class="content">
@@ -1646,7 +1710,8 @@ comment \!</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>and halts compiler execution. Fatal errors include things like not being able to find a requested file, encountering some sort of i/o difficulty (such as not being able to read from or write to a necessary file), or having encountered something in the source code that makes it impossible to continue with compilation.</p>
+<p>and halts compiler execution.
+Fatal errors include things like not being able to find a requested file, encountering some sort of i/o difficulty (such as not being able to read from or write to a necessary file), or having encountered something in the source code that makes it impossible to continue with compilation.</p>
 </div>
 <div class="paragraph">
 <p>A non-fatal error typically looks like:</p>
@@ -1657,7 +1722,9 @@ comment \!</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Non-fatal errors are usually programming mistakes: either doing something illegal (like trying to assign a value to something to which you&#8217;re not allowed to assign a value), making a syntax error such as using a symbol name that the compiler doesn&#8217;t know about (often due to a typing mistake), or making a formatting mistake (like missing something that the compiler knows is supposed to be coming next but you forgot to include). Unless the -a switch is specified at invocation to tell the compiler to quit after the first error, multiple non-fatal errors may be printed. The side-effect of this is that a specific error (particularly a formatting error) may affect many lines of code after it, so that the compiler&#8212;&#8203;having become lost and not really knowing what you&#8217;re trying to do&#8212;&#8203;may report a whole string of errors, even on lines that, if the compiler understood their proper context, would be error free.<sup class="footnote">[<a id="_footnoteref_10" class="footnote" href="#_footnotedef_10" title="View footnote.">10</a>]</sup></p>
+<p>Non-fatal errors are usually programming mistakes: either doing something illegal (like trying to assign a value to something to which you&#8217;re not allowed to assign a value), making a syntax error such as using a symbol name that the compiler doesn&#8217;t know about (often due to a typing mistake), or making a formatting mistake (like missing something that the compiler knows is supposed to be coming next but you forgot to include).
+Unless the -a switch is specified at invocation to tell the compiler to quit after the first error, multiple non-fatal errors may be printed.
+The side-effect of this is that a specific error (particularly a formatting error) may affect many lines of code after it, so that the compiler&#8201;&#8212;&#8201;having become lost and not really knowing what you&#8217;re trying to do&#8201;&#8212;&#8201;may report a whole string of errors, even on lines that, if the compiler understood their proper context, would be error free.<sup class="footnote">[<a id="_footnoteref_10" class="footnote" href="#_footnotedef_10" title="View footnote.">10</a>]</sup></p>
 </div>
 <div class="paragraph">
 <p>When a compiler issues a warning, it looks like:</p>
@@ -1683,7 +1750,8 @@ comment \!</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>It prints the section of code that caused the error, followed by an explanation of the problem. Compilation will generally continue unless the -a switch has been set.</p>
+<p>It prints the section of code that caused the error, followed by an explanation of the problem.
+Compilation will generally continue unless the -a switch has been set.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -1703,7 +1771,8 @@ comment \!</code></pre>
 <div class="sect2">
 <h3 id="_compiler_directives"><a class="anchor" href="#_compiler_directives"></a>2.7. Compiler Directives</h3>
 <div class="paragraph">
-<p>A number of special commands may be used that aren&#8217;t really part of a Huge program <em>per se</em>, but rather give instructions to the compiler itself to determine (a) how the source code&#8212;&#8203;or a part thereof&#8212;&#8203;is read by the compiler and (b) what special output will be generated at compile-time. These special commands or instructions are called <em>compiler directives</em>, and are preceded with a <code>#</code> character to set them apart.</p>
+<p>A number of special commands may be used that aren&#8217;t really part of a Huge program <em>per se</em>, but rather give instructions to the compiler itself to determine (a) how the source code&#8201;&#8212;&#8201;or a part thereof&#8201;&#8212;&#8201;is read by the compiler and (b) what special output will be generated at compile-time.
+These special commands or instructions are called <em>compiler directives</em>, and are preceded with a <code>#</code> character to set them apart.</p>
 </div>
 <div class="paragraph">
 <p>To set switches within the source code so that they do not have to be specified each time the compiler is invoked for that particular program, the line</p>
@@ -1714,7 +1783,8 @@ comment \!</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>will set the switches specified by &lt;sequence&gt;, where &lt;sequence&gt; is a string of characters representing valid switches, without any separators between characters. Many programmers may find it useful to make</p>
+<p>will set the switches specified by &lt;sequence&gt;, where &lt;sequence&gt; is a string of characters representing valid switches, without any separators between characters.
+Many programmers may find it useful to make</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1733,7 +1803,8 @@ comment \!</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>specifies that the file is to be used with version &lt;version&gt;.&lt;revision&gt; of the compiler. If the file and compiler version are mismatched, a warning will be issued.</p>
+<p>specifies that the file is to be used with version &lt;version&gt;.&lt;revision&gt; of the compiler.
+If the file and compiler version are mismatched, a warning will be issued.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -1743,7 +1814,8 @@ comment \!</code></pre>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>The #version directive is intended mainly for things like library files, and although you may use it in your own source files, it isn&#8217;t necessary. Its general usage is largely deprecated.</p>
+<p>The #version directive is intended mainly for things like library files, and although you may use it in your own source files, it isn&#8217;t necessary.
+Its general usage is largely deprecated.</p>
 </div>
 </td>
 </tr>
@@ -1758,10 +1830,19 @@ comment \!</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>where <strong>&lt;filename&gt;</strong> is the full path and name of the file to be read. When <strong>&lt;filename&gt;</strong> has been read completely, the compiler resumes with the statement immediately following the #include directive. There is no limit on the number of files that a single file may include; also, a file may include a file which includes another file which includes another file and so on. (A file or set of files can be compiled into a precompiled header using the -h switch, and then linked using #link instead of #include. See <em>APPENDIX E:</em> <em>PRECOMPILED HEADERS</em>.)</p>
+<p>where <strong>&lt;filename&gt;</strong> is the full path and name of the file to be read.
+When <strong>&lt;filename&gt;</strong> has been read completely, the compiler resumes with the statement immediately following the #include directive.
+There is no limit on the number of files that a single file may include; also, a file may include a file which includes another file which includes another file and so on.
+(A file or set of files can be compiled into a precompiled header using the -h switch, and then linked using #link instead of #include.
+See <em>APPENDIX E: PRECOMPILED HEADERS</em>.)</p>
 </div>
 <div class="paragraph">
-<p>A useful tool for managing Hugo source code is the ability to use compiler flags for conditional compilation. A compiler flag is simply a user-defined marker that can control which sections of the source code are compiled. In this way, a programmer can demarcate sections of a program that can be included or excluded at will. For example, the library files <strong>hugolib.h</strong>, <strong>verblib.h</strong>, and <strong>verblib.g</strong> check to see if a flag called DEBUG has been set previously (as it is in <strong>sample.hug</strong>). Only if it has do they include the <strong>hugofix.h</strong> and <strong>hugofix.g</strong> files, which in turn provide certain debugging features to a running Hugo program. (For a final version to be released to the general public for playing, then, by simply not setting the DEBUG flag those special features are not enabled.)</p>
+<p>A useful tool for managing Hugo source code is the ability to use compiler flags for conditional compilation.
+A compiler flag is simply a user-defined marker that can control which sections of the source code are compiled.
+In this way, a programmer can demarcate sections of a program that can be included or excluded at will.
+For example, the library files <strong>hugolib.h</strong>, <strong>verblib.h</strong>, and <strong>verblib.g</strong> check to see if a flag called DEBUG has been set previously (as it is in <strong>sample.hug</strong>).
+Only if it has do they include the <strong>hugofix.h</strong> and <strong>hugofix.g</strong> files, which in turn provide certain debugging features to a running Hugo program.
+(For a final version to be released to the general public for playing, then, by simply not setting the DEBUG flag those special features are not enabled.)</p>
 </div>
 <div class="paragraph">
 <p>To set and clear flags, use</p>
@@ -1780,7 +1861,8 @@ comment \!</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>respectively. (Flags can also be explicitly set on the command line during compiler invocation via</p>
+<p>respectively.
+(Flags can also be explicitly set on the command line during compiler invocation via</p>
 </div>
 <div class="literalblock cmd">
 <div class="content">
@@ -1815,7 +1897,8 @@ _...conditional block of code..._
 </div>
 </div>
 <div class="paragraph">
-<p>Conditional compilation constructions may be nested up to 32 levels deep. (Note also that compiler flags can be specified in the invocation line as <strong>#&lt;flag name&gt;</strong>.)</p>
+<p>Conditional compilation constructions may be nested up to 32 levels deep.
+(Note also that compiler flags can be specified in the invocation line as <strong>#&lt;flag name&gt;</strong>.)</p>
 </div>
 <div class="paragraph">
 <p><code>#if set</code> and <code>#if clear</code> are the long form of <code>#ifset</code> and <code>#ifclear</code>, allowing usage of <code>#elseif</code> for code such as:</p>
@@ -1882,7 +1965,8 @@ _...conditional block of code..._
 </td>
 <td class="content">
 <div class="paragraph">
-<p>It&#8217;s worth pointing out that all of the text printed in the above #if/#elseif example is <em>compile-time</em> output, not <em>runtime</em> output. That is, it&#8217;s printed only when the compiler initially compiles the source code, not when a player plays the actual game.</p>
+<p>It&#8217;s worth pointing out that all of the text printed in the above #if/#elseif example is <em>compile-time</em> output, not <em>runtime</em> output.
+That is, it&#8217;s printed only when the compiler initially compiles the source code, not when a player plays the actual game.</p>
 </div>
 </td>
 </tr>
@@ -1897,7 +1981,9 @@ _...conditional block of code..._
 </div>
 </div>
 <div class="paragraph">
-<p>in the same way as in the invocation line. However, an error will be issued if, for example, an attempt is made to reset MAXOBJECTS if one or more objects have already been defined. Any limit settings in the code of a program must be done before the particular data type for which a new limit is being set has been used.</p>
+<p>in the same way as in the invocation line.
+However, an error will be issued if, for example, an attempt is made to reset MAXOBJECTS if one or more objects have already been defined.
+Any limit settings in the code of a program must be done before the particular data type for which a new limit is being set has been used.</p>
 </div>
 </div>
 <div class="sect2">
@@ -1925,7 +2011,8 @@ _...conditional block of code..._
 </ul>
 </div>
 <div class="paragraph">
-<p>To experiment a little, make a copy of <strong>sample.hug</strong> and call it something like <strong>test.hug</strong> so that we can modify and use it without changing the original sample game source code. Pick a line in the new file <strong>test.hug</strong> like:</p>
+<p>To experiment a little, make a copy of <strong>sample.hug</strong> and call it something like <strong>test.hug</strong> so that we can modify and use it without changing the original sample game source code.
+Pick a line in the new file <strong>test.hug</strong> like:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1949,7 +2036,8 @@ _...conditional block of code..._
 </div>
 </div>
 <div class="paragraph">
-<p>(Depending on the contents of <strong>test.hug</strong>, the actual line number may vary.) Once we&#8217;ve seen the effect of that, go back and remove the <code>asdf</code> from <strong>test.hug</strong>. Next, let&#8217;s try adding the line:</p>
+<p>(Depending on the contents of <strong>test.hug</strong>, the actual line number may vary.) Once we&#8217;ve seen the effect of that, go back and remove the <code>asdf</code> from <strong>test.hug</strong>.
+Next, let&#8217;s try adding the line:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1957,7 +2045,9 @@ _...conditional block of code..._
 </div>
 </div>
 <div class="paragraph">
-<p>to the start of <strong>test.hug</strong>. Compile again, and you&#8217;ll see this time a whole bunch of compiler errors. Most importantly are the first couple, which look something like:</p>
+<p>to the start of <strong>test.hug</strong>.
+Compile again, and you&#8217;ll see this time a whole bunch of compiler errors.
+Most importantly are the first couple, which look something like:</p>
 </div>
 <div class="literalblock cmd">
 <div class="content">
@@ -1979,7 +2069,9 @@ _...conditional block of code..._
 <div class="sect2">
 <h3 id="_getting_to_know_your_objects"><a class="anchor" href="#_getting_to_know_your_objects"></a>3.1. Getting To Know Your Objects</h3>
 <div class="paragraph">
-<p>Objects are the building blocks of any Hugo program. Anything that will be accessible to a player during the game&#8212;&#8203;including items, rooms, other characters, and even directions&#8212;&#8203;will most likely be defined as an object. The basic object definition looks like this:</p>
+<p>Objects are the building blocks of any Hugo program.
+Anything that will be accessible to a player during the game&#8201;&#8212;&#8201;including items, rooms, other characters, and even directions&#8201;&#8212;&#8201;will most likely be defined as an object.
+The basic object definition looks like this:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -2003,10 +2095,15 @@ _...conditional block of code..._
 </div>
 </div>
 <div class="paragraph">
-<p>The enclosing braces are needed even if the object definition has no content (yet). The only data attached to the suitcase object are&#8212;&#8203;from right to left&#8212;&#8203;a name (&#8220;suitcase&#8221;), an internal identifier (mysuitcase), and membership in the basic object class.</p>
+<p>The enclosing braces are needed even if the object definition has no content (yet).
+The only data attached to the suitcase object are&#8201;&#8212;&#8201;from right to left&#8201;&#8212;&#8201;a name (&#8220;suitcase&#8221;), an internal identifier (mysuitcase), and membership in the basic object class.</p>
 </div>
 <div class="paragraph">
-<p>The compiler assigns the object labeled &lt;objectname&gt; the next sequential object number. The first-defined object is object 0; the next-defined object is object number 1; the one after that is 2, etc. This is academic, however, as a programmer almost never need know what object number a particular object is&#8212;&#8203;except for certain debugging situations&#8212;&#8203;and can always refer to an object by its label &lt;objectname&gt;. If no explicit &#8220;object name&#8221; (or name property) is provided, the compiler automatically gives it the name <code>(&lt;objectname&gt;)</code>, i.e., &lt;objectname&gt; in parentheses. That is, whereas</p>
+<p>The compiler assigns the object labeled &lt;objectname&gt; the next sequential object number.
+The first-defined object is object 0; the next-defined object is object number 1; the one after that is 2, etc.
+This is academic, however, as a programmer almost never need know what object number a particular object is&#8201;&#8212;&#8201;except for certain debugging situations&#8201;&#8212;&#8201;and can always refer to an object by its label &lt;objectname&gt;.
+If no explicit &#8220;object name&#8221; (or name property) is provided, the compiler automatically gives it the name <code>(&lt;objectname&gt;)</code>, i.e., &lt;objectname&gt; in parentheses.
+That is, whereas</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -2026,7 +2123,8 @@ _...conditional block of code..._
 </div>
 </div>
 <div class="paragraph">
-<p>creates an object called <code>(placeholder)</code>. Usually the latter is used for system objects or classes (see <em>III.e</em> <em>Classes</em>) that will never actually appear in a game.</p>
+<p>creates an object called <code>(placeholder)</code>.
+Usually the latter is used for system objects or classes (see <em>III.e Classes</em>) that will never actually appear in a game.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -2036,7 +2134,9 @@ _...conditional block of code..._
 </td>
 <td class="content">
 <div class="paragraph">
-<p>The compiler automatically creates an object called <code>display</code> as the last-defined object if no other object named <code>display</code> is defined by the program (or the library). The display object can be used to get information about the engine&#8217;s output state and capabilities. See section* <em>XI.a The Display Object</em>.</p>
+<p>The compiler automatically creates an object called <code>display</code> as the last-defined object if no other object named <code>display</code> is defined by the program (or the library).
+The display object can be used to get information about the engine&#8217;s output state and capabilities.
+See section* <em>XI.a The Display Object</em>.</p>
 </div>
 </td>
 </tr>
@@ -2046,10 +2146,13 @@ _...conditional block of code..._
 <div class="sect2">
 <h3 id="_the_object_tree"><a class="anchor" href="#_the_object_tree"></a>3.2. The Object Tree</h3>
 <div class="paragraph">
-<p>In order for objects to have a &#8220;physical place&#8221; in the game, i.e., to be in a room or contained in another object or beside another object, they must occupy a position in the object tree. The object tree is a simple map which represents the relationships between all objects in the game. The total number of objects is held in the global variable objects.</p>
+<p>In order for objects to have a &#8220;physical place&#8221; in the game, i.e., to be in a room or contained in another object or beside another object, they must occupy a position in the object tree.
+The object tree is a simple map which represents the relationships between all objects in the game.
+The total number of objects is held in the global variable objects.</p>
 </div>
 <div class="paragraph">
-<p>The <code>nothing</code> object is defined in the library as object 0 and is referred to in code using the label nothing. This is the root of the object tree, upon which all other objects are based.<sup class="footnote">[<a id="_footnoteref_11" class="footnote" href="#_footnotedef_11" title="View footnote.">11</a>]</sup> (And again, the name <code>nothing</code> is given to this first object by the library.)</p>
+<p>The <code>nothing</code> object is defined in the library as object 0 and is referred to in code using the label nothing.
+This is the root of the object tree, upon which all other objects are based.<sup class="footnote">[<a id="_footnoteref_11" class="footnote" href="#_footnotedef_11" title="View footnote.">11</a>]</sup> (And again, the name <code>nothing</code> is given to this first object by the library.)</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -2059,14 +2162,17 @@ _...conditional block of code..._
 </td>
 <td class="content">
 <div class="paragraph">
-<p>When using the standard library routines, ensure that no objects (or classes, to be discussed later) are defined before hugolib.h is included. Problems will arise if the first-defined object&#8212;&#8203;object 0&#8212;&#8203;is not the nothing object. Currently the library will point this out for you as a runtime error if for some reason it&#8217;s not the case.</p>
+<p>When using the standard library routines, ensure that no objects (or classes, to be discussed later) are defined before hugolib.h is included.
+Problems will arise if the first-defined object&#8201;&#8212;&#8201;object 0&#8201;&#8212;&#8201;is not the nothing object.
+Currently the library will point this out for you as a runtime error if for some reason it&#8217;s not the case.</p>
 </div>
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>When referring to object numbers, this manual is generally referring to the name given the object in the source code: i.e., &lt;objectname&gt;. The compiler automatically assigns each object an object number, and refers to it whenever a specified &lt;objectname&gt; is encountered.</p>
+<p>When referring to object numbers, this manual is generally referring to the name given the object in the source code: i.e., &lt;objectname&gt;.
+The compiler automatically assigns each object an object number, and refers to it whenever a specified &lt;objectname&gt; is encountered.</p>
 </div>
 <div class="paragraph">
 <p>Here is an example of an object tree:</p>
@@ -2300,7 +2406,10 @@ Spoon</pre>
 <p>(In keeping with the above explanation of object numbers and &lt;objectname&gt;, the functions in the first set actually return an integer number that refers to the object &lt;objectname&gt;.)</p>
 </div>
 <div class="paragraph">
-<p>To better understand how the object tree represents the physical world, the table, the chair, the book, and the player are all in the room. The bookmark is in the book. The bowl is on the table, and the spoon is on the bowl. The Hugo library will assume that the player object in the example is standing; if the player were seated, the object tree might look like:</p>
+<p>To better understand how the object tree represents the physical world, the table, the chair, the book, and the player are all in the room.
+The bookmark is in the book.
+The bowl is on the table, and the spoon is on the bowl.
+The Hugo library will assume that the player object in the example is standing; if the player were seated, the object tree might look like:</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -2347,7 +2456,9 @@ Spoon</pre>
 </table>
 </div>
 <div class="paragraph">
-<p>(Try compiling <strong>sample.hug</strong> with the -o switch in order to see the object tree for the sample game. Or, if the DEBUG flag was set during compilation, use the HugoFix<sup class="footnote">[<a id="_footnoteref_12" class="footnote" href="#_footnotedef_12" title="View footnote.">12</a>]</sup> command <code>$ot</code> or <code>$ot &lt;object&gt;</code> during play to view the current state of the object tree during play. Compiling with the -d switch will generate a debuggable (.HDX) version of the file&#8212;&#8203;the object tree can then be viewed directly from the debugger.)</p>
+<p>(Try compiling <strong>sample.hug</strong> with the -o switch in order to see the object tree for the sample game.
+Or, if the DEBUG flag was set during compilation, use the HugoFix<sup class="footnote">[<a id="_footnoteref_12" class="footnote" href="#_footnotedef_12" title="View footnote.">12</a>]</sup> command <code>$ot</code> or <code>$ot &lt;object&gt;</code> during play to view the current state of the object tree during play.
+Compiling with the -d switch will generate a debuggable (.HDX) version of the file&#8201;&#8212;&#8201;the object tree can then be viewed directly from the debugger.)</p>
 </div>
 <div class="paragraph">
 <p>To initially place an object in the object tree, use</p>
@@ -2374,7 +2485,9 @@ Spoon</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>to give the object the same parent as &lt;object&gt; or, if &lt;object&gt; is not specified, the same parent as the last-defined object. If no such specification is given (i.e., if you don&#8217;t tell the compiler explicitly where to place the new object), the parent object defaults to 0&#8212;&#8203;the <code>nothing</code> object as defined in the library. All normal room objects have 0 as their parent.</p>
+<p>to give the object the same parent as &lt;object&gt; or, if &lt;object&gt; is not specified, the same parent as the last-defined object.
+If no such specification is given (i.e., if you don&#8217;t tell the compiler explicitly where to place the new object), the parent object defaults to 0&#8201;&#8212;&#8201;the <code>nothing</code> object as defined in the library.
+All normal room objects have 0 as their parent.</p>
 </div>
 <div class="paragraph">
 <p>Therefore, the expanded basic case of an object definition is</p>
@@ -2393,7 +2506,8 @@ in &lt;parent object&gt;
 </div>
 </div>
 <div class="paragraph">
-<p>(Ensure that the opening brace <code>{</code> does not come on the same line as the object definition. Trying to do:</p>
+<p>(Ensure that the opening brace <code>{</code> does not come on the same line as the object definition.
+Trying to do:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -2486,7 +2600,8 @@ Table ——— Chair ——- Book ——— Player
 <p>The object may of course be moved to any position later.</p>
 </div>
 <div class="paragraph">
-<p>Logical tests can also be evaluated with regard to objects and children. The structure</p>
+<p>Logical tests can also be evaluated with regard to objects and children.
+The structure</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -2494,7 +2609,8 @@ Table ——— Chair ——- Book ——— Player
 </div>
 </div>
 <div class="paragraph">
-<p>will be true if &lt;object&gt; is in &lt;parent&gt; (or false if not is used). In this way, you can write a piece of code that looks something like:</p>
+<p>will be true if &lt;object&gt; is in &lt;parent&gt; (or false if not is used).
+In this way, you can write a piece of code that looks something like:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -2522,7 +2638,8 @@ print "The suitcase is not in the bedroom."
 <div class="sect2">
 <h3 id="_attributes"><a class="anchor" href="#_attributes"></a>3.3. Attributes</h3>
 <div class="paragraph">
-<p>Attributes are essentially qualities that every object either does or doesn&#8217;t have<sup class="footnote">[<a id="_footnoteref_13" class="footnote" href="#_footnotedef_13" title="View footnote.">13</a>]</sup>. An attribute is defined as</p>
+<p>Attributes are essentially qualities that every object either does or doesn&#8217;t have<sup class="footnote">[<a id="_footnoteref_13" class="footnote" href="#_footnotedef_13" title="View footnote.">13</a>]</sup>.
+An attribute is defined as</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -2530,7 +2647,8 @@ print "The suitcase is not in the bedroom."
 </div>
 </div>
 <div class="paragraph">
-<p>Up to 128 attributes may be defined. Those defined in <strong>hugolib.h</strong> include:</p>
+<p>Up to 128 attributes may be defined.
+Those defined in <strong>hugolib.h</strong> include:</p>
 </div>
 <div class="paragraph">
 <p>known if an object is known to the player</p>
@@ -2623,7 +2741,8 @@ print "The suitcase is not in the bedroom."
 <p>special for miscellaneous use</p>
 </div>
 <div class="paragraph">
-<p>Some of these attributes are actually the same attribute with different names. This is primarily just to save on the absolute number of attributes defined and is accomplished via</p>
+<p>Some of these attributes are actually the same attribute with different names.
+This is primarily just to save on the absolute number of attributes defined and is accomplished via</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -2631,7 +2750,8 @@ print "The suitcase is not in the bedroom."
 </div>
 </div>
 <div class="paragraph">
-<p>where &lt;attribute1&gt; has already been defined. For example, the library equates visited with moved (since, presumably, they will never apply to the same object&#8212;&#8203;rooms are never moved and objects are never visited), so:</p>
+<p>where &lt;attribute1&gt; has already been defined.
+For example, the library equates visited with moved (since, presumably, they will never apply to the same object&#8201;&#8212;&#8201;rooms are never moved and objects are never visited), so:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -2639,7 +2759,8 @@ print "The suitcase is not in the bedroom."
 </div>
 </div>
 <div class="paragraph">
-<p>In this case, an object which is visited is also, by default, moved, so it is expected that attributes which are aliased will never both need to be checked under the same circumstances. For the most part, you should never need to alias your own attributes, although it&#8217;s helpful to know what it means since the library does it, and you may run across it in other places.</p>
+<p>In this case, an object which is visited is also, by default, moved, so it is expected that attributes which are aliased will never both need to be checked under the same circumstances.
+For the most part, you should never need to alias your own attributes, although it&#8217;s helpful to know what it means since the library does it, and you may run across it in other places.</p>
 </div>
 <div class="paragraph">
 <p>Attributes are given to an object during its definition as follows:</p>
@@ -2698,7 +2819,8 @@ is openable, not open
 </div>
 </div>
 <div class="paragraph">
-<p>where the not keyword clears the attribute instead of setting it. For example, when the suitcase is opened, somewhere (likely in the library), the command</p>
+<p>where the not keyword clears the attribute instead of setting it.
+For example, when the suitcase is opened, somewhere (likely in the library), the command</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -2706,7 +2828,8 @@ is openable, not open
 </div>
 </div>
 <div class="paragraph">
-<p>will be executed. When the suitcase is closed, the command will be:</p>
+<p>will be executed.
+When the suitcase is closed, the command will be:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -2714,7 +2837,8 @@ is openable, not open
 </div>
 </div>
 <div class="paragraph">
-<p>Attributes can also be read using the is and is not structures and evaluate to either true or false. In code, the expression</p>
+<p>Attributes can also be read using the is and is not structures and evaluate to either true or false.
+In code, the expression</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -2722,7 +2846,9 @@ is openable, not open
 </div>
 </div>
 <div class="paragraph">
-<p>returns true (1) if &lt;object&gt; is (or is not, if not is specified) &lt;attribute&gt;. Otherwise, it returns false (0). Therefore, given the suitcase object definition:</p>
+<p>returns true (1) if &lt;object&gt; is (or is not, if not is specified) &lt;attribute&gt;.
+Otherwise, it returns false (0).
+Therefore, given the suitcase object definition:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -2755,7 +2881,10 @@ mysuitcase is locked = 0 ! or false</code></pre>
 <div class="sect2">
 <h3 id="_properties"><a class="anchor" href="#_properties"></a>3.4. Properties</h3>
 <div class="paragraph">
-<p>Properties are considerably more complex than attributes. First, not every object may have every property; in order for an object to have a property, it must be specified in the object definition at the time you create the object. As well, properties are not simple on/off flags. They are sets of valid data associated with an object, where the values may represent almost anything, including object numbers, dictionary addresses, integer values, and sections of executable code.</p>
+<p>Properties are considerably more complex than attributes.
+First, not every object may have every property; in order for an object to have a property, it must be specified in the object definition at the time you create the object.
+As well, properties are not simple on/off flags.
+They are sets of valid data associated with an object, where the values may represent almost anything, including object numbers, dictionary addresses, integer values, and sections of executable code.</p>
 </div>
 <div class="paragraph">
 <p>These are some valid properties as they would appear in an object definition (using property names defined in <strong>hugolib.h</strong>)<sup class="footnote">[<a id="_footnoteref_16" class="footnote" href="#_footnotedef_16" title="View footnote.">16</a>]</sup>:</p>
@@ -2831,10 +2960,15 @@ return false
 <p>The nouns property contains four dictionary addresses; the size property is a single integer value; the found_in property holds two object numbers; and the long and short description properties are both <em>property routines</em>, which instead of just containing one or more simple values stored as a data type are actually sections of executable code attached to the object.</p>
 </div>
 <div class="paragraph">
-<p>The before property is a special case. This <em>complex property routine</em> is defined by the compiler and handled differently by the engine than a normal property routine. In this case, the property value representing the routine address is only returned if the global variables object and verbroutine contain the object in question and the address of the DoGet routine, respectively. If there is a match, the routine is executed before DoGet, which is the library routine (in <strong>verblib.h</strong>) that normally handles the taking of objects. (There is also a companion to before called after, which is checked after the verb routine has been called.) See <em>V.c</em> <em>Before And After Routines</em> for further elucidation.</p>
+<p>The before property is a special case.
+This <em>complex property routine</em> is defined by the compiler and handled differently by the engine than a normal property routine.
+In this case, the property value representing the routine address is only returned if the global variables object and verbroutine contain the object in question and the address of the DoGet routine, respectively.
+If there is a match, the routine is executed before DoGet, which is the library routine (in <strong>verblib.h</strong>) that normally handles the taking of objects.
+(There is also a companion to before called after, which is checked after the verb routine has been called.) See <em>V.c</em> <em>Before And After Routines</em> for further elucidation.</p>
 </div>
 <div class="paragraph">
-<p>There will be more on property routines and complex property routines later. For now, think of a property as simply containing one or more values of some kind.</p>
+<p>There will be more on property routines and complex property routines later.
+For now, think of a property as simply containing one or more values of some kind.</p>
 </div>
 <div class="paragraph">
 <p>A property is defined similiarly to an attribute as</p>
@@ -2853,7 +2987,9 @@ return false
 </div>
 </div>
 <div class="paragraph">
-<p>where &lt;default value&gt; is a constant or dictionary word. For objects without a given property, attempting to find that property will result in the default value. If no default is explicitly declared, it is 0 (or <code>""</code> or the <code>nothing</code> object, whatever is appropriate in context&#8212;&#8203;since they all represent the same zero value).</p>
+<p>where &lt;default value&gt; is a constant or dictionary word.
+For objects without a given property, attempting to find that property will result in the default value.
+If no default is explicitly declared, it is 0 (or <code>""</code> or the <code>nothing</code> object, whatever is appropriate in context&#8201;&#8212;&#8201;since they all represent the same zero value).</p>
 </div>
 <div class="paragraph">
 <p>The list of properties defined in <strong>hugolib.h</strong> is:</p>
@@ -3054,7 +3190,8 @@ return false
 <p>property &lt;property2&gt; alias &lt;property1&gt;</p>
 </div>
 <div class="paragraph">
-<p>where &lt;property1&gt; has already been defined. The library aliases (among others) the following:</p>
+<p>where &lt;property1&gt; has already been defined.
+The library aliases (among others) the following:</p>
 </div>
 <div class="paragraph">
 <p>nouns alias noun</p>
@@ -3127,7 +3264,8 @@ capacity 100
 </div>
 </div>
 <div class="paragraph">
-<p>Based on the parser&#8217;s rules for object identification, the suitcase object may now be referred to by the player as &#8220;big green suitcase&#8221;, &#8220;big case&#8221;, or &#8220;green suitcase&#8221; among other combinations. Even &#8220;big green&#8221; and &#8220;suit&#8221; may be valid, provided that these don&#8217;t also refer to other objects within valid scope such as &#8220;a big green apple&#8221; or &#8220;your suit jacket&#8221;.</p>
+<p>Based on the parser&#8217;s rules for object identification, the suitcase object may now be referred to by the player as &#8220;big green suitcase&#8221;, &#8220;big case&#8221;, or &#8220;green suitcase&#8221; among other combinations.
+Even &#8220;big green&#8221; and &#8220;suit&#8221; may be valid, provided that these don&#8217;t also refer to other objects within valid scope such as &#8220;a big green apple&#8221; or &#8220;your suit jacket&#8221;.</p>
 </div>
 <div class="paragraph">
 <p>The basic form for identification by the parser is</p>
@@ -3138,7 +3276,8 @@ capacity 100
 </div>
 </div>
 <div class="paragraph">
-<p>where any subset of these elements is allowable. However, the noun must come last, and only one noun is recognized, so that</p>
+<p>where any subset of these elements is allowable.
+However, the noun must come last, and only one noun is recognized, so that</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -3157,7 +3296,8 @@ capacity 100
 <p>as in &#8220;luggage case&#8221; and &#8220;suitcase green&#8221; are not recognized.</p>
 </div>
 <div class="paragraph">
-<p>One occasional source of befuddling code that doesn&#8217;t behave the way the programmer intended is not allowing enough slots for a property on a given object. That is, if an object is originally defined with the property</p>
+<p>One occasional source of befuddling code that doesn&#8217;t behave the way the programmer intended is not allowing enough slots for a property on a given object.
+That is, if an object is originally defined with the property</p>
 </div>
 <div class="paragraph">
 <p>found_in kitchen</p>
@@ -3169,16 +3309,19 @@ capacity 100
 <p>&lt;object&gt;.found_in #2 = livingroom</p>
 </div>
 <div class="paragraph">
-<p>in order to make the object available in both the kitchen <em>and</em> the living room, it will have no substantial effect. That is, there will be no space initialized in &lt;object&gt;'s property table for a second value under found_in. Trying to read &lt;object&gt;.found_in #2 will return a value of 0&#8212;&#8203;a non-existent property&#8212;&#8203;not the number of the livingroom object.</p>
+<p>in order to make the object available in both the kitchen <em>and</em> the living room, it will have no substantial effect.
+That is, there will be no space initialized in &lt;object&gt;'s property table for a second value under found_in.
+Trying to read &lt;object&gt;.found_in #2 will return a value of 0&#8201;&#8212;&#8201;a non-existent property&#8201;&#8212;&#8201;not the number of the livingroom object.</p>
 </div>
 <div class="paragraph">
-<p>To overcome this, if it is known that eventually a second (or third, or fourth, or ninth) value is going to be set&#8212;&#8203;even if only one value is defined at the outset&#8212;&#8203;use</p>
+<p>To overcome this, if it is known that eventually a second (or third, or fourth, or ninth) value is going to be set&#8201;&#8212;&#8201;even if only one value is defined at the outset&#8201;&#8212;&#8201;use</p>
 </div>
 <div class="paragraph">
 <p>found_in kitchen, 0[, 0, 0,&#8230;&#8203;]</p>
 </div>
 <div class="paragraph">
-<p>in the object definition. (A useful shortcut for initializing multiple zero values is to use</p>
+<p>in the object definition.
+(A useful shortcut for initializing multiple zero values is to use</p>
 </div>
 <div class="paragraph">
 <p>found_in #4</p>
@@ -3211,7 +3354,9 @@ capacity 100
 <div class="sect2">
 <h3 id="_classes"><a class="anchor" href="#_classes"></a>3.5. Classes</h3>
 <div class="paragraph">
-<p>Classes are objects that are specifically intended to be used as prototypes for one or more similar objects. They&#8217;re extremely useful for when you want to create a number of objects that will all share certain basic characteristics. Here is how a class is defined:</p>
+<p>Classes are objects that are specifically intended to be used as prototypes for one or more similar objects.
+They&#8217;re extremely useful for when you want to create a number of objects that will all share certain basic characteristics.
+Here is how a class is defined:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -3292,19 +3437,23 @@ only green."
 </div>
 </div>
 <div class="paragraph">
-<p>Since the property is only one line&#8212;&#8203;a single line of text to print&#8212;&#8203;the braces are unnecessary.)</p>
+<p>Since the property is only one line&#8201;&#8212;&#8201;a single line of text to print&#8201;&#8212;&#8201;the braces are unnecessary.)</p>
 </div>
 <div class="paragraph">
-<p>The definition of an object derived from a particular class is begun with the name of the prototype object instead of object. All properties and attributes of the class are inherited (except for its position in the object tree), unless they have been explicitly defined in the new object (in which case they take precedence over any defaults defined in the class).</p>
+<p>The definition of an object derived from a particular class is begun with the name of the prototype object instead of object.
+All properties and attributes of the class are inherited (except for its position in the object tree), unless they have been explicitly defined in the new object (in which case they take precedence over any defaults defined in the class).</p>
 </div>
 <div class="paragraph">
-<p>That is, although the box class is defined without the open attribute, the largebox object will begin the game as open, since this is in the largebox definition. It will begin the game as openable, as well, as this is inherited from the box class.</p>
+<p>That is, although the box class is defined without the open attribute, the largebox object will begin the game as open, since this is in the largebox definition.
+It will begin the game as openable, as well, as this is inherited from the box class.</p>
 </div>
 <div class="paragraph">
-<p>And while the largebox object will have the long_desc of the box class, the greenbox object replaces the default property routine with a new description. (An exception to this is an <code>$additive</code> property, to be discussed later, where new properties are added to those of previous classes.)</p>
+<p>And while the largebox object will have the long_desc of the box class, the greenbox object replaces the default property routine with a new description.
+(An exception to this is an <code>$additive</code> property, to be discussed later, where new properties are added to those of previous classes.)</p>
 </div>
 <div class="paragraph">
-<p>It is also possible to define an object using a previous object as a class even though the previous object was not explicitly defined as a class (using the class keyword). Therefore,</p>
+<p>It is also possible to define an object using a previous object as a class even though the previous object was not explicitly defined as a class (using the class keyword).
+Therefore,</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -3318,10 +3467,12 @@ adjectives "big", "large", "red"
 </div>
 </div>
 <div class="paragraph">
-<p>is perfectly valid. We created what amounts to a &#8220;copy&#8221; of largebox, with a different name (&#8220;large red box&#8221; this time) and a different set of adjectives to refer to it.</p>
+<p>is perfectly valid.
+We created what amounts to a &#8220;copy&#8221; of largebox, with a different name (&#8220;large red box&#8221; this time) and a different set of adjectives to refer to it.</p>
 </div>
 <div class="paragraph">
-<p>Occasionally, it may be necessary to have an object or class inherit from more than one previously defined class. This can be done using the &#8220;inherits&#8221; instruction.</p>
+<p>Occasionally, it may be necessary to have an object or class inherit from more than one previously defined class.
+This can be done using the &#8220;inherits&#8221; instruction.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -3353,10 +3504,12 @@ inherits &lt;class1&gt;, &lt;class2&gt;[, &lt;class3&gt;,...]
 </div>
 </div>
 <div class="paragraph">
-<p>The precedence of inheritance is in the order of occurrence. In either example, the object inherits its properties and attributes first from &lt;class1&gt;, then from &lt;class2&gt;, and so on.</p>
+<p>The precedence of inheritance is in the order of occurrence.
+In either example, the object inherits its properties and attributes first from &lt;class1&gt;, then from &lt;class2&gt;, and so on.</p>
 </div>
 <div class="paragraph">
-<p>The Hugo Object Library (<strong>objlib.h</strong>) contains a number of useful class definitions for things like rooms, characters, scenery, vehicles, etc. Sometimes, however, it may be desirable to use a different definition for, say, the room class while keeping all the others in the Object Library.</p>
+<p>The Hugo Object Library (<strong>objlib.h</strong>) contains a number of useful class definitions for things like rooms, characters, scenery, vehicles, etc.
+Sometimes, however, it may be desirable to use a different definition for, say, the room class while keeping all the others in the Object Library.</p>
 </div>
 <div class="paragraph">
 <p>Instead of actually editing <strong>objlib.h</strong><sup class="footnote">[<a id="_footnoteref_19" class="footnote" href="#_footnotedef_19" title="View footnote.">19</a>]</sup>, use:</p>
@@ -3373,7 +3526,9 @@ inherits &lt;class1&gt;, &lt;class2&gt;[, &lt;class3&gt;,...]
 </div>
 </div>
 <div class="paragraph">
-<p>where &lt;class&gt; is the name of a previously defined object or class, such as &#8220;room&#8221;. All subsequent references to &lt;class&gt; will use this object instead of the previously defined one. (Note that this means that the replacement must come <em>before</em><sup class="footnote">[<a id="_footnoteref_20" class="footnote" href="#_footnotedef_20" title="View footnote.">20</a>]</sup> any uses of the class as the parent class for other objects.)</p>
+<p>where &lt;class&gt; is the name of a previously defined object or class, such as &#8220;room&#8221;.
+All subsequent references to &lt;class&gt; will use this object instead of the previously defined one.
+(Note that this means that the replacement must come <em>before</em><sup class="footnote">[<a id="_footnoteref_20" class="footnote" href="#_footnotedef_20" title="View footnote.">20</a>]</sup> any uses of the class as the parent class for other objects.)</p>
 </div>
 </div>
 <div class="sect2">
@@ -3384,7 +3539,7 @@ inherits &lt;class1&gt;, &lt;class2&gt;[, &lt;class3&gt;,...]
 <div class="ulist">
 <ul>
 <li>
-<p>be able to create simple objects and add them to an existing game&#8212;&#8203;whether an empty game based on <strong>shell.hug</strong> or a copy of <strong>sample.hug</strong> complete with existing objects and locations;</p>
+<p>be able to create simple objects and add them to an existing game&#8201;&#8212;&#8201;whether an empty game based on <strong>shell.hug</strong> or a copy of <strong>sample.hug</strong> complete with existing objects and locations;</p>
 </li>
 <li>
 <p>experiment by adding new objects, giving them different names and starting locations as well as nouns and adjectives to describe them, assigning new property values or modifying existing ones, setting different attributes, etc.;</p>
@@ -18663,7 +18818,7 @@ If there is an error, the <code>system_status</code> global variable is set.</p>
 <div id="footnotes">
 <hr>
 <div class="footnote" id="_footnotedef_1">
-<a href="#_footnoteref_1">1</a>. If not, or if you&#8217;d like some additional interesting reading, there are a number of excellent resources to investigate further, some of which are listed in <em>APPENDIX G:</em> <em>ADDITIONAL RESOURCES</em>.
+<a href="#_footnoteref_1">1</a>. If not, or if you&#8217;d like some additional interesting reading, there are a number of excellent resources to investigate further, some of which are listed in <em>APPENDIX G: ADDITIONAL RESOURCES</em>.
 </div>
 <div class="footnote" id="_footnotedef_2">
 <a href="#_footnoteref_2">2</a>. The best and most popular of these earlier systems are TADS (Mike Roberts, 1987) and Inform (Graham Nelson, 1993).
@@ -18672,7 +18827,7 @@ If there is an error, the <code>system_status</code> global variable is set.</p>
 <a href="#_footnoteref_3">3</a>. Other ports done by the author are for Windows, Linux, Macintosh, DOS, BeOS, Pocket PC, and PalmOS.
 </div>
 <div class="footnote" id="_footnotedef_4">
-<a href="#_footnoteref_4">4</a>. Normally, unless the Main routine explicitly returns&#8212;&#8203;as opposed to just running through to the closing brace&#8212;&#8203;the Hugo Engine continues running. Those familiar with the C programming language may notice the slight difference here: whereas in C the main() function is the entry point for a C program, in Hugo Init is the entry point, and Main can be thought of as the &#8220;each-turn routine&#8221;. For more elaboration on the execution pattern of a Hugo program, see <em>IX.</em> <em>THE GAME LOOP</em>.
+<a href="#_footnoteref_4">4</a>. Normally, unless the Main routine explicitly returns&#8201;&#8212;&#8201;as opposed to just running through to the closing brace&#8201;&#8212;&#8201;the Hugo Engine continues running. Those familiar with the C programming language may notice the slight difference here: whereas in C the main() function is the entry point for a C program, in Hugo Init is the entry point, and Main can be thought of as the &#8220;each-turn routine&#8221;. For more elaboration on the execution pattern of a Hugo program, see <em>IX.</em> <em>THE GAME LOOP</em>.
 </div>
 <div class="footnote" id="_footnotedef_5">
 <a href="#_footnoteref_5">5</a>. While it&#8217;s a little beyond the scope of this manual to talk about what exactly a 16-bit integer is (partly because you don&#8217;t need to worry about it, other than to know they involve a range of 65536, either 0 to 65535 or -32768 to 32767). Essentially, &#8220;bits&#8221; refer to 1s or 0s in a base 2 number system (so that the right-most bit is the 1s, the next-to-right-most is the 2s, the next the 4s, the next the 8s, etc.) For example, the 4-bit number 1100 is equal to decimal 12, since 8+4=12. (If you&#8217;re familiar with bitwise notation, you already knew that. If you&#8217;re not, it probably didn&#8217;t particularly clear anything up, but as always, not to worry.)
@@ -18699,7 +18854,7 @@ If there is an error, the <code>system_status</code> global variable is set.</p>
 <a href="#_footnoteref_12">12</a>. See <em>APPENDIX D:</em> <em>HUGOFIX AND THE HUGO DEBUGGER</em>.
 </div>
 <div class="footnote" id="_footnotedef_13">
-<a href="#_footnoteref_13">13</a>. For this reason, attributes are sometimes thought of as being &#8220;lightweight classes&#8221; in that, as can be seen in the list of attributes, they generally categorize an object as a certain &#8220;kind&#8221; of object&#8212;&#8203;although other than flagging the object with that particular quality they have no other direct effect.
+<a href="#_footnoteref_13">13</a>. For this reason, attributes are sometimes thought of as being &#8220;lightweight classes&#8221; in that, as can be seen in the list of attributes, they generally categorize an object as a certain &#8220;kind&#8221; of object&#8201;&#8212;&#8201;although other than flagging the object with that particular quality they have no other direct effect.
 </div>
 <div class="footnote" id="_footnotedef_14">
 <a href="#_footnoteref_14">14</a>. The container and platform attributes are mutually exclusive. An object cannot have both attributes, since in the library the idea of containment is one of an object being either &#8220;in&#8221; <em>or</em> &#8220;on&#8221; another object. There are available classes that aren&#8217;t part of the standard library distribution that allow an object to function as both.
