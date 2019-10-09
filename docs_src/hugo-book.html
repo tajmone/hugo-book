@@ -535,7 +535,7 @@ div.literalblock.cmd pre .conum {
 <span id="email" class="email"><a href="mailto:general@generalcoffee.com">general@generalcoffee.com</a></span><br>
 <span id="revnumber">version 1,</span>
 <span id="revdate">2018-10-04</span>
-<br><span id="revremark">Draft 36 -- Porting to AsciiDoc</span>
+<br><span id="revremark">Draft 37 -- Porting to AsciiDoc</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -720,13 +720,18 @@ The author is considerably indebted to them, for all their work as well as for t
 Without their efforts, Hugo and the games created with it would not be available for so nearly as wide an audience.<sup class="footnote">[<a id="_footnoteref_3" class="footnote" href="#_footnotedef_3" title="View footnote.">3</a>]</sup></p>
 </div>
 <div class="paragraph">
-<p>More than a few words of appreciation must be given to Volker Blasius, the original maintainer of the Interactive Fiction Archive at GMD, one of the key resources for interactive fiction players and developers, and a primary hub of material for contributors to (and readers of) the Usenet newsgroups <em>rec.arts.int-fiction</em> and <em>rec.games.int-fiction</em>.
-For years, Volker (earlier with the help of David M.
-Baggett and later with the help of David Kinder) undertook the substantial task of organizing and cataloguing thousands of existing files and a steady stream of new submissions.
-The IF Archive is now, as of this writing, housed on the web at <em><a href="http://www.ifarchive.org" class="bare">http://www.ifarchive.org</a></em>, and is currently maintained by David Kinder and Stephen Granade.</p>
+<p>More than a few words of appreciation must be given to Volker Blasius, the original maintainer of the Interactive Fiction Archive at GMD, one of the key resources for interactive fiction players and developers, and a primary hub of material for contributors to (and readers of) the Usenet newsgroups
+<a href="https://groups.google.com/forum/#!forum/rec.arts.int-fiction" title="Visit rec.arts.int-fiction at Google Groups" target="_blank" rel="noopener"><em>rec.arts.int-fiction</em></a> and
+<a href="https://groups.google.com/forum/#!forum/rec.games.int-fiction" title="Visit rec.games.int-fiction at Google Groups" target="_blank" rel="noopener"><em>rec.games.int-fiction</em></a>.
+For years, Volker (earlier with the help of David M. Baggett and later with the help of David Kinder) undertook the substantial task of organizing and cataloguing thousands of existing files and a steady stream of new submissions.
+The IF Archive is now, as of this writing, housed on the web at
+<a href="https://www.ifarchive.org" title="Visit the IF Archive" target="_blank" rel="noopener"><em>https://www.ifarchive.org</em></a>,
+and is currently maintained by David Kinder and Stephen Granade.</p>
 </div>
 <div class="paragraph">
-<p>Thanks also to those whose comments and suggestions have contributed to making Hugo as powerful and usable as it is: Torbjörn Andersson, Julian Arnold, Dmitry Baranov, Mark Bijster, Jonathan Blask, Cam Bowes, Jason Brown, Daniel Cardenas, Jose Luis Cebrian, Gilles Duchesne, Jason Dyer, Miguel Garza, Jeff Jenness, Doug Jones, Alan MacDonald, Cena Mayo, Jesse McGrew, John Menichelli, Iain Merrick, Jim Newland, Jerome Nichols, Jason C. Penney, Giacomo Pini, Andrew Pontious, Vikram Ravindran, Gunther Schmidl, Robb Sherwin, Christopher Tate, Mark J. Tilford, Paolo Vece, and Dean Tessman, as well as to many other Hugo users. Graham Nelson&#8217;s Inform language helped give early shape to some of the ideas in Hugo&#8217;s development with regard to syntax and structure. Finally, sincere apologies on my part for any omission of those who have contributed to Hugo over the years in any way.</p>
+<p>Thanks also to those whose comments and suggestions have contributed to making Hugo as powerful and usable as it is: Torbjörn Andersson, Julian Arnold, Dmitry Baranov, Mark Bijster, Jonathan Blask, Cam Bowes, Jason Brown, Daniel Cardenas, Jose Luis Cebrian, Gilles Duchesne, Jason Dyer, Miguel Garza, Jeff Jenness, Doug Jones, Alan MacDonald, Cena Mayo, Jesse McGrew, John Menichelli, Iain Merrick, Jim Newland, Jerome Nichols, Jason C. Penney, Giacomo Pini, Andrew Pontious, Vikram Ravindran, Gunther Schmidl, Robb Sherwin, Christopher Tate, Mark J. Tilford, Paolo Vece, and Dean Tessman, as well as to many other Hugo users.
+Graham Nelson&#8217;s Inform language helped give early shape to some of the ideas in Hugo&#8217;s development with regard to syntax and structure.
+Finally, sincere apologies on my part for any omission of those who have contributed to Hugo over the years in any way.</p>
 </div>
 <div class="paragraph">
 <p>And thank you, as always, to Jennifer.</p>
@@ -737,174 +742,397 @@ The IF Archive is now, as of this writing, housed on the web at <em><a href="htt
 <div class="paragraph">
 <p>Please refer to the following conventions as they are used in this manual:</p>
 </div>
-<div class="paragraph">
-<p><strong>&lt;parameter&gt;</strong> for required parameters</p>
-</div>
-<div class="paragraph">
-<p><strong>[parameter]</strong> for optional parameters</p>
-</div>
-<div class="paragraph">
-<p><strong>file</strong> for specific filenames</p>
-</div>
-<div class="paragraph">
-<p>FunctionName functions, etc.</p>
-</div>
-<div class="paragraph">
-<p><strong>Note</strong> important notes related to the matter at hand</p>
-</div>
-<div class="paragraph">
-<p>Output for output by the compiler or engine</p>
-</div>
-<div class="paragraph">
-<p>token tokens, keywords</p>
-</div>
-<div class="olist lowerroman">
-<ol class="lowerroman" type="i">
-<li>
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+<code>&lt;parameter&gt;</code>   
+</td>
+<td class="hdlist2">
+<p>for required parameters</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>[parameter]</code>   
+</td>
+<td class="hdlist2">
+<p>for optional parameters</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<strong>file</strong>          
+</td>
+<td class="hdlist2">
+<p>for specific filenames</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>FunctionName</code>  
+</td>
+<td class="hdlist2">
+<p>functions, etc.</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<strong>Note</strong>          
+</td>
+<td class="hdlist2">
+<p>important notes related to the matter at hand</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>Output</code>        
+</td>
+<td class="hdlist2">
+<p>for output by the compiler or engine</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>token</code>         
+</td>
+<td class="hdlist2">
+<p>tokens, keywords</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>&#8230;&#8203;</code>           
+</td>
+<td class="hdlist2">
 <p>for omissions (particularly of non-relevant sections of code)</p>
-</li>
-</ol>
+</td>
+</tr>
+</table>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_packing_list"><a class="anchor" href="#_packing_list"></a>1.5. Packing List</h3>
 <div class="paragraph">
-<p>A number of files are part of the basic Hugo package. You&#8217;ll need to make sure to have these before you get started; a good starting point is the Hugo web page at <em><a href="http://www.generalcoffee.com/hugo" class="bare">http://www.generalcoffee.com/hugo</a></em>.</p>
+<p>A number of files are part of the basic Hugo package.
+You&#8217;ll need to make sure to have these before you get started; a good starting point is the Hugo web page at
+<a href="https://www.generalcoffee.com/hugo" title="Visit Hugo website" target="_blank" rel="noopener"><em>https://www.generalcoffee.com/hugo</em></a>.</p>
 </div>
 <div class="paragraph">
-<p><strong>Executable package.</strong> You&#8217;ll need, first and foremost, a version of Hugo compiled for your particular computer system, which will allow you to run existing Hugo programs, as well as compile and run your own. Usually the package itself is named something like:</p>
+<p><span class="big"><strong>Executable package.</strong></span>
+You&#8217;ll need, first and foremost, a version of Hugo compiled for your particular computer system, which will allow you to run existing Hugo programs, as well as compile and run your own.
+Usually the package itself is named something like:</p>
+</div>
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+hugov31_win32.zip          
+</td>
+<td class="hdlist2">
+<p>(Windows)</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+hugov31_macos.sit          
+</td>
+<td class="hdlist2">
+<p>(Macintosh)</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+hugov31_unix_source.tar.gz 
+</td>
+<td class="hdlist2">
+<p>(Unix sources)</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<em>etc.</em>                     
+</td>
+<td class="hdlist2">
+<p></p>
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
-<p><strong>hugov31_win32.zip</strong> (Windows)</p>
+<p>although filenaming may vary between platforms.
+Generally, like in the examples above, Hugo comes in an archive file containing the various executables for a given platform.
+The package should contain the following files (although, again, filenames may differ; they&#8217;ll generally appear as <strong>filename</strong>, although on your system they may be lowercase or some combination of upper and lowercase, and the filename extension may vary or be absent):</p>
+</div>
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+Hugo Compiler      
+</td>
+<td class="hdlist2">
+<p>(<strong>HC.EXE</strong>, <strong>hcwin</strong>, <strong>hc</strong>)</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+Hugo Engine        
+</td>
+<td class="hdlist2">
+<p>(<strong>HE.EXE</strong>, <strong>hewin</strong>, <strong>he</strong>, <strong>hewx</strong>)</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+Hugo Debugger      
+</td>
+<td class="hdlist2">
+<p>(<strong>HD.EXE</strong>, <strong>hdwin</strong>, <strong>hd</strong>)</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+Debugger help file 
+</td>
+<td class="hdlist2">
+<p>(<strong>HDHELP.HLP</strong>)</p>
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
-<p><strong>hugov31_macos.sit</strong> (Macintosh)</p>
+<p>Please note that the Hugo Compiler and the Hugo Debugger are not available for all systems; some packages for some systems contain only the Hugo Engine for playing Hugo games.
+To develop and compile your own games, the Hugo Compiler is necessary.
+The Hugo Debugger is a useful and powerful tool, but it is not essential for Hugo development.</p>
 </div>
 <div class="paragraph">
-<p><strong>hugov31_unix_source.tar.gz</strong> (Unix sources)</p>
+<p><span class="big"><strong>Library package.</strong></span>
+You may be relieved to learn that you don&#8217;t have to write every last part of a Hugo game yourself.
+In fact, much of the basic infrastructure is provided by the Hugo Library, a set of existing Hugo source code files that you include in your game to manage the game world.
+Using the Hugo Library, you can easily create a small game that incorporates the basic behavior of a standard Hugo game.
+Normally these files can be found in a single archive called <strong>hugolib.zip</strong>:</p>
 </div>
-<div class="paragraph">
-<p><em>etc.</em></p>
-</div>
-<div class="paragraph">
-<p>although filenaming may vary between platforms. Generally, like in the examples above, Hugo comes in an archive file containing the various executables for a given platform. The package should contain the following files (although, again, filenames may differ; they&#8217;ll generally appear as <strong>filename</strong>, although on your system they may be lowercase or some combination of upper and lowercase, and the filename extension may vary or be absent):</p>
-</div>
-<div class="paragraph">
-<p>Hugo Compiler (<strong>HC.EXE, hcwin, hc</strong>)</p>
-</div>
-<div class="paragraph">
-<p>Hugo Engine (<strong>HE.EXE, hewin, he, hewx</strong>)</p>
-</div>
-<div class="paragraph">
-<p>Hugo Debugger (<strong>HD.EXE, hdwin, hd</strong>)</p>
-</div>
-<div class="paragraph">
-<p>Debugger help file (<strong>HDHELP.HLP</strong>)</p>
-</div>
-<div class="paragraph">
-<p>Please note that the Hugo Compiler and the Hugo Debugger are not available for all systems; some packages for some systems contain only the Hugo Engine for playing Hugo games. To develop and compile your own games, the Hugo Compiler is necessary. The Hugo Debugger is a useful and powerful tool, but it is not essential for Hugo development.</p>
-</div>
-<div class="paragraph">
-<p><strong>Library package.</strong> You may be relieved to learn that you don&#8217;t have to write every last part of a Hugo game yourself. In fact, much of the basic infrastructure is provided by the Hugo Library, a set of existing Hugo source code files that you include in your game to manage the game world. Using the Hugo Library, you can easily create a small game that incorporates the basic behavior of a standard Hugo game. Normally these files can be found in a single archive called <strong>hugolib.zip</strong>:</p>
-</div>
-<div class="paragraph">
-<p><strong>hugolib.h</strong> Library definitions and routines</p>
-</div>
-<div class="paragraph">
-<p><strong>verblib.h</strong> Standard verb routines</p>
-</div>
-<div class="paragraph">
-<p><strong>verblib.g</strong> Standard verb grammar definitions</p>
-</div>
-<div class="paragraph">
-<p><strong>objlib.h</strong> A library of useful object definitions (included by <strong>hugolib.h</strong>)</p>
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+hugolib.h  
+</td>
+<td class="hdlist2">
+<p>Library definitions and routines</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+verblib.h  
+</td>
+<td class="hdlist2">
+<p>Standard verb routines</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+verblib.g  
+</td>
+<td class="hdlist2">
+<p>Standard verb grammar definitions</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+objlib.h   
+</td>
+<td class="hdlist2">
+<p>A library of useful object definitions (included by <strong>hugolib.h</strong>)</p>
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>The library also includes these three less commonly used files:</p>
 </div>
-<div class="paragraph">
-<p><strong>resource.h</strong> Resource-handling routines</p>
-</div>
-<div class="paragraph">
-<p><strong>system.h</strong> System-level routines</p>
-</div>
-<div class="paragraph">
-<p><strong>window.h</strong> Text window management</p>
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+resource.h  
+</td>
+<td class="hdlist2">
+<p>Resource-handling routines</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+system.h    
+</td>
+<td class="hdlist2">
+<p>System-level routines</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+window.h    
+</td>
+<td class="hdlist2">
+<p>Text window management</p>
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>Additionally, the library contains two sets of files that, depending on user-specified settings, are optionally included by <strong>hugolib.h:</strong></p>
 </div>
-<div class="paragraph">
-<p><strong>hugofix.h</strong> Debugging routines</p>
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+hugofix.h   
+</td>
+<td class="hdlist2">
+<p>Debugging routines</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+hugofix.g   
+</td>
+<td class="hdlist2">
+<p>Debugging grammar</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+verbstub.h  
+</td>
+<td class="hdlist2">
+<p>Additional verb routines</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+verbstub.g  
+</td>
+<td class="hdlist2">
+<p>Additional verb grammar</p>
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
-<p><strong>hugofix.g</strong> Debugging grammar</p>
+<p><span class="big"><strong>Sources.</strong></span>
+It&#8217;s probably a good idea as you delve into Hugo programming to have some existing source code to look at.
+<strong>sample.hug</strong> is a valuable resource to have handy since it contains examples of most aspects of Hugo programming.
+Additionally, you&#8217;re probably want to download <strong>shell.hug</strong>, which provides the very bare bones of a Hugo game for you to start building on:</p>
+</div>
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+sample.hug  
+</td>
+<td class="hdlist2">
+<p>Sample game source code</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+shell.hug   
+</td>
+<td class="hdlist2">
+<p>Empty source code to build on</p>
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
-<p><strong>verbstub.h</strong> Additional verb routines</p>
+<p>An additional Hugo source file demonstrates the ability to create precompiled headers (and not something you probably need to worry about just now; it&#8217;s covered in <em>APPENDIX E: PRECOMPILED HEADERS</em>):</p>
+</div>
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+hugolib.hug  
+</td>
+<td class="hdlist2">
+<p>To create a linkable version of <strong>hugolib.h</strong></p>
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
-<p><strong>verbstub.g</strong> Additional verb grammar</p>
+<p><span class="big"><strong>Extras.</strong></span>
+The last essential remaining piece you&#8217;ll need to begin Hugo development in earnest is a <em>text editor</em> of some sort.
+This is what you&#8217;ll use to edit the Hugo source files that you&#8217;ll write and ultimately compile into working Hugo programs.
+On Windows or Macintosh you could use the pre-packaged Notepad or SimpleText (or TextEdit on Mac OS X) applications, respectively, but it&#8217;s really not recommended: there are far better inexpensive or even freeware editors available (and once you get deeper into programming, you&#8217;ll realize that the one sure investment you can make is an editor you&#8217;re comfortable with).
+On Unix-ish systems (including Linux), you&#8217;ll generally have a choice of editors including Emacs, vi, and a number of graphical user interface (GUI) programs.
+It&#8217;s a little beyond the scope of this book to even attempt to recommend an editor&#8201;&#8212;&#8201;since it&#8217;s as much a matter of personal preference as anything&#8201;&#8212;&#8201;so the best advice that can be given is to ask around, experiment, and find out what works best for you.</p>
 </div>
 <div class="paragraph">
-<p><strong>Sources.</strong> It&#8217;s probably a good idea as you delve into Hugo programming to have some existing source code to look at. <strong>sample.hug</strong> is a valuable resource to have handy since it contains examples of most aspects of Hugo programming. Additionally, you&#8217;re probably want to download <strong>shell.hug</strong>, which provides the very bare bones of a Hugo game for you to start building on:</p>
-</div>
-<div class="paragraph">
-<p><strong>sample.hug</strong> Sample game source code</p>
-</div>
-<div class="paragraph">
-<p><strong>shell.hug</strong> Empty source code to build on</p>
-</div>
-<div class="paragraph">
-<p>An additional Hugo source file demonstrates the ability to create precompiled headers (and not something you probably need to worry about just now; it&#8217;s covered in <em>APPENDIX E:</em> <em>PRECOMPILED HEADERS</em>):</p>
-</div>
-<div class="paragraph">
-<p><strong>hugolib.hug</strong> To create a linkable version of <strong>hugolib.h</strong></p>
-</div>
-<div class="paragraph">
-<p><strong>Extras.</strong> The last essential remaining piece you&#8217;ll need to begin Hugo development in earnest is a <em>text editor</em> of some sort. This is what you&#8217;ll use to edit the Hugo source files that you&#8217;ll write and ultimately compile into working Hugo programs. On Windows or Macintosh you could use the pre-packaged Notepad or SimpleText (or TextEdit on Mac OS X) applications, respectively, but it&#8217;s really not recommended: there are far better inexpensive or even freeware editors available (and once you get deeper into programming, you&#8217;ll realize that the one sure investment you can make is an editor you&#8217;re comfortable with). On Unix-ish systems (including Linux), you&#8217;ll generally have a choice of editors including Emacs, vi, and a number of graphical user interface (GUI) programs. It&#8217;s a little beyond the scope of this book to even attempt to recommend an editor&#8201;&#8212;&#8201;since it&#8217;s as much a matter of personal preference as anything-- so the best advice that can be given is to ask around, experiment, and find out what works best for you.</p>
-</div>
-<div class="paragraph">
-<p>It would also be good preparation to become familiar with the <em>terminal</em> or <em>console</em> on your system. On Windows, this is the &#8220;MS-DOS Prompt&#8221; or &#8220;Command Prompt&#8221; under the Start menu, or type &#8220;command&#8221; (Windows 95/98) or &#8220;cmd&#8221; (Windows NT/2000/XP) from the &#8220;Run&#8230;&#8203;&#8221; option; on Unix systems, this will be bash or tcsh or some other kind of command shell. Other systems will have different names for their command-line environments (although on something like a pre-OS X Macintosh, there is no such thing as a terminal or console, so you needn&#8217;t worry about it).</p>
+<p>It would also be good preparation to become familiar with the <em>terminal</em> or <em>console</em> on your system.
+On Windows, this is the &#8220;MS-DOS Prompt&#8221; or &#8220;Command Prompt&#8221; under the Start menu, or type &#8220;command&#8221; (Windows 95/98) or &#8220;cmd&#8221; (Windows NT/2000/XP) from the &#8220;Run&#8230;&#8203;&#8221; option; on Unix systems, this will be bash or tcsh or some other kind of command shell.
+Other systems will have different names for their command-line environments (although on something like a pre-OS X Macintosh, there is no such thing as a terminal or console, so you needn&#8217;t worry about it).</p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_the_truth_about_programming"><a class="anchor" href="#_the_truth_about_programming"></a>1.6. The Truth About Programming</h3>
 <div class="paragraph">
-<p>The truth about writing interactive fiction games is that yes, it is programming, and no, there&#8217;s really no way around it. It&#8217;s impossible for a game design system to provide a cookie-cutter means of picking and choosing all the various facets of any relatively complex game so that by clicking on a few buttons a fully formed and entirely original game world and story will be produced. It doesn&#8217;t work that way. The attempt to determine at the outset all of the various game elements that will ever be needed by any game author in any type of game necessarily limits what authors are able to include in their games, as well as their ability to tailor gameplay, presentation, character interaction, geography, and other important aspects of a game to the needs of the particular work of interactive fiction they&#8217;re writing. So, in order to write the best interactive fiction games you&#8217;re capable of, you&#8217;ll need to do a at least a little programming. But that&#8217;s not reason to fret.</p>
+<p>The truth about writing interactive fiction games is that yes, it is programming, and no, there&#8217;s really no way around it.
+It&#8217;s impossible for a game design system to provide a cookie-cutter means of picking and choosing all the various facets of any relatively complex game so that by clicking on a few buttons a fully formed and entirely original game world and story will be produced.
+It doesn&#8217;t work that way.
+The attempt to determine at the outset all of the various game elements that will ever be needed by any game author in any type of game necessarily limits what authors are able to include in their games, as well as their ability to tailor gameplay, presentation, character interaction, geography, and other important aspects of a game to the needs of the particular work of interactive fiction they&#8217;re writing.
+So, in order to write the best interactive fiction games you&#8217;re capable of, you&#8217;ll need to do a at least a little programming.
+But that&#8217;s not reason to fret.</p>
 </div>
 <div class="paragraph">
-<p>The word &#8220;programming&#8221; seems to hold a sort of mystique that, to the non-programmer, conjures up some unfathomable combination of knowledge and skills that shall remain forever inaccessible to outsiders. In fact, that&#8217;s pretty far from the truth. Programming is indeed a creative pursuit, but it is pretty much unique among creative pursuits in that it&#8217;s the only one that can be overcome by enough banging of keys: eventually you can make almost anything work.</p>
+<p>The word &#8220;programming&#8221; seems to hold a sort of mystique that, to the non-programmer, conjures up some unfathomable combination of knowledge and skills that shall remain forever inaccessible to outsiders.
+In fact, that&#8217;s pretty far from the truth.
+Programming is indeed a creative pursuit, but it is pretty much unique among creative pursuits in that it&#8217;s the only one that can be overcome by enough banging of keys: eventually you can make almost anything work.</p>
 </div>
 <div class="paragraph">
-<p>If you&#8217;ve never done any programming before, you can probably expect to be slightly baffled by at least some of the early going in this manual. The truth about <em>learning</em> programming is that you&#8217;re probably not going to be able to read through this book (or any book on programming in any other programming language, for that matter) once, in proper sequence, from cover to cover, and be able to write programs expertly in the language. Many of things will require the introduction of concepts that will only be discussed in full later on once a better grounding in the language is achieved. There will, in fact, be several places in this book (especially in the early sections) where readers will be encouraged to not worry if the subject matter at hand seems quite foreign. But rest assured that, after a brief initial period of acclimation, before long things like &#8220;objects&#8221;, &#8220;properties&#8221;, &#8220;routines&#8221;, &#8220;global variables&#8221;, &#8220;calling parameters&#8221;, and a host of others will be rolling off your tongue like the alphabet.</p>
+<p>If you&#8217;ve never done any programming before, you can probably expect to be slightly baffled by at least some of the early going in this manual.
+The truth about <em>learning</em> programming is that you&#8217;re probably not going to be able to read through this book (or any book on programming in any other programming language, for that matter) once, in proper sequence, from cover to cover, and be able to write programs expertly in the language.
+Many of things will require the introduction of concepts that will only be discussed in full later on once a better grounding in the language is achieved.
+There will, in fact, be several places in this book (especially in the early sections) where readers will be encouraged to not worry if the subject matter at hand seems quite foreign.
+But rest assured that, after a brief initial period of acclimation, before long things like &#8220;objects&#8221;, &#8220;properties&#8221;, &#8220;routines&#8221;, &#8220;global variables&#8221;, &#8220;calling parameters&#8221;, and a host of others will be rolling off your tongue like the alphabet.</p>
 </div>
 <div class="paragraph">
-<p>To make everything even easier, Hugo is designed so that writing very basic games will consist largely of defining and describing objects and locations in a very straightforward manner. All of the complex inner workings of the game&#8201;&#8212;&#8201;from the templates for standard rooms and objects and their related behaviors; to what happens when a player types &gt;GO NORTH or &gt;OPEN THE CARDBOARD BOX or any other command, recognized or unrecognized; to the rules of the game world for containment, edibility, bulk, switching things on or off, or any number of &#8220;physical&#8221; traits&#8201;&#8212;&#8201;are handled by the Hugo Library, and a prospective doesn&#8217;t have to worry about where these things are handled or how until he or she is ready to investigate deeper.</p>
+<p>To make everything even easier, Hugo is designed so that writing very basic games will consist largely of defining and describing objects and locations in a very straightforward manner.
+All of the complex inner workings of the game&#8201;&#8212;&#8201;from the templates for standard rooms and objects and their related behaviors; to what happens when a player types &gt;GO NORTH or &gt;OPEN THE CARDBOARD BOX or any other command, recognized or unrecognized; to the rules of the game world for containment, edibility, bulk, switching things on or off, or any number of &#8220;physical&#8221; traits&#8201;&#8212;&#8201;are handled by the Hugo Library, and a prospective doesn&#8217;t have to worry about where these things are handled or how until he or she is ready to investigate deeper.</p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_working_with_hugo"><a class="anchor" href="#_working_with_hugo"></a>1.7. Working With Hugo</h3>
 <div class="paragraph">
-<p>The way Hugo works is fairly standard for a modern programming language. A programmer begins with a <em>source file</em>, which is a human-readable text file (created and edited in a separate text-editing application). The source file contains all the various definitions, instructions, and other text that will ultimately form the content of the game. The content of a source file is formatted in the particular structure of the <em>Hugo language</em>&#8201;&#8212;&#8201;the programming language with which the majority of this manual will endeavor to help you become acquainted.</p>
+<p>The way Hugo works is fairly standard for a modern programming language.
+A programmer begins with a <em>source file</em>, which is a human-readable text file (created and edited in a separate text-editing application).
+The source file contains all the various definitions, instructions, and other text that will ultimately form the content of the game.
+The content of a source file is formatted in the particular structure of the <em>Hugo language</em>&#8201;&#8212;&#8201;the programming language with which the majority of this manual will endeavor to help you become acquainted.</p>
 </div>
 <div class="paragraph">
-<p>The programmer inputs the source file to a <em>compiler</em> (here, specifically, the Hugo Compiler), which takes the source code and generates an <em>object file</em>. The object file is&#8201;&#8212;&#8201;unlike a source file&#8201;&#8212;&#8201;not human readable, but has instead been translated by the compiler into a series of optimized instructions that are easily understood by the computer. The computer can then take that object file and execute it as a program, just like any application users regularly use (applications&#8201;&#8212;&#8201;like word processors and spreadsheets and browsers&#8201;&#8212;&#8201;which were probably produced by a compiler in exactly the same process as described here). The difference between a Hugo-generated program and such other compiled programs is that a Hugo program may, once compiled, be run on any platform for which the Hugo Engine exists. Normally a compiled program can only be executed on the platform for which it was compiled; Hugo programs are much more portable, and can be compiled on one platform and subsequently be run on any other of the large number of platforms that Hugo supports.</p>
+<p>The programmer inputs the source file to a <em>compiler</em> (here, specifically, the Hugo Compiler), which takes the source code and generates an <em>object file</em>.
+The object file is&#8201;&#8212;&#8201;unlike a source file&#8201;&#8212;&#8201;not human readable, but has instead been translated by the compiler into a series of optimized instructions that are easily understood by the computer.
+The computer can then take that object file and execute it as a program, just like any application users regularly use (applications&#8201;&#8212;&#8201;like word processors and spreadsheets and browsers&#8201;&#8212;&#8201;which were probably produced by a compiler in exactly the same process as described here).
+The difference between a Hugo-generated program and such other compiled programs is that a Hugo program may, once compiled, be run on any platform for which the Hugo Engine exists.
+Normally a compiled program can only be executed on the platform for which it was compiled; Hugo programs are much more portable, and can be compiled on one platform and subsequently be run on any other of the large number of platforms that Hugo supports.</p>
 </div>
 <div class="paragraph">
-<p>The Hugo Engine is the <em>interpreter</em> or <em>runtime</em> for compiled Hugo object files (also referred to as <em>.HEX files</em>, after their default extension meaning &#8220;Hugo executable&#8221;). It functions as a hosting environment in which to load the .HEX file, in sort of the same way that a browser loads a web page from the Internet.</p>
+<p>The Hugo Engine is the <em>interpreter</em> or <em>runtime</em> for compiled Hugo object files (also referred to as <em><strong>.HEX</strong> files</em>, after their default extension meaning &#8220;Hugo executable&#8221;).
+It functions as a hosting environment in which to load the <strong>.HEX</strong> file, in sort of the same way that a browser loads a web page from the Internet.</p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_getting_started"><a class="anchor" href="#_getting_started"></a>1.8. Getting Started</h3>
 <div class="paragraph">
-<p>Let&#8217;s take the first step by becoming acquainted with the tools we&#8217;ll be using. First and foremost is the Hugo Compiler. Compiler usage instructions may vary slightly depending on what computer and operating system you&#8217;re using.</p>
+<p>Let&#8217;s take the first step by becoming acquainted with the tools we&#8217;ll be using.
+First and foremost is the Hugo Compiler.
+Compiler usage instructions may vary slightly depending on what computer and operating system you&#8217;re using.</p>
 </div>
 <div class="paragraph">
 <p>If you&#8217;re using a GUI version of the compiler (such as the one for Windows), when you start the compiler it will display a form for you to enter the name of the Hugo program you want to compile, along with any other compilation options.</p>
 </div>
 <div class="paragraph">
-<p>If you&#8217;re running a command-line version of the compiler, it will behave pretty much the same regardless of what system you&#8217;re on. Type</p>
+<p>If you&#8217;re running a command-line version of the compiler, it will behave pretty much the same regardless of what system you&#8217;re on.
+Type</p>
 </div>
 <div class="literalblock cmd">
 <div class="content">
@@ -912,7 +1140,8 @@ The IF Archive is now, as of this writing, housed on the web at <em><a href="htt
 </div>
 </div>
 <div class="paragraph">
-<p>without any parameters to get a full listing of available compiler options and specifications. For example, the Unix and MS-DOS syntax for running the compiler is</p>
+<p>without any parameters to get a full listing of available compiler options and specifications.
+For example, the Unix and MS-DOS syntax for running the compiler is</p>
 </div>
 <div class="literalblock cmd">
 <div class="content">
@@ -920,7 +1149,8 @@ The IF Archive is now, as of this writing, housed on the web at <em><a href="htt
 </div>
 </div>
 <div class="paragraph">
-<p>It is not absolutely necessary to specify any switches, the name of the objectfile, or the sourcefile extension. The bare-bones version of the compiler invocation is</p>
+<p>It is not absolutely necessary to specify any switches, the name of the objectfile, or the sourcefile extension.
+The bare-bones version of the compiler invocation is</p>
 </div>
 <div class="literalblock cmd">
 <div class="content">
@@ -928,10 +1158,12 @@ The IF Archive is now, as of this writing, housed on the web at <em><a href="htt
 </div>
 </div>
 <div class="paragraph">
-<p>With no other parameters explicitly described, the compiler assumes an extension of <strong>.hug</strong>. The default object filename is <strong>&lt;sourcefile&gt;.hex</strong>.</p>
+<p>With no other parameters explicitly described, the compiler assumes an extension of <strong>.hug</strong>.
+The default object filename is <strong>&lt;sourcefile&gt;.hex</strong>.</p>
 </div>
 <div class="paragraph">
-<p>Here&#8217;s how to compile the sample game from the <strong>sample.hug</strong> source code mentioned earlier in <em>I.e.</em> <em>Packing List</em>. Make sure the compiler executable, library files, and sample game source code are all in the current directory, then type</p>
+<p>Here&#8217;s how to compile the sample game from the <strong>sample.hug</strong> source code mentioned earlier in <em>I.e. Packing List</em>.
+Make sure the compiler executable, library files, and sample game source code are all in the current directory, then type</p>
 </div>
 <div class="literalblock cmd">
 <div class="content">
@@ -947,7 +1179,9 @@ The IF Archive is now, as of this writing, housed on the web at <em><a href="htt
 </div>
 </div>
 <div class="paragraph">
-<p>and after a few seconds (or more, or less, depending on your processor and configuration) a screenful of statistical information will appear following the completed compilation (because of the -s switch). The new file <strong>sample.hex</strong> will have appeared in current directory. As well, the -l switch wrote all compile-time output (which would have included errors, had there been any) to the file <strong>sample.lst</strong>.</p>
+<p>and after a few seconds (or more, or less, depending on your processor and configuration) a screenful of statistical information will appear following the completed compilation (because of the <code>-s</code> switch).
+The new file <strong>sample.hex</strong> will have appeared in current directory.
+As well, the <code>-l</code> switch wrote all compile-time output (which would have included errors, had there been any) to the file <strong>sample.lst</strong>.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -957,7 +1191,9 @@ The IF Archive is now, as of this writing, housed on the web at <em><a href="htt
 </td>
 <td class="content">
 <div class="paragraph">
-<p>The next three sections&#8201;&#8212;&#8201;<em>I.i. Compiler Switches</em>,* <em>*I.j.<strong></em> *<em>Limit Settings</em>, and</strong> <em>*I.k.*</em> *<em>Directories</em>&#8201;&#8212;&#8201;may seem a little confusing to those without much compiler experience. Do look them over, but if you&#8217;re not exactly sure what it all means, don&#8217;t worry about it. You won&#8217;t need to tell the compiler to do anything particularly acrobatic at the outset, and the information is here for experimentation and for when you need it.</p>
+<p>The next three sections&#8201;&#8212;&#8201;<em>I.i. Compiler Switches</em>, <em>I.j. Limit Settings</em>, and <em>I.k. Directories</em>&#8201;&#8212;&#8201;may seem a little confusing to those without much compiler experience.
+Do look them over, but if you&#8217;re not exactly sure what it all means, don&#8217;t worry about it.
+You won&#8217;t need to tell the compiler to do anything particularly acrobatic at the outset, and the information is here for experimentation and for when you need it.</p>
 </div>
 </td>
 </tr>
@@ -967,102 +1203,151 @@ The IF Archive is now, as of this writing, housed on the web at <em><a href="htt
 <div class="sect2">
 <h3 id="_compiler_switches"><a class="anchor" href="#_compiler_switches"></a>1.9. Compiler Switches</h3>
 <div class="paragraph">
-<p>A number of <em>switches</em> may be selected via the invocation line. These are one or more single-letter (usually, at least) options that follow a - character. The available options are:</p>
+<p>A number of <em>switches</em> may be selected via the invocation line.
+These are one or more single-letter (usually, at least) options that follow a <code>-</code> character.
+The available options are:</p>
 </div>
-<div class="paragraph">
-<p>-a <strong>A</strong>bort compilation on any error</p>
-</div>
-<div class="paragraph">
-<p>-d compile as an .HDX <strong>D</strong>ebuggable executable</p>
-</div>
-<div class="paragraph">
-<p>-e <strong>E</strong>xpanded error format</p>
-</div>
-<div class="paragraph">
-<p>-f <strong>F</strong>ull object summaries</p>
-</div>
-<div class="paragraph">
-<p>-h compile in .HLB precompiled <strong>H</strong>eader format</p>
-</div>
-<div class="paragraph">
-<p>-i display debugging <strong>I</strong>nformation</p>
-</div>
-<div class="paragraph">
-<p>-l print <strong>L</strong>isting to disk as <strong>&lt;sourcefile&gt;.lst</strong></p>
-</div>
-<div class="paragraph">
-<p>-o display <strong>O</strong>bject tree</p>
-</div>
-<div class="paragraph">
-<p>-p send output to standard <strong>P</strong>rinter</p>
-</div>
-<div class="paragraph">
-<p>-s print compilation <strong>S</strong>tatistics</p>
-</div>
-<div class="paragraph">
-<p>-t <strong>T</strong>ext to listfile for spellchecking</p>
-</div>
-<div class="paragraph">
-<p>-u show memory <strong>U</strong>sage for objectfile</p>
-</div>
-<div class="paragraph">
-<p>-v <strong>V</strong>erbose compilation</p>
-</div>
-<div class="paragraph">
-<p>-w <strong>W</strong>rite <strong>&lt;objectfile&gt;</strong> despite any errors</p>
-</div>
-<div class="paragraph">
-<p>-x ignore switches in source code</p>
-</div>
-<div class="paragraph">
-<p>-25 compile v<strong>2.5</strong> with compatibility</p>
-</div>
+<table class="tableblock frame-all grid-none stripes-odd fit-content center">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-a</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>A</strong>bort compilation on any error</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-d</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">compile as an .HDX <strong>D</strong>ebuggable executable</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-e</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>E</strong>xpanded error format</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-f</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>F</strong>ull object summaries</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-h</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">compile in .HLB precompiled <strong>H</strong>eader format</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-i</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">display debugging <strong>I</strong>nformation</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-l</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">print <strong>L</strong>isting to disk as <strong>&lt;sourcefile&gt;.lst</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-o</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">display <strong>O</strong>bject tree</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-p</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">send output to standard <strong>P</strong>rinter</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-s</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">print compilation <strong>S</strong>tatistics</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-t</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>T</strong>ext to listfile for spellchecking</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-u</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">show memory <strong>U</strong>sage for objectfile</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-v</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>V</strong>erbose compilation</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-w</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>W</strong>rite <strong>&lt;objectfile&gt;</strong> despite any errors</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-x</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ignore switches in source code</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-25</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">compile v<strong>2.5</strong> with compatibility</p></td>
+</tr>
+</tbody>
+</table>
 <div class="ulist">
 <ul>
 <li>
-<p>The <strong>-a</strong> switch to abort compilation on any error is useful particularly when you suspect that an error earlier in the program is triggering a string of compilation errors later on. Using -a will stop compilation after the first error.</p>
+<p>The <code>-a</code> switch to abort compilation on any error is useful particularly when you suspect that an error earlier in the program is triggering a string of compilation errors later on.
+Using <code>-a</code> will stop compilation after the first error.</p>
 </li>
 <li>
-<p>In order to compile a file usable with the Hugo Debugger (which means it will contain a large amount of symbolic information not normally included in a .HEX file), use the <strong>-d</strong> switch.</p>
+<p>In order to compile a file usable with the Hugo Debugger (which means it will contain a large amount of symbolic information not normally included in a <strong>.HEX</strong> file), use the <code>-d</code> switch.</p>
 </li>
 <li>
-<p>The standard format in which the Hugo Compiler reports errors is relatively concise, but can sometimes be used by more advanced editors to automatically locate the error-causing line. To have the compiler print errors in greater detail than this standard format, use the <strong>-e</strong> switch.</p>
+<p>The standard format in which the Hugo Compiler reports errors is relatively concise, but can sometimes be used by more advanced editors to automatically locate the error-causing line.
+To have the compiler print errors in greater detail than this standard format, use the <code>-e</code> switch.</p>
 </li>
 <li>
-<p>Using the <strong>-f</strong> switch will tell the compiler to output a list of detailed information about each object, which can sometimes be useful for debugging.</p>
+<p>Using the <code>-f</code> switch will tell the compiler to output a list of detailed information about each object, which can sometimes be useful for debugging.</p>
 </li>
 <li>
-<p>The <strong>-h</strong> switch is used to generate a precompiled header, described in <em>APPENDIX E:</em> <em>PRECOMPILED HEADERS</em>.</p>
+<p>The <code>-h</code> switch is used to generate a precompiled header, described in <em>APPENDIX E: PRECOMPILED HEADERS</em>.</p>
 </li>
 <li>
-<p>The <strong>-i</strong> switch tells the compiler to finish compilation by printing a list of all symbols used, as well as their numerical equivalents and any address information. Again, this can sometimes be useful in debugging.</p>
+<p>The <code>-i</code> switch tells the compiler to finish compilation by printing a list of all symbols used, as well as their numerical equivalents and any address information.
+Again, this can sometimes be useful in debugging.</p>
 </li>
 <li>
-<p>Most programmers will probably make use of the <strong>-l</strong> switch to record all compilation output to a listfile, by default called <strong>&lt;filename&gt;.lst.</strong> Such recorded output will contain not only any compile-time errors, but also any output generated by the use of other switches listed here.</p>
+<p>Most programmers will probably make use of the <code>-l</code> switch to record all compilation output to a listfile, by default called <strong>&lt;filename&gt;.lst.</strong> Such recorded output will contain not only any compile-time errors, but also any output generated by the use of other switches listed here.</p>
 </li>
 <li>
-<p>To get a list of all objects (as well as a visual depiction of their inheritance), use the <strong>-o</strong> switch.</p>
+<p>To get a list of all objects (as well as a visual depiction of their inheritance), use the <code>-o</code> switch.</p>
 </li>
 <li>
-<p>The <strong>-p</strong> switch does not exist in all versions of the Hugo Compiler for all platforms. Where present, it causes all output to be sent to a named printer, such as <code>LPT1</code> under DOS or Windows, or <code>/dev/lp</code> under Unix. (The -p switch is actually deprecated, as it&#8217;s much easier and more flexible to capture output to a listfile using the -l switch, then subsequently view and/or print the listfile using a text editor program.)</p>
+<p>The <code>-p</code> switch does not exist in all versions of the Hugo Compiler for all platforms.
+Where present, it causes all output to be sent to a named printer, such as <code>LPT1</code> under DOS or Windows, or <code>/dev/lp</code> under Unix.</p>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-caution" title="Caution"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>The <code>-p</code> switch is actually deprecated, as it&#8217;s much easier and more flexible to capture output to a listfile using the <code>-l</code> switch, then subsequently view and/or print the listfile using a text editor program.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
 </li>
 <li>
-<p>Compilation statistics are printed as a summary when compilation is done if the <strong>-s</strong> switch is used. The summary includes totals of lines compiled, the numbers of objects, routines, properties, dictionary words, and other elements of a .HEX file.</p>
+<p>Compilation statistics are printed as a summary when compilation is done if the <code>-s</code> switch is used.
+The summary includes totals of lines compiled, the numbers of objects, routines, properties, dictionary words, and other elements of a <strong>.HEX</strong> file.</p>
 </li>
 <li>
-<p>The <strong>-t</strong> switch sends all textual output and dictionary entries to the listfile so that it can be run through a spellchecker.</p>
+<p>The <code>-t</code> switch sends all textual output and dictionary entries to the listfile so that it can be run through a spellchecker.</p>
 </li>
 <li>
-<p>The <strong>-u</strong> switch gives a breakdown of the memory used by the .HEX file for various things including the object table, the property table, and executable code.</p>
+<p>The <code>-u</code> switch gives a breakdown of the memory used by the <strong>.HEX</strong> file for various things including the object table, the property table, and executable code.</p>
 </li>
 <li>
-<p>When the <strong>-v</strong> switch (not available on all versions) is used, the compiler runs in verbose mode and maintains a real-time display of the number of lines compiled, and of the percentage of compilation complete.</p>
+<p>When the <code>-v</code> switch (not available on all versions) is used, the compiler runs in verbose mode and maintains a real-time display of the number of lines compiled, and of the percentage of compilation complete.</p>
 </li>
 <li>
-<p>Normally if the compiler encounters any errors in the source code, it won&#8217;t generate the gamefile. Use the <strong>-w</strong> switch to generate <strong>&lt;objectfile&gt;</strong> regardless of any errors encountered. This is useful in a situation where you want to try out a section of code that has nothing to do with another section that may currently have errors, but is otherwise rarely used (for obvious reasons&#8201;&#8212;&#8201;it&#8217;s always best to get rid of those pesky errors).</p>
+<p>Normally if the compiler encounters any errors in the source code, it won&#8217;t generate the gamefile.
+Use the <code>-w</code> switch to generate <strong>&lt;objectfile&gt;</strong> regardless of any errors encountered.
+This is useful in a situation where you want to try out a section of code that has nothing to do with another section that may currently have errors, but is otherwise rarely used (for obvious reasons&#8201;&#8212;&#8201;it&#8217;s always best to get rid of those pesky errors).</p>
 </li>
 <li>
-<p>The version 3.0 (or later) compiler may be invoked with the <strong>-25</strong> switch in order to generate a v2.5 gamefile. Note, however that it&#8217;s generally unnecessary to do so, since v2.5 and v3.x are compatible; i.e., the v3.0 (or later) engine will run v2.5 gamefiles, and most recent v2.5 builds of the engine will run v3.0 gamefiles. See <em>APPENDIX F:</em> HUGO VERSIONS for more information.</p>
+<p>The version 3.0 (or later) compiler may be invoked with the <code>-25</code> switch in order to generate a v2.5 gamefile.
+Note, however that it&#8217;s generally unnecessary to do so, since v2.5 and v3.x are compatible; i.e., the v3.0 (or later) engine will run v2.5 gamefiles, and most recent v2.5 builds of the engine will run v3.0 gamefiles.
+See <em>APPENDIX F: HUGO VERSIONS</em> for more information.</p>
 </li>
 </ul>
 </div>
@@ -1070,7 +1355,10 @@ The IF Archive is now, as of this writing, housed on the web at <em><a href="htt
 <div class="sect2">
 <h3 id="_limit_settings"><a class="anchor" href="#_limit_settings"></a>1.10. Limit Settings</h3>
 <div class="paragraph">
-<p>Also included on the invocation line before the sourcefile may be one or more limit settings. These settings are primarily for memory management, and limit the number of certain types of program elements, such as objects and dictionary entries. In order to allow the compiler to function optimally across a range of different computer platforms with differing memory management capabilities, the compiler does not automatically allow an unlimited number of all language elements. For the most part, you won&#8217;t need to worry about upping any of these settings until your Hugo games begin to reach larger sizes.</p>
+<p>Also included on the invocation line before the sourcefile may be one or more limit settings.
+These settings are primarily for memory management, and limit the number of certain types of program elements, such as objects and dictionary entries.
+In order to allow the compiler to function optimally across a range of different computer platforms with differing memory management capabilities, the compiler does not automatically allow an unlimited number of all language elements.
+For the most part, you won&#8217;t need to worry about upping any of these settings until your Hugo games begin to reach larger sizes.</p>
 </div>
 <div class="paragraph">
 <p>To list the settings, type:</p>
@@ -1085,30 +1373,22 @@ The IF Archive is now, as of this writing, housed on the web at <em><a href="htt
 </div>
 <div class="literalblock cmd">
 <div class="content">
-<pre>Static limits (non-modifiable):
-
-MAXATTRIBUTES 128 MAXGLOBALS 240
-
-MAXLOCALS 16
-
-
+<pre>---------------------------------------------------------------
+Static limits (non-modifiable):
+        MAXATTRIBUTES     128   MAXGLOBALS        240
+        MAXLOCALS          16
+---------------------------------------------------------------
 Default limits:
+        MAXALIASES        256   MAXARRAYS         256
+        MAXCONSTANTS      256   MAXDICT          1024
+        MAXDICTEXTEND     (0)   MAXDIRECTORIES     16
+        MAXEVENTS         256   MAXFLAGS          256
+        MAXLABELS         256   MAXOBJECTS       1024
+        MAXPROPERTIES     254   MAXROUTINES       320
+        MAXSPECIALWORDS    64
 
-MAXALIASES 256 MAXARRAYS 256
-
-MAXCONSTANTS 256 MAXDICT 1024
-
-MAXDICTEXTEND (0) MAXDIRECTORIES 16
-
-MAXEVENTS 256 MAXFLAGS 256
-
-MAXLABELS 256 MAXOBJECTS 1024
-
-MAXPROPERTIES 254 MAXROUTINES 320
-
-MAXSPECIALWORDS 64
-
-Modify non-static default limits using: $&lt;setting&gt;=&lt;new limit&gt;</pre>
+Modify non-static default limits using:  $&lt;setting&gt;=&lt;new limit&gt;
+---------------------------------------------------------------</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1119,22 +1399,23 @@ Modify non-static default limits using: $&lt;setting&gt;=&lt;new limit&gt;</pre>
 <pre>hc $&lt;setting&gt;=&lt;new limit&gt; &lt;sourcefile&gt;...</pre>
 </div>
 </div>
-<div class="admonitionblock note">
+<div class="admonitionblock important">
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-note" title="Note"></i>
+<i class="fa icon-important" title="Important"></i>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Users of Unix or similar systems (including OS X, BeOS, and others) may, depending on the shell being used, need to escape special tokens like <code>$</code> or enclose these arguments in single quotes (e.g. \$list and \$&lt;setting&gt;=&lt;new limit&gt; or 'list',* *'$&lt;setting&gt;=&lt;new limit&gt;', etc.) to override the shell&#8217;s parsing of those tokens in the compiler invocation line. (Non-Unix users probably don&#8217;t need to worry about what that means.)</p>
+<p>Users of Unix or similar systems (including OS X, BeOS, and others) may, depending on the shell being used, need to escape special tokens like <code>$</code> or enclose these arguments in single quotes (e.g. <code>\$list</code> and <code>\$&lt;setting&gt;=&lt;new limit&gt;</code> or <code>'list'</code>, <code>'$&lt;setting&gt;=&lt;new limit&gt;'</code>, etc.) to override the shell&#8217;s parsing of those tokens in the compiler invocation line.
+(Non-Unix users probably don&#8217;t need to worry about what that means.)</p>
 </div>
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>For example, to compile the sample game with the maximum number of dictionary entries doubled from the default limit of 1024, and with the -l and -s switches set,</p>
+<p>For example, to compile the sample game with the maximum number of dictionary entries doubled from the default limit of 1024, and with the <code>-l</code> and <code>-s</code> switches set,</p>
 </div>
 <div class="literalblock cmd">
 <div class="content">
@@ -1145,13 +1426,14 @@ Modify non-static default limits using: $&lt;setting&gt;=&lt;new limit&gt;</pre>
 <p>If a compile-time error is generated indicating that too many symbols of a particular type have been declared, it is probably possible to overcome this simply by recompiling with a higher limit for that setting specified in the invocation line.</p>
 </div>
 <div class="paragraph">
-<p>See <em>APPENDIX C:</em> <em>LIMIT SETTINGS</em> for a complete listing of valid limit settings.</p>
+<p>See <em>APPENDIX C: LIMIT SETTINGS</em> for a complete listing of valid limit settings.</p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_directories"><a class="anchor" href="#_directories"></a>1.11. Directories</h3>
 <div class="paragraph">
-<p>It is possible to specify where the Hugo Compiler will look for different types of files. This can be done in the command line via:</p>
+<p>It is possible to specify where the Hugo Compiler will look for different types of files.
+This can be done in the command line via:</p>
 </div>
 <div class="literalblock cmd">
 <div class="content">
@@ -1169,67 +1451,90 @@ Modify non-static default limits using: $&lt;setting&gt;=&lt;new limit&gt;</pre>
 <div class="paragraph">
 <p>Valid directories (which can be listed using <code>hc @list</code>) are:</p>
 </div>
-<div class="paragraph">
-<p><strong>source</strong> Source files</p>
-</div>
-<div class="paragraph">
-<p><strong>object</strong> Where the new .HEX file will be created</p>
-</div>
-<div class="paragraph">
-<p><strong>lib</strong> Library files</p>
-</div>
-<div class="paragraph">
-<p><strong>list</strong> <strong>.lst</strong> files</p>
-</div>
-<div class="paragraph">
-<p><strong>resource</strong> Resources for a resource block</p>
-</div>
-<div class="paragraph">
-<p><strong>temp</strong> Temporary compilation files (if any)</p>
-</div>
-<div class="admonitionblock note">
+<table class="tableblock frame-all grid-none stripes-odd fit-content center">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>source</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Source files</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>object</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Where the new <strong>.HEX</strong> file will be created</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>lib</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Library files</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>list</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>.lst</strong> files</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>resource</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Resources for a <code>resource</code> block</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>temp</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Temporary compilation files (if any)</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonitionblock important">
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-note" title="Note"></i>
+<i class="fa icon-important" title="Important"></i>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Again, users of Unix or similar systems may, depending on the shell being used, need to escape special tokens like <code>@</code> or enclose these arguments in single quotes (e.g. \@list and \@&lt;directory&gt;=&lt;real directory&gt; or '@list' and '@&lt;directory&gt;=&lt;real directory&gt;') to override the shell&#8217;s parsing of those special tokens in the compiler invocation line.</p>
+<p>Again, users of Unix or similar systems may, depending on the shell being used, need to escape special tokens like <code>@</code> or enclose these arguments in single quotes (e.g. <code>\@list</code> and <code>\@&lt;directory&gt;=&lt;real directory&gt;</code> or <code>'@list'</code> and <code>'@&lt;directory&gt;=&lt;real directory&gt;'</code>) to override the shell&#8217;s parsing of those special tokens in the compiler invocation line.</p>
 </div>
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>Advanced users may take advantage of the ability to set default directories using environment variables. (The method for setting an environment variable may vary from operating system to operating system.) The <strong>HUGO_&lt;NAME&gt;</strong> environment variable may be set to the <strong>&lt;name&gt;</strong> directory. For example, the source directory may be set with the <strong>HUGO_SOURCE</strong> environment variable. Command-line-specified directories take precedence over those set in environment variables. In either case, if the file is not found in the specified directory, the current directory is searched. (And if you&#8217;re not familiar with environment variables, again, don&#8217;t worry about it.)</p>
+<p>Advanced users may take advantage of the ability to set default directories using environment variables.
+(The method for setting an environment variable may vary from operating system to operating system.) The <strong>HUGO_&lt;NAME&gt;</strong> environment variable may be set to the <strong>&lt;name&gt;</strong> directory.
+For example, the source directory may be set with the <strong>HUGO_SOURCE</strong> environment variable.
+Command-line-specified directories take precedence over those set in environment variables.
+In either case, if the file is not found in the specified directory, the current directory is searched.
+(And if you&#8217;re not familiar with environment variables, again, don&#8217;t worry about it.)</p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_the_hugo_engine"><a class="anchor" href="#_the_hugo_engine"></a>1.12. The Hugo Engine</h3>
 <div class="paragraph">
-<p>Once the sample game has been successfully compiled, you can run it with the help of the Hugo Engine. The way in which you do this will vary depending on what platform you&#8217;re using.</p>
+<p>Once the sample game has been successfully compiled, you can run it with the help of the Hugo Engine.
+The way in which you do this will vary depending on what platform you&#8217;re using.</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>If you&#8217;re running a GUI version of the engine (such as for Windows), the filetype for .HEX files will generally be associated with the Hugo Engine application, so that double-clicking on the compiled .HEX file will automatically start the engine.</p>
+<p>If you&#8217;re running a GUI version of the engine (such as for Windows), the filetype for <strong>.HEX</strong> files will generally be associated with the Hugo Engine application, so that double-clicking on the compiled <strong>.HEX</strong> file will automatically start the engine.</p>
 </li>
 <li>
-<p>Most GUI versions also have the functionality that, if you start the Hugo Engine application directly with no .HEX file given, it will present you with a file-selector to choose the file to run.</p>
+<p>Most GUI versions also have the functionality that, if you start the Hugo Engine application directly with no <strong>.HEX</strong> file given, it will present you with a file-selector to choose the file to run.</p>
 </li>
 <li>
-<p>Command-line versions of the engine require you to specify the name of the .HEX file you want to run. Having compiled the sample game, run it by invoking</p>
-</li>
-</ol>
-</div>
+<p>Command-line versions of the engine require you to specify the name of the <strong>.HEX</strong> file you want to run.
+Having compiled the sample game, run it by invoking</p>
 <div class="literalblock cmd">
 <div class="content">
 <pre>he sample</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>at the command line (replacing <code>he</code> with the name of the engine executable for your system, if necessary). Again, it should not be necessary to specify the extension. The engine assumes <strong>.hex</strong> if none is given.</p>
+<p>at the command line (replacing <code>he</code> with the name of the engine executable for your system, if necessary).
+Again, it should not be necessary to specify the extension.
+The engine assumes <strong>.hex</strong> if none is given.</p>
+</div>
+</li>
+</ol>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -1239,7 +1544,9 @@ Modify non-static default limits using: $&lt;setting&gt;=&lt;new limit&gt;</pre>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>If you know how to set environment variables for your system, the environment variable HUGO_OBJECT or HUGO_GAMES may hold the directory that the Hugo Engine searches for the specified .HEX file. The location for save files may be specified with HUGO_SAVE. All of these are optional.</p>
+<p>If you know how to set environment variables for your system, the environment variable <code>HUGO_OBJEC`T or `HUGO_GAMES</code> may hold the directory that the Hugo Engine searches for the specified <strong>.HEX</strong> file.
+The location for save files may be specified with <code>HUGO_SAVE</code>.
+All of these are optional.</p>
 </div>
 </td>
 </tr>
@@ -1268,10 +1575,12 @@ Modify non-static default limits using: $&lt;setting&gt;=&lt;new limit&gt;</pre>
 </ul>
 </div>
 <div class="paragraph">
-<p>Here&#8217;s an example: on the author&#8217;s machine, running under a Unix-like command line, the compiler executable <strong>hc</strong> is in a directory called <strong>/boot/home/hugo</strong>. The library files are in <strong>/boot/home/hugo/lib</strong>, and the source code for the game <em>Future Boy!</em> is in <strong>/boot/home/hugo/fb</strong>, with the main source file called <strong>future.hug</strong>.</p>
+<p>Here&#8217;s an example: on the author&#8217;s machine, running under a Unix-like command line, the compiler executable <strong>hc</strong> is in a directory called <strong>/boot/home/hugo</strong>.
+The library files are in <strong>/boot/home/hugo/lib</strong>, and the source code for the game <em>Future Boy!</em> is in <strong>/boot/home/hugo/fb</strong>, with the main source file called <strong>future.hug</strong>.</p>
 </div>
 <div class="paragraph">
-<p>It&#8217;s possible to call the compiler to compile <em>Future Boy!</em> with a number of different options, including specifying the appropriate directories for source and library files, increasing the maximum possible number of routines, and printing all debugging information, the object tree, and statistics to a file. (Assume that the current directory is <strong>/boot/home/hugo</strong> and that none of the switches or directories are set in the source.)</p>
+<p>It&#8217;s possible to call the compiler to compile <em>Future Boy!</em> with a number of different options, including specifying the appropriate directories for source and library files, increasing the maximum possible number of routines, and printing all debugging information, the object tree, and statistics to a file.
+(Assume that the current directory is <strong>/boot/home/hugo</strong> and that none of the switches or directories are set in the source.)</p>
 </div>
 <div class="paragraph">
 <p>Here&#8217;s how that&#8217;s done:</p>
@@ -1282,13 +1591,11 @@ Modify non-static default limits using: $&lt;setting&gt;=&lt;new limit&gt;</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>(or</p>
+<p>(or <code>hc -lios '$maxobjects=512' '@source=fb'</code>, etc. if the command shell requires that sequences beginning with <code>$</code> or <code>@</code> be contained in single-quotes or otherwise escaped).</p>
 </div>
 <div class="paragraph">
-<p><strong>hc -lios '$maxobjects=512' '@source=fb'</strong>, etc.</p>
-</div>
-<div class="paragraph">
-<p>if the command shell requires that sequences beginning with <code>$</code> or <code>@</code> be contained in single-quotes or otherwise escaped). This makes use of various command-line options, including multiple switches, limit settings, and directory specifications. It sets the desired switches, changes the modifiable limit MAXOBJECTS from the compiler default, and points the compiler to look for source files in the <strong>source</strong> subdirectory and library files in the <strong>lib</strong> subdirectory (from the current directory).</p>
+<p>This makes use of various command-line options, including multiple switches, limit settings, and directory specifications.
+It sets the desired switches, changes the modifiable limit <code>MAXOBJECTS</code> from the compiler default, and points the compiler to look for source files in the <strong>source</strong> subdirectory and library files in the <strong>lib</strong> subdirectory (from the current directory).</p>
 </div>
 </div>
 </div>

@@ -104,7 +104,7 @@ Every chapter in the list provides an [HTML Live Preview] link to quickly jump t
 - [ ]  [_COLOPHON_][COLOPHON]
 - [ ]  [_AUTHOR'S FOREWORD_][FOREWORD]
 - [ ]  [BOOK 1. **THE HUGO PROGRAMMING MANUAL**][Book I]
-    + [ ]  [1. _INTRODUCTION_][Ch1]
+    + [x]  [1. _INTRODUCTION_][Ch1]
     + [ ]  [2. _A FIRST LOOK AT HUGO_][Ch2]
     + [ ]  [3. _OBJECTS_][Ch3]
         * [ ]  AsciiArt to SVG:

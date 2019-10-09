@@ -16,9 +16,8 @@ Additionally, it includes the Hugo Library, in essence a suite of Hugo programmi
 
 This book will serve as a means of becoming familiar with what Hugo is and what it does, and what is required to develop an interactive fiction game using Hugo, whether or not you have any prior programming experience.
 
+
 == Legal Information
-
-
 
 *Please see the Hugo License for detailed legal information.* Hugo is copyrighted by its Author.
 Programs created using the Hugo Compiler are the property of the individual user who created them.
@@ -34,154 +33,193 @@ The Hugo Compiler, the Hugo Engine, the Hugo Debugger, the Hugo Library, and rel
 ================================================================================
 
 
-
 == Names And Acknowledgments
-
-
 
 Those who have taken upon themselves the task of porting Hugo to various platforms include Julian Arnold (Acorn/RiscOS port), Gerald Bostock (OS/2 port), David Kinder (Amiga port), Bill Lash (original Unix/Linux port), Andrew Plotkin (Macintosh port using his Glk library), and Colin Turnbull (original Acorn Archimedes port).
 The author is considerably indebted to them, for all their work as well as for their input on how to improve the compiler and engine.
 Without their efforts, Hugo and the games created with it would not be available for so nearly as wide an audience.footnote:[Other ports done by the author are for Windows, Linux, Macintosh, DOS, BeOS, Pocket PC, and PalmOS.]
 
-More than a few words of appreciation must be given to Volker Blasius, the original maintainer of the Interactive Fiction Archive at GMD, one of the key resources for interactive fiction players and developers, and a primary hub of material for contributors to (and readers of) the Usenet newsgroups _rec.arts.int-fiction_ and _rec.games.int-fiction_.
-For years, Volker (earlier with the help of David M.
-Baggett and later with the help of David Kinder) undertook the substantial task of organizing and cataloguing thousands of existing files and a steady stream of new submissions.
-The IF Archive is now, as of this writing, housed on the web at _http://www.ifarchive.org_, and is currently maintained by David Kinder and Stephen Granade.
+More than a few words of appreciation must be given to Volker Blasius, the original maintainer of the Interactive Fiction Archive at GMD, one of the key resources for interactive fiction players and developers, and a primary hub of material for contributors to (and readers of) the Usenet newsgroups
+link:++https://groups.google.com/forum/#!forum/rec.arts.int-fiction++[_rec.arts.int-fiction_^,title="Visit rec.arts.int-fiction at Google Groups"] and
+link:++https://groups.google.com/forum/#!forum/rec.games.int-fiction++[_rec.games.int-fiction_^,title="Visit rec.games.int-fiction at Google Groups"].
+For years, Volker (earlier with the help of David M. Baggett and later with the help of David Kinder) undertook the substantial task of organizing and cataloguing thousands of existing files and a steady stream of new submissions.
+The IF Archive is now, as of this writing, housed on the web at
+link:https://www.ifarchive.org[_https://www.ifarchive.org_^,title="Visit the IF Archive"],
+and is currently maintained by David Kinder and Stephen Granade.
 
-Thanks also to those whose comments and suggestions have contributed to making Hugo as powerful and usable as it is: Torbjörn Andersson, Julian Arnold, Dmitry Baranov, Mark Bijster, Jonathan Blask, Cam Bowes, Jason Brown, Daniel Cardenas, Jose Luis Cebrian, Gilles Duchesne, Jason Dyer, Miguel Garza, Jeff Jenness, Doug Jones, Alan MacDonald, Cena Mayo, Jesse McGrew, John Menichelli, Iain Merrick, Jim Newland, Jerome Nichols, Jason C. Penney, Giacomo Pini, Andrew Pontious, Vikram Ravindran, Gunther Schmidl, Robb Sherwin, Christopher Tate, Mark J. Tilford, Paolo Vece, and Dean Tessman, as well as to many other Hugo users. Graham Nelson's Inform language helped give early shape to some of the ideas in Hugo's development with regard to syntax and structure. Finally, sincere apologies on my part for any omission of those who have contributed to Hugo over the years in any way.
+Thanks also to those whose comments and suggestions have contributed to making Hugo as powerful and usable as it is: Torbjörn Andersson, Julian Arnold, Dmitry Baranov, Mark Bijster, Jonathan Blask, Cam Bowes, Jason Brown, Daniel Cardenas, Jose Luis Cebrian, Gilles Duchesne, Jason Dyer, Miguel Garza, Jeff Jenness, Doug Jones, Alan MacDonald, Cena Mayo, Jesse McGrew, John Menichelli, Iain Merrick, Jim Newland, Jerome Nichols, Jason C. Penney, Giacomo Pini, Andrew Pontious, Vikram Ravindran, Gunther Schmidl, Robb Sherwin, Christopher Tate, Mark J. Tilford, Paolo Vece, and Dean Tessman, as well as to many other Hugo users.
+Graham Nelson's Inform language helped give early shape to some of the ideas in Hugo's development with regard to syntax and structure.
+Finally, sincere apologies on my part for any omission of those who have contributed to Hugo over the years in any way.
 
 And thank you, as always, to Jennifer.
 
+
 == Manual Conventions
-
-
 
 Please refer to the following conventions as they are used in this manual:
 
-*<parameter>* for required parameters
+// @TODO: Formatting Conventions!
+//    These might need to be adapted to the actual styles used in the final
+//    document. This might include adding samples od admonitions, Hugo code,
+//    CMD blocks, and transcriptions -- but I'll need Kent's approval to do so!
 
-*[parameter]* for optional parameters
+[horizontal]
+`<parameter>`   :: for required parameters
+`[parameter]`   :: for optional parameters
+*file*          :: for specific filenames
+`FunctionName`  :: functions, etc.
+*Note*          :: important notes related to the matter at hand
+`Output`        :: for output by the compiler or engine
+`token`         :: tokens, keywords
+`...`           :: for omissions (particularly of non-relevant sections of code)
 
-*file* for specific filenames
-
-FunctionName functions, etc.
-
-*Note* important notes related to the matter at hand
-
-Output for output by the compiler or engine
-
-token tokens, keywords
-
-... for omissions (particularly of non-relevant sections of code)
 
 == Packing List
 
+A number of files are part of the basic Hugo package.
+You'll need to make sure to have these before you get started; a good starting point is the Hugo web page at
+link:https://www.generalcoffee.com/hugo[_https://www.generalcoffee.com/hugo_^,title="Visit Hugo website"].
 
+[.big]#*Executable package.*#
+You'll need, first and foremost, a version of Hugo compiled for your particular computer system, which will allow you to run existing Hugo programs, as well as compile and run your own.
+Usually the package itself is named something like:
 
-A number of files are part of the basic Hugo package. You'll need to make sure to have these before you get started; a good starting point is the Hugo web page at _http://www.generalcoffee.com/hugo_.
+[horizontal]
+hugov31_win32.zip          :: (Windows)
+hugov31_macos.sit          :: (Macintosh)
+hugov31_unix_source.tar.gz :: (Unix sources)
+_etc._                     :: {blank}
 
-*Executable package.* You'll need, first and foremost, a version of Hugo compiled for your particular computer system, which will allow you to run existing Hugo programs, as well as compile and run your own. Usually the package itself is named something like:
+although filenaming may vary between platforms.
+Generally, like in the examples above, Hugo comes in an archive file containing the various executables for a given platform.
+The package should contain the following files (although, again, filenames may differ; they'll generally appear as *filename*, although on your system they may be lowercase or some combination of upper and lowercase, and the filename extension may vary or be absent):
 
-*hugov31_win32.zip* (Windows)
+[horizontal]
+Hugo Compiler      :: (*HC.EXE*, *hcwin*, *hc*)
+Hugo Engine        :: (*HE.EXE*, *hewin*, *he*, *hewx*)
+Hugo Debugger      :: (*HD.EXE*, *hdwin*, *hd*)
+Debugger help file :: (*HDHELP.HLP*)
 
-*hugov31_macos.sit* (Macintosh)
+Please note that the Hugo Compiler and the Hugo Debugger are not available for all systems; some packages for some systems contain only the Hugo Engine for playing Hugo games.
+To develop and compile your own games, the Hugo Compiler is necessary.
+The Hugo Debugger is a useful and powerful tool, but it is not essential for Hugo development.
 
-*hugov31_unix_source.tar.gz* (Unix sources)
+[.big]#*Library package.*#
+You may be relieved to learn that you don't have to write every last part of a Hugo game yourself.
+In fact, much of the basic infrastructure is provided by the Hugo Library, a set of existing Hugo source code files that you include in your game to manage the game world.
+Using the Hugo Library, you can easily create a small game that incorporates the basic behavior of a standard Hugo game.
+Normally these files can be found in a single archive called *hugolib.zip*:
 
-_etc._
-
-although filenaming may vary between platforms. Generally, like in the examples above, Hugo comes in an archive file containing the various executables for a given platform. The package should contain the following files (although, again, filenames may differ; they'll generally appear as *filename*, although on your system they may be lowercase or some combination of upper and lowercase, and the filename extension may vary or be absent):
-
-Hugo Compiler (*HC.EXE, hcwin, hc*)
-
-Hugo Engine (*HE.EXE, hewin, he, hewx*)
-
-Hugo Debugger (*HD.EXE, hdwin, hd*)
-
-Debugger help file (*HDHELP.HLP*)
-
-Please note that the Hugo Compiler and the Hugo Debugger are not available for all systems; some packages for some systems contain only the Hugo Engine for playing Hugo games. To develop and compile your own games, the Hugo Compiler is necessary. The Hugo Debugger is a useful and powerful tool, but it is not essential for Hugo development.
-
-*Library package.* You may be relieved to learn that you don't have to write every last part of a Hugo game yourself. In fact, much of the basic infrastructure is provided by the Hugo Library, a set of existing Hugo source code files that you include in your game to manage the game world. Using the Hugo Library, you can easily create a small game that incorporates the basic behavior of a standard Hugo game. Normally these files can be found in a single archive called *hugolib.zip*:
-
-*hugolib.h* Library definitions and routines
-
-*verblib.h* Standard verb routines
-
-*verblib.g* Standard verb grammar definitions
-
-*objlib.h* A library of useful object definitions (included by *hugolib.h*)
+[horizontal]
+hugolib.h  :: Library definitions and routines
+verblib.h  :: Standard verb routines
+verblib.g  :: Standard verb grammar definitions
+objlib.h   :: A library of useful object definitions (included by *hugolib.h*)
 
 The library also includes these three less commonly used files:
 
-*resource.h* Resource-handling routines
-
-*system.h* System-level routines
-
-*window.h* Text window management
+[horizontal]
+resource.h  :: Resource-handling routines
+system.h    :: System-level routines
+window.h    :: Text window management
 
 Additionally, the library contains two sets of files that, depending on user-specified settings, are optionally included by *hugolib.h:*
 
-*hugofix.h* Debugging routines
+[horizontal]
+hugofix.h   :: Debugging routines
+hugofix.g   :: Debugging grammar
+verbstub.h  :: Additional verb routines
+verbstub.g  :: Additional verb grammar
 
-*hugofix.g* Debugging grammar
+// @FIXME: "you'RE probably want" -> "you'LL probably want"
 
-*verbstub.h* Additional verb routines
+[.big]#*Sources.*#
+It's probably a good idea as you delve into Hugo programming to have some existing source code to look at.
+*sample.hug* is a valuable resource to have handy since it contains examples of most aspects of Hugo programming.
+Additionally, you're probably want to download *shell.hug*, which provides the very bare bones of a Hugo game for you to start building on:
 
-*verbstub.g* Additional verb grammar
+[horizontal]
+sample.hug  :: Sample game source code
+shell.hug   :: Empty source code to build on
 
-*Sources.* It's probably a good idea as you delve into Hugo programming to have some existing source code to look at. *sample.hug* is a valuable resource to have handy since it contains examples of most aspects of Hugo programming. Additionally, you're probably want to download *shell.hug*, which provides the very bare bones of a Hugo game for you to start building on:
+// @TODO: Missing XRef: "APPENDIX E: PRECOMPILED HEADERS"
+An additional Hugo source file demonstrates the ability to create precompiled headers (and not something you probably need to worry about just now; it's covered in _APPENDIX E: PRECOMPILED HEADERS_):
 
-*sample.hug* Sample game source code
+[horizontal]
+hugolib.hug  :: To create a linkable version of *hugolib.h*
 
-*shell.hug* Empty source code to build on
+[.big]#*Extras.*#
+The last essential remaining piece you'll need to begin Hugo development in earnest is a _text editor_ of some sort.
+This is what you'll use to edit the Hugo source files that you'll write and ultimately compile into working Hugo programs.
+On Windows or Macintosh you could use the pre-packaged Notepad or SimpleText (or TextEdit on Mac OS X) applications, respectively, but it's really not recommended: there are far better inexpensive or even freeware editors available (and once you get deeper into programming, you'll realize that the one sure investment you can make is an editor you're comfortable with).
+On Unix-ish systems (including Linux), you'll generally have a choice of editors including Emacs, vi, and a number of graphical user interface (GUI) programs.
+It's a little beyond the scope of this book to even attempt to recommend an editor -- since it's as much a matter of personal preference as anything -- so the best advice that can be given is to ask around, experiment, and find out what works best for you.
 
-An additional Hugo source file demonstrates the ability to create precompiled headers (and not something you probably need to worry about just now; it's covered in _APPENDIX E:_ _PRECOMPILED HEADERS_):
+It would also be good preparation to become familiar with the _terminal_ or _console_ on your system.
+On Windows, this is the "`MS-DOS Prompt`" or "`Command Prompt`" under the Start menu, or type "`command`" (Windows 95/98) or "`cmd`" (Windows NT/2000/XP) from the "`Run...`" option; on Unix systems, this will be bash or tcsh or some other kind of command shell.
+Other systems will have different names for their command-line environments (although on something like a pre-OS X Macintosh, there is no such thing as a terminal or console, so you needn't worry about it).
 
-*hugolib.hug* To create a linkable version of *hugolib.h*
-
-*Extras.* The last essential remaining piece you'll need to begin Hugo development in earnest is a _text editor_ of some sort. This is what you'll use to edit the Hugo source files that you'll write and ultimately compile into working Hugo programs. On Windows or Macintosh you could use the pre-packaged Notepad or SimpleText (or TextEdit on Mac OS X) applications, respectively, but it's really not recommended: there are far better inexpensive or even freeware editors available (and once you get deeper into programming, you'll realize that the one sure investment you can make is an editor you're comfortable with). On Unix-ish systems (including Linux), you'll generally have a choice of editors including Emacs, vi, and a number of graphical user interface (GUI) programs. It's a little beyond the scope of this book to even attempt to recommend an editor -- since it's as much a matter of personal preference as anything-- so the best advice that can be given is to ask around, experiment, and find out what works best for you.
-
-It would also be good preparation to become familiar with the _terminal_ or _console_ on your system. On Windows, this is the "`MS-DOS Prompt`" or "`Command Prompt`" under the Start menu, or type "`command`" (Windows 95/98) or "`cmd`" (Windows NT/2000/XP) from the "`Run...`" option; on Unix systems, this will be bash or tcsh or some other kind of command shell. Other systems will have different names for their command-line environments (although on something like a pre-OS X Macintosh, there is no such thing as a terminal or console, so you needn't worry about it).
 
 == The Truth About Programming
 
+The truth about writing interactive fiction games is that yes, it is programming, and no, there's really no way around it.
+It's impossible for a game design system to provide a cookie-cutter means of picking and choosing all the various facets of any relatively complex game so that by clicking on a few buttons a fully formed and entirely original game world and story will be produced.
+It doesn't work that way.
+The attempt to determine at the outset all of the various game elements that will ever be needed by any game author in any type of game necessarily limits what authors are able to include in their games, as well as their ability to tailor gameplay, presentation, character interaction, geography, and other important aspects of a game to the needs of the particular work of interactive fiction they're writing.
+So, in order to write the best interactive fiction games you're capable of, you'll need to do a at least a little programming.
+But that's not reason to fret.
 
+The word "`programming`" seems to hold a sort of mystique that, to the non-programmer, conjures up some unfathomable combination of knowledge and skills that shall remain forever inaccessible to outsiders.
+In fact, that's pretty far from the truth.
+Programming is indeed a creative pursuit, but it is pretty much unique among creative pursuits in that it's the only one that can be overcome by enough banging of keys: eventually you can make almost anything work.
 
-The truth about writing interactive fiction games is that yes, it is programming, and no, there's really no way around it. It's impossible for a game design system to provide a cookie-cutter means of picking and choosing all the various facets of any relatively complex game so that by clicking on a few buttons a fully formed and entirely original game world and story will be produced. It doesn't work that way. The attempt to determine at the outset all of the various game elements that will ever be needed by any game author in any type of game necessarily limits what authors are able to include in their games, as well as their ability to tailor gameplay, presentation, character interaction, geography, and other important aspects of a game to the needs of the particular work of interactive fiction they're writing. So, in order to write the best interactive fiction games you're capable of, you'll need to do a at least a little programming. But that's not reason to fret.
+// @FIX: "MANY OF things will..." -> "Many things"/"Many of these things"
 
-The word "`programming`" seems to hold a sort of mystique that, to the non-programmer, conjures up some unfathomable combination of knowledge and skills that shall remain forever inaccessible to outsiders. In fact, that's pretty far from the truth. Programming is indeed a creative pursuit, but it is pretty much unique among creative pursuits in that it's the only one that can be overcome by enough banging of keys: eventually you can make almost anything work.
+If you've never done any programming before, you can probably expect to be slightly baffled by at least some of the early going in this manual.
+The truth about _learning_ programming is that you're probably not going to be able to read through this book (or any book on programming in any other programming language, for that matter) once, in proper sequence, from cover to cover, and be able to write programs expertly in the language.
+Many of things will require the introduction of concepts that will only be discussed in full later on once a better grounding in the language is achieved.
+There will, in fact, be several places in this book (especially in the early sections) where readers will be encouraged to not worry if the subject matter at hand seems quite foreign.
+But rest assured that, after a brief initial period of acclimation, before long things like "`objects`", "`properties`", "`routines`", "`global variables`", "`calling parameters`", and a host of others will be rolling off your tongue like the alphabet.
 
-If you've never done any programming before, you can probably expect to be slightly baffled by at least some of the early going in this manual. The truth about _learning_ programming is that you're probably not going to be able to read through this book (or any book on programming in any other programming language, for that matter) once, in proper sequence, from cover to cover, and be able to write programs expertly in the language. Many of things will require the introduction of concepts that will only be discussed in full later on once a better grounding in the language is achieved. There will, in fact, be several places in this book (especially in the early sections) where readers will be encouraged to not worry if the subject matter at hand seems quite foreign. But rest assured that, after a brief initial period of acclimation, before long things like "`objects`", "`properties`", "`routines`", "`global variables`", "`calling parameters`", and a host of others will be rolling off your tongue like the alphabet.
+To make everything even easier, Hugo is designed so that writing very basic games will consist largely of defining and describing objects and locations in a very straightforward manner.
+All of the complex inner workings of the game -- from the templates for standard rooms and objects and their related behaviors; to what happens when a player types >GO NORTH or >OPEN THE CARDBOARD BOX or any other command, recognized or unrecognized; to the rules of the game world for containment, edibility, bulk, switching things on or off, or any number of "`physical`" traits -- are handled by the Hugo Library, and a prospective doesn't have to worry about where these things are handled or how until he or she is ready to investigate deeper.
 
-To make everything even easier, Hugo is designed so that writing very basic games will consist largely of defining and describing objects and locations in a very straightforward manner. All of the complex inner workings of the game -- from the templates for standard rooms and objects and their related behaviors; to what happens when a player types >GO NORTH or >OPEN THE CARDBOARD BOX or any other command, recognized or unrecognized; to the rules of the game world for containment, edibility, bulk, switching things on or off, or any number of "`physical`" traits -- are handled by the Hugo Library, and a prospective doesn't have to worry about where these things are handled or how until he or she is ready to investigate deeper.
 
 == Working With Hugo
 
+The way Hugo works is fairly standard for a modern programming language.
+A programmer begins with a _source file_, which is a human-readable text file (created and edited in a separate text-editing application).
+The source file contains all the various definitions, instructions, and other text that will ultimately form the content of the game.
+The content of a source file is formatted in the particular structure of the _Hugo language_ -- the programming language with which the majority of this manual will endeavor to help you become acquainted.
 
+The programmer inputs the source file to a _compiler_ (here, specifically, the Hugo Compiler), which takes the source code and generates an _object file_.
+The object file is -- unlike a source file -- not human readable, but has instead been translated by the compiler into a series of optimized instructions that are easily understood by the computer.
+The computer can then take that object file and execute it as a program, just like any application users regularly use (applications -- like word processors and spreadsheets and browsers -- which were probably produced by a compiler in exactly the same process as described here).
+The difference between a Hugo-generated program and such other compiled programs is that a Hugo program may, once compiled, be run on any platform for which the Hugo Engine exists.
+Normally a compiled program can only be executed on the platform for which it was compiled; Hugo programs are much more portable, and can be compiled on one platform and subsequently be run on any other of the large number of platforms that Hugo supports.
 
-The way Hugo works is fairly standard for a modern programming language. A programmer begins with a _source file_, which is a human-readable text file (created and edited in a separate text-editing application). The source file contains all the various definitions, instructions, and other text that will ultimately form the content of the game. The content of a source file is formatted in the particular structure of the _Hugo language_ -- the programming language with which the majority of this manual will endeavor to help you become acquainted.
+The Hugo Engine is the _interpreter_ or _runtime_ for compiled Hugo object files (also referred to as _**.HEX** files_, after their default extension meaning "`Hugo executable`").
+It functions as a hosting environment in which to load the *.HEX* file, in sort of the same way that a browser loads a web page from the Internet.
 
-The programmer inputs the source file to a _compiler_ (here, specifically, the Hugo Compiler), which takes the source code and generates an _object file_. The object file is -- unlike a source file -- not human readable, but has instead been translated by the compiler into a series of optimized instructions that are easily understood by the computer. The computer can then take that object file and execute it as a program, just like any application users regularly use (applications -- like word processors and spreadsheets and browsers -- which were probably produced by a compiler in exactly the same process as described here). The difference between a Hugo-generated program and such other compiled programs is that a Hugo program may, once compiled, be run on any platform for which the Hugo Engine exists. Normally a compiled program can only be executed on the platform for which it was compiled; Hugo programs are much more portable, and can be compiled on one platform and subsequently be run on any other of the large number of platforms that Hugo supports.
-
-The Hugo Engine is the _interpreter_ or _runtime_ for compiled Hugo object files (also referred to as _.HEX files_, after their default extension meaning "`Hugo executable`"). It functions as a hosting environment in which to load the .HEX file, in sort of the same way that a browser loads a web page from the Internet.
 
 == Getting Started
 
-
-
-Let's take the first step by becoming acquainted with the tools we'll be using. First and foremost is the Hugo Compiler. Compiler usage instructions may vary slightly depending on what computer and operating system you're using.
+Let's take the first step by becoming acquainted with the tools we'll be using.
+First and foremost is the Hugo Compiler.
+Compiler usage instructions may vary slightly depending on what computer and operating system you're using.
 
 If you're using a GUI version of the compiler (such as the one for Windows), when you start the compiler it will display a form for you to enter the name of the Hugo program you want to compile, along with any other compilation options.
 
-If you're running a command-line version of the compiler, it will behave pretty much the same regardless of what system you're on. Type
+If you're running a command-line version of the compiler, it will behave pretty much the same regardless of what system you're on.
+Type
 
 [literal, role="cmd"]
 ................................................................................
 hc
 ................................................................................
 
-without any parameters to get a full listing of available compiler options and specifications. For example, the Unix and MS-DOS syntax for running the compiler is
+without any parameters to get a full listing of available compiler options and specifications.
+For example, the Unix and MS-DOS syntax for running the compiler is
 
 [literal, role="cmd"]
 ................................................................................
@@ -190,7 +228,8 @@ hc [-switches] <sourcefile[.hug]> <objectfile>
 
 
 
-It is not absolutely necessary to specify any switches, the name of the objectfile, or the sourcefile extension. The bare-bones version of the compiler invocation is
+It is not absolutely necessary to specify any switches, the name of the objectfile, or the sourcefile extension.
+The bare-bones version of the compiler invocation is
 
 [literal, role="cmd"]
 ................................................................................
@@ -198,17 +237,18 @@ hc <sourcefile>
 ................................................................................
 
 
+With no other parameters explicitly described, the compiler assumes an extension of *.hug*.
+The default object filename is *<sourcefile>.hex*.
 
-With no other parameters explicitly described, the compiler assumes an extension of *.hug*. The default object filename is *<sourcefile>.hex*.
+// @TODO: Missing XRef: "I.e. Packing List"
 
-Here's how to compile the sample game from the *sample.hug* source code mentioned earlier in _I.e._ _Packing List_. Make sure the compiler executable, library files, and sample game source code are all in the current directory, then type
+Here's how to compile the sample game from the *sample.hug* source code mentioned earlier in _I.e. Packing List_.
+Make sure the compiler executable, library files, and sample game source code are all in the current directory, then type
 
 [literal, role="cmd"]
 ................................................................................
 hc -ls sample.hug
 ................................................................................
-
-
 
 or simply
 
@@ -217,76 +257,88 @@ or simply
 hc -ls sample
 ................................................................................
 
+and after a few seconds (or more, or less, depending on your processor and configuration) a screenful of statistical information will appear following the completed compilation (because of the `-s` switch).
+The new file *sample.hex* will have appeared in current directory.
+As well, the `-l` switch wrote all compile-time output (which would have included errors, had there been any) to the file *sample.lst*.
 
-
-and after a few seconds (or more, or less, depending on your processor and configuration) a screenful of statistical information will appear following the completed compilation (because of the -s switch). The new file *sample.hex* will have appeared in current directory. As well, the -l switch wrote all compile-time output (which would have included errors, had there been any) to the file *sample.lst*.
-
+// @TODO: Missing XRefs:
+//    -- "I.i. Compiler Switches"
+//    -- "I.j. Limit Settings"
+//    -- "I.k. Directories"
 [NOTE]
 ================================================================================
-The next three sections -- _I.i. Compiler Switches_,* _*I.j.*_ *_Limit Settings_, and* _*I.k.*_ *_Directories_ -- may seem a little confusing to those without much compiler experience. Do look them over, but if you're not exactly sure what it all means, don't worry about it. You won't need to tell the compiler to do anything particularly acrobatic at the outset, and the information is here for experimentation and for when you need it.
+The next three sections -- _I.i. Compiler Switches_, _I.j. Limit Settings_, and _I.k. Directories_ -- may seem a little confusing to those without much compiler experience.
+Do look them over, but if you're not exactly sure what it all means, don't worry about it.
+You won't need to tell the compiler to do anything particularly acrobatic at the outset, and the information is here for experimentation and for when you need it.
 ================================================================================
-
 
 
 == Compiler Switches
 
+A number of _switches_ may be selected via the invocation line.
+These are one or more single-letter (usually, at least) options that follow a `-` character.
+The available options are:
 
+[.center,caption=]
+[cols="<m,<d",options=autowidth,grid=none,stripes=odd]
+|===============================================================================
+| -a  | **A**bort compilation on any error
+| -d  | compile as an .HDX **D**ebuggable executable
+| -e  | **E**xpanded error format
+| -f  | **F**ull object summaries
+| -h  | compile in .HLB precompiled **H**eader format
+| -i  | display debugging **I**nformation
+| -l  | print **L**isting to disk as *<sourcefile>.lst*
+| -o  | display **O**bject tree
+| -p  | send output to standard **P**rinter
+| -s  | print compilation **S**tatistics
+| -t  | **T**ext to listfile for spellchecking
+| -u  | show memory **U**sage for objectfile
+| -v  | **V**erbose compilation
+| -w  | **W**rite *<objectfile>* despite any errors
+| -x  | ignore switches in source code
+| -25 | compile v**2.5** with compatibility
+|===============================================================================
 
-A number of _switches_ may be selected via the invocation line. These are one or more single-letter (usually, at least) options that follow a - character. The available options are:
+* The `-a` switch to abort compilation on any error is useful particularly when you suspect that an error earlier in the program is triggering a string of compilation errors later on.
+Using `-a` will stop compilation after the first error.
+* In order to compile a file usable with the Hugo Debugger (which means it will contain a large amount of symbolic information not normally included in a *.HEX* file), use the `-d` switch.
+* The standard format in which the Hugo Compiler reports errors is relatively concise, but can sometimes be used by more advanced editors to automatically locate the error-causing line.
+To have the compiler print errors in greater detail than this standard format, use the `-e` switch.
+* Using the `-f` switch will tell the compiler to output a list of detailed information about each object, which can sometimes be useful for debugging.
+// @TODO: Missing XRef: "APPENDIX E: PRECOMPILED HEADERS"
+* The `-h` switch is used to generate a precompiled header, described in _APPENDIX E: PRECOMPILED HEADERS_.
+* The `-i` switch tells the compiler to finish compilation by printing a list of all symbols used, as well as their numerical equivalents and any address information.
+Again, this can sometimes be useful in debugging.
+* Most programmers will probably make use of the `-l` switch to record all compilation output to a listfile, by default called *<filename>.lst.* Such recorded output will contain not only any compile-time errors, but also any output generated by the use of other switches listed here.
+* To get a list of all objects (as well as a visual depiction of their inheritance), use the `-o` switch.
+* The `-p` switch does not exist in all versions of the Hugo Compiler for all platforms.
+Where present, it causes all output to be sent to a named printer, such as `LPT1` under DOS or Windows, or `/dev/lp` under Unix.
++
+[CAUTION]
+================================================================================
+The `-p` switch is actually deprecated, as it's much easier and more flexible to capture output to a listfile using the `-l` switch, then subsequently view and/or print the listfile using a text editor program.
+================================================================================
+* Compilation statistics are printed as a summary when compilation is done if the `-s` switch is used.
+The summary includes totals of lines compiled, the numbers of objects, routines, properties, dictionary words, and other elements of a *.HEX* file.
+* The `-t` switch sends all textual output and dictionary entries to the listfile so that it can be run through a spellchecker.
+* The `-u` switch gives a breakdown of the memory used by the *.HEX* file for various things including the object table, the property table, and executable code.
+* When the `-v` switch (not available on all versions) is used, the compiler runs in verbose mode and maintains a real-time display of the number of lines compiled, and of the percentage of compilation complete.
+* Normally if the compiler encounters any errors in the source code, it won't generate the gamefile.
+Use the `-w` switch to generate *<objectfile>* regardless of any errors encountered.
+This is useful in a situation where you want to try out a section of code that has nothing to do with another section that may currently have errors, but is otherwise rarely used (for obvious reasons -- it's always best to get rid of those pesky errors).
+* The version 3.0 (or later) compiler may be invoked with the `-25` switch in order to generate a v2.5 gamefile.
+Note, however that it's generally unnecessary to do so, since v2.5 and v3.x are compatible; i.e., the v3.0 (or later) engine will run v2.5 gamefiles, and most recent v2.5 builds of the engine will run v3.0 gamefiles.
+// @TODO: Missing XRef: "APPENDIX F: HUGO VERSIONS"
+See _APPENDIX F: HUGO VERSIONS_ for more information.
 
--a **A**bort compilation on any error
-
--d compile as an .HDX **D**ebuggable executable
-
--e **E**xpanded error format
-
--f **F**ull object summaries
-
--h compile in .HLB precompiled **H**eader format
-
--i display debugging **I**nformation
-
--l print **L**isting to disk as *<sourcefile>.lst*
-
--o display **O**bject tree
-
--p send output to standard **P**rinter
-
--s print compilation **S**tatistics
-
--t **T**ext to listfile for spellchecking
-
--u show memory **U**sage for objectfile
-
--v **V**erbose compilation
-
--w **W**rite *<objectfile>* despite any errors
-
--x ignore switches in source code
-
--25 compile v**2.5** with compatibility
-
-* The *-a* switch to abort compilation on any error is useful particularly when you suspect that an error earlier in the program is triggering a string of compilation errors later on. Using -a will stop compilation after the first error.
-* In order to compile a file usable with the Hugo Debugger (which means it will contain a large amount of symbolic information not normally included in a .HEX file), use the *-d* switch.
-* The standard format in which the Hugo Compiler reports errors is relatively concise, but can sometimes be used by more advanced editors to automatically locate the error-causing line. To have the compiler print errors in greater detail than this standard format, use the *-e* switch.
-* Using the *-f* switch will tell the compiler to output a list of detailed information about each object, which can sometimes be useful for debugging.
-* The *-h* switch is used to generate a precompiled header, described in _APPENDIX E:_ _PRECOMPILED HEADERS_.
-* The *-i* switch tells the compiler to finish compilation by printing a list of all symbols used, as well as their numerical equivalents and any address information. Again, this can sometimes be useful in debugging.
-* Most programmers will probably make use of the *-l* switch to record all compilation output to a listfile, by default called *<filename>.lst.* Such recorded output will contain not only any compile-time errors, but also any output generated by the use of other switches listed here.
-* To get a list of all objects (as well as a visual depiction of their inheritance), use the *-o* switch.
-* The *-p* switch does not exist in all versions of the Hugo Compiler for all platforms. Where present, it causes all output to be sent to a named printer, such as `LPT1` under DOS or Windows, or `/dev/lp` under Unix. (The -p switch is actually deprecated, as it's much easier and more flexible to capture output to a listfile using the -l switch, then subsequently view and/or print the listfile using a text editor program.)
-* Compilation statistics are printed as a summary when compilation is done if the *-s* switch is used. The summary includes totals of lines compiled, the numbers of objects, routines, properties, dictionary words, and other elements of a .HEX file.
-* The *-t* switch sends all textual output and dictionary entries to the listfile so that it can be run through a spellchecker.
-* The *-u* switch gives a breakdown of the memory used by the .HEX file for various things including the object table, the property table, and executable code.
-* When the *-v* switch (not available on all versions) is used, the compiler runs in verbose mode and maintains a real-time display of the number of lines compiled, and of the percentage of compilation complete.
-* Normally if the compiler encounters any errors in the source code, it won't generate the gamefile. Use the *-w* switch to generate *<objectfile>* regardless of any errors encountered. This is useful in a situation where you want to try out a section of code that has nothing to do with another section that may currently have errors, but is otherwise rarely used (for obvious reasons -- it's always best to get rid of those pesky errors).
-* The version 3.0 (or later) compiler may be invoked with the *-25* switch in order to generate a v2.5 gamefile. Note, however that it's generally unnecessary to do so, since v2.5 and v3.x are compatible; i.e., the v3.0 (or later) engine will run v2.5 gamefiles, and most recent v2.5 builds of the engine will run v3.0 gamefiles. See _APPENDIX F:_ HUGO VERSIONS for more information.
 
 == Limit Settings
 
-
-
-Also included on the invocation line before the sourcefile may be one or more limit settings. These settings are primarily for memory management, and limit the number of certain types of program elements, such as objects and dictionary entries. In order to allow the compiler to function optimally across a range of different computer platforms with differing memory management capabilities, the compiler does not automatically allow an unlimited number of all language elements. For the most part, you won't need to worry about upping any of these settings until your Hugo games begin to reach larger sizes.
+Also included on the invocation line before the sourcefile may be one or more limit settings.
+These settings are primarily for memory management, and limit the number of certain types of program elements, such as objects and dictionary entries.
+In order to allow the compiler to function optimally across a range of different computer platforms with differing memory management capabilities, the compiler does not automatically allow an unlimited number of all language elements.
+For the most part, you won't need to worry about upping any of these settings until your Hugo games begin to reach larger sizes.
 
 To list the settings, type:
 
@@ -295,39 +347,28 @@ To list the settings, type:
 hc $list
 ................................................................................
 
-
-
 You'll see something like:
 
+// @NOTE: Output below generated with HUGO COMPILER v3.1.03.
 [literal, role="cmd"]
 ................................................................................
-
+---------------------------------------------------------------
 Static limits (non-modifiable):
-
-MAXATTRIBUTES 128 MAXGLOBALS 240
-
-MAXLOCALS 16
-
-
+        MAXATTRIBUTES     128   MAXGLOBALS        240
+        MAXLOCALS          16
+---------------------------------------------------------------
 Default limits:
+        MAXALIASES        256   MAXARRAYS         256
+        MAXCONSTANTS      256   MAXDICT          1024
+        MAXDICTEXTEND     (0)   MAXDIRECTORIES     16
+        MAXEVENTS         256   MAXFLAGS          256
+        MAXLABELS         256   MAXOBJECTS       1024
+        MAXPROPERTIES     254   MAXROUTINES       320
+        MAXSPECIALWORDS    64
 
-MAXALIASES 256 MAXARRAYS 256
-
-MAXCONSTANTS 256 MAXDICT 1024
-
-MAXDICTEXTEND (0) MAXDIRECTORIES 16
-
-MAXEVENTS 256 MAXFLAGS 256
-
-MAXLABELS 256 MAXOBJECTS 1024
-
-MAXPROPERTIES 254 MAXROUTINES 320
-
-MAXSPECIALWORDS 64
-
-Modify non-static default limits using: $<setting>=<new limit>
+Modify non-static default limits using:  $<setting>=<new limit>
+---------------------------------------------------------------
 ................................................................................
-
 
 To change a non-static limit (and compile a source file), type:
 
@@ -336,40 +377,36 @@ To change a non-static limit (and compile a source file), type:
 hc $<setting>=<new limit> <sourcefile>...
 ................................................................................
 
+// @TODO: Check "or `'list'`" --> "or `'$list'`" ???
 
-
-[NOTE]
+[IMPORTANT]
 ================================================================================
-Users of Unix or similar systems (including OS X, BeOS, and others) may, depending on the shell being used, need to escape special tokens like `$` or enclose these arguments in single quotes (e.g. \$list and \$<setting>=<new limit> or 'list',* *'$<setting>=<new limit>', etc.) to override the shell's parsing of those tokens in the compiler invocation line. (Non-Unix users probably don't need to worry about what that means.)
+Users of Unix or similar systems (including OS X, BeOS, and others) may, depending on the shell being used, need to escape special tokens like `$` or enclose these arguments in single quotes (e.g. `\$list` and `\$<setting>=<new limit>` or `'list'`, `'$<setting>=<new limit>'`, etc.) to override the shell's parsing of those tokens in the compiler invocation line.
+(Non-Unix users probably don't need to worry about what that means.)
 ================================================================================
 
-
-
-For example, to compile the sample game with the maximum number of dictionary entries doubled from the default limit of 1024, and with the -l and -s switches set,
+For example, to compile the sample game with the maximum number of dictionary entries doubled from the default limit of 1024, and with the `-l` and `-s` switches set,
 
 [literal, role="cmd"]
 ................................................................................
 hc -ls $MAXDICT=2048 sample
 ................................................................................
 
-
-
 If a compile-time error is generated indicating that too many symbols of a particular type have been declared, it is probably possible to overcome this simply by recompiling with a higher limit for that setting specified in the invocation line.
 
-See _APPENDIX C:_ _LIMIT SETTINGS_ for a complete listing of valid limit settings.
+// @TODO: Missing XRef: "APPENDIX C: LIMIT SETTINGS"
+See _APPENDIX C: LIMIT SETTINGS_ for a complete listing of valid limit settings.
+
 
 == Directories
 
-
-
-It is possible to specify where the Hugo Compiler will look for different types of files. This can be done in the command line via:
+It is possible to specify where the Hugo Compiler will look for different types of files.
+This can be done in the command line via:
 
 [literal, role="cmd"]
 ................................................................................
 hc @<directory>=<real directory>
 ................................................................................
-
-
 
 For example, to specify that the source files are to be taken from the directory *c:\hugo\source*, invoke the compiler with
 
@@ -379,60 +416,62 @@ hc @source=c:\hugo\source <filename>
 ................................................................................
 
 
-
 Valid directories (which can be listed using `hc @list`) are:
 
-*source* Source files
+[.center,caption=]
+[cols="<m,<d",options=autowidth,grid=none,stripes=odd]
+|===============================================================================
+| source   |  Source files
+| object   |  Where the new *.HEX* file will be created
+| lib      |  Library files
+| list     |  *.lst* files
+| resource |  Resources for a `resource` block
+| temp     |  Temporary compilation files (if any)
+|===============================================================================
 
-*object* Where the new .HEX file will be created
-
-*lib* Library files
-
-*list* *.lst* files
-
-*resource* Resources for a resource block
-
-*temp* Temporary compilation files (if any)
-
-[NOTE]
+[IMPORTANT]
 ================================================================================
-Again, users of Unix or similar systems may, depending on the shell being used, need to escape special tokens like `@` or enclose these arguments in single quotes (e.g. \@list and \@<directory>=<real directory> or '@list' and '@<directory>=<real directory>') to override the shell's parsing of those special tokens in the compiler invocation line.
+Again, users of Unix or similar systems may, depending on the shell being used, need to escape special tokens like `@` or enclose these arguments in single quotes (e.g. `\@list` and `\@<directory>=<real directory>` or `'@list'` and `'@<directory>=<real directory>'`) to override the shell's parsing of those special tokens in the compiler invocation line.
 ================================================================================
 
+Advanced users may take advantage of the ability to set default directories using environment variables.
+(The method for setting an environment variable may vary from operating system to operating system.) The *HUGO_<NAME>* environment variable may be set to the *<name>* directory.
+For example, the source directory may be set with the *HUGO_SOURCE* environment variable.
+Command-line-specified directories take precedence over those set in environment variables.
+In either case, if the file is not found in the specified directory, the current directory is searched.
+(And if you're not familiar with environment variables, again, don't worry about it.)
 
-
-Advanced users may take advantage of the ability to set default directories using environment variables. (The method for setting an environment variable may vary from operating system to operating system.) The *HUGO_<NAME>* environment variable may be set to the *<name>* directory. For example, the source directory may be set with the *HUGO_SOURCE* environment variable. Command-line-specified directories take precedence over those set in environment variables. In either case, if the file is not found in the specified directory, the current directory is searched. (And if you're not familiar with environment variables, again, don't worry about it.)
 
 == The Hugo Engine
 
+Once the sample game has been successfully compiled, you can run it with the help of the Hugo Engine.
+The way in which you do this will vary depending on what platform you're using.
 
-
-Once the sample game has been successfully compiled, you can run it with the help of the Hugo Engine. The way in which you do this will vary depending on what platform you're using.
-
-[arabic]
-. If you're running a GUI version of the engine (such as for Windows), the filetype for .HEX files will generally be associated with the Hugo Engine application, so that double-clicking on the compiled .HEX file will automatically start the engine.
-. Most GUI versions also have the functionality that, if you start the Hugo Engine application directly with no .HEX file given, it will present you with a file-selector to choose the file to run.
-. Command-line versions of the engine require you to specify the name of the .HEX file you want to run. Having compiled the sample game, run it by invoking
-
+. If you're running a GUI version of the engine (such as for Windows), the filetype for *.HEX* files will generally be associated with the Hugo Engine application, so that double-clicking on the compiled *.HEX* file will automatically start the engine.
+. Most GUI versions also have the functionality that, if you start the Hugo Engine application directly with no *.HEX* file given, it will present you with a file-selector to choose the file to run.
+. Command-line versions of the engine require you to specify the name of the *.HEX* file you want to run.
+Having compiled the sample game, run it by invoking
++
 [literal, role="cmd"]
 ................................................................................
 he sample
 ................................................................................
-
-
-
-at the command line (replacing `he` with the name of the engine executable for your system, if necessary). Again, it should not be necessary to specify the extension. The engine assumes *.hex* if none is given.
++
+at the command line (replacing `he` with the name of the engine executable for your system, if necessary).
+Again, it should not be necessary to specify the extension.
+The engine assumes *.hex* if none is given.
 
 [NOTE]
 ================================================================================
-If you know how to set environment variables for your system, the environment variable HUGO_OBJECT or HUGO_GAMES may hold the directory that the Hugo Engine searches for the specified .HEX file. The location for save files may be specified with HUGO_SAVE. All of these are optional.
+If you know how to set environment variables for your system, the environment variable `HUGO_OBJEC`T or `HUGO_GAMES` may hold the directory that the Hugo Engine searches for the specified *.HEX* file.
+The location for save files may be specified with `HUGO_SAVE`.
+All of these are optional.
 ================================================================================
 
 
+// @PROOFREAD UP TO HERE! //////////////////////////////////////////////////////
 
 == __What Should I Be Able To Do Now?__
-
-
 
 By now, you should be able to:
 
@@ -441,24 +480,22 @@ By now, you should be able to:
 * view and set compile-time options such as switches, limits, and directories; and
 * run a compiled Hugo file using the Hugo Engine.
 
-Here's an example: on the author's machine, running under a Unix-like command line, the compiler executable *hc* is in a directory called */boot/home/hugo*. The library files are in */boot/home/hugo/lib*, and the source code for the game _Future Boy!_ is in */boot/home/hugo/fb*, with the main source file called *future.hug*.
+Here's an example: on the author's machine, running under a Unix-like command line, the compiler executable *hc* is in a directory called */boot/home/hugo*.
+The library files are in */boot/home/hugo/lib*, and the source code for the game _Future Boy!_ is in */boot/home/hugo/fb*, with the main source file called *future.hug*.
 
-It's possible to call the compiler to compile _Future Boy!_ with a number of different options, including specifying the appropriate directories for source and library files, increasing the maximum possible number of routines, and printing all debugging information, the object tree, and statistics to a file. (Assume that the current directory is */boot/home/hugo* and that none of the switches or directories are set in the source.)
+It's possible to call the compiler to compile _Future Boy!_ with a number of different options, including specifying the appropriate directories for source and library files, increasing the maximum possible number of routines, and printing all debugging information, the object tree, and statistics to a file.
+(Assume that the current directory is */boot/home/hugo* and that none of the switches or directories are set in the source.)
 
 Here's how that's done:
 
 [literal, role="cmd"]
-................................................................................
+...................................................
 hc -lios $maxobjects=512 @source=fb @lib=lib future
-................................................................................
+...................................................
 
+(or `hc -lios '$maxobjects=512' '@source=fb'`, etc. if the command shell requires that sequences beginning with `$` or `@` be contained in single-quotes or otherwise escaped).
 
-
-(or
-
-*hc -lios '$maxobjects=512' '@source=fb'*, etc.
-
-if the command shell requires that sequences beginning with `$` or `@` be contained in single-quotes or otherwise escaped). This makes use of various command-line options, including multiple switches, limit settings, and directory specifications. It sets the desired switches, changes the modifiable limit MAXOBJECTS from the compiler default, and points the compiler to look for source files in the *source* subdirectory and library files in the *lib* subdirectory (from the current directory).
-
+This makes use of various command-line options, including multiple switches, limit settings, and directory specifications.
+It sets the desired switches, changes the modifiable limit `MAXOBJECTS` from the compiler default, and points the compiler to look for source files in the *source* subdirectory and library files in the *lib* subdirectory (from the current directory).
 
 // EOF //
