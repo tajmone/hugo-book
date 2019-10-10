@@ -10,11 +10,16 @@ Source files to generate the diagram images in SVG using [Dia].
 
 - [Folder Contents](#folder-contents)
 - [Diagrams Previews](#diagrams-previews)
+    - [Object Tree Diagrams](#object-tree-diagrams)
+        - [1st Diagram](#1st-diagram)
+        - [2nd Diagram](#2nd-diagram)
+        - [3rd Diagram](#3rd-diagram)
     - [Hugo Compiler Flowchart](#hugo-compiler-flowchart)
     - [Hugo Engine Flowchart](#hugo-engine-flowchart)
     - [Hugo Debugger Flowchart](#hugo-debugger-flowchart)
 - [System Requirements](#system-requirements)
 - [Diagrams Editing Notes](#diagrams-editing-notes)
+    - [Object Trees Fonts and Colors](#object-trees-fonts-and-colors)
     - [Flowcharts Fonts and Colors](#flowcharts-fonts-and-colors)
     - [Spacing Characters](#spacing-characters)
     - [Special Chars Table](#special-chars-table)
@@ -34,6 +39,15 @@ Source files to generate the diagram images in SVG using [Dia].
 - [`build.sh`](./build.sh) — Create SVG images from Dia sourcefiles.
 - [`deploy.sh`](./deploy.sh) — Copy built SVG images to `../../docs_src/`.
 
+Object Tree diagrams ([Book I: §3.2][§3.2]):
+
+- `hugo-book1_03_object-tree1.dia`
+- [`hugo-book1_03_object-tree1.svg`][OT1]
+- `hugo-book1_03_object-tree2.dia`
+- [`hugo-book1_03_object-tree2.svg`][OT2]
+- `hugo-book1_03_object-tree3.dia`
+- [`hugo-book1_03_object-tree3.svg`][OT3]
+
 Hugo Compiler flowchart ([Book II: §25][§25]):
 
 - `hugo-book2_13_flowchart-compiler.dia`
@@ -51,6 +65,32 @@ Hugo Debugger flowchart ([Book II: §27][§27]):
 
 
 # Diagrams Previews
+
+## Object Tree Diagrams
+
+Used in [§3.2. The Object Tree][§3.2].
+
+### 1st Diagram
+
+- `hugo-book1_03_object-tree1.dia`
+- [`hugo-book1_03_object-tree1.svg`][OT1]
+
+![Object Tree example 1][OT1]
+
+### 2nd Diagram
+
+- `hugo-book1_03_object-tree2.dia`
+- [`hugo-book1_03_object-tree2.svg`][OT2]
+
+![Object Tree example 2][OT2]
+
+### 3rd Diagram
+
+- `hugo-book1_03_object-tree3.dia`
+- [`hugo-book1_03_object-tree3.svg`][OT3]
+
+![Object Tree example 3][OT3]
+
 
 ## Hugo Compiler Flowchart
 
@@ -88,6 +128,14 @@ In order to edit the diagram's sourcefile, or to run the scripts in this folder,
 # Diagrams Editing Notes
 
 Some annotations on Dia assets and settings used in the creation of the SVG diagrams sources. 
+
+## Object Trees Fonts and Colors
+
+For the Dia Object Trees diagrams, I've used the built-in [Flowchart Shapes].
+
+And the following fonts:
+
+- Consolas, 28 pt.
 
 ## Flowcharts Fonts and Colors
 
@@ -184,12 +232,16 @@ Resources and articles on which fonts are safe to use based on common OSs' avail
 
 <!-- Live HTML Previews Links -->
 
+[§3.2]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/docs_src/hugo-book.html#_code_patterns "Live HTML Preview"
 [§25]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/docs_src/hugo-book.html#_the_hugo_compiler_and_how_it_works "Live HTML Preview"
 [§26]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/docs_src/hugo-book.html#_the_hugo_engine_and_how_it_works "Live HTML Preview"
 [§27]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/docs_src/hugo-book.html#_dark_secrets_of_the_hugo_debugger "Live HTML Preview"
-[§3.2]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/docs_src/hugo-book.html#_code_patterns "Live HTML Preview"
 
 <!-- project files -->
+
+[OT1]: ./hugo-book1_03_object-tree1.svg
+[OT2]: ./hugo-book1_03_object-tree2.svg
+[OT3]: ./hugo-book1_03_object-tree3.svg
 
 [FC2:13]: ./hugo-book2_13_flowchart-compiler.svg
 [FC2:14]: ./hugo-book2_14_flowchart-engine.svg

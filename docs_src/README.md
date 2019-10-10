@@ -34,6 +34,9 @@ _[Foreword]_) that imports all contents:
         * [`hugo-book1_01.asciidoc`][HB1:01] — [1. _Introduction_][Ch1]
         * [`hugo-book1_02.asciidoc`][HB1:02] — [2. _A First Look at Hugo_][Ch2]
         * [`hugo-book1_03.asciidoc`][HB1:03] — [3. _Objects_][Ch3]
+            - [`hugo-book1_03_object-tree1.svg`][HB1:3 objT1.svg] — SVG object tree example 1 ([generated via Dia]).
+            - [`hugo-book1_03_object-tree2.svg`][HB1:3 objT2.svg] — SVG object tree example 2 ([generated via Dia]).
+            - [`hugo-book1_03_object-tree3.svg`][HB1:3 objT3.svg] — SVG object tree example 3 ([generated via Dia]).
         * [`hugo-book1_04.asciidoc`][HB1:04] — [4. _Hugo Programming_][Ch4]
         * [`hugo-book1_05.asciidoc`][HB1:05] — [5. _Routines and Events_][Ch5]
         * [`hugo-book1_06.asciidoc`][HB1:06] — [6. _Fuses, Daemons, and Scripts_][Ch6]
@@ -65,6 +68,7 @@ _[Foreword]_) that imports all contents:
         * [`hugo-book2_11.asciidoc`][HB2:11] — [23. _The Dictionary and Special Words_][Ch23]
         * [`hugo-book2_12.asciidoc`][HB2:12] — [24. _Resourcefiles_][Ch24]
         * [`hugo-book2_13.asciidoc`][HB2:13] — [25. _The Hugo Compiler and How It Works_][Ch25]
+            - [`hugo-book2_13_flowchart-compiler.svg`][HB2:13 com.svg] — SVG flowchart of Hugo compiler ([generated via Dia]).
         * [`hugo-book2_14.asciidoc`][HB2:14] — [26. _The Hugo Engine and How It Works_][Ch26]
             - [`hugo-book2_14_flowchart-engine.svg`][HB2:14 eng.svg] — SVG flowchart of Hugo engine ([generated via Dia]).
         * [`hugo-book2_15.asciidoc`][HB2:15] — [27. _Dark Secrets of the Hugo Debugger_][Ch27]
@@ -109,10 +113,10 @@ Every chapter in the list provides an [HTML Live Preview] link to quickly jump t
     + [x]  [1. _INTRODUCTION_][Ch1]
     + [ ]  [2. _A FIRST LOOK AT HUGO_][Ch2]
     + [ ]  [3. _OBJECTS_][Ch3]
-        * [ ]  AsciiArt to SVG:
-            - [ ] §3.2. Object Tree diagram 1.
-            - [ ] §3.2. Object Tree diagram 2.
-            - [ ] §3.2. Object Tree diagram 3.
+        * [x]  AsciiArt to SVG:
+            - [x] §3.2. [Object Tree diagram 1][HB1:3 objT1.svg].
+            - [x] §3.2. [Object Tree diagram 2][HB1:3 objT2.svg].
+            - [x] §3.2. [Object Tree diagram 3][HB1:3 objT3.svg].
     + [ ]  [4. _HUGO PROGRAMMING_][Ch4]
     + [ ]  [5. _ROUTINES AND EVENTS_][Ch5]
     + [ ]  [6. _FUSES, DAEMONS, AND SCRIPTS_][Ch6]
@@ -143,11 +147,11 @@ Every chapter in the list provides an [HTML Live Preview] link to quickly jump t
     + [x]  [23. _THE DICTIONARY AND SPECIAL WORDS_][Ch23]
     + [x]  [24. _RESOURCEFILES_][Ch24]
     + [x]  [25. _THE HUGO COMPILER AND HOW IT WORKS_][Ch25]
-        * [x]  AsciiArt to SVG: flowchart of Hugo compiler.
+        * [x]  [AsciiArt to SVG: flowchart of Hugo compiler][HB2:13 com.svg].
     + [x]  [26. _THE HUGO ENGINE AND HOW IT WORKS_][Ch26]
-        * [x]  AsciiArt to SVG: flowchart of Hugo engine.
+        * [x]  [AsciiArt to SVG: flowchart of Hugo engine][HB2:14 eng.svg].
     + [x]  [27. _DARK SECRETS OF THE HUGO DEBUGGER_][Ch27]
-        * [x]  AsciiArt to SVG: flowchart of Hugo debugger.
+        * [x]  [AsciiArt to SVG: flowchart of Hugo debugger][HB2:15 dbg.svg].
     + [x]  [APP. H. _CODE PATTERNS_][AppH]
         * [ ]  _needs to be proof-read once more, carefully!_
 - [ ] _INDEX_ (supported only in PDF format)
@@ -282,7 +286,12 @@ In order to convert _The Hugo Book_ to HTML you'll need to install the following
 
 [HB Tokens.csv]: ./hugo-book2_03_tokens-list.csv "View CSV source file"
 
+[HB2:13 com.svg]: ./hugo-book2_13_flowchart-compiler.svg "Open diagram image file"
 [HB2:14 eng.svg]: ./hugo-book2_14_flowchart-engine.svg "Open diagram image file"
 [HB2:15 dbg.svg]: ./hugo-book2_15_flowchart-debugger.svg "Open diagram image file"
+
+[HB1:3 objT1.svg]: ./hugo-book1_03_object-tree1.svg "Open diagram image file"
+[HB1:3 objT2.svg]: ./hugo-book1_03_object-tree2.svg "Open diagram image file"
+[HB1:3 objT3.svg]: ./hugo-book1_03_object-tree3.svg "Open diagram image file"
 
 <!-- EOF -->

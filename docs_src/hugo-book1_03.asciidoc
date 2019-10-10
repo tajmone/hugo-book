@@ -98,18 +98,7 @@ Here is an example of an object tree:
 
 // See p.35:
 // @TODO: Add color via custom styles?
-..................................
-nothing
-|
-Room
-|
-Table ------ Chair ------ Book ------ Player
-|                         |
-Bowl                      Bookmark
-|
-Spoon
-..................................
-
+image::hugo-book1_03_object-tree1.svg[align="center",width=40%]
 
 A number of built-in functions can be used to read the object tree.
 
@@ -158,18 +147,7 @@ The bowl is on the table, and the spoon is on the bowl.
 The Hugo library will assume that the player object in the example is standing; if the player were seated, the object tree might look like:
 
 // See p.36:
-..................................
-nothing
-|
-Room
-|
-Table ——— Chair ——— Book
-|         |         |
-Bowl      Player    Bookmark
-|
-Spoon
-..................................
-
+image::hugo-book1_03_object-tree2.svg[align="center",width=30%]
 
 and
 
@@ -280,17 +258,8 @@ Therefore, in the original example, the command
 would result in altering the object tree to this:
 
 // See p.38:
-...................................
-nothing
-|
-Room
-|
-Table ——— Chair ——- Book ——— Player
-                    |        |
-                    Bookmark Bowl
-                             |
-                             Spoon
-...................................
+image::hugo-book1_03_object-tree3.svg[align="center",width=40%]
+
 
 There is also a command to remove an object from its position in the tree:
 

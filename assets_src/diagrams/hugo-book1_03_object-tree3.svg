@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/PR-SVG-20010719/DTD/svg10.dtd">
+<svg width="16cm" height="10cm" viewBox="360 260 320 200" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="520.339" y1="279.761" x2="520.112" y2="299.999"/>
+  <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="560" y1="380" x2="560" y2="400.01"/>
+  <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="640" y1="380" x2="640" y2="400.01"/>
+  <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="640" y1="420.01" x2="640" y2="439.99"/>
+  <g>
+    <rect style="fill: #ffffff" x="480" y="260" width="80.9" height="19.7556"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2.35099e-037; stroke: #ffffff" x="480" y="260" width="80.9" height="19.7556"/>
+    <text font-size="15.8044" style="fill: #000000;text-anchor:middle;font-family:Consolas;font-style:normal;font-weight:normal" x="520.45" y="274.55">
+      <tspan x="520.45" y="274.55">nothing</tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="460" y="300" width="120" height="20"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2.35099e-037; stroke: #ffffff" x="460" y="300" width="120" height="20"/>
+    <text font-size="15.8044" style="fill: #000000;text-anchor:middle;font-family:Consolas;font-style:normal;font-weight:normal" x="520" y="314.672">
+      <tspan x="520" y="314.672">Room</tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="360" y="360" width="80" height="20"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2.35099e-037; stroke: #ffffff" x="360" y="360" width="80" height="20"/>
+    <text font-size="15.8044" style="fill: #000000;text-anchor:middle;font-family:Consolas;font-style:normal;font-weight:normal" x="400" y="374.672">
+      <tspan x="400" y="374.672">Table</tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="440" y="360" width="80" height="20"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2.35099e-037; stroke: #ffffff" x="440" y="360" width="80" height="20"/>
+    <text font-size="15.8044" style="fill: #000000;text-anchor:middle;font-family:Consolas;font-style:normal;font-weight:normal" x="480" y="374.672">
+      <tspan x="480" y="374.672">Chair</tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="520" y="360" width="80" height="20"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2.35099e-037; stroke: #ffffff" x="520" y="360" width="80" height="20"/>
+    <text font-size="15.8044" style="fill: #000000;text-anchor:middle;font-family:Consolas;font-style:normal;font-weight:normal" x="560" y="374.672">
+      <tspan x="560" y="374.672">Book</tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="600" y="360" width="80" height="20"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2.35099e-037; stroke: #ffffff" x="600" y="360" width="80" height="20"/>
+    <text font-size="15.8044" style="fill: #000000;text-anchor:middle;font-family:Consolas;font-style:normal;font-weight:normal" x="640" y="374.672">
+      <tspan x="640" y="374.672">Player</tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="600" y="400" width="80" height="20"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2.35099e-037; stroke: #ffffff" x="600" y="400" width="80" height="20"/>
+    <text font-size="15.8044" style="fill: #000000;text-anchor:middle;font-family:Consolas;font-style:normal;font-weight:normal" x="640" y="414.672">
+      <tspan x="640" y="414.672">Bowl</tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="600" y="440" width="80" height="20"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2.35099e-037; stroke: #ffffff" x="600" y="440" width="80" height="20"/>
+    <text font-size="15.8044" style="fill: #000000;text-anchor:middle;font-family:Consolas;font-style:normal;font-weight:normal" x="640" y="454.672">
+      <tspan x="640" y="454.672">Spoon</tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="520" y="400" width="80" height="20"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2.35099e-037; stroke: #ffffff" x="520" y="400" width="80" height="20"/>
+    <text font-size="15.8044" style="fill: #000000;text-anchor:middle;font-family:Consolas;font-style:normal;font-weight:normal" x="560" y="414.672">
+      <tspan x="560" y="414.672">Bookmark</tspan>
+    </text>
+  </g>
+  <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="520,320.01 520,340 400,340 400,359.99 "/>
+  <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="520,320.01 520,340 480,340 480,359.99 "/>
+  <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="520,320.01 520,340 560,340 560,359.99 "/>
+  <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="520,320.01 520,340 640,340 640,359.99 "/>
+</svg>
