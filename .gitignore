@@ -5,6 +5,7 @@
 
 # Local previews:
 /docs_src/hugo-book?_*.html
+/docs_src/preview.html
 
 ## TMP Work Files
 #################
