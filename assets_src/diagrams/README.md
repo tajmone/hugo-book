@@ -21,8 +21,8 @@ Source files to generate the diagram images in SVG using [Dia].
 
 # Folder Contents
 
-- [`build.bat`](./build.bat) — Create SVG images from Dia sourcefile.
-- [`deploy.bat`](./deploy.bat) — Copy built SVGs to `//docs_src/`.
+- [`build.sh`](./build.sh) — Create SVG images from Dia sourcefile.
+- [`deploy.sh`](./deploy.sh) — Copy built SVGs to `../../docs_src/`.
 - `hugo-book2_14_flowchart-engine.dia` — Dia sourcefile.
 - [`hugo-book2_14_flowchart-engine.svg`][FC2:14]— Converted diagram in SVG format.
 
