@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# "docs_src/preview.sh"                                    | v0.0.2 | 2019/10/08
+# "docs_src/preview.sh"                                    | v0.0.3 | 2019/10/10
 # ------------------------------------------------------------------------------
 # By Tristano Ajmone, released into the public domain via the Unlicense.
 # ------------------------------------------------------------------------------
@@ -19,12 +19,12 @@ echo -e "Building a quick HTML preview (\e[93m$output\e[0m):"
 echo -e "\e[91m *\e[0m TOC levels: 1."
 echo -e "\e[91m *\e[0m Single document."
 echo -e "\e[91m *\e[0m Default template."
+echo -e "\e[91m *\e[0m No graphics embedding."
 echo -e "\e[91m *\e[0m No syntax highlighting."
 
 asciidoctor \
   --verbose \
   --safe-mode unsafe \
-  -a data-uri \
   -a experimental \
   -a icons=font \
   -a sectanchors \

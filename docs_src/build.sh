@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# "docs_src/build.sh"                                      | v0.0.1 | 2019/10/08
+# "docs_src/build.sh"                                      | v0.0.2 | 2019/10/10
 # ------------------------------------------------------------------------------
 # By Tristano Ajmone, released into the public domain via the Unlicense.
 # ------------------------------------------------------------------------------
@@ -27,6 +27,7 @@ printBanner "Hugo Book: Final HTML Document"
 echo -e "Converting to standalone HTML document (\e[93m$output\e[0m):"
 echo -e "\e[91m *\e[0m TOC levels: 1."
 echo -e "\e[91m *\e[0m Single document."
+echo -e "\e[91m *\e[0m Graphics embedded via data-URI."
 echo -e "\e[91m *\e[0m Custom Haml HTML5 templates."
 echo -e "\e[91m *\e[0m Syntax highlighting via Highlight (no JS dependencies)."
 

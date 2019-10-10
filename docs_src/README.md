@@ -74,11 +74,13 @@ _[Foreword]_) that imports all contents:
 ## Build Toolchain
 
 - [`build.sh`][build.sh] — (***slow***) generates final HTML version of the book:
-    + [`hugo-book.html`][HB.html] ( [HTML Live Preview] ) — fully standalone, syntax highlighted, custom CSS.
+    + [`hugo-book.html`][HB.html] ( [HTML Live Preview] ) — fully standalone, embedded graphics, syntax highlighted, custom CSS.
 - [`preview.sh`][preview.sh] — (***fast***) generates a quick HTML preview of the book:
-    + `preview.html` — no syntax highlighting, default template. (ignored by Git)
+    + `preview.html` — no syntax highlighting, no embedded graphics, use default template. (ignored by Git)
 
 > __NOTE 1__ — Since the overhead introduced by using the external Highlight tool is considerable on a big document like this one, the `preview.sh` script is very handy when editing the document, for it provides a very fast-updating preview of the changes (without syntax highlighting).
+> 
+> Furthermore, the `preview.html` doesn't embed graphics via data-URIs, so you won't need to rebuild the whole document to view changed images, but only refresh the page since images are loaded from disk. 
 
 <!---------------------------------------------------------------------------->
 
