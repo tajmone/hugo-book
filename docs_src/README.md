@@ -141,7 +141,7 @@ Every chapter in the list provides an [HTML Live Preview] link to quickly jump t
     + [x]  [23. _THE DICTIONARY AND SPECIAL WORDS_][Ch23]
     + [x]  [24. _RESOURCEFILES_][Ch24]
     + [x]  [25. _THE HUGO COMPILER AND HOW IT WORKS_][Ch25]
-        * [ ]  AsciiArt to SVG: flowchart of Hugo compiler.
+        * [x]  AsciiArt to SVG: flowchart of Hugo compiler.
     + [x]  [26. _THE HUGO ENGINE AND HOW IT WORKS_][Ch26]
         * [x]  AsciiArt to SVG: flowchart of Hugo engine.
     + [x]  [27. _DARK SECRETS OF THE HUGO DEBUGGER_][Ch27]

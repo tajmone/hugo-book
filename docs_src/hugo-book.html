@@ -535,7 +535,7 @@ div.literalblock.cmd pre .conum {
 <span id="email" class="email"><a href="mailto:general@generalcoffee.com">general@generalcoffee.com</a></span><br>
 <span id="revnumber">version 1,</span>
 <span id="revdate">2018-10-04</span>
-<br><span id="revremark">Draft 37 -- Porting to AsciiDoc</span>
+<br><span id="revremark">Draft 38 -- Porting to AsciiDoc</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -16009,18 +16009,9 @@ If <em>n</em> is 0, the byte <em>n</em>+1 gives the value from the memory image.
 <div class="paragraph">
 <p>The key difference with the debugger build of the engine is in <code>RunRoutine()</code>, which in the debugger looks more like this:</p>
 </div>
-<div class="literalblock">
+<div class="imageblock text-center">
 <div class="content">
-<pre>      ...
-       |
-       |
-+--------------+     +------------+
-| RunRoutine() |----&gt;| Debugger() | (if debugger_interrupt is non-false)
-|   herun.c    |     |   hd.c     |
-+--------------+     +------------+
-       |
-       |
-      ...</pre>
+<img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4wLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL1RSLzIwMDEvUFItU1ZHLTIwMDEwNzE5L0RURC9zdmcxMC5kdGQiPgo8c3ZnIHdpZHRoPSIzNWNtIiBoZWlnaHQ9IjExY20iIHZpZXdCb3g9IjQxOCA3NjUgNjk1IDIxOSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgPGc+CiAgICA8cmVjdCBzdHlsZT0iZmlsbDogI2ZmZTU5OSIgeD0iNDIwIiB5PSI4NDAiIHdpZHRoPSIxNjAiIGhlaWdodD0iODAiLz4KICAgIDxyZWN0IHN0eWxlPSJmaWxsOiBub25lOyBmaWxsLW9wYWNpdHk6MDsgc3Ryb2tlLXdpZHRoOiAyOyBzdHJva2U6ICMwMDAwMDAiIHg9IjQyMCIgeT0iODQwIiB3aWR0aD0iMTYwIiBoZWlnaHQ9IjgwIi8+CiAgICA8dGV4dCBmb250LXNpemU9IjE1LjgwNDQiIHN0eWxlPSJmaWxsOiAjMDAwMDAwO3RleHQtYW5jaG9yOm1pZGRsZTtmb250LWZhbWlseTpDb25zb2xhcztmb250LXN0eWxlOm5vcm1hbDtmb250LXdlaWdodDpub3JtYWwiIHg9IjUwMCIgeT0iODc0Ljc5NCI+CiAgICAgIDx0c3BhbiB4PSI1MDAiIHk9Ijg3NC43OTQiPlJ1blJvdXRpbmUoKTwvdHNwYW4+CiAgICAgIDx0c3BhbiB4PSI1MDAiIHk9Ijg5NC41NSI+aGVydW4uYzwvdHNwYW4+CiAgICA8L3RleHQ+CiAgPC9nPgogIDxnPgogICAgPGxpbmUgc3R5bGU9ImZpbGw6IG5vbmU7IGZpbGwtb3BhY2l0eTowOyBzdHJva2Utd2lkdGg6IDI7IHN0cm9rZTogIzAwMDAwMCIgeDE9IjUwMCIgeTE9IjgwMCIgeDI9IjUwMCIgeTI9IjgyOSIvPgogICAgPHBvbHlnb24gc3R5bGU9ImZpbGw6ICMwMDAwMDAiIHBvaW50cz0iNDk1LDgyOSA1MDAsODM5IDUwNSw4MjkgIi8+CiAgICA8cG9seWdvbiBzdHlsZT0iZmlsbDogbm9uZTsgZmlsbC1vcGFjaXR5OjA7IHN0cm9rZS13aWR0aDogMjsgc3Ryb2tlOiAjMDAwMDAwIiBwb2ludHM9IjQ5NSw4MjkgNTAwLDgzOSA1MDUsODI5ICIvPgogIDwvZz4KICA8Zz4KICAgIDxyZWN0IHN0eWxlPSJmaWxsOiAjZmZlNTk5IiB4PSI2MjAiIHk9Ijg0MCIgd2lkdGg9IjE2MCIgaGVpZ2h0PSI4MCIvPgogICAgPHJlY3Qgc3R5bGU9ImZpbGw6IG5vbmU7IGZpbGwtb3BhY2l0eTowOyBzdHJva2Utd2lkdGg6IDI7IHN0cm9rZTogIzAwMDAwMCIgeD0iNjIwIiB5PSI4NDAiIHdpZHRoPSIxNjAiIGhlaWdodD0iODAiLz4KICAgIDx0ZXh0IGZvbnQtc2l6ZT0iMTUuODA0NCIgc3R5bGU9ImZpbGw6ICMwMDAwMDA7dGV4dC1hbmNob3I6bWlkZGxlO2ZvbnQtZmFtaWx5OkNvbnNvbGFzO2ZvbnQtc3R5bGU6bm9ybWFsO2ZvbnQtd2VpZ2h0Om5vcm1hbCIgeD0iNzAwIiB5PSI4NzQuNzk0Ij4KICAgICAgPHRzcGFuIHg9IjcwMCIgeT0iODc0Ljc5NCI+RGVidWdnZXIoKTwvdHNwYW4+CiAgICAgIDx0c3BhbiB4PSI3MDAiIHk9Ijg5NC41NSI+aGQuYzwvdHNwYW4+CiAgICA8L3RleHQ+CiAgPC9nPgogIDxnPgogICAgPGxpbmUgc3R5bGU9ImZpbGw6IG5vbmU7IGZpbGwtb3BhY2l0eTowOyBzdHJva2Utd2lkdGg6IDI7IHN0cm9rZTogIzAwMDAwMCIgeDE9IjU4MCIgeTE9Ijg4MCIgeDI9IjYwOC4wMDkiIHkyPSI4ODAiLz4KICAgIDxwb2x5Z29uIHN0eWxlPSJmaWxsOiAjMDAwMDAwIiBwb2ludHM9IjYwOC4wMDksODg1IDYxOC4wMDksODgwIDYwOC4wMDksODc1ICIvPgogICAgPHBvbHlnb24gc3R5bGU9ImZpbGw6IG5vbmU7IGZpbGwtb3BhY2l0eTowOyBzdHJva2Utd2lkdGg6IDI7IHN0cm9rZTogIzAwMDAwMCIgcG9pbnRzPSI2MDguMDA5LDg4NSA2MTguMDA5LDg4MCA2MDguMDA5LDg3NSAiLz4KICA8L2c+CiAgPGc+CiAgICA8bGluZSBzdHlsZT0iZmlsbDogbm9uZTsgZmlsbC1vcGFjaXR5OjA7IHN0cm9rZS13aWR0aDogMjsgc3Ryb2tlOiAjMDAwMDAwIiB4MT0iNTAwIiB5MT0iOTIwLjk3NyIgeDI9IjUwMCIgeTI9Ijk0OSIvPgogICAgPHBvbHlnb24gc3R5bGU9ImZpbGw6ICMwMDAwMDAiIHBvaW50cz0iNDk1LDk0OSA1MDAsOTU5IDUwNSw5NDkgIi8+CiAgICA8cG9seWdvbiBzdHlsZT0iZmlsbDogbm9uZTsgZmlsbC1vcGFjaXR5OjA7IHN0cm9rZS13aWR0aDogMjsgc3Ryb2tlOiAjMDAwMDAwIiBwb2ludHM9IjQ5NSw5NDkgNTAwLDk1OSA1MDUsOTQ5ICIvPgogIDwvZz4KICA8dGV4dCBmb250LXNpemU9IjE1LjgwNDQiIHN0eWxlPSJmaWxsOiAjMDAwMDAwO3RleHQtYW5jaG9yOm1pZGRsZTtmb250LWZhbWlseTpDb25zb2xhcztmb250LXN0eWxlOm5vcm1hbDtmb250LXdlaWdodDpub3JtYWwiIHg9IjUwMCIgeT0iOTgwIj4KICAgIDx0c3BhbiB4PSI1MDAiIHk9Ijk4MCI+Li4uPC90c3Bhbj4KICA8L3RleHQ+CiAgPHRleHQgZm9udC1zaXplPSIxNS44MDQ0IiBzdHlsZT0iZmlsbDogIzAwMDAwMDt0ZXh0LWFuY2hvcjptaWRkbGU7Zm9udC1mYW1pbHk6Q29uc29sYXM7Zm9udC1zdHlsZTpub3JtYWw7Zm9udC13ZWlnaHQ6bm9ybWFsIiB4PSI1MDAiIHk9Ijc4MCI+CiAgICA8dHNwYW4geD0iNTAwIiB5PSI3ODAiPi4uLjwvdHNwYW4+CiAgPC90ZXh0PgogIDx0ZXh0IGZvbnQtc2l6ZT0iMTUuODA0NCIgc3R5bGU9ImZpbGw6ICMwMDAwMDA7dGV4dC1hbmNob3I6c3RhcnQ7Zm9udC1mYW1pbHk6Q29uc29sYXM7Zm9udC1zdHlsZTpub3JtYWw7Zm9udC13ZWlnaHQ6bm9ybWFsIiB4PSI4MDAiIHk9Ijg4MCI+CiAgICA8dHNwYW4geD0iODAwIiB5PSI4ODAiPihpZiBkZWJ1Z2dlcl9pbnRlcnJ1cHQgaXMgbm9uLWZhbHNlKTwvdHNwYW4+CiAgPC90ZXh0Pgo8L3N2Zz4K" alt="hugo book2 15 flowchart debugger" width="60%">
 </div>
 </div>
 <div class="paragraph">

@@ -1,4 +1,4 @@
-# Hugo Book Diagram
+# Hugo Book Diagrams
 
 Source files to generate the diagram images in SVG using [Dia].
 
@@ -9,8 +9,9 @@ Source files to generate the diagram images in SVG using [Dia].
 <!-- MarkdownTOC autolink="true" bracket="round" autoanchor="false" lowercase="only_ascii" uri_encoding="true" levels="1,2,3" -->
 
 - [Folder Contents](#folder-contents)
-- [Diagrams Preview](#diagrams-preview)
-    - [Hugo Engine Diagram](#hugo-engine-diagram)
+- [Diagrams Previews](#diagrams-previews)
+    - [Hugo Engine Flowchart](#hugo-engine-flowchart)
+    - [Hugo Debugger Flowchart](#hugo-debugger-flowchart)
 - [System Requirements](#system-requirements)
 - [Diagrams Editing Notes](#diagrams-editing-notes)
 
@@ -21,26 +22,45 @@ Source files to generate the diagram images in SVG using [Dia].
 
 # Folder Contents
 
-- [`build.sh`](./build.sh) — Create SVG images from Dia sourcefile.
-- [`deploy.sh`](./deploy.sh) — Copy built SVGs to `../../docs_src/`.
-- `hugo-book2_14_flowchart-engine.dia` — Dia sourcefile.
-- [`hugo-book2_14_flowchart-engine.svg`][FC2:14]— Converted diagram in SVG format.
+- [`build.sh`](./build.sh) — Create SVG images from Dia sourcefiles.
+- [`deploy.sh`](./deploy.sh) — Copy built SVG images to `../../docs_src/`.
 
-
-# Diagrams Preview
-
-## Hugo Engine Diagram
+Hugo Engine flowchart ([Book II: §26][§26]):
 
 - `hugo-book2_14_flowchart-engine.dia`
-- `hugo-book2_14_flowchart-engine.svg`
+- [`hugo-book2_14_flowchart-engine.svg`][FC2:14]
 
-Used in [§26. THE HUGO ENGINE AND HOW IT WORKS].
+Hugo Debugger flowchart ([Book II: §27][§27]):
+
+- `hugo-book2_15_flowchart-debugger.dia`
+- [`hugo-book2_15_flowchart-debugger.svg`][FC2:15]
+
+
+# Diagrams Previews
+
+## Hugo Engine Flowchart
+
+- `hugo-book2_14_flowchart-engine.dia`
+- [`hugo-book2_14_flowchart-engine.svg`][FC2:14]
+
+Used in [§26. THE HUGO ENGINE AND HOW IT WORKS][§26].
 
 ![Hugo Engine Diagram][FC2:14]
+
+## Hugo Debugger Flowchart
+
+- `hugo-book2_15_flowchart-debugger.dia`
+- [`hugo-book2_15_flowchart-debugger.svg`][FC2:15]
+
+Used in [§27. DARK SECRETS OF THE HUGO DEBUGGER][§27].
+
+![Hugo Debugger Diagram][FC2:15]
+
 
 # System Requirements
 
 In order to edit the diagram's sourcefile, or to run the scripts in this folder, you'll need to install [Dia Diagram Editor], a free and open source cross platform tool for editing diagrams.
+
 
 # Diagrams Editing Notes
 
@@ -65,13 +85,14 @@ Every character representation can be copied to the clipbloard from the _sample_
 
 <!-- Live HTML Previews Links -->
 
-[§25. THE HUGO COMPILER AND HOW IT WORKS]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/docs_src/hugo-book.html#_the_hugo_compiler_and_how_it_works "Live HTML Preview"
-[§26. THE HUGO ENGINE AND HOW IT WORKS]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/docs_src/hugo-book.html#_the_hugo_engine_and_how_it_works "Live HTML Preview"
-[§27. DARK SECRETS OF THE HUGO DEBUGGER]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/docs_src/hugo-book.html#_dark_secrets_of_the_hugo_debugger "Live HTML Preview"
-[§3.2. The Object Tree]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/docs_src/hugo-book.html#_code_patterns "Live HTML Preview"
+[§25]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/docs_src/hugo-book.html#_the_hugo_compiler_and_how_it_works "Live HTML Preview"
+[§26]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/docs_src/hugo-book.html#_the_hugo_engine_and_how_it_works "Live HTML Preview"
+[§27]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/docs_src/hugo-book.html#_dark_secrets_of_the_hugo_debugger "Live HTML Preview"
+[§3.2]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/docs_src/hugo-book.html#_code_patterns "Live HTML Preview"
 
 <!-- project files -->
 
 [FC2:14]: ./hugo-book2_14_flowchart-engine.svg
+[FC2:15]: ./hugo-book2_15_flowchart-debugger.svg
 
 <!-- EOF -->
