@@ -19,6 +19,10 @@ Source files to generate the diagram images in SVG using [Dia].
     - [Spacing Characters](#spacing-characters)
     - [Special Chars Table](#special-chars-table)
 - [External Links](#external-links)
+    - [Dia Diagram Editor](#dia-diagram-editor)
+    - [Flowcharts](#flowcharts)
+    - [SVG Images](#svg-images)
+    - [Web Safe Fonts](#web-safe-fonts)
 
 <!-- /MarkdownTOC -->
 
@@ -93,6 +97,13 @@ And the following fonts:
 
 - Consolas, 28 pt.
 
+Text color variations:
+
+|    element    | text color | description |
+|---------------|------------|-------------|
+| Element Title | `#2660BF`  | Medium Blue |
+| Ref. Number   | `#BA3925`  | Dark Red    |
+
 For the diagrams shapes background colors, I've used the same color scheme adopted by [VisualParadigm Online Diagrams]:
 
 |   symbol   |  bg-color |
@@ -119,16 +130,39 @@ Every character representation can be copied to the clipbloard from the _sample_
 
 # External Links
 
-- [Dia Diagram Editor] — official website.
+## Dia Diagram Editor
+
+- [Dia Diagram Editor] — official website and dowloads.
     + [Flowchart Shapes] — details of the flowchart shapes used in this project.
+
+## Flowcharts
+
+- [Wikipedia » Flowchart]
 - [VisualParadigm Online Diagrams]:
     + [Flowchart Tutorial]
+
+## SVG Images
+
+- [CSS Tricks » Using Custom Fonts With SVG in an Image Tag] — by Thomas Yip.
+- [Vecta.io » Using Fonts in SVG] — by Neel Singh.
+
+## Web Safe Fonts
+
+Resources and articles on which fonts are safe to use based on common OSs' availability (this affects fonts used in SVG images too):
+
+- [CSS Font Stack] — A complete collection of web safe CSS font stacks.
+- [MIT.edu » Safe web fonts] — Article by Jacob Morzinski.
+- [Lifewire » Make Sure You're Using Web Safe Fonts] — Article by Jennifer Kyrnin.
 
 <!-----------------------------------------------------------------------------
                                REFERENCE LINKS
 ------------------------------------------------------------------------------>
 
 [Figure-space]: https://en.wikipedia.org/wiki/Figure_space "See Wikipedia page on Figure space"
+
+[Wikipedia » Flowchart]: https://en.wikipedia.org/wiki/Flowchart "See Wikipedia page on 'Flowchart'"
+
+[CSS Font Stack]: https://www.cssfontstack.com/ "Visit website"
 
 <!-- Dia -->
 
@@ -138,9 +172,15 @@ Every character representation can be copied to the clipbloard from the _sample_
 
 <!-- VisualParadigm -->
 
+[VisualParadigm Online Diagrams]: https://online.visual-paradigm.com/diagrams/ "Visit VP Online Diagrams"
 [Flowchart Tutorial]: https://online.visual-paradigm.com/diagrams/tutorials/flowchart-tutorial/ "Flowachart tutorial by VisualParadigm"
 
-[VisualParadigm Online Diagrams]: https://online.visual-paradigm.com/diagrams/ "Visit VP Online Diagrams"
+<!-- articles -->
+
+[CSS Tricks » Using Custom Fonts With SVG in an Image Tag]: https://css-tricks.com/using-custom-fonts-with-svg-in-an-image-tag/ "Read article"
+[Lifewire » Make Sure You're Using Web Safe Fonts]: https://www.lifewire.com/web-safe-fonts-3467430 "Read article"
+[MIT.edu » Safe web fonts]: https://web.mit.edu/jmorzins/www/fonts.html "Read article"
+[Vecta.io » Using Fonts in SVG]: https://vecta.io/blog/using-fonts-in-svg "Read article"
 
 <!-- Live HTML Previews Links -->
 

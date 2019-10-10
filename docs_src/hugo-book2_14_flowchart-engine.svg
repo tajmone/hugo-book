@@ -160,28 +160,28 @@
     <polygon style="fill: #000000" points="582.236,900 592.236,895 589.736,900 592.236,905 "/>
     <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="582.236,900 592.236,895 589.736,900 592.236,905 "/>
   </g>
-  <text font-size="15.8044" style="fill: #1e90ff;text-anchor:start;font-family:Consolas;font-style:normal;font-weight:700" x="320" y="234.55">
+  <text font-size="15.8044" style="fill: #2660bf;text-anchor:start;font-family:Consolas;font-style:normal;font-weight:700" x="320" y="234.55">
     <tspan x="320" y="234.55">MAIN EXECUTION LOOP</tspan>
   </text>
-  <text font-size="15.8044" style="fill: #ff0000;text-anchor:end;font-family:Consolas;font-style:normal;font-weight:700" x="580" y="234.55">
+  <text font-size="15.8044" style="fill: #ba3925;text-anchor:end;font-family:Consolas;font-style:normal;font-weight:700" x="580" y="234.55">
     <tspan x="580" y="234.55">1.1</tspan>
   </text>
-  <text font-size="15.8044" style="fill: #ff0000;text-anchor:end;font-family:Consolas;font-style:normal;font-weight:700" x="580" y="354.55">
+  <text font-size="15.8044" style="fill: #ba3925;text-anchor:end;font-family:Consolas;font-style:normal;font-weight:700" x="580" y="354.55">
     <tspan x="580" y="354.55">1.2</tspan>
   </text>
-  <text font-size="15.8044" style="fill: #ff0000;text-anchor:end;font-family:Consolas;font-style:normal;font-weight:700" x="580" y="474.55">
+  <text font-size="15.8044" style="fill: #ba3925;text-anchor:end;font-family:Consolas;font-style:normal;font-weight:700" x="580" y="474.55">
     <tspan x="580" y="474.55">2.1</tspan>
   </text>
-  <text font-size="15.8044" style="fill: #ff0000;text-anchor:end;font-family:Consolas;font-style:normal;font-weight:700" x="580" y="594.55">
+  <text font-size="15.8044" style="fill: #ba3925;text-anchor:end;font-family:Consolas;font-style:normal;font-weight:700" x="580" y="594.55">
     <tspan x="580" y="594.55">2.2</tspan>
   </text>
-  <text font-size="15.8044" style="fill: #ff0000;text-anchor:end;font-family:Consolas;font-style:normal;font-weight:700" x="860" y="594.55">
+  <text font-size="15.8044" style="fill: #ba3925;text-anchor:end;font-family:Consolas;font-style:normal;font-weight:700" x="860" y="594.55">
     <tspan x="860" y="594.55">2.3</tspan>
   </text>
-  <text font-size="15.8044" style="fill: #ff0000;text-anchor:end;font-family:Consolas;font-style:normal;font-weight:700" x="860" y="734.55">
+  <text font-size="15.8044" style="fill: #ba3925;text-anchor:end;font-family:Consolas;font-style:normal;font-weight:700" x="860" y="734.55">
     <tspan x="860" y="734.55">4.1</tspan>
   </text>
-  <text font-size="15.8044" style="fill: #ff0000;text-anchor:end;font-family:Consolas;font-style:normal;font-weight:700" x="580" y="834.55">
+  <text font-size="15.8044" style="fill: #ba3925;text-anchor:end;font-family:Consolas;font-style:normal;font-weight:700" x="580" y="834.55">
     <tspan x="580" y="834.55">3.1</tspan>
   </text>
 </svg>
