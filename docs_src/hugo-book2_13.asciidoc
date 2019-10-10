@@ -3,55 +3,7 @@
 For reference, here is a simplified map of the compiler's function calls, along with the source files in which they are located.
 The leftmost functions are all called from `main()` in *hc.c*:
 
-..............................................................
-+----------------+
-| ParseCommand() | - Parse command line, including filenames,
-|    hcmisc.c    |   switches, and other settings
-+----------------+
-        |
-+----------------+
-|  OpenFiles()   | - Open initial source file, objectfile,
-|   hcfile.c     |   listing, and temporary files
-+----------------+
-        |
-+----------------+  +----------------------------------+
-|    Pass1()     |  | GetLine()            - hcfile.c  |
-|    hcpass.c    |--|                                  |
-|                |  | CompilerDirective()  - hccomp.c  | [1.1]
-| (Definitions)  |  | CompilerMem()        - hccomp.c  |
-+----------------+  | AddDirectory()       - hcmisc.c  |
-        |           |                                  |
-        |           | Def...()             - hcdef.c   | [1.2]
-        |           |                                  |
-        |           | PrinttoAll()         - hcmisc.c  |
-        |           |                                  |
-        |           | (LinkerPass1()       - hclink.c) | [1.3]
-        |           +----------------------------------+
-        |
-        |
-+----------------+  +----------------------------+
-|    Pass2()     |  | GetWords()     - hcfile.c  |
-|    hcpass.c    |--|                            |
-|                |  | Build...()     - hcbuild.c | [2.1]
-|    (Build)     |  |                            |
-+----------------+  | (LinkerPass2() - hclink.c) | [2.2]
-        |           +----------------------------+
-        |                          |
-        |                          |
-+----------------+       +--------------------------+
-|    Pass3()     |       | BuildCode()  - hcbuild.c | [2.3]
-|    hcpass.c    |--+    +--------------------------+
-|                |  |                 |
-| (Resolve/Link) |  |       +-----------------------+
-+----------------+  |       | Code...()  - hccode.c | [2.4]
-                    |       | Codeline() - hccode.c |
-                    |       +-----------------------+
-                    |                      |          [2.5]
-                    |             \+------------------------+
-                    +--------------| Write...()  - hcfile.c |
-                                  /| WriteCode() - hcfile.c |
-                                   +------------------------+
-..............................................................
+image::hugo-book2_13_flowchart-compiler.svg[align="center",width=50%]
 
 In *Pass 1*, the initial source file and any included files are read into one contiguous temporary file (called `allfile` in the source).
 Any compiler directives (i.e., lines beginning with `#`, `$` or `@`) are processed here [.red]##[1.1]##, as are definitions of objects, attributes, properties, global variables, constants, and routines [.red]##[1.2]##.

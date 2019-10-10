@@ -68,8 +68,8 @@ _[Foreword]_) that imports all contents:
         * [`hugo-book2_14.asciidoc`][HB2:14] — [26. _The Hugo Engine and How It Works_][Ch26]
             - [`hugo-book2_14_flowchart-engine.svg`][HB2:14 eng.svg] — SVG flowchart of Hugo engine ([generated via Dia]).
         * [`hugo-book2_15.asciidoc`][HB2:15] — [27. _Dark Secrets of the Hugo Debugger_][Ch27]
+            - [`hugo-book2_15_flowchart-debugger.svg`][HB2:15 dbg.svg] — SVG flowchart of Hugo debugger ([generated via Dia]).
         * [`hugo-book2_16.asciidoc`][HB2:16] — [App. H. _Code Patterns_][AppH]
-
 
 ## Build Toolchain
 
@@ -145,7 +145,7 @@ Every chapter in the list provides an [HTML Live Preview] link to quickly jump t
     + [x]  [26. _THE HUGO ENGINE AND HOW IT WORKS_][Ch26]
         * [x]  AsciiArt to SVG: flowchart of Hugo engine.
     + [x]  [27. _DARK SECRETS OF THE HUGO DEBUGGER_][Ch27]
-        * [ ]  AsciiArt to SVG: flowchart of Hugo debugger.
+        * [x]  AsciiArt to SVG: flowchart of Hugo debugger.
     + [x]  [APP. H. _CODE PATTERNS_][AppH]
         * [ ]  _needs to be proof-read once more, carefully!_
 - [ ] _INDEX_ (supported only in PDF format)
@@ -281,5 +281,6 @@ In order to convert _The Hugo Book_ to HTML you'll need to install the following
 [HB Tokens.csv]: ./hugo-book2_03_tokens-list.csv "View CSV source file"
 
 [HB2:14 eng.svg]: ./hugo-book2_14_flowchart-engine.svg "Open diagram image file"
+[HB2:15 dbg.svg]: ./hugo-book2_15_flowchart-debugger.svg "Open diagram image file"
 
 <!-- EOF -->
