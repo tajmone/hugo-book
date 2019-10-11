@@ -535,7 +535,7 @@ div.literalblock.cmd pre .conum {
 <span id="email" class="email"><a href="mailto:general@generalcoffee.com">general@generalcoffee.com</a></span><br>
 <span id="revnumber">version 1,</span>
 <span id="revdate">2018-10-04</span>
-<br><span id="revremark">Draft 42 -- Porting to AsciiDoc</span>
+<br><span id="revremark">Draft 43 -- Porting to AsciiDoc</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -1622,7 +1622,7 @@ If, for example, you want to create a book in your game, you&#8217;ll create a b
 <p>The rest of a Hugo program is mostly comprised of <em>routines</em>.
 These are the sections of code made up of commands or statements that facilitate the actual behavior of the program at different points in the story.
 (Routines can also be part of a containing object&#8201;&#8212;&#8201;we&#8217;ll get to that in a little while.) Routines are less frequently (although more frequently in other languages) called &#8220;functions&#8221;&#8201;&#8212;&#8201;they may be thought of as performing an operation or series of operations, and then optionally <em>returning</em> some kind of answer or result.
-A program may have a routine called DescribePlace which, when invoked (or &#8220;called&#8221;, in the parlance of programming) would print the description of a given location.
+A program may have a routine called <code>DescribePlace</code> which, when invoked (or &#8220;called&#8221;, in the parlance of programming) would print the description of a given location.
 The point of routines is that you don&#8217;t have to repeat the same code every time you want a particular task done: you just have to call the routine.
 Write once, use many times.</p>
 </div>
@@ -1630,10 +1630,10 @@ Write once, use many times.</p>
 <p>The idea of return values from a routine is an important one and, while sometimes puzzling to novices, is actually quite uncomplicated.
 For instance, often a particular function will be described as &#8220;returning true&#8221; or &#8220;returning false&#8221;&#8201;&#8212;&#8201;all this means is that when it&#8217;s done it returns either a non-zero value (usually 1) or a zero value, usually to indicate whether the function was successful or not at whatever it was being asked to do.
 A program will constantly be checking the return values of the routines it calls to determine if particular operations have been successful in order to decide what to do next.
-A routine can return any kind of value (listed shortly in <em>II.c</em> <em>Data Types</em>).
+A routine can return any kind of value (listed shortly in <em>II.c Data Types</em>).
 A very simple example is a routine that performs a needed operation, such as adding two supplied values, <em>a</em> and <em>b</em>.
-Let&#8217;s call it AddTwoValues.
-When AddTwoValues is called with the two supplied values, it will <em>return</em> the sum <em>a</em>+<em>b</em>.</p>
+Let&#8217;s call it <code>AddTwoValues</code>.
+When <code>AddTwoValues</code> is called with the two supplied values, it will <em>return</em> the sum <em>a</em>+<em>b</em>.</p>
 </div>
 <div class="paragraph">
 <p>For those familiar with the common programming languages such as C or Basic (including Visual Basic), Hugo will not be entirely visually unfamiliar.
@@ -1650,17 +1650,30 @@ Here&#8217;s how one accomplishes that in Hugo:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">routine</span> Main&#x000A;&#x000A;\{&#x000A;&#x000A;<span class="hl kwa">print</span> <span class="hl str">&quot;Hello, Sailor!&quot;</span>&#x000A;&#x000A;<span class="hl kwa">pause</span>&#x000A;&#x000A;<span class="hl kwa">quit</span>&#x000A;&#x000A;}</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">routine</span> Main&#x000A;{&#x000A;    <span class="hl kwa">print</span> <span class="hl str">&quot;Hello, Sailor!&quot;</span>&#x000A;    <span class="hl kwa">pause</span>&#x000A;    <span class="hl kwa">quit</span>&#x000A;}</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>The entire program consists of one routine.
-(Two routines are normally required for any Hugo program, the other being the Init routine, which is omitted in this simple example since there isn&#8217;t anything required in the way of initialization.)</p>
+<p>The entire program consists of one routine.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Two routines are normally required for any Hugo program, the other being the <code>Init</code> routine, which is omitted in this simple example since there isn&#8217;t anything required in the way of initialization.</p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>The Main routine is automatically called by the engine.
 It is from here that the central behavior of any Hugo program is controlled.
-In this case the task at hand is the printing of &#8220;Hello, Sailor!&#8221;, followed by a wait for a keypress (the pause) and an order to exit the program (i.e., quit it) so that we don&#8217;t strand the program waiting for input from the player, which is the normal order of Hugo business.<sup class="footnote">[<a id="_footnoteref_4" class="footnote" href="#_footnotedef_4" title="View footnote.">4</a>]</sup></p>
+In this case the task at hand is the printing of &#8220;Hello, Sailor!&#8221;, followed by a wait for a keypress (the <code>pause</code>) and an order to exit the program (i.e., <code>quit</code> it) so that we don&#8217;t strand the program waiting for input from the player, which is the normal order of Hugo business.<sup class="footnote">[<a id="_footnoteref_4" class="footnote" href="#_footnotedef_4" title="View footnote.">4</a>]</sup></p>
 </div>
 </div>
 <div class="sect2">
@@ -1676,72 +1689,90 @@ The name of any individual data type may contain up to 32 alphanumeric character
 <div class="paragraph">
 <p>All of the following are valid data types:</p>
 </div>
-<div class="paragraph">
-<p>Integer values 0, -10, 16800, -25005</p>
-</div>
-<div class="paragraph">
-<p><em>(constant values that appear in Hugo source code as numbers)</em></p>
-</div>
-<div class="paragraph">
-<p>ASCII characters 'A', 'z', '7'</p>
-</div>
-<div class="paragraph">
-<p><em>(constant values equal to the common ASCII value for a character; i.e., 65 for &#8216;A&#8217;)</em></p>
-</div>
-<div class="paragraph">
-<p>Objects mysuitcase, emptyroom, player</p>
-</div>
-<div class="paragraph">
-<p><em>(constant values representing the object number of the given object)</em></p>
-</div>
-<div class="paragraph">
-<p>Variables a, b, score, TEXTCOLOR</p>
-</div>
-<div class="paragraph">
-<p><em>(changeable value-holders that may be set to equal another variable or constant value)</em></p>
-</div>
-<div class="paragraph">
-<p>Constants true, false, BANNER</p>
-</div>
-<div class="paragraph">
-<p><em>(constant&#8201;&#8212;&#8201;obviously&#8201;&#8212;&#8201;values that are given a name similarly to a variable, but are non-modifiable)</em></p>
-</div>
-<div class="paragraph">
-<p>Dictionary entries "a", "the", "basketball"</p>
-</div>
-<div class="paragraph">
-<p><em>_(The appearance of <code>the</code> in a line of code actually refers to the location in the dictionary table where the word &#8220;the&#8221; is stored.
-Dictionary entries are non-modifiable.)</em></p>
-</div>
-<div class="paragraph">
-<p>Array elements ranking[1]</p>
-</div>
-<div class="paragraph">
-<p><em>(a series of one or more changeable values that may be referenced from a common base point)</em></p>
-</div>
-<div class="paragraph">
-<p>Array addresses ranking</p>
-</div>
-<div class="paragraph">
-<p><em>(the base point of an array&#8201;&#8212;&#8201;see above; the array address itself is non-modifiable, unlike the contents of the array)</em></p>
-</div>
-<div class="paragraph">
-<p>Properties nouns, short_desc, found_in</p>
-</div>
-<div class="paragraph">
-<p><em>(variable attachments of data relating specifically to objects)</em></p>
-</div>
-<div class="paragraph">
-<p>Attributes open, light, transparent</p>
-</div>
-<div class="paragraph">
-<p><em>(less complex attachments of data describing an object, which may be specified as either having or not having the given attribute)</em></p>
-</div>
+<table class="tableblock frame-all grid-rows stripes-odd stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Integer values</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>0, -10, 16800, -25005</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><em>(constant values that appear in Hugo source code as numbers)</em></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>ASCII characters</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>'A', 'z', '7'</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><em>(constant values equal to the common ASCII value for a character; i.e., 65 for &#8216;A&#8217;)</em></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Objects</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>mysuitcase, emptyroom, player</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><em>(constant values representing the object number of the given object)</em></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Variables</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>a, b, score, TEXTCOLOR</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><em>(changeable value-holders that may be set to equal another variable or constant value)</em></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Constants</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>true, false, BANNER</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><em>(constant&#8201;&#8212;&#8201;obviously&#8201;&#8212;&#8201;values that are given a name similarly to a variable, but are non-modifiable)</em></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Dictionary entries</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>"a", "the", "basketball"</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><em>(The appearance of <code>the</code> in a line of code actually refers to the location in the dictionary table where the word &#8220;<strong>the</strong>&#8221; is stored.
+Dictionary entries are non-modifiable.)</em></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Array elements</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ranking[1]</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><em>(a series of one or more changeable values that may be referenced from a common base point)</em></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Array addresses</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ranking</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><em>(the base point of an array&#8201;&#8212;&#8201;see above; the array address itself is non-modifiable, unlike the contents of the array)</em></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Properties</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>nouns, short_desc, found_in</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><em>(variable attachments of data relating specifically to objects)</em></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Attributes</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>open, light, transparent</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><em>(less complex attachments of data describing an object, which may be specified as either having or not having the given attribute)</em></p></td>
+</tr>
+</tbody>
+</table>
 <div class="paragraph">
 <p>Most of these types are relatively straightforward, representing in most cases a simple value.
 As noted, some values are dynamic (modifiable), while others are static (non-modifiable).
-Dictionary entries are addresses in the dictionary table (comprising all dictionary words in the .HEX file), with the empty string <code>""</code> having the value 0.
-Array addresses (as opposed to separate array elements) represent the address at which the array begins in the array table (comprising all array data in the .HEX file).
+Dictionary entries are addresses in the dictionary table (comprising all dictionary words in the <strong>.HEX</strong> file), with the empty string <code>""</code> having the value 0.
+Array addresses (as opposed to separate array elements) represent the address at which the array begins in the array table (comprising all array data in the <strong>.HEX</strong> file).
 Properties and attributes treated as discrete values represent the number of that property or attribute, assigned sequentially as the individual property or attribute is defined.</p>
 </div>
 <div class="paragraph">
@@ -1765,16 +1796,18 @@ Properties and attributes treated as discrete values represent the number of tha
 </div>
 <div class="paragraph">
 <p>It&#8217;s good medicine to be as descriptive as possible in naming symbols, regardless of what you&#8217;re naming.
-A variable that holds the count of a number of objects <em>could</em> be called n, but it&#8217;s almost always better (especially after the fact, when you&#8217;re looking at code you&#8217;ve written days or even months before) to call it something more helpful like object_count.</p>
+A variable that holds the count of a number of objects <em>could</em> be called <code>n</code>, but it&#8217;s almost always better (especially after the fact, when you&#8217;re looking at code you&#8217;ve written days or even months before) to call it something more helpful like <code>object_count</code>.</p>
 </div>
 <div class="paragraph">
 <p>At this point it&#8217;s probably helpful to know that you can assign a value to a variable using the form:</p>
 </div>
-<div class="paragraph">
-<p>&lt;some variable&gt; = &lt;some value&gt;<sup class="footnote">[<a id="_footnoteref_8" class="footnote" href="#_footnotedef_8" title="View footnote.">8</a>]</sup></p>
+<div class="listingblock">
+<div class="content">
+<pre>&lt;some variable&gt; = &lt;some value&gt;<sup class="footnote">[<a id="_footnoteref_8" class="footnote" href="#_footnotedef_8" title="View footnote.">8</a>]</sup></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>For instance, to set the variable x equal to 5, you would use:</p>
+<p>For instance, to set the variable <code>x</code> equal to 5, you would use:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1782,7 +1815,7 @@ A variable that holds the count of a number of objects <em>could</em> be called 
 </div>
 </div>
 <div class="paragraph">
-<p>To set it equal to element 4 of array some_array, you would use:</p>
+<p>To set it equal to element 4 of array <code>some_array</code>, you would use:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1820,7 +1853,7 @@ A variable that holds the count of a number of objects <em>could</em> be called 
 </div>
 </div>
 <div class="paragraph">
-<p>again and hope that this time it will assign the address of Routine to the variable x, since that will assign to x the value <em>returned by</em> Routine.
+<p>again and hope that this time it will assign the address of <code>Routine</code> to the variable <code>x</code>, since that will assign to <code>x</code> the value <em>returned by</em> <code>Routine</code>.
 Instead, you can use the address operator <code>&amp;</code>, as in:</p>
 </div>
 <div class="listingblock">
@@ -1829,7 +1862,17 @@ Instead, you can use the address operator <code>&amp;</code>, as in:</p>
 </div>
 </div>
 <div class="paragraph">
-<p>which won&#8217;t actually call Routine but will instead only assign the routine&#8217;s address to x (or, as we&#8217;ll see later,</p>
+<p>which won&#8217;t actually call <code>Routine</code> but will instead only assign the routine&#8217;s address to <code>x</code>.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>or, as we&#8217;ll see later,</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1837,7 +1880,11 @@ Instead, you can use the address operator <code>&amp;</code>, as in:</p>
 </div>
 </div>
 <div class="paragraph">
-<p>to get a property routine address instead of calling the property routine itself.)</p>
+<p>to get a property routine address instead of calling the property routine itself.</p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 </div>
 <div class="sect2">
@@ -1863,7 +1910,7 @@ Instead, you can use the address operator <code>&amp;</code>, as in:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl str">&quot;This is an example \</span>&#x000A;<span class="hl str"></span>&#x000A;<span class="hl str">string.&quot;</span></code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl str">&quot;This is an example \</span>&#x000A;<span class="hl str">string.&quot;</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1871,15 +1918,15 @@ Instead, you can use the address operator <code>&amp;</code>, as in:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">x <span class="hl opt">=</span> <span class="hl num">5</span> <span class="hl opt">+</span> <span class="hl num">6</span> <span class="hl opt">*</span> \&#x000A;&#x000A;higher(a, b)</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">x <span class="hl opt">=</span> <span class="hl num">5</span> <span class="hl opt">+</span> <span class="hl num">6</span> <span class="hl opt">*</span> \&#x000A;    higher(a, b)</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>String constants, such as in the below print statement, are an exception in that they do not require the <code>\</code> character at the end of each line (although, as shown just above, it&#8217;s not wrong to use it).</p>
+<p>String constants, such as in the below <code>print</code> statement, are an exception in that they do not require the <code>\</code> character at the end of each line (although, as shown just above, it&#8217;s not wrong to use it).</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">print</span> <span class="hl str">&quot;The engine will properly</span>&#x000A;<span class="hl str"></span>&#x000A;<span class="hl str">print this text, assuming a</span>&#x000A;<span class="hl str"></span>&#x000A;<span class="hl str">single space at the end of each</span>&#x000A;<span class="hl str"></span>&#x000A;<span class="hl str">line.&quot;</span></code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">print</span> <span class="hl str">&quot;The engine will properly</span>&#x000A;<span class="hl str">      print this text, assuming a</span>&#x000A;<span class="hl str">      single space at the end of each</span>&#x000A;<span class="hl str">      line.&quot;</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1896,37 +1943,46 @@ Instead, you can use the address operator <code>&amp;</code>, as in:</p>
 <p>Care must be taken, however, to ensure that the closing quotes are not left off the string constant.
 Failing that, the compiler will likely generate a &#8220;Closing brace missing&#8221; or similar error when it overruns the object/routine/event boundary looking for a resolution to the odd number of quotation marks.</p>
 </div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
 <div class="paragraph">
-<p>(Habitual double-space-after-a-period typists may find it useful to use the <code>\</code> character for line continuation in situations like this:</p>
+<p>Habitual double-space-after-a-period typists may find it useful to use the <code>\</code> character for line continuation in situations like this:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">print</span> <span class="hl str">&quot;Here, we&#39;ll end a sentence on one line. \</span></code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">print</span>  <span class="hl str">&quot;Here, we&#39;ll end a sentence on one line. \</span>&#x000A;<span class="hl str">        However, we&#39;d like to make sure there</span>&#x000A;<span class="hl str">        are two spaces before the second sentence.&quot;</span></code></pre>
 </div>
-</div>
-<div class="paragraph">
-<p>However, we&#8217;d like to make sure there</p>
-</div>
-<div class="paragraph">
-<p>are two spaces before the second sentence."</p>
 </div>
 <div class="paragraph">
 <p>giving:</p>
 </div>
+<div class="exampleblock gametranscript">
+<div class="content">
 <div class="paragraph">
-<p>Here, we&#8217;ll end a sentence on one line.
+<p>Here, we&#8217;ll end a sentence on one line.&#160;
 However, we&#8217;d like to make sure there are two spaces before the second sentence.</p>
 </div>
-<div class="paragraph">
-<p>since normally, if the <code>/</code> were omitted after &#8220;&#8230;&#8203;on one line.&#8221;, the compiler would assume only a single space before continuing with &#8220;However&#8230;&#8203;&#8221; from the next line.)</p>
+</div>
 </div>
 <div class="paragraph">
-<p>Also, most lines ending in a comma, and, or or will automatically continue on to the next line (if they occur in a line of code).
+<p>since normally, if the <code>&#160;\</code> were omitted after &#8220;&#8230;&#8203;on one line.&#8221;, the compiler would assume only a single space before continuing with &#8220;However&#8230;&#8203;&#8221; from the next line.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Also, most lines ending in a comma, <code>and</code>, or <code>or</code> will automatically continue on to the next line (if they occur in a line of code).
 In other words:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">x[<span class="hl num">0</span>] <span class="hl opt">=</span> <span class="hl num">1</span>, <span class="hl num">2</span>, <span class="hl num">3</span>, <span class="hl slc">! array assignment x[0]..x[4]</span>&#x000A;<span class="hl num">4</span>, <span class="hl num">5</span></code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">x[<span class="hl num">0</span>] <span class="hl opt">=</span> <span class="hl num">1</span>, <span class="hl num">2</span>, <span class="hl num">3</span>, <span class="hl slc">! array assignment x[0]..x[4]</span>&#x000A;    <span class="hl num">4</span>, <span class="hl num">5</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1934,7 +1990,7 @@ In other words:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">if</span> a <span class="hl opt">=</span> <span class="hl num">5</span> <span class="hl kwa">and</span>&#x000A;&#x000A;b <span class="hl opt">=</span> <span class="hl str">&quot;tall&quot;</span></code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">if</span> a <span class="hl opt">=</span> <span class="hl num">5</span> <span class="hl kwa">and</span>&#x000A;    b <span class="hl opt">=</span> <span class="hl str">&quot;tall&quot;</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1966,17 +2022,17 @@ In other words:</p>
 <div class="paragraph">
 <p>Multiple lines that are not strictly code, such as property assignments in object definitions&#8201;&#8212;&#8201;to be discussed shortly&#8201;&#8212;&#8201;must still be joined with <code>\</code>, as in</p>
 </div>
-</td>
-</tr>
-</table>
-</div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">nouns</span> <span class="hl str">&quot;plant&quot;</span>, <span class="hl str">&quot;flower&quot;</span>, <span class="hl str">&quot;marigold&quot;</span>, \&#x000A;&#x000A;<span class="hl str">&quot;fauna&quot;</span>, <span class="hl str">&quot;greenery&quot;</span></code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">nouns</span> <span class="hl str">&quot;plant&quot;</span>, <span class="hl str">&quot;flower&quot;</span>, <span class="hl str">&quot;marigold&quot;</span>, \&#x000A;    <span class="hl str">&quot;fauna&quot;</span>, <span class="hl str">&quot;greenery&quot;</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p><strong>and similar cases, even if they end in a comma.</strong></p>
+<p>and similar cases, even if they end in a comma.</p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>There is a complement to the <code>\</code> line-control character: the <code>:</code> character allows multiple lines to be put together on a single line, i.e.:</p>
@@ -1999,7 +2055,7 @@ In other words:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">x <span class="hl opt">=</span> <span class="hl num">5</span>&#x000A;&#x000A;y <span class="hl opt">=</span> <span class="hl num">1</span></code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">x <span class="hl opt">=</span> <span class="hl num">5</span>&#x000A;y <span class="hl opt">=</span> <span class="hl num">1</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -2007,11 +2063,22 @@ In other words:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">if</span> i <span class="hl opt">=</span> <span class="hl num">1</span>&#x000A;&#x000A;\{<span class="hl kwa">print</span> <span class="hl str">&quot;Less than three.&quot;</span>}</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">if</span> i <span class="hl opt">=</span> <span class="hl num">1</span>&#x000A;  {<span class="hl kwa">print</span> <span class="hl str">&quot;Less than three.&quot;</span>}</code></pre>
 </div>
 </div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
 <div class="paragraph">
-<p>(We&#8217;ll get to exactly what that <code>if&#8230;&#8203;print&#8230;&#8203;</code> business means in just a little bit in <em>IV.h</em> <em>Conditional Expressions and Program Flow</em>.)</p>
+<p>We&#8217;ll get to exactly what that <code>if&#8230;&#8203;print&#8230;&#8203;</code> business means in just a little bit in <em>IV.h Conditional Expressions and Program Flow</em>.</p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 </div>
 <div class="sect2">
@@ -2027,7 +2094,7 @@ Despite the complaints that some people may have about over-commented code&#8201
 </div>
 </div>
 <div class="paragraph">
-<p>with the rather obvious explanation of <code>set x equal to 5</code>&#8201;&#8212;&#8201;it&#8217;s always better to err on the side of too many comments in order to avoid the situation that every programmer find himself or herself in at least once (and once only if very, very lucky) of trying to remember what a piece of code does that you wrote yesterday, or last week, or several months ago.
+<p>with the rather obvious explanation of &#8220;set x equal to 5&#8221;&#8201;&#8212;&#8201;it&#8217;s always better to err on the side of too many comments in order to avoid the situation that every programmer find himself or herself in at least once (and once only if very, very lucky) of trying to remember what a piece of code does that you wrote yesterday, or last week, or several months ago.
 Comment, comment, comment.<sup class="footnote">[<a id="_footnoteref_9" class="footnote" href="#_footnotedef_9" title="View footnote.">9</a>]</sup></p>
 </div>
 <div class="paragraph">
@@ -2038,7 +2105,7 @@ Multiple-line comments are begun with <code>!\</code> and ended with <code>\!</c
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl slc">! A comment on a single line</span>&#x000A;&#x000A;<span class="hl com">!\ A multiple-line</span>&#x000A;<span class="hl com"></span>&#x000A;<span class="hl com">comment \!</span></code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl slc">! A comment on a single line</span>&#x000A;&#x000A;<span class="hl com">!\ A multiple-line</span>&#x000A;<span class="hl com">   comment \!</span></code></pre>
 </div>
 </div>
 <div class="admonitionblock note">
@@ -2069,7 +2136,7 @@ A fatal error looks like this:</p>
 </div>
 <div class="literalblock cmd">
 <div class="content">
-<pre>Fatal error: &lt;message&gt;</pre>
+<pre>Fatal error:  &lt;message&gt;</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -2081,12 +2148,12 @@ Fatal errors include things like not being able to find a requested file, encoun
 </div>
 <div class="literalblock cmd">
 <div class="content">
-<pre>&lt;filename&gt;:&lt;line&gt;: Error: &lt;message&gt;</pre>
+<pre>&lt;filename&gt;:&lt;line&gt;:  Error:  &lt;message&gt;</pre>
 </div>
 </div>
 <div class="paragraph">
 <p>Non-fatal errors are usually programming mistakes: either doing something illegal (like trying to assign a value to something to which you&#8217;re not allowed to assign a value), making a syntax error such as using a symbol name that the compiler doesn&#8217;t know about (often due to a typing mistake), or making a formatting mistake (like missing something that the compiler knows is supposed to be coming next but you forgot to include).
-Unless the -a switch is specified at invocation to tell the compiler to quit after the first error, multiple non-fatal errors may be printed.
+Unless the <code>-a</code> switch is specified at invocation to tell the compiler to quit after the first error, multiple non-fatal errors may be printed.
 The side-effect of this is that a specific error (particularly a formatting error) may affect many lines of code after it, so that the compiler&#8201;&#8212;&#8201;having become lost and not really knowing what you&#8217;re trying to do&#8201;&#8212;&#8201;may report a whole string of errors, even on lines that, if the compiler understood their proper context, would be error free.<sup class="footnote">[<a id="_footnoteref_10" class="footnote" href="#_footnotedef_10" title="View footnote.">10</a>]</sup></p>
 </div>
 <div class="paragraph">
@@ -2094,37 +2161,35 @@ The side-effect of this is that a specific error (particularly a formatting erro
 </div>
 <div class="literalblock cmd">
 <div class="content">
-<pre>&lt;filename&gt;:&lt;line&gt;: Warning: &lt;message&gt;</pre>
+<pre>&lt;filename&gt;:&lt;line&gt;:  Warning:  &lt;message&gt;</pre>
 </div>
 </div>
 <div class="paragraph">
 <p>Compilation will continue, but this is an indication that the compiler suspects a problem at compile-time.</p>
 </div>
 <div class="paragraph">
-<p>If the -e switch has been set during invocation to generate expanded-format errors, error output looks like:</p>
+<p>If the <code>-e</code> switch has been set during invocation to generate expanded-format errors, error output looks like:</p>
 </div>
 <div class="literalblock cmd">
 <div class="content">
-<pre>&lt;FILENAME&gt;: &lt;LOCATION&gt;
-
+<pre>&lt;FILENAME&gt;:  &lt;LOCATION&gt;
 (Error-causing line)
-
-"ERROR: &lt;error message&gt;"</pre>
+"ERROR:  &lt;error message&gt;"</pre>
 </div>
 </div>
 <div class="paragraph">
 <p>It prints the section of code that caused the error, followed by an explanation of the problem.
-Compilation will generally continue unless the -a switch has been set.</p>
+Compilation will generally continue unless the <code>-a</code> switch has been set.</p>
 </div>
-<div class="admonitionblock note">
+<div class="admonitionblock warning">
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-note" title="Note"></i>
+<i class="fa icon-warning" title="Warning"></i>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>The section of offending code may not be printed exactly as it appears in the source when using the -e switch, since the compiler occasionally mildly paraphrases and rebuilds the source line into a more rigid format before finally compiling it.</p>
+<p>The section of offending code may not be printed exactly as it appears in the source when using the <code>-e</code> switch, since the compiler occasionally mildly paraphrases and rebuilds the source line into a more rigid format before finally compiling it.</p>
 </div>
 </td>
 </tr>
@@ -2146,7 +2211,7 @@ These special commands or instructions are called <em>compiler directives</em>, 
 </div>
 </div>
 <div class="paragraph">
-<p>will set the switches specified by &lt;sequence&gt;, where &lt;sequence&gt; is a string of characters representing valid switches, without any separators between characters.
+<p>will set the switches specified by <code>&lt;sequence&gt;</code>, where <code>&lt;sequence&gt;</code> is a string of characters representing valid switches, without any separators between characters.
 Many programmers may find it useful to make</p>
 </div>
 <div class="listingblock">
@@ -2166,18 +2231,18 @@ Many programmers may find it useful to make</p>
 </div>
 </div>
 <div class="paragraph">
-<p>specifies that the file is to be used with version &lt;version&gt;.&lt;revision&gt; of the compiler.
+<p>specifies that the file is to be used with version <code>&lt;version&gt;.&lt;revision&gt;</code> of the compiler.
 If the file and compiler version are mismatched, a warning will be issued.</p>
 </div>
-<div class="admonitionblock note">
+<div class="admonitionblock caution">
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-note" title="Note"></i>
+<i class="fa icon-caution" title="Caution"></i>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>The #version directive is intended mainly for things like library files, and although you may use it in your own source files, it isn&#8217;t necessary.
+<p>The <code>#version</code> directive is intended mainly for things like library files, and although you may use it in your own source files, it isn&#8217;t necessary.
 Its general usage is largely deprecated.</p>
 </div>
 </td>
@@ -2193,19 +2258,32 @@ Its general usage is largely deprecated.</p>
 </div>
 </div>
 <div class="paragraph">
-<p>where <strong>&lt;filename&gt;</strong> is the full path and name of the file to be read.
-When <strong>&lt;filename&gt;</strong> has been read completely, the compiler resumes with the statement immediately following the #include directive.
-There is no limit on the number of files that a single file may include; also, a file may include a file which includes another file which includes another file and so on.
-(A file or set of files can be compiled into a precompiled header using the -h switch, and then linked using #link instead of #include.
-See <em>APPENDIX E: PRECOMPILED HEADERS</em>.)</p>
+<p>where <code>&lt;filename&gt;</code> is the full path and name of the file to be read.
+When <code>&lt;filename&gt;</code> has been read completely, the compiler resumes with the statement immediately following the <code>#include</code> directive.
+There is no limit on the number of files that a single file may include; also, a file may include a file which includes another file which includes another file and so on.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>A file or set of files can be compiled into a precompiled header using the <code>-h</code> switch, and then linked using <code>#link</code> instead of <code>#include</code>.
+See <em>APPENDIX E: PRECOMPILED HEADERS</em>.</p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>A useful tool for managing Hugo source code is the ability to use compiler flags for conditional compilation.
 A compiler flag is simply a user-defined marker that can control which sections of the source code are compiled.
 In this way, a programmer can demarcate sections of a program that can be included or excluded at will.
-For example, the library files <strong>hugolib.h</strong>, <strong>verblib.h</strong>, and <strong>verblib.g</strong> check to see if a flag called DEBUG has been set previously (as it is in <strong>sample.hug</strong>).
+For example, the library files <strong>hugolib.h</strong>, <strong>verblib.h</strong>, and <strong>verblib.g</strong> check to see if a flag called <code>DEBUG</code> has been set previously (as it is in <strong>sample.hug</strong>).
 Only if it has do they include the <strong>hugofix.h</strong> and <strong>hugofix.g</strong> files, which in turn provide certain debugging features to a running Hugo program.
-(For a final version to be released to the general public for playing, then, by simply not setting the DEBUG flag those special features are not enabled.)</p>
+(For a final version to be released to the general public for playing, then, by simply not setting the <code>DEBUG</code> flag those special features are not enabled.)</p>
 </div>
 <div class="paragraph">
 <p>To set and clear flags, use</p>
@@ -2224,8 +2302,17 @@ Only if it has do they include the <strong>hugofix.h</strong> and <strong>hugofi
 </div>
 </div>
 <div class="paragraph">
-<p>respectively.
-(Flags can also be explicitly set on the command line during compiler invocation via</p>
+<p>respectively.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Flags can also be explicitly set on the command line during compiler invocation via</p>
 </div>
 <div class="literalblock cmd">
 <div class="content">
@@ -2233,14 +2320,18 @@ Only if it has do they include the <strong>hugofix.h</strong> and <strong>hugofi
 </div>
 </div>
 <div class="paragraph">
-<p>similarly to compiler limit settings and directories, with the same caveat that on some systems it may be necessary to enclose #&lt;flagname&gt; in single quotes or otherwise escape it, if required.)</p>
+<p>similarly to compiler limit settings and directories, with the same caveat that on some systems it may be necessary to enclose <code>#&lt;flagname&gt;</code> in single quotes or otherwise escape it, if required.</p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>Then, check to see if a flag is set or not (and include or exclude the specified block of source code) by using</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl ppc">#ifset &lt;flagname&gt;</span>&#x000A;&#x000A;_...conditional block of code..._&#x000A;&#x000A;<span class="hl ppc">#endif</span></code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl ppc">#ifset &lt;flagname&gt;</span>&#x000A;    <em>...conditional block of code...</em>&#x000A;<span class="hl ppc">#endif</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -2248,26 +2339,26 @@ Only if it has do they include the <strong>hugofix.h</strong> and <strong>hugofi
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl ppc">#ifclear &lt;flagname&gt;</span>&#x000A;&#x000A;_...conditional block of code..._&#x000A;&#x000A;<span class="hl ppc">#endif</span></code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl ppc">#ifclear &lt;flagname&gt;</span>&#x000A;    <em>...conditional block of code...</em>&#x000A;<span class="hl ppc">#endif</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
 <p>Conditional compilation constructions may be nested up to 32 levels deep.
-(Note also that compiler flags can be specified in the invocation line as <strong>#&lt;flag name&gt;</strong>.)</p>
+(Note also that compiler flags can be specified in the invocation line as <code>#&lt;flag name&gt;</code>.)</p>
 </div>
 <div class="paragraph">
 <p><code>#if set</code> and <code>#if clear</code> are the long form of <code>#ifset</code> and <code>#ifclear</code>, allowing usage of <code>#elseif</code> for code such as:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl ppc">#set THIS_FLAG</span>&#x000A;&#x000A;<span class="hl ppc">#set THAT_FLAG</span>&#x000A;&#x000A;<span class="hl ppc">#if clear THIS_FLAG</span>&#x000A;&#x000A;<span class="hl ppc">#message</span> <span class="hl pps">&quot;This will never be printed.&quot;</span><span class="hl ppc"></span>&#x000A;&#x000A;<span class="hl ppc">#elseif set THAT_FLAG</span>&#x000A;&#x000A;<span class="hl ppc">#message</span> <span class="hl pps">&quot;This will always be printed.&quot;</span><span class="hl ppc"></span>&#x000A;&#x000A;<span class="hl ppc">#else</span>&#x000A;&#x000A;<span class="hl ppc">#message</span> <span class="hl pps">&quot;But not this if THAT_FLAG is set.&quot;</span><span class="hl ppc"></span>&#x000A;&#x000A;<span class="hl ppc">#endif</span></code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl ppc">#set THIS_FLAG</span>&#x000A;<span class="hl ppc">#set THAT_FLAG</span>&#x000A;&#x000A;<span class="hl ppc">#if clear THIS_FLAG</span>&#x000A;<span class="hl ppc">#message</span> <span class="hl pps">&quot;This will never be printed.&quot;</span><span class="hl ppc"></span>&#x000A;<span class="hl ppc">#elseif set THAT_FLAG</span>&#x000A;<span class="hl ppc">#message</span> <span class="hl pps">&quot;This will always be printed.&quot;</span><span class="hl ppc"></span>&#x000A;<span class="hl ppc">#else</span>&#x000A;<span class="hl ppc">#message</span> <span class="hl pps">&quot;But not this if THAT_FLAG is set.&quot;</span><span class="hl ppc"></span>&#x000A;<span class="hl ppc">#endif</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Use <code>#if defined &lt;symbol&gt;</code> and <code>#if undefined &lt;symbol&gt;</code> to test if objects, properties, routines, etc. have previously been defined, where &lt;symbol&gt; is the name of the object, property, routine, etc. in question.</p>
+<p>Use <code>#if defined &lt;symbol&gt;</code> and <code>#if undefined &lt;symbol&gt;</code> to test if objects, properties, routines, etc. have previously been defined, where <code>&lt;symbol&gt;</code> is the name of the object, property, routine, etc. in question.</p>
 </div>
 <div class="paragraph">
-<p>As seen above, the #message directive can be used as</p>
+<p>As seen above, the <code>#message</code> directive can be used as</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -2275,7 +2366,7 @@ Only if it has do they include the <strong>hugofix.h</strong> and <strong>hugofi
 </div>
 </div>
 <div class="paragraph">
-<p>to output &lt;text&gt; when (or if) that statement is processed during the first compilation pass.</p>
+<p>to output <code>&lt;text&gt;</code> when (or if) that statement is processed during the first compilation pass.</p>
 </div>
 <div class="paragraph">
 <p>Including <code>error</code> or <code>warning</code> before <code>&lt;text&gt;</code> as in</p>
@@ -2296,15 +2387,15 @@ Only if it has do they include the <strong>hugofix.h</strong> and <strong>hugofi
 <div class="paragraph">
 <p>will force the compiler to issue an error or warning, respectively, as it prints <code>&lt;text&gt;</code>.</p>
 </div>
-<div class="admonitionblock note">
+<div class="admonitionblock important">
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-note" title="Note"></i>
+<i class="fa icon-important" title="Important"></i>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>It&#8217;s worth pointing out that all of the text printed in the above #if/#elseif example is <em>compile-time</em> output, not <em>runtime</em> output.
+<p>It&#8217;s worth pointing out that all of the text printed in the above <code>#if</code>/<code>#elseif</code> example is <em>compile-time</em> output, not <em>runtime</em> output.
 That is, it&#8217;s printed only when the compiler initially compiles the source code, not when a player plays the actual game.</p>
 </div>
 </td>
@@ -2321,7 +2412,7 @@ That is, it&#8217;s printed only when the compiler initially compiles the source
 </div>
 <div class="paragraph">
 <p>in the same way as in the invocation line.
-However, an error will be issued if, for example, an attempt is made to reset MAXOBJECTS if one or more objects have already been defined.
+However, an error will be issued if, for example, an attempt is made to reset <code>MAXOBJECTS</code> if one or more objects have already been defined.
 Any limit settings in the code of a program must be done before the particular data type for which a new limit is being set has been used.</p>
 </div>
 </div>
@@ -2371,11 +2462,25 @@ Pick a line in the new file <strong>test.hug</strong> like:</p>
 </div>
 <div class="literalblock cmd">
 <div class="content">
-<pre>test.hug:12: Error: Unknown compiler directive: asdf</pre>
+<pre>test.hug:12:  Error:  Unknown compiler directive:  asdf</pre>
 </div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Depending on the contents of <strong>test.hug</strong>, the actual line number may vary.</p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
-<p>(Depending on the contents of <strong>test.hug</strong>, the actual line number may vary.) Once we&#8217;ve seen the effect of that, go back and remove the <code>asdf</code> from <strong>test.hug</strong>.
+<p>Once we&#8217;ve seen the effect of that, go back and remove the <code>asdf</code> from <strong>test.hug</strong>.
 Next, let&#8217;s try adding the line:</p>
 </div>
 <div class="listingblock">
@@ -2390,11 +2495,22 @@ Most importantly are the first couple, which look something like:</p>
 </div>
 <div class="literalblock cmd">
 <div class="content">
-<pre>test.hug:691: Error: Maximum of 50 objects exceeded</pre>
+<pre>test.hug:691:  Error:  Maximum of 50 objects exceeded</pre>
 </div>
 </div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
 <div class="paragraph">
-<p>(The other errors basically follow from the last few objects in <strong>test.hug</strong> not getting defined, and the compiler subsequently knowing that a particular symbol is the name of an object.)</p>
+<p>The other errors basically follow from the last few objects in <strong>test.hug</strong> not getting defined, and the compiler subsequently knowing that a particular symbol is the name of an object.</p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>Feel free to experiment with <strong>test.hug</strong> by adding comments, changing lines, commenting out various objects or routines or other sections of codes, and seeing what happens when you try to compile it and run it.</p>
@@ -18753,7 +18869,7 @@ If there is an error, the <code>system_status</code> global variable is set.</p>
 <a href="#_footnoteref_3">3</a>. Other ports done by the author are for Windows, Linux, Macintosh, DOS, BeOS, Pocket PC, and PalmOS.
 </div>
 <div class="footnote" id="_footnotedef_4">
-<a href="#_footnoteref_4">4</a>. Normally, unless the Main routine explicitly returns&#8201;&#8212;&#8201;as opposed to just running through to the closing brace&#8201;&#8212;&#8201;the Hugo Engine continues running. Those familiar with the C programming language may notice the slight difference here: whereas in C the main() function is the entry point for a C program, in Hugo Init is the entry point, and Main can be thought of as the &#8220;each-turn routine&#8221;. For more elaboration on the execution pattern of a Hugo program, see <em>IX.</em> <em>THE GAME LOOP</em>.
+<a href="#_footnoteref_4">4</a>. Normally, unless the <code>Main</code> routine explicitly returns&#8201;&#8212;&#8201;as opposed to just running through to the closing brace&#8201;&#8212;&#8201;the Hugo Engine continues running. Those familiar with the C programming language may notice the slight difference here: whereas in C the <code>main()</code> function is the entry point for a C program, in Hugo <code>Init</code> is the entry point, and <code>Main</code> can be thought of as the &#8220;each-turn routine&#8221;. For more elaboration on the execution pattern of a Hugo program, see <em>IX. THE GAME LOOP</em>.
 </div>
 <div class="footnote" id="_footnotedef_5">
 <a href="#_footnoteref_5">5</a>. While it&#8217;s a little beyond the scope of this manual to talk about what exactly a 16-bit integer is (partly because you don&#8217;t need to worry about it, other than to know they involve a range of 65536, either 0 to 65535 or -32768 to 32767). Essentially, &#8220;bits&#8221; refer to 1s or 0s in a base 2 number system (so that the right-most bit is the 1s, the next-to-right-most is the 2s, the next the 4s, the next the 8s, etc.) For example, the 4-bit number 1100 is equal to decimal 12, since 8+4=12. (If you&#8217;re familiar with bitwise notation, you already knew that. If you&#8217;re not, it probably didn&#8217;t particularly clear anything up, but as always, not to worry.)
@@ -18765,13 +18881,13 @@ If there is an error, the <code>system_status</code> global variable is set.</p>
 <a href="#_footnoteref_7">7</a>. Routine addresses are also stored as 16-bit integers. However, those versed at all in such calculations will notice that if such a value was treated as an absolute address, then any addressable executable code would be limited to 64K in size (65536 bytes, the maximum size of an unsigned 16-bit integer). Such is not the case, since the routine address is actually an indexed representation of the absolute address, allowing Hugo games to far exceed any such limit in their size of executable code.
 </div>
 <div class="footnote" id="_footnotedef_8">
-<a href="#_footnoteref_8">8</a>. The section <em>IV.e.</em> <em>Operators and Assignments</em> goes into greater detail on assigning values to variables.
+<a href="#_footnoteref_8">8</a>. The section _IV.e. Operators and Assignments_ goes into greater detail on assigning values to variables.
 </div>
 <div class="footnote" id="_footnotedef_9">
 <a href="#_footnoteref_9">9</a>. But keep an eye out for issues of comment maintenance. Again, a good comment should add clarity to a section of code, but it (usually) shouldn&#8217;t restate exactly what the code is doing. Doing that just means that when you change the code, you have to change the comment to keep it accurate, too, which if you&#8217;ve overcommented means doing the same thing twice, and increasing the chances of getting out of sync so that the comment doesn&#8217;t perfectly reflect the code it&#8217;s supposed to be commenting.
 </div>
 <div class="footnote" id="_footnotedef_10">
-<a href="#_footnoteref_10">10</a>. Which is why, in certain cases, the -a switch can be helpful.
+<a href="#_footnoteref_10">10</a>. Which is why, in certain cases, the <code>-a</code> switch can be helpful.
 </div>
 <div class="footnote" id="_footnotedef_11">
 <a href="#_footnoteref_11">11</a>. It&#8217;s also no coincidence that the <code>nothing</code> object is equal in its value to 0, which also represents the empty string <code>""</code> (see <em>II.c Data Types</em>). The fact that these three are (value-wise, at least) identical will come in handy, as what it means in practice is that 0/null/empty/nothing/etc. is the same in every context.

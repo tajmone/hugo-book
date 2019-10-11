@@ -1,6 +1,6 @@
 = The Hugo Book
 Kent Tessman <general@generalcoffee.com>
-v1, 2018-10-04: Draft 42 -- Porting to AsciiDoc
+v1, 2018-10-04: Draft 43 -- Porting to AsciiDoc
 :lang: en
 :doctype: book
 // TOC Settings:
