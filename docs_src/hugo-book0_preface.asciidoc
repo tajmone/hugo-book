@@ -1,0 +1,15 @@
+[preface]
+= AUTHOR'S FOREWORD
+
+Somewhere along the way this became a real book, and a real book deserves a foreword, and maybe even a dedication.
+Looking back, the reason any of this exists at all probably has something to do with being ten years old, and me and my little brother Dean sitting in front of the family Apple II Plus computer, one chair and one stool, playing those old text adventures.
+
+So Dean, this is for you.
+I'm sorry I always took the chair.
+
+[.text-right]
+Kent Tessman +
+_Toronto, Canada_ +
+_2004_
+
+// EOF //

@@ -1,0 +1,19 @@
+// -----------------------------------------------------------------------------
+// The Hugo Book
+// Hugo: An Interactive Fiction Design System
+// By Kent Tessman
+// First Edition
+// -----------------------------------------------------------------------------
+
+
+.ABOUT THE AUTHOR
+--
+=========================================================
+Kent Tessman is a filmmaker and accidental game designer.
+
+*The General Coffee Company Press* +
+Toronto, Canada
+=========================================================
+--
+
+// EOF //

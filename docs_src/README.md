@@ -30,6 +30,9 @@ List of _The Hugo Book_ AsciiDoc sources and contents-assets:
 - [`docinfo.html`][docinfo.html] — [docinfo file] with custom CSS ([generated via Sass]).
 - [`hugo-book.asciidoc`][HB] — the main AsciiDoc source file (contains _[Colophon]_ and 
 _[Foreword]_) that imports all contents:
+    + [`hugo-book0_preamble.asciidoc`][HB:Preamble] — Document Preamble.
+    + [`hugo-book0_colophon.asciidoc`][HB:Colophon] — [_COLOPHON_][COLOPHON]
+    + [`hugo-book0_preface.asciidoc`][HB:Preface] — [_AUTHOR'S FOREWORD_][FOREWORD]
     + [`hugo-book1.asciidoc`][HB1] — imports chapters of _Book I_:
         * [`hugo-book1_01.asciidoc`][HB1:01] — [1. _Introduction_][Ch1]
         * [`hugo-book1_02.asciidoc`][HB1:02] — [2. _A First Look at Hugo_][Ch2]
@@ -244,6 +247,10 @@ In order to convert _The Hugo Book_ to HTML you'll need to install the following
 <!-- ADoc sources -->
 
 [HB]: ./hugo-book.asciidoc "View AsciiDoc source"
+
+[HB:Colophon]: ./hugo-book0_colophon.asciidoc "View AsciiDoc source"
+[HB:Preamble]: ./hugo-book0_preamble.asciidoc "View AsciiDoc source"
+[HB:Preface]: ./hugo-book0_preface.asciidoc "View AsciiDoc source"
 
 [HB1]: ./hugo-book1.asciidoc "View AsciiDoc source"
 [HB1:01]: ./hugo-book1_01.asciidoc "View AsciiDoc source"
