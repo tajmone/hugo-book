@@ -535,7 +535,7 @@ div.literalblock.cmd pre .conum {
 <span id="email" class="email"><a href="mailto:general@generalcoffee.com">general@generalcoffee.com</a></span><br>
 <span id="revnumber">version 1,</span>
 <span id="revdate">2018-10-04</span>
-<br><span id="revremark">Draft 44 -- Porting to AsciiDoc</span>
+<br><span id="revremark">Draft 45 -- Porting to AsciiDoc</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -2530,7 +2530,7 @@ The basic object definition looks like this:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">object</span> <span class="hl opt">&lt;</span>objectname<span class="hl opt">&gt;</span> <span class="hl str">&quot;object name&quot;</span>&#x000A;&#x000A;\{&#x000A;&#x000A;...&#x000A;&#x000A;}</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">object</span> <span class="hl opt">&lt;</span>objectname<span class="hl opt">&gt;</span> <span class="hl str">&quot;object name&quot;</span>&#x000A;{&#x000A;    ...&#x000A;}</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -2538,23 +2538,23 @@ The basic object definition looks like this:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">object</span> mysuitcase <span class="hl str">&quot;suitcase&quot;</span>&#x000A;&#x000A;\{}</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">object</span> mysuitcase <span class="hl str">&quot;suitcase&quot;</span>&#x000A;{}</code></pre>
 </div>
 </div>
 <div class="paragraph">
 <p>The enclosing braces are needed even if the object definition has no content (yet).
-The only data attached to the suitcase object are&#8201;&#8212;&#8201;from right to left&#8201;&#8212;&#8201;a name (&#8220;suitcase&#8221;), an internal identifier (mysuitcase), and membership in the basic object class.</p>
+The only data attached to the suitcase object are&#8201;&#8212;&#8201;from right to left&#8201;&#8212;&#8201;a name (&#8220;suitcase&#8221;), an internal identifier (<code>mysuitcase</code>), and membership in the basic object class.</p>
 </div>
 <div class="paragraph">
-<p>The compiler assigns the object labeled &lt;objectname&gt; the next sequential object number.
+<p>The compiler assigns the object labeled <code>&lt;objectname&gt;</code> the next sequential object number.
 The first-defined object is object 0; the next-defined object is object number 1; the one after that is 2, etc.
-This is academic, however, as a programmer almost never need know what object number a particular object is&#8201;&#8212;&#8201;except for certain debugging situations&#8201;&#8212;&#8201;and can always refer to an object by its label &lt;objectname&gt;.
-If no explicit &#8220;object name&#8221; (or name property) is provided, the compiler automatically gives it the name <code>(&lt;objectname&gt;)</code>, i.e., &lt;objectname&gt; in parentheses.
+This is academic, however, as a programmer almost never need know what object number a particular object is&#8201;&#8212;&#8201;except for certain debugging situations&#8201;&#8212;&#8201;and can always refer to an object by its label <code>&lt;objectname&gt;</code>.
+If no explicit &#8220;object name&#8221; (or <code>name</code> property) is provided, the compiler automatically gives it the name <code>(&lt;objectname&gt;)</code>, i.e., <code>&lt;objectname&gt;</code> in parentheses.
 That is, whereas</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">object</span> mysuitcase <span class="hl str">&quot;suitcase&quot;</span>&#x000A;&#x000A;\{}</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">object</span> mysuitcase <span class="hl str">&quot;suitcase&quot;</span>&#x000A;{}</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -2562,11 +2562,11 @@ That is, whereas</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">object</span> placeholder&#x000A;&#x000A;\{}</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">object</span> placeholder&#x000A;{}</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>creates an object called <code>(placeholder)</code>.
+<p>creates an object called &#8220;(placeholder)&#8221;.
 Usually the latter is used for system objects or classes (see <em>III.e Classes</em>) that will never actually appear in a game.</p>
 </div>
 <div class="admonitionblock note">
@@ -2579,7 +2579,7 @@ Usually the latter is used for system objects or classes (see <em>III.e Classes<
 <div class="paragraph">
 <p>The compiler automatically creates an object called <code>display</code> as the last-defined object if no other object named <code>display</code> is defined by the program (or the library).
 The display object can be used to get information about the engine&#8217;s output state and capabilities.
-See section* <em>XI.a The Display Object</em>.</p>
+See section <em>XI.a The Display Object</em>.</p>
 </div>
 </td>
 </tr>
@@ -2591,11 +2591,12 @@ See section* <em>XI.a The Display Object</em>.</p>
 <div class="paragraph">
 <p>In order for objects to have a &#8220;physical place&#8221; in the game, i.e., to be in a room or contained in another object or beside another object, they must occupy a position in the object tree.
 The object tree is a simple map which represents the relationships between all objects in the game.
-The total number of objects is held in the global variable objects.</p>
+The total number of objects is held in the global variable <code>objects</code>.</p>
 </div>
 <div class="paragraph">
-<p>The <code>nothing</code> object is defined in the library as object 0 and is referred to in code using the label nothing.
-This is the root of the object tree, upon which all other objects are based.<sup class="footnote">[<a id="_footnoteref_11" class="footnote" href="#_footnotedef_11" title="View footnote.">11</a>]</sup> (And again, the name <code>nothing</code> is given to this first object by the library.)</p>
+<p>The &#8220;nothing&#8221; object is defined in the library as object 0 and is referred to in code using the label <code>nothing</code>.
+This is the root of the object tree, upon which all other objects are based.<sup class="footnote">[<a id="_footnoteref_11" class="footnote" href="#_footnotedef_11" title="View footnote.">11</a>]</sup>
+(And again, the name &#8220;nothing&#8221; is given to this first object by the library.)</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -2605,8 +2606,8 @@ This is the root of the object tree, upon which all other objects are based.<sup
 </td>
 <td class="content">
 <div class="paragraph">
-<p>When using the standard library routines, ensure that no objects (or classes, to be discussed later) are defined before hugolib.h is included.
-Problems will arise if the first-defined object&#8201;&#8212;&#8201;object 0&#8201;&#8212;&#8201;is not the nothing object.
+<p>When using the standard library routines, ensure that no objects (or classes, to be discussed later) are defined before <strong>hugolib.h</strong> is included.
+Problems will arise if the first-defined object&#8201;&#8212;&#8201;object 0&#8201;&#8212;&#8201;is not the <code>nothing</code> object.
 Currently the library will point this out for you as a runtime error if for some reason it&#8217;s not the case.</p>
 </div>
 </td>
@@ -2614,8 +2615,8 @@ Currently the library will point this out for you as a runtime error if for some
 </table>
 </div>
 <div class="paragraph">
-<p>When referring to object numbers, this manual is generally referring to the name given the object in the source code: i.e., &lt;objectname&gt;.
-The compiler automatically assigns each object an object number, and refers to it whenever a specified &lt;objectname&gt; is encountered.</p>
+<p>When referring to object numbers, this manual is generally referring to the name given the object in the source code: i.e., <code>&lt;objectname&gt;</code>.
+The compiler automatically assigns each object an object number, and refers to it whenever a specified <code>&lt;objectname&gt;</code> is encountered.</p>
 </div>
 <div class="paragraph">
 <p>Here is an example of an object tree:</p>
@@ -2628,217 +2629,168 @@ The compiler automatically assigns each object an object number, and refers to i
 <div class="paragraph">
 <p>A number of built-in functions can be used to read the object tree.</p>
 </div>
-<div class="hdlist">
-<table>
+<div class="openblock float-group">
+<div class="content">
+<table class="tableblock frame-all grid-none stripes-even stretch left">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 83.3334%;">
+</colgroup>
+<tbody>
 <tr>
-<td class="hdlist1">
-<code>parent</code>      
-</td>
-<td class="hdlist2">
-<p></p>
-</td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>parent</code></p></td>
+<td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
-<td class="hdlist1">
-<code>sibling</code>     
-</td>
-<td class="hdlist2">
-<p></p>
-</td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>sibling</code></p></td>
+<td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
-<td class="hdlist1">
-<code>child</code>       
-</td>
-<td class="hdlist2">
-<p></p>
-</td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>child</code></p></td>
+<td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
-<td class="hdlist1">
-<code>youngest</code>    
-</td>
-<td class="hdlist2">
-<p></p>
-</td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>youngest</code></p></td>
+<td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
-<td class="hdlist1">
-<code>elder</code>       
-</td>
-<td class="hdlist2">
-<p></p>
-</td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>elder</code></p></td>
+<td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
-<td class="hdlist1">
-<code>eldest</code>      
-</td>
-<td class="hdlist2">
-<p>(same as <code>child</code>)</p>
-</td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>eldest</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">(same as <code>child</code>)</p></td>
 </tr>
 <tr>
-<td class="hdlist1">
-<code>younger</code>     
-</td>
-<td class="hdlist2">
-<p>(same as <code>sibling</code>)</p>
-</td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>younger</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">(same as <code>sibling</code>)</p></td>
 </tr>
+</tbody>
 </table>
+</div>
 </div>
 <div class="paragraph">
 <p>and</p>
 </div>
-<div class="hdlist">
-<table>
+<div class="openblock float-group">
+<div class="content">
+<table class="tableblock frame-all grid-none stripes-even stretch left">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 83.3334%;">
+</colgroup>
+<tbody>
 <tr>
-<td class="hdlist1">
-<code>children</code>    
-</td>
-<td class="hdlist2">
-<p></p>
-</td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>children</code></p></td>
+<td class="tableblock halign-left valign-top"></td>
 </tr>
+</tbody>
 </table>
+</div>
 </div>
 <div class="paragraph">
 <p>Each function takes a single object as its argument, so that</p>
 </div>
-<div class="hdlist">
-<table>
+<div class="openblock float-group">
+<div class="content">
+<table class="tableblock frame-all grid-none stripes-even stretch left">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 83.3334%;">
+</colgroup>
+<tbody>
 <tr>
-<td class="hdlist1">
-<code>parent(Table)</code>    
-</td>
-<td class="hdlist2">
-<p>= <code>Room</code></p>
-</td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>parent(Table)</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">= <code>Room</code></p></td>
 </tr>
 <tr>
-<td class="hdlist1">
-<code>parent(Bookmark)</code> 
-</td>
-<td class="hdlist2">
-<p>= <code>Book</code></p>
-</td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>parent(Bookmark)</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">= <code>Book</code></p></td>
 </tr>
 <tr>
-<td class="hdlist1">
-<code>parent(Player)</code>   
-</td>
-<td class="hdlist2">
-<p>= <code>Room</code></p>
-</td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>parent(Player)</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">= <code>Room</code></p></td>
 </tr>
 <tr>
-<td class="hdlist1">
-<code>child(Bowl)</code>      
-</td>
-<td class="hdlist2">
-<p>= <code>Spoon</code></p>
-</td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>child(Bowl)</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">= <code>Spoon</code></p></td>
 </tr>
 <tr>
-<td class="hdlist1">
-<code>child(Room)</code>      
-</td>
-<td class="hdlist2">
-<p>= <code>Table</code></p>
-</td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>child(Room)</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">= <code>Table</code></p></td>
 </tr>
 <tr>
-<td class="hdlist1">
-<code>child(Chair)</code>     
-</td>
-<td class="hdlist2">
-<p>= <code>0</code> (&#8220;nothing&#8221;)</p>
-</td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>child(Chair)</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">= <code>0</code> (&#8220;nothing&#8221;)</p></td>
 </tr>
 <tr>
-<td class="hdlist1">
-<code>sibling(Table)</code>   
-</td>
-<td class="hdlist2">
-<p>= <code>Chair</code></p>
-</td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>sibling(Table)</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">= <code>Chair</code></p></td>
 </tr>
 <tr>
-<td class="hdlist1">
-<code>sibling(Player)</code>  
-</td>
-<td class="hdlist2">
-<p>= <code>0</code> (&#8220;nothing&#8221;)</p>
-</td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>sibling(Player)</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">= <code>0</code> (&#8220;nothing&#8221;)</p></td>
 </tr>
 <tr>
-<td class="hdlist1">
-<code>youngest(Room)</code>   
-</td>
-<td class="hdlist2">
-<p>= <code>Player</code></p>
-</td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>youngest(Room)</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">= <code>Player</code></p></td>
 </tr>
 <tr>
-<td class="hdlist1">
-<code>youngest(Spoon)</code>  
-</td>
-<td class="hdlist2">
-<p>= <code>0</code> (&#8220;nothing&#8221;)</p>
-</td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>youngest(Spoon)</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">= <code>0</code> (&#8220;nothing&#8221;)</p></td>
 </tr>
 <tr>
-<td class="hdlist1">
-<code>elder(Chair)</code>     
-</td>
-<td class="hdlist2">
-<p>= <code>Table</code></p>
-</td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>elder(Chair)</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">= <code>Table</code></p></td>
 </tr>
 <tr>
-<td class="hdlist1">
-<code>elder(Table)</code>     
-</td>
-<td class="hdlist2">
-<p>= <code>0</code> (&#8220;nothing&#8221;)</p>
-</td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>elder(Table)</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">= <code>0</code> (&#8220;nothing&#8221;)</p></td>
 </tr>
+</tbody>
 </table>
+</div>
 </div>
 <div class="paragraph">
 <p>and</p>
 </div>
-<div class="hdlist">
+<div class="openblock float-group">
+<div class="content">
+<table class="tableblock frame-all grid-none stripes-even stretch left">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 83.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>children(Room)</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">= <code>4</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>children(Table)</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">= <code>1</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>children(Chair)</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">= <code>0</code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="admonitionblock note">
 <table>
 <tr>
-<td class="hdlist1">
-<code>children(Room)</code>  
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
 </td>
-<td class="hdlist2">
-<p>= <code>4</code></p>
-</td>
-</tr>
-<tr>
-<td class="hdlist1">
-<code>children(Table)</code> 
-</td>
-<td class="hdlist2">
-<p>= <code>1</code></p>
-</td>
-</tr>
-<tr>
-<td class="hdlist1">
-<code>children(Chair)</code> 
-</td>
-<td class="hdlist2">
-<p>= <code>0</code></p>
+<td class="content">
+<div class="paragraph">
+<p>In keeping with the above explanation of object numbers and <code>&lt;objectname&gt;</code>, the functions in the first set actually return an integer number that refers to the object <code>&lt;objectname&gt;</code>.</p>
+</div>
 </td>
 </tr>
 </table>
-</div>
-<div class="paragraph">
-<p>(In keeping with the above explanation of object numbers and &lt;objectname&gt;, the functions in the first set actually return an integer number that refers to the object &lt;objectname&gt;.)</p>
 </div>
 <div class="paragraph">
 <p>To better understand how the object tree represents the physical world, the table, the chair, the book, and the player are all in the room.
@@ -2854,38 +2806,45 @@ The Hugo library will assume that the player object in the example is standing; 
 <div class="paragraph">
 <p>and</p>
 </div>
-<div class="hdlist">
+<div class="openblock float-group">
+<div class="content">
+<table class="tableblock frame-all grid-none stripes-even stretch left">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 83.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>child(Chair)</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">= <code>Player</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>parent(Player)</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">= <code>Chair</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>children(Chair)</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">= <code>1</code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="admonitionblock tip">
 <table>
 <tr>
-<td class="hdlist1">
-<code>child(Chair)</code>     
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
 </td>
-<td class="hdlist2">
-<p>= <code>Player</code></p>
-</td>
-</tr>
-<tr>
-<td class="hdlist1">
-<code>parent(Player)</code>   
-</td>
-<td class="hdlist2">
-<p>= <code>Chair</code></p>
-</td>
-</tr>
-<tr>
-<td class="hdlist1">
-<code>children(Chair)</code>  
-</td>
-<td class="hdlist2">
-<p>= <code>1</code></p>
+<td class="content">
+<div class="paragraph">
+<p>Try compiling <strong>sample.hug</strong> with the <code>-o</code> switch in order to see the object tree for the sample game.
+Or, if the <code>DEBUG</code> flag was set during compilation, use the HugoFix<sup class="footnote">[<a id="_footnoteref_12" class="footnote" href="#_footnotedef_12" title="View footnote.">12</a>]</sup> command <code>$ot</code> or <code>$ot &lt;object&gt;</code> during play to view the current state of the object tree during play.
+Compiling with the <code>-d</code> switch will generate a debuggable (<strong>.HDX</strong>) version of the file&#8201;&#8212;&#8201;the object tree can then be viewed directly from the debugger.</p>
+</div>
 </td>
 </tr>
 </table>
-</div>
-<div class="paragraph">
-<p>(Try compiling <strong>sample.hug</strong> with the -o switch in order to see the object tree for the sample game.
-Or, if the DEBUG flag was set during compilation, use the HugoFix<sup class="footnote">[<a id="_footnoteref_12" class="footnote" href="#_footnotedef_12" title="View footnote.">12</a>]</sup> command <code>$ot</code> or <code>$ot &lt;object&gt;</code> during play to view the current state of the object tree during play.
-Compiling with the -d switch will generate a debuggable (.HDX) version of the file&#8201;&#8212;&#8201;the object tree can then be viewed directly from the debugger.)</p>
 </div>
 <div class="paragraph">
 <p>To initially place an object in the object tree, use</p>
@@ -2912,7 +2871,7 @@ Compiling with the -d switch will generate a debuggable (.HDX) version of the fi
 </div>
 </div>
 <div class="paragraph">
-<p>to give the object the same parent as &lt;object&gt; or, if &lt;object&gt; is not specified, the same parent as the last-defined object.
+<p>to give the object the same parent as <code>&lt;object&gt;</code> or, if <code>&lt;object&gt;</code> is not specified, the same parent as the last-defined object.
 If no such specification is given (i.e., if you don&#8217;t tell the compiler explicitly where to place the new object), the parent object defaults to 0&#8201;&#8212;&#8201;the <code>nothing</code> object as defined in the library.
 All normal room objects have 0 as their parent.</p>
 </div>
@@ -2921,27 +2880,38 @@ All normal room objects have 0 as their parent.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">object</span> <span class="hl opt">&lt;</span>objectname<span class="hl opt">&gt;</span> <span class="hl str">&quot;object name&quot;</span>&#x000A;&#x000A;\{&#x000A;&#x000A;<span class="hl kwa">in</span> <span class="hl opt">&lt;</span><span class="hl kwa">parent object</span><span class="hl opt">&gt;</span>&#x000A;&#x000A;...&#x000A;&#x000A;}</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">object</span> <span class="hl opt">&lt;</span>objectname<span class="hl opt">&gt;</span> <span class="hl str">&quot;object name&quot;</span>&#x000A;{&#x000A;    <span class="hl kwa">in</span> <span class="hl opt">&lt;</span><span class="hl kwa">parent object</span><span class="hl opt">&gt;</span>&#x000A;    ...&#x000A;&#x000A;}</code></pre>
 </div>
 </div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
 <div class="paragraph">
-<p>(Ensure that the opening brace <code>{</code> does not come on the same line as the object definition.
+<p>Ensure that the opening brace <code>{</code> does not come on the same line as the <code>object</code> definition.
 Trying to do:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">object</span> <span class="hl opt">&lt;</span>objectname<span class="hl opt">&gt;</span> <span class="hl str">&quot;object name&quot;</span> \{...</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">object</span> <span class="hl opt">&lt;</span>objectname<span class="hl opt">&gt;</span> <span class="hl str">&quot;object name&quot;</span> {...</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>is not permitted.)</p>
+<p>is not permitted.</p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>The table in the example presumably had a definition like</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">object</span> table <span class="hl str">&quot;Table&quot;</span>&#x000A;&#x000A;\{&#x000A;&#x000A;<span class="hl kwa">in</span> room&#x000A;&#x000A;...&#x000A;&#x000A;}</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">object</span> table <span class="hl str">&quot;Table&quot;</span>&#x000A;{&#x000A;    <span class="hl kwa">in</span> room&#x000A;    ...&#x000A;}</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -2949,11 +2919,11 @@ Trying to do:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">object</span> mysuitcase <span class="hl str">&quot;suitcase&quot;</span>&#x000A;&#x000A;\{&#x000A;&#x000A;<span class="hl kwa">in</span> emptyroom&#x000A;&#x000A;}</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">object</span> mysuitcase <span class="hl str">&quot;suitcase&quot;</span>&#x000A;{&#x000A;    <span class="hl kwa">in</span> emptyroom&#x000A;&#x000A;}</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Objects can later be moved around the object tree using the move command as in:</p>
+<p>Objects can later be moved around the object tree using the <code>move</code> command as in:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -2961,7 +2931,7 @@ Trying to do:</p>
 </div>
 </div>
 <div class="paragraph">
-<p>which, essentially, disengages &lt;object&gt; from its old parent, makes the sibling of &lt;object&gt; the sibling of &lt;object&gt;'s elder, and moves &lt;object&gt; (along with all its possessions) to the new parent.</p>
+<p>which, essentially, disengages <code>&lt;object&gt;</code> from its old parent, makes the sibling of <code>&lt;object&gt;</code> the sibling of <code>&lt;object&gt;</code>&#8217;s elder, and moves <code>&lt;object&gt;</code> (along with all its possessions) to the new parent.</p>
 </div>
 <div class="paragraph">
 <p>Therefore, in the original example, the command</p>
@@ -2984,14 +2954,18 @@ Trying to do:</p>
 <div class="paragraph">
 <p>There is also a command to remove an object from its position in the tree:</p>
 </div>
-<div class="paragraph">
-<p>remove &lt;object&gt;</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">remove</span> <span class="hl opt">&lt;</span><span class="hl kwa">object</span><span class="hl opt">&gt;</span></code></pre>
+</div>
 </div>
 <div class="paragraph">
 <p>which is the same as</p>
 </div>
-<div class="paragraph">
-<p>move &lt;object&gt; to 0</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">move</span> <span class="hl opt">&lt;</span><span class="hl kwa">object</span><span class="hl opt">&gt;</span> <span class="hl kwa">to</span> <span class="hl num">0</span></code></pre>
+</div>
 </div>
 <div class="paragraph">
 <p>The object may of course be moved to any position later.</p>
@@ -3006,16 +2980,27 @@ The structure</p>
 </div>
 </div>
 <div class="paragraph">
-<p>will be true if &lt;object&gt; is in &lt;parent&gt; (or false if not is used).
+<p>will be true if <code>&lt;object&gt;</code> is in <code>&lt;parent&gt;</code> (or false if <code>not</code> is used).
 In this way, you can write a piece of code that looks something like:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">if</span> mysuitcase <span class="hl kwa">in</span> bedroom&#x000A;&#x000A;\{&#x000A;&#x000A;<span class="hl str">&quot;The suitcase is in the bedroom.&quot;</span>&#x000A;&#x000A;}&#x000A;&#x000A;<span class="hl kwa">else</span>&#x000A;&#x000A;\{&#x000A;&#x000A;<span class="hl kwa">print</span> <span class="hl str">&quot;The suitcase is not in the bedroom.&quot;</span>&#x000A;&#x000A;}</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">if</span> mysuitcase <span class="hl kwa">in</span> bedroom&#x000A;{&#x000A;    <span class="hl str">&quot;The suitcase is in the bedroom.&quot;</span>&#x000A;}&#x000A;&#x000A;<span class="hl kwa">else</span>&#x000A;{&#x000A;    <span class="hl kwa">print</span> <span class="hl str">&quot;The suitcase is not in the bedroom.&quot;</span>&#x000A;&#x000A;}</code></pre>
 </div>
 </div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
 <div class="paragraph">
-<p>(We&#8217;ll cover the <code>if&#8230;&#8203;else&#8230;&#8203;</code> structure in <em>IV.h</em> <em>Conditional Expressions and Program Flow</em>.)</p>
+<p>We&#8217;ll cover the <code>if&#8230;&#8203;else&#8230;&#8203;</code> structure in <em>IV.h Conditional Expressions and Program Flow</em>.</p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 </div>
 <div class="sect2">
@@ -3033,96 +3018,126 @@ An attribute is defined as</p>
 <p>Up to 128 attributes may be defined.
 Those defined in <strong>hugolib.h</strong> include:</p>
 </div>
-<div class="paragraph">
-<p>known if an object is known to the player</p>
-</div>
-<div class="paragraph">
-<p>moved if an object has been moved</p>
-</div>
-<div class="paragraph">
-<p>visited if a room has been visited</p>
-</div>
-<div class="paragraph">
-<p>static if an object cannot be taken</p>
-</div>
-<div class="paragraph">
-<p>plural for plural objects (i.e., some hats)</p>
-</div>
-<div class="paragraph">
-<p>living if an object is a character</p>
-</div>
-<div class="paragraph">
-<p>female if a character is female</p>
-</div>
-<div class="paragraph">
-<p>openable if an object can be opened</p>
-</div>
-<div class="paragraph">
-<p>open if it is open</p>
-</div>
-<div class="paragraph">
-<p>lockable if an object can be locked</p>
-</div>
-<div class="paragraph">
-<p>locked if it is locked</p>
-</div>
-<div class="paragraph">
-<p>unfriendly if a character is unfriendly</p>
-</div>
-<div class="paragraph">
-<p>light if an object is or provides light</p>
-</div>
-<div class="paragraph">
-<p>readable if an object can be read</p>
-</div>
-<div class="paragraph">
-<p>switchable if an object can be turned on or off</p>
-</div>
-<div class="paragraph">
-<p>switchedon if it is on</p>
-</div>
-<div class="paragraph">
-<p>clothing for objects that can be worn</p>
-</div>
-<div class="paragraph">
-<p>worn if the object is being worn</p>
-</div>
-<div class="paragraph">
-<p>mobile if the object can be rolled, etc.</p>
-</div>
-<div class="paragraph">
-<p>enterable if an object is enterable</p>
-</div>
-<div class="paragraph">
-<p>container if an object can hold other objects</p>
-</div>
-<div class="paragraph">
-<p>platform if other objects can be placed on it<sup class="footnote">[<a id="_footnoteref_14" class="footnote" href="#_footnotedef_14" title="View footnote.">14</a>]</sup></p>
-</div>
-<div class="paragraph">
-<p>hidden if an object is not to be listed</p>
-</div>
-<div class="paragraph">
-<p>quiet if container or platform is quiet (i.e., the</p>
-</div>
-<div class="paragraph">
-<p>initial listing of contents is suppressed)</p>
-</div>
-<div class="paragraph">
-<p>transparent if object is not opaque</p>
-</div>
-<div class="paragraph">
-<p>already_listed if object has been pre-listed (i.e., before a</p>
-</div>
-<div class="paragraph">
-<p>WhatsIn listing<sup class="footnote">[<a id="_footnoteref_15" class="footnote" href="#_footnotedef_15" title="View footnote.">15</a>]</sup>)</p>
-</div>
-<div class="paragraph">
-<p>workflag for system use</p>
-</div>
-<div class="paragraph">
-<p>special for miscellaneous use</p>
-</div>
+<table class="tableblock frame-all grid-none stripes-even fit-content center">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>known</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">if an object is known to the player</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>moved</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">if an object has been moved</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>visited</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">if a room has been visited</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>static</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">if an object cannot be taken</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>plural</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">for plural objects (i.e., some hats)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>living</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">if an object is a character</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>female</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">if a character is female</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>openable</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">if an object can be opened</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>open</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">if it is open</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>lockable</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">if an object can be locked</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>locked</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">if it is locked</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>unfriendly</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">if a character is unfriendly</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>light</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">if an object is or provides light</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>readable</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">if an object can be read</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>switchable</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">if an object can be turned on or off</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>switchedon</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">if it is on</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>clothing</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">for objects that can be worn</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>worn</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">if the object is being worn</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>mobile</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">if the object can be rolled, etc.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>enterable</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">if an object is enterable</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>container</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">if an object can hold other objects</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>platform</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">if other objects can be placed on it<sup class="footnote">[<a id="_footnoteref_14" class="footnote" href="#_footnotedef_14" title="View footnote.">14</a>]</sup></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>hidden</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">if an object is not to be listed</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>quiet</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">if container or platform is quiet (i.e., the initial listing of contents is suppressed)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>transparent</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">if object is not opaque</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>already_listed</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">if object has been pre-listed (i.e., before a <code>WhatsIn</code> listing<sup class="footnote">[<a id="_footnoteref_15" class="footnote" href="#_footnotedef_15" title="View footnote.">15</a>]</sup>)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>workflag</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">for system use</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>special</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">for miscellaneous use</p></td>
+</tr>
+</tbody>
+</table>
 <div class="paragraph">
 <p>Some of these attributes are actually the same attribute with different names.
 This is primarily just to save on the absolute number of attributes defined and is accomplished via</p>
@@ -3133,8 +3148,8 @@ This is primarily just to save on the absolute number of attributes defined and 
 </div>
 </div>
 <div class="paragraph">
-<p>where &lt;attribute1&gt; has already been defined.
-For example, the library equates visited with moved (since, presumably, they will never apply to the same object&#8201;&#8212;&#8201;rooms are never moved and objects are never visited), so:</p>
+<p>where <code>&lt;attribute1&gt;</code> has already been defined.
+For example, the library equates <code>visited</code> with <code>moved</code> (since, presumably, they will never apply to the same object&#8201;&#8212;&#8201;rooms are never moved and objects are never visited), so:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -3150,7 +3165,7 @@ For the most part, you should never need to alias your own attributes, although 
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">object</span> <span class="hl opt">&lt;</span>objectname<span class="hl opt">&gt;</span> <span class="hl str">&quot;object name&quot;</span>&#x000A;&#x000A;\{&#x000A;&#x000A;<span class="hl kwa">is</span> [<span class="hl kwa">not</span>] <span class="hl opt">&lt;</span>attribute1<span class="hl opt">&gt;</span>, [<span class="hl kwa">not</span>] <span class="hl opt">&lt;</span>attribute2<span class="hl opt">&gt;</span>, ...&#x000A;&#x000A;...&#x000A;&#x000A;}</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">object</span> <span class="hl opt">&lt;</span>objectname<span class="hl opt">&gt;</span> <span class="hl str">&quot;object name&quot;</span>&#x000A;{&#x000A;    <span class="hl kwa">is</span> [<span class="hl kwa">not</span>] <span class="hl opt">&lt;</span>attribute1<span class="hl opt">&gt;</span>, [<span class="hl kwa">not</span>] <span class="hl opt">&lt;</span>attribute2<span class="hl opt">&gt;</span>, ...&#x000A;    ...&#x000A;}</code></pre>
 </div>
 </div>
 <div class="admonitionblock note">
@@ -3161,7 +3176,7 @@ For the most part, you should never need to alias your own attributes, although 
 </td>
 <td class="content">
 <div class="paragraph">
-<p>The not keyword in the object definition is important when using a class instead of the basic object definition, where the class may have predefined attributes that are undesirable for the current object.</p>
+<p>The <code>not</code> keyword in the object definition is important when using a class instead of the basic object definition, where the class may have predefined attributes that are undesirable for the current object.</p>
 </div>
 </td>
 </tr>
@@ -3172,7 +3187,7 @@ For the most part, you should never need to alias your own attributes, although 
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">object</span> mysuitcase <span class="hl str">&quot;suitcase&quot;</span>&#x000A;&#x000A;\{&#x000A;&#x000A;<span class="hl kwa">in</span> emptyroom&#x000A;&#x000A;<span class="hl kwa">is</span> openable, <span class="hl kwa">not</span> open&#x000A;&#x000A;...&#x000A;&#x000A;}</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">object</span> mysuitcase <span class="hl str">&quot;suitcase&quot;</span>&#x000A;{&#x000A;    <span class="hl kwa">in</span> emptyroom&#x000A;    <span class="hl kwa">is</span> openable, <span class="hl kwa">not</span> open&#x000A;    ...&#x000A;}</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -3184,7 +3199,7 @@ For the most part, you should never need to alias your own attributes, although 
 </div>
 </div>
 <div class="paragraph">
-<p>where the not keyword clears the attribute instead of setting it.
+<p>where the <code>not</code> keyword clears the attribute instead of setting it.
 For example, when the suitcase is opened, somewhere (likely in the library), the command</p>
 </div>
 <div class="listingblock">
@@ -3202,7 +3217,7 @@ When the suitcase is closed, the command will be:</p>
 </div>
 </div>
 <div class="paragraph">
-<p>Attributes can also be read using the is and is not structures and evaluate to either true or false.
+<p>Attributes can also be read using the <code>is</code> and <code>is not</code> structures and evaluate to either true or false.
 In code, the expression</p>
 </div>
 <div class="listingblock">
@@ -3211,13 +3226,13 @@ In code, the expression</p>
 </div>
 </div>
 <div class="paragraph">
-<p>returns true (1) if &lt;object&gt; is (or is not, if not is specified) &lt;attribute&gt;.
+<p>returns true (1) if <code>&lt;object&gt;</code> is (or is not, if <code>not</code> is specified) <code>&lt;attribute&gt;</code>.
 Otherwise, it returns false (0).
 Therefore, given the suitcase object definition:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">object</span> mysuitcase <span class="hl str">&quot;suitcase&quot;</span>&#x000A;&#x000A;\{&#x000A;&#x000A;<span class="hl kwa">in</span> emptyroom&#x000A;&#x000A;<span class="hl kwa">is</span> openable, <span class="hl kwa">not</span> open&#x000A;&#x000A;...&#x000A;&#x000A;}</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">object</span> mysuitcase <span class="hl str">&quot;suitcase&quot;</span>&#x000A;{&#x000A;    <span class="hl kwa">in</span> emptyroom&#x000A;    <span class="hl kwa">is</span> openable, <span class="hl kwa">not</span> open&#x000A;    ...&#x000A;}</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -3225,7 +3240,7 @@ Therefore, given the suitcase object definition:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">mysuitcase <span class="hl kwa">is</span> openable <span class="hl opt">=</span> <span class="hl num">1</span> <span class="hl slc">! or true</span>&#x000A;&#x000A;mysuitcase <span class="hl kwa">is</span> open <span class="hl opt">=</span> <span class="hl num">0</span> <span class="hl slc">! or false</span>&#x000A;&#x000A;mysuitcase <span class="hl kwa">is</span> locked <span class="hl opt">=</span> <span class="hl num">0</span> <span class="hl slc">! or false</span></code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">mysuitcase <span class="hl kwa">is</span> openable <span class="hl opt">=</span> <span class="hl num">1</span>  <span class="hl slc">! or true</span>&#x000A;mysuitcase <span class="hl kwa">is</span> open <span class="hl opt">=</span> <span class="hl num">0</span>      <span class="hl slc">! or false</span>&#x000A;mysuitcase <span class="hl kwa">is</span> locked <span class="hl opt">=</span> <span class="hl num">0</span>    <span class="hl slc">! or false</span></code></pre>
 </div>
 </div>
 </div>
@@ -3238,30 +3253,23 @@ As well, properties are not simple on/off flags.
 They are sets of valid data associated with an object, where the values may represent almost anything, including object numbers, dictionary addresses, integer values, and sections of executable code.</p>
 </div>
 <div class="paragraph">
-<p>These are some valid properties as they would appear in an object definition (using property names defined in <strong>hugolib.h</strong>)<sup class="footnote">[<a id="_footnoteref_16" class="footnote" href="#_footnotedef_16" title="View footnote.">16</a>]</sup>:</p>
+<p>These are some valid properties as they would appear in an object definition (using property names defined in <strong>hugolib.h</strong>):&#8288;<sup class="footnote">[<a id="_footnoteref_16" class="footnote" href="#_footnotedef_16" title="View footnote.">16</a>]</sup></p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">nouns</span> <span class="hl str">&quot;tree&quot;</span>, <span class="hl str">&quot;bush&quot;</span>, <span class="hl str">&quot;shrub&quot;</span>, <span class="hl str">&quot;plant&quot;</span>&#x000A;&#x000A;size <span class="hl num">20</span>&#x000A;&#x000A;found_in livingroom, entrancehall&#x000A;&#x000A;long_desc&#x000A;&#x000A;\{&#x000A;&#x000A;<span class="hl str">&quot;Exits lead north and west. A door is set</span>&#x000A;<span class="hl str"></span>&#x000A;<span class="hl str">in the southeast wall.&quot;</span>&#x000A;&#x000A;}&#x000A;&#x000A;short_desc&#x000A;&#x000A;\{&#x000A;&#x000A;<span class="hl str">&quot;There is a box here. It is &quot;</span>;&#x000A;&#x000A;<span class="hl kwa">if</span> self <span class="hl kwa">is</span> open&#x000A;&#x000A;<span class="hl kwa">print</span> <span class="hl str">&quot;open&quot;</span>;&#x000A;&#x000A;<span class="hl kwa">else</span>&#x000A;&#x000A;<span class="hl kwa">print</span> <span class="hl str">&quot;closed&quot;</span>;&#x000A;&#x000A;<span class="hl kwa">print</span> <span class="hl str">&quot;.&quot;</span>&#x000A;&#x000A;}</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">nouns</span> <span class="hl str">&quot;tree&quot;</span>, <span class="hl str">&quot;bush&quot;</span>, <span class="hl str">&quot;shrub&quot;</span>, <span class="hl str">&quot;plant&quot;</span>&#x000A;&#x000A;size <span class="hl num">20</span>&#x000A;&#x000A;found_in livingroom, entrancehall&#x000A;&#x000A;long_desc&#x000A;{&#x000A;    <span class="hl str">&quot;Exits lead north and west. A door is set</span>&#x000A;<span class="hl str">    in the southeast wall.&quot;</span>&#x000A;&#x000A;}&#x000A;&#x000A;short_desc&#x000A;{&#x000A;    <span class="hl str">&quot;There is a box here. It is &quot;</span>;&#x000A;    <span class="hl kwa">if</span> self <span class="hl kwa">is</span> open&#x000A;        <span class="hl kwa">print</span> <span class="hl str">&quot;open&quot;</span>;&#x000A;    <span class="hl kwa">else</span>&#x000A;        <span class="hl kwa">print</span> <span class="hl str">&quot;closed&quot;</span>;&#x000A;    <span class="hl kwa">print</span> <span class="hl str">&quot;.&quot;</span>&#x000A;}&#x000A;&#x000A;before<sup class="footnote">[<a id="_footnoteref_17" class="footnote" href="#_footnotedef_17" title="View footnote.">17</a>]</sup>&#x000A;{&#x000A;    <span class="hl kwa">object</span> DoGet&#x000A;    {&#x000A;        <span class="hl kwa">if</span> Acquire(player, self)&#x000A;        {&#x000A;            <span class="hl str">&quot;You pick up &quot;</span>;&#x000A;            <span class="hl kwa">print</span> Art(self); <span class="hl str">&quot;.&quot;</span>&#x000A;        }&#x000A;        <span class="hl kwa">else</span>&#x000A;            <span class="hl kwa">return false</span>&#x000A;    }&#x000A;}</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>before<sup class="footnote">[<a id="_footnoteref_17" class="footnote" href="#_footnotedef_17" title="View footnote.">17</a>]</sup></p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">\{&#x000A;&#x000A;<span class="hl kwa">object</span> DoGet&#x000A;&#x000A;\{&#x000A;&#x000A;<span class="hl kwa">if</span> Acquire(player, self)&#x000A;&#x000A;\{&#x000A;&#x000A;<span class="hl str">&quot;You pick up &quot;</span>;&#x000A;&#x000A;<span class="hl kwa">print</span> Art(self); <span class="hl str">&quot;.&quot;</span>&#x000A;&#x000A;}&#x000A;&#x000A;<span class="hl kwa">else</span>&#x000A;&#x000A;<span class="hl kwa">return false</span>&#x000A;&#x000A;}&#x000A;&#x000A;}</code></pre>
-</div>
+<p>The <code>nouns</code> property contains four dictionary addresses; the <code>size</code> property is a single integer value; the <code>found_in</code> property holds two object numbers; and the long and short description properties are both <em>property routines</em>, which instead of just containing one or more simple values stored as a data type are actually sections of executable code attached to the object.</p>
 </div>
 <div class="paragraph">
-<p>The nouns property contains four dictionary addresses; the size property is a single integer value; the found_in property holds two object numbers; and the long and short description properties are both <em>property routines</em>, which instead of just containing one or more simple values stored as a data type are actually sections of executable code attached to the object.</p>
-</div>
-<div class="paragraph">
-<p>The before property is a special case.
+<p>The <code>before</code> property is a special case.
 This <em>complex property routine</em> is defined by the compiler and handled differently by the engine than a normal property routine.
-In this case, the property value representing the routine address is only returned if the global variables object and verbroutine contain the object in question and the address of the DoGet routine, respectively.
-If there is a match, the routine is executed before DoGet, which is the library routine (in <strong>verblib.h</strong>) that normally handles the taking of objects.
-(There is also a companion to before called after, which is checked after the verb routine has been called.) See <em>V.c</em> <em>Before And After Routines</em> for further elucidation.</p>
+In this case, the property value representing the routine address is only returned if the global variables <code>object</code> and <code>verbroutine</code> contain the object in question and the address of the <code>DoGet</code> routine, respectively.
+If there is a match, the routine is executed before <code>DoGet</code>, which is the library routine (in <strong>verblib.h</strong>) that normally handles the taking of objects.
+(There is also a companion to <code>before</code> called <code>after</code>, which is checked after the verb routine has been called.)
+See <em>V.c Before And After Routines</em> for further elucidation.</p>
 </div>
 <div class="paragraph">
 <p>There will be more on property routines and complex property routines later.
@@ -3284,241 +3292,299 @@ For now, think of a property as simply containing one or more values of some kin
 </div>
 </div>
 <div class="paragraph">
-<p>where &lt;default value&gt; is a constant or dictionary word.
+<p>where <code>&lt;default value&gt;</code> is a constant or dictionary word.
 For objects without a given property, attempting to find that property will result in the default value.
 If no default is explicitly declared, it is 0 (or <code>""</code> or the <code>nothing</code> object, whatever is appropriate in context&#8201;&#8212;&#8201;since they all represent the same zero value).</p>
 </div>
 <div class="paragraph">
 <p>The list of properties defined in <strong>hugolib.h</strong> is:</p>
 </div>
+<table class="tableblock frame-all grid-rows stripes-even stretch">
+<colgroup>
+<col style="width: 10%;">
+<col style="width: 90%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>name</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">the basic object name</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>before</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">pre-verb routines</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>after</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">post-verb routines</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>noun</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">noun(s) for referring to object</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>adjective</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">adjective(s) for describing object</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>article</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&#8220;a&#8221;, &#8220;an&#8221;, &#8220;the&#8221;, &#8220;some&#8221;, etc.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>preposition</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&#8220;in&#8221;, &#8220;inside&#8221;, &#8220;outside of&#8221;, etc.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>pronoun</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">appropriate for the object in question</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>react_before</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">to allow reaction by an object that is not</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>react_after</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">directly involved in the action</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>short_desc</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">basic &#8220;X is here&#8221; description</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>initial_desc</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">supersedes <code>short_desc</code> (or <code>long_desc</code> for locations)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>long_desc</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">detailed description</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>found_in</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">in case of multiple locations (virtual, <em>not</em> physical parent objects<sup class="footnote">[<a id="_footnoteref_18" class="footnote" href="#_footnotedef_18" title="View footnote.">18</a>]</sup>)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>type</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">to identify the type of object</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>size</code></p></td>
+<td class="tableblock halign-left valign-middle" rowspan="3"><p class="tableblock">for holding/inventory</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>capacity</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>holding</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>reach</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">for limiting object accessibility</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>list_contents</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">for overriding normal listing</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>in_scope</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">actor(s) that can access an object</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>parse_rank</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">for differentiating like-named objects</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>exclude_from_all</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">for interpreting &#8220;all&#8221; in player input</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>door_to</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">for handling &#8220;<strong>&gt;ENTER &lt;object&gt;</strong>&#8221;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>n_to</code></p></td>
+<td class="tableblock halign-left valign-middle" rowspan="12"><p class="tableblock">(for rooms only, where an exit leads)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ne_to</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>e_to</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>se_to</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>s_to</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>sw_to</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>w_to</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>nw_to</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>u_to</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>d_to</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>in_to</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>out_to</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cant_go</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">message if a direction is invalid</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>extra_scenery</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">unimportant words/objects in location desc.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>each_turn</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">a routine called each turn</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>key_object</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">if <code>lockable</code>, the proper key</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>when_open</code></p></td>
+<td class="tableblock halign-left valign-middle" rowspan="2"><p class="tableblock">supersedes <code>short_desc</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>when_closed</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ignore_response</code></p></td>
+<td class="tableblock halign-left valign-middle" rowspan="2"><p class="tableblock">for characters</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>order_response</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>contains_desc</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">instead of basic &#8220;Inside X are&#8230;&#8203;&#8221;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>inv_desc</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">for special inventory descriptions</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>desc_detail</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">parenthetical detail for object listing</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>misc</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">for miscellaneous use</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
 <div class="paragraph">
-<p>name the basic object name</p>
+<p>For a detailed description of how each property is used, see <em>APPENDIX B: THE HUGO LIBRARY</em>.</p>
 </div>
-<div class="paragraph">
-<p>before pre-verb routines</p>
-</div>
-<div class="paragraph">
-<p>after post-verb routines</p>
-</div>
-<div class="paragraph">
-<p>noun noun(s) for referring to object</p>
-</div>
-<div class="paragraph">
-<p>adjective adjective(s) for describing object</p>
-</div>
-<div class="paragraph">
-<p>article &#8220;a&#8221;, &#8220;an&#8221;, &#8220;the&#8221;, &#8220;some&#8221;, etc.</p>
-</div>
-<div class="paragraph">
-<p>preposition &#8220;in&#8221;, &#8220;inside&#8221;, &#8220;outside of&#8221;, etc.</p>
-</div>
-<div class="paragraph">
-<p>pronoun appropriate for the object in question</p>
-</div>
-<div class="paragraph">
-<p>react_before to allow reaction by an object that is not</p>
-</div>
-<div class="paragraph">
-<p>react_after directly involved in the action</p>
-</div>
-<div class="paragraph">
-<p>short_desc basic &#8220;X is here&#8221; description</p>
-</div>
-<div class="paragraph">
-<p>initial_desc supersedes short_desc (or long_desc</p>
-</div>
-<div class="paragraph">
-<p>for locations)</p>
-</div>
-<div class="paragraph">
-<p>long_desc detailed description</p>
-</div>
-<div class="paragraph">
-<p>found_in in case of multiple locations (virtual,</p>
-</div>
-<div class="paragraph">
-<p><em>not</em> physical parent objects<sup class="footnote">[<a id="_footnoteref_18" class="footnote" href="#_footnotedef_18" title="View footnote.">18</a>]</sup>)</p>
-</div>
-<div class="paragraph">
-<p>type to identify the type of object</p>
-</div>
-<div class="paragraph">
-<p>size for holding/inventory</p>
-</div>
-<div class="paragraph">
-<p>capacity “ “ “</p>
-</div>
-<div class="paragraph">
-<p>holding “ “ “</p>
-</div>
-<div class="paragraph">
-<p>reach for limiting object accessibility</p>
-</div>
-<div class="paragraph">
-<p>list_contents for overriding normal listing</p>
-</div>
-<div class="paragraph">
-<p>in_scope actor(s) that can access an object</p>
-</div>
-<div class="paragraph">
-<p>parse_rank for differentiating like-named objects</p>
-</div>
-<div class="paragraph">
-<p>exclude_from_all for interpreting &#8220;all&#8221; in player input</p>
-</div>
-<div class="paragraph">
-<p>door_to for handling “&gt;ENTER &lt;object&gt;“</p>
-</div>
-<div class="paragraph">
-<p>n_to</p>
-</div>
-<div class="paragraph">
-<p>ne_to</p>
-</div>
-<div class="paragraph">
-<p>e_to</p>
-</div>
-<div class="paragraph">
-<p>se_to</p>
-</div>
-<div class="paragraph">
-<p>s_to</p>
-</div>
-<div class="paragraph">
-<p>sw_to (for rooms only, where an exit leads)</p>
-</div>
-<div class="paragraph">
-<p>w_to</p>
-</div>
-<div class="paragraph">
-<p>nw_to</p>
-</div>
-<div class="paragraph">
-<p>u_to</p>
-</div>
-<div class="paragraph">
-<p>d_to</p>
-</div>
-<div class="paragraph">
-<p>in_to</p>
-</div>
-<div class="paragraph">
-<p>out_to</p>
-</div>
-<div class="paragraph">
-<p>cant_go message if a direction is invalid</p>
-</div>
-<div class="paragraph">
-<p>extra_scenery unimportant words/objects in location desc.</p>
-</div>
-<div class="paragraph">
-<p>each_turn a routine called each turn</p>
-</div>
-<div class="paragraph">
-<p>key_object if lockable, the proper key</p>
-</div>
-<div class="paragraph">
-<p>when_open supersedes short_desc</p>
-</div>
-<div class="paragraph">
-<p>when_closed “ “</p>
-</div>
-<div class="paragraph">
-<p>ignore_response for characters</p>
-</div>
-<div class="paragraph">
-<p>order_response “ “</p>
-</div>
-<div class="paragraph">
-<p>contains_desc instead of basic &#8220;Inside X are&#8230;&#8203;&#8221;</p>
-</div>
-<div class="paragraph">
-<p>inv_desc for special inventory descriptions</p>
-</div>
-<div class="paragraph">
-<p>desc_detail parenthetical detail for object listing</p>
-</div>
-<div class="paragraph">
-<p>misc for miscellaneous use</p>
-</div>
-<div class="paragraph">
-<p>(For a detailed description of how each property is used, see <em>APPENDIX B:</em> <em>THE HUGO LIBRARY</em>.)</p>
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>The following properties are also defined and used exclusively by the display object:</p>
 </div>
-<div class="paragraph">
-<p>screenwidth width of the display, in characters</p>
-</div>
-<div class="paragraph">
-<p>screenheight height of the display, in characters</p>
-</div>
-<div class="paragraph">
-<p>linelength width of the current text window</p>
-</div>
-<div class="paragraph">
-<p>windowlines height of the current text window</p>
-</div>
-<div class="paragraph">
-<p>cursor_column horizontal and vertical position of</p>
-</div>
-<div class="paragraph">
-<p>cursor_row the cursor in the current text window</p>
-</div>
-<div class="paragraph">
-<p>hasgraphics true if the current display is graphics-</p>
-</div>
-<div class="paragraph">
-<p>capable</p>
-</div>
-<div class="paragraph">
-<p>title_caption dictionary entry giving the full proper</p>
-</div>
-<div class="paragraph">
-<p>name of the program (optional)</p>
-</div>
-<div class="paragraph">
-<p>statusline_height of the last-printed status line</p>
-</div>
+<table class="tableblock frame-all grid-rows stripes-even stretch">
+<colgroup>
+<col style="width: 10%;">
+<col style="width: 90%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>screenwidth</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">width of the display, in characters</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>screenheight</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">height of the display, in characters</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>linelength</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">width of the current text window</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>windowlines</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">height of the current text window</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cursor_column</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">horizontal and vertical position of</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cursor_row</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">the cursor in the current text window</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>hasgraphics</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">true if the current display is graphics- capable</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>title_caption</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">dictionary entry giving the full proper name of the program (optional)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>statusline_height</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">of the last-printed status line</p></td>
+</tr>
+</tbody>
+</table>
 <div class="paragraph">
 <p>Property names may be aliased similarly to attributes using:</p>
 </div>
-<div class="paragraph">
-<p>property &lt;property2&gt; alias &lt;property1&gt;</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">property</span> <span class="hl opt">&lt;</span>property2<span class="hl opt">&gt;</span> <span class="hl kwa">alias</span> <span class="hl opt">&lt;</span>property1<span class="hl opt">&gt;</span></code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>where &lt;property1&gt; has already been defined.
+<p>where <code>&lt;property1&gt;</code> has already been defined.
 The library aliases (among others) the following:</p>
 </div>
-<div class="paragraph">
-<p>nouns alias noun</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">nouns alias noun</span>&#x000A;<span class="hl kwa">adjectives alias adjective</span>&#x000A;prep <span class="hl kwa">alias</span> preposition&#x000A;pronouns <span class="hl kwa">alias</span> pronoun</code></pre>
 </div>
-<div class="paragraph">
-<p>adjectives alias adjective</p>
-</div>
-<div class="paragraph">
-<p>prep alias preposition</p>
-</div>
-<div class="paragraph">
-<p>pronouns alias pronoun</p>
 </div>
 <div class="paragraph">
 <p>Whereas a simple property is expressed as</p>
 </div>
-<div class="paragraph">
-<p>&lt;object&gt;.&lt;property&gt;</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl opt">&lt;</span><span class="hl kwa">object</span><span class="hl opt">&gt;</span>.<span class="hl opt">&lt;</span><span class="hl kwa">property</span><span class="hl opt">&gt;</span></code></pre>
+</div>
 </div>
 <div class="paragraph">
 <p>The number of elements to a property with more than a single value can be found via</p>
 </div>
-<div class="paragraph">
-<p>&lt;object&gt;.#&lt;property&gt;</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl opt">&lt;</span><span class="hl kwa">object</span><span class="hl opt">&gt;</span>.<span class="hl ppc">#&lt;property&gt;</span></code></pre>
+</div>
 </div>
 <div class="paragraph">
 <p>and a single element is expressed as</p>
 </div>
-<div class="paragraph">
-<p>&lt;object&gt;.&lt;property&gt; #&lt;element number&gt;</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl opt">&lt;</span><span class="hl kwa">object</span><span class="hl opt">&gt;</span>.<span class="hl opt">&lt;</span><span class="hl kwa">property</span><span class="hl opt">&gt;</span> <span class="hl ppc">#&lt;element number&gt;</span></code></pre>
+</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -3528,7 +3594,7 @@ The library aliases (among others) the following:</p>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>&lt;object&gt;.&lt;property&gt; is simply the shortened version of &lt;object&gt;.&lt;property&gt; #1.</p>
+<p><code>&lt;object&gt;.&lt;property&gt;</code> is simply the shortened version of <code>&lt;object&gt;.&lt;property&gt; #1</code>.</p>
 </div>
 </td>
 </tr>
@@ -3539,13 +3605,20 @@ The library aliases (among others) the following:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">object</span> mysuitcase <span class="hl str">&quot;big green suitcase&quot;</span>&#x000A;&#x000A;\{&#x000A;&#x000A;<span class="hl kwa">in</span> emptyroom <span class="hl slc">! done earlier</span>&#x000A;&#x000A;<span class="hl kwa">is</span> openable, <span class="hl kwa">not</span> open <span class="hl slc">!</span>&#x000A;&#x000A;<span class="hl kwa">nouns</span> <span class="hl str">&quot;suitcase&quot;</span>, <span class="hl str">&quot;case&quot;</span>, <span class="hl str">&quot;luggage&quot;</span>&#x000A;&#x000A;<span class="hl kwa">adjective</span> <span class="hl str">&quot;big&quot;</span>, <span class="hl str">&quot;green&quot;</span>, <span class="hl str">&quot;suit&quot;</span>&#x000A;&#x000A;<span class="hl kwa">article</span> <span class="hl str">&quot;a&quot;</span>&#x000A;&#x000A;size <span class="hl num">25</span>&#x000A;&#x000A;capacity <span class="hl num">100</span>&#x000A;&#x000A;}</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">object</span> mysuitcase <span class="hl str">&quot;big green suitcase&quot;</span>&#x000A;{&#x000A;    <span class="hl kwa">in</span> emptyroom            <span class="hl slc">! done earlier</span>&#x000A;    <span class="hl kwa">is</span> openable, <span class="hl kwa">not</span> open   <span class="hl slc">!</span>&#x000A;&#x000A;    <span class="hl kwa">nouns</span> <span class="hl str">&quot;suitcase&quot;</span>, <span class="hl str">&quot;case&quot;</span>, <span class="hl str">&quot;luggage&quot;</span>&#x000A;    <span class="hl kwa">adjective</span> <span class="hl str">&quot;big&quot;</span>, <span class="hl str">&quot;green&quot;</span>, <span class="hl str">&quot;suit&quot;</span>&#x000A;    <span class="hl kwa">article</span> <span class="hl str">&quot;a&quot;</span>&#x000A;    size <span class="hl num">25</span>&#x000A;    capacity <span class="hl num">100</span>&#x000A;}</code></pre>
 </div>
 </div>
 <div class="paragraph">
 <p>Based on the parser&#8217;s rules for object identification, the suitcase object may now be referred to by the player as &#8220;big green suitcase&#8221;, &#8220;big case&#8221;, or &#8220;green suitcase&#8221; among other combinations.
 Even &#8220;big green&#8221; and &#8220;suit&#8221; may be valid, provided that these don&#8217;t also refer to other objects within valid scope such as &#8220;a big green apple&#8221; or &#8220;your suit jacket&#8221;.</p>
 </div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
 <div class="paragraph">
 <p>The basic form for identification by the parser is</p>
 </div>
@@ -3574,60 +3647,91 @@ However, the noun must come last, and only one noun is recognized, so that</p>
 <div class="paragraph">
 <p>as in &#8220;luggage case&#8221; and &#8220;suitcase green&#8221; are not recognized.</p>
 </div>
+</td>
+</tr>
+</table>
+</div>
 <div class="paragraph">
 <p>One occasional source of befuddling code that doesn&#8217;t behave the way the programmer intended is not allowing enough slots for a property on a given object.
 That is, if an object is originally defined with the property</p>
 </div>
-<div class="paragraph">
-<p>found_in kitchen</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">found_in kitchen</code></pre>
+</div>
 </div>
 <div class="paragraph">
 <p>and later, the program tries to set</p>
 </div>
-<div class="paragraph">
-<p>&lt;object&gt;.found_in #2 = livingroom</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl opt">&lt;</span><span class="hl kwa">object</span><span class="hl opt">&gt;</span>.found_in <span class="hl ppc">#2 = livingroom</span></code></pre>
+</div>
 </div>
 <div class="paragraph">
 <p>in order to make the object available in both the kitchen <em>and</em> the living room, it will have no substantial effect.
-That is, there will be no space initialized in &lt;object&gt;'s property table for a second value under found_in.
-Trying to read &lt;object&gt;.found_in #2 will return a value of 0&#8201;&#8212;&#8201;a non-existent property&#8201;&#8212;&#8201;not the number of the livingroom object.</p>
+That is, there will be no space initialized in <code>&lt;object&gt;</code>&#8288;&#8217;s property table for a second value under <code>found_in</code>.
+Trying to read <code>&lt;object&gt;.found_in #2</code> will return a value of 0&#8201;&#8212;&#8201;a non-existent property&#8201;&#8212;&#8201;not the number of the <code>livingroom</code> object.</p>
 </div>
 <div class="paragraph">
 <p>To overcome this, if it is known that eventually a second (or third, or fourth, or ninth) value is going to be set&#8201;&#8212;&#8201;even if only one value is defined at the outset&#8201;&#8212;&#8201;use</p>
 </div>
-<div class="paragraph">
-<p>found_in kitchen, 0[, 0, 0,&#8230;&#8203;]</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">found_in kitchen, <span class="hl num">0</span>[, <span class="hl num">0</span>, <span class="hl num">0</span>,...]</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>in the object definition.
-(A useful shortcut for initializing multiple zero values is to use</p>
+<p>in the object definition.</p>
 </div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
 <div class="paragraph">
-<p>found_in #4</p>
+<p>A useful shortcut for initializing multiple zero values is to use</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">found_in <span class="hl ppc">#4</span></code></pre>
+</div>
 </div>
 <div class="paragraph">
 <p>instead of</p>
 </div>
-<div class="paragraph">
-<p>found_in 0, 0, 0, 0</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">found_in <span class="hl num">0</span>, <span class="hl num">0</span>, <span class="hl num">0</span>, <span class="hl num">0</span></code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>where #<em>n</em> initializes <em>n</em> zero values in the object definition.)</p>
+<p>where <code>#<em>n</em></code> initializes <em>n</em> zero values in the object definition.</p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>As might be expected, combinations of properties are read left-to-right, so that</p>
 </div>
-<div class="paragraph">
-<p>location.n_to.name</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">location.n_to.<span class="hl kwa">name</span></code></pre>
+</div>
 </div>
 <div class="paragraph">
 <p>is understood as</p>
 </div>
-<div class="paragraph">
-<p>(location.n_to).name</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">(location.n_to).<span class="hl kwa">name</span></code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>which is, in other words, the name property of the object stored in location.n_to.</p>
+<p>which is, in other words, the <code>name</code> property of the object stored in <code>location.n_to</code>.</p>
 </div>
 </div>
 <div class="sect2">
@@ -3639,7 +3743,7 @@ Here is how a class is defined:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">class</span> <span class="hl opt">&lt;</span>classname<span class="hl opt">&gt;</span> [<span class="hl str">&quot;&lt;optional name&gt;&quot;</span>]&#x000A;&#x000A;\{&#x000A;&#x000A;...&#x000A;&#x000A;}</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">class</span> <span class="hl opt">&lt;</span>classname<span class="hl opt">&gt;</span> [<span class="hl str">&quot;&lt;optional name&gt;&quot;</span>]&#x000A;{&#x000A;    ...&#x000A;}</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -3650,52 +3754,76 @@ Here is how a class is defined:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">class</span> box&#x000A;&#x000A;\{&#x000A;&#x000A;<span class="hl kwa">noun</span> <span class="hl str">&quot;box&quot;</span>&#x000A;&#x000A;long_desc&#x000A;&#x000A;<span class="hl str">&quot;It looks like a regular old box.&quot;</span>&#x000A;&#x000A;<span class="hl kwa">is</span> openable, <span class="hl kwa">not</span> open&#x000A;&#x000A;}&#x000A;&#x000A;box largebox <span class="hl str">&quot;large box&quot;</span>&#x000A;&#x000A;\{&#x000A;&#x000A;<span class="hl kwa">article</span> <span class="hl str">&quot;a&quot;</span>&#x000A;&#x000A;<span class="hl kwa">adjectives</span> <span class="hl str">&quot;big&quot;</span>, <span class="hl str">&quot;large&quot;</span>&#x000A;&#x000A;<span class="hl kwa">is</span> open&#x000A;&#x000A;}&#x000A;&#x000A;box greenbox <span class="hl str">&quot;green box&quot;</span>&#x000A;&#x000A;\{&#x000A;&#x000A;<span class="hl kwa">article</span> <span class="hl str">&quot;a&quot;</span>&#x000A;&#x000A;<span class="hl kwa">adjective</span> <span class="hl str">&quot;green&quot;</span>&#x000A;&#x000A;long_desc&#x000A;&#x000A;<span class="hl str">&quot;It looks like a regular old box,</span>&#x000A;<span class="hl str"></span>&#x000A;<span class="hl str">only green.&quot;</span>&#x000A;&#x000A;}</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">class</span> box&#x000A;{&#x000A;    <span class="hl kwa">noun</span> <span class="hl str">&quot;box&quot;</span>&#x000A;    long_desc&#x000A;        <span class="hl str">&quot;It looks like a regular old box.&quot;</span>&#x000A;    <span class="hl kwa">is</span> openable, <span class="hl kwa">not</span> open&#x000A;}&#x000A;&#x000A;box largebox <span class="hl str">&quot;large box&quot;</span>&#x000A;{&#x000A;    <span class="hl kwa">article</span> <span class="hl str">&quot;a&quot;</span>&#x000A;    <span class="hl kwa">adjectives</span> <span class="hl str">&quot;big&quot;</span>, <span class="hl str">&quot;large&quot;</span>&#x000A;    <span class="hl kwa">is</span> open&#x000A;}&#x000A;&#x000A;box greenbox <span class="hl str">&quot;green box&quot;</span>&#x000A;{&#x000A;    <span class="hl kwa">article</span> <span class="hl str">&quot;a&quot;</span>&#x000A;    <span class="hl kwa">adjective</span> <span class="hl str">&quot;green&quot;</span>&#x000A;    long_desc&#x000A;        <span class="hl str">&quot;It looks like a regular old box,</span>&#x000A;<span class="hl str">        only green.&quot;</span>&#x000A;}</code></pre>
 </div>
 </div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
 <div class="paragraph">
-<p>(Beginning the long_desc property routine on the line below the property name is understood by the compiler as:</p>
+<p>Beginning the <code>long_desc</code> property routine on the line below the property name is understood by the compiler as:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">long_desc&#x000A;&#x000A;\{&#x000A;&#x000A;<span class="hl str">&quot;It looks like a regular old box,</span>&#x000A;<span class="hl str"></span>&#x000A;<span class="hl str">only green.&quot;</span>&#x000A;&#x000A;}</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">long_desc&#x000A;{&#x000A;    <span class="hl str">&quot;It looks like a regular old box,</span>&#x000A;<span class="hl str">    only green.&quot;</span>&#x000A;&#x000A;}</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Since the property is only one line&#8201;&#8212;&#8201;a single line of text to print&#8201;&#8212;&#8201;the braces are unnecessary.)</p>
+<p>Since the property is only one line&#8201;&#8212;&#8201;a single line of text to print&#8201;&#8212;&#8201;the braces are unnecessary.</p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
-<p>The definition of an object derived from a particular class is begun with the name of the prototype object instead of object.
+<p>The definition of an object derived from a particular class is begun with the name of the prototype object instead of <code>object</code>.
 All properties and attributes of the class are inherited (except for its position in the object tree), unless they have been explicitly defined in the new object (in which case they take precedence over any defaults defined in the class).</p>
 </div>
 <div class="paragraph">
-<p>That is, although the box class is defined without the open attribute, the largebox object will begin the game as open, since this is in the largebox definition.
-It will begin the game as openable, as well, as this is inherited from the box class.</p>
+<p>That is, although the box class is defined without the open attribute, the <code>largebox</code> object will begin the game as open, since this is in the <code>largebox</code> definition.
+It will begin the game as <code>openable</code>, as well, as this is inherited from the <code>box</code> class.</p>
 </div>
 <div class="paragraph">
-<p>And while the largebox object will have the long_desc of the box class, the greenbox object replaces the default property routine with a new description.
-(An exception to this is an <code>$additive</code> property, to be discussed later, where new properties are added to those of previous classes.)</p>
+<p>And while the <code>largebox</code> object will have the <code>long_desc</code> of the <code>box</code> class, the <code>greenbox</code> object replaces the default property routine with a new description.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>An exception to this is an <code>$additive</code> property, to be discussed later, where new properties are added to those of previous classes.</p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
-<p>It is also possible to define an object using a previous object as a class even though the previous object was not explicitly defined as a class (using the class keyword).
+<p>It is also possible to define an object using a previous object as a class even though the previous object was not explicitly defined as a class (using the <code>class</code> keyword).
 Therefore,</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">largebox largeredbox <span class="hl str">&quot;large red box&quot;</span>&#x000A;&#x000A;\{&#x000A;&#x000A;<span class="hl kwa">adjectives</span> <span class="hl str">&quot;big&quot;</span>, <span class="hl str">&quot;large&quot;</span>, <span class="hl str">&quot;red&quot;</span>&#x000A;&#x000A;}</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">largebox largeredbox <span class="hl str">&quot;large red box&quot;</span>&#x000A;{&#x000A;    <span class="hl kwa">adjectives</span> <span class="hl str">&quot;big&quot;</span>, <span class="hl str">&quot;large&quot;</span>, <span class="hl str">&quot;red&quot;</span>&#x000A;}</code></pre>
 </div>
 </div>
 <div class="paragraph">
 <p>is perfectly valid.
-We created what amounts to a &#8220;copy&#8221; of largebox, with a different name (&#8220;large red box&#8221; this time) and a different set of adjectives to refer to it.</p>
+We created what amounts to a &#8220;copy&#8221; of <code>largebox</code>, with a different name (&#8220;large red box&#8221; this time) and a different set of adjectives to refer to it.</p>
 </div>
 <div class="paragraph">
 <p>Occasionally, it may be necessary to have an object or class inherit from more than one previously defined class.
-This can be done using the &#8220;inherits&#8221; instruction.</p>
+This can be done using the <code>inherits</code> instruction.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl opt">&lt;</span>class1<span class="hl opt">&gt; &lt;</span>objectname<span class="hl opt">&gt;</span> <span class="hl str">&quot;name&quot;</span>&#x000A;&#x000A;\{&#x000A;&#x000A;inherits <span class="hl opt">&lt;</span>class2<span class="hl opt">&gt;</span>[, <span class="hl opt">&lt;</span>class3<span class="hl opt">&gt;</span>,...]&#x000A;&#x000A;...&#x000A;&#x000A;}</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl opt">&lt;</span>class1<span class="hl opt">&gt; &lt;</span>objectname<span class="hl opt">&gt;</span> <span class="hl str">&quot;name&quot;</span>&#x000A;{&#x000A;    inherits <span class="hl opt">&lt;</span>class2<span class="hl opt">&gt;</span>[, <span class="hl opt">&lt;</span>class3<span class="hl opt">&gt;</span>,...]&#x000A;    ...&#x000A;}</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -3703,29 +3831,42 @@ This can be done using the &#8220;inherits&#8221; instruction.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">object</span> <span class="hl opt">&lt;</span>objectname<span class="hl opt">&gt;</span> <span class="hl str">&quot;name&quot;</span>&#x000A;&#x000A;\{&#x000A;&#x000A;inherits <span class="hl opt">&lt;</span>class1<span class="hl opt">&gt;</span>, <span class="hl opt">&lt;</span>class2<span class="hl opt">&gt;</span>[, <span class="hl opt">&lt;</span>class3<span class="hl opt">&gt;</span>,...]&#x000A;&#x000A;...&#x000A;&#x000A;}</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">object</span> <span class="hl opt">&lt;</span>objectname<span class="hl opt">&gt;</span> <span class="hl str">&quot;name&quot;</span>&#x000A;{&#x000A;    inherits <span class="hl opt">&lt;</span>class1<span class="hl opt">&gt;</span>, <span class="hl opt">&lt;</span>class2<span class="hl opt">&gt;</span>[, <span class="hl opt">&lt;</span>class3<span class="hl opt">&gt;</span>,...]&#x000A;    ...&#x000A;}</code></pre>
 </div>
 </div>
 <div class="paragraph">
 <p>The precedence of inheritance is in the order of occurrence.
-In either example, the object inherits its properties and attributes first from &lt;class1&gt;, then from &lt;class2&gt;, and so on.</p>
+In either example, the object inherits its properties and attributes first from <code>&lt;class1&gt;</code>, then from <code>&lt;class2&gt;</code>, and so on.</p>
 </div>
 <div class="paragraph">
 <p>The Hugo Object Library (<strong>objlib.h</strong>) contains a number of useful class definitions for things like rooms, characters, scenery, vehicles, etc.
 Sometimes, however, it may be desirable to use a different definition for, say, the room class while keeping all the others in the Object Library.</p>
 </div>
 <div class="paragraph">
-<p>Instead of actually editing <strong>objlib.h</strong><sup class="footnote">[<a id="_footnoteref_19" class="footnote" href="#_footnotedef_19" title="View footnote.">19</a>]</sup>, use:</p>
+<p>Instead of actually editing <strong>objlib.h</strong>,<sup class="footnote">[<a id="_footnoteref_19" class="footnote" href="#_footnotedef_19" title="View footnote.">19</a>]</sup> use:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">replace</span> <span class="hl opt">&lt;</span><span class="hl kwa">class</span><span class="hl opt">&gt;</span> [<span class="hl str">&quot;&lt;optional name&gt;&quot;</span>]&#x000A;&#x000A;\{&#x000A;&#x000A;(...completely new <span class="hl kwa">object</span> definition...)&#x000A;&#x000A;}</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">replace</span> <span class="hl opt">&lt;</span><span class="hl kwa">class</span><span class="hl opt">&gt;</span> [<span class="hl str">&quot;&lt;optional name&gt;&quot;</span>]&#x000A;{&#x000A;    (...completely new <span class="hl kwa">object</span> definition...)&#x000A;&#x000A;}</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>where &lt;class&gt; is the name of a previously defined object or class, such as &#8220;room&#8221;.
-All subsequent references to &lt;class&gt; will use this object instead of the previously defined one.
-(Note that this means that the replacement must come <em>before</em><sup class="footnote">[<a id="_footnoteref_20" class="footnote" href="#_footnotedef_20" title="View footnote.">20</a>]</sup> any uses of the class as the parent class for other objects.)</p>
+<p>where <code>&lt;class&gt;</code> is the name of a previously defined object or class, such as <code>room</code>.
+All subsequent references to <code>&lt;class&gt;</code> will use this object instead of the previously defined one.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Note that this means that the replacement must come <em>before</em><sup class="footnote">[<a id="_footnoteref_20" class="footnote" href="#_footnotedef_20" title="View footnote.">20</a>]</sup> any uses of the class as the parent class for other objects.</p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 </div>
 <div class="sect2">
@@ -18890,10 +19031,10 @@ If there is an error, the <code>system_status</code> global variable is set.</p>
 <a href="#_footnoteref_10">10</a>. Which is why, in certain cases, the <code>-a</code> switch can be helpful.
 </div>
 <div class="footnote" id="_footnotedef_11">
-<a href="#_footnoteref_11">11</a>. It&#8217;s also no coincidence that the <code>nothing</code> object is equal in its value to 0, which also represents the empty string <code>""</code> (see <em>II.c Data Types</em>). The fact that these three are (value-wise, at least) identical will come in handy, as what it means in practice is that 0/null/empty/nothing/etc. is the same in every context.
+<a href="#_footnoteref_11">11</a>. It&#8217;s also no coincidence that the &#8220;nothing&#8221; object is equal in its value to 0, which also represents the empty string <code>""</code> (see <em>II.c Data Types</em>). The fact that these three are (value-wise, at least) identical will come in handy, as what it means in practice is that 0/null/empty/nothing/etc. is the same in every context.
 </div>
 <div class="footnote" id="_footnotedef_12">
-<a href="#_footnoteref_12">12</a>. See <em>APPENDIX D:</em> <em>HUGOFIX AND THE HUGO DEBUGGER</em>.
+<a href="#_footnoteref_12">12</a>. See <em>APPENDIX D: HUGOFIX AND THE HUGO DEBUGGER</em>.
 </div>
 <div class="footnote" id="_footnotedef_13">
 <a href="#_footnoteref_13">13</a>. For this reason, attributes are sometimes thought of as being &#8220;lightweight classes&#8221; in that, as can be seen in the list of attributes, they generally categorize an object as a certain &#8220;kind&#8221; of object&#8201;&#8212;&#8201;although other than flagging the object with that particular quality they have no other direct effect.
@@ -18902,13 +19043,13 @@ If there is an error, the <code>system_status</code> global variable is set.</p>
 <a href="#_footnoteref_14">14</a>. The container and platform attributes are mutually exclusive. An object cannot have both attributes, since in the library the idea of containment is one of an object being either &#8220;in&#8221; <em>or</em> &#8220;on&#8221; another object. There are available classes that aren&#8217;t part of the standard library distribution that allow an object to function as both.
 </div>
 <div class="footnote" id="_footnotedef_15">
-<a href="#_footnoteref_15">15</a>. WhatsIn is a library function used to list in formatted fashion all the objects present in a location: see <em>APPENDIX B:</em> <em>THE HUGO LIBRARY.</em>
+<a href="#_footnoteref_15">15</a>. <code>WhatsIn</code> is a library function used to list in formatted fashion all the objects present in a location: see <em>APPENDIX B: THE HUGO LIBRARY.</em>
 </div>
 <div class="footnote" id="_footnotedef_16">
 <a href="#_footnoteref_16">16</a>. Don&#8217;t worry too much about the specifics about what this code is supposed to be doing, or about the details of the language syntax. We&#8217;ll cover all of that in due course.
 </div>
 <div class="footnote" id="_footnotedef_17">
-<a href="#_footnoteref_17">17</a>. Just for clarity: the Art routine from <strong>hugolib.h</strong> prints the appropriate article, if any, followed by the name of the object, such as &#8220;an apple&#8221; or &#8220;a suitcase&#8221;. The Acquire routine returns true only if the first object&#8217;s holding property plus the size property of the second object does not exceed the capacity property of the first object (i.e., if there&#8217;s room in the first object to move the second object into it).
+<a href="#_footnoteref_17">17</a>. Just <span class="hl kwa">for</span> clarity: the <code>Art</code> <span class="hl kwa">routine</span> from <span class="hl opt"><strong></span>hugolib.h<span class="hl opt"></strong></span> prints the appropriate <span class="hl kwa">article</span>, <span class="hl kwa">if</span> any, followed by the <span class="hl kwa">name</span> of the <span class="hl kwa">object</span>, such as <span class="hl str">&quot;`an apple`&quot;</span> <span class="hl kwa">or</span> <span class="hl str">&quot;`a suitcase`&quot;</span>. The <code>Acquire</code> <span class="hl kwa">routine</span> returns <span class="hl kwa">true</span> only <span class="hl kwa">if</span> the first <span class="hl kwa">object</span>&#39;s <code>holding</code> <span class="hl kwa">property</span> plus the <code>size</code> <span class="hl kwa">property</span> of the second <span class="hl kwa">object</span> does <span class="hl kwa">not</span> exceed the <code>capacity</code> <span class="hl kwa">property</span> of the first <span class="hl kwa">object</span> (i.e., <span class="hl kwa">if</span> there&#39;s room <span class="hl kwa">in</span> the first <span class="hl kwa">object to move</span> the second <span class="hl kwa">object</span> into it).
 </div>
 <div class="footnote" id="_footnotedef_18">
 <a href="#_footnoteref_18">18</a>. In this usage, a &#8220;physical&#8221; parent is one in the object tree. The found_in property allows you have an object considered in a location (i.e., a room object) without it being &#8220;physically&#8221; in that room object.

@@ -3,20 +3,16 @@
 
 == Getting To Know Your Objects
 
-
-
 Objects are the building blocks of any Hugo program.
 Anything that will be accessible to a player during the game -- including items, rooms, other characters, and even directions -- will most likely be defined as an object.
 The basic object definition looks like this:
 
+// @FIXME: HUGO SYNTAX MOCKUP!
 [source,hugo]
 --------------------------------------------------------------------------------
 object <objectname> "object name"
-
-\{
-
-...
-
+{
+    ...
 }
 --------------------------------------------------------------------------------
 
@@ -25,24 +21,22 @@ For example, a suitcase object might be defined as:
 [source,hugo]
 --------------------------------------------------------------------------------
 object mysuitcase "suitcase"
-
-\{}
+{}
 --------------------------------------------------------------------------------
 
 The enclosing braces are needed even if the object definition has no content (yet).
-The only data attached to the suitcase object are -- from right to left -- a name ("`suitcase`"), an internal identifier (mysuitcase), and membership in the basic object class.
+The only data attached to the suitcase object are -- from right to left -- a name ("`suitcase`"), an internal identifier (`mysuitcase`), and membership in the basic object class.
 
-The compiler assigns the object labeled <objectname> the next sequential object number.
+The compiler assigns the object labeled `<objectname>` the next sequential object number.
 The first-defined object is object 0; the next-defined object is object number 1; the one after that is 2, etc.
-This is academic, however, as a programmer almost never need know what object number a particular object is -- except for certain debugging situations -- and can always refer to an object by its label <objectname>.
-If no explicit "`object name`" (or name property) is provided, the compiler automatically gives it the name `(<objectname>)`, i.e., <objectname> in parentheses.
+This is academic, however, as a programmer almost never need know what object number a particular object is -- except for certain debugging situations -- and can always refer to an object by its label `<objectname>`.
+If no explicit "`object name`" (or `name` property) is provided, the compiler automatically gives it the name `(<objectname>)`, i.e., `<objectname>` in parentheses.
 That is, whereas
 
 [source,hugo]
 --------------------------------------------------------------------------------
 object mysuitcase "suitcase"
-
-\{}
+{}
 --------------------------------------------------------------------------------
 
 creates an object called "`suitcase`",
@@ -50,13 +44,12 @@ creates an object called "`suitcase`",
 [source,hugo]
 --------------------------------------------------------------------------------
 object placeholder
-
-\{}
+{}
 --------------------------------------------------------------------------------
 
 // @TODO: Missing XRef: "III.e Classes"
 
-creates an object called `(placeholder)`.
+creates an object called "`(placeholder)`".
 Usually the latter is used for system objects or classes (see _III.e Classes_) that will never actually appear in a game.
 
 // @TODO: Missing XRef: "XI.a The Display Object"
@@ -65,40 +58,108 @@ Usually the latter is used for system objects or classes (see _III.e Classes_) t
 ================================================================================
 The compiler automatically creates an object called `display` as the last-defined object if no other object named `display` is defined by the program (or the library).
 The display object can be used to get information about the engine's output state and capabilities.
-See section* _XI.a The Display Object_.
+See section _XI.a The Display Object_.
 ================================================================================
-
 
 
 == The Object Tree
 
-
-
 In order for objects to have a "`physical place`" in the game, i.e., to be in a room or contained in another object or beside another object, they must occupy a position in the object tree.
 The object tree is a simple map which represents the relationships between all objects in the game.
-The total number of objects is held in the global variable objects.
+The total number of objects is held in the global variable `objects`.
 
-The `nothing` object is defined in the library as object 0 and is referred to in code using the label nothing.
-This is the root of the object tree, upon which all other objects are based.footnote:[It's also no coincidence that the `nothing` object is equal in its value to 0, which also represents the empty string `+""+` (see _II.c Data Types_).
-The fact that these three are (value-wise, at least) identical will come in handy, as what it means in practice is that 0/null/empty/nothing/etc. is the same in every context.] (And again, the name `nothing` is given to this first object by the library.)
+// @TODO: Missing XRef: "II.c Data Types" (in footnote!)
+
+The "`nothing`" object is defined in the library as object 0 and is referred to in code using the label `nothing`.
+This is the root of the object tree, upon which all other objects are based.footnote:[It's also no coincidence that the "`nothing`" object is equal in its value to 0, which also represents the empty string `+""+` (see _II.c Data Types_).
+The fact that these three are (value-wise, at least) identical will come in handy, as what it means in practice is that 0/null/empty/nothing/etc. is the same in every context.]
+(And again, the name "`nothing`" is given to this first object by the library.)
 
 [NOTE]
 ================================================================================
-When using the standard library routines, ensure that no objects (or classes, to be discussed later) are defined before hugolib.h is included.
-Problems will arise if the first-defined object -- object 0 -- is not the nothing object.
+When using the standard library routines, ensure that no objects (or classes, to be discussed later) are defined before *hugolib.h* is included.
+Problems will arise if the first-defined object -- object 0 -- is not the `nothing` object.
 Currently the library will point this out for you as a runtime error if for some reason it's not the case.
 ================================================================================
 
 
 
-When referring to object numbers, this manual is generally referring to the name given the object in the source code: i.e., <objectname>.
-The compiler automatically assigns each object an object number, and refers to it whenever a specified <objectname> is encountered.
+When referring to object numbers, this manual is generally referring to the name given the object in the source code: i.e., `<objectname>`.
+The compiler automatically assigns each object an object number, and refers to it whenever a specified `<objectname>` is encountered.
 
 Here is an example of an object tree:
 
 // See p.35:
 // @TODO: Add color via custom styles?
 image::hugo-book1_03_object-tree1.svg[align="center",width=40%]
+
+A number of built-in functions can be used to read the object tree.
+
+[.float-group]
+--
+[.left,caption=]
+[cols="<1m,<5d",grid=none,stripes=even]
+|===============================================================================
+| parent   | {empty}
+| sibling  | {empty}
+| child    | {empty}
+| youngest | {empty}
+| elder    | {empty}
+| eldest   | (same as `child`)
+| younger  | (same as `sibling`)
+|===============================================================================
+--
+
+and
+
+[.float-group]
+--
+[.left,caption=]
+[cols="<1m,<5d",grid=none,stripes=even]
+|===============================================================================
+| children  | {empty}
+|===============================================================================
+--
+
+Each function takes a single object as its argument, so that
+
+[.float-group]
+--
+[.left,caption=]
+[cols="<1m,<5d",grid=none,stripes=even]
+|===============================================================================
+| parent(Table)   | = `Room`
+| parent(Bookmark)| = `Book`
+| parent(Player)  | = `Room`
+| child(Bowl)     | = `Spoon`
+| child(Room)     | = `Table`
+| child(Chair)    | = `0` ("`nothing`")
+| sibling(Table)  | = `Chair`
+| sibling(Player) | = `0` ("`nothing`")
+| youngest(Room)  | = `Player`
+| youngest(Spoon) | = `0` ("`nothing`")
+| elder(Chair)    | = `Table`
+| elder(Table)    | = `0` ("`nothing`")
+|===============================================================================
+--
+
+and
+
+[.float-group]
+--
+[.left,caption=]
+[cols="<1m,<5d",grid=none,stripes=even]
+|===============================================================================
+| children(Room)  | = `4`
+| children(Table) | = `1`
+| children(Chair) | = `0`
+|===============================================================================
+--
+
+// @DELME: Commented-Out alternative version...
+////
+// >>>> h.desc.list alt. >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+// Alternative version, using horizontal description lists instead.
 
 A number of built-in functions can be used to read the object tree.
 
@@ -139,7 +200,13 @@ and
 `children(Table)` :: = `1`
 `children(Chair)` :: = `0`
 
-(In keeping with the above explanation of object numbers and <objectname>, the functions in the first set actually return an integer number that refers to the object <objectname>.)
+// <<<< h.desc.list alt. <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+////
+
+[NOTE]
+================================================================================
+In keeping with the above explanation of object numbers and `<objectname>`, the functions in the first set actually return an integer number that refers to the object `<objectname>`.
+================================================================================
 
 To better understand how the object tree represents the physical world, the table, the chair, the book, and the player are all in the room.
 The bookmark is in the book.
@@ -151,17 +218,43 @@ image::hugo-book1_03_object-tree2.svg[align="center",width=30%]
 
 and
 
+[.float-group]
+--
+[.left,caption=]
+[cols="<1m,<5d",grid=none,stripes=even]
+|===============================================================================
+| child(Chair)    | = `Player`
+| parent(Player)  | = `Chair`
+| children(Chair) | = `1`
+|===============================================================================
+--
+
+// @DELME: Commented-Out alternative version...
+////
+// >>>> h.desc.list alt. >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+// Alternative version, using horizontal description lists instead.
+
 [horizontal]
 `child(Chair)`     :: = `Player`
 `parent(Player)`   :: = `Chair`
 `children(Chair)`  :: = `1`
 
-(Try compiling *sample.hug* with the -o switch in order to see the object tree for the sample game.
-Or, if the DEBUG flag was set during compilation, use the HugoFixfootnote:[See _APPENDIX D:_ _HUGOFIX AND THE HUGO DEBUGGER_.] command `$ot` or `$ot <object>` during play to view the current state of the object tree during play.
-Compiling with the -d switch will generate a debuggable (.HDX) version of the file -- the object tree can then be viewed directly from the debugger.)
+// <<<< h.desc.list alt. <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+////
+
+
+// @TODO: Missing XRef: "APPENDIX D: HUGOFIX AND THE HUGO DEBUGGER" (in footnote!)
+
+[TIP]
+================================================================================
+Try compiling *sample.hug* with the `-o` switch in order to see the object tree for the sample game.
+Or, if the `DEBUG` flag was set during compilation, use the HugoFixfootnote:[See _APPENDIX D: HUGOFIX AND THE HUGO DEBUGGER_.] command `$ot` or `$ot <object>` during play to view the current state of the object tree during play.
+Compiling with the `-d` switch will generate a debuggable (*.HDX*) version of the file -- the object tree can then be viewed directly from the debugger.
+================================================================================
 
 To initially place an object in the object tree, use
 
+// @FIXME: HUGO SYNTAX MOCKUP!
 [source,hugo]
 --------------------------------------------------------------------------------
 in <parent>
@@ -169,6 +262,7 @@ in <parent>
 
 in the object definition, or, alternatively
 
+// @FIXME: HUGO SYNTAX MOCKUP!
 [source,hugo]
 --------------------------------------------------------------------------------
 nearby <object>
@@ -181,47 +275,45 @@ or simply
 nearby
 --------------------------------------------------------------------------------
 
-to give the object the same parent as <object> or, if <object> is not specified, the same parent as the last-defined object.
+to give the object the same parent as `<object>` or, if `<object>` is not specified, the same parent as the last-defined object.
 If no such specification is given (i.e., if you don't tell the compiler explicitly where to place the new object), the parent object defaults to 0 -- the `nothing` object as defined in the library.
 All normal room objects have 0 as their parent.
 
 Therefore, the expanded basic case of an object definition is
 
+// @FIXME: HUGO SYNTAX MOCKUP!
 [source,hugo]
 --------------------------------------------------------------------------------
 object <objectname> "object name"
-
-\{
-
-in <parent object>
-
-...
+{
+    in <parent object>
+    ...
 
 }
 --------------------------------------------------------------------------------
 
-(Ensure that the opening brace `{` does not come on the same line as the object definition.
+[IMPORTANT]
+================================================================================
+Ensure that the opening brace `{` does not come on the same line as the `object` definition.
 Trying to do:
 
+// @FIXME: HUGO SYNTAX MOCKUP!
 [source,hugo]
---------------------------------------------------------------------------------
-object <objectname> "object name" \{...
---------------------------------------------------------------------------------
+--------------------------------------
+object <objectname> "object name" {...
+--------------------------------------
 
-is not permitted.)
+is not permitted.
+================================================================================
 
 The table in the example presumably had a definition like
 
 [source,hugo]
 --------------------------------------------------------------------------------
 object table "Table"
-
-\{
-
-in room
-
-...
-
+{
+    in room
+    ...
 }
 --------------------------------------------------------------------------------
 
@@ -230,22 +322,21 @@ To put the suitcase object defined earlier into the empty room in *shell.hug*:
 [source,hugo]
 --------------------------------------------------------------------------------
 object mysuitcase "suitcase"
-
-\{
-
-in emptyroom
+{
+    in emptyroom
 
 }
 --------------------------------------------------------------------------------
 
-Objects can later be moved around the object tree using the move command as in:
+Objects can later be moved around the object tree using the `move` command as in:
 
+// @FIXME: HUGO SYNTAX MOCKUP!
 [source,hugo]
 --------------------------------------------------------------------------------
 move <object> to <new parent>
 --------------------------------------------------------------------------------
 
-which, essentially, disengages <object> from its old parent, makes the sibling of <object> the sibling of <object>'s elder, and moves <object> (along with all its possessions) to the new parent.
+which, essentially, disengages `<object>` from its old parent, makes the sibling of `<object>` the sibling of `<object>`{blank}`'s elder, and moves `<object>` (along with all its possessions) to the new parent.
 
 Therefore, in the original example, the command
 
@@ -254,60 +345,69 @@ Therefore, in the original example, the command
 &gt; _move bowl to player_
 ================================================================================
 
-
 would result in altering the object tree to this:
 
 // See p.38:
 image::hugo-book1_03_object-tree3.svg[align="center",width=40%]
 
-
 There is also a command to remove an object from its position in the tree:
 
+// @FIXME: HUGO SYNTAX MOCKUP!
+[source,hugo]
+---------------
 remove <object>
+---------------
 
 which is the same as
 
+// @FIXME: HUGO SYNTAX MOCKUP!
+[source,hugo]
+------------------
 move <object> to 0
+------------------
 
 The object may of course be moved to any position later.
 
 Logical tests can also be evaluated with regard to objects and children.
 The structure
 
+// @FIXME: HUGO SYNTAX MOCKUP!
 [source,hugo]
 --------------------------------------------------------------------------------
 <object> [not] in <parent>
 --------------------------------------------------------------------------------
 
-will be true if <object> is in <parent> (or false if not is used).
+will be true if `<object>` is in `<parent>` (or false if `not` is used).
 In this way, you can write a piece of code that looks something like:
 
 [source,hugo]
 --------------------------------------------------------------------------------
 if mysuitcase in bedroom
-
-\{
-
-"The suitcase is in the bedroom."
-
+{
+    "The suitcase is in the bedroom."
 }
 
 else
-
-\{
-
-print "The suitcase is not in the bedroom."
+{
+    print "The suitcase is not in the bedroom."
 
 }
 --------------------------------------------------------------------------------
 
-(We'll cover the `if...else...` structure in _IV.h_ _Conditional Expressions and Program Flow_.)
+// @TODO: Missing XRef: "IV.h Conditional Expressions and Program Flow"
+
+[NOTE]
+================================================================================
+We'll cover the `if...else...` structure in _IV.h Conditional Expressions and Program Flow_.
+================================================================================
+
 
 == Attributes
 
 Attributes are essentially qualities that every object either does or doesn't havefootnote:[For this reason, attributes are sometimes thought of as being "`lightweight classes`" in that, as can be seen in the list of attributes, they generally categorize an object as a certain "`kind`" of object -- although other than flagging the object with that particular quality they have no other direct effect.].
 An attribute is defined as
 
+// @FIXME: HUGO SYNTAX MOCKUP!
 [source,hugo]
 --------------------------------------------------------------------------------
 attribute <attribute name>
@@ -316,78 +416,55 @@ attribute <attribute name>
 Up to 128 attributes may be defined.
 Those defined in *hugolib.h* include:
 
-known if an object is known to the player
 
-moved if an object has been moved
-
-visited if a room has been visited
-
-static if an object cannot be taken
-
-plural for plural objects (i.e., some hats)
-
-living if an object is a character
-
-female if a character is female
-
-openable if an object can be opened
-
-open if it is open
-
-lockable if an object can be locked
-
-locked if it is locked
-
-unfriendly if a character is unfriendly
-
-light if an object is or provides light
-
-readable if an object can be read
-
-switchable if an object can be turned on or off
-
-switchedon if it is on
-
-clothing for objects that can be worn
-
-worn if the object is being worn
-
-mobile if the object can be rolled, etc.
-
-enterable if an object is enterable
-
-container if an object can hold other objects
-
-platform if other objects can be placed on itfootnote:[The container and platform attributes are mutually exclusive.
+[.center,caption=]
+[cols="<m,<d",options=autowidth,grid=none,stripes=even]
+|===============================================================================
+| known     | if an object is known to the player
+| moved     | if an object has been moved
+| visited   | if a room has been visited
+| static    | if an object cannot be taken
+| plural    | for plural objects (i.e., some hats)
+| living    | if an object is a character
+| female    | if a character is female
+| openable  | if an object can be opened
+| open      | if it is open
+| lockable  | if an object can be locked
+| locked    | if it is locked
+| unfriendly| if a character is unfriendly
+| light     | if an object is or provides light
+| readable  | if an object can be read
+| switchable| if an object can be turned on or off
+| switchedon| if it is on
+| clothing  | for objects that can be worn
+| worn      | if the object is being worn
+| mobile    | if the object can be rolled, etc.
+| enterable | if an object is enterable
+| container | if an object can hold other objects
+| platform  | if other objects can be placed on itfootnote:[The container and platform attributes are mutually exclusive.
 An object cannot have both attributes, since in the library the idea of containment is one of an object being either "`in`" _or_ "`on`" another object.
 There are available classes that aren't part of the standard library distribution that allow an object to function as both.]
 
-hidden if an object is not to be listed
+| hidden         | if an object is not to be listed
+| quiet          | if container or platform is quiet (i.e., the initial listing of contents is suppressed)
+| transparent    | if object is not opaque
+| already_listed | if object has been pre-listed (i.e., before a `WhatsIn` listingfootnote:[`WhatsIn` is a library function used to list in formatted fashion all the objects present in a location: see _APPENDIX B: THE HUGO LIBRARY._])
 
-quiet if container or platform is quiet (i.e., the
-
-initial listing of contents is suppressed)
-
-transparent if object is not opaque
-
-already_listed if object has been pre-listed (i.e., before a
-
-WhatsIn listingfootnote:[WhatsIn is a library function used to list in formatted fashion all the objects present in a location: see _APPENDIX B:_ _THE HUGO LIBRARY._])
-
-workflag for system use
-
-special for miscellaneous use
+| workflag       | for system use
+| special        | for miscellaneous use
+|===============================================================================
 
 Some of these attributes are actually the same attribute with different names.
 This is primarily just to save on the absolute number of attributes defined and is accomplished via
 
+// @FIXME: HUGO SYNTAX MOCKUP!
 [source,hugo]
 --------------------------------------------------------------------------------
 attribute <attribute2> alias <attribute1>
 --------------------------------------------------------------------------------
 
-where <attribute1> has already been defined.
-For example, the library equates visited with moved (since, presumably, they will never apply to the same object -- rooms are never moved and objects are never visited), so:
+where `<attribute1>` has already been defined.
+For example, the library equates `visited` with `moved` (since, presumably, they will never apply to the same object -- rooms are never moved and objects are never visited), so:
 
 [source,hugo]
 --------------------------------------------------------------------------------
@@ -399,24 +476,20 @@ For the most part, you should never need to alias your own attributes, although 
 
 Attributes are given to an object during its definition as follows:
 
+// @FIXME: HUGO SYNTAX MOCKUP!
 [source,hugo]
 --------------------------------------------------------------------------------
 object <objectname> "object name"
-
-\{
-
-is [not] <attribute1>, [not] <attribute2>, ...
-
-...
-
+{
+    is [not] <attribute1>, [not] <attribute2>, ...
+    ...
 }
 --------------------------------------------------------------------------------
 
 [NOTE]
 ================================================================================
-The not keyword in the object definition is important when using a class instead of the basic object definition, where the class may have predefined attributes that are undesirable for the current object.
+The `not` keyword in the object definition is important when using a class instead of the basic object definition, where the class may have predefined attributes that are undesirable for the current object.
 ================================================================================
-
 
 
 To give the suitcase object some appropriate attributes at compile-time, expand the object definition to include
@@ -424,26 +497,22 @@ To give the suitcase object some appropriate attributes at compile-time, expand 
 [source,hugo]
 --------------------------------------------------------------------------------
 object mysuitcase "suitcase"
-
-\{
-
-in emptyroom
-
-is openable, not open
-
-...
-
+{
+    in emptyroom
+    is openable, not open
+    ...
 }
 --------------------------------------------------------------------------------
 
 Even if an object was not given a particular attribute in its object definition, it may be given that attribute at any later point in the program with the command
 
+// @FIXME: HUGO SYNTAX MOCKUP!
 [source,hugo]
 --------------------------------------------------------------------------------
 <object> is [not] <attribute>
 --------------------------------------------------------------------------------
 
-where the not keyword clears the attribute instead of setting it.
+where the `not` keyword clears the attribute instead of setting it.
 For example, when the suitcase is opened, somewhere (likely in the library), the command
 
 [source,hugo]
@@ -459,30 +528,26 @@ When the suitcase is closed, the command will be:
 mysuitcase is not open
 --------------------------------------------------------------------------------
 
-Attributes can also be read using the is and is not structures and evaluate to either true or false.
+Attributes can also be read using the `is` and `is not` structures and evaluate to either true or false.
 In code, the expression
 
+// @FIXME: HUGO SYNTAX MOCKUP!
 [source,hugo]
 --------------------------------------------------------------------------------
 <object> is [not] <attribute>
 --------------------------------------------------------------------------------
 
-returns true (1) if <object> is (or is not, if not is specified) <attribute>.
+returns true (1) if `<object>` is (or is not, if `not` is specified) `<attribute>`.
 Otherwise, it returns false (0).
 Therefore, given the suitcase object definition:
 
 [source,hugo]
 --------------------------------------------------------------------------------
 object mysuitcase "suitcase"
-
-\{
-
-in emptyroom
-
-is openable, not open
-
-...
-
+{
+    in emptyroom
+    is openable, not open
+    ...
 }
 --------------------------------------------------------------------------------
 
@@ -490,26 +555,25 @@ the following equations hold true:
 
 [source,hugo]
 --------------------------------------------------------------------------------
-mysuitcase is openable = 1 ! or true
-
-mysuitcase is open = 0 ! or false
-
-mysuitcase is locked = 0 ! or false
+mysuitcase is openable = 1  ! or true
+mysuitcase is open = 0      ! or false
+mysuitcase is locked = 0    ! or false
 --------------------------------------------------------------------------------
 
+
 == Properties
-
-
 
 Properties are considerably more complex than attributes.
 First, not every object may have every property; in order for an object to have a property, it must be specified in the object definition at the time you create the object.
 As well, properties are not simple on/off flags.
 They are sets of valid data associated with an object, where the values may represent almost anything, including object numbers, dictionary addresses, integer values, and sections of executable code.
 
-These are some valid properties as they would appear in an object definition (using property names defined in *hugolib.h*)footnote:[Don't worry too much about the specifics about what this code is supposed to be doing, or about the details of the language syntax.
-We'll cover all of that in due course.]:
+These are some valid properties as they would appear in an object definition (using property names defined in *hugolib.h*):{wj}footnote:[Don't worry too much about the specifics about what this code is supposed to be doing, or about the details of the language syntax.
+We'll cover all of that in due course.]
 
-[source,hugo]
+// @FIXME: EXTERNALIZE FOOTNOTE
+
+[source,hugo, subs="+macros"]
 --------------------------------------------------------------------------------
 nouns "tree", "bush", "shrub", "plant"
 
@@ -518,77 +582,54 @@ size 20
 found_in livingroom, entrancehall
 
 long_desc
-
-\{
-
-"Exits lead north and west. A door is set
-
-in the southeast wall."
+{
+    "Exits lead north and west. A door is set
+    in the southeast wall."
 
 }
 
 short_desc
+{
+    "There is a box here. It is ";
+    if self is open
+        print "open";
+    else
+        print "closed";
+    print "."
+}
 
-\{
-
-"There is a box here. It is ";
-
-if self is open
-
-print "open";
-
-else
-
-print "closed";
-
-print "."
-
+beforefootnote:[pass:q[Just for clarity: the `Art` routine from *hugolib.h* prints the appropriate article, if any, followed by the name of the object, such as "`an apple`" or "`a suitcase`". The `Acquire` routine returns true only if the first object's `holding` property plus the `size` property of the second object does not exceed the `capacity` property of the first object (i.e., if there's room in the first object to move the second object into it).]]
+{
+    object DoGet
+    {
+        if Acquire(player, self)
+        {
+            "You pick up ";
+            print Art(self); "."
+        }
+        else
+            return false
+    }
 }
 --------------------------------------------------------------------------------
 
-beforefootnote:[Just for clarity: the Art routine from *hugolib.h* prints the appropriate article, if any, followed by the name of the object, such as "`an apple`" or "`a suitcase`".
-The Acquire routine returns true only if the first object's holding property plus the size property of the second object does not exceed the capacity property of the first object (i.e., if there's room in the first object to move the second object into it).]
+The `nouns` property contains four dictionary addresses; the `size` property is a single integer value; the `found_in` property holds two object numbers; and the long and short description properties are both _property routines_, which instead of just containing one or more simple values stored as a data type are actually sections of executable code attached to the object.
 
-[source,hugo]
---------------------------------------------------------------------------------
-\{
+// @TODO: Missing XRef: "V.c Before And After Routines"
 
-object DoGet
-
-\{
-
-if Acquire(player, self)
-
-\{
-
-"You pick up ";
-
-print Art(self); "."
-
-}
-
-else
-
-return false
-
-}
-
-}
---------------------------------------------------------------------------------
-
-The nouns property contains four dictionary addresses; the size property is a single integer value; the found_in property holds two object numbers; and the long and short description properties are both _property routines_, which instead of just containing one or more simple values stored as a data type are actually sections of executable code attached to the object.
-
-The before property is a special case.
+The `before` property is a special case.
 This _complex property routine_ is defined by the compiler and handled differently by the engine than a normal property routine.
-In this case, the property value representing the routine address is only returned if the global variables object and verbroutine contain the object in question and the address of the DoGet routine, respectively.
-If there is a match, the routine is executed before DoGet, which is the library routine (in *verblib.h*) that normally handles the taking of objects.
-(There is also a companion to before called after, which is checked after the verb routine has been called.) See _V.c_ _Before And After Routines_ for further elucidation.
+In this case, the property value representing the routine address is only returned if the global variables `object` and `verbroutine` contain the object in question and the address of the `DoGet` routine, respectively.
+If there is a match, the routine is executed before `DoGet`, which is the library routine (in *verblib.h*) that normally handles the taking of objects.
+(There is also a companion to `before` called `after`, which is checked after the verb routine has been called.)
+See _V.c Before And After Routines_ for further elucidation.
 
 There will be more on property routines and complex property routines later.
 For now, think of a property as simply containing one or more values of some kind.
 
 A property is defined similiarly to an attribute as
 
+// @FIXME: HUGO SYNTAX MOCKUP!
 [source,hugo]
 --------------------------------------------------------------------------------
 property <property name>
@@ -596,206 +637,172 @@ property <property name>
 
 A default value may be defined for the property using
 
+
+// @FIXME: HUGO SYNTAX MOCKUP!
 [source,hugo]
 --------------------------------------------------------------------------------
 property <property name> <default value>
 --------------------------------------------------------------------------------
 
-where <default value> is a constant or dictionary word.
+where `<default value>` is a constant or dictionary word.
 For objects without a given property, attempting to find that property will result in the default value.
 If no default is explicitly declared, it is 0 (or `+""+` or the `nothing` object, whatever is appropriate in context -- since they all represent the same zero value).
 
 The list of properties defined in *hugolib.h* is:
 
-name the basic object name
-
-before pre-verb routines
-
-after post-verb routines
-
-noun noun(s) for referring to object
-
-adjective adjective(s) for describing object
-
-article "`a`", "`an`", "`the`", "`some`", etc.
-
-preposition "`in`", "`inside`", "`outside of`", etc.
-
-pronoun appropriate for the object in question
-
-react_before to allow reaction by an object that is not
-
-react_after directly involved in the action
-
-short_desc basic "`X is here`" description
-
-initial_desc supersedes short_desc (or long_desc
-
-for locations)
-
-long_desc detailed description
-
-found_in in case of multiple locations (virtual,
-
-_not_ physical parent objectsfootnote:[In this usage, a "`physical`" parent is one in the object tree.
+// @DELME: Alternative Table styles for testing...
+// [cols="<10m,<90d"]
+// [cols="<10m,<90d",grid=rows]
+[cols="<10m,<90d",grid=rows,stripes=even]
+|===============================================================================
+| name         | the basic object name
+| before       | pre-verb routines
+| after        | post-verb routines
+| noun         | noun(s) for referring to object
+| adjective    | adjective(s) for describing object
+| article      | "`a`", "`an`", "`the`", "`some`", etc.
+| preposition  | "`in`", "`inside`", "`outside of`", etc.
+| pronoun      | appropriate for the object in question
+| react_before | to allow reaction by an object that is not
+| react_after  | directly involved in the action
+| short_desc   | basic "`X is here`" description
+| initial_desc | supersedes `short_desc` (or `long_desc` for locations)
+| long_desc    | detailed description
+| found_in     | in case of multiple locations (virtual, _not_ physical parent objectsfootnote:[In this usage, a "`physical`" parent is one in the object tree.
 The found_in property allows you have an object considered in a location (i.e., a room object) without it being "`physically`" in that room object.])
 
-type to identify the type of object
+| type             | to identify the type of object
+| size        .3+.^| for holding/inventory
+| capacity
+| holding
+| reach            | for limiting object accessibility
+| list_contents    | for overriding normal listing
+| in_scope         | actor(s) that can access an object
+| parse_rank       | for differentiating like-named objects
+| exclude_from_all | for interpreting "`all`" in player input
+| door_to          | for handling "`**>ENTER <object>**`"
+| n_to       .12+.^| (for rooms only, where an exit leads)
+| ne_to
+| e_to
+| se_to
+| s_to
+| sw_to
+| w_to
+| nw_to
+| u_to
+| d_to
+| in_to
+| out_to
+| cant_go               | message if a direction is invalid
+| extra_scenery         | unimportant words/objects in location desc.
+| each_turn             | a routine called each turn
+| key_object            | if `lockable`, the proper key
+| when_open        .2+.^| supersedes `short_desc`
+| when_closed
+| ignore_response  .2+.^| for characters
+| order_response
+| contains_desc         | instead of basic "`Inside X are...`"
+| inv_desc              | for special inventory descriptions
+| desc_detail           | parenthetical detail for object listing
+| misc                  | for miscellaneous use
+|===============================================================================
 
-size for holding/inventory
 
-capacity “ “ “
+// @TODO: Missing XRef: "APPENDIX B: THE HUGO LIBRARY"
 
-holding “ “ “
-
-reach for limiting object accessibility
-
-list_contents for overriding normal listing
-
-in_scope actor(s) that can access an object
-
-parse_rank for differentiating like-named objects
-
-exclude_from_all for interpreting "`all`" in player input
-
-door_to for handling “>ENTER <object>“
-
-n_to
-
-ne_to
-
-e_to
-
-se_to
-
-s_to
-
-sw_to (for rooms only, where an exit leads)
-
-w_to
-
-nw_to
-
-u_to
-
-d_to
-
-in_to
-
-out_to
-
-cant_go message if a direction is invalid
-
-extra_scenery unimportant words/objects in location desc.
-
-each_turn a routine called each turn
-
-key_object if lockable, the proper key
-
-when_open supersedes short_desc
-
-when_closed “ “
-
-ignore_response for characters
-
-order_response “ “
-
-contains_desc instead of basic "`Inside X are...`"
-
-inv_desc for special inventory descriptions
-
-desc_detail parenthetical detail for object listing
-
-misc for miscellaneous use
-
-(For a detailed description of how each property is used, see _APPENDIX B:_ _THE HUGO LIBRARY_.)
+[TIP]
+================================================================================
+For a detailed description of how each property is used, see _APPENDIX B: THE HUGO LIBRARY_.
+================================================================================
 
 The following properties are also defined and used exclusively by the display object:
 
-screenwidth width of the display, in characters
-
-screenheight height of the display, in characters
-
-linelength width of the current text window
-
-windowlines height of the current text window
-
-cursor_column horizontal and vertical position of
-
-cursor_row the cursor in the current text window
-
-hasgraphics true if the current display is graphics-
-
-capable
-
-title_caption dictionary entry giving the full proper
-
-name of the program (optional)
-
-statusline_height of the last-printed status line
+[cols="<10m,<90d",grid=rows,stripes=even]
+|===============================================================================
+| screenwidth       | width of the display, in characters
+| screenheight      | height of the display, in characters
+| linelength        | width of the current text window
+| windowlines       | height of the current text window
+| cursor_column     | horizontal and vertical position of
+| cursor_row        | the cursor in the current text window
+| hasgraphics       | true if the current display is graphics- capable
+| title_caption     | dictionary entry giving the full proper name of the program (optional)
+| statusline_height | of the last-printed status line
+|===============================================================================
 
 Property names may be aliased similarly to attributes using:
 
+// @FIXME: HUGO SYNTAX MOCKUP!
+[source,hugo]
+--------------------------------------
 property <property2> alias <property1>
+--------------------------------------
 
-where <property1> has already been defined.
+where `<property1>` has already been defined.
 The library aliases (among others) the following:
 
+[source,hugo]
+--------------------------------------------------------------------------------
 nouns alias noun
-
 adjectives alias adjective
-
 prep alias preposition
-
 pronouns alias pronoun
+--------------------------------------------------------------------------------
 
 Whereas a simple property is expressed as
 
+// @FIXME: HUGO SYNTAX MOCKUP!
+[source,hugo]
+-------------------
 <object>.<property>
+-------------------
 
 The number of elements to a property with more than a single value can be found via
 
+
+// @FIXME: HUGO SYNTAX MOCKUP!
+[source,hugo]
+--------------------
 <object>.#<property>
+--------------------
 
 and a single element is expressed as
 
+// @FIXME: HUGO SYNTAX MOCKUP!
+[source,hugo]
+-------------------------------------
 <object>.<property> #<element number>
+-------------------------------------
 
 [NOTE]
 ================================================================================
-<object>.<property> is simply the shortened version of <object>.<property> #1.
+`<object>.<property>` is simply the shortened version of `<object>.<property> #1`.
 ================================================================================
-
-
 
 To add some properties to the suitcase object, expand the object definition to:
 
 [source,hugo]
 --------------------------------------------------------------------------------
 object mysuitcase "big green suitcase"
+{
+    in emptyroom            ! done earlier
+    is openable, not open   !
 
-\{
-
-in emptyroom ! done earlier
-
-is openable, not open !
-
-nouns "suitcase", "case", "luggage"
-
-adjective "big", "green", "suit"
-
-article "a"
-
-size 25
-
-capacity 100
-
+    nouns "suitcase", "case", "luggage"
+    adjective "big", "green", "suit"
+    article "a"
+    size 25
+    capacity 100
 }
 --------------------------------------------------------------------------------
 
 Based on the parser's rules for object identification, the suitcase object may now be referred to by the player as "`big green suitcase`", "`big case`", or "`green suitcase`" among other combinations.
 Even "`big green`" and "`suit`" may be valid, provided that these don't also refer to other objects within valid scope such as "`a big green apple`" or "`your suit jacket`".
 
+// @NOTE: Admonition block arbitrarily added by editor:
+
+[NOTE]
+================================================================================
 The basic form for identification by the parser is
 
 [source,hugo]
@@ -819,61 +826,79 @@ and
 --------------------------------------------------------------------------------
 
 as in "`luggage case`" and "`suitcase green`" are not recognized.
+================================================================================
 
 One occasional source of befuddling code that doesn't behave the way the programmer intended is not allowing enough slots for a property on a given object.
 That is, if an object is originally defined with the property
 
+[source,hugo]
+--------------------------------------------------------------------------------
 found_in kitchen
+--------------------------------------------------------------------------------
 
 and later, the program tries to set
 
+// @FIXME: HUGO SYNTAX MOCKUP!
+[source,hugo]
+--------------------------------------------------------------------------------
 <object>.found_in #2 = livingroom
+--------------------------------------------------------------------------------
 
 in order to make the object available in both the kitchen _and_ the living room, it will have no substantial effect.
-That is, there will be no space initialized in <object>'s property table for a second value under found_in.
-Trying to read <object>.found_in #2 will return a value of 0 -- a non-existent property -- not the number of the livingroom object.
+That is, there will be no space initialized in `<object>`{wj}`'s property table for a second value under `found_in`.
+Trying to read `<object>.found_in #2` will return a value of 0 -- a non-existent property -- not the number of the `livingroom` object.
 
 To overcome this, if it is known that eventually a second (or third, or fourth, or ninth) value is going to be set -- even if only one value is defined at the outset -- use
 
+// @FIXME: HUGO SYNTAX MOCKUP!
+[source,hugo]
+-------------------------------
 found_in kitchen, 0[, 0, 0,...]
+-------------------------------
 
 in the object definition.
-(A useful shortcut for initializing multiple zero values is to use
 
+
+[TIP]
+================================================================================
+A useful shortcut for initializing multiple zero values is to use
+
+[source,hugo]
 found_in #4
 
 instead of
 
+[source,hugo]
 found_in 0, 0, 0, 0
 
-where #_n_ initializes _n_ zero values in the object definition.)
+where `#_n_` initializes _n_ zero values in the object definition.
+================================================================================
 
 As might be expected, combinations of properties are read left-to-right, so that
 
+[source,hugo]
 location.n_to.name
 
 is understood as
 
+[source,hugo]
 (location.n_to).name
 
-which is, in other words, the name property of the object stored in location.n_to.
+which is, in other words, the `name` property of the object stored in `location.n_to`.
+
 
 == Classes
-
-
 
 Classes are objects that are specifically intended to be used as prototypes for one or more similar objects.
 They're extremely useful for when you want to create a number of objects that will all share certain basic characteristics.
 Here is how a class is defined:
 
+// @FIXME: HUGO SYNTAX MOCKUP!
 [source,hugo]
 --------------------------------------------------------------------------------
 class <classname> ["<optional name>"]
-
-\{
-
-...
-
+{
+    ...
 }
 --------------------------------------------------------------------------------
 
@@ -884,148 +909,128 @@ For example:
 [source,hugo]
 --------------------------------------------------------------------------------
 class box
-
-\{
-
-noun "box"
-
-long_desc
-
-"It looks like a regular old box."
-
-is openable, not open
-
+{
+    noun "box"
+    long_desc
+        "It looks like a regular old box."
+    is openable, not open
 }
 
 box largebox "large box"
-
-\{
-
-article "a"
-
-adjectives "big", "large"
-
-is open
-
+{
+    article "a"
+    adjectives "big", "large"
+    is open
 }
 
 box greenbox "green box"
-
-\{
-
-article "a"
-
-adjective "green"
-
-long_desc
-
-"It looks like a regular old box,
-
-only green."
-
+{
+    article "a"
+    adjective "green"
+    long_desc
+        "It looks like a regular old box,
+        only green."
 }
 --------------------------------------------------------------------------------
 
-(Beginning the long_desc property routine on the line below the property name is understood by the compiler as:
+[NOTE]
+================================================================================
+Beginning the `long_desc` property routine on the line below the property name is understood by the compiler as:
 
 [source,hugo]
 --------------------------------------------------------------------------------
 long_desc
-
-\{
-
-"It looks like a regular old box,
-
-only green."
+{
+    "It looks like a regular old box,
+    only green."
 
 }
 --------------------------------------------------------------------------------
 
-Since the property is only one line -- a single line of text to print -- the braces are unnecessary.)
+Since the property is only one line -- a single line of text to print -- the braces are unnecessary.
+================================================================================
 
-The definition of an object derived from a particular class is begun with the name of the prototype object instead of object.
+The definition of an object derived from a particular class is begun with the name of the prototype object instead of `object`.
 All properties and attributes of the class are inherited (except for its position in the object tree), unless they have been explicitly defined in the new object (in which case they take precedence over any defaults defined in the class).
 
-That is, although the box class is defined without the open attribute, the largebox object will begin the game as open, since this is in the largebox definition.
-It will begin the game as openable, as well, as this is inherited from the box class.
+That is, although the box class is defined without the open attribute, the `largebox` object will begin the game as open, since this is in the `largebox` definition.
+It will begin the game as `openable`, as well, as this is inherited from the `box` class.
 
-And while the largebox object will have the long_desc of the box class, the greenbox object replaces the default property routine with a new description.
-(An exception to this is an `$additive` property, to be discussed later, where new properties are added to those of previous classes.)
+And while the `largebox` object will have the `long_desc` of the `box` class, the `greenbox` object replaces the default property routine with a new description.
 
-It is also possible to define an object using a previous object as a class even though the previous object was not explicitly defined as a class (using the class keyword).
+[IMPORTANT]
+================================================================================
+An exception to this is an `$additive` property, to be discussed later, where new properties are added to those of previous classes.
+================================================================================
+
+It is also possible to define an object using a previous object as a class even though the previous object was not explicitly defined as a class (using the `class` keyword).
 Therefore,
 
 [source,hugo]
 --------------------------------------------------------------------------------
 largebox largeredbox "large red box"
-
-\{
-
-adjectives "big", "large", "red"
-
+{
+    adjectives "big", "large", "red"
 }
 --------------------------------------------------------------------------------
 
 is perfectly valid.
-We created what amounts to a "`copy`" of largebox, with a different name ("`large red box`" this time) and a different set of adjectives to refer to it.
+We created what amounts to a "`copy`" of `largebox`, with a different name ("`large red box`" this time) and a different set of adjectives to refer to it.
 
 Occasionally, it may be necessary to have an object or class inherit from more than one previously defined class.
-This can be done using the "`inherits`" instruction.
+This can be done using the `inherits` instruction.
 
+// @FIXME: HUGO SYNTAX MOCKUP!
 [source,hugo]
 --------------------------------------------------------------------------------
 <class1> <objectname> "name"
-
-\{
-
-inherits <class2>[, <class3>,...]
-
-...
-
+{
+    inherits <class2>[, <class3>,...]
+    ...
 }
 --------------------------------------------------------------------------------
 
 or even
 
+// @FIXME: HUGO SYNTAX MOCKUP!
 [source,hugo]
 --------------------------------------------------------------------------------
 object <objectname> "name"
-
-\{
-
-inherits <class1>, <class2>[, <class3>,...]
-
-...
-
+{
+    inherits <class1>, <class2>[, <class3>,...]
+    ...
 }
 --------------------------------------------------------------------------------
 
 The precedence of inheritance is in the order of occurrence.
-In either example, the object inherits its properties and attributes first from <class1>, then from <class2>, and so on.
+In either example, the object inherits its properties and attributes first from `<class1>`, then from `<class2>`, and so on.
 
 The Hugo Object Library (*objlib.h*) contains a number of useful class definitions for things like rooms, characters, scenery, vehicles, etc.
 Sometimes, however, it may be desirable to use a different definition for, say, the room class while keeping all the others in the Object Library.
 
-Instead of actually editing **objlib.h**footnote:[Editing the library files is generally not recommended, and not only because you'll have to re-apply your changes if you update to a newer release of the library.
-If you absolutely must change one of the library files, make a copy first.], use:
+Instead of actually editing *objlib.h*,footnote:[Editing the library files is generally not recommended, and not only because you'll have to re-apply your changes if you update to a newer release of the library.
+If you absolutely must change one of the library files, make a copy first.] use:
 
+// @FIXME: HUGO SYNTAX MOCKUP!
 [source,hugo]
 --------------------------------------------------------------------------------
 replace <class> ["<optional name>"]
-
-\{
-
-(...completely new object definition...)
+{
+    (...completely new object definition...)
 
 }
 --------------------------------------------------------------------------------
 
-where <class> is the name of a previously defined object or class, such as "`room`".
-All subsequent references to <class> will use this object instead of the previously defined one.
-(Note that this means that the replacement must come __before__footnote:[In terms of order-of-inclusion.] any uses of the class as the parent class for other objects.)
+where `<class>` is the name of a previously defined object or class, such as `room`.
+All subsequent references to `<class>` will use this object instead of the previously defined one.
+
+[IMPORTANT]
+================================================================================
+Note that this means that the replacement must come __before__footnote:[In terms of order-of-inclusion.] any uses of the class as the parent class for other objects.
+================================================================================
+
 
 == __What Should I Be Able To Do Now?__
-
 
 
 By now you should:
@@ -1035,4 +1040,3 @@ By now you should:
 * have a basic understanding of how the object tree works in terms of how objects are arranged within the physical world of the game, including rooms or locations, objects within those locations, and objects within other objects.
 
 // EOF //
-

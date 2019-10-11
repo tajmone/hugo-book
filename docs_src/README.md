@@ -115,7 +115,7 @@ Every chapter in the list provides an [HTML Live Preview] link to quickly jump t
 - [ ]  [BOOK 1. **THE HUGO PROGRAMMING MANUAL**][Book I]
     + [x]  [1. _INTRODUCTION_][Ch1]
     + [x]  [2. _A FIRST LOOK AT HUGO_][Ch2]
-    + [ ]  [3. _OBJECTS_][Ch3]
+    + [x]  [3. _OBJECTS_][Ch3]
         * [x]  AsciiArt to SVG:
             - [x] §3.2. [Object Tree diagram 1][HB1:3 objT1.svg].
             - [x] §3.2. [Object Tree diagram 2][HB1:3 objT2.svg].
