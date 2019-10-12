@@ -535,7 +535,7 @@ div.literalblock.cmd pre .conum {
 <span id="email" class="email"><a href="mailto:general@generalcoffee.com">general@generalcoffee.com</a></span><br>
 <span id="revnumber">version 1,</span>
 <span id="revdate">2018-10-04</span>
-<br><span id="revremark">Draft 45 -- Porting to AsciiDoc</span>
+<br><span id="revremark">Draft 46 -- Porting to AsciiDoc</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -10154,236 +10154,1698 @@ Other than being non-false, the various values of endflag are insignificant exce
 <div class="sect1">
 <h2 id="_summary_of_keywords_and_commands"><a class="anchor" href="#_summary_of_keywords_and_commands"></a>Appendix A: SUMMARY OF KEYWORDS AND COMMANDS</h2>
 <div class="sectionbody">
-<div class="paragraph">
-<p>and</p>
+<table class="tableblock frame-none grid-none stripes-none stretch">
+<colgroup>
+<col style="width: 4.1666%;">
+<col style="width: 12.5%;">
+<col style="width: 83.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big">and</span></code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" rowspan="3"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Description:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Logical AND.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Syntax:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">x = &lt;value1&gt; and &lt;value2&gt;</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p><strong>Description:</strong> Logical AND.</p>
+<p></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Result:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>x</code> will be true if <code>&lt;value1&gt;</code> and <code>&lt;value2&gt;</code> are both non-zero, false if one or both is zero.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big">anything</span></code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Description:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Object specifier in grammar syntax line, indicating that any nameable object in the object tree is valid.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big">array</span></code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" rowspan="2"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Description:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>When used as a data type modifier, specifies that the following value is to be treated as an array address.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Example:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">&lt;var1&gt; = array &lt;var2&gt;[&lt;n&gt;]</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p><strong>Syntax:</strong> x = &lt;value1&gt; and &lt;value2&gt;</p>
+<p>The variable <code>&lt;var2&gt;</code> will be treated as an array address.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big">break</span></code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" rowspan="2"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Description:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Terminates the immediate enclosing loop.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Example:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">while &lt;expression1&gt;&#x000A;{&#x000A;    while &lt;expression2&gt;&#x000A;    {&#x000A;        if &lt;expression3&gt;&#x000A;        break&#x000A;        ...&#x000A;    }&#x000A;    ...&#x000A;}</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p><strong>Result:</strong> x will be true if &lt;value1&gt; and &lt;value2&gt; are both non-zero, false if one or both is zero.</p>
+<p>The <code>break</code> statement, if encountered, will terminate the innermost loop.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big">call</span></code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" rowspan="3"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Description:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Calls a routine indirectly, i.e., when the routine address has been stored in a variable, object property, etc.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Syntax:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">call &lt;value&gt;[(&lt;arg1&gt;, &lt;arg2&gt;,...)]</code></pre>
 </div>
-<div class="paragraph">
-<p>anything</p>
-</div>
-<div class="paragraph">
-<p><strong>Description:</strong> Object specifier in grammar syntax line, indicating that any nameable object in the object tree is valid.</p>
-</div>
-<div class="paragraph">
-<p>array</p>
-</div>
-<div class="paragraph">
-<p><strong>Description:</strong> When used as a data type modifier, specifies that the following value is to be treated as an array address.</p>
-</div>
-<div class="paragraph">
-<p><strong>Example:</strong> &lt;var1&gt; = array &lt;var2&gt;[&lt;n&gt;]</p>
-</div>
-<div class="paragraph">
-<p>The variable &lt;var2&gt; will be treated as an array address.</p>
-</div>
-<div class="paragraph">
-<p>break</p>
-</div>
-<div class="paragraph">
-<p><strong>Description:</strong> Terminates the immediate enclosing loop.</p>
-</div>
-<div class="paragraph">
-<p><strong>Example:</strong> while &lt;expression1&gt;</p>
-</div>
-<div class="paragraph">
-<p>\{</p>
-</div>
-<div class="paragraph">
-<p>while &lt;expression2&gt;</p>
-</div>
-<div class="paragraph">
-<p>\{</p>
-</div>
-<div class="paragraph">
-<p>if &lt;expression3&gt;</p>
-</div>
-<div class="paragraph">
-<p>break</p>
-</div>
-<div class="paragraph">
-<p>&#8230;&#8203;</p>
-</div>
-<div class="paragraph">
-<p>}</p>
-</div>
-<div class="paragraph">
-<p>&#8230;&#8203;</p>
-</div>
-<div class="paragraph">
-<p>}</p>
-</div>
-<div class="paragraph">
-<p>The break statement, if encountered, will terminate the innermost loop.</p>
-</div>
-<div class="paragraph">
-<p>call</p>
-</div>
-<div class="paragraph">
-<p><strong>Description:</strong> Calls a routine indirectly, i.e., when the routine address has been stored in a variable, object property, etc.</p>
-</div>
-<div class="paragraph">
-<p><strong>Syntax:</strong> call &lt;value&gt;[(&lt;arg1&gt;, &lt;arg2&gt;,&#8230;&#8203;)]</p>
 </div>
 <div class="paragraph">
 <p>or</p>
 </div>
-<div class="paragraph">
-<p>x = call &lt;value&gt;(&#8230;&#8203;)</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">x = call &lt;value&gt;(...)</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>where &lt;value&gt; is a valid data type holding the routine address.</p>
+<p>where <code>&lt;value&gt;</code> is a valid data type holding the routine address.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Value:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>When used as a function, returns the value returned by the specified routine.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big">capital</span></code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" rowspan="2"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Description:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Print statement modifier, indicating that the next word should be printed with the first letter capitalized.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Syntax:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">print capital &lt;address&gt;</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p><strong>Value:</strong> When used as a function, returns the value returned by the specified routine.</p>
+<p>where <code>&lt;address&gt;</code> is any dictionary word, such as, for example, an <code>object.name</code> property.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big">case</span></code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" rowspan="2"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Description:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Specifies a conditional case in a select structure.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Syntax:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">select &lt;val&gt;&#x000A;    case &lt;case1&gt;[, &lt;case2&gt;,...]&#x000A;        ...&#x000A;    case &lt;case3&gt;[, &lt;case4&gt;,...]&#x000A;        ...</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>capital</p>
+<p>where <code>&lt;val&gt;</code> is value such as a variable, routine return value, object property, array element, etc., and each <code>&lt;case&gt;</code> is a single value for comparison (not an expression).</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big">child</span></code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" rowspan="2"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Syntax:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">x = child(&lt;parent&gt;)</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p><strong>Description:</strong> Print statement modifier, indicating that the next word should be printed with the first letter capitalized.</p>
+<p></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Return&#160;value:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>The object number of the immediate child object of <code>&lt;parent&gt;</code>, or 0 if <code>&lt;parent&gt;</code> has no children.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big">children</span></code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" rowspan="2"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Syntax:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">x = children(&lt;parent&gt;)</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p><strong>Syntax:</strong> print capital &lt;address&gt;</p>
+<p></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Return&#160;value:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>The number of child objects possessed by <code>&lt;parent&gt;</code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big">cls</span></code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" rowspan="2"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Description:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Clears the current text window repositions the output coordinates at the bottom left of the text window.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Syntax:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">cls</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>where &lt;address&gt; is any dictionary word, such as, for example, an object.name property.</p>
+<p></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big">color (colour)</span></code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" rowspan="3"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Description:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Sets the display colors for text output.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Syntax:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">color &lt;foreground&gt;[, &lt;background&gt;]</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>case</p>
+<p>where <code>&lt;background&gt;</code> is optional.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Parameters:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Standard color values for <code>&lt;foreground&gt;</code> and <code>&lt;background&gt;</code> with constants defined in <strong>hugolib.h</strong> (see page 64) are:</p>
+</div>
+<table class="tableblock frame-all grid-none stripes-even fit-content">
+<colgroup>
+<col>
+<col>
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>0</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Black</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>BLACK</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>1</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Blue</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>BLUE</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>2</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Green</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>GREEN</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>3</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Cyan</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>CYAN</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>4</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Red</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>RED</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>5</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Magenta</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>MAGENTA</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>6</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Brown</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>BROWN</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>7</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>White</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>WHITE</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>8</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Dark gray</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DARK_GRAY</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>9</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Light blue</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>LIGHT_BLUE</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>10</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Light green</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>LIGHT_GREEN</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>11</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Light cyan</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>LIGHT_CYAN</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>12</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Light red</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>LIGHT_RED</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>13</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Light magenta</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>LIGHT_MAGENTA</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>14</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Light yellow</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>LIGHT_YELLOW</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>15</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Bright white</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>BRIGHT_WHITE</code></p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big">dict</span></code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" rowspan="2"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Description:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Dynamically creates a new dictionary entry at runtime.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Syntax:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">x = dict(&lt;array&gt;, &lt;maxlen&gt;)&#x000A;&#x000A;x = dict(parse$, &lt;maxlen&gt;)</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p><strong>Description:</strong> Specifies a conditional case in a select structure.</p>
+<p>where <code>&lt;array&gt;</code> or <code>parse$</code> holds the string to be written into the dictionary, and <code>&lt;maxlen&gt;</code> represents the maximum number of characters to be written. Returns the new dictionary address.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Space should be reserved for any dictionary entries to be created at runtime using the <code>$MAXDICTEXTEND</code> setting during compilation.</p>
+</div>
+</td>
+</tr>
+</table>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big">do</span></code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" rowspan="2"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Description:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Marks the starting point of a do-while loop.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Syntax:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">do&#x000A;{&#x000A;    ...&#x000A;}&#x000A;while &lt;expr&gt;</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p><strong>Syntax:</strong> select &lt;val&gt;</p>
+<p>The loop will continue to run as long as <code>&lt;expr&gt;</code> holds true.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big">elder</span></code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" rowspan="2"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Syntax:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">x = elder(&lt;object&gt;)</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>case &lt;case1&gt;[, &lt;case2&gt;,&#8230;&#8203;]</p>
+<p></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Return&#160;value:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>The object number of the object preceding <code>&lt;object&gt;</code> on the same branch in the object tree.
+The reverse of <code>sibling</code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big">eldest</span></code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock">Same as <code>child</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big">else</span></code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" rowspan="2"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Description:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>In an <code>if</code>-<code>elseif</code>-<code>else</code> conditional block, indicates the default operation if no previous condition has been met.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Syntax:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">if &lt;condition&gt;&#x000A;    ...&#x000A;else&#x000A;    ...</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>&#8230;&#8203;</p>
+<p></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big">elseif</span></code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" rowspan="2"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Description:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>In an <code>if</code>-<code>elseif</code>-<code>else</code> conditional block, indicates a condition that will be checked only if no preceding condition has been met.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Syntax:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">if &lt;condition1&gt;&#x000A;    ...&#x000A;elseif &lt;condition2&gt;&#x000A;    ...&#x000A;elseif &lt;condition3&gt;&#x000A;    ...</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>case &lt;case3&gt;[, &lt;case4&gt;,&#8230;&#8203;]</p>
+<p></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big">false</span></code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Description:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>A predefined constant value: 0.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big">for</span></code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" rowspan="2"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Description:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Loop construction.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Syntax:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">for (&lt;initial&gt;; &lt;test&gt;; &lt;mod&gt;)&#x000A;{&#x000A;    ...&#x000A;}</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">for &lt;var&gt; in &lt;object&gt;&#x000A;{&#x000A;    ...&#x000A;}</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>&#8230;&#8203;</p>
+<p>For the first form, where <code>&lt;initial&gt;</code> is the initial assignment expression (e.g. <code>a = 1</code>), <code>&lt;test&gt;</code> is the test expression (e.g. <code>a &lt; 10</code>), and <code>&lt;mod&gt;</code> is the modifying expression (e.g. <code>a = a + 1</code>).
+The loop will execute as long as <code>&lt;test&gt;</code> holds true.</p>
 </div>
 <div class="paragraph">
-<p>where &lt;val&gt; is value such as a variable, routine return value, object property, array element, etc., and each &lt;case&gt; is a single value for comparison (not an expression).</p>
+<p>The second form loops through all the children of <code>&lt;object&gt;</code> (if any), setting <code>&lt;var&gt;</code> to each child object in sequence.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big">held</span></code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Description:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Object specifier in grammar syntax line, indicating that any single object possessed by the player object is valid.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big">hex</span></code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" rowspan="2"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Description:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Print statement modifier signifying that the following value is not a dictionary address, but should be printed as a hexadecimal number.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Syntax:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">print hex &lt;var&gt;</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>child</p>
+<p>where, for example, <code>&lt;var&gt;</code> is equal to 26, will print &#8220;1A&#8221;.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big">if</span></code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" rowspan="2"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Description:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>A conditional expression.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Syntax:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">if &lt;condition&gt;&#x000A;    ...</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p><strong>Syntax:</strong> x = child(&lt;parent&gt;)</p>
+<p>where <code>&lt;condition&gt;</code> is an expression or value, will run the following statement block only if <code>&lt;condition&gt;</code> is true.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big">in</span></code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" rowspan="2"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Description:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>When used in an object definition, places the object in the object tree as a possession of the specified parent.
+When used in an expression, returns true if the object is in the specified parent.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Syntax:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">in &lt;parent&gt;</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p><strong>Return value:</strong> The object number of the immediate child object of &lt;parent&gt;, or 0 if &lt;parent&gt; has no children.</p>
+<p>or, for example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">if &lt;object&gt; [not] in &lt;parent&gt;&#x000A;{&#x000A;    ...&#x000A;}</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>children</p>
+<p></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big">input</span></code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" rowspan="2"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Description:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Receive input from keyboard, storing the dictionary addresses of the individual words in the word array.
+Unrecognized words are given a value of 0.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Syntax:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">input</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p><strong>Syntax:</strong> x = children(&lt;parent&gt;)</p>
+<p></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big">is</span></code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" rowspan="4"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Description:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Attribute assignment/testing.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Syntax:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">&lt;object&gt; is [not] &lt;attribute&gt;</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p><strong>Return value:</strong> The number of child objects possessed by &lt;parent&gt;.</p>
+<p></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Usage:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>When used as an assignment on its own, will set (or clear, if <code>not</code> is used) the specified attribute for the given object.
+May also be used in an expression.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Return&#160;value:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>When used in an expression, returns true if <code>&lt;object&gt;</code> has the specified attribute set (or cleared, if <code>not</code> is used).
+Otherwise, it returns false.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big">jump</span></code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" rowspan="2"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Description:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Jumps to a specified label.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Syntax:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">jump &lt;label&gt;</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>cls</p>
+<p>where a unique <code>&lt;label&gt;</code> exists on a separate line somewhere in the program, in the form:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">:&lt;label&gt;</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p><strong>Description:</strong> Clears the current text window repositions the output coordinates at the bottom left of the text window.</p>
+<p></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big">local</span></code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" rowspan="2"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Description:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Defines one or more variables local to the current routine.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Syntax:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">local &lt;var1&gt;[, &lt;var2&gt;, &lt;var3&gt;,...]</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p><strong>Syntax:</strong> cls</p>
+<p></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big">locate</span></code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" rowspan="3"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Description:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Sets the cursor position within the current text window.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Syntax:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">locate(&lt;row&gt;, &lt;column&gt;)</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>color (colour)</p>
+<p></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Note:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>The maximum horizontal/vertical cursor position is constrained by the boundaries of the current text window.
+The cursor position is calculated in fixed-width character coordinates.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big">move</span></code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" rowspan="2"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Description:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Moves an object with all its possessions to a new parent.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Syntax:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">move &lt;object&gt; to &lt;new parent&gt;</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p><strong>Description:</strong> Sets the display colors for text output.</p>
+<p></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big">multi</span></code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Description:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Object specifier in grammar syntax line, indicating that multiple available objects are valid.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big">multiheld</span></code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Description:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Object specifier in grammar syntax line, indicating that multiple objects possessed by the player object are valid.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big">multinotheld</span></code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Description:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Object specifier in grammar syntax line, indicating that multiple objects explicitly not held by the player object are valid.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big">music</span></code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" rowspan="2"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Description:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Load and play a music resource (if audio output is available).</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Syntax:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">music [repeat] "file", "song"[, vol]&#x000A;music 0</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p><strong>Syntax:</strong> color &lt;foreground&gt;[, &lt;background&gt;]</p>
+<p>where <code>&lt;file&gt;</code> is a compiled Hugo resourcefile, and <code>&lt;song&gt;</code> is a music module in MOD, S3M, or XM format.
+The optional <code>&lt;vol&gt;</code> argument, if given, ranges from 0 to 100 and gives a percentage of volume for playback.
+If the <code>repeat</code> token is used, the song continues to loop until either a new song is played, or the current song is stopped (using <code>music 0</code>).</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big">nearby</span></code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" rowspan="2"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Description:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Used in an object definition to place the object in the specified position in the object tree.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Syntax:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">nearby &lt;object&gt;</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>where &lt;background&gt; is optional</p>
+<p>Gives the current object the same parent as <code>&lt;object&gt;</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">nearby</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p><strong>Parameters:</strong> Standard color values for &lt;foreground&gt; and &lt;background&gt; with constants defined in <strong>hugolib.h</strong> (see page 64) are:</p>
+<p>Gives the current object the same parent as the last-defined object.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big">newline</span></code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" rowspan="2"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Description:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Print statement modifier, indicating that a line feed and carriage return should be issued if the current output position is not already at the start of a blank line.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Syntax:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">print newline</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>0 Black BLACK</p>
+<p></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big">not</span></code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" rowspan="3"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Description:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Logical not.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Syntax:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">x = not &lt;value&gt;</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">&lt;object&gt; is not &lt;attribute&gt;</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>1 Blue BLUE</p>
+<p></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Result:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>In the first example, x will be true if <code>&lt;value&gt;</code> is false, or false if <code>&lt;value&gt;</code> is true.</p>
 </div>
 <div class="paragraph">
-<p>2 Green GREEN</p>
+<p>In the second, the specified attribute will be cleared for <code>&lt;object&gt;</code> when used alone as an assignment.
+As part of an expression, it will return true only if <code>&lt;object&gt;</code> does not have <code>&lt;attribute&gt;</code> set.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big">notheld</span></code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Description:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Object specifier in grammar syntax line, indicating that a single object explicitly not held by the player object is valid.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big">number</span></code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" rowspan="2"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Description:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>When used in a grammar syntax line, indicates that a single positive integer number is valid.</p>
 </div>
 <div class="paragraph">
-<p>3 Cyan CYAN</p>
+<p>When used as a <code>print</code> statement modifier, indicates that the following value is not a dictionary address, but should be printed as a positive integer number.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Syntax:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>(for usage as a <code>print</code> statement modifier)</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">print number &lt;val&gt;</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>4 Red RED</p>
+<p>where, for example, <code>&lt;val&gt;</code> is equal to 100, will print &#8220;100&#8221; instead of the word beginning at the address 100 in the dictionary table.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big">object</span></code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Description:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Global variable holding the object number of the direct object, if any, specified in the input line.</p>
 </div>
 <div class="paragraph">
-<p>5 Magenta MAGENTA</p>
+<p>When used in a grammar syntax line, indicates that a single available object is valid.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big">or</span></code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" rowspan="3"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Description:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Logical OR.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Syntax:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">x = &lt;value1&gt; or &lt;value2&gt;</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>6 Brown BROWN</p>
+<p></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Result:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>x</code> will be true if either <code>&lt;value1&gt;</code> or <code>&lt;value2&gt;</code> is non-false, or false if both are false.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big">parent</span></code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" rowspan="5"></td>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock">(Usage 1)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Syntax:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">x = parent(&lt;object&gt;)</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>7 White WHITE</p>
+<p></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Return&#160;value:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>The object number of <code>&lt;object&gt;</code>&#8288;&#8217;s parent object.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock">(Usage 2)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Description:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>When used in a grammar syntax line, indicates that the domain for validating the availability of the specified direct object should be set to the parent object specified in the input line.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big">parse</span>$</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Description:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Read-only engine variable that contains either the offending portion of an invalid input line or any section of the input line enclosed in quotes.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big">pause</span></code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Description:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Pauses until a key is pressed.
+The value of the key is stored in <code>word[0]</code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big">picture</span></code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" rowspan="2"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Description:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Load and display an image resource in the currently defined window (if graphics are available).</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Syntax:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">picture "&lt;resourcefile&gt;", "&lt;picture&gt;"&#x000A;picture "&lt;picturefile&gt;"</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>8 Dark gray DARK_GRAY</p>
+<p>where, while <code>&lt;resourcefile&gt;</code> is optional, it is very highly recommended (otherwise, <code>&lt;picturefile&gt;</code> will likely not be named in a cross-platform portable format).</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big">playback</span></code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" rowspan="3"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Description:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Plays back recorded commands from a file in place of keyboard input (by prompting the user).</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Syntax:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">x = playback</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>9 Light blue LIGHT_BLUE</p>
+<p></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Return&#160;value:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>True if successful, false if not.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big">print</span></code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" rowspan="2"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Description:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Print text output.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Syntax:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">print &lt;output&gt;</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>10 Light green LIGHT_GREEN</p>
+<p>where <code>&lt;output&gt;</code> can consist of both test strings enclosed in quotation marks (<code>"&#8230;&#8203;"</code>), and values representing dictionary addresses, such as object names.
+Separate components of <code>&lt;output&gt;</code> are separated by a semicolon (<code>;</code>).
+Each component may also be preceded by a modifier such as <code>capital</code>, <code>hex</code>, or <code>number</code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big">printchar</span></code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" rowspan="2"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Description:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Prints a character or series of characters at the current cursor position.
+No newline is printed.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Syntax:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">printchar &lt;val1&gt;[, &lt;val2&gt;,...]</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>11 Light cyan LIGHT_CYAN</p>
+<p></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big">quit</span></code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" rowspan="2"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Description:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Terminates the game loop.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Syntax:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">quit</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>12 Light red LIGHT_RED</p>
+<p></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big">random</span></code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" rowspan="3"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Description:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Engine function which generates a random number.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Syntax:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">x = random(&lt;val&gt;)</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>13 Light magenta LIGHT_MAGENTA</p>
+<p></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Return&#160;value:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Where <code>&lt;val&gt;</code> is a positive integer number, will return a random number between 1 and <code>&lt;val&gt;</code>, inclusively.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big">readfile</span></code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" rowspan="2"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Description:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>A structure that allows values to be read from a file written using <code>writefile</code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Syntax:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">readfile &lt;filename&gt;&#x000A;{&#x000A;    ...&#x000A;}</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>14 Light yellow LIGHT_YELLOW</p>
+<p>The file is opened and positioned to the start at the beginning of the <code>readfile</code> block, and closed at the end.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big">readval</span></code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" rowspan="3"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Description:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Reads a value in a <code>readfile</code> block.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Syntax:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">x = readval</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>15 Bright white BRIGHT_WHITE</p>
+<p></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Value:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>The value read, or 0 in the case of an error.
+Use the <code>FILE_CHECK</code> constant defined in <strong>hugolib.h</strong> to determine if a <code>readfile</code> block has been executed successfully.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big">recordoff</span></code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" rowspan="3"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Description:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Ends recording commands to a file.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Syntax:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">x = recordoff</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>dict</p>
+<p></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Value:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>True if successful, false if not.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big">recordon</span></code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" rowspan="3"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Description:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Begins recording commands to a file (by prompting the user).</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Syntax:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">x = recordon</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p><strong>Description:</strong> Dynamically creates a new dictionary entry at runtime.</p>
+<p></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Value:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>True if successful, false if not.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big">remove</span></code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" rowspan="2"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Description:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Removes an object from the object tree.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Syntax:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">remove &lt;object&gt;</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p><strong>Syntax:</strong> x = dict(&lt;array&gt;, &lt;maxlen&gt;)</p>
+<p>(The same as: <code>move &lt;object&gt; to 0</code>)</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big">restart</span></code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" rowspan="4"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Description:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Reloads the initial game data from the <strong>.HEX</strong> file and calls the <code>Init</code> routine.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Syntax:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">x = restart</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>x = dict(parse$, &lt;maxlen&gt;)</p>
+<p></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Note:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>The <code>restart</code> statement does not technically restart the engine; the game loop continues uninterrupted after <code>Init</code> is called, only with the game data restored to its initial state.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Value:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>True if successful, false if not.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big">restore</span></code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" rowspan="3"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Description:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Restores a saved game&#8217;s state data from a previously saved file (by prompting the user).</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Syntax:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">x = restore</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>where &lt;array&gt; or parse$ holds the string to be written into the dictionary, and &lt;maxlen&gt; represents the maximum number of characters to be written. Returns the new dictionary address.</p>
+<p></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Value:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>True if successful, false if not.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big">return</span></code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" rowspan="3"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Description:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Returns from a called routine.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Syntax:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">return [&lt;expression&gt;]</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Return&#160;value:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Returns <code>&lt;expression&gt;</code> if provided, otherwise returns false.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big">run</span></code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" rowspan="3"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Description:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Runs an object property routine if one exists.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Syntax:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">run &lt;object&gt;.&lt;property&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Return&#160;value:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>None; any value returned by the property routine is discarded.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big">runevents</span></code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" rowspan="2"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Description:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Calls all events which are either global or currently within the event scope of the player object.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Syntax:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">runevents</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big">save</span></code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" rowspan="3"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Description:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Saves the current game state to a file (by prompting the user).</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Syntax:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">x = save</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Value:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>True if successful, false if not.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big">scriptoff</span></code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" rowspan="3"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Description:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Turns transcription off.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Syntax:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">x = scriptoff</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Value:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>True if successful, false if not.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big">scripton</span></code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" rowspan="3"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Description:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Turns transcription (i.e., recording output to a file or to a printer) on.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Syntax:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">x = scripton</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Value:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>True if successful, false if not.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big">select</span></code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" rowspan="2"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Description:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Specifies the value for comparison in a <code>select</code>-<code>case</code> conditional structure.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Syntax:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">select &lt;val&gt;&#x000A;    case &lt;case1&gt;[, &lt;case2&gt;,...]&#x000A;        ...&#x000A;    case &lt;case3&gt;[, &lt;case4&gt;,...]&#x000A;        ...</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>where <code>&lt;val&gt;</code> is value such as a variable, routine return value, object property, array element, etc., and each <code>&lt;case&gt;</code> is a single value for comparison (not an expression).</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big">serial</span>$</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Description:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Read-only engine variable that contains the serial number as written by the compiler.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big">sibling</span></code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" rowspan="2"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Syntax:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">x = sibling(&lt;object&gt;)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Return&#160;value:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>The number of the object next to <code>&lt;object&gt;</code> on the same branch of the object tree.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big">sound</span></code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" rowspan="2"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Description:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Load and play an audio sample resource (if waveform audio output is available).</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Syntax:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">sound [repeat] "file", "sample"[, vol]&#x000A;sound 0</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>where <code>&lt;file&gt;</code> is a compiled Hugo resourcefile, and <code>&lt;sample&gt;</code> is a waveform sample in RIFF/WAV format.
+The optional <code>&lt;vol&gt;</code> argument, if given, ranges from 0 to 100 and gives a percentage of volume for playback.
+If the <code>repeat</code> token is used, the sample continues to loop until either a new sample is played, or the current sample is stopped (using <code>sound 0</code>).</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big">string</span></code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" rowspan="2"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Description:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>When used in a grammar syntax line, indicates that a string array enclosed in quotation marks is valid.</p>
+</div>
+<div class="paragraph">
+<p>When used as a function, stores a dictionary entry in a string array.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Syntax:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">x = string(&lt;array&gt;, &lt;dict&gt;, &lt;maxlen&gt;)&#x000A;x = string(&lt;array&gt;, parse$, &lt;maxlen&gt;)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>where <code>&lt;array&gt;</code> is an array address, stores the either the dictionary entry given by <code>&lt;dict&gt;</code> or the contents of <code>parse$</code> as a series of characters, to a maximum of <code>&lt;maxlen&gt;</code> characters.
+Returns the length of the string stored in <code>&lt;array&gt;</code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big">system</span></code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" rowspan="2"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Description:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Built-in function to call low-level system functions.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Syntax:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">system(&lt;function&gt;)</code></pre>
+</div>
+</div>
+<table class="tableblock frame-all grid-none stripes-even fit-content">
+<colgroup>
+<col>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-right valign-top">FUNC.</th>
+<th class="tableblock halign-left valign-top">LABEL</th>
+<th class="tableblock halign-left valign-top">DESCRIPTION</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>11</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>READ_KEY</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Read keypress</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>21</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>NORMALIZE_RANDOM</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Make random values predictable</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>22</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>INIT_RANDOM</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Restore <code>random</code> random values</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>31</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>PAUSE_SECOND</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Pause for one second</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>32</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>PAUSE_100TH_SECOND</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Pause for 1/100th of a second</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>41</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>GAME_RESET</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Returns true after restore or undo</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>51</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>SYSTEM_TIME</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Stores system time in <code>parse$</code></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>61</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>MINIMAL_INTERFACE</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Returns true for minimal ports</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p></p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -10392,946 +11854,291 @@ Other than being non-false, the various values of endflag are insignificant exce
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-<div class="paragraph">
-<p>Space should be reserved for any dictionary entries to be created at runtime using the $MAXDICTEXTEND setting during compilation.</p>
-</div>
+Labels are defined as a constants in <strong>system.h</strong>.
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>do</p>
-</div>
-<div class="paragraph">
-<p><strong>Description:</strong> Marks the starting point of a do-while loop.</p>
-</div>
-<div class="paragraph">
-<p><strong>Syntax:</strong> do</p>
-</div>
-<div class="paragraph">
-<p>\{</p>
-</div>
-<div class="paragraph">
-<p>&#8230;&#8203;</p>
-</div>
-<div class="paragraph">
-<p>}</p>
-</div>
-<div class="paragraph">
-<p>while &lt;expr&gt;</p>
-</div>
-<div class="paragraph">
-<p>The loop will continue to run as long as &lt;expr&gt; holds true.</p>
-</div>
-<div class="paragraph">
-<p>elder</p>
-</div>
-<div class="paragraph">
-<p><strong>Syntax:</strong> x = elder(&lt;object&gt;)</p>
-</div>
-<div class="paragraph">
-<p><strong>Return value:</strong> The object number of the object preceding &lt;object&gt; on the same branch in the object tree. The reverse of sibling.</p>
-</div>
-<div class="paragraph">
-<p>eldest</p>
-</div>
-<div class="paragraph">
-<p>Same as child.</p>
-</div>
-<div class="paragraph">
-<p>else</p>
-</div>
-<div class="paragraph">
-<p><strong>Description:</strong> In an if-elseif-else conditional block, indicates the default operation if no previous condition has been met.</p>
-</div>
-<div class="paragraph">
-<p><strong>Syntax:</strong> if &lt;condition&gt;</p>
-</div>
-<div class="paragraph">
-<p>&#8230;&#8203;</p>
-</div>
-<div class="paragraph">
-<p>else</p>
-</div>
-<div class="paragraph">
-<p>&#8230;&#8203;</p>
-</div>
-<div class="paragraph">
-<p>elseif</p>
-</div>
-<div class="paragraph">
-<p><strong>Description:</strong> In an if-elseif-else conditional block, indicates a condition that will be checked only if no preceding condition has been met.</p>
-</div>
-<div class="paragraph">
-<p><strong>Syntax:</strong> if &lt;condition1&gt;</p>
-</div>
-<div class="paragraph">
-<p>&#8230;&#8203;</p>
-</div>
-<div class="paragraph">
-<p>elseif &lt;condition2&gt;</p>
-</div>
-<div class="paragraph">
-<p>&#8230;&#8203;</p>
-</div>
-<div class="paragraph">
-<p>elseif &lt;condition3&gt;</p>
-</div>
-<div class="paragraph">
-<p>&#8230;&#8203;</p>
-</div>
-<div class="paragraph">
-<p>false</p>
-</div>
-<div class="paragraph">
-<p><strong>Description:</strong> A predefined constant value: 0.</p>
-</div>
-<div class="paragraph">
-<p>for</p>
-</div>
-<div class="paragraph">
-<p><strong>Description:</strong> Loop construction.</p>
-</div>
-<div class="paragraph">
-<p><strong>Syntax:</strong> for (&lt;initial&gt;; &lt;test&gt;; &lt;mod&gt;)</p>
-</div>
-<div class="paragraph">
-<p>\{</p>
-</div>
-<div class="paragraph">
-<p>&#8230;&#8203;</p>
-</div>
-<div class="paragraph">
-<p>}</p>
-</div>
-<div class="paragraph">
-<p>for &lt;var&gt; in &lt;object&gt;</p>
-</div>
-<div class="paragraph">
-<p>\{</p>
-</div>
-<div class="paragraph">
-<p>&#8230;&#8203;</p>
-</div>
-<div class="paragraph">
-<p>}</p>
-</div>
-<div class="paragraph">
-<p>For the first form, where &lt;initial&gt; is the initial assignment expression (e.g. a = 1), &lt;test&gt; is the test expression (e.g. a &lt; 10), and &lt;mod&gt; is the modifying expression (e.g. a = a + 1). The loop will execute as long as &lt;test&gt; holds true.</p>
-</div>
-<div class="paragraph">
-<p>The second form loops through all the children of &lt;object&gt; (if any), setting &lt;var&gt; to each child object in sequence.</p>
-</div>
-<div class="paragraph">
-<p>held</p>
-</div>
-<div class="paragraph">
-<p><strong>Description:</strong> Object specifier in grammar syntax line, indicating that any single object possessed by the player object is valid.</p>
-</div>
-<div class="paragraph">
-<p>hex</p>
-</div>
-<div class="paragraph">
-<p><strong>Description:</strong> Print statement modifier signifying that the following value is not a dictionary address, but should be printed as a hexadecimal number.</p>
-</div>
-<div class="paragraph">
-<p><strong>Syntax:</strong> print hex &lt;var&gt;</p>
-</div>
-<div class="paragraph">
-<p>where, for example, &lt;var&gt; is equal to 26, will print &#8220;1A&#8221;.</p>
-</div>
-<div class="paragraph">
-<p>if</p>
-</div>
-<div class="paragraph">
-<p><strong>Description:</strong> A conditional expression.</p>
-</div>
-<div class="paragraph">
-<p><strong>Syntax:</strong> if &lt;condition&gt;</p>
-</div>
-<div class="paragraph">
-<p>&#8230;&#8203;</p>
-</div>
-<div class="paragraph">
-<p>where &lt;condition&gt; is an expression or value, will run the following statement block only if &lt;condition&gt; is true.</p>
-</div>
-<div class="paragraph">
-<p>in</p>
-</div>
-<div class="paragraph">
-<p><strong>Description:</strong> When used in an object definition, places the object in the object tree as a possession of the specified parent. When used in an expression, returns true if the object is in the specified parent.</p>
-</div>
-<div class="paragraph">
-<p><strong>Syntax:</strong> in &lt;parent&gt;</p>
-</div>
-<div class="paragraph">
-<p>or, for example:</p>
-</div>
-<div class="paragraph">
-<p>if &lt;object&gt; [not] in &lt;parent&gt;</p>
-</div>
-<div class="paragraph">
-<p>\{</p>
-</div>
-<div class="paragraph">
-<p>&#8230;&#8203;</p>
-</div>
-<div class="paragraph">
-<p>}</p>
-</div>
-<div class="paragraph">
-<p>input</p>
-</div>
-<div class="paragraph">
-<p><strong>Description:</strong> Receive input from keyboard, storing the dictionary addresses of the individual words in the word array. Unrecognized words are given a value of 0.</p>
-</div>
-<div class="paragraph">
-<p><strong>Syntax:</strong> input</p>
-</div>
-<div class="paragraph">
-<p>is</p>
-</div>
-<div class="paragraph">
-<p><strong>Description:</strong> Attribute assignment/testing.</p>
-</div>
-<div class="paragraph">
-<p><strong>Syntax:</strong> &lt;object&gt; is [not] &lt;attribute&gt;</p>
-</div>
-<div class="paragraph">
-<p><strong>Usage:</strong> When used as an assignment on its own, will set (or clear, if not is used) the specified attribute for the given object. May also be used in an expression.</p>
-</div>
-<div class="paragraph">
-<p><strong>Return value:</strong> When used in an expression, returns true if &lt;object&gt; has the specified attribute set (or cleared, if not is used). Otherwise, it returns false.</p>
-</div>
-<div class="paragraph">
-<p>jump</p>
-</div>
-<div class="paragraph">
-<p><strong>Description:</strong> Jumps to a specified label.</p>
-</div>
-<div class="paragraph">
-<p><strong>Syntax:</strong> jump &lt;label&gt;</p>
-</div>
-<div class="paragraph">
-<p>where a unique &lt;label&gt; exists on a separate line somewhere in the program, in the form:</p>
-</div>
-<div class="paragraph">
-<p>:&lt;label&gt;</p>
-</div>
-<div class="paragraph">
-<p>local</p>
-</div>
-<div class="paragraph">
-<p><strong>Description:</strong> Defines one or more variables local to the current routine.</p>
-</div>
-<div class="paragraph">
-<p><strong>Syntax:</strong> local &lt;var1&gt;[, &lt;var2&gt;, &lt;var3&gt;,&#8230;&#8203;]</p>
-</div>
-<div class="paragraph">
-<p>locate</p>
-</div>
-<div class="paragraph">
-<p><strong>Description:</strong> Sets the cursor position within the current text window.</p>
-</div>
-<div class="paragraph">
-<p><strong>Syntax:</strong> locate(&lt;row&gt;, &lt;column&gt;)</p>
-</div>
-<div class="paragraph">
-<p><strong>Note:</strong> The maximum horizontal/vertical cursor position is constrained by the boundaries of the current text window. The cursor position is calculated in fixed-width character coordinates.</p>
-</div>
-<div class="paragraph">
-<p>move</p>
-</div>
-<div class="paragraph">
-<p><strong>Description:</strong> Moves an object with all its possessions to a new parent.</p>
-</div>
-<div class="paragraph">
-<p><strong>Syntax:</strong> move &lt;object&gt; to &lt;new parent&gt;</p>
-</div>
-<div class="paragraph">
-<p>multi</p>
-</div>
-<div class="paragraph">
-<p><strong>Description:</strong> Object specifier in grammar syntax line, indicating that multiple available objects are valid.</p>
-</div>
-<div class="paragraph">
-<p>multiheld</p>
-</div>
-<div class="paragraph">
-<p><strong>Description:</strong> Object specifier in grammar syntax line, indicating that multiple objects possessed by the player object are valid.</p>
-</div>
-<div class="paragraph">
-<p>multinotheld</p>
-</div>
-<div class="paragraph">
-<p><strong>Description:</strong> Object specifier in grammar syntax line, indicating that multiple objects explicitly not held by the player object are valid.</p>
-</div>
-<div class="paragraph">
-<p>music</p>
-</div>
-<div class="paragraph">
-<p><strong>Description:</strong> Load and play a music resource (if audio output is available).</p>
-</div>
-<div class="paragraph">
-<p><strong>Syntax:</strong> music [repeat] "file", "song"[, vol]</p>
-</div>
-<div class="paragraph">
-<p>music 0</p>
-</div>
-<div class="paragraph">
-<p>where &lt;file&gt; is a compiled Hugo resourcefile, and &lt;song&gt; is a music module in MOD, S3M, or XM format. The optional &lt;vol&gt; argument, if given, ranges from 0 to 100 and gives a percentage of volume for playback. If the repeat token is used, the song continues to loop until either a new song is played, or the current song is stopped (using <code>music 0</code>).</p>
-</div>
-<div class="paragraph">
-<p>nearby</p>
-</div>
-<div class="paragraph">
-<p><strong>Description:</strong> Used in an object definition to place the object in the specified position in the object tree.</p>
-</div>
-<div class="paragraph">
-<p><strong>Syntax:</strong> nearby &lt;object&gt;</p>
-</div>
-<div class="paragraph">
-<p>Gives the current object the same parent as &lt;object&gt;.</p>
-</div>
-<div class="paragraph">
-<p>nearby</p>
-</div>
-<div class="paragraph">
-<p>Gives the current object the same parent as the last-defined object.</p>
-</div>
-<div class="paragraph">
-<p>newline</p>
-</div>
-<div class="paragraph">
-<p><strong>Description:</strong> Print statement modifier, indicating that a line feed and carriage return should be issued if the current output position is not already at the start of a blank line.</p>
-</div>
-<div class="paragraph">
-<p><strong>Syntax:</strong> print newline</p>
-</div>
-<div class="paragraph">
-<p>not</p>
-</div>
-<div class="paragraph">
-<p><strong>Description:</strong> Logical not.</p>
-</div>
-<div class="paragraph">
-<p><strong>Syntax:</strong> x = not &lt;value&gt;</p>
-</div>
-<div class="paragraph">
-<p>&lt;object&gt; is not &lt;attribute&gt;</p>
-</div>
-<div class="paragraph">
-<p><strong>Result:</strong> In the first example, x will be true if &lt;value&gt; is false, or false if &lt;value&gt; is true.</p>
-</div>
-<div class="paragraph">
-<p>In the second, the specified attribute will be cleared for &lt;object&gt; when used alone as an assignment. As part of an expression, it will return true only if &lt;object&gt; does not have &lt;attribute&gt; set.</p>
-</div>
-<div class="paragraph">
-<p>notheld</p>
-</div>
-<div class="paragraph">
-<p><strong>Description:</strong> Object specifier in grammar syntax line, indicating that a single object explicitly not held by the player object is valid.</p>
-</div>
-<div class="paragraph">
-<p>number</p>
-</div>
-<div class="paragraph">
-<p><strong>Description:</strong> When used in a grammar syntax line, indicates that a single positive integer number is valid.</p>
-</div>
-<div class="paragraph">
-<p>When used as a print statement modifier, indicates that the following value is not a dictionary address, but should be printed as a positive integer number.</p>
-</div>
-<div class="paragraph">
-<p><strong>Syntax:</strong> (for usage as a print statement modifier)</p>
-</div>
-<div class="paragraph">
-<p>print number &lt;val&gt;</p>
-</div>
-<div class="paragraph">
-<p>where, for example, &lt;val&gt; is equal to 100, will print &#8220;100&#8221; instead of the word beginning at the address 100 in the dictionary table.</p>
-</div>
-<div class="paragraph">
-<p>object</p>
-</div>
-<div class="paragraph">
-<p><strong>Description:</strong> Global variable holding the object number of the direct object, if any, specified in the input line.</p>
+<p>If <code>&lt;function&gt;</code> is unavailable, the engine may set <code>system_status</code> to -1 (<code>STAT_UNAVAILABLE</code>).</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big">text</span></code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" rowspan="2"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>text&#160;to&#160;&lt;val&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Sends text to the array table, beginning at address <code>&lt;val&gt;</code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>text to 0</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Restores normal printing.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big">to</span></code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" rowspan="2"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Description:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>In a <code>print</code> statement, prints blank spaces in the current background color to the specified position.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Syntax:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">print to &lt;val&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>where <code>&lt;val&gt;</code> is a positive integer less than or equal to the maximum column position</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big">true</span></code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Description:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Predefined constant: 1.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big">undo</span></code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" rowspan="3"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Description:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Attempts to recover the state of the game data before the last player command.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Syntax:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">x = undo</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Value:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>True if successful, false if not.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big">verb</span></code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" rowspan="2"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Description:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Begins definition of a regular verb.
+Upon returning true from the verb routine, <code>Main</code> is called.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Syntax:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">verb "&lt;word1&gt;"[, "&lt;word2&gt;",...]</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big">while</span></code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" rowspan="2"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Description:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Component of <code>while</code> or <code>do</code>-<code>while</code> loop construct.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Syntax:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">while &lt;expr&gt;&#x000A;{&#x000A;    ...&#x000A;}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>or</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">do&#x000A;{&#x000A;    ...&#x000A;}&#x000A;while &lt;expr&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>where the loop will run as long as <code>&lt;expr&gt;</code> holds true.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big">window</span></code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" rowspan="2"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Description:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Switches output to the status window.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Syntax:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">window a[, b, c, d]&#x000A;    {...}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>or</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">window&#x000A;    {...}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>or</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">window 0</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If only a single value <code>&lt;a&gt;</code> is given, a window of <code>&lt;a&gt;</code> lines from the top of the screen is created.
+If more values are given, a window from top-left (<code>a</code>, <code>b</code>) to bottom-right (<code>c</code>, <code>d</code>) is created.
+If no values are given, the last-defined window is recreated.
+The new boundaries apply for the length of the following <code>{&#8230;&#8203;}</code> code block.</p>
+</div>
+<div class="paragraph">
+<p><code>window 0</code> restores full-screen display.
+There is no following code block.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big">writefile</span></code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" rowspan="2"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Description:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>A structure that writes values to a file that may be read using <code>readfile</code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Syntax:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">writefile &lt;filename&gt;&#x000A;{&#x000A;    ...&#x000A;}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The file is opened and positioned to the start at the beginning of the <code>writefile</code> block, and closed at the end.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big">writeval</span></code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" rowspan="2"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Description:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Writes one or more values in a <code>writefile</code> block.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Syntax:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">writefile value1[, value2, ...]</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big">xobject</span></code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Description:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Global variable holding the object number of the indirect object, if any, specified in the input line.</p>
 </div>
 <div class="paragraph">
 <p>When used in a grammar syntax line, indicates that a single available object is valid.</p>
-</div>
-<div class="paragraph">
-<p>or</p>
-</div>
-<div class="paragraph">
-<p><strong>Description:</strong> Logical OR.</p>
-</div>
-<div class="paragraph">
-<p><strong>Syntax:</strong> x = &lt;value1&gt; or &lt;value2&gt;</p>
-</div>
-<div class="paragraph">
-<p><strong>Result:</strong> x will be true if either &lt;value1&gt; or &lt;value2&gt; is non-false, or false if both are false.</p>
-</div>
-<div class="paragraph">
-<p>parent</p>
-</div>
-<div class="paragraph">
-<p>(Usage 1)</p>
-</div>
-<div class="paragraph">
-<p><strong>Syntax:</strong> x = parent(&lt;object&gt;)</p>
-</div>
-<div class="paragraph">
-<p><strong>Return value:</strong> The object number of &lt;object&gt;'s parent object.</p>
-</div>
-<div class="paragraph">
-<p>(Usage 2)</p>
-</div>
-<div class="paragraph">
-<p><strong>Description:</strong> When used in a grammar syntax line, indicates that the domain for validating the availability of the specified direct object should be set to the parent object specified in the input line.</p>
-</div>
-<div class="paragraph">
-<p>parse$</p>
-</div>
-<div class="paragraph">
-<p><strong>Description:</strong> Read-only engine variable that contains either the offending portion of an invalid input line or any section of the input line enclosed in quotes.</p>
-</div>
-<div class="paragraph">
-<p>pause</p>
-</div>
-<div class="paragraph">
-<p><strong>Description:</strong> Pauses until a key is pressed. The value of the key is stored in word[0].</p>
-</div>
-<div class="paragraph">
-<p>picture</p>
-</div>
-<div class="paragraph">
-<p><strong>Description:</strong> Load and display an image resource in the currently defined window (if graphics are available).</p>
-</div>
-<div class="paragraph">
-<p><strong>Syntax:</strong> picture "&lt;resourcefile&gt;", "&lt;picture&gt;"</p>
-</div>
-<div class="paragraph">
-<p>picture "&lt;picturefile&gt;"</p>
-</div>
-<div class="paragraph">
-<p>where, while &lt;resourcefile&gt; is optional, it is very highly recommended (otherwise, &lt;picturefile&gt; will likely not be named in a cross-platform portable format).</p>
-</div>
-<div class="paragraph">
-<p>playback</p>
-</div>
-<div class="paragraph">
-<p><strong>Description:</strong> Plays back recorded commands from a file in place of keyboard input (by prompting the user).</p>
-</div>
-<div class="paragraph">
-<p><strong>Syntax:</strong> x = playback</p>
-</div>
-<div class="paragraph">
-<p><strong>Return value:</strong> True if successful, false if not.</p>
-</div>
-<div class="paragraph">
-<p>print</p>
-</div>
-<div class="paragraph">
-<p><strong>Description:</strong> Print text output.</p>
-</div>
-<div class="paragraph">
-<p><strong>Syntax:</strong> print &lt;output&gt;</p>
-</div>
-<div class="paragraph">
-<p>where &lt;output&gt; can consist of both test strings enclosed in quotation marks (&#8220;&#8230;&#8203;&#8221;), and values representing dictionary addresses, such as object names. Separate components of &lt;output&gt; are separated by a semicolon (<code>;</code>). Each component may also be preceded by a modifier such as capital, hex, or number.</p>
-</div>
-<div class="paragraph">
-<p>printchar</p>
-</div>
-<div class="paragraph">
-<p><strong>Description:</strong> Prints a character or series of characters at the current cursor position. No newline is printed.</p>
-</div>
-<div class="paragraph">
-<p><strong>Syntax:</strong> printchar &lt;val1&gt;[, &lt;val2&gt;,&#8230;&#8203;]</p>
-</div>
-<div class="paragraph">
-<p>quit</p>
-</div>
-<div class="paragraph">
-<p><strong>Description:</strong> Terminates the game loop.</p>
-</div>
-<div class="paragraph">
-<p><strong>Syntax:</strong> quit</p>
-</div>
-<div class="paragraph">
-<p>random</p>
-</div>
-<div class="paragraph">
-<p><strong>Description:</strong> Engine function which generates a random number.</p>
-</div>
-<div class="paragraph">
-<p><strong>Syntax:</strong> x = random(&lt;val&gt;)</p>
-</div>
-<div class="paragraph">
-<p><strong>Return value:</strong> Where &lt;val&gt; is a positive integer number, will return a random number between 1 and &lt;val&gt;, inclusively.</p>
-</div>
-<div class="paragraph">
-<p>readfile</p>
-</div>
-<div class="paragraph">
-<p><strong>Description:</strong> A structure that allows values to be read from a file written using writefile.</p>
-</div>
-<div class="paragraph">
-<p><strong>Syntax:</strong> readfile &lt;filename&gt;</p>
-</div>
-<div class="paragraph">
-<p>\{</p>
-</div>
-<div class="paragraph">
-<p>&#8230;&#8203;</p>
-</div>
-<div class="paragraph">
-<p>}</p>
-</div>
-<div class="paragraph">
-<p>The file is opened and positioned to the start at the beginning of the readfile block, and closed at the end.</p>
-</div>
-<div class="paragraph">
-<p>readval</p>
-</div>
-<div class="paragraph">
-<p><strong>Description:</strong> Reads a value in a readfile block.</p>
-</div>
-<div class="paragraph">
-<p><strong>Syntax:</strong> x = readval</p>
-</div>
-<div class="paragraph">
-<p><strong>Value:</strong> The value read, or 0 in the case of an error. Use the FILE_CHECK constant defined in <strong>hugolib.h</strong> to determine if a readfile block has been executed successfully.</p>
-</div>
-<div class="paragraph">
-<p>recordoff</p>
-</div>
-<div class="paragraph">
-<p><strong>Description:</strong> Ends recording commands to a file.</p>
-</div>
-<div class="paragraph">
-<p><strong>Syntax:</strong> x = recordoff</p>
-</div>
-<div class="paragraph">
-<p><strong>Value:</strong> True if successful, false if not.</p>
-</div>
-<div class="paragraph">
-<p>recordon</p>
-</div>
-<div class="paragraph">
-<p><strong>Description:</strong> Begins recording commands to a file (by prompting the user).</p>
-</div>
-<div class="paragraph">
-<p><strong>Syntax:</strong> x = recordon</p>
-</div>
-<div class="paragraph">
-<p><strong>Value:</strong> True if successful, false if not.</p>
-</div>
-<div class="paragraph">
-<p>remove</p>
-</div>
-<div class="paragraph">
-<p><strong>Description:</strong> Removes an object from the object tree.</p>
-</div>
-<div class="paragraph">
-<p><strong>Syntax:</strong> remove &lt;object&gt;</p>
-</div>
-<div class="paragraph">
-<p>(The same as: move &lt;object&gt; to 0)</p>
-</div>
-<div class="paragraph">
-<p>restart</p>
-</div>
-<div class="paragraph">
-<p><strong>Description:</strong> Reloads the initial game data from the .HEX file and calls the Init routine.</p>
-</div>
-<div class="paragraph">
-<p><strong>Syntax:</strong> x = restart</p>
-</div>
-<div class="paragraph">
-<p><strong>Note:</strong> The restart statement does not technically restart the engine; the game loop continues uninterrupted after Init is called, only with the game data restored to its initial state.</p>
-</div>
-<div class="paragraph">
-<p><strong>Value:</strong> True if successful, false if not.</p>
-</div>
-<div class="paragraph">
-<p>restore</p>
-</div>
-<div class="paragraph">
-<p><strong>Description:</strong> Restores a saved game&#8217;s state data from a previously saved file (by prompting the user).</p>
-</div>
-<div class="paragraph">
-<p><strong>Syntax:</strong> x = restore</p>
-</div>
-<div class="paragraph">
-<p><strong>Value:</strong> True if successful, false if not.</p>
-</div>
-<div class="paragraph">
-<p>return</p>
-</div>
-<div class="paragraph">
-<p><strong>Description:</strong> Returns from a called routine.</p>
-</div>
-<div class="paragraph">
-<p><strong>Syntax:</strong> return [&lt;expression&gt;]</p>
-</div>
-<div class="paragraph">
-<p><strong>Return value:</strong> Returns &lt;expression&gt; if provided, otherwise returns false.</p>
-</div>
-<div class="paragraph">
-<p>run</p>
-</div>
-<div class="paragraph">
-<p><strong>Description:</strong> Runs an object property routine if one exists.</p>
-</div>
-<div class="paragraph">
-<p><strong>Syntax:</strong> run &lt;object&gt;.&lt;property&gt;</p>
-</div>
-<div class="paragraph">
-<p><strong>Return value:</strong> None; any value returned by the property routine is discarded.</p>
-</div>
-<div class="paragraph">
-<p>runevents</p>
-</div>
-<div class="paragraph">
-<p><strong>Description:</strong> Calls all events which are either global or currently within the event scope of the player object.</p>
-</div>
-<div class="paragraph">
-<p><strong>Syntax:</strong> runevents</p>
-</div>
-<div class="paragraph">
-<p>save</p>
-</div>
-<div class="paragraph">
-<p><strong>Description:</strong> Saves the current game state to a file (by prompting the user).</p>
-</div>
-<div class="paragraph">
-<p><strong>Syntax:</strong> x = save</p>
-</div>
-<div class="paragraph">
-<p><strong>Value:</strong> True if successful, false if not.</p>
-</div>
-<div class="paragraph">
-<p>scriptoff</p>
-</div>
-<div class="paragraph">
-<p><strong>Description:</strong> Turns transcription off.</p>
-</div>
-<div class="paragraph">
-<p><strong>Syntax:</strong> x = scriptoff</p>
-</div>
-<div class="paragraph">
-<p><strong>Value:</strong> True if successful, false if not.</p>
-</div>
-<div class="paragraph">
-<p>scripton</p>
-</div>
-<div class="paragraph">
-<p><strong>Description:</strong> Turns transcription (i.e., recording output to a file or to a printer) on.</p>
-</div>
-<div class="paragraph">
-<p><strong>Syntax:</strong> x = scripton</p>
-</div>
-<div class="paragraph">
-<p><strong>Value:</strong> True if successful, false if not.</p>
-</div>
-<div class="paragraph">
-<p>select</p>
-</div>
-<div class="paragraph">
-<p><strong>Description:</strong> Specifies the value for comparison in a select-case conditional structure.</p>
-</div>
-<div class="paragraph">
-<p><strong>Syntax:</strong> select &lt;val&gt;</p>
-</div>
-<div class="paragraph">
-<p>case &lt;case1&gt;[, &lt;case2&gt;,&#8230;&#8203;]</p>
-</div>
-<div class="paragraph">
-<p>&#8230;&#8203;</p>
-</div>
-<div class="paragraph">
-<p>case &lt;case3&gt;[, &lt;case4&gt;,&#8230;&#8203;]</p>
-</div>
-<div class="paragraph">
-<p>&#8230;&#8203;</p>
-</div>
-<div class="paragraph">
-<p>where &lt;val&gt; is value such as a variable, routine return value, object property, array element, etc., and each &lt;case&gt; is a single value for comparison (not an expression).</p>
-</div>
-<div class="paragraph">
-<p>serial$</p>
-</div>
-<div class="paragraph">
-<p><strong>Description:</strong> Read-only engine variable that contains the serial number as written by the compiler.</p>
-</div>
-<div class="paragraph">
-<p>sibling</p>
-</div>
-<div class="paragraph">
-<p><strong>Syntax:</strong> x = sibling(&lt;object&gt;)</p>
-</div>
-<div class="paragraph">
-<p><strong>Return value:</strong> The number of the object next to &lt;object&gt; on the same branch of the object tree.</p>
-</div>
-<div class="paragraph">
-<p>sound</p>
-</div>
-<div class="paragraph">
-<p><strong>Description:</strong> Load and play an audio sample resource (if waveform audio output is available).</p>
-</div>
-<div class="paragraph">
-<p><strong>Syntax:</strong> sound [repeat] "file", "sample"[, vol]</p>
-</div>
-<div class="paragraph">
-<p>sound 0</p>
-</div>
-<div class="paragraph">
-<p>where &lt;file&gt; is a compiled Hugo resourcefile, and &lt;sample&gt; is a waveform sample in RIFF/WAV format. The optional &lt;vol&gt; argument, if given, ranges from 0 to 100 and gives a percentage of volume for playback. If the repeat token is used, the sample continues to loop until either a new sample is played, or the current sample is stopped (using <code>sound 0</code>).</p>
-</div>
-<div class="paragraph">
-<p>string</p>
-</div>
-<div class="paragraph">
-<p><strong>Description:</strong> When used in a grammar syntax line, indicates that a string array enclosed in quotation marks is valid.</p>
-</div>
-<div class="paragraph">
-<p>When used as a function, stores a dictionary entry in a string array.</p>
-</div>
-<div class="paragraph">
-<p><strong>Syntax:</strong> x = string(&lt;array&gt;, &lt;dict&gt;, &lt;maxlen&gt;)</p>
-</div>
-<div class="paragraph">
-<p>x = string(&lt;array&gt;, parse$, &lt;maxlen&gt;)</p>
-</div>
-<div class="paragraph">
-<p>where &lt;array&gt; is an array address, stores the either the dictionary entry given by &lt;dict&gt; or the contents of parse$ as a series of characters, to a maximum of &lt;maxlen&gt; characters. Returns the length of the string stored in &lt;array&gt;.</p>
-</div>
-<div class="paragraph">
-<p>system</p>
-</div>
-<div class="paragraph">
-<p><strong>Description:</strong> Built-in function to call low-level system functions.</p>
-</div>
-<div class="paragraph">
-<p><strong>Syntax:</strong> system(&lt;function&gt;)</p>
-</div>
-<div class="paragraph">
-<p><strong><span class="underline">FUNC. LABEL DESCRIPTION</span></strong></p>
-</div>
-<div class="paragraph">
-<p>11 READ_KEY Read keypress</p>
-</div>
-<div class="paragraph">
-<p>21 NORMALIZE_RANDOM Make random values predictable</p>
-</div>
-<div class="paragraph">
-<p>22 INIT_RANDOM Restore <code>random</code> random values</p>
-</div>
-<div class="paragraph">
-<p>31 PAUSE_SECOND Pause for one second</p>
-</div>
-<div class="paragraph">
-<p>32 PAUSE_100TH_SECOND Pause for 1/100th of a second</p>
-</div>
-<div class="paragraph">
-<p>41 GAME_RESET Returns true after restore or undo</p>
-</div>
-<div class="paragraph">
-<p>51 SYSTEM_TIME Stores system time in parse$</p>
-</div>
-<div class="paragraph">
-<p>61 MINIMAL_INTERFACE Returns true for minimal ports</p>
-</div>
-<div class="paragraph">
-<p><em>(Labels are defined as a constants in</em> <strong>system.h</strong><em>.)</em></p>
-</div>
-<div class="paragraph">
-<p>If &lt;function&gt; is unavailable, the engine may set system_status to -1 (STAT_UNAVAILABLE).</p>
-</div>
-<div class="paragraph">
-<p>text</p>
-</div>
-<div class="paragraph">
-<p>text to &lt;val&gt; Sends text to the array table, beginning at address &lt;val&gt;.</p>
-</div>
-<div class="paragraph">
-<p>text to 0 Restores normal printing.</p>
-</div>
-<div class="paragraph">
-<p>to</p>
-</div>
-<div class="paragraph">
-<p><strong>Description:</strong> In a print statement, prints blank spaces in the current background color to the specified position.</p>
-</div>
-<div class="paragraph">
-<p><strong>Syntax:</strong> print to &lt;val&gt;</p>
-</div>
-<div class="paragraph">
-<p>where &lt;val&gt; is a positive integer less than or equal to the maximum column position</p>
-</div>
-<div class="paragraph">
-<p>true</p>
-</div>
-<div class="paragraph">
-<p><strong>Description:</strong> Predefined constant: 1.</p>
-</div>
-<div class="paragraph">
-<p>undo</p>
-</div>
-<div class="paragraph">
-<p><strong>Description:</strong> Attempts to recover the state of the game data before the last player command.</p>
-</div>
-<div class="paragraph">
-<p><strong>Syntax:</strong> x = undo</p>
-</div>
-<div class="paragraph">
-<p><strong>Value:</strong> True if successful, false if not.</p>
-</div>
-<div class="paragraph">
-<p>verb</p>
-</div>
-<div class="paragraph">
-<p><strong>Description:</strong> Begins definition of a regular verb. Upon returning true from the verb routine, Main is called.</p>
-</div>
-<div class="paragraph">
-<p><strong>Syntax:</strong> verb "&lt;word1&gt;"[, "&lt;word2&gt;",&#8230;&#8203;]</p>
-</div>
-<div class="paragraph">
-<p>while</p>
-</div>
-<div class="paragraph">
-<p><strong>Description:</strong> Component of while or do-while loop construct.</p>
-</div>
-<div class="paragraph">
-<p><strong>Syntax:</strong> while &lt;expr&gt;</p>
-</div>
-<div class="paragraph">
-<p>\{</p>
-</div>
-<div class="paragraph">
-<p>&#8230;&#8203;</p>
-</div>
-<div class="paragraph">
-<p>}</p>
-</div>
-<div class="paragraph">
-<p>or</p>
-</div>
-<div class="paragraph">
-<p>do</p>
-</div>
-<div class="paragraph">
-<p>\{</p>
-</div>
-<div class="paragraph">
-<p>&#8230;&#8203;</p>
-</div>
-<div class="paragraph">
-<p>}</p>
-</div>
-<div class="paragraph">
-<p>while &lt;expr&gt;</p>
-</div>
-<div class="paragraph">
-<p>where the loop will run as long as &lt;expr&gt; holds true.</p>
-</div>
-<div class="paragraph">
-<p>window</p>
-</div>
-<div class="paragraph">
-<p><strong>Description:</strong> Switches output to the status window.</p>
-</div>
-<div class="paragraph">
-<p><strong>Syntax:</strong> window a[, b, c, d]</p>
-</div>
-<div class="paragraph">
-<p>\{&#8230;&#8203;}</p>
-</div>
-<div class="paragraph">
-<p>or</p>
-</div>
-<div class="paragraph">
-<p>window</p>
-</div>
-<div class="paragraph">
-<p>\{&#8230;&#8203;}</p>
-</div>
-<div class="paragraph">
-<p>or</p>
-</div>
-<div class="paragraph">
-<p>window 0</p>
-</div>
-<div class="paragraph">
-<p>If only a single value &lt;a&gt; is given, a window of &lt;a&gt; lines from the top of the screen is created. If more values are given, a window from top-left (a, b) to bottom-right (c, d) is created. If no values are given, the last-defined window is recreated. The new boundaries apply for the length of the following <code>{&#8230;&#8203;}</code> code block.</p>
-</div>
-<div class="paragraph">
-<p><code>window 0</code> restores full-screen display. There is no following code block.</p>
-</div>
-<div class="paragraph">
-<p>writefile</p>
-</div>
-<div class="paragraph">
-<p><strong>Description:</strong> A structure that writes values to a file that may be read using readfile.</p>
-</div>
-<div class="paragraph">
-<p><strong>Syntax:</strong> writefile &lt;filename&gt;</p>
-</div>
-<div class="paragraph">
-<p>\{</p>
-</div>
-<div class="paragraph">
-<p>&#8230;&#8203;</p>
-</div>
-<div class="paragraph">
-<p>}</p>
-</div>
-<div class="paragraph">
-<p>The file is opened and positioned to the start at the beginning of the writefile block, and closed at the end.</p>
-</div>
-<div class="paragraph">
-<p>writeval</p>
-</div>
-<div class="paragraph">
-<p><strong>Description:</strong> Writes one or more values in a writefile block.</p>
-</div>
-<div class="paragraph">
-<p><strong>Syntax:</strong> writefile value1[, value2, &#8230;&#8203;]</p>
-</div>
-<div class="paragraph">
-<p>xobject</p>
-</div>
-<div class="paragraph">
-<p><strong>Description:</strong> Global variable holding the object number of the indirect object, if any, specified in the input line.</p>
-</div>
-<div class="paragraph">
-<p>When used in a grammar syntax line, indicates that a single available object is valid.</p>
-</div>
-<div class="paragraph">
-<p>xverb</p>
-</div>
-<div class="paragraph">
-<p><strong>Description:</strong> Begins definition of non-action verb. Upon returning from the verb routine, Main is not called.</p>
-</div>
-<div class="paragraph">
-<p><strong>Syntax:</strong> xverb "&lt;word1&gt;"[, "&lt;word2&gt;", &#8230;&#8203;]</p>
-</div>
-<div class="paragraph">
-<p>younger</p>
-</div>
-<div class="paragraph">
-<p>Same as sibling.</p>
-</div>
-<div class="paragraph">
-<p>youngest</p>
-</div>
-<div class="paragraph">
-<p><strong>Syntax:</strong> x = youngest(&lt;parent&gt;)</p>
-</div>
-<div class="paragraph">
-<p><strong>Return value:</strong> The number of the object most recently added to parent &lt;parent&gt;.</p>
-</div>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big">xverb</span></code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" rowspan="2"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Description:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Begins definition of non-action verb.
+Upon returning from the verb routine, <code>Main</code> is not called.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Syntax:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">xverb "&lt;word1&gt;"[, "&lt;word2&gt;", ...]</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big">younger</span></code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Same as <code>sibling</code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big">youngest</span></code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" rowspan="2"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Syntax:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">x = youngest(&lt;parent&gt;)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Return&#160;value:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>The number of the object most recently added to parent <code>&lt;parent&gt;</code>.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 <div class="sect1">
