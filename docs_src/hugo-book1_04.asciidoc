@@ -3,9 +3,11 @@
 
 == Variables
 
-
-
-What is a variable, exactly? Let's start with the difference between a constant value and a variable value. The number 6 is a constant: we can't change it. We can't tell the program: "`In this particular circumstance, let's treat this 6 like it was actually 21.`" Consider a situation, however, where we may want to record a particular value at one point in order to refer to it later. In other words, we may want to use a value that we won't know at the time we write the code that will be using it.
+What is a variable, exactly?
+Let's start with the difference between a constant value and a variable value.
+The number 6 is a constant: we can't change it.
+We can't tell the program: "`In this particular circumstance, let's treat this 6 like it was actually 21.`" Consider a situation, however, where we may want to record a particular value at one point in order to refer to it later.
+In other words, we may want to use a value that we won't know at the time we write the code that will be using it.
 
 Here's a piece of code that, as we'll see shortly, prints a single line of output with a number in the middle:
 
@@ -28,25 +30,32 @@ or
 The temperature is –9 degrees.
 ================================================================================
 
-or any other similar variation depending on what the _variable_ temp happens to be equal to at the time.footnote:[Those readers who weren't already aware of variables and their usage may at this point be starting to have high-school algebra flashbacks. That's because we're talking about the same concept--but, promise, no one is going to be asked to solve any quadratic equations.]
+or any other similar variation depending on what the _variable_ `temp` happens to be equal to at the time.footnote:[Those readers who weren't already aware of variables and their usage may at this point be starting to have high-school algebra flashbacks.
+That's because we're talking about the same concept -- but, promise, no one is going to be asked to solve any quadratic equations.]
 
-Hugo supports two kinds of variables: _global_ and _local_. Either type simply holds an integer value, so a variable can hold a simple value, an object number, a dictionary address, a routine address, or any other standard Hugo data type through an assignment such as:
+Hugo supports two kinds of variables: _global_ and _local_.
+Either type simply holds an integer value, so a variable can hold a simple value, an object number, a dictionary address, a routine address, or any other standard Hugo data type through an assignment such as:
 
 [source,hugo]
 --------------------------------------------------------------------------------
 a = 1
-
 nextobj = parent(obj)
-
 temp_word = "the"
 --------------------------------------------------------------------------------
 
-_Global_ variables are visible throughout the program. They must be defined similarly to properties and attributes as
+_Global_ variables are visible throughout the program.
+They must be defined similarly to properties and attributes as
 
+// @FIXME: HUGO SYNTAX MOCKUP!
+[source,hugo]
+-------------------------------------------------
 global <global variable name>[ = <initial value>]
+-------------------------------------------------
 
-_Local_ variables, on the other hand, are recognized only within the routine in which they are defined. They are defined using
+_Local_ variables, on the other hand, are recognized only within the routine in which they are defined.
+They are defined using
 
+// @FIXME: HUGO SYNTAX MOCKUP!
 [source,hugo]
 --------------------------------------------------------------------------------
 local <local variable name>[ = <initial value>]
@@ -54,14 +63,16 @@ local <local variable name>[ = <initial value>]
 
 Global variables must of course have a unique name, different from that of any other data object; local variables, on the other hand, may share the names of local variables in other routines.
 
-In either case, global or local, the default initial value is 0 if no other value is given. For example,
+In either case, global or local, the default initial value is 0 if no other value is given.
+For example,
 
 [source,hugo]
 --------------------------------------------------------------------------------
 global time_of_day = 1100
 --------------------------------------------------------------------------------
 
-is equal to 1100 when the program is run, and is visible at any point in the program, by any object or routine. On the other hand, the variables
+is equal to 1100 when the program is run, and is visible at any point in the program, by any object or routine.
+On the other hand, the variables
 
 [source,hugo]
 --------------------------------------------------------------------------------
@@ -70,90 +81,89 @@ local a, max = 100, t
 
 are visible only within the block of code where they are defined, and are initialized to 0, 100, and 0, respectively, each time that section of code (be it a routine, property routine, event, etc.) is run.
 
-The compiler defines a set of engine globals: global variables that are referenced directly by the engine, but which may otherwise be treated like any other global variables. These are:
+The compiler defines a set of engine globals: global variables that are referenced directly by the engine, but which may otherwise be treated like any other global variables.
+These are:
 
-object direct object of an action
+[.center,caption=]
+[cols="<m,<d",options=autowidth,grid=none,stripes=even]
+|============================================================
+| object        | direct object of an action
+| xobject       | indirect object
+| self          | self-referential object
+| words         | total number of words in command
+| player        | the player object
+| actor         | the player, or character obj. (for scripts)
+| verbroutine   | specified by the command
+| location      | location of the `player` object
+| endflag       | if not false (0), run `EndGame` routine
+| prompt        | for input; default is `">"`
+| objects       | the total number of objects
+| system_status | after certain operations
+|============================================================
 
-xobject indirect object
+The `object`, `xobject`, and `verbroutine` globals are set up by the engine depending on what command is entered by the player.
+The `self` global is undefined except when an object is being referenced (as in a property routine or event).
+In that case, it is set to the number of that object.
+The `player` variable holds the number of the object that the player is controlling; the `endflag` variable must be 0 unless something has occurred to end the game; and the `prompt` variable represents the dictionary word appearing at the start of an input line (which most programs set to `>` by convention).
 
-self self-referential object
+// @TODO: Missing XRef: "Resources"
 
-words total number of words in command
-
-player the player object
-
-actor the player, or character obj. (for scripts)
-
-verbroutine specified by the command
-
-location location of the player object
-
-endflag if not false (0), run EndGame routine
-
-prompt for input; default is “>“
-
-objects the total number of objects
-
-system_status after certain operations
-
-The object, xobject, and verbroutine globals are set up by the engine depending on what command is entered by the player. The self global is undefined except when an object is being referenced (as in a property routine or event). In that case, it is set to the number of that object. The player variable holds the number of the object that the player is controlling; the endflag variable must be 0 unless something has occurred to end the game; and the prompt variable represents the dictionary word appearing at the start of an input line (which most programs set to `>` by convention).
-
-The objects variable can be set by the program, but to no useful effect. The engine will reset it to the "`real`" value whenever referenced. (All object numbers range from 0 to the value of objects.) The system_status variable may be read (after a resource operation or a system call; see the relevant sections for an explanation of these functions) to check for an error value. See the section on _"`Resources`"_ for possible return values.
+The `objects` variable can be set by the program, but to no useful effect.
+The engine will reset it to the "`real`" value whenever referenced.
+(All object numbers range from 0 to the value of `objects`.)
+The `system_status` variable may be read (after a resource operation or a `system` call; see the relevant sections for an explanation of these functions) to check for an error value.
+See the section on "`__Resources__`" for possible return values.
 
 [NOTE]
 ================================================================================
-Setting endflag to a non-zero value forces an _immediate_ break from the game loop. Statements following the endflag assignment even in the same function are not executed; control is passed directly to the engine, which calls the EndGame routine.
+Setting `endflag` to a non-zero value forces an _immediate_ break from the game loop.
+Statements following the `endflag` assignment even in the same function are not executed; control is passed directly to the engine, which calls the `EndGame` routine.
 ================================================================================
-
 
 
 == Constants
 
-
-
 Constants are simply labels that represent a non-modifiable value.
 
 [source,hugo]
---------------------------------------------------------------------------------
+--------------------------
 constant FIRST_NAME "John"
-
 constant LAST_NAME "Smith"
---------------------------------------------------------------------------------
+--------------------------
 
-(Note the lack of an `=` sign between, for example, FIRST_NAME and `John`.)
+(Note the lack of an `=` sign between, for example, `FIRST_NAME` and `John`.)
 
 [source,hugo]
---------------------------------------------------------------------------------
+---------------------------------
 print LAST_NAME; ", "; FIRST_NAME
---------------------------------------------------------------------------------
+---------------------------------
 
 results in:
 
+[example,role="gametranscript"]
 Smith, John
 
 Constants can, like any other Hugo data type, be integers, dictionary entries, object numbers, etc.
 
-It is not absolutely necessary that a constant be given a definite value if the constant is to be used as some sort of flag or marker, etc. Therefore,
+It is not absolutely necessary that a constant be given a definite value if the constant is to be used as some sort of flag or marker, etc.
+Therefore,
 
 [source,hugo]
 --------------------------------------------------------------------------------
 constant THIS_RESULT
-
 constant THAT_RESULT
 --------------------------------------------------------------------------------
 
 will have unique values from each other, as well as from any other constant defined without a specific value.
 
-Sometimes it may be useful to enumerate a series of constants in sequence. Instead of defining them all individually, it is possible to use:
+Sometimes it may be useful to enumerate a series of constants in sequence.
+Instead of defining them all individually, it is possible to use:
 
 [source,hugo]
 --------------------------------------------------------------------------------
 enumerate start = 1
-
-\{
-
-MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY
-
+{
+    MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY
 }
 --------------------------------------------------------------------------------
 
@@ -162,20 +172,18 @@ giving:
 [source,hugo]
 --------------------------------------------------------------------------------
 MONDAY = 1, TUESDAY = 2, WEDNESDAY = 3,
-
 THURSDAY = 4, FRIDAY = 5
 --------------------------------------------------------------------------------
 
-The start value is optional. If omitted, it is 0. Also, it is possible to change the current value at any point (therefore also affecting all following values).
+The start value is optional.
+If omitted, it is 0.
+Also, it is possible to change the current value at any point (therefore also affecting all following values).
 
 [source,hugo]
 --------------------------------------------------------------------------------
 enumerate
-
-\{
-
-A, B, C = 5, D, E
-
+{
+    A, B, C = 5, D, E
 }
 --------------------------------------------------------------------------------
 
@@ -186,17 +194,14 @@ giving:
 A = 0, B = 1, C = 5, D = 6, E = 7.
 --------------------------------------------------------------------------------
 
-Finally, it is possible to alter the step value of the enumeration using the step keyword followed by `+n`, `-n`, `*n`, or `/n`, where `n` is a constant integer value.
+Finally, it is possible to alter the step value of the enumeration using the `step` keyword followed by `+n`, `-n`, `*n`, or `/n`, where `n` is a constant integer value.
 To start with 1 and count by multiples of two:
 
 [source,hugo]
 --------------------------------------------------------------------------------
 enumerate step *2
-
-\{
-
-A = 1, B, C, D
-
+{
+    A = 1, B, C, D
 }
 --------------------------------------------------------------------------------
 
@@ -207,282 +212,372 @@ giving:
 A = 1, B = 2, C = 4, D = 8.
 --------------------------------------------------------------------------------
 
-Enumeration of global variables is also possible, using the globals specifier, as in:
+Enumeration of global variables is also possible, using the `globals` specifier, as in:
 
+// @FIXME: HUGO SYNTAX MOCKUP!
 [source,hugo]
 --------------------------------------------------------------------------------
 enumerate globals
-
-\{
-
-<global1>, <global2>,...
-
+{
+    <global1>, <global2>,...
 }
 --------------------------------------------------------------------------------
 
 Otherwise the specifier `constants` (as opposed to `globals`) is implied as the default.
 
+
 == Printing Text
 
-
-
-Text can be printed--that is, output to the screen during running of a Hugo program--using two different methods. The first is the basic print command, the simplest form of which is
+Text can be printed -- that is, output to the screen during running of a Hugo program -- using two different methods.
+The first is the basic `print` command, the simplest form of which is
 
 [source,hugo]
 --------------------------------------------------------------------------------
 print "<string>"
 --------------------------------------------------------------------------------
 
-where <string> consists of a series of alphanumeric characters and punctuation.
+where `<string>` consists of a series of alphanumeric characters and punctuation.
 
-The backslash character (`\`) is handled specially. It modifies how the character following it in a string is treated.footnote:[These formatting combinations are valid for printing only; they are not treated as literal characters, as in, for example, expressions involving dictionary entries. Note also that (unlike in languages such as C) formatting sequences such as `\n` are treated as two characters in a string.]
+The backslash character (`\`) is handled specially.
+It modifies how the character following it in a string is treated.footnote:[These formatting combinations are valid for printing only; they are not treated as literal characters, as in, for example, expressions involving dictionary entries.
+Note also that (unlike in languages such as C) formatting sequences such as `\n` are treated as two characters in a string.]
 
-\" inserts quotation marks
-
-\\ insert a literal backslash character
-
-\_ insert a forced space, overriding left-justification for the rest of the string
-
-\n insert a forced newline
+[horizontal]
+`\"` :: inserts quotation marks
+`\\` :: insert a literal backslash character
+`\_` :: insert a forced space, overriding left-justification for the rest of the string
+`\n` :: insert a forced newline
 
 As usual, a single `\` at the end of a line signals that the line continues with the following line.
 
 Examples:
 
+[source,hugo]
+------------------
 print "\"Hello!\""
+------------------
 
+[example,role="gametranscript"]
+===============================
 "Hello!"
+===============================
 
+[source,hugo]
+------------------------------
 print "Print a...\n...newline"
+------------------------------
 
-Print a...
-
+[example,role="gametranscript"]
+===============================
+Print a... +
 ...newline
+===============================
 
+[source,hugo]
+-----------------------
 print "One\\two\\three"
+-----------------------
 
+[example,role="gametranscript"]
+===============================
 One\two\three
+===============================
 
+[source,hugo]
+-----------------------------
 print " Left-justified"
-
 print "\_ Not left-justified"
+-----------------------------
 
-Left-justified
-
+[example,role="gametranscript"]
+==========================================
+Left-justified +
+{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}
 Not left-justified
+==========================================
 
+[source,hugo]
+------------------
 print "This is a \
-
 single line."
+------------------
 
+[example,role="gametranscript"]
+===============================
 This is a single line.
+===============================
 
-(Although
+[NOTE]
+================================================================================
+Although
 
+[source,hugo]
+----------------
 print "This is a
-
 single line."
+----------------
 
-will produce the same result, since the line break occurs within quotation marks.)
+will produce the same result, since the line break occurs within quotation marks.
+================================================================================
 
-After each of the above print commands, a newline is printed. To avoid this, append a semicolon (`;`) to the end of the print statement.
+After each of the above print commands, a newline is printed.
+To avoid this, append a semicolon (`;`) to the end of the `print` statement.
 
 [source,hugo]
---------------------------------------------------------------------------------
+--------------------
 print "This is a ";
-
 print "single line."
---------------------------------------------------------------------------------
+--------------------
 
+[example,role="gametranscript"]
+===============================
 This is a single line.
+===============================
 
-Print statements may also contain data types, or a combination of data types and strings. The command
+Print statements may also contain data types, or a combination of data types and strings.
+The command
 
+[source,hugo]
+----------------------------------------
 print "The "; object.name; " is closed."
+----------------------------------------
 
-will print the word located at the dictionary address specified by object.name, so that if object.name points to the word `box`, the resulting output would be:
+will print the word located at the dictionary address specified by `object.name`, so that if `object.name` points to the word `box`, the resulting output would be:
 
+[example,role="gametranscript"]
+===============================
 The box is closed.
+===============================
 
-To capitalize the first letter of the specified word, use the capital modifier.
+To capitalize the first letter of the specified word, use the `capital` modifier.
 
 [source,hugo]
---------------------------------------------------------------------------------
+------------------------------------------------
 print "The "; capital object.name; " is closed."
---------------------------------------------------------------------------------
+------------------------------------------------
 
+[example,role="gametranscript"]
+===============================
 The Box is closed.
+===============================
 
-To print the data type as a value instead of referencing the dictionary, use the number modifier. For example, if the variable time holds the value 5,
-
-print "There are "; number time; " seconds remaining."
-
-There are 5 seconds remaining.
-
-If number were not used, the engine would try to find a word at the dictionary address 5, and the result will likely be garbage.
-
-Mainly for debugging purposes, the modifier hex prints the data type as a hexadecimal number instead of a decimal one. If the variable val equals 127,
+To print the data type as a value instead of referencing the dictionary, use the `number` modifier.
+For example, if the variable `time` holds the value 5,
 
 [source,hugo]
---------------------------------------------------------------------------------
+------------------------------------------------------
+print "There are "; number time; " seconds remaining."
+------------------------------------------------------
+
+[example,role="gametranscript"]
+===============================
+There are 5 seconds remaining.
+===============================
+
+If `number` were not used, the engine would try to find a word at the dictionary address 5, and the result will likely be garbage.
+
+Mainly for debugging purposes, the modifier `hex` prints the data type as a hexadecimal number instead of a decimal one.
+If the variable `val` equals 127,
+
+[source,hugo]
+-----------------------------------------------------
 print number val; " is "; hex val; " in hexadecimal."
---------------------------------------------------------------------------------
+-----------------------------------------------------
 
+[example,role="gametranscript"]
+===============================
 127 is 7F in hexadecimal.
+===============================
 
-The second way to print text is from the text bank, from which--if memory is in short supply--sections are loaded from disk only when they are needed by the program. This method is provided so that lengthy blocks of text--such as description and narration--do not take up valuable space if memory is limited. The command consists simply of a quoted string without any preceding statement.
+The second way to print text is from the text bank, from which -- if memory is in short supply -- sections are loaded from disk only when they are needed by the program.
+This method is provided so that lengthy blocks of text -- such as description and narration -- do not take up valuable space if memory is limited.
+The command consists simply of a quoted string without any preceding statement.
 
+[source,hugo]
+---------------------------------------
 "This string would be written to disk."
+---------------------------------------
 
+[example,role="gametranscript"]
+=====================================
 This string would be written to disk.
+=====================================
 
 or
 
+[source,hugo]
+---------------------
 "So would this one ";
-
 "and this one."
+---------------------
 
+[example,role="gametranscript"]
+===============================
 So would this one and this one.
+===============================
 
-Notice that a semicolon at the end of the statement still overrides the newline. The in-string formatting combinations are still usable with these print statements, but since each statement is a single line, data types and other modifiers may not be compounded. Because of that,
+Notice that a semicolon at the end of the statement still overrides the newline.
+The in-string formatting combinations are still usable with these print statements, but since each statement is a single line, data types and other modifiers may not be compounded.
+Because of that,
 
 [source,hugo]
---------------------------------------------------------------------------------
+----------------------
 "\"Hello,\"" he said."
---------------------------------------------------------------------------------
+----------------------
 
 will write
 
+[example,role="gametranscript"]
+===============================
 "Hello," he said.
+===============================
 
-to the .HEX file text bank, but
+to the *.HEX* file text bank, but
 
+[source,hugo]
+-----------------------------------------------------
 "There are "; number time_left; " seconds remaining."
+-----------------------------------------------------
 
 is illegal.
 
-The color of text may be changed using the color command (also valid with the U.K. spelling colour). The format is
+The color of text may be changed using the `color` command (also valid with the U.K. spelling `colour`).
+The format is
 
+// @FIXME: HUGO SYNTAX MOCKUP!
+[source,hugo]
+---------------------------------------------------
 color <foreground>[, <background>[, <input color>]]
+---------------------------------------------------
 
-where the background color is not necessary. If no background color is specified, the current one is assumed). The input color is also not necessary--this refers to the color of player input and, if not given, is the same as the foreground color.
+where the background color is not necessary.
+If no background color is specified, the current one is assumed).
+The input color is also not necessary -- this refers to the color of player input and, if not given, is the same as the foreground color.
 
 The standard color set with corresponding values and constant labels (defined in *hugolib.h*) is:
 
-*[.underline]#COLOR# [.underline]#VALUE# [.underline]#LABEL#*
 
-Black 0 BLACK
+[.center,caption=]
+[cols="<d,>s,<m",options=autowidth,grid=none,stripes=even]
+|=========================================================
+| COLOR                     | VALUE | LABEL
 
-Blue 1 BLUE
+| Black                     |  0    | BLACK
+| Blue                      |  1    | BLUE
+| Green                     |  2    | GREEN
+| Cyan                      |  3    | CYAN
+| Red                       |  4    | RED
+| Magenta                   |  5    | MAGENTA
+| Brown                     |  6    | BROWN
+| White                     |  7    | WHITE
+| Dark gray                 |  8    | DARK_GRAY
+| Light blue                |  9    | LIGHT_BLUE
+| Light green               | 10    | LIGHT_GREEN
+| Light cyan                | 11    | LIGHT_CYAN
+| Light red                 | 12    | LIGHT_RED
+| Light magenta             | 13    | LIGHT_MAGENTA
+| Yellow                    | 14    | YELLOW
+| Bright white              | 15    | BRIGHT_WHITE
+| Default foreground        | 16    | DEF_FOREGROUND
+| Default background        | 17    | DEF_BACKGROUND
+| Default statusline (fore) | 18    | DEF_SL_FOREGROUND
+| Default statusline (back) | 19    | DEF_SL_BACKGROUND
+| Match foreground          | 20    | MATCH_FOREGROUND
+|=========================================================
 
-Green 2 GREEN
+[TIP]
+================================================================================
+Since the labels are defined in *hugolib.h,* when using the library, it is never necessary to refer to a color by its numerical value.
+================================================================================
 
-Cyan 3 CYAN
-
-Red 4 RED
-
-Magenta 5 MAGENTA
-
-Brown 6 BROWN
-
-White 7 WHITE
-
-Dark gray 8 DARK_GRAY
-
-Light blue 9 LIGHT_BLUE
-
-Light green 10 LIGHT_GREEN
-
-Light cyan 11 LIGHT_CYAN
-
-Light red 12 LIGHT_RED
-
-Light magenta 13 LIGHT_MAGENTA
-
-Yellow 14 YELLOW
-
-Bright white 15 BRIGHT_WHITE
-
-Default foreground 16 DEF_FOREGROUND
-
-Default background 17 DEF_BACKGROUND
-
-Default statusline (fore) 18 DEF_SL_FOREGROUND
-
-Default statusline (back) 19 DEF_SL_BACKGROUND
-
-Match foreground 20 MATCH_FOREGROUND
-
-(Since the labels are defined in *hugolib.h,* when using the library, it is never necessary to refer to a color by its numerical value.)
-
-It is expected that, regardless of the system, any color will print visibly on any other color. Video technology and shortcomings of the visible light spectrum conspire to foil this plan, however, it is suggested for practicality that white (and less frequently bright while) be used for most text-printing. Blue and black are fairly standard background colors for light-colored (such as white) text--this is a common combination for default text (as is dark text, such as black, on a white background). A game author can use the DEF_FOREGROUND, DEF_BACKGROUND, DEF_SL_FOREGROUND, and DEF_SL_BACKGROUND colors (as is done in *sample.hug* and is the default in *shell.hug*) since this uses the colors supplied by the Hugo Engine, allowing the user to change colors to his or her liking if the port supports that capability.
+It is expected that, regardless of the system, any color will print visibly on any other color.
+Video technology and shortcomings of the visible light spectrum conspire to foil this plan, however, it is suggested for practicality that white (and less frequently bright while) be used for most text-printing.
+Blue and black are fairly standard background colors for light-colored (such as white) text -- this is a common combination for default text (as is dark text, such as black, on a white background).
+A game author can use the `DEF_FOREGROUND`, `DEF_BACKGROUND`, `DEF_SL_FOREGROUND`, and `DEF_SL_BACKGROUND` colors (as is done in *sample.hug* and is the default in *shell.hug*) since this uses the colors supplied by the Hugo Engine, allowing the user to change colors to his or her liking if the port supports that capability.
 
 Magenta printing on a cyan background is accomplished by
 
+[source,hugo]
+-------------------
 color MAGENTA, CYAN
+-------------------
 
 or
 
-color 5, 3 ! if not using HUGOLIB.H
+[source,hugo]
+----------------------------------------
+color 5, 3      ! if not using HUGOLIB.H
+----------------------------------------
 
-A current line can be filled--with blank spaces in the current color--to a specified column (essentially a tab stop) using the `print to...` structure as follows:
+A current line can be filled -- with blank spaces in the current color -- to a specified column (essentially a tab stop) using the `print to...` structure as follows:
 
+[source,hugo]
+-----------------------------
 print "Time:"; to 40; "Date:"
+-----------------------------
 
-where the value following to does not exceed the maximum line length in the engine global linelength.
+where the value following `to` does not exceed the maximum line length in the engine global `linelength`.
 
 The resulting output will be something like:
 
-Time: Date:
+[example,role="gametranscript"]
+================================================================================
+Time:
+{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}
+{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}
+{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}
+{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}
+Date:
+================================================================================
 
-Text can be specifically located using the locate command via
+Text can be specifically located using the `locate` command via
 
+// @FIXME: HUGO SYNTAX MOCKUP!
+[source,hugo]
+----------------------
 locate <column>, <row>
+----------------------
 
 where
 
+[source,hugo]
+-------------
 locate 1, 1
+-------------
 
-places text output at the top left corner of the current text window. Neither <column> nor <row> may exceed the current window boundaries--the engine will automatically constrain them as necessary.
+places text output at the top left corner of the current text window.
+Neither `<column>` nor `<row>` may exceed the current window boundaries -- the engine will automatically constrain them as necessary.
+
 
 == More Formatting Sequences
 
-
-
 As listed above, the following are valid printing sequences that may be embedded in printed strings:
 
-\" quotation marks
+[horizontal]
+`\"` :: quotation marks
+`\\` :: a literal backslash character
+`\_` :: a forced space, overriding left-justification for the rest of the string
+`\n` :: a newline
 
-\\ a literal backslash character
+The next set of formatting sequences control the appearance of printed text by turning on and off boldface, italic, proportional, and underlined printing.
+Not all computers and operating systems are able to provide all types of printed output; however, the engine can be relied upon to properly process any formatting -- i.e., proportionally printed text will still look fine even on a system that has only a fixed-width font, such as a Unix text terminal or DOS output (although, of course, it won't be proportionally spaced).
 
-\_ a forced space, overriding left-justification for the rest of the string
-
-\n a newline
-
-The next set of formatting sequences control the appearance of printed text by turning on and off boldface, italic, proportional, and underlined printing. Not all computers and operating systems are able to provide all types of printed output; however, the engine can be relied upon to properly process any formatting--i.e., proportionally printed text will still look fine even on a system that has only a fixed-width font, such as a Unix text terminal or DOS output (although, of course, it won't be proportionally spaced).
-
-\B boldface on
-
-\b boldface off
-
-\I italics on
-
-\i italics off
-
-\P proportional printing on
-
-\p proportional printing off
-
-\U underlining on
-
-\u underlining off
+[horizontal]
+`\B` :: boldface on
+`\b` :: boldface off
+`\I` :: italics on
+`\i` :: italics off
+`\P` :: proportional printing on
+`\p` :: proportional printing off
+`\U` :: underlining on
+`\u` :: underlining off
 
 A statement like the following:
 
 [source,hugo]
---------------------------------------------------------------------------------
+----------------------------------------------------------------------
 "A \Bbold string with some \Iitalics\i and \Uunderline\b thrown in.\u"
---------------------------------------------------------------------------------
+----------------------------------------------------------------------
 
 will result in output like:
 
@@ -491,682 +586,903 @@ will result in output like:
 A **bold string with some _italics_ and [.underline]#underline#** [.underline]#thrown in.#
 ================================================================================
 
-Print style can also be changed using the Font routine in *hugolib.h*, so that in
+Print style can also be changed using the `Font` routine in *hugolib.h*, so that in
 
+// @FIXME: HUGO SYNTAX MOCKUP!
+[source,hugo]
+------------------------
 Font(<font change code>)
+------------------------
 
-the <font change code> can be one or more of:
+the `<font change code>` can be one or more of:
 
-BOLD_ON BOLD_OFF
-
-ITALICS_ON ITALICS_OFF
-
-UNDERLINE_ON UNDERLINE_OFF
+[.center,caption=]
+[cols="2*<m",options=autowidth,frame=none,grid=none,stripes=none]
+|================================================================
+| BOLD_ON      | BOLD_OFF
+| ITALICS_ON   | ITALICS_OFF
+| UNDERLINE_ON | UNDERLINE_OFF
+|================================================================
 
 and can subsequently be used alone or in combination such as:
 
+[source,hugo]
+-------------------------------------
 Font(BOLD_ON | ITALICS_ON | PROP_OFF)
+-------------------------------------
 
-It's preferable to rely on the Font function and the various font constants instead of embedding multiple font-change formatting sequences because if for no other reason than it being clearer to understand when reading the source code.
+It's preferable to rely on the `Font` function and the various font constants instead of embedding multiple font-change formatting sequences because if for no other reason than it being clearer to understand when reading the source code.
 
-Special characters can also be printed via formatting sequences. Note that these characters are contained in the Latin-1 character set; if a particular system is incapable of displaying it, it will display the normal-ASCII equivalent. (The following examples, appearing in parentheses, may not display properly on all computers and printers.)
+Special characters can also be printed via formatting sequences.
+Note that these characters are contained in the Latin-1 character set; if a particular system is incapable of displaying it, it will display the normal-ASCII equivalent.
 
-``+++\`+++`` accent grave followed by a letter
+[WARNING]
+================================================================================
+The following examples, appearing in parentheses, may not display properly on all computers and printers.
+================================================================================
 
+[caption=]
+// [cols="<m,<s,<a",options=autowidth,frame=none,grid=none,stripes=none]
+[cols="<m,<s,<a",options=autowidth,grid=rows,stripes=none]
+|===============================================================================
+
+| ++\`++
+| accent grave
+| followed by a letter +
 e.g. `\`a` will print an '`a`' with an accent grave (à)
 
-`\´` accent acute followed by a letter
-
+| ++\´++
+| accent acute
+| followed by a letter +
 e.g. `\´E` will print an '`E`' with an accent acute (É)
 
-`\~` tilde followed by a letter
-
+| ++\~++
+| tilde
+| followed by a letter +
 e.g. `\~n` will print an '`n`' with a tilde (ñ)
 
-`\^` circumflex followed by a letter
-
+| ++\^++
+| circumflex
+| followed by a letter +
 e.g. `\^i` will print an '`i`' with a circumflex (î)
 
-`\:` umlaut followed by a letter
-
+| ++\:++
+| umlaut
+| followed by a letter +
 e.g. `\:u` will print a '`u`' with an umlaut (ü)
 
-`\,` cedilla followed by c or C
-
+| ++\,++
+| cedilla
+| followed by c or C +
 e.g. `\,c` will print a '`c`' with a cedilla (ç)
 
-`\<` or `\>` Spanish quotation marks (« »)
+d| ++\<++ or{nbsp}++\>++
+2+a| *Spanish quotation marks* (« »)
 
-`\!` upside-down exclamation point (¡)
+| ++\!++
+2+a| *upside-down exclamation point* (¡)
 
-`\?` upside-down question mark (¿)
+| ++\?++
+2+a| *upside-down question mark* (¿)
 
-`\ae` ae ligature (æ)
+| ++\ae++
+2+a| *ae ligature* (æ)
 
-`\AE` AE ligature (Æ)
+| ++\AE++
+2+a| *AE ligature* (Æ)
 
-`\c` cents symbol (¢)
+| ++\c++
+2+a| *cents symbol* (¢)
 
-`\L` British pound (£)
+| ++\L++
+2+a| *British pound* (£)
 
-`\Y` Japanese Yen (¥)
+| ++\Y++
+2+a| *Japanese Yen* (¥)
 
-`\#xxx` any ASCII or Latin-1 character where xxx represents the three-digit ASCII number (or Latin-1 code) of the character to be printed, e.g. `\#065` will print an '`A`' (ASCII 65) (Care should be taken when using codes other than those for which special character support explicitly exists, as not all systems or fonts may display all desired non-ASCII characters.)
+| ++\#xxx++{nbsp}
+2+a| *any ASCII or Latin-1 character* where _xxx_ represents the three-digit ASCII number (or Latin-1 code) of the character to be printed, e.g. `\#065` will print an '`A`' (ASCII 65)
+
+CAUTION: Care should be taken when using codes other than those for which special character support explicitly exists, as not all systems or fonts may display all desired non-ASCII characters.
+|===============================================================================
 
 [NOTE]
 ================================================================================
-It is possible to embed Latin-1 characters directly into printed text in source code using a text editor that allows it--but ensure that the non-ASCII characters are indeed Latin-1. Using non-Latin-1 fonts (such as Mac-encoded fonts or other encodings) will result in the wrong character(s) being printed on various platforms. Also note that platforms which _cannot_ display Latin-1 characters (including some Unix-based terminal displays, DOS windows, etc.) may not have proper Latin-1-to-ASCII translation in order to _decode_ Latin-1 characters embedded directly in printed text. For this reason, or if you're not positive whether your font encoding is Latin-1, stick to using the special-character sequences described above, which are guaranteed to work properly across platforms.
+It is possible to embed Latin-1 characters directly into printed text in source code using a text editor that allows it -- but ensure that the non-ASCII characters are indeed Latin-1.
+Using non-Latin-1 fonts (such as Mac-encoded fonts or other encodings) will result in the wrong character(s) being printed on various platforms.
+Also note that platforms which _cannot_ display Latin-1 characters (including some Unix-based terminal displays, DOS windows, etc.) may not have proper Latin-1-to-ASCII translation in order to _decode_ Latin-1 characters embedded directly in printed text.
+For this reason, or if you're not positive whether your font encoding is Latin-1, stick to using the special-character sequences described above, which are guaranteed to work properly across platforms.
 ================================================================================
-
 
 
 == Operators and Assignments
 
-
-
 Hugo allows use of all standard mathematical operators:
 
-* multiplication
-
-/ integer division
+[horizontal]
+`*` :: multiplication
+`/` :: integer division
 
 which take precedencefootnote:[Hugo follows standard order of operations for operator precedence.] over:
 
-+ addition
-
-- subtraction
+[horizontal]
+`+` :: addition
+`-` :: subtraction
 
 Comparisons are also valid as operators, returning Boolean true or false (1 or 0) so that
 
+[source,hugo]
+-------------
 2 + (n = 1)
-
 5 - (n > 1)
+-------------
 
-evaluate respectively to 3 and 5 if n is 1, and 2 and 4 if n is 2 or greater. Valid relational operators are
+evaluate respectively to 3 and 5 if `n` is 1, and 2 and 4 if `n` is 2 or greater.
+Valid relational operators are
 
-=== equal to
+[horizontal]
+`={wj}=` :: equal to
+`~{wj}=` :: not equal to
+`<`      :: less than
+`>`      :: greater than
+`<{wj}=` :: less than or equal to
+`>{wj}=` :: greater than or equal to
 
-~= not equal to
+Logical operators (`and`, `or`, and `not`) are also allowed.
 
-< less than
-
-> greater than
-
-<= less than or equal to
-
->= greater than or equal to
-
-Logical operators (and, or, and not) are also allowed.
-
+[source,hugo]
+--------------------------------
 (x and y) or (a and b)
-
 (j + 5) and not ObjectisLight(k)
+--------------------------------
 
-Using and results in true (1) if both values are non-zero. Using or results in true if either is non-zero; not results in true only if the following value is zero.
+Using `and` results in true (1) if both values are non-zero.
+Using `or` results in true if either is non-zero; `not` results in true only if the following value is zero.
 
+.............................
 1 and 1 = 1
-
 1 and 0 = 0
-
 5 and 3 = 1
-
 0 and 9 = 0
-
 0 and 169 and 1 = 0
-
 1 and 12 and 1233 = 1
 
 1 or 1 = 1
-
 35 or 0 = 1
-
 0 or 0 = 0
 
 not 0 = 1
-
 not 1 = 0
-
 not 8 = 0
-
 not (8 and 0) = 1
 
 1 and 7 or (14 and not 0) = 1
-
 (0 or not 1) and 3 = 0
+.............................
 
 Additionally, bitwise operators are provided:
 
-1 & 1 = 1 (Bitwise and)
+[caption=]
+[cols="<m,<.^d",options=autowidth,grid=rows,stripes=even]
+|========================================================
+| 1 & 1 = 1  .2+| (Bitwise and)
+| 1 & 0 = 0
+| 1 \| 0 = 1  .2+| (Bitwise or)
+| 1 \| 1 = 1
+| ~0 = -1    | (Bitwise not/inverse)
+|========================================================
 
-1 & 0 = 0
+[NOTE]
+================================================================================
+As mentioned previously, a detailed explanation of bitwise operations is a little beyond the scope of this manual; programmers may occasionally use the `|` operator to combine bitmask-type parameters for certain library functions such as fonts and list-formats, but only advanced users should have to worry about employing bitwise operators to any great extent in practical programming.
+================================================================================
 
-1 | 0 = 1 (Bitwise or)
-
-1 | 1 = 1
-
-~0 = -1 (Bitwise not/inverse)
-
-(As mentioned previously, a detailed explanation of bitwise operations is a little beyond the scope of this manual; programmers may occasionally use the `|` operator to combine bitmask-type parameters for certain library functions such as fonts and list-formats, but only advanced users should have to worry about employing bitwise operators to any great extent in practical programming.)
-
-Any Hugo data type can appear in an expression, including routines, attribute tests, properties, constants, and variables. Standard mathematical rules for order of significance in evaluating an expression apply, so that parenthetical sub-expressions are evaluated first, followed by multiplication and division, followed by addition and subtraction.
+Any Hugo data type can appear in an expression, including routines, attribute tests, properties, constants, and variables.
+Standard mathematical rules for order of significance in evaluating an expression apply, so that parenthetical sub-expressions are evaluated first, followed by multiplication and division, followed by addition and subtraction.
 
 Some sample combinations are:
 
-10 + object.size ! integer constant and
+[source,hugo]
+-------------------------------------------------------
+10 + object.size          ! integer constant and
+                          ! property
 
-! property
+object is openable + 1    ! attribute test and constant
 
-object is openable + 1 ! attribute test and constant
+FindLight(location) + a   ! return value and variable
 
-FindLight(location) + a ! return value and variable
-
-1 and object is light ! constant, logical test,
-
-! and attribute
+1 and object is light     ! constant, logical test,
+                          ! and attribute
+-------------------------------------------------------
 
 Expressions can be evaluated and assigned to either a variable, a property, or an array element.
 
+// @FIXME: HUGO SYNTAX MOCKUP!
+[source,hugo]
+-----------------------------------------------
 <variable> = <expression>
 
 <object>.<property> [#<element>] = <expression>
 
 <array>[<element>] = <expression>
+-----------------------------------------------
+
 
 === Efficient Operators
 
-
-
 Something like
 
+[source,hugo]
+-------------------------------------
 number_of_items = number_of_items + 1
-
 if number_of_items > 10
-
-\{
-
-print "Too many items!"
-
+{
+  print "Too many items!"
 }
+-------------------------------------
 
 can be coded more simply as
 
+[source,hugo]
+-------------------------
 if ++number_of_items > 10
-
-\{
-
-print "Too many items!"
-
+{
+  print "Too many items!"
 }
+-------------------------
 
-The `++` operator increases the following variable by one before returning the value of the variable. Similarly, `--` can precede a variable to decrease the value by one before returning it. Since these operators act before the value is returned, they are called "`pre-increment`" and "`pre-decrement`".
+The `++` operator increases the following variable by one before returning the value of the variable.
+Similarly, `--` can precede a variable to decrease the value by one before returning it.
+Since these operators act before the value is returned, they are called "`pre-increment`" and "`pre-decrement`".
 
-If `++` or `--` comes _after_ a variable, the value of the variable is returned and then the value is increased or decreased, respectively. In this usage, the operators are called "`post-increment`" and "`post-decrement`".
+If `++` or `--` comes _after_ a variable, the value of the variable is returned and then the value is increased or decreased, respectively.
+In this usage, the operators are called "`post-increment`" and "`post-decrement`".
 
 For example,
 
+[source,hugo]
+-----------------------------
 while ++i < 5 ! pre-increment
-
-\{
-
-print number i; " ";
-
+{
+  print number i; " ";
 }
+-----------------------------
 
 will output:
 
+[example,role="gametranscript"]
 1 2 3 4
 
 But
 
+[source,hugo]
+------------------------------
 while i++ < 5 ! post-increment
-
-\{
-
-print number i; " ";
-
+{
+  print number i; " ";
 }
+------------------------------
 
 will output:
 
+[example,role="gametranscript"]
 1 2 3 4 5
 
 Since in the second example, the variable is increased before getting the value, while in the second example, it is increased after checking it.
 
-It is also possible to use the operators `+=`, `-=`, `*=`, `/=`, `&=`, and `|=`. These can also be used to modify a variable at the same time its value is being checked. All of these, however, operate before the value in question is returned.
+It is also possible to use the operators `+=`, `-=`, `*=`, `/=`, `&=`, and `|=`.
+These can also be used to modify a variable at the same time its value is being checked.
+All of these, however, operate before the value in question is returned.
 
+[source,hugo]
+-----------------------------------------------
 x = 5
-
 y = 10
-
 print "x = "; number (x*=y); ", y = "; number y
+-----------------------------------------------
 
 Result:
 
+[example,role="gametranscript"]
 x = 50, y = 10
 
-When the compiler is processing any of the above lines, the efficient operator takes precedence over a normal (i.e., single-character) operator. For example,
+When the compiler is processing any of the above lines, the efficient operator takes precedence over a normal (i.e., single-character) operator.
+For example,
 
+[source,hugo]
+-------------
 x = y + ++z
+-------------
 
 is actually compiled as
 
+[source,hugo]
+-------------
 x = y++ + z
+-------------
 
-since the `++` is parsed first. To properly code this line with a pre-increment on the z variable instead of a post-increment on y, use parentheses to order the various operators:
+since the `++` is parsed first.
+To properly code this line with a pre-increment on the `z` variable instead of a post-increment on `y`, use parentheses to order the various operators:
 
+[source,hugo]
+-------------
 x = y + (++z)
+-------------
+
 
 == Arrays And Strings
 
+Prior to this point, little has been said about arrays.
+Arrays are sets of values that share a common name, and where the elements are referenced by number.
+Arrays are defined by
 
-
-Prior to this point, little has been said about arrays. Arrays are sets of values that share a common name, and where the elements are referenced by number. Arrays are defined by
-
+// @FIXME: HUGO SYNTAX MOCKUP!
+[source,hugo]
+--------------------------------
 array <arrayname> [<array size>]
+--------------------------------
 
-where <array size> must be a numerical constant.
+where `<array size>` must be a numerical constant.
 
-An array definition reserves a block of memory of <array size>footnote:[Measured in 16-bit words, or 2 bytes per element.], so that, for example,
+An array definition reserves a block of memory of `<array size>`footnote:[Measured in 16-bit words, or 2 bytes per element.], so that, for example,
 
+[source,hugo]
+--------------------
 array test_array[10]
+--------------------
 
 reserves ten possible storage elements for the array.
 
-Keep in mind that <array size> determines the size of the array, not the maximum element number. Elements begin counting at 0, so that test_array, with 10 elements, has members numbered from 0 to 9. Trying to access test_array[10] or higher will return a zero value (and, if running in the debugger, cause a debugger warning). Trying to assign it by mistake will have no effect.
+Keep in mind that `<array size>` determines the size of the array, not the maximum element number.
+Elements begin counting at 0, so that `test_array`, with 10 elements, has members numbered from 0 to 9.
+Trying to access `test_array[10]` or higher will return a zero value (and, if running in the debugger, cause a debugger warning).
+Trying to assign it by mistake will have no effect.
 
 To prevent such out-of-bounds array reading/writing, an array's length may be read via:
 
+[source,hugo]
+-------------
 array[]
+-------------
 
-where no element number is specified. Using the above example,
+where no element number is specified.
+Using the above example,
 
+[source,hugo]
+-------------------------
 print number test_array[]
+-------------------------
 
 would result in `10`.
 
 Array elements can be assigned more than one at a time, as in
 
+// @FIXME: HUGO SYNTAX MOCKUP!
+[source,hugo]
+-----------------------------------------
 <arrayname> = <element1>, <element2>, ...
+-----------------------------------------
 
-where <element1> and <element2> can be expressions or single values.
+where `<element1>` and `<element2>` can be expressions or single values.
 
 Elements need not be all of the same type, either, so that
 
+[source,hugo]
+-----------------------------------------------------
 test_array[0] = (10+5), "Hello!", FindLight(location)
+-----------------------------------------------------
 
-is perfectly legal (although perhaps not perfectly useful). More common is a usage like
+is perfectly legal (although perhaps not perfectly useful).
+More common is a usage like
 
+[source,hugo]
+---------------------------------------
 names[0] = "Ned", "Sue", "Bob", "Maria"
+---------------------------------------
 
 or
 
+[source,hugo]
+-----------------------------
 test_array[2] = 5, 4, 3, 2, 1
+-----------------------------
 
 The array can then be accessed by
 
+[source,hugo]
+---------------------------------
 print names[0]; " and "; names[3]
+---------------------------------
 
+[example,role="gametranscript"]
 Ned and Maria
 
 or
 
+[source,hugo]
+---------------------------------
 b = test_array[3] + test_array[5]
+---------------------------------
 
-which would set the variable b to 4 + 2, or 6.
+which would set the variable `b` to 4 + 2, or 6.
 
-Because array space is statically allocated by the compiler, all arrays must be declared at the global level. Local arrays are illegal, as are entire arrays passed as argumentsfootnote:["`Arguments`" are simply parameters passed to a routine at calling time. See _V.a_ _Routines_.]. However, single elements of arrays are valid arguments.
+// @TODO: Missing XRef: "V.a Routines" (in footnote!)
 
-It is, however, possible to pass an array address as an argument, and the routine can then access the elements of the array using the array modifier. For example, if items is an array containing:
+Because array space is statically allocated by the compiler, all arrays must be declared at the global level.
+Local arrays are illegal, as are entire arrays passed as argumentsfootnote:["`Arguments`" are simply parameters passed to a routine at calling time.
+See _V.a Routines_.].
+However, single elements of arrays are valid arguments.
 
+It is, however, possible to pass an array address as an argument, and the routine can then access the elements of the array using the `array` modifier.
+For example, if `items` is an array containing:
+
+[source,hugo]
+--------------------
 items[0] = "apples"
-
 items[1] = "oranges"
-
 items[2] = "socks"
+--------------------
 
 The following:
 
+[source,hugo]
+------------------
 routine Test(v)
-
-\{
-
-print array v[2]
-
+{
+  print array v[2]
 }
+------------------
 
 can be called using
 
+[source,hugo]
+-------------
 Test(items)
+-------------
 
 to produce the output
 
+[example,role="gametranscript"]
 socks
 
-even though v is an argument (i.e., local variable), and technically not an array. The line
+even though v is an argument (i.e., local variable), and technically not an array.
+The line
 
-print array v[2]
+[source,hugo]
+------------------
+  print array v[2]
+------------------
 
-tells the engine to treat v as an array address, so that we can follow it with [<element number>].
+tells the engine to treat `v` as an array address, so that we can follow it with `[<element number>]`.
 
-Arrays also allow a Hugo programmer to implement what are known as _string arrays_, which are textual strings, somewhat similar but not identical to dictionary entries. Most significantly, since they are arrays, string arrays may be altered at runtime by a program (unlike dictionary entries, which are hard-coded into the program's dictionary). A string array is an array containing a series of character values, terminated by a zero value.
+Arrays also allow a Hugo programmer to implement what are known as _string arrays_, which are textual strings, somewhat similar but not identical to dictionary entries.
+Most significantly, since they are arrays, string arrays may be altered at runtime by a program (unlike dictionary entries, which are hard-coded into the program's dictionary).
+A string array is an array containing a series of character values, terminated by a zero value.
 
-If the array apple_array holds the string array `apple`, the actual elements of apple_array look like:
+If the array `apple_array` holds the string array `apple`, the actual elements of `apple_array` look like:
 
+[source,hugo]
+--------------------
 apple_array[0] = 'a'
-
 apple_array[1] = 'p'
-
 apple_array[2] = 'p'
-
 apple_array[3] = 'l'
-
 apple_array[4] = 'e'
-
 apple_array[5] = 0
+--------------------
 
-Hugo provides a handy way to store a dictionary entry in an array as a series of characters using the string built-in function:
+Hugo provides a handy way to store a dictionary entry in an array as a series of characters using the `string` built-in function:
 
+// @FIXME: HUGO SYNTAX MOCKUP!
+[source,hugo]
+-----------------------------------------------------
 string(<array address>, <dict. entry>, <max. length>)
+-----------------------------------------------------
 
 For example,
 
+[source,hugo]
+----------------------
 string(a, word[1], 10)
+----------------------
 
-will store up to 10 characters from word[1] into the array a.
+will store up to 10 characters from `word[1]` into the array `a`.
 
 [NOTE]
 ================================================================================
-It is expected in the preceding example that a would have at least 11 elements, since string expects to store a terminating 0 after the string itself.
+It is expected in the preceding example that a would have at least 11 elements, since `string` expects to store a terminating 0 after the string itself.
 ================================================================================
 
 
+It's not necessary to look at the return value from `string`, but it can be useful, since it lets us know how many characters were written to the string.
+For example,
 
-It's not necessary to look at the return value from string, but it can be useful, since it lets us know how many characters were written to the string. For example,
-
+[source,hugo]
+--------------------------------
 x = string(a, "microscopic", 10)
+--------------------------------
 
-will store up to 10 characters of `microscopic` in the array a, and return the length of the stored string to the variable x.footnote:[(The built-in engine variables `parse$` and `serial$` may be used in place of the dictionary entry address; see _VII.b_ _The Parser_ for a description.)]
+// @TODO: Missing XRef: "VII.b The Parser" (in footnote!)
 
-The Hugo Library defines the functions StringCopy, StringEqual, StringLength, and StringPrint, which are extremely useful when dealing with string arrays.
+will store up to 10 characters of "`microscopic`" in the array `a`, and return the length of the stored string to the variable `x`.{wj}footnote:[(The built-in engine variables `parse$` and `serial$` may be used in place of the dictionary entry address; see _VII.b The Parser_ for a description.)]
 
-StringCopy copies one string array to another array.
+The Hugo Library defines the functions `StringCopy`, `StringEqual`, `StringLength`, and `StringPrint`, which are extremely useful when dealing with string arrays.
 
+`StringCopy` copies one string array to another array.
+
+// @FIXME: HUGO SYNTAX MOCKUP!
+[source,hugo]
+------------------------------------------------
 StringCopy(<new array>, <old array>[, <length>])
+------------------------------------------------
 
 For example,
 
+[source,hugo]
+----------------
 StringCopy(a, b)
+----------------
 
-copies the contents of b to a, while
+copies the contents of `b` to `a`, while
 
+[source,hugo]
+-------------------
 StringCopy(a, b, 5)
+-------------------
 
-copies only up to 5 characters of b to a.
+copies only up to 5 characters of `b` to `a`.
 
+// @FIXME: HUGO SYNTAX MOCKUP!
+[source,hugo]
+---------------------------------------
 x = StringEqual(<string1>, <string2>)
-
 x = StringCompare(<string1>, <string2>)
+---------------------------------------
 
-StringEqual returns true only if the two specified string arrays are identical. StringCompare returns 1 if <string1> is lexically greater than <string2>, -1 if <string1> is lexically less than <string2>, and 0 if the two strings are identical.
+`StringEqual` returns true only if the two specified string arrays are identical.
+`StringCompare` returns 1 if `<string1>` is lexically greater than `<string2>`, -1 if `<string1>` is lexically less than `<string2>`, and 0 if the two strings are identical.
 
-StringLength returns the length of a string array, as in:
+`StringLength` returns the length of a string array, as in:
 
+[source,hugo]
+---------------------
 len = StringLength(a)
+---------------------
 
-and StringPrint prints a string array (or part of it).
+and `StringPrint` prints a string array (or part of it).
 
+// @FIXME: HUGO SYNTAX MOCKUP!
+[source,hugo]
+----------------------------------------------
 StringPrint(<array address>[, <start>, <end>])
+----------------------------------------------
 
-For example, if the array a contains “presto”,
+For example, if the array `a` contains "`presto`",
 
+[source,hugo]
+--------------
 StringPrint(a)
+--------------
 
-will print “presto”, but
+will print "`presto`", but
 
+[source,hugo]
+--------------------
 StringPrint(a, 1, 4)
+--------------------
 
-will print “res”. (The <start> parameter in the first example defaults to 0, not 1--remember that the first numbered element in an array is 0.)
+will print "`res`".
+
+[NOTE]
+================================================================================
+The `<start>` parameter in the first example defaults to 0, not 1 -- remember that the first numbered element in an array is 0.
+================================================================================
 
 An interesting side-effect of being able to pass array addresses as arguments is that it is possible to "`cheat`" the address, so that, for example,
 
+[source,hugo]
+------------------
 StringCopy(a, b+2)
+------------------
 
-will copy b to a, beginning with the third letter of b (since the first letter of b is b[0]).
+will copy `b` to `a`, beginning with the third letter of `b` (since the first letter of `b` is `b[0]`).
 
-It should also be kept in mind that string arrays and dictionary entries are two entirely separate animals, and that comparing them directly is using StringCompare is not possible. That is, while a dictionary entry is a simple value representing an address, a string array is a series of values each representing a character in the string.
+It should also be kept in mind that string arrays and dictionary entries are two entirely separate animals, and that comparing them directly is using `StringCompare` is not possible.
+That is, while a dictionary entry is a simple value representing an address, a string array is a series of values each representing a character in the string.
 
 The library provides the following to overcome this:
 
+// @FIXME: HUGO SYNTAX MOCKUP!
+[source,hugo]
+-----------------------------------------
 StringDictCompare(<array>, <dict. entry>)
+-----------------------------------------
 
-which returns the same values (1, -1, 0) as StringCompare, depending on whether the string array is lexically greater than, less than, or equal to the dictionary entry.
+which returns the same values (1, -1, 0) as `StringCompare`, depending on whether the string array is lexically greater than, less than, or equal to the dictionary entry.
 
-There is also a complement to string: the dict built-in function, that dynamically creates a new dictionary entry at runtime. Its syntax is:
+There is also a complement to `string`: the `dict` built-in function, that dynamically creates a new dictionary entry at runtime.
+Its syntax is:
 
+// @FIXME: HUGO SYNTAX MOCKUP!
+[source,hugo]
+---------------------------
 x = dict(<array>, <maxlen>)
-
 x = dict(parse$, <maxlen>)
+---------------------------
 
-where the contents of <array> or parse$ are written into the dictionary, to a maximum of <maxlen> characters, and the address of the new word is returned.
+where the contents of `<``array>` or `parse$` are written into the dictionary, to a maximum of `<maxlen>` characters, and the address of the new word is returned.
 
-However, since this requires extending the actual length of the dictionary table in the game file, it is necessary to provide for this during compilation. Inserting
+However, since this requires extending the actual length of the dictionary table in the game file, it is necessary to provide for this during compilation.
+Inserting
 
+// @FIXME: HUGO SYNTAX MOCKUP!
+[source,hugo]
+-----------------------
 $MAXDICTEXTEND=<number>
+-----------------------
 
-at the start of the source file will write a buffer of <number> empty bytes at the end of the dictionary. (MAXDICTEXTEND is, by default, 0.)
+at the start of the source file will write a buffer of `<number>` empty bytes at the end of the dictionary.
+(`MAXDICTEXTEND` is, by default, 0.)
 
-Dynamic dictionary extension is used primarily in situations where the player may be able to, for example, name an object, then refer to that object by the new name, or whenever the game needs to introduce new words into the dictionary that are not known at compile-time. However, a guideline for programmers is that there should be a limit to how many new words the program or player can cause to be created, so that the total length of the new entries never exceeds <number>, keeping in mind that the length of an entry is the number of characters plus one (the byte representing the actual length). That is, the word `test` requires 5 bytes.)
+Dynamic dictionary extension is used primarily in situations where the player may be able to, for example, name an object, then refer to that object by the new name, or whenever the game needs to introduce new words into the dictionary that are not known at compile-time.
+However, a guideline for programmers is that there should be a limit to how many new words the program or player can cause to be created, so that the total length of the new entries never exceeds `<number>`, keeping in mind that the length of an entry is the number of characters plus one (the byte representing the actual length).
+That is, the word `test` requires 5 bytes.)
+
 
 == Conditional Expressions and Program Flow
 
-
-
 Program flow can be controlled using a variety of constructions, each of which is built around an expression that evaluates to false (zero) or non-false (non-zero).
 
-The most basic of these is the if statement.
+The most basic of these is the `if` statement.
 
+// @FIXME: HUGO SYNTAX MOCKUP!
+[source,hugo]
+--------------------------------
 if <expression>
+  {...conditional code block...}
+--------------------------------
 
-\{...conditional code block...}
+The enclosing braces are not necessary if the code block is a single line.
+Note also that the conditional block may begin (and even end) on the same line as the `if` statement provided that braces are used.
 
-The enclosing braces are not necessary if the code block is a single line. Note also that the conditional block may begin (and even end) on the same line as the if statement provided that braces are used.
-
+// @FIXME: HUGO SYNTAX MOCKUP!
+[source,hugo]
+--------------------------------------------------------------------------------
 if <expression>
+  ...single line...
 
-...single line...
+if <expression> {...conditional code block...}
+--------------------------------------------------------------------------------
 
-if <expression> \{...conditional code block...}
+If braces are not used for a single line, the compiler automatically inserts them, although special care must be taken when constructing a block of code nesting several single-line conditionals.
+While
 
-If braces are not used for a single line, the compiler automatically inserts them, although special care must be taken when constructing a block of code nesting several single-line conditionals. While
-
+// @FIXME: HUGO SYNTAX MOCKUP!
+[source,hugo]
+--------------------------------------------------------------------------------
 if <expression1>
+  if <expression2>
+    ...conditional code block...
+--------------------------------------------------------------------------------
 
-if <expression2>
+may be properly interpreted, other constructions (particularly those involving some of the more complex program-flow concepts we're about to get into) may not be.
+Therefore, it's always best to be as clear as possible about your intent, more along the lines of:
 
-...conditional code block...
-
-may be properly interpreted, other constructions (particularly those involving some of the more complex program-flow concepts we're about to get into) may not be. Therefore, it's always best to be as clear as possible about your intent, more along the lines of:
-
+// @FIXME: HUGO SYNTAX MOCKUP!
+[source,hugo]
+--------------------------------------------------------------------------------
 if <expression1>
-
-\{
-
-if <expression2>
-
-...conditional code block...
-
+{
+  if <expression2>
+    ...conditional code block...
 }
+--------------------------------------------------------------------------------
 
-More elaborate uses of if involve the use of elseif and else.
+More elaborate uses of `if` involve the use of `elseif` and `else`.
 
+// @FIXME: HUGO SYNTAX MOCKUP!
+[source,hugo]
+--------------------------------------------------------------------------------
 if <expression1>
-
-...first conditional code block...
-
+  ...first conditional code block...
 elseif <expression2>
-
-...second conditional code block...
-
+  ...second conditional code block...
 elseif <expression3>
-
-...third conditional code block...
-
+  ...third conditional code block...
 ...
-
 else
+  ...default code block...
+--------------------------------------------------------------------------------
 
-...default code block...
+In this case, the engine evaluates each expression until it finds one that is true, and then executes it.
+Control then passes to the next non-`if`/`elseif`/`else` statement following the conditional construction.
+If no true expression is found, the default code block is executed.
+If, for example, `<expression1>` evaluates to a non-false value, then none of the following expressions are tested.
 
-In this case, the engine evaluates each expression until it finds one that is true, and then executes it. Control then passes to the next non-if/elseif/else statement following the conditional construction. If no true expression is found, the default code block is executed. If, for example, <expression1> evaluates to a non-false value, then none of the following expressions are tested.
+Of course, all three (`if`, `elseif`, and `else`) need not be used every time, and simple `if`-`elseif` and `if`-`else` combinations are perfectly valid.
 
-Of course, all three (if, elseif, and else) need not be used every time, and simple if-elseif and if-else combinations are perfectly valid.
+In certain cases, the `if` statement may not lend itself perfectly to clarity, and the `select`-`case` construction may be more appropriate.
+The general form is:
 
-In certain cases, the if statement may not lend itself perfectly to clarity, and the select-case construction may be more appropriate. The general form is:
-
+// @FIXME: HUGO SYNTAX MOCKUP!
+[source,hugo, subs="+macros"]
+--------------------------------------------------------------------------------
 select <var>
-
-case <value1>[, <value2>, ...]
-
-...first conditional code block...
-
-case <value3>[, <value4>, ...]
-
-...second conditional code block...
-
-...
-
-case else
-
-..default code block...footnote:[C programmers are used to cases that "`fall through`" to the next `case` unless explicitly told not to do so; such is not the case with Hugo.]
+  case <value1>[, <value2>, ...]
+    ...first conditional code block...
+  case <value3>[, <value4>, ...]
+    ...second conditional code block...
+  ...
+  case else
+    ...default code block...footnote:[C programmers are used to cases that "`fall through`" to the next `case` unless explicitly told not to do so; such is not the case with Hugo.]
+--------------------------------------------------------------------------------
 
 In this case, the evaluation is essentially
 
+// @FIXME: HUGO SYNTAX MOCKUP!
+[source,hugo]
+---------------------------------------------
 if <var> = <value1> [or <var> = <value2> ...]
+---------------------------------------------
 
-There is no limit on the number of values (separated by commas) that can appear on a line following casefootnote:[Okay, this isn't quite true. While there isn't an _explicit_ limit, if you create a single `case` line that runs on forever and ever, eventually you'll reach the point where, for buffer reasons, the compiler isn't able to compile it, and it will complain with an appropriate error.]. The same rules for bracing multiple-line code blocks apply as with if (as well as for every other type of conditional block).
+There is no limit on the number of values (separated by commas) that can appear on a line following ``case``footnote:[Okay, this isn't quite true.
+While there isn't an _explicit_ limit, if you create a single `case` line that runs on forever and ever, eventually you'll reach the point where, for buffer reasons, the compiler isn't able to compile it, and it will complain with an appropriate error.].
+The same rules for bracing multiple-line code blocks apply as with `if` (as well as for every other type of conditional block).
 
-Basic loops may be coded using while and do-while.
+Basic loops may be coded using `while` and `do`-`while`.
 
+// @FIXME: HUGO SYNTAX MOCKUP!
+[source,hugo]
+------------------------------
 while <expression>
+  ...conditional code block...
+------------------------------
 
-...conditional code block...
-
+// @FIXME: HUGO SYNTAX MOCKUP!
+[source,hugo]
+------------------------------
 do
-
-...conditional code block...
-
+  ...conditional code block...
 while <expression>
+------------------------------
 
-Each of these executes the conditional code block as long as <expression> holds true. It is assumed that the code block somehow alters <expression> so that at some point it will become false; otherwise the loop will execute endlessly.
+Each of these executes the conditional code block as long as `<expression>` holds true.
+It is assumed that the code block somehow alters `<expression>` so that at some point it will become false; otherwise the loop will execute endlessly.
 
+[source,hugo]
+-------------------------
 while x <= 10
-
-\{
-
-x = x + 1
-
-print "x is "; number x
-
+{
+  x = x + 1
+  print "x is "; number x
 }
+-------------------------
 
+[source,hugo]
+-------------------------
 do
-
-\{
-
-x = x + 1
-
-print "x is "; number x
-
+{
+  x = x + 1
+  print "x is "; number x
 }
-
 while x <= 10
+-------------------------
 
-The only difference between the two is that if <expression> is false at the outset, the while code block will never run. The do-while code block will run at least once even if <expression> is false at the outset.
+The only difference between the two is that if `<expression>` is false at the outset, the `while` code block will never run.
+The `do`-`while` code block will run at least once even if `<expression>` is false at the outset.
 
-It is also important to recognize--with while or do-while loops--that the expression is tested each time the loop executes. The most important side effect of this is that if you're doing something in the expression that has some effect--whether printing something, calling a function, or modifying some other value--this will happen _every time_ the expression is evaluated.
+It is also important to recognize -- with `while` or `do`-`while` loops -- that the expression is tested each time the loop executes.
+The most important side effect of this is that if you're doing something in the expression that has some effect -- whether printing something, calling a function, or modifying some other value -- this will happen _every time_ the expression is evaluated.
 
-The most complex loop construction uses the for statement:
+The most complex loop construction uses the `for` statement:
 
+// @FIXME: HUGO SYNTAX MOCKUP!
+[source,hugo]
+--------------------------------------------
 for (<assignment>; <expression>; <modifier>)
-
-...conditional code block...
+  ...conditional code block...
+--------------------------------------------
 
 For example:
 
+[source,hugo]
+---------------------------------
 for (i=1; i<=15; i=i+1)
-
 print "i is equal to: "; number i
+---------------------------------
 
-First, the engine executes the assignment setting `i = 1`. Next, it checks to see if the expression holds true (if i is less than or equal to 15). If it does, it executes the print statement and the modifying assignment that increments i. It continues the loop until the expression tests false.
+First, the engine executes the assignment setting `i = 1`.
+Next, it checks to see if the expression holds true (if `i` is less than or equal to 15).
+If it does, it executes the `print` statement and the modifying assignment that increments `i`.
+It continues the loop until the expression tests false.
 
-Not all elements of the for construction are necessary. For example, the assignment may be omitted, as in
+Not all elements of the `for` construction are necessary.
+For example, the assignment may be omitted, as in
 
+[source,hugo]
+--------------------
 for (; i<=15; i=i+1)
+--------------------
 
-and the engine will simply use the existing value of i, whatever it was before this point. With
+and the engine will simply use the existing value of `i`, whatever it was before this point.
+With
 
+[source,hugo]
+----------------
 for (i=1;;i=i+1)
+----------------
 
 the loop will execute endlessly, unless some other means of exit is provided.
 
-The modifying expression does not have to be an arithmetic expression as shown above. It may be a routine that modifies a global variable, for example, which is then tested by the for loop.
+The modifying expression does not have to be an arithmetic expression as shown above.
+It may be a routine that modifies a global variable, for example, which is then tested by the `for` loop.
 
-A second form of a for loop is:
+A second form of a `for` loop is:
 
+// @FIXME: HUGO SYNTAX MOCKUP!
+[source,hugo]
+------------------------------
 for <var> in <object>
+  ...conditional code block...
+------------------------------
 
-...conditional code block...
+which loops through all the children of `<object>` (if any), setting the variable `<var>` to the object number of each child in sequence, so that
 
-which loops through all the children of <object> (if any), setting the variable <var> to the object number of each child in sequence, so that
-
+[source,hugo]
+-------------------
 for i in mysuitcase
+  print i.name
+-------------------
 
-print i.name
+will print the names of each object in the `mysuitcase` object.
 
-will print the names of each object in the mysuitcase object.
+Hugo also supports `jump` commands and labels.
+A label is simply a user-specified token preceded by a colon (`:`) at the beginning of a line.
+The label name must be a unique token in the program.footnote:[The jump keyword is more or less equivalent to goto in other languages.
+The reason it's different in Hugo is mainly to encourage the use of the proper alternatives (i.e., for and while or do-while loops) in keeping with proper programming practices.
+And, in the end, less jumps and labels make for far more readable code.]
 
-Hugo also supports jump commands and labels. A label is simply a user-specified token preceded by a colon (`:`) at the beginning of a line. The label name must be a unique token in the program.footnote:[The jump keyword is more or less equivalent to goto in other languages. The reason it's different in Hugo is mainly to encourage the use of the proper alternatives (i.e., for and while or do-while loops) in keeping with proper programming practices. And, in the end, less jumps and labels make for far more readable code.]
-
+[source,hugo]
+------------------------------------
 print "We're about to make a jump."
-
 jump NextLine
-
 print "This will never get printed."
 
 :NextLine
-
 print "But this will."
+------------------------------------
 
-One final concept is important in program flow, and that is break. At any point during a loop, it may be necessary to exit immediately (and probably prematurely). The break statement passes control to the statement immediately following the current loop. In the example:
+One final concept is important in program flow, and that is `break`.
+At any point during a loop, it may be necessary to exit immediately (and probably prematurely).
+The `break` statement passes control to the statement immediately following the current loop.
+In the example:
 
+// @FIXME: HUGO SYNTAX MOCKUP!
+[source,hugo]
+--------------------------------------------------------------------------------
 do
-
-\{
-
-while <expression2>
-
-\{
-
-...
-
-if <expression3>
-
-break
-
-...
-
+{
+  while <expression2>
+  {
+    ...
+    if <expression3>
+      break
+    ...
+  }
+  ...
 }
-
-...
-
-}
-
 while <expression1>
+--------------------------------------------------------------------------------
 
-the break causes the immediately running while <expression2> loop to terminate, even if <expression2> is true. However, the external do-while <expression1> loop continues to run.
+the `break` causes the immediately running `while <expression2>` loop to terminate, even if `<expression2>` is true.
+However, the external `do`-`while <expression1>` loop continues to run.
 
-It has been previously stated that lines ending in and or or are continued onto the next line in the case of long conditional expressions. A second useful provision is the ability to use a comma to separate options within a conditional expression. As a result,
+It has been previously stated that lines ending in `and` or `or` are continued onto the next line in the case of long conditional expressions.
+A second useful provision is the ability to use a comma to separate options within a conditional expression.
+As a result,
 
+[source,hugo]
+--------------------------------------------------------------------------------
 if word[1] = "one", "two", "three"
 
 while object is open, not locked
@@ -1174,9 +1490,12 @@ while object is open, not locked
 if box not in livingroom, garage
 
 if a ~= 1, 2, 3
+--------------------------------------------------------------------------------
 
 are interpreted as:
 
+[source,hugo]
+--------------------------------------------------------------------------------
 if word[1]="one" or word[1]="two" or word[1]="three"
 
 while object is open and object is not locked
@@ -1184,134 +1503,131 @@ while object is open and object is not locked
 if box not in livingroom and box not in garage
 
 if a ~= 1 and a ~= 1 and a ~= 3
+--------------------------------------------------------------------------------
 
 respectively.
 
-Note that with an `=` or in comparison, a comma results in an or comparison. With `~=` or an attribute comparison, the result is an and comparison. The compiler looks after this translation for you.
+[TIP]
+================================================================================
+Note that with an `=` or `in` comparison, a comma results in an `or` comparison.
+With `~=` or an attribute comparison, the result is an `and` comparison.
+The compiler looks after this translation for you.
+================================================================================
+
 
 == __What Should I Be Able To Do Now?__
 
+[discrete]
+=== Example: Mixing Text Styles
 
-+
-[#__RefHeading___Toc86221383 .anchor]##Example: Mixing Text Styles
-
+[source,hugo]
+--------------------------------------------------------------------------------
 ! Sample to print various typefaces/colors:
 
 #include "hugolib.h"
 
 routine main
-
-\{
-
-print "Text may be printed in \Bboldface\b,
-
-\Iitalics\i, \Uunderlined\u, or
-
-\Pproportional\p typefaces."
-
-color RED ! or color 4
-
-print "\nGet ready. ";
-
-color YELLOW ! color 14
-
-print "Get set. ";
-
-color GREEN ! color 2
-
-print "Go!"
-
+{
+  print "Text may be printed in \Bboldface\b,
+    \Iitalics\i, \Uunderlined\u, or
+    \Pproportional\p typefaces."
+  color RED               ! or color 4
+  print "\nGet ready. ";
+  color YELLOW            ! color 14
+  print "Get set. ";
+  color GREEN             ! color 2
+  print "Go!"
 }
+--------------------------------------------------------------------------------
 
 The output will be:
 
+// @FIXME: proportional style!
+// @FIXME: color styles!
+
+[example,role="gametranscript"]
+================================================================================
 Text may be printed in *boldface*, _italics_, [.underline]#underlined#, or proportional typefaces.
 
-Get ready. Get set. Go!
+Get ready. {nbsp}
+Get set. {nbsp}
+Go!
+================================================================================
 
 with "`boldface`", "`italics`", "`underlined`", and "`proportional`" printed in their respective typefaces. "`Get ready`", "`Get set`", and "`Go!`" will all appear on the same line in three different colors.
 
-Note that not all computers will be able to print all typefaces. The basic Unix and MS-DOS ports, for example, use color changes instead of actual typeface changes, and do not support proportional printing.
+[WARNING]
+================================================================================
+Note that not all computers will be able to print all typefaces.
+The basic Unix and MS-DOS ports, for example, use color changes instead of actual typeface changes, and do not support proportional printing.
+================================================================================
 
-[#__RefHeading___Toc86221384 .anchor]##Example: Managing Strings
 
+[discrete]
+=== Example: Managing Strings
+
+[source,hugo]
+--------------------------------------------------------------------------------
 #include "hugolib.h"
 
 routine main
-
-\{
-
-StringTests
-
-return
-
+{
+  StringTests
+  return
 }
 
 array s1[32]
-
 array s2[10]
-
 array s3[10]
 
 routine StringTests
+{
+  local a, len
 
-\{
+  a = "This is a sample string."
+  len = string(s1, a, 31)
+  string(s2, "Apple", 9)
+  string(s3, "Tomato", 9)
 
-local a, len
+  print "a = \""; a; "\""
+  print "(Dictionary address:  "; number a; ")"
+  print "s1 contains \""; StringPrint(s1); "\""
+  print "(Array address:  "; number s1;
+  print ", length = "; number len; ")"
+  print "s2 is \""; StringPrint(s2);
+  print "\", s3 is \""; StringPrint(s3); "\""
 
-a = "This is a sample string."
-
-len = string(s1, a, 31)
-
-string(s2, "Apple", 9)
-
-string(s3, "Tomato", 9)
-
-print "a = \""; a; "\""
-
-print "(Dictionary address: "; number a; ")"
-
-print "s1 contains \""; StringPrint(s1); "\""
-
-print "(Array address: "; number s1;
-
-print ", length = "; number len; ")"
-
-print "s2 is \""; StringPrint(s2);
-
-print "\", s3 is \""; StringPrint(s3); "\""
-
-"\nStringCompare(s1, s2) = ";
-
-print number StringCompare(s1, s2)
-
-"StringCompare(s1, s3) = ";
-
-print number StringCompare(s1, s3)
-
+ "\nStringCompare(s1, s2) = ";
+  print number StringCompare(s1, s2)
+  "StringCompare(s1, s3) = ";
+  print number StringCompare(s1, s3)
 }
+--------------------------------------------------------------------------------
 
 The output will be:
 
-a = "This is a sample string."
+// @FIXME: discrepancy between source and output:
+//        "(Dictionary address:  " -> "(Dictionary address =" (":  " vs "= ")
+//        "(Array address:  "      -> "(Array address =" (":  " vs "= ")
 
-(Dictionary address = 887)
-
-s1 contains "This is a sample string."
-
-(Array address = 1625, length = 24)
-
+[example,role="gametranscript"]
+================================================================================
+a = "This is a sample string." +
+(Dictionary address = 887) +
+s1 contains "This is a sample string." +
+(Array address = 1625, length = 24) +
 s2 is "Apple", s3 is "Tomato"
 
-StringCompare(s1, s2) = 1
-
+StringCompare(s1, s2) = 1 +
 StringCompare(s1, s3) = -1
+================================================================================
 
 As is evident above, a dictionary entry does not need to be a single word; any piece of text which is referred to by the program as a value gets entered into the dictionary table.
 
-The argument 31 in the first call to the string function allows up to 31 characters from a to be copied to s1, but since the length of a is only 24 characters, only 25 values (including the terminating 0) get copied, and the string length of s1 is returned in len.
+The argument 31 in the first call to the `string` function allows up to 31 characters from `a` to be copied to `s1`, but since the length of `a` is only 24 characters, only 25 values (including the terminating 0) get copied, and the string length of `s1` is returned in `len`.
 
-Since "`A(pple)`" is lexically less than "`T(his...)`", comparing the two returns -1. As "`To(mato)`" is lexically greater than "`Th(is...)`", StringCompare returns 1.
+Since "`A(pple)`" is lexically less than "`T(his...)`", comparing the two returns -1.
+As "`To(mato)`" is lexically greater than "`Th(is...)`", `StringCompare` returns 1.
 
 
 // EOF //

@@ -535,7 +535,7 @@ div.literalblock.cmd pre .conum {
 <span id="email" class="email"><a href="mailto:general@generalcoffee.com">general@generalcoffee.com</a></span><br>
 <span id="revnumber">version 1,</span>
 <span id="revdate">2018-10-04</span>
-<br><span id="revremark">Draft 46 -- Porting to AsciiDoc</span>
+<br><span id="revremark">Draft 47 -- Porting to AsciiDoc</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -3896,7 +3896,11 @@ All subsequent references to <code>&lt;class&gt;</code> will use this object ins
 <div class="sect2">
 <h3 id="_variables"><a class="anchor" href="#_variables"></a>4.1. Variables</h3>
 <div class="paragraph">
-<p>What is a variable, exactly? Let&#8217;s start with the difference between a constant value and a variable value. The number 6 is a constant: we can&#8217;t change it. We can&#8217;t tell the program: &#8220;In this particular circumstance, let&#8217;s treat this 6 like it was actually 21.&#8221; Consider a situation, however, where we may want to record a particular value at one point in order to refer to it later. In other words, we may want to use a value that we won&#8217;t know at the time we write the code that will be using it.</p>
+<p>What is a variable, exactly?
+Let&#8217;s start with the difference between a constant value and a variable value.
+The number 6 is a constant: we can&#8217;t change it.
+We can&#8217;t tell the program: &#8220;In this particular circumstance, let&#8217;s treat this 6 like it was actually 21.&#8221; Consider a situation, however, where we may want to record a particular value at one point in order to refer to it later.
+In other words, we may want to use a value that we won&#8217;t know at the time we write the code that will be using it.</p>
 </div>
 <div class="paragraph">
 <p>Here&#8217;s a piece of code that, as we&#8217;ll see shortly, prints a single line of output with a number in the middle:</p>
@@ -3927,24 +3931,29 @@ All subsequent references to <code>&lt;class&gt;</code> will use this object ins
 </div>
 </div>
 <div class="paragraph">
-<p>or any other similar variation depending on what the <em>variable</em> temp happens to be equal to at the time.<sup class="footnote">[<a id="_footnoteref_21" class="footnote" href="#_footnotedef_21" title="View footnote.">21</a>]</sup></p>
+<p>or any other similar variation depending on what the <em>variable</em> <code>temp</code> happens to be equal to at the time.<sup class="footnote">[<a id="_footnoteref_21" class="footnote" href="#_footnotedef_21" title="View footnote.">21</a>]</sup></p>
 </div>
 <div class="paragraph">
-<p>Hugo supports two kinds of variables: <em>global</em> and <em>local</em>. Either type simply holds an integer value, so a variable can hold a simple value, an object number, a dictionary address, a routine address, or any other standard Hugo data type through an assignment such as:</p>
+<p>Hugo supports two kinds of variables: <em>global</em> and <em>local</em>.
+Either type simply holds an integer value, so a variable can hold a simple value, an object number, a dictionary address, a routine address, or any other standard Hugo data type through an assignment such as:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">a <span class="hl opt">=</span> <span class="hl num">1</span>&#x000A;&#x000A;nextobj <span class="hl opt">=</span> <span class="hl kwa">parent</span>(obj)&#x000A;&#x000A;temp_word <span class="hl opt">=</span> <span class="hl str">&quot;the&quot;</span></code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">a <span class="hl opt">=</span> <span class="hl num">1</span>&#x000A;nextobj <span class="hl opt">=</span> <span class="hl kwa">parent</span>(obj)&#x000A;temp_word <span class="hl opt">=</span> <span class="hl str">&quot;the&quot;</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p><em>Global</em> variables are visible throughout the program. They must be defined similarly to properties and attributes as</p>
+<p><em>Global</em> variables are visible throughout the program.
+They must be defined similarly to properties and attributes as</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">global</span> <span class="hl opt">&lt;</span><span class="hl kwa">global</span> variable <span class="hl kwa">name</span><span class="hl opt">&gt;</span>[ <span class="hl opt">= &lt;</span>initial value<span class="hl opt">&gt;</span>]</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>global &lt;global variable name&gt;[ = &lt;initial value&gt;]</p>
-</div>
-<div class="paragraph">
-<p><em>Local</em> variables, on the other hand, are recognized only within the routine in which they are defined. They are defined using</p>
+<p><em>Local</em> variables, on the other hand, are recognized only within the routine in which they are defined.
+They are defined using</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -3955,7 +3964,8 @@ All subsequent references to <code>&lt;class&gt;</code> will use this object ins
 <p>Global variables must of course have a unique name, different from that of any other data object; local variables, on the other hand, may share the names of local variables in other routines.</p>
 </div>
 <div class="paragraph">
-<p>In either case, global or local, the default initial value is 0 if no other value is given. For example,</p>
+<p>In either case, global or local, the default initial value is 0 if no other value is given.
+For example,</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -3963,7 +3973,8 @@ All subsequent references to <code>&lt;class&gt;</code> will use this object ins
 </div>
 </div>
 <div class="paragraph">
-<p>is equal to 1100 when the program is run, and is visible at any point in the program, by any object or routine. On the other hand, the variables</p>
+<p>is equal to 1100 when the program is run, and is visible at any point in the program, by any object or routine.
+On the other hand, the variables</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -3974,49 +3985,77 @@ All subsequent references to <code>&lt;class&gt;</code> will use this object ins
 <p>are visible only within the block of code where they are defined, and are initialized to 0, 100, and 0, respectively, each time that section of code (be it a routine, property routine, event, etc.) is run.</p>
 </div>
 <div class="paragraph">
-<p>The compiler defines a set of engine globals: global variables that are referenced directly by the engine, but which may otherwise be treated like any other global variables. These are:</p>
+<p>The compiler defines a set of engine globals: global variables that are referenced directly by the engine, but which may otherwise be treated like any other global variables.
+These are:</p>
+</div>
+<table class="tableblock frame-all grid-none stripes-even fit-content center">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>object</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">direct object of an action</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>xobject</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">indirect object</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>self</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">self-referential object</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>words</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">total number of words in command</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>player</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">the player object</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>actor</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">the player, or character obj. (for scripts)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>verbroutine</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">specified by the command</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>location</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">location of the <code>player</code> object</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>endflag</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">if not false (0), run <code>EndGame</code> routine</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>prompt</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">for input; default is <code>"&gt;"</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>objects</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">the total number of objects</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>system_status</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">after certain operations</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>The <code>object</code>, <code>xobject</code>, and <code>verbroutine</code> globals are set up by the engine depending on what command is entered by the player.
+The <code>self</code> global is undefined except when an object is being referenced (as in a property routine or event).
+In that case, it is set to the number of that object.
+The <code>player</code> variable holds the number of the object that the player is controlling; the <code>endflag</code> variable must be 0 unless something has occurred to end the game; and the <code>prompt</code> variable represents the dictionary word appearing at the start of an input line (which most programs set to <code>&gt;</code> by convention).</p>
 </div>
 <div class="paragraph">
-<p>object direct object of an action</p>
-</div>
-<div class="paragraph">
-<p>xobject indirect object</p>
-</div>
-<div class="paragraph">
-<p>self self-referential object</p>
-</div>
-<div class="paragraph">
-<p>words total number of words in command</p>
-</div>
-<div class="paragraph">
-<p>player the player object</p>
-</div>
-<div class="paragraph">
-<p>actor the player, or character obj. (for scripts)</p>
-</div>
-<div class="paragraph">
-<p>verbroutine specified by the command</p>
-</div>
-<div class="paragraph">
-<p>location location of the player object</p>
-</div>
-<div class="paragraph">
-<p>endflag if not false (0), run EndGame routine</p>
-</div>
-<div class="paragraph">
-<p>prompt for input; default is “&gt;“</p>
-</div>
-<div class="paragraph">
-<p>objects the total number of objects</p>
-</div>
-<div class="paragraph">
-<p>system_status after certain operations</p>
-</div>
-<div class="paragraph">
-<p>The object, xobject, and verbroutine globals are set up by the engine depending on what command is entered by the player. The self global is undefined except when an object is being referenced (as in a property routine or event). In that case, it is set to the number of that object. The player variable holds the number of the object that the player is controlling; the endflag variable must be 0 unless something has occurred to end the game; and the prompt variable represents the dictionary word appearing at the start of an input line (which most programs set to <code>&gt;</code> by convention).</p>
-</div>
-<div class="paragraph">
-<p>The objects variable can be set by the program, but to no useful effect. The engine will reset it to the &#8220;real&#8221; value whenever referenced. (All object numbers range from 0 to the value of objects.) The system_status variable may be read (after a resource operation or a system call; see the relevant sections for an explanation of these functions) to check for an error value. See the section on <em>"`Resources`"</em> for possible return values.</p>
+<p>The <code>objects</code> variable can be set by the program, but to no useful effect.
+The engine will reset it to the &#8220;real&#8221; value whenever referenced.
+(All object numbers range from 0 to the value of <code>objects</code>.)
+The <code>system_status</code> variable may be read (after a resource operation or a <code>system</code> call; see the relevant sections for an explanation of these functions) to check for an error value.
+See the section on &#8220;<em>Resources</em>&#8221; for possible return values.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -4026,7 +4065,8 @@ All subsequent references to <code>&lt;class&gt;</code> will use this object ins
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Setting endflag to a non-zero value forces an <em>immediate</em> break from the game loop. Statements following the endflag assignment even in the same function are not executed; control is passed directly to the engine, which calls the EndGame routine.</p>
+<p>Setting <code>endflag</code> to a non-zero value forces an <em>immediate</em> break from the game loop.
+Statements following the <code>endflag</code> assignment even in the same function are not executed; control is passed directly to the engine, which calls the <code>EndGame</code> routine.</p>
 </div>
 </td>
 </tr>
@@ -4040,11 +4080,11 @@ All subsequent references to <code>&lt;class&gt;</code> will use this object ins
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">constant</span> FIRST_NAME <span class="hl str">&quot;John&quot;</span>&#x000A;&#x000A;<span class="hl kwa">constant</span> LAST_NAME <span class="hl str">&quot;Smith&quot;</span></code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">constant</span> FIRST_NAME <span class="hl str">&quot;John&quot;</span>&#x000A;<span class="hl kwa">constant</span> LAST_NAME <span class="hl str">&quot;Smith&quot;</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>(Note the lack of an <code>=</code> sign between, for example, FIRST_NAME and <code>John</code>.)</p>
+<p>(Note the lack of an <code>=</code> sign between, for example, <code>FIRST_NAME</code> and <code>John</code>.)</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -4054,29 +4094,33 @@ All subsequent references to <code>&lt;class&gt;</code> will use this object ins
 <div class="paragraph">
 <p>results in:</p>
 </div>
-<div class="paragraph">
-<p>Smith, John</p>
+<div class="exampleblock gametranscript">
+<div class="content">
+Smith, John
+</div>
 </div>
 <div class="paragraph">
 <p>Constants can, like any other Hugo data type, be integers, dictionary entries, object numbers, etc.</p>
 </div>
 <div class="paragraph">
-<p>It is not absolutely necessary that a constant be given a definite value if the constant is to be used as some sort of flag or marker, etc. Therefore,</p>
+<p>It is not absolutely necessary that a constant be given a definite value if the constant is to be used as some sort of flag or marker, etc.
+Therefore,</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">constant</span> THIS_RESULT&#x000A;&#x000A;<span class="hl kwa">constant</span> THAT_RESULT</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">constant</span> THIS_RESULT&#x000A;<span class="hl kwa">constant</span> THAT_RESULT</code></pre>
 </div>
 </div>
 <div class="paragraph">
 <p>will have unique values from each other, as well as from any other constant defined without a specific value.</p>
 </div>
 <div class="paragraph">
-<p>Sometimes it may be useful to enumerate a series of constants in sequence. Instead of defining them all individually, it is possible to use:</p>
+<p>Sometimes it may be useful to enumerate a series of constants in sequence.
+Instead of defining them all individually, it is possible to use:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">enumerate start</span> <span class="hl opt">=</span> <span class="hl num">1</span>&#x000A;&#x000A;\{&#x000A;&#x000A;MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY&#x000A;&#x000A;}</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">enumerate start</span> <span class="hl opt">=</span> <span class="hl num">1</span>&#x000A;{&#x000A;    MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY&#x000A;}</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -4084,15 +4128,17 @@ All subsequent references to <code>&lt;class&gt;</code> will use this object ins
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">MONDAY <span class="hl opt">=</span> <span class="hl num">1</span>, TUESDAY <span class="hl opt">=</span> <span class="hl num">2</span>, WEDNESDAY <span class="hl opt">=</span> <span class="hl num">3</span>,&#x000A;&#x000A;THURSDAY <span class="hl opt">=</span> <span class="hl num">4</span>, FRIDAY <span class="hl opt">=</span> <span class="hl num">5</span></code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">MONDAY <span class="hl opt">=</span> <span class="hl num">1</span>, TUESDAY <span class="hl opt">=</span> <span class="hl num">2</span>, WEDNESDAY <span class="hl opt">=</span> <span class="hl num">3</span>,&#x000A;THURSDAY <span class="hl opt">=</span> <span class="hl num">4</span>, FRIDAY <span class="hl opt">=</span> <span class="hl num">5</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>The start value is optional. If omitted, it is 0. Also, it is possible to change the current value at any point (therefore also affecting all following values).</p>
+<p>The start value is optional.
+If omitted, it is 0.
+Also, it is possible to change the current value at any point (therefore also affecting all following values).</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">enumerate</span>&#x000A;&#x000A;\{&#x000A;&#x000A;A, B, C <span class="hl opt">=</span> <span class="hl num">5</span>, D, E&#x000A;&#x000A;}</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">enumerate</span>&#x000A;{&#x000A;    A, B, C <span class="hl opt">=</span> <span class="hl num">5</span>, D, E&#x000A;}</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -4104,12 +4150,12 @@ All subsequent references to <code>&lt;class&gt;</code> will use this object ins
 </div>
 </div>
 <div class="paragraph">
-<p>Finally, it is possible to alter the step value of the enumeration using the step keyword followed by <code>+n</code>, <code>-n</code>, <code>*n</code>, or <code>/n</code>, where <code>n</code> is a constant integer value.
+<p>Finally, it is possible to alter the step value of the enumeration using the <code>step</code> keyword followed by <code>+n</code>, <code>-n</code>, <code>*n</code>, or <code>/n</code>, where <code>n</code> is a constant integer value.
 To start with 1 and count by multiples of two:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">enumerate step</span> <span class="hl opt">*</span><span class="hl num">2</span>&#x000A;&#x000A;\{&#x000A;&#x000A;A <span class="hl opt">=</span> <span class="hl num">1</span>, B, C, D&#x000A;&#x000A;}</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">enumerate step</span> <span class="hl opt">*</span><span class="hl num">2</span>&#x000A;{&#x000A;    A <span class="hl opt">=</span> <span class="hl num">1</span>, B, C, D&#x000A;}</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -4121,11 +4167,11 @@ To start with 1 and count by multiples of two:</p>
 </div>
 </div>
 <div class="paragraph">
-<p>Enumeration of global variables is also possible, using the globals specifier, as in:</p>
+<p>Enumeration of global variables is also possible, using the <code>globals</code> specifier, as in:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">enumerate</span> globals&#x000A;&#x000A;\{&#x000A;&#x000A;<span class="hl opt">&lt;</span>global1<span class="hl opt">&gt;</span>, <span class="hl opt">&lt;</span>global2<span class="hl opt">&gt;</span>,...&#x000A;&#x000A;}</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">enumerate</span> globals&#x000A;{&#x000A;    <span class="hl opt">&lt;</span>global1<span class="hl opt">&gt;</span>, <span class="hl opt">&lt;</span>global2<span class="hl opt">&gt;</span>,...&#x000A;}</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -4135,7 +4181,8 @@ To start with 1 and count by multiples of two:</p>
 <div class="sect2">
 <h3 id="_printing_text"><a class="anchor" href="#_printing_text"></a>4.3. Printing Text</h3>
 <div class="paragraph">
-<p>Text can be printed&#8212;&#8203;that is, output to the screen during running of a Hugo program&#8212;&#8203;using two different methods. The first is the basic print command, the simplest form of which is</p>
+<p>Text can be printed&#8201;&#8212;&#8201;that is, output to the screen during running of a Hugo program&#8201;&#8212;&#8201;using two different methods.
+The first is the basic <code>print</code> command, the simplest form of which is</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -4143,22 +4190,47 @@ To start with 1 and count by multiples of two:</p>
 </div>
 </div>
 <div class="paragraph">
-<p>where &lt;string&gt; consists of a series of alphanumeric characters and punctuation.</p>
+<p>where <code>&lt;string&gt;</code> consists of a series of alphanumeric characters and punctuation.</p>
 </div>
 <div class="paragraph">
-<p>The backslash character (<code>\</code>) is handled specially. It modifies how the character following it in a string is treated.<sup class="footnote">[<a id="_footnoteref_22" class="footnote" href="#_footnotedef_22" title="View footnote.">22</a>]</sup></p>
+<p>The backslash character (<code>\</code>) is handled specially.
+It modifies how the character following it in a string is treated.<sup class="footnote">[<a id="_footnoteref_22" class="footnote" href="#_footnotedef_22" title="View footnote.">22</a>]</sup></p>
 </div>
-<div class="paragraph">
-<p>\" inserts quotation marks</p>
-</div>
-<div class="paragraph">
-<p>\\ insert a literal backslash character</p>
-</div>
-<div class="paragraph">
-<p>\_ insert a forced space, overriding left-justification for the rest of the string</p>
-</div>
-<div class="paragraph">
-<p>\n insert a forced newline</p>
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+<code>\"</code> 
+</td>
+<td class="hdlist2">
+<p>inserts quotation marks</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>\\</code> 
+</td>
+<td class="hdlist2">
+<p>insert a literal backslash character</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>\_</code> 
+</td>
+<td class="hdlist2">
+<p>insert a forced space, overriding left-justification for the rest of the string</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>\n</code> 
+</td>
+<td class="hdlist2">
+<p>insert a forced newline</p>
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>As usual, a single <code>\</code> at the end of a line signals that the line continues with the following line.</p>
@@ -4166,140 +4238,212 @@ To start with 1 and count by multiples of two:</p>
 <div class="paragraph">
 <p>Examples:</p>
 </div>
-<div class="paragraph">
-<p>print "\"Hello!\""</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">print</span> <span class="hl str">&quot;</span><span class="hl esc">\&quot;</span><span class="hl str">Hello!</span><span class="hl esc">\&quot;</span><span class="hl str">&quot;</span></code></pre>
 </div>
+</div>
+<div class="exampleblock gametranscript">
+<div class="content">
 <div class="paragraph">
 <p>"Hello!"</p>
 </div>
-<div class="paragraph">
-<p>print "Print a&#8230;&#8203;\n&#8230;&#8203;newline"</p>
 </div>
-<div class="paragraph">
-<p>Print a&#8230;&#8203;</p>
-</div>
-<div class="paragraph">
-<p>&#8230;&#8203;newline</p>
-</div>
-<div class="paragraph">
-<p>print "One\\two\\three"</p>
-</div>
-<div class="paragraph">
-<p>One\two\three</p>
-</div>
-<div class="paragraph">
-<p>print " Left-justified"</p>
-</div>
-<div class="paragraph">
-<p>print "\_ Not left-justified"</p>
-</div>
-<div class="paragraph">
-<p>Left-justified</p>
-</div>
-<div class="paragraph">
-<p>Not left-justified</p>
-</div>
-<div class="paragraph">
-<p>print "This is a \</p>
-</div>
-<div class="paragraph">
-<p>single line."</p>
-</div>
-<div class="paragraph">
-<p>This is a single line.</p>
-</div>
-<div class="paragraph">
-<p>(Although</p>
-</div>
-<div class="paragraph">
-<p>print "This is a</p>
-</div>
-<div class="paragraph">
-<p>single line."</p>
-</div>
-<div class="paragraph">
-<p>will produce the same result, since the line break occurs within quotation marks.)</p>
-</div>
-<div class="paragraph">
-<p>After each of the above print commands, a newline is printed. To avoid this, append a semicolon (<code>;</code>) to the end of the print statement.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">print</span> <span class="hl str">&quot;This is a &quot;</span>;&#x000A;&#x000A;<span class="hl kwa">print</span> <span class="hl str">&quot;single line.&quot;</span></code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">print</span> <span class="hl str">&quot;Print a...</span><span class="hl esc">\n</span><span class="hl str">...newline&quot;</span></code></pre>
 </div>
 </div>
+<div class="exampleblock gametranscript">
+<div class="content">
+<div class="paragraph">
+<p>Print a&#8230;&#8203;<br>
+&#8230;&#8203;newline</p>
+</div>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">print</span> <span class="hl str">&quot;One</span><span class="hl esc">\\</span><span class="hl str">two</span><span class="hl esc">\\</span><span class="hl str">three&quot;</span></code></pre>
+</div>
+</div>
+<div class="exampleblock gametranscript">
+<div class="content">
+<div class="paragraph">
+<p>One\two\three</p>
+</div>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">print</span> <span class="hl str">&quot; Left-justified&quot;</span>&#x000A;<span class="hl kwa">print</span> <span class="hl str">&quot;</span><span class="hl esc">\_</span> <span class="hl str">Not left-justified&quot;</span></code></pre>
+</div>
+</div>
+<div class="exampleblock gametranscript">
+<div class="content">
+<div class="paragraph">
+<p>Left-justified<br>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+Not left-justified</p>
+</div>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">print</span> <span class="hl str">&quot;This is a \</span>&#x000A;<span class="hl str">single line.&quot;</span></code></pre>
+</div>
+</div>
+<div class="exampleblock gametranscript">
+<div class="content">
 <div class="paragraph">
 <p>This is a single line.</p>
 </div>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
 <div class="paragraph">
-<p>Print statements may also contain data types, or a combination of data types and strings. The command</p>
+<p>Although</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">print</span> <span class="hl str">&quot;This is a</span>&#x000A;<span class="hl str">single line.&quot;</span></code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>print "The "; object.name; " is closed."</p>
+<p>will produce the same result, since the line break occurs within quotation marks.</p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
-<p>will print the word located at the dictionary address specified by object.name, so that if object.name points to the word <code>box</code>, the resulting output would be:</p>
+<p>After each of the above print commands, a newline is printed.
+To avoid this, append a semicolon (<code>;</code>) to the end of the <code>print</code> statement.</p>
 </div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">print</span> <span class="hl str">&quot;This is a &quot;</span>;&#x000A;<span class="hl kwa">print</span> <span class="hl str">&quot;single line.&quot;</span></code></pre>
+</div>
+</div>
+<div class="exampleblock gametranscript">
+<div class="content">
+<div class="paragraph">
+<p>This is a single line.</p>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Print statements may also contain data types, or a combination of data types and strings.
+The command</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">print</span> <span class="hl str">&quot;The &quot;</span>; <span class="hl kwa">object</span>.<span class="hl kwa">name</span>; <span class="hl str">&quot; is closed.&quot;</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>will print the word located at the dictionary address specified by <code>object.name</code>, so that if <code>object.name</code> points to the word <code>box</code>, the resulting output would be:</p>
+</div>
+<div class="exampleblock gametranscript">
+<div class="content">
 <div class="paragraph">
 <p>The box is closed.</p>
 </div>
+</div>
+</div>
 <div class="paragraph">
-<p>To capitalize the first letter of the specified word, use the capital modifier.</p>
+<p>To capitalize the first letter of the specified word, use the <code>capital</code> modifier.</p>
 </div>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">print</span> <span class="hl str">&quot;The &quot;</span>; <span class="hl kwa">capital object</span>.<span class="hl kwa">name</span>; <span class="hl str">&quot; is closed.&quot;</span></code></pre>
 </div>
 </div>
+<div class="exampleblock gametranscript">
+<div class="content">
 <div class="paragraph">
 <p>The Box is closed.</p>
 </div>
-<div class="paragraph">
-<p>To print the data type as a value instead of referencing the dictionary, use the number modifier. For example, if the variable time holds the value 5,</p>
+</div>
 </div>
 <div class="paragraph">
-<p>print "There are "; number time; " seconds remaining."</p>
+<p>To print the data type as a value instead of referencing the dictionary, use the <code>number</code> modifier.
+For example, if the variable <code>time</code> holds the value 5,</p>
 </div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">print</span> <span class="hl str">&quot;There are &quot;</span>; <span class="hl kwa">number</span> time; <span class="hl str">&quot; seconds remaining.&quot;</span></code></pre>
+</div>
+</div>
+<div class="exampleblock gametranscript">
+<div class="content">
 <div class="paragraph">
 <p>There are 5 seconds remaining.</p>
 </div>
-<div class="paragraph">
-<p>If number were not used, the engine would try to find a word at the dictionary address 5, and the result will likely be garbage.</p>
+</div>
 </div>
 <div class="paragraph">
-<p>Mainly for debugging purposes, the modifier hex prints the data type as a hexadecimal number instead of a decimal one. If the variable val equals 127,</p>
+<p>If <code>number</code> were not used, the engine would try to find a word at the dictionary address 5, and the result will likely be garbage.</p>
+</div>
+<div class="paragraph">
+<p>Mainly for debugging purposes, the modifier <code>hex</code> prints the data type as a hexadecimal number instead of a decimal one.
+If the variable <code>val</code> equals 127,</p>
 </div>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">print number</span> val; <span class="hl str">&quot; is &quot;</span>; <span class="hl kwa">hex</span> val; <span class="hl str">&quot; in hexadecimal.&quot;</span></code></pre>
 </div>
 </div>
+<div class="exampleblock gametranscript">
+<div class="content">
 <div class="paragraph">
 <p>127 is 7F in hexadecimal.</p>
 </div>
-<div class="paragraph">
-<p>The second way to print text is from the text bank, from which&#8212;&#8203;if memory is in short supply&#8212;&#8203;sections are loaded from disk only when they are needed by the program. This method is provided so that lengthy blocks of text&#8212;&#8203;such as description and narration&#8212;&#8203;do not take up valuable space if memory is limited. The command consists simply of a quoted string without any preceding statement.</p>
+</div>
 </div>
 <div class="paragraph">
-<p>"This string would be written to disk."</p>
+<p>The second way to print text is from the text bank, from which&#8201;&#8212;&#8201;if memory is in short supply&#8201;&#8212;&#8201;sections are loaded from disk only when they are needed by the program.
+This method is provided so that lengthy blocks of text&#8201;&#8212;&#8201;such as description and narration&#8201;&#8212;&#8201;do not take up valuable space if memory is limited.
+The command consists simply of a quoted string without any preceding statement.</p>
 </div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl str">&quot;This string would be written to disk.&quot;</span></code></pre>
+</div>
+</div>
+<div class="exampleblock gametranscript">
+<div class="content">
 <div class="paragraph">
 <p>This string would be written to disk.</p>
+</div>
+</div>
 </div>
 <div class="paragraph">
 <p>or</p>
 </div>
-<div class="paragraph">
-<p>"So would this one ";</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl str">&quot;So would this one &quot;</span>;&#x000A;<span class="hl str">&quot;and this one.&quot;</span></code></pre>
 </div>
-<div class="paragraph">
-<p>"and this one."</p>
 </div>
+<div class="exampleblock gametranscript">
+<div class="content">
 <div class="paragraph">
 <p>So would this one and this one.</p>
 </div>
+</div>
+</div>
 <div class="paragraph">
-<p>Notice that a semicolon at the end of the statement still overrides the newline. The in-string formatting combinations are still usable with these print statements, but since each statement is a single line, data types and other modifiers may not be compounded. Because of that,</p>
+<p>Notice that a semicolon at the end of the statement still overrides the newline.
+The in-string formatting combinations are still usable with these print statements, but since each statement is a single line, data types and other modifiers may not be compounded.
+Because of that,</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -4309,143 +4453,243 @@ To start with 1 and count by multiples of two:</p>
 <div class="paragraph">
 <p>will write</p>
 </div>
+<div class="exampleblock gametranscript">
+<div class="content">
 <div class="paragraph">
 <p>"Hello," he said.</p>
 </div>
-<div class="paragraph">
-<p>to the .HEX file text bank, but</p>
+</div>
 </div>
 <div class="paragraph">
-<p>"There are "; number time_left; " seconds remaining."</p>
+<p>to the <strong>.HEX</strong> file text bank, but</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl str">&quot;There are &quot;</span>; <span class="hl kwa">number</span> time_left; <span class="hl str">&quot; seconds remaining.&quot;</span></code></pre>
+</div>
 </div>
 <div class="paragraph">
 <p>is illegal.</p>
 </div>
 <div class="paragraph">
-<p>The color of text may be changed using the color command (also valid with the U.K. spelling colour). The format is</p>
+<p>The color of text may be changed using the <code>color</code> command (also valid with the U.K. spelling <code>colour</code>).
+The format is</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">color</span> <span class="hl opt">&lt;</span>foreground<span class="hl opt">&gt;</span>[, <span class="hl opt">&lt;</span>background<span class="hl opt">&gt;</span>[, <span class="hl opt">&lt;</span><span class="hl kwa">input color</span><span class="hl opt">&gt;</span>]]</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>color &lt;foreground&gt;[, &lt;background&gt;[, &lt;input color&gt;]]</p>
-</div>
-<div class="paragraph">
-<p>where the background color is not necessary. If no background color is specified, the current one is assumed). The input color is also not necessary&#8212;&#8203;this refers to the color of player input and, if not given, is the same as the foreground color.</p>
+<p>where the background color is not necessary.
+If no background color is specified, the current one is assumed).
+The input color is also not necessary&#8201;&#8212;&#8201;this refers to the color of player input and, if not given, is the same as the foreground color.</p>
 </div>
 <div class="paragraph">
 <p>The standard color set with corresponding values and constant labels (defined in <strong>hugolib.h</strong>) is:</p>
 </div>
+<table class="tableblock frame-all grid-none stripes-even fit-content center">
+<colgroup>
+<col>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">COLOR</th>
+<th class="tableblock halign-right valign-top">VALUE</th>
+<th class="tableblock halign-left valign-top">LABEL</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Black</p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><strong>0</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>BLACK</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Blue</p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><strong>1</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>BLUE</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Green</p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><strong>2</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>GREEN</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Cyan</p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><strong>3</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>CYAN</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Red</p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><strong>4</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>RED</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Magenta</p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><strong>5</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>MAGENTA</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Brown</p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><strong>6</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>BROWN</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">White</p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><strong>7</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>WHITE</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Dark gray</p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><strong>8</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DARK_GRAY</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Light blue</p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><strong>9</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>LIGHT_BLUE</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Light green</p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><strong>10</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>LIGHT_GREEN</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Light cyan</p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><strong>11</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>LIGHT_CYAN</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Light red</p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><strong>12</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>LIGHT_RED</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Light magenta</p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><strong>13</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>LIGHT_MAGENTA</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yellow</p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><strong>14</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>YELLOW</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Bright white</p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><strong>15</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>BRIGHT_WHITE</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Default foreground</p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><strong>16</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DEF_FOREGROUND</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Default background</p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><strong>17</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DEF_BACKGROUND</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Default statusline (fore)</p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><strong>18</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DEF_SL_FOREGROUND</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Default statusline (back)</p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><strong>19</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DEF_SL_BACKGROUND</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Match foreground</p></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><strong>20</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>MATCH_FOREGROUND</code></p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
 <div class="paragraph">
-<p><strong><span class="underline">COLOR</span> <span class="underline">VALUE</span> <span class="underline">LABEL</span></strong></p>
+<p>Since the labels are defined in <strong>hugolib.h,</strong> when using the library, it is never necessary to refer to a color by its numerical value.</p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
-<p>Black 0 BLACK</p>
-</div>
-<div class="paragraph">
-<p>Blue 1 BLUE</p>
-</div>
-<div class="paragraph">
-<p>Green 2 GREEN</p>
-</div>
-<div class="paragraph">
-<p>Cyan 3 CYAN</p>
-</div>
-<div class="paragraph">
-<p>Red 4 RED</p>
-</div>
-<div class="paragraph">
-<p>Magenta 5 MAGENTA</p>
-</div>
-<div class="paragraph">
-<p>Brown 6 BROWN</p>
-</div>
-<div class="paragraph">
-<p>White 7 WHITE</p>
-</div>
-<div class="paragraph">
-<p>Dark gray 8 DARK_GRAY</p>
-</div>
-<div class="paragraph">
-<p>Light blue 9 LIGHT_BLUE</p>
-</div>
-<div class="paragraph">
-<p>Light green 10 LIGHT_GREEN</p>
-</div>
-<div class="paragraph">
-<p>Light cyan 11 LIGHT_CYAN</p>
-</div>
-<div class="paragraph">
-<p>Light red 12 LIGHT_RED</p>
-</div>
-<div class="paragraph">
-<p>Light magenta 13 LIGHT_MAGENTA</p>
-</div>
-<div class="paragraph">
-<p>Yellow 14 YELLOW</p>
-</div>
-<div class="paragraph">
-<p>Bright white 15 BRIGHT_WHITE</p>
-</div>
-<div class="paragraph">
-<p>Default foreground 16 DEF_FOREGROUND</p>
-</div>
-<div class="paragraph">
-<p>Default background 17 DEF_BACKGROUND</p>
-</div>
-<div class="paragraph">
-<p>Default statusline (fore) 18 DEF_SL_FOREGROUND</p>
-</div>
-<div class="paragraph">
-<p>Default statusline (back) 19 DEF_SL_BACKGROUND</p>
-</div>
-<div class="paragraph">
-<p>Match foreground 20 MATCH_FOREGROUND</p>
-</div>
-<div class="paragraph">
-<p>(Since the labels are defined in <strong>hugolib.h,</strong> when using the library, it is never necessary to refer to a color by its numerical value.)</p>
-</div>
-<div class="paragraph">
-<p>It is expected that, regardless of the system, any color will print visibly on any other color. Video technology and shortcomings of the visible light spectrum conspire to foil this plan, however, it is suggested for practicality that white (and less frequently bright while) be used for most text-printing. Blue and black are fairly standard background colors for light-colored (such as white) text&#8212;&#8203;this is a common combination for default text (as is dark text, such as black, on a white background). A game author can use the DEF_FOREGROUND, DEF_BACKGROUND, DEF_SL_FOREGROUND, and DEF_SL_BACKGROUND colors (as is done in <strong>sample.hug</strong> and is the default in <strong>shell.hug</strong>) since this uses the colors supplied by the Hugo Engine, allowing the user to change colors to his or her liking if the port supports that capability.</p>
+<p>It is expected that, regardless of the system, any color will print visibly on any other color.
+Video technology and shortcomings of the visible light spectrum conspire to foil this plan, however, it is suggested for practicality that white (and less frequently bright while) be used for most text-printing.
+Blue and black are fairly standard background colors for light-colored (such as white) text&#8201;&#8212;&#8201;this is a common combination for default text (as is dark text, such as black, on a white background).
+A game author can use the <code>DEF_FOREGROUND</code>, <code>DEF_BACKGROUND</code>, <code>DEF_SL_FOREGROUND</code>, and <code>DEF_SL_BACKGROUND</code> colors (as is done in <strong>sample.hug</strong> and is the default in <strong>shell.hug</strong>) since this uses the colors supplied by the Hugo Engine, allowing the user to change colors to his or her liking if the port supports that capability.</p>
 </div>
 <div class="paragraph">
 <p>Magenta printing on a cyan background is accomplished by</p>
 </div>
-<div class="paragraph">
-<p>color MAGENTA, CYAN</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">color</span> MAGENTA, CYAN</code></pre>
+</div>
 </div>
 <div class="paragraph">
 <p>or</p>
 </div>
-<div class="paragraph">
-<p>color 5, 3 ! if not using HUGOLIB.H</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">color</span> <span class="hl num">5</span>, <span class="hl num">3</span>      <span class="hl slc">! if not using HUGOLIB.H</span></code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>A current line can be filled&#8212;&#8203;with blank spaces in the current color&#8212;&#8203;to a specified column (essentially a tab stop) using the <code>print to&#8230;&#8203;</code> structure as follows:</p>
+<p>A current line can be filled&#8201;&#8212;&#8201;with blank spaces in the current color&#8201;&#8212;&#8201;to a specified column (essentially a tab stop) using the <code>print to&#8230;&#8203;</code> structure as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">print</span> <span class="hl str">&quot;Time:&quot;</span>; <span class="hl kwa">to</span> <span class="hl num">40</span>; <span class="hl str">&quot;Date:&quot;</span></code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>print "Time:"; to 40; "Date:"</p>
-</div>
-<div class="paragraph">
-<p>where the value following to does not exceed the maximum line length in the engine global linelength.</p>
+<p>where the value following <code>to</code> does not exceed the maximum line length in the engine global <code>linelength</code>.</p>
 </div>
 <div class="paragraph">
 <p>The resulting output will be something like:</p>
 </div>
+<div class="exampleblock gametranscript">
+<div class="content">
 <div class="paragraph">
-<p>Time: Date:</p>
+<p>Time:
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+&#160;&#160;&#160;&#160;&#160;
+Date:</p>
+</div>
+</div>
 </div>
 <div class="paragraph">
-<p>Text can be specifically located using the locate command via</p>
+<p>Text can be specifically located using the <code>locate</code> command via</p>
 </div>
-<div class="paragraph">
-<p>locate &lt;column&gt;, &lt;row&gt;</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">locate</span> <span class="hl opt">&lt;</span>column<span class="hl opt">&gt;</span>, <span class="hl opt">&lt;</span>row<span class="hl opt">&gt;</span></code></pre>
+</div>
 </div>
 <div class="paragraph">
 <p>where</p>
 </div>
-<div class="paragraph">
-<p>locate 1, 1</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">locate</span> <span class="hl num">1</span>, <span class="hl num">1</span></code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>places text output at the top left corner of the current text window. Neither &lt;column&gt; nor &lt;row&gt; may exceed the current window boundaries&#8212;&#8203;the engine will automatically constrain them as necessary.</p>
+<p>places text output at the top left corner of the current text window.
+Neither <code>&lt;column&gt;</code> nor <code>&lt;row&gt;</code> may exceed the current window boundaries&#8201;&#8212;&#8201;the engine will automatically constrain them as necessary.</p>
 </div>
 </div>
 <div class="sect2">
@@ -4453,44 +4697,113 @@ To start with 1 and count by multiples of two:</p>
 <div class="paragraph">
 <p>As listed above, the following are valid printing sequences that may be embedded in printed strings:</p>
 </div>
-<div class="paragraph">
-<p>\" quotation marks</p>
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+<code>\"</code> 
+</td>
+<td class="hdlist2">
+<p>quotation marks</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>\\</code> 
+</td>
+<td class="hdlist2">
+<p>a literal backslash character</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>\_</code> 
+</td>
+<td class="hdlist2">
+<p>a forced space, overriding left-justification for the rest of the string</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>\n</code> 
+</td>
+<td class="hdlist2">
+<p>a newline</p>
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
-<p>\\ a literal backslash character</p>
+<p>The next set of formatting sequences control the appearance of printed text by turning on and off boldface, italic, proportional, and underlined printing.
+Not all computers and operating systems are able to provide all types of printed output; however, the engine can be relied upon to properly process any formatting&#8201;&#8212;&#8201;i.e., proportionally printed text will still look fine even on a system that has only a fixed-width font, such as a Unix text terminal or DOS output (although, of course, it won&#8217;t be proportionally spaced).</p>
 </div>
-<div class="paragraph">
-<p>\_ a forced space, overriding left-justification for the rest of the string</p>
-</div>
-<div class="paragraph">
-<p>\n a newline</p>
-</div>
-<div class="paragraph">
-<p>The next set of formatting sequences control the appearance of printed text by turning on and off boldface, italic, proportional, and underlined printing. Not all computers and operating systems are able to provide all types of printed output; however, the engine can be relied upon to properly process any formatting&#8212;&#8203;i.e., proportionally printed text will still look fine even on a system that has only a fixed-width font, such as a Unix text terminal or DOS output (although, of course, it won&#8217;t be proportionally spaced).</p>
-</div>
-<div class="paragraph">
-<p>\B boldface on</p>
-</div>
-<div class="paragraph">
-<p>\b boldface off</p>
-</div>
-<div class="paragraph">
-<p>\I italics on</p>
-</div>
-<div class="paragraph">
-<p>\i italics off</p>
-</div>
-<div class="paragraph">
-<p>\P proportional printing on</p>
-</div>
-<div class="paragraph">
-<p>\p proportional printing off</p>
-</div>
-<div class="paragraph">
-<p>\U underlining on</p>
-</div>
-<div class="paragraph">
-<p>\u underlining off</p>
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+<code>\B</code> 
+</td>
+<td class="hdlist2">
+<p>boldface on</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>\b</code> 
+</td>
+<td class="hdlist2">
+<p>boldface off</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>\I</code> 
+</td>
+<td class="hdlist2">
+<p>italics on</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>\i</code> 
+</td>
+<td class="hdlist2">
+<p>italics off</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>\P</code> 
+</td>
+<td class="hdlist2">
+<p>proportional printing on</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>\p</code> 
+</td>
+<td class="hdlist2">
+<p>proportional printing off</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>\U</code> 
+</td>
+<td class="hdlist2">
+<p>underlining on</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>\u</code> 
+</td>
+<td class="hdlist2">
+<p>underlining off</p>
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>A statement like the following:</p>
@@ -4511,98 +4824,188 @@ To start with 1 and count by multiples of two:</p>
 </div>
 </div>
 <div class="paragraph">
-<p>Print style can also be changed using the Font routine in <strong>hugolib.h</strong>, so that in</p>
+<p>Print style can also be changed using the <code>Font</code> routine in <strong>hugolib.h</strong>, so that in</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">Font(<span class="hl opt">&lt;</span>font change code<span class="hl opt">&gt;</span>)</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>Font(&lt;font change code&gt;)</p>
+<p>the <code>&lt;font change code&gt;</code> can be one or more of:</p>
 </div>
-<div class="paragraph">
-<p>the &lt;font change code&gt; can be one or more of:</p>
-</div>
-<div class="paragraph">
-<p>BOLD_ON BOLD_OFF</p>
-</div>
-<div class="paragraph">
-<p>ITALICS_ON ITALICS_OFF</p>
-</div>
-<div class="paragraph">
-<p>UNDERLINE_ON UNDERLINE_OFF</p>
-</div>
+<table class="tableblock frame-none grid-none stripes-none fit-content center">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>BOLD_ON</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>BOLD_OFF</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ITALICS_ON</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ITALICS_OFF</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>UNDERLINE_ON</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>UNDERLINE_OFF</code></p></td>
+</tr>
+</tbody>
+</table>
 <div class="paragraph">
 <p>and can subsequently be used alone or in combination such as:</p>
 </div>
-<div class="paragraph">
-<p>Font(BOLD_ON | ITALICS_ON | PROP_OFF)</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">Font(BOLD_ON <span class="hl opt">|</span> ITALICS_ON <span class="hl opt">|</span> PROP_OFF)</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>It&#8217;s preferable to rely on the Font function and the various font constants instead of embedding multiple font-change formatting sequences because if for no other reason than it being clearer to understand when reading the source code.</p>
+<p>It&#8217;s preferable to rely on the <code>Font</code> function and the various font constants instead of embedding multiple font-change formatting sequences because if for no other reason than it being clearer to understand when reading the source code.</p>
 </div>
 <div class="paragraph">
-<p>Special characters can also be printed via formatting sequences. Note that these characters are contained in the Latin-1 character set; if a particular system is incapable of displaying it, it will display the normal-ASCII equivalent. (The following examples, appearing in parentheses, may not display properly on all computers and printers.)</p>
+<p>Special characters can also be printed via formatting sequences.
+Note that these characters are contained in the Latin-1 character set; if a particular system is incapable of displaying it, it will display the normal-ASCII equivalent.</p>
 </div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
 <div class="paragraph">
-<p><code>\`</code> accent grave followed by a letter</p>
+<p>The following examples, appearing in parentheses, may not display properly on all computers and printers.</p>
 </div>
-<div class="paragraph">
-<p>e.g. <code>\`a</code> will print an &#8216;a&#8217; with an accent grave (à)</p>
+</td>
+</tr>
+</table>
 </div>
-<div class="paragraph">
-<p><code>\´</code> accent acute followed by a letter</p>
+<table class="tableblock frame-all grid-rows stripes-none fit-content">
+<colgroup>
+<col>
+<col>
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>\`</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>accent grave</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>followed by a letter<br>
+e.g. <code>\`a</code> will print an &#8216;a&#8217; with an accent grave (à)</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>\´</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>accent acute</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>followed by a letter<br>
+e.g. <code>\´E</code> will print an &#8216;E&#8217; with an accent acute (É)</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>\~</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>tilde</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>followed by a letter<br>
+e.g. <code>\~n</code> will print an &#8216;n&#8217; with a tilde (ñ)</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>\^</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>circumflex</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>followed by a letter<br>
+e.g. <code>\^i</code> will print an &#8216;i&#8217; with a circumflex (î)</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>\:</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>umlaut</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>followed by a letter<br>
+e.g. <code>\:u</code> will print a &#8216;u&#8217; with an umlaut (ü)</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>\,</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>cedilla</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>followed by c or C<br>
+e.g. <code>\,c</code> will print a &#8216;c&#8217; with a cedilla (ç)</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\&lt; or&#160;\&gt;</p></td>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><strong>Spanish quotation marks</strong> (« »)</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>\!</code></p></td>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><strong>upside-down exclamation point</strong> (¡)</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>\?</code></p></td>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><strong>upside-down question mark</strong> (¿)</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>\ae</code></p></td>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><strong>ae ligature</strong> (æ)</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>\AE</code></p></td>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><strong>AE ligature</strong> (Æ)</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>\c</code></p></td>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><strong>cents symbol</strong> (¢)</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>\L</code></p></td>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><strong>British pound</strong> (£)</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>\Y</code></p></td>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><strong>Japanese Yen</strong> (¥)</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>\#xxx&#160;</code></p></td>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><strong>any ASCII or Latin-1 character</strong> where <em>xxx</em> represents the three-digit ASCII number (or Latin-1 code) of the character to be printed, e.g. <code>\#065</code> will print an &#8216;A&#8217; (ASCII 65)</p>
 </div>
-<div class="paragraph">
-<p>e.g. <code>\´E</code> will print an &#8216;E&#8217; with an accent acute (É)</p>
-</div>
-<div class="paragraph">
-<p><code>\~</code> tilde followed by a letter</p>
-</div>
-<div class="paragraph">
-<p>e.g. <code>\~n</code> will print an &#8216;n&#8217; with a tilde (ñ)</p>
-</div>
-<div class="paragraph">
-<p><code>\^</code> circumflex followed by a letter</p>
-</div>
-<div class="paragraph">
-<p>e.g. <code>\^i</code> will print an &#8216;i&#8217; with a circumflex (î)</p>
-</div>
-<div class="paragraph">
-<p><code>\:</code> umlaut followed by a letter</p>
-</div>
-<div class="paragraph">
-<p>e.g. <code>\:u</code> will print a &#8216;u&#8217; with an umlaut (ü)</p>
-</div>
-<div class="paragraph">
-<p><code>\,</code> cedilla followed by c or C</p>
-</div>
-<div class="paragraph">
-<p>e.g. <code>\,c</code> will print a &#8216;c&#8217; with a cedilla (ç)</p>
-</div>
-<div class="paragraph">
-<p><code>\&lt;</code> or <code>\&gt;</code> Spanish quotation marks (« »)</p>
-</div>
-<div class="paragraph">
-<p><code>\!</code> upside-down exclamation point (¡)</p>
-</div>
-<div class="paragraph">
-<p><code>\?</code> upside-down question mark (¿)</p>
-</div>
-<div class="paragraph">
-<p><code>\ae</code> ae ligature (æ)</p>
-</div>
-<div class="paragraph">
-<p><code>\AE</code> AE ligature (Æ)</p>
-</div>
-<div class="paragraph">
-<p><code>\c</code> cents symbol (¢)</p>
-</div>
-<div class="paragraph">
-<p><code>\L</code> British pound (£)</p>
-</div>
-<div class="paragraph">
-<p><code>\Y</code> Japanese Yen (¥)</p>
-</div>
-<div class="paragraph">
-<p><code>\#xxx</code> any ASCII or Latin-1 character where xxx represents the three-digit ASCII number (or Latin-1 code) of the character to be printed, e.g. <code>\#065</code> will print an &#8216;A&#8217; (ASCII 65) (Care should be taken when using codes other than those for which special character support explicitly exists, as not all systems or fonts may display all desired non-ASCII characters.)</p>
-</div>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-caution" title="Caution"></i>
+</td>
+<td class="content">
+Care should be taken when using codes other than those for which special character support explicitly exists, as not all systems or fonts may display all desired non-ASCII characters.
+</td>
+</tr>
+</table>
+</div></div></td>
+</tr>
+</tbody>
+</table>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -4611,7 +5014,10 @@ To start with 1 and count by multiples of two:</p>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>It is possible to embed Latin-1 characters directly into printed text in source code using a text editor that allows it&#8212;&#8203;but ensure that the non-ASCII characters are indeed Latin-1. Using non-Latin-1 fonts (such as Mac-encoded fonts or other encodings) will result in the wrong character(s) being printed on various platforms. Also note that platforms which <em>cannot</em> display Latin-1 characters (including some Unix-based terminal displays, DOS windows, etc.) may not have proper Latin-1-to-ASCII translation in order to <em>decode</em> Latin-1 characters embedded directly in printed text. For this reason, or if you&#8217;re not positive whether your font encoding is Latin-1, stick to using the special-character sequences described above, which are guaranteed to work properly across platforms.</p>
+<p>It is possible to embed Latin-1 characters directly into printed text in source code using a text editor that allows it&#8201;&#8212;&#8201;but ensure that the non-ASCII characters are indeed Latin-1.
+Using non-Latin-1 fonts (such as Mac-encoded fonts or other encodings) will result in the wrong character(s) being printed on various platforms.
+Also note that platforms which <em>cannot</em> display Latin-1 characters (including some Unix-based terminal displays, DOS windows, etc.) may not have proper Latin-1-to-ASCII translation in order to <em>decode</em> Latin-1 characters embedded directly in printed text.
+For this reason, or if you&#8217;re not positive whether your font encoding is Latin-1, stick to using the special-character sequences described above, which are guaranteed to work properly across platforms.</p>
 </div>
 </td>
 </tr>
@@ -4623,175 +5029,208 @@ To start with 1 and count by multiples of two:</p>
 <div class="paragraph">
 <p>Hugo allows use of all standard mathematical operators:</p>
 </div>
-<div class="ulist">
-<ul>
-<li>
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+<code>*</code> 
+</td>
+<td class="hdlist2">
 <p>multiplication</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>/ integer division</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>/</code> 
+</td>
+<td class="hdlist2">
+<p>integer division</p>
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>which take precedence<sup class="footnote">[<a id="_footnoteref_23" class="footnote" href="#_footnotedef_23" title="View footnote.">23</a>]</sup> over:</p>
 </div>
-<div class="paragraph">
-<p>+ addition</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+<code>+</code> 
+</td>
+<td class="hdlist2">
+<p>addition</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>-</code> 
+</td>
+<td class="hdlist2">
 <p>subtraction</p>
-</li>
-</ul>
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>Comparisons are also valid as operators, returning Boolean true or false (1 or 0) so that</p>
 </div>
-<div class="paragraph">
-<p>2 + (n = 1)</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl num">2</span> <span class="hl opt">+</span> (n <span class="hl opt">=</span> <span class="hl num">1</span>)&#x000A;<span class="hl num">5</span> <span class="hl opt">-</span> (n <span class="hl opt">&gt;</span> <span class="hl num">1</span>)</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>5 - (n &gt; 1)</p>
+<p>evaluate respectively to 3 and 5 if <code>n</code> is 1, and 2 and 4 if <code>n</code> is 2 or greater.
+Valid relational operators are</p>
 </div>
-<div class="paragraph">
-<p>evaluate respectively to 3 and 5 if n is 1, and 2 and 4 if n is 2 or greater. Valid relational operators are</p>
-</div>
-<div class="sect3">
-<h4 id="_equal_to"><a class="anchor" href="#_equal_to"></a>equal to</h4>
-<div class="paragraph">
-<p>~= not equal to</p>
-</div>
-<div class="paragraph">
-<p>&lt; less than</p>
-</div>
-<div class="quoteblock">
-<blockquote>
-<div class="paragraph">
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+<code>=&#8288;=</code> 
+</td>
+<td class="hdlist2">
+<p>equal to</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>~&#8288;=</code> 
+</td>
+<td class="hdlist2">
+<p>not equal to</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>&lt;</code>      
+</td>
+<td class="hdlist2">
+<p>less than</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>&gt;</code>      
+</td>
+<td class="hdlist2">
 <p>greater than</p>
-</div>
-</blockquote>
-</div>
-<div class="paragraph">
-<p>&#8656; less than or equal to</p>
-</div>
-<div class="paragraph">
-<p>&gt;= greater than or equal to</p>
-</div>
-<div class="paragraph">
-<p>Logical operators (and, or, and not) are also allowed.</p>
-</div>
-<div class="paragraph">
-<p>(x and y) or (a and b)</p>
-</div>
-<div class="paragraph">
-<p>(j + 5) and not ObjectisLight(k)</p>
-</div>
-<div class="paragraph">
-<p>Using and results in true (1) if both values are non-zero. Using or results in true if either is non-zero; not results in true only if the following value is zero.</p>
-</div>
-<div class="paragraph">
-<p>1 and 1 = 1</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>&lt;&#8288;=</code> 
+</td>
+<td class="hdlist2">
+<p>less than or equal to</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>&gt;&#8288;=</code> 
+</td>
+<td class="hdlist2">
+<p>greater than or equal to</p>
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
-<p>1 and 0 = 0</p>
+<p>Logical operators (<code>and</code>, <code>or</code>, and <code>not</code>) are also allowed.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">(x <span class="hl kwa">and</span> y) <span class="hl kwa">or</span> (a <span class="hl kwa">and</span> b)&#x000A;(j <span class="hl opt">+</span> <span class="hl num">5</span>) <span class="hl kwa">and not</span> ObjectisLight(k)</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>5 and 3 = 1</p>
+<p>Using <code>and</code> results in true (1) if both values are non-zero.
+Using <code>or</code> results in true if either is non-zero; <code>not</code> results in true only if the following value is zero.</p>
 </div>
-<div class="paragraph">
-<p>0 and 9 = 0</p>
+<div class="literalblock">
+<div class="content">
+<pre>1 and 1 = 1
+1 and 0 = 0
+5 and 3 = 1
+0 and 9 = 0
+0 and 169 and 1 = 0
+1 and 12 and 1233 = 1
+
+1 or 1 = 1
+35 or 0 = 1
+0 or 0 = 0
+
+not 0 = 1
+not 1 = 0
+not 8 = 0
+not (8 and 0) = 1
+
+1 and 7 or (14 and not 0) = 1
+(0 or not 1) and 3 = 0</pre>
 </div>
-<div class="paragraph">
-<p>0 and 169 and 1 = 0</p>
-</div>
-<div class="paragraph">
-<p>1 and 12 and 1233 = 1</p>
-</div>
-<div class="paragraph">
-<p>1 or 1 = 1</p>
-</div>
-<div class="paragraph">
-<p>35 or 0 = 1</p>
-</div>
-<div class="paragraph">
-<p>0 or 0 = 0</p>
-</div>
-<div class="paragraph">
-<p>not 0 = 1</p>
-</div>
-<div class="paragraph">
-<p>not 1 = 0</p>
-</div>
-<div class="paragraph">
-<p>not 8 = 0</p>
-</div>
-<div class="paragraph">
-<p>not (8 and 0) = 1</p>
-</div>
-<div class="paragraph">
-<p>1 and 7 or (14 and not 0) = 1</p>
-</div>
-<div class="paragraph">
-<p>(0 or not 1) and 3 = 0</p>
 </div>
 <div class="paragraph">
 <p>Additionally, bitwise operators are provided:</p>
 </div>
+<table class="tableblock frame-all grid-rows stripes-even fit-content">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>1 &amp; 1 = 1</code></p></td>
+<td class="tableblock halign-left valign-middle" rowspan="2"><p class="tableblock">(Bitwise and)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>1 &amp; 0 = 0</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>1 | 0 = 1</code></p></td>
+<td class="tableblock halign-left valign-middle" rowspan="2"><p class="tableblock">(Bitwise or)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>1 | 1 = 1</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>~0 = -1</code></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">(Bitwise not/inverse)</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
 <div class="paragraph">
-<p>1 &amp; 1 = 1 (Bitwise and)</p>
+<p>As mentioned previously, a detailed explanation of bitwise operations is a little beyond the scope of this manual; programmers may occasionally use the <code>|</code> operator to combine bitmask-type parameters for certain library functions such as fonts and list-formats, but only advanced users should have to worry about employing bitwise operators to any great extent in practical programming.</p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
-<p>1 &amp; 0 = 0</p>
-</div>
-<div class="paragraph">
-<p>1 | 0 = 1 (Bitwise or)</p>
-</div>
-<div class="paragraph">
-<p>1 | 1 = 1</p>
-</div>
-<div class="paragraph">
-<p>~0 = -1 (Bitwise not/inverse)</p>
-</div>
-<div class="paragraph">
-<p>(As mentioned previously, a detailed explanation of bitwise operations is a little beyond the scope of this manual; programmers may occasionally use the <code>|</code> operator to combine bitmask-type parameters for certain library functions such as fonts and list-formats, but only advanced users should have to worry about employing bitwise operators to any great extent in practical programming.)</p>
-</div>
-<div class="paragraph">
-<p>Any Hugo data type can appear in an expression, including routines, attribute tests, properties, constants, and variables. Standard mathematical rules for order of significance in evaluating an expression apply, so that parenthetical sub-expressions are evaluated first, followed by multiplication and division, followed by addition and subtraction.</p>
+<p>Any Hugo data type can appear in an expression, including routines, attribute tests, properties, constants, and variables.
+Standard mathematical rules for order of significance in evaluating an expression apply, so that parenthetical sub-expressions are evaluated first, followed by multiplication and division, followed by addition and subtraction.</p>
 </div>
 <div class="paragraph">
 <p>Some sample combinations are:</p>
 </div>
-<div class="paragraph">
-<p>10 + object.size ! integer constant and</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl num">10</span> <span class="hl opt">+</span> <span class="hl kwa">object</span>.size          <span class="hl slc">! integer constant and</span>&#x000A;                          <span class="hl slc">! property</span>&#x000A;&#x000A;<span class="hl kwa">object is</span> openable <span class="hl opt">+</span> <span class="hl num">1</span>    <span class="hl slc">! attribute test and constant</span>&#x000A;&#x000A;FindLight(location) <span class="hl opt">+</span> a   <span class="hl slc">! return value and variable</span>&#x000A;&#x000A;<span class="hl num">1</span> <span class="hl kwa">and object is</span> light     <span class="hl slc">! constant, logical test,</span>&#x000A;                          <span class="hl slc">! and attribute</span></code></pre>
 </div>
-<div class="paragraph">
-<p>! property</p>
-</div>
-<div class="paragraph">
-<p>object is openable + 1 ! attribute test and constant</p>
-</div>
-<div class="paragraph">
-<p>FindLight(location) + a ! return value and variable</p>
-</div>
-<div class="paragraph">
-<p>1 and object is light ! constant, logical test,</p>
-</div>
-<div class="paragraph">
-<p>! and attribute</p>
 </div>
 <div class="paragraph">
 <p>Expressions can be evaluated and assigned to either a variable, a property, or an array element.</p>
 </div>
-<div class="paragraph">
-<p>&lt;variable&gt; = &lt;expression&gt;</p>
-</div>
-<div class="paragraph">
-<p>&lt;object&gt;.&lt;property&gt; [#&lt;element&gt;] = &lt;expression&gt;</p>
-</div>
-<div class="paragraph">
-<p>&lt;array&gt;[&lt;element&gt;] = &lt;expression&gt;</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl opt">&lt;</span>variable<span class="hl opt">&gt; = &lt;</span>expression<span class="hl opt">&gt;</span>&#x000A;&#x000A;<span class="hl opt">&lt;</span><span class="hl kwa">object</span><span class="hl opt">&gt;</span>.<span class="hl opt">&lt;</span><span class="hl kwa">property</span><span class="hl opt">&gt;</span> [<span class="hl ppc">#&lt;element&gt;] = &lt;expression&gt;</span>&#x000A;&#x000A;<span class="hl opt">&lt;</span><span class="hl kwa">array</span><span class="hl opt">&gt;</span>[<span class="hl opt">&lt;</span>element<span class="hl opt">&gt;</span>] <span class="hl opt">= &lt;</span>expression<span class="hl opt">&gt;</span></code></pre>
 </div>
 </div>
 <div class="sect3">
@@ -4799,159 +5238,157 @@ To start with 1 and count by multiples of two:</p>
 <div class="paragraph">
 <p>Something like</p>
 </div>
-<div class="paragraph">
-<p>number_of_items = number_of_items + 1</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">number_of_items <span class="hl opt">=</span> number_of_items <span class="hl opt">+</span> <span class="hl num">1</span>&#x000A;<span class="hl kwa">if</span> number_of_items <span class="hl opt">&gt;</span> <span class="hl num">10</span>&#x000A;{&#x000A;  <span class="hl kwa">print</span> <span class="hl str">&quot;Too many items!&quot;</span>&#x000A;}</code></pre>
 </div>
-<div class="paragraph">
-<p>if number_of_items &gt; 10</p>
-</div>
-<div class="paragraph">
-<p>\{</p>
-</div>
-<div class="paragraph">
-<p>print "Too many items!"</p>
-</div>
-<div class="paragraph">
-<p>}</p>
 </div>
 <div class="paragraph">
 <p>can be coded more simply as</p>
 </div>
-<div class="paragraph">
-<p>if ++number_of_items &gt; 10</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">if</span> <span class="hl opt">++</span>number_of_items <span class="hl opt">&gt;</span> <span class="hl num">10</span>&#x000A;{&#x000A;  <span class="hl kwa">print</span> <span class="hl str">&quot;Too many items!&quot;</span>&#x000A;}</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>\{</p>
+<p>The <code>++</code> operator increases the following variable by one before returning the value of the variable.
+Similarly, <code>--</code> can precede a variable to decrease the value by one before returning it.
+Since these operators act before the value is returned, they are called &#8220;pre-increment&#8221; and &#8220;pre-decrement&#8221;.</p>
 </div>
 <div class="paragraph">
-<p>print "Too many items!"</p>
-</div>
-<div class="paragraph">
-<p>}</p>
-</div>
-<div class="paragraph">
-<p>The <code>++</code> operator increases the following variable by one before returning the value of the variable. Similarly, <code>--</code> can precede a variable to decrease the value by one before returning it. Since these operators act before the value is returned, they are called &#8220;pre-increment&#8221; and &#8220;pre-decrement&#8221;.</p>
-</div>
-<div class="paragraph">
-<p>If <code>++</code> or <code>--</code> comes <em>after</em> a variable, the value of the variable is returned and then the value is increased or decreased, respectively. In this usage, the operators are called &#8220;post-increment&#8221; and &#8220;post-decrement&#8221;.</p>
+<p>If <code>++</code> or <code>--</code> comes <em>after</em> a variable, the value of the variable is returned and then the value is increased or decreased, respectively.
+In this usage, the operators are called &#8220;post-increment&#8221; and &#8220;post-decrement&#8221;.</p>
 </div>
 <div class="paragraph">
 <p>For example,</p>
 </div>
-<div class="paragraph">
-<p>while ++i &lt; 5 ! pre-increment</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">while</span> <span class="hl opt">++</span>i <span class="hl opt">&lt;</span> <span class="hl num">5</span> <span class="hl slc">! pre-increment</span>&#x000A;{&#x000A;  <span class="hl kwa">print number</span> i; <span class="hl str">&quot; &quot;</span>;&#x000A;}</code></pre>
 </div>
-<div class="paragraph">
-<p>\{</p>
-</div>
-<div class="paragraph">
-<p>print number i; " ";</p>
-</div>
-<div class="paragraph">
-<p>}</p>
 </div>
 <div class="paragraph">
 <p>will output:</p>
 </div>
-<div class="paragraph">
-<p>1 2 3 4</p>
+<div class="exampleblock gametranscript">
+<div class="content">
+1 2 3 4
+</div>
 </div>
 <div class="paragraph">
 <p>But</p>
 </div>
-<div class="paragraph">
-<p>while i++ &lt; 5 ! post-increment</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">while</span> i<span class="hl opt">++ &lt;</span> <span class="hl num">5</span> <span class="hl slc">! post-increment</span>&#x000A;{&#x000A;  <span class="hl kwa">print number</span> i; <span class="hl str">&quot; &quot;</span>;&#x000A;}</code></pre>
 </div>
-<div class="paragraph">
-<p>\{</p>
-</div>
-<div class="paragraph">
-<p>print number i; " ";</p>
-</div>
-<div class="paragraph">
-<p>}</p>
 </div>
 <div class="paragraph">
 <p>will output:</p>
 </div>
-<div class="paragraph">
-<p>1 2 3 4 5</p>
+<div class="exampleblock gametranscript">
+<div class="content">
+1 2 3 4 5
+</div>
 </div>
 <div class="paragraph">
 <p>Since in the second example, the variable is increased before getting the value, while in the second example, it is increased after checking it.</p>
 </div>
 <div class="paragraph">
-<p>It is also possible to use the operators <code>+=</code>, <code>-=</code>, <code>*=</code>, <code>/=</code>, <code>&amp;=</code>, and <code>|=</code>. These can also be used to modify a variable at the same time its value is being checked. All of these, however, operate before the value in question is returned.</p>
+<p>It is also possible to use the operators <code>+=</code>, <code>-=</code>, <code>*=</code>, <code>/=</code>, <code>&amp;=</code>, and <code>|=</code>.
+These can also be used to modify a variable at the same time its value is being checked.
+All of these, however, operate before the value in question is returned.</p>
 </div>
-<div class="paragraph">
-<p>x = 5</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">x <span class="hl opt">=</span> <span class="hl num">5</span>&#x000A;y <span class="hl opt">=</span> <span class="hl num">10</span>&#x000A;<span class="hl kwa">print</span> <span class="hl str">&quot;x = &quot;</span>; <span class="hl kwa">number</span> (x<span class="hl opt">*=</span>y); <span class="hl str">&quot;, y = &quot;</span>; <span class="hl kwa">number</span> y</code></pre>
 </div>
-<div class="paragraph">
-<p>y = 10</p>
-</div>
-<div class="paragraph">
-<p>print "x = "; number (x*=y); ", y = "; number y</p>
 </div>
 <div class="paragraph">
 <p>Result:</p>
 </div>
-<div class="paragraph">
-<p>x = 50, y = 10</p>
+<div class="exampleblock gametranscript">
+<div class="content">
+x = 50, y = 10
+</div>
 </div>
 <div class="paragraph">
-<p>When the compiler is processing any of the above lines, the efficient operator takes precedence over a normal (i.e., single-character) operator. For example,</p>
+<p>When the compiler is processing any of the above lines, the efficient operator takes precedence over a normal (i.e., single-character) operator.
+For example,</p>
 </div>
-<div class="paragraph">
-<p>x = y + ++z</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">x <span class="hl opt">=</span> y <span class="hl opt">+ ++</span>z</code></pre>
+</div>
 </div>
 <div class="paragraph">
 <p>is actually compiled as</p>
 </div>
-<div class="paragraph">
-<p>x = y++ + z</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">x <span class="hl opt">=</span> y<span class="hl opt">++ +</span> z</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>since the <code>++</code> is parsed first. To properly code this line with a pre-increment on the z variable instead of a post-increment on y, use parentheses to order the various operators:</p>
+<p>since the <code>++</code> is parsed first.
+To properly code this line with a pre-increment on the <code>z</code> variable instead of a post-increment on <code>y</code>, use parentheses to order the various operators:</p>
 </div>
-<div class="paragraph">
-<p>x = y + (++z)</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">x <span class="hl opt">=</span> y <span class="hl opt">+</span> (<span class="hl opt">++</span>z)</code></pre>
+</div>
 </div>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_arrays_and_strings"><a class="anchor" href="#_arrays_and_strings"></a>4.6. Arrays And Strings</h3>
 <div class="paragraph">
-<p>Prior to this point, little has been said about arrays. Arrays are sets of values that share a common name, and where the elements are referenced by number. Arrays are defined by</p>
+<p>Prior to this point, little has been said about arrays.
+Arrays are sets of values that share a common name, and where the elements are referenced by number.
+Arrays are defined by</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">array</span> <span class="hl opt">&lt;</span>arrayname<span class="hl opt">&gt;</span> [<span class="hl opt">&lt;</span><span class="hl kwa">array</span> size<span class="hl opt">&gt;</span>]</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>array &lt;arrayname&gt; [&lt;array size&gt;]</p>
+<p>where <code>&lt;array size&gt;</code> must be a numerical constant.</p>
 </div>
 <div class="paragraph">
-<p>where &lt;array size&gt; must be a numerical constant.</p>
+<p>An array definition reserves a block of memory of `&lt;array size&gt;`<sup class="footnote">[<a id="_footnoteref_24" class="footnote" href="#_footnotedef_24" title="View footnote.">24</a>]</sup>, so that, for example,</p>
 </div>
-<div class="paragraph">
-<p>An array definition reserves a block of memory of &lt;array size&gt;<sup class="footnote">[<a id="_footnoteref_24" class="footnote" href="#_footnotedef_24" title="View footnote.">24</a>]</sup>, so that, for example,</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">array</span> test_array[<span class="hl num">10</span>]</code></pre>
 </div>
-<div class="paragraph">
-<p>array test_array[10]</p>
 </div>
 <div class="paragraph">
 <p>reserves ten possible storage elements for the array.</p>
 </div>
 <div class="paragraph">
-<p>Keep in mind that &lt;array size&gt; determines the size of the array, not the maximum element number. Elements begin counting at 0, so that test_array, with 10 elements, has members numbered from 0 to 9. Trying to access test_array[10] or higher will return a zero value (and, if running in the debugger, cause a debugger warning). Trying to assign it by mistake will have no effect.</p>
+<p>Keep in mind that <code>&lt;array size&gt;</code> determines the size of the array, not the maximum element number.
+Elements begin counting at 0, so that <code>test_array</code>, with 10 elements, has members numbered from 0 to 9.
+Trying to access <code>test_array[10]</code> or higher will return a zero value (and, if running in the debugger, cause a debugger warning).
+Trying to assign it by mistake will have no effect.</p>
 </div>
 <div class="paragraph">
 <p>To prevent such out-of-bounds array reading/writing, an array&#8217;s length may be read via:</p>
 </div>
-<div class="paragraph">
-<p>array[]</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">array</span>[]</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>where no element number is specified. Using the above example,</p>
+<p>where no element number is specified.
+Using the above example,</p>
 </div>
-<div class="paragraph">
-<p>print number test_array[]</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">print number</span> test_array[]</code></pre>
+</div>
 </div>
 <div class="paragraph">
 <p>would result in <code>10</code>.</p>
@@ -4959,137 +5396,144 @@ To start with 1 and count by multiples of two:</p>
 <div class="paragraph">
 <p>Array elements can be assigned more than one at a time, as in</p>
 </div>
-<div class="paragraph">
-<p>&lt;arrayname&gt; = &lt;element1&gt;, &lt;element2&gt;, &#8230;&#8203;</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl opt">&lt;</span>arrayname<span class="hl opt">&gt; = &lt;</span>element1<span class="hl opt">&gt;</span>, <span class="hl opt">&lt;</span>element2<span class="hl opt">&gt;</span>, ...</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>where &lt;element1&gt; and &lt;element2&gt; can be expressions or single values.</p>
+<p>where <code>&lt;element1&gt;</code> and <code>&lt;element2&gt;</code> can be expressions or single values.</p>
 </div>
 <div class="paragraph">
 <p>Elements need not be all of the same type, either, so that</p>
 </div>
-<div class="paragraph">
-<p>test_array[0] = (10+5), "Hello!", FindLight(location)</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">test_array[<span class="hl num">0</span>] <span class="hl opt">=</span> (<span class="hl num">10</span><span class="hl opt">+</span><span class="hl num">5</span>), <span class="hl str">&quot;Hello!&quot;</span>, FindLight(location)</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>is perfectly legal (although perhaps not perfectly useful). More common is a usage like</p>
+<p>is perfectly legal (although perhaps not perfectly useful).
+More common is a usage like</p>
 </div>
-<div class="paragraph">
-<p>names[0] = "Ned", "Sue", "Bob", "Maria"</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">names[<span class="hl num">0</span>] <span class="hl opt">=</span> <span class="hl str">&quot;Ned&quot;</span>, <span class="hl str">&quot;Sue&quot;</span>, <span class="hl str">&quot;Bob&quot;</span>, <span class="hl str">&quot;Maria&quot;</span></code></pre>
+</div>
 </div>
 <div class="paragraph">
 <p>or</p>
 </div>
-<div class="paragraph">
-<p>test_array[2] = 5, 4, 3, 2, 1</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">test_array[<span class="hl num">2</span>] <span class="hl opt">=</span> <span class="hl num">5</span>, <span class="hl num">4</span>, <span class="hl num">3</span>, <span class="hl num">2</span>, <span class="hl num">1</span></code></pre>
+</div>
 </div>
 <div class="paragraph">
 <p>The array can then be accessed by</p>
 </div>
-<div class="paragraph">
-<p>print names[0]; " and "; names[3]</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">print</span> names[<span class="hl num">0</span>]; <span class="hl str">&quot; and &quot;</span>; names[<span class="hl num">3</span>]</code></pre>
 </div>
-<div class="paragraph">
-<p>Ned and Maria</p>
+</div>
+<div class="exampleblock gametranscript">
+<div class="content">
+Ned and Maria
+</div>
 </div>
 <div class="paragraph">
 <p>or</p>
 </div>
-<div class="paragraph">
-<p>b = test_array[3] + test_array[5]</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">b <span class="hl opt">=</span> test_array[<span class="hl num">3</span>] <span class="hl opt">+</span> test_array[<span class="hl num">5</span>]</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>which would set the variable b to 4 + 2, or 6.</p>
+<p>which would set the variable <code>b</code> to 4 + 2, or 6.</p>
 </div>
 <div class="paragraph">
-<p>Because array space is statically allocated by the compiler, all arrays must be declared at the global level. Local arrays are illegal, as are entire arrays passed as arguments<sup class="footnote">[<a id="_footnoteref_25" class="footnote" href="#_footnotedef_25" title="View footnote.">25</a>]</sup>. However, single elements of arrays are valid arguments.</p>
+<p>Because array space is statically allocated by the compiler, all arrays must be declared at the global level.
+Local arrays are illegal, as are entire arrays passed as arguments<sup class="footnote">[<a id="_footnoteref_25" class="footnote" href="#_footnotedef_25" title="View footnote.">25</a>]</sup>.
+However, single elements of arrays are valid arguments.</p>
 </div>
 <div class="paragraph">
-<p>It is, however, possible to pass an array address as an argument, and the routine can then access the elements of the array using the array modifier. For example, if items is an array containing:</p>
+<p>It is, however, possible to pass an array address as an argument, and the routine can then access the elements of the array using the <code>array</code> modifier.
+For example, if <code>items</code> is an array containing:</p>
 </div>
-<div class="paragraph">
-<p>items[0] = "apples"</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">items[<span class="hl num">0</span>] <span class="hl opt">=</span> <span class="hl str">&quot;apples&quot;</span>&#x000A;items[<span class="hl num">1</span>] <span class="hl opt">=</span> <span class="hl str">&quot;oranges&quot;</span>&#x000A;items[<span class="hl num">2</span>] <span class="hl opt">=</span> <span class="hl str">&quot;socks&quot;</span></code></pre>
 </div>
-<div class="paragraph">
-<p>items[1] = "oranges"</p>
-</div>
-<div class="paragraph">
-<p>items[2] = "socks"</p>
 </div>
 <div class="paragraph">
 <p>The following:</p>
 </div>
-<div class="paragraph">
-<p>routine Test(v)</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">routine</span> Test(v)&#x000A;{&#x000A;  <span class="hl kwa">print array</span> v[<span class="hl num">2</span>]&#x000A;}</code></pre>
 </div>
-<div class="paragraph">
-<p>\{</p>
-</div>
-<div class="paragraph">
-<p>print array v[2]</p>
-</div>
-<div class="paragraph">
-<p>}</p>
 </div>
 <div class="paragraph">
 <p>can be called using</p>
 </div>
-<div class="paragraph">
-<p>Test(items)</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">Test(items)</code></pre>
+</div>
 </div>
 <div class="paragraph">
 <p>to produce the output</p>
 </div>
-<div class="paragraph">
-<p>socks</p>
+<div class="exampleblock gametranscript">
+<div class="content">
+socks
+</div>
 </div>
 <div class="paragraph">
-<p>even though v is an argument (i.e., local variable), and technically not an array. The line</p>
+<p>even though v is an argument (i.e., local variable), and technically not an array.
+The line</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">print array</span> v[<span class="hl num">2</span>]</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>print array v[2]</p>
+<p>tells the engine to treat <code>v</code> as an array address, so that we can follow it with <code>[&lt;element number&gt;]</code>.</p>
 </div>
 <div class="paragraph">
-<p>tells the engine to treat v as an array address, so that we can follow it with [&lt;element number&gt;].</p>
+<p>Arrays also allow a Hugo programmer to implement what are known as <em>string arrays</em>, which are textual strings, somewhat similar but not identical to dictionary entries.
+Most significantly, since they are arrays, string arrays may be altered at runtime by a program (unlike dictionary entries, which are hard-coded into the program&#8217;s dictionary).
+A string array is an array containing a series of character values, terminated by a zero value.</p>
 </div>
 <div class="paragraph">
-<p>Arrays also allow a Hugo programmer to implement what are known as <em>string arrays</em>, which are textual strings, somewhat similar but not identical to dictionary entries. Most significantly, since they are arrays, string arrays may be altered at runtime by a program (unlike dictionary entries, which are hard-coded into the program&#8217;s dictionary). A string array is an array containing a series of character values, terminated by a zero value.</p>
+<p>If the array <code>apple_array</code> holds the string array <code>apple</code>, the actual elements of <code>apple_array</code> look like:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">apple_array[<span class="hl num">0</span>] <span class="hl opt">=</span> <span class="hl kwb">&#39;a&#39;</span>&#x000A;apple_array[<span class="hl num">1</span>] <span class="hl opt">=</span> <span class="hl kwb">&#39;p&#39;</span>&#x000A;apple_array[<span class="hl num">2</span>] <span class="hl opt">=</span> <span class="hl kwb">&#39;p&#39;</span>&#x000A;apple_array[<span class="hl num">3</span>] <span class="hl opt">=</span> <span class="hl kwb">&#39;l&#39;</span>&#x000A;apple_array[<span class="hl num">4</span>] <span class="hl opt">=</span> <span class="hl kwb">&#39;e&#39;</span>&#x000A;apple_array[<span class="hl num">5</span>] <span class="hl opt">=</span> <span class="hl num">0</span></code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>If the array apple_array holds the string array <code>apple</code>, the actual elements of apple_array look like:</p>
+<p>Hugo provides a handy way to store a dictionary entry in an array as a series of characters using the <code>string</code> built-in function:</p>
 </div>
-<div class="paragraph">
-<p>apple_array[0] = 'a'</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">string</span>(<span class="hl opt">&lt;</span><span class="hl kwa">array</span> address<span class="hl opt">&gt;</span>, <span class="hl opt">&lt;</span><span class="hl kwa">dict</span>. entry<span class="hl opt">&gt;</span>, <span class="hl opt">&lt;</span>max. length<span class="hl opt">&gt;</span>)</code></pre>
 </div>
-<div class="paragraph">
-<p>apple_array[1] = 'p'</p>
-</div>
-<div class="paragraph">
-<p>apple_array[2] = 'p'</p>
-</div>
-<div class="paragraph">
-<p>apple_array[3] = 'l'</p>
-</div>
-<div class="paragraph">
-<p>apple_array[4] = 'e'</p>
-</div>
-<div class="paragraph">
-<p>apple_array[5] = 0</p>
-</div>
-<div class="paragraph">
-<p>Hugo provides a handy way to store a dictionary entry in an array as a series of characters using the string built-in function:</p>
-</div>
-<div class="paragraph">
-<p>string(&lt;array address&gt;, &lt;dict. entry&gt;, &lt;max. length&gt;)</p>
 </div>
 <div class="paragraph">
 <p>For example,</p>
 </div>
-<div class="paragraph">
-<p>string(a, word[1], 10)</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">string</span>(a, <span class="hl kwa">word</span>[<span class="hl num">1</span>], <span class="hl num">10</span>)</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>will store up to 10 characters from word[1] into the array a.</p>
+<p>will store up to 10 characters from <code>word[1]</code> into the array <code>a</code>.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -5099,125 +5543,167 @@ To start with 1 and count by multiples of two:</p>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>It is expected in the preceding example that a would have at least 11 elements, since string expects to store a terminating 0 after the string itself.</p>
+<p>It is expected in the preceding example that a would have at least 11 elements, since <code>string</code> expects to store a terminating 0 after the string itself.</p>
 </div>
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>It&#8217;s not necessary to look at the return value from string, but it can be useful, since it lets us know how many characters were written to the string. For example,</p>
+<p>It&#8217;s not necessary to look at the return value from <code>string</code>, but it can be useful, since it lets us know how many characters were written to the string.
+For example,</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">x <span class="hl opt">=</span> <span class="hl kwa">string</span>(a, <span class="hl str">&quot;microscopic&quot;</span>, <span class="hl num">10</span>)</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>x = string(a, "microscopic", 10)</p>
+<p>will store up to 10 characters of &#8220;microscopic&#8221; in the array <code>a</code>, and return the length of the stored string to the variable <code>x</code>.&#8288;<sup class="footnote">[<a id="_footnoteref_26" class="footnote" href="#_footnotedef_26" title="View footnote.">26</a>]</sup></p>
 </div>
 <div class="paragraph">
-<p>will store up to 10 characters of <code>microscopic</code> in the array a, and return the length of the stored string to the variable x.<sup class="footnote">[<a id="_footnoteref_26" class="footnote" href="#_footnotedef_26" title="View footnote.">26</a>]</sup></p>
+<p>The Hugo Library defines the functions <code>StringCopy</code>, <code>StringEqual</code>, <code>StringLength</code>, and <code>StringPrint</code>, which are extremely useful when dealing with string arrays.</p>
 </div>
 <div class="paragraph">
-<p>The Hugo Library defines the functions StringCopy, StringEqual, StringLength, and StringPrint, which are extremely useful when dealing with string arrays.</p>
+<p><code>StringCopy</code> copies one string array to another array.</p>
 </div>
-<div class="paragraph">
-<p>StringCopy copies one string array to another array.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">StringCopy(<span class="hl opt">&lt;</span>new <span class="hl kwa">array</span><span class="hl opt">&gt;</span>, <span class="hl opt">&lt;</span>old <span class="hl kwa">array</span><span class="hl opt">&gt;</span>[, <span class="hl opt">&lt;</span>length<span class="hl opt">&gt;</span>])</code></pre>
 </div>
-<div class="paragraph">
-<p>StringCopy(&lt;new array&gt;, &lt;old array&gt;[, &lt;length&gt;])</p>
 </div>
 <div class="paragraph">
 <p>For example,</p>
 </div>
-<div class="paragraph">
-<p>StringCopy(a, b)</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">StringCopy(a, b)</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>copies the contents of b to a, while</p>
+<p>copies the contents of <code>b</code> to <code>a</code>, while</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">StringCopy(a, b, <span class="hl num">5</span>)</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>StringCopy(a, b, 5)</p>
+<p>copies only up to 5 characters of <code>b</code> to <code>a</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">x <span class="hl opt">=</span> StringEqual(<span class="hl opt">&lt;</span>string1<span class="hl opt">&gt;</span>, <span class="hl opt">&lt;</span>string2<span class="hl opt">&gt;</span>)&#x000A;x <span class="hl opt">=</span> StringCompare(<span class="hl opt">&lt;</span>string1<span class="hl opt">&gt;</span>, <span class="hl opt">&lt;</span>string2<span class="hl opt">&gt;</span>)</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>copies only up to 5 characters of b to a.</p>
+<p><code>StringEqual</code> returns true only if the two specified string arrays are identical.
+<code>StringCompare</code> returns 1 if <code>&lt;string1&gt;</code> is lexically greater than <code>&lt;string2&gt;</code>, -1 if <code>&lt;string1&gt;</code> is lexically less than <code>&lt;string2&gt;</code>, and 0 if the two strings are identical.</p>
 </div>
 <div class="paragraph">
-<p>x = StringEqual(&lt;string1&gt;, &lt;string2&gt;)</p>
+<p><code>StringLength</code> returns the length of a string array, as in:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">len <span class="hl opt">=</span> StringLength(a)</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>x = StringCompare(&lt;string1&gt;, &lt;string2&gt;)</p>
+<p>and <code>StringPrint</code> prints a string array (or part of it).</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">StringPrint(<span class="hl opt">&lt;</span><span class="hl kwa">array</span> address<span class="hl opt">&gt;</span>[, <span class="hl opt">&lt;</span><span class="hl kwa">start</span><span class="hl opt">&gt;</span>, <span class="hl opt">&lt;</span>end<span class="hl opt">&gt;</span>])</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>StringEqual returns true only if the two specified string arrays are identical. StringCompare returns 1 if &lt;string1&gt; is lexically greater than &lt;string2&gt;, -1 if &lt;string1&gt; is lexically less than &lt;string2&gt;, and 0 if the two strings are identical.</p>
+<p>For example, if the array <code>a</code> contains &#8220;presto&#8221;,</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">StringPrint(a)</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>StringLength returns the length of a string array, as in:</p>
+<p>will print &#8220;presto&#8221;, but</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">StringPrint(a, <span class="hl num">1</span>, <span class="hl num">4</span>)</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>len = StringLength(a)</p>
+<p>will print &#8220;res&#8221;.</p>
 </div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
 <div class="paragraph">
-<p>and StringPrint prints a string array (or part of it).</p>
+<p>The <code>&lt;start&gt;</code> parameter in the first example defaults to 0, not 1&#8201;&#8212;&#8201;remember that the first numbered element in an array is 0.</p>
 </div>
-<div class="paragraph">
-<p>StringPrint(&lt;array address&gt;[, &lt;start&gt;, &lt;end&gt;])</p>
-</div>
-<div class="paragraph">
-<p>For example, if the array a contains “presto”,</p>
-</div>
-<div class="paragraph">
-<p>StringPrint(a)</p>
-</div>
-<div class="paragraph">
-<p>will print “presto”, but</p>
-</div>
-<div class="paragraph">
-<p>StringPrint(a, 1, 4)</p>
-</div>
-<div class="paragraph">
-<p>will print “res”. (The &lt;start&gt; parameter in the first example defaults to 0, not 1&#8212;&#8203;remember that the first numbered element in an array is 0.)</p>
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>An interesting side-effect of being able to pass array addresses as arguments is that it is possible to &#8220;cheat&#8221; the address, so that, for example,</p>
 </div>
-<div class="paragraph">
-<p>StringCopy(a, b+2)</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">StringCopy(a, b<span class="hl opt">+</span><span class="hl num">2</span>)</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>will copy b to a, beginning with the third letter of b (since the first letter of b is b[0]).</p>
+<p>will copy <code>b</code> to <code>a</code>, beginning with the third letter of <code>b</code> (since the first letter of <code>b</code> is <code>b[0]</code>).</p>
 </div>
 <div class="paragraph">
-<p>It should also be kept in mind that string arrays and dictionary entries are two entirely separate animals, and that comparing them directly is using StringCompare is not possible. That is, while a dictionary entry is a simple value representing an address, a string array is a series of values each representing a character in the string.</p>
+<p>It should also be kept in mind that string arrays and dictionary entries are two entirely separate animals, and that comparing them directly is using <code>StringCompare</code> is not possible.
+That is, while a dictionary entry is a simple value representing an address, a string array is a series of values each representing a character in the string.</p>
 </div>
 <div class="paragraph">
 <p>The library provides the following to overcome this:</p>
 </div>
-<div class="paragraph">
-<p>StringDictCompare(&lt;array&gt;, &lt;dict. entry&gt;)</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">StringDictCompare(<span class="hl opt">&lt;</span><span class="hl kwa">array</span><span class="hl opt">&gt;</span>, <span class="hl opt">&lt;</span><span class="hl kwa">dict</span>. entry<span class="hl opt">&gt;</span>)</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>which returns the same values (1, -1, 0) as StringCompare, depending on whether the string array is lexically greater than, less than, or equal to the dictionary entry.</p>
+<p>which returns the same values (1, -1, 0) as <code>StringCompare</code>, depending on whether the string array is lexically greater than, less than, or equal to the dictionary entry.</p>
 </div>
 <div class="paragraph">
-<p>There is also a complement to string: the dict built-in function, that dynamically creates a new dictionary entry at runtime. Its syntax is:</p>
+<p>There is also a complement to <code>string</code>: the <code>dict</code> built-in function, that dynamically creates a new dictionary entry at runtime.
+Its syntax is:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">x <span class="hl opt">=</span> <span class="hl kwa">dict</span>(<span class="hl opt">&lt;</span><span class="hl kwa">array</span><span class="hl opt">&gt;</span>, <span class="hl opt">&lt;</span>maxlen<span class="hl opt">&gt;</span>)&#x000A;x <span class="hl opt">=</span> <span class="hl kwa">dict</span>(<span class="hl kwa">parse$</span>, <span class="hl opt">&lt;</span>maxlen<span class="hl opt">&gt;</span>)</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>x = dict(&lt;array&gt;, &lt;maxlen&gt;)</p>
+<p>where the contents of <code>&lt;``array&gt;</code> or <code>parse$</code> are written into the dictionary, to a maximum of <code>&lt;maxlen&gt;</code> characters, and the address of the new word is returned.</p>
 </div>
 <div class="paragraph">
-<p>x = dict(parse$, &lt;maxlen&gt;)</p>
+<p>However, since this requires extending the actual length of the dictionary table in the game file, it is necessary to provide for this during compilation.
+Inserting</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwc">$MAXDICTEXTEND</span><span class="hl opt">=&lt;</span><span class="hl kwa">number</span><span class="hl opt">&gt;</span></code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>where the contents of &lt;array&gt; or parse$ are written into the dictionary, to a maximum of &lt;maxlen&gt; characters, and the address of the new word is returned.</p>
+<p>at the start of the source file will write a buffer of <code>&lt;number&gt;</code> empty bytes at the end of the dictionary.
+(<code>MAXDICTEXTEND</code> is, by default, 0.)</p>
 </div>
 <div class="paragraph">
-<p>However, since this requires extending the actual length of the dictionary table in the game file, it is necessary to provide for this during compilation. Inserting</p>
-</div>
-<div class="paragraph">
-<p>$MAXDICTEXTEND=&lt;number&gt;</p>
-</div>
-<div class="paragraph">
-<p>at the start of the source file will write a buffer of &lt;number&gt; empty bytes at the end of the dictionary. (MAXDICTEXTEND is, by default, 0.)</p>
-</div>
-<div class="paragraph">
-<p>Dynamic dictionary extension is used primarily in situations where the player may be able to, for example, name an object, then refer to that object by the new name, or whenever the game needs to introduce new words into the dictionary that are not known at compile-time. However, a guideline for programmers is that there should be a limit to how many new words the program or player can cause to be created, so that the total length of the new entries never exceeds &lt;number&gt;, keeping in mind that the length of an entry is the number of characters plus one (the byte representing the actual length). That is, the word <code>test</code> requires 5 bytes.)</p>
+<p>Dynamic dictionary extension is used primarily in situations where the player may be able to, for example, name an object, then refer to that object by the new name, or whenever the game needs to introduce new words into the dictionary that are not known at compile-time.
+However, a guideline for programmers is that there should be a limit to how many new words the program or player can cause to be created, so that the total length of the new entries never exceeds <code>&lt;number&gt;</code>, keeping in mind that the length of an entry is the number of characters plus one (the byte representing the actual length).
+That is, the word <code>test</code> requires 5 bytes.)</p>
 </div>
 </div>
 <div class="sect2">
@@ -5226,525 +5712,316 @@ To start with 1 and count by multiples of two:</p>
 <p>Program flow can be controlled using a variety of constructions, each of which is built around an expression that evaluates to false (zero) or non-false (non-zero).</p>
 </div>
 <div class="paragraph">
-<p>The most basic of these is the if statement.</p>
+<p>The most basic of these is the <code>if</code> statement.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">if</span> <span class="hl opt">&lt;</span>expression<span class="hl opt">&gt;</span>&#x000A;  {...conditional code block...}</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>if &lt;expression&gt;</p>
+<p>The enclosing braces are not necessary if the code block is a single line.
+Note also that the conditional block may begin (and even end) on the same line as the <code>if</code> statement provided that braces are used.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">if</span> <span class="hl opt">&lt;</span>expression<span class="hl opt">&gt;</span>&#x000A;  ...single line...&#x000A;&#x000A;<span class="hl kwa">if</span> <span class="hl opt">&lt;</span>expression<span class="hl opt">&gt;</span> {...conditional code block...}</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>\{&#8230;&#8203;conditional code block&#8230;&#8203;}</p>
+<p>If braces are not used for a single line, the compiler automatically inserts them, although special care must be taken when constructing a block of code nesting several single-line conditionals.
+While</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">if</span> <span class="hl opt">&lt;</span>expression1<span class="hl opt">&gt;</span>&#x000A;  <span class="hl kwa">if</span> <span class="hl opt">&lt;</span>expression2<span class="hl opt">&gt;</span>&#x000A;    ...conditional code block...</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>The enclosing braces are not necessary if the code block is a single line. Note also that the conditional block may begin (and even end) on the same line as the if statement provided that braces are used.</p>
+<p>may be properly interpreted, other constructions (particularly those involving some of the more complex program-flow concepts we&#8217;re about to get into) may not be.
+Therefore, it&#8217;s always best to be as clear as possible about your intent, more along the lines of:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">if</span> <span class="hl opt">&lt;</span>expression1<span class="hl opt">&gt;</span>&#x000A;{&#x000A;  <span class="hl kwa">if</span> <span class="hl opt">&lt;</span>expression2<span class="hl opt">&gt;</span>&#x000A;    ...conditional code block...&#x000A;}</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>if &lt;expression&gt;</p>
+<p>More elaborate uses of <code>if</code> involve the use of <code>elseif</code> and <code>else</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">if</span> <span class="hl opt">&lt;</span>expression1<span class="hl opt">&gt;</span>&#x000A;  ...first conditional code block...&#x000A;<span class="hl kwa">elseif</span> <span class="hl opt">&lt;</span>expression2<span class="hl opt">&gt;</span>&#x000A;  ...second conditional code block...&#x000A;<span class="hl kwa">elseif</span> <span class="hl opt">&lt;</span>expression3<span class="hl opt">&gt;</span>&#x000A;  ...third conditional code block...&#x000A;...&#x000A;<span class="hl kwa">else</span>&#x000A;  ...default code block...</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>&#8230;&#8203;single line&#8230;&#8203;</p>
+<p>In this case, the engine evaluates each expression until it finds one that is true, and then executes it.
+Control then passes to the next non-<code>if</code>/<code>elseif</code>/<code>else</code> statement following the conditional construction.
+If no true expression is found, the default code block is executed.
+If, for example, <code>&lt;expression1&gt;</code> evaluates to a non-false value, then none of the following expressions are tested.</p>
 </div>
 <div class="paragraph">
-<p>if &lt;expression&gt; \{&#8230;&#8203;conditional code block&#8230;&#8203;}</p>
+<p>Of course, all three (<code>if</code>, <code>elseif</code>, and <code>else</code>) need not be used every time, and simple <code>if</code>-<code>elseif</code> and <code>if</code>-<code>else</code> combinations are perfectly valid.</p>
 </div>
 <div class="paragraph">
-<p>If braces are not used for a single line, the compiler automatically inserts them, although special care must be taken when constructing a block of code nesting several single-line conditionals. While</p>
+<p>In certain cases, the <code>if</code> statement may not lend itself perfectly to clarity, and the <code>select</code>-<code>case</code> construction may be more appropriate.
+The general form is:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">select</span> <span class="hl opt">&lt;</span>var<span class="hl opt">&gt;</span>&#x000A;  <span class="hl kwa">case</span> <span class="hl opt">&lt;</span>value1<span class="hl opt">&gt;</span>[, <span class="hl opt">&lt;</span>value2<span class="hl opt">&gt;</span>, ...]&#x000A;    ...first conditional code block...&#x000A;  <span class="hl kwa">case</span> <span class="hl opt">&lt;</span>value3<span class="hl opt">&gt;</span>[, <span class="hl opt">&lt;</span>value4<span class="hl opt">&gt;</span>, ...]&#x000A;    ...second conditional code block...&#x000A;  ...&#x000A;  <span class="hl kwa">case else</span>&#x000A;    ...default code block...<sup class="footnote">[<a id="_footnoteref_27" class="footnote" href="#_footnotedef_27" title="View footnote.">27</a>]</sup></code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>if &lt;expression1&gt;</p>
-</div>
-<div class="paragraph">
-<p>if &lt;expression2&gt;</p>
-</div>
-<div class="paragraph">
-<p>&#8230;&#8203;conditional code block&#8230;&#8203;</p>
-</div>
-<div class="paragraph">
-<p>may be properly interpreted, other constructions (particularly those involving some of the more complex program-flow concepts we&#8217;re about to get into) may not be. Therefore, it&#8217;s always best to be as clear as possible about your intent, more along the lines of:</p>
-</div>
-<div class="paragraph">
-<p>if &lt;expression1&gt;</p>
-</div>
-<div class="paragraph">
-<p>\{</p>
-</div>
-<div class="paragraph">
-<p>if &lt;expression2&gt;</p>
-</div>
-<div class="paragraph">
-<p>&#8230;&#8203;conditional code block&#8230;&#8203;</p>
-</div>
-<div class="paragraph">
-<p>}</p>
-</div>
-<div class="paragraph">
-<p>More elaborate uses of if involve the use of elseif and else.</p>
-</div>
-<div class="paragraph">
-<p>if &lt;expression1&gt;</p>
-</div>
-<div class="paragraph">
-<p>&#8230;&#8203;first conditional code block&#8230;&#8203;</p>
-</div>
-<div class="paragraph">
-<p>elseif &lt;expression2&gt;</p>
-</div>
-<div class="paragraph">
-<p>&#8230;&#8203;second conditional code block&#8230;&#8203;</p>
-</div>
-<div class="paragraph">
-<p>elseif &lt;expression3&gt;</p>
-</div>
-<div class="paragraph">
-<p>&#8230;&#8203;third conditional code block&#8230;&#8203;</p>
-</div>
-<div class="paragraph">
-<p>&#8230;&#8203;</p>
-</div>
-<div class="paragraph">
-<p>else</p>
-</div>
-<div class="paragraph">
-<p>&#8230;&#8203;default code block&#8230;&#8203;</p>
-</div>
-<div class="paragraph">
-<p>In this case, the engine evaluates each expression until it finds one that is true, and then executes it. Control then passes to the next non-if/elseif/else statement following the conditional construction. If no true expression is found, the default code block is executed. If, for example, &lt;expression1&gt; evaluates to a non-false value, then none of the following expressions are tested.</p>
-</div>
-<div class="paragraph">
-<p>Of course, all three (if, elseif, and else) need not be used every time, and simple if-elseif and if-else combinations are perfectly valid.</p>
-</div>
-<div class="paragraph">
-<p>In certain cases, the if statement may not lend itself perfectly to clarity, and the select-case construction may be more appropriate. The general form is:</p>
-</div>
-<div class="paragraph">
-<p>select &lt;var&gt;</p>
-</div>
-<div class="paragraph">
-<p>case &lt;value1&gt;[, &lt;value2&gt;, &#8230;&#8203;]</p>
-</div>
-<div class="paragraph">
-<p>&#8230;&#8203;first conditional code block&#8230;&#8203;</p>
-</div>
-<div class="paragraph">
-<p>case &lt;value3&gt;[, &lt;value4&gt;, &#8230;&#8203;]</p>
-</div>
-<div class="paragraph">
-<p>&#8230;&#8203;second conditional code block&#8230;&#8203;</p>
-</div>
-<div class="paragraph">
-<p>&#8230;&#8203;</p>
-</div>
-<div class="paragraph">
-<p>case else</p>
-</div>
-<div class="paragraph">
-<div class="title">.default code block&#8230;&#8203;<sup class="footnote">[<a id="_footnoteref_27" class="footnote" href="#_footnotedef_27" title="View footnote.">27</a>]</sup></div>
 <p>In this case, the evaluation is essentially</p>
 </div>
-<div class="paragraph">
-<p>if &lt;var&gt; = &lt;value1&gt; [or &lt;var&gt; = &lt;value2&gt; &#8230;&#8203;]</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">if</span> <span class="hl opt">&lt;</span>var<span class="hl opt">&gt; = &lt;</span>value1<span class="hl opt">&gt;</span> [<span class="hl kwa">or</span> <span class="hl opt">&lt;</span>var<span class="hl opt">&gt; = &lt;</span>value2<span class="hl opt">&gt;</span> ...]</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>There is no limit on the number of values (separated by commas) that can appear on a line following case<sup class="footnote">[<a id="_footnoteref_28" class="footnote" href="#_footnotedef_28" title="View footnote.">28</a>]</sup>. The same rules for bracing multiple-line code blocks apply as with if (as well as for every other type of conditional block).</p>
+<p>There is no limit on the number of values (separated by commas) that can appear on a line following <code>case</code><sup class="footnote">[<a id="_footnoteref_28" class="footnote" href="#_footnotedef_28" title="View footnote.">28</a>]</sup>.
+The same rules for bracing multiple-line code blocks apply as with <code>if</code> (as well as for every other type of conditional block).</p>
 </div>
 <div class="paragraph">
-<p>Basic loops may be coded using while and do-while.</p>
+<p>Basic loops may be coded using <code>while</code> and <code>do</code>-<code>while</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">while</span> <span class="hl opt">&lt;</span>expression<span class="hl opt">&gt;</span>&#x000A;  ...conditional code block...</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">do</span>&#x000A;  ...conditional code block...&#x000A;<span class="hl kwa">while</span> <span class="hl opt">&lt;</span>expression<span class="hl opt">&gt;</span></code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>while &lt;expression&gt;</p>
+<p>Each of these executes the conditional code block as long as <code>&lt;expression&gt;</code> holds true.
+It is assumed that the code block somehow alters <code>&lt;expression&gt;</code> so that at some point it will become false; otherwise the loop will execute endlessly.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">while</span> x <span class="hl opt">&lt;=</span> <span class="hl num">10</span>&#x000A;{&#x000A;  x <span class="hl opt">=</span> x <span class="hl opt">+</span> <span class="hl num">1</span>&#x000A;  <span class="hl kwa">print</span> <span class="hl str">&quot;x is &quot;</span>; <span class="hl kwa">number</span> x&#x000A;}</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">do</span>&#x000A;{&#x000A;  x <span class="hl opt">=</span> x <span class="hl opt">+</span> <span class="hl num">1</span>&#x000A;  <span class="hl kwa">print</span> <span class="hl str">&quot;x is &quot;</span>; <span class="hl kwa">number</span> x&#x000A;}&#x000A;<span class="hl kwa">while</span> x <span class="hl opt">&lt;=</span> <span class="hl num">10</span></code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>&#8230;&#8203;conditional code block&#8230;&#8203;</p>
+<p>The only difference between the two is that if <code>&lt;expression&gt;</code> is false at the outset, the <code>while</code> code block will never run.
+The <code>do</code>-<code>while</code> code block will run at least once even if <code>&lt;expression&gt;</code> is false at the outset.</p>
 </div>
 <div class="paragraph">
-<p>do</p>
+<p>It is also important to recognize&#8201;&#8212;&#8201;with <code>while</code> or <code>do</code>-<code>while</code> loops&#8201;&#8212;&#8201;that the expression is tested each time the loop executes.
+The most important side effect of this is that if you&#8217;re doing something in the expression that has some effect&#8201;&#8212;&#8201;whether printing something, calling a function, or modifying some other value&#8201;&#8212;&#8201;this will happen <em>every time</em> the expression is evaluated.</p>
 </div>
 <div class="paragraph">
-<p>&#8230;&#8203;conditional code block&#8230;&#8203;</p>
+<p>The most complex loop construction uses the <code>for</code> statement:</p>
 </div>
-<div class="paragraph">
-<p>while &lt;expression&gt;</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">for</span> (<span class="hl opt">&lt;</span>assignment<span class="hl opt">&gt;</span>; <span class="hl opt">&lt;</span>expression<span class="hl opt">&gt;</span>; <span class="hl opt">&lt;</span>modifier<span class="hl opt">&gt;</span>)&#x000A;  ...conditional code block...</code></pre>
 </div>
-<div class="paragraph">
-<p>Each of these executes the conditional code block as long as &lt;expression&gt; holds true. It is assumed that the code block somehow alters &lt;expression&gt; so that at some point it will become false; otherwise the loop will execute endlessly.</p>
-</div>
-<div class="paragraph">
-<p>while x &#8656; 10</p>
-</div>
-<div class="paragraph">
-<p>\{</p>
-</div>
-<div class="paragraph">
-<p>x = x + 1</p>
-</div>
-<div class="paragraph">
-<p>print "x is "; number x</p>
-</div>
-<div class="paragraph">
-<p>}</p>
-</div>
-<div class="paragraph">
-<p>do</p>
-</div>
-<div class="paragraph">
-<p>\{</p>
-</div>
-<div class="paragraph">
-<p>x = x + 1</p>
-</div>
-<div class="paragraph">
-<p>print "x is "; number x</p>
-</div>
-<div class="paragraph">
-<p>}</p>
-</div>
-<div class="paragraph">
-<p>while x &#8656; 10</p>
-</div>
-<div class="paragraph">
-<p>The only difference between the two is that if &lt;expression&gt; is false at the outset, the while code block will never run. The do-while code block will run at least once even if &lt;expression&gt; is false at the outset.</p>
-</div>
-<div class="paragraph">
-<p>It is also important to recognize&#8212;&#8203;with while or do-while loops&#8212;&#8203;that the expression is tested each time the loop executes. The most important side effect of this is that if you&#8217;re doing something in the expression that has some effect&#8212;&#8203;whether printing something, calling a function, or modifying some other value&#8212;&#8203;this will happen <em>every time</em> the expression is evaluated.</p>
-</div>
-<div class="paragraph">
-<p>The most complex loop construction uses the for statement:</p>
-</div>
-<div class="paragraph">
-<p>for (&lt;assignment&gt;; &lt;expression&gt;; &lt;modifier&gt;)</p>
-</div>
-<div class="paragraph">
-<p>&#8230;&#8203;conditional code block&#8230;&#8203;</p>
 </div>
 <div class="paragraph">
 <p>For example:</p>
 </div>
-<div class="paragraph">
-<p>for (i=1; i&#8656;15; i=i+1)</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">for</span> (i<span class="hl opt">=</span><span class="hl num">1</span>; i<span class="hl opt">&lt;=</span><span class="hl num">15</span>; i<span class="hl opt">=</span>i<span class="hl opt">+</span><span class="hl num">1</span>)&#x000A;<span class="hl kwa">print</span> <span class="hl str">&quot;i is equal to: &quot;</span>; <span class="hl kwa">number</span> i</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>print "i is equal to: "; number i</p>
+<p>First, the engine executes the assignment setting <code>i = 1</code>.
+Next, it checks to see if the expression holds true (if <code>i</code> is less than or equal to 15).
+If it does, it executes the <code>print</code> statement and the modifying assignment that increments <code>i</code>.
+It continues the loop until the expression tests false.</p>
 </div>
 <div class="paragraph">
-<p>First, the engine executes the assignment setting <code>i = 1</code>. Next, it checks to see if the expression holds true (if i is less than or equal to 15). If it does, it executes the print statement and the modifying assignment that increments i. It continues the loop until the expression tests false.</p>
+<p>Not all elements of the <code>for</code> construction are necessary.
+For example, the assignment may be omitted, as in</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">for</span> (; i<span class="hl opt">&lt;=</span><span class="hl num">15</span>; i<span class="hl opt">=</span>i<span class="hl opt">+</span><span class="hl num">1</span>)</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>Not all elements of the for construction are necessary. For example, the assignment may be omitted, as in</p>
+<p>and the engine will simply use the existing value of <code>i</code>, whatever it was before this point.
+With</p>
 </div>
-<div class="paragraph">
-<p>for (; i&#8656;15; i=i+1)</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">for</span> (i<span class="hl opt">=</span><span class="hl num">1</span>;;i<span class="hl opt">=</span>i<span class="hl opt">+</span><span class="hl num">1</span>)</code></pre>
 </div>
-<div class="paragraph">
-<p>and the engine will simply use the existing value of i, whatever it was before this point. With</p>
-</div>
-<div class="paragraph">
-<p>for (i=1;;i=i+1)</p>
 </div>
 <div class="paragraph">
 <p>the loop will execute endlessly, unless some other means of exit is provided.</p>
 </div>
 <div class="paragraph">
-<p>The modifying expression does not have to be an arithmetic expression as shown above. It may be a routine that modifies a global variable, for example, which is then tested by the for loop.</p>
+<p>The modifying expression does not have to be an arithmetic expression as shown above.
+It may be a routine that modifies a global variable, for example, which is then tested by the <code>for</code> loop.</p>
 </div>
 <div class="paragraph">
-<p>A second form of a for loop is:</p>
+<p>A second form of a <code>for</code> loop is:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">for</span> <span class="hl opt">&lt;</span>var<span class="hl opt">&gt;</span> <span class="hl kwa">in</span> <span class="hl opt">&lt;</span><span class="hl kwa">object</span><span class="hl opt">&gt;</span>&#x000A;  ...conditional code block...</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>for &lt;var&gt; in &lt;object&gt;</p>
+<p>which loops through all the children of <code>&lt;object&gt;</code> (if any), setting the variable <code>&lt;var&gt;</code> to the object number of each child in sequence, so that</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">for</span> i <span class="hl kwa">in</span> mysuitcase&#x000A;  <span class="hl kwa">print</span> i.<span class="hl kwa">name</span></code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>&#8230;&#8203;conditional code block&#8230;&#8203;</p>
+<p>will print the names of each object in the <code>mysuitcase</code> object.</p>
 </div>
 <div class="paragraph">
-<p>which loops through all the children of &lt;object&gt; (if any), setting the variable &lt;var&gt; to the object number of each child in sequence, so that</p>
+<p>Hugo also supports <code>jump</code> commands and labels.
+A label is simply a user-specified token preceded by a colon (<code>:</code>) at the beginning of a line.
+The label name must be a unique token in the program.<sup class="footnote">[<a id="_footnoteref_29" class="footnote" href="#_footnotedef_29" title="View footnote.">29</a>]</sup></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">print</span> <span class="hl str">&quot;We&#39;re about to make a jump.&quot;</span>&#x000A;<span class="hl kwa">jump</span> NextLine&#x000A;<span class="hl kwa">print</span> <span class="hl str">&quot;This will never get printed.&quot;</span>&#x000A;&#x000A;:NextLine&#x000A;<span class="hl kwa">print</span> <span class="hl str">&quot;But this will.&quot;</span></code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>for i in mysuitcase</p>
+<p>One final concept is important in program flow, and that is <code>break</code>.
+At any point during a loop, it may be necessary to exit immediately (and probably prematurely).
+The <code>break</code> statement passes control to the statement immediately following the current loop.
+In the example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">do</span>&#x000A;{&#x000A;  <span class="hl kwa">while</span> <span class="hl opt">&lt;</span>expression2<span class="hl opt">&gt;</span>&#x000A;  {&#x000A;    ...&#x000A;    <span class="hl kwa">if</span> <span class="hl opt">&lt;</span>expression3<span class="hl opt">&gt;</span>&#x000A;      <span class="hl kwa">break</span>&#x000A;    ...&#x000A;  }&#x000A;  ...&#x000A;}&#x000A;<span class="hl kwa">while</span> <span class="hl opt">&lt;</span>expression1<span class="hl opt">&gt;</span></code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>print i.name</p>
+<p>the <code>break</code> causes the immediately running <code>while &lt;expression2&gt;</code> loop to terminate, even if <code>&lt;expression2&gt;</code> is true.
+However, the external <code>do</code>-<code>while &lt;expression1&gt;</code> loop continues to run.</p>
 </div>
 <div class="paragraph">
-<p>will print the names of each object in the mysuitcase object.</p>
+<p>It has been previously stated that lines ending in <code>and</code> or <code>or</code> are continued onto the next line in the case of long conditional expressions.
+A second useful provision is the ability to use a comma to separate options within a conditional expression.
+As a result,</p>
 </div>
-<div class="paragraph">
-<p>Hugo also supports jump commands and labels. A label is simply a user-specified token preceded by a colon (<code>:</code>) at the beginning of a line. The label name must be a unique token in the program.<sup class="footnote">[<a id="_footnoteref_29" class="footnote" href="#_footnotedef_29" title="View footnote.">29</a>]</sup></p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">if word</span>[<span class="hl num">1</span>] <span class="hl opt">=</span> <span class="hl str">&quot;one&quot;</span>, <span class="hl str">&quot;two&quot;</span>, <span class="hl str">&quot;three&quot;</span>&#x000A;&#x000A;<span class="hl kwa">while object is</span> open, <span class="hl kwa">not</span> locked&#x000A;&#x000A;<span class="hl kwa">if</span> box <span class="hl kwa">not in</span> livingroom, garage&#x000A;&#x000A;<span class="hl kwa">if</span> a <span class="hl opt">~=</span> <span class="hl num">1</span>, <span class="hl num">2</span>, <span class="hl num">3</span></code></pre>
 </div>
-<div class="paragraph">
-<p>print "We&#8217;re about to make a jump."</p>
-</div>
-<div class="paragraph">
-<p>jump NextLine</p>
-</div>
-<div class="paragraph">
-<p>print "This will never get printed."</p>
-</div>
-<div class="paragraph">
-<p>:NextLine</p>
-</div>
-<div class="paragraph">
-<p>print "But this will."</p>
-</div>
-<div class="paragraph">
-<p>One final concept is important in program flow, and that is break. At any point during a loop, it may be necessary to exit immediately (and probably prematurely). The break statement passes control to the statement immediately following the current loop. In the example:</p>
-</div>
-<div class="paragraph">
-<p>do</p>
-</div>
-<div class="paragraph">
-<p>\{</p>
-</div>
-<div class="paragraph">
-<p>while &lt;expression2&gt;</p>
-</div>
-<div class="paragraph">
-<p>\{</p>
-</div>
-<div class="paragraph">
-<p>&#8230;&#8203;</p>
-</div>
-<div class="paragraph">
-<p>if &lt;expression3&gt;</p>
-</div>
-<div class="paragraph">
-<p>break</p>
-</div>
-<div class="paragraph">
-<p>&#8230;&#8203;</p>
-</div>
-<div class="paragraph">
-<p>}</p>
-</div>
-<div class="paragraph">
-<p>&#8230;&#8203;</p>
-</div>
-<div class="paragraph">
-<p>}</p>
-</div>
-<div class="paragraph">
-<p>while &lt;expression1&gt;</p>
-</div>
-<div class="paragraph">
-<p>the break causes the immediately running while &lt;expression2&gt; loop to terminate, even if &lt;expression2&gt; is true. However, the external do-while &lt;expression1&gt; loop continues to run.</p>
-</div>
-<div class="paragraph">
-<p>It has been previously stated that lines ending in and or or are continued onto the next line in the case of long conditional expressions. A second useful provision is the ability to use a comma to separate options within a conditional expression. As a result,</p>
-</div>
-<div class="paragraph">
-<p>if word[1] = "one", "two", "three"</p>
-</div>
-<div class="paragraph">
-<p>while object is open, not locked</p>
-</div>
-<div class="paragraph">
-<p>if box not in livingroom, garage</p>
-</div>
-<div class="paragraph">
-<p>if a ~= 1, 2, 3</p>
 </div>
 <div class="paragraph">
 <p>are interpreted as:</p>
 </div>
-<div class="paragraph">
-<p>if word[1]="one" or word[1]="two" or word[1]="three"</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">if word</span>[<span class="hl num">1</span>]<span class="hl opt">=</span><span class="hl str">&quot;one&quot;</span> <span class="hl kwa">or word</span>[<span class="hl num">1</span>]<span class="hl opt">=</span><span class="hl str">&quot;two&quot;</span> <span class="hl kwa">or word</span>[<span class="hl num">1</span>]<span class="hl opt">=</span><span class="hl str">&quot;three&quot;</span>&#x000A;&#x000A;<span class="hl kwa">while object is</span> open <span class="hl kwa">and object is not</span> locked&#x000A;&#x000A;<span class="hl kwa">if</span> box <span class="hl kwa">not in</span> livingroom <span class="hl kwa">and</span> box <span class="hl kwa">not in</span> garage&#x000A;&#x000A;<span class="hl kwa">if</span> a <span class="hl opt">~=</span> <span class="hl num">1</span> <span class="hl kwa">and</span> a <span class="hl opt">~=</span> <span class="hl num">1</span> <span class="hl kwa">and</span> a <span class="hl opt">~=</span> <span class="hl num">3</span></code></pre>
 </div>
-<div class="paragraph">
-<p>while object is open and object is not locked</p>
-</div>
-<div class="paragraph">
-<p>if box not in livingroom and box not in garage</p>
-</div>
-<div class="paragraph">
-<p>if a ~= 1 and a ~= 1 and a ~= 3</p>
 </div>
 <div class="paragraph">
 <p>respectively.</p>
 </div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
 <div class="paragraph">
-<p>Note that with an <code>=</code> or in comparison, a comma results in an or comparison. With <code>~=</code> or an attribute comparison, the result is an and comparison. The compiler looks after this translation for you.</p>
+<p>Note that with an <code>=</code> or <code>in</code> comparison, a comma results in an <code>or</code> comparison.
+With <code>~=</code> or an attribute comparison, the result is an <code>and</code> comparison.
+The compiler looks after this translation for you.</p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_what_should_i_be_able_to_do_now_4"><a class="anchor" href="#_what_should_i_be_able_to_do_now_4"></a>4.8. <em>What Should I Be Able To Do Now?</em></h3>
-<div class="paragraph">
-<p>+
-[<mark><em>RefHeading</em>_Toc86221383 .anchor]</mark>#Example: Mixing Text Styles</p>
+<h4 id="_example_mixing_text_styles" class="discrete">Example: Mixing Text Styles</h4>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl slc">! Sample to print various typefaces/colors:</span>&#x000A;&#x000A;<span class="hl ppc">#include</span> <span class="hl pps">&quot;hugolib.h&quot;</span><span class="hl ppc"></span>&#x000A;&#x000A;<span class="hl kwa">routine</span> main&#x000A;{&#x000A;  <span class="hl kwa">print</span> <span class="hl str">&quot;Text may be printed in</span> <span class="hl esc">\B</span><span class="hl str">boldface</span><span class="hl esc">\b</span><span class="hl str">,</span>&#x000A;<span class="hl str"></span>    <span class="hl esc">\I</span><span class="hl str">italics</span><span class="hl esc">\i</span><span class="hl str">,</span> <span class="hl esc">\U</span><span class="hl str">underlined</span><span class="hl esc">\u</span><span class="hl str">, or</span>&#x000A;<span class="hl str"></span>    <span class="hl esc">\P</span><span class="hl str">proportional</span><span class="hl esc">\p</span> <span class="hl str">typefaces.&quot;</span>&#x000A;  <span class="hl kwa">color</span> RED               <span class="hl slc">! or color 4</span>&#x000A;  <span class="hl kwa">print</span> <span class="hl str">&quot;</span><span class="hl esc">\n</span><span class="hl str">Get ready. &quot;</span>;&#x000A;  <span class="hl kwa">color</span> YELLOW            <span class="hl slc">! color 14</span>&#x000A;  <span class="hl kwa">print</span> <span class="hl str">&quot;Get set. &quot;</span>;&#x000A;  <span class="hl kwa">color</span> GREEN             <span class="hl slc">! color 2</span>&#x000A;  <span class="hl kwa">print</span> <span class="hl str">&quot;Go!&quot;</span>&#x000A;}</code></pre>
 </div>
-<div class="paragraph">
-<p>! Sample to print various typefaces/colors:</p>
-</div>
-<div class="paragraph">
-<p>#include "hugolib.h"</p>
-</div>
-<div class="paragraph">
-<p>routine main</p>
-</div>
-<div class="paragraph">
-<p>\{</p>
-</div>
-<div class="paragraph">
-<p>print "Text may be printed in \Bboldface\b,</p>
-</div>
-<div class="paragraph">
-<p>\Iitalics\i, \Uunderlined\u, or</p>
-</div>
-<div class="paragraph">
-<p>\Pproportional\p typefaces."</p>
-</div>
-<div class="paragraph">
-<p>color RED ! or color 4</p>
-</div>
-<div class="paragraph">
-<p>print "\nGet ready. ";</p>
-</div>
-<div class="paragraph">
-<p>color YELLOW ! color 14</p>
-</div>
-<div class="paragraph">
-<p>print "Get set. ";</p>
-</div>
-<div class="paragraph">
-<p>color GREEN ! color 2</p>
-</div>
-<div class="paragraph">
-<p>print "Go!"</p>
-</div>
-<div class="paragraph">
-<p>}</p>
 </div>
 <div class="paragraph">
 <p>The output will be:</p>
 </div>
+<div class="exampleblock gametranscript">
+<div class="content">
 <div class="paragraph">
 <p>Text may be printed in <strong>boldface</strong>, <em>italics</em>, <span class="underline">underlined</span>, or proportional typefaces.</p>
 </div>
 <div class="paragraph">
-<p>Get ready. Get set. Go!</p>
+<p>Get ready. &#160;
+Get set. &#160;
+Go!</p>
+</div>
+</div>
 </div>
 <div class="paragraph">
 <p>with &#8220;boldface&#8221;, &#8220;italics&#8221;, &#8220;underlined&#8221;, and &#8220;proportional&#8221; printed in their respective typefaces. &#8220;Get ready&#8221;, &#8220;Get set&#8221;, and &#8220;Go!&#8221; will all appear on the same line in three different colors.</p>
 </div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
 <div class="paragraph">
-<p>Note that not all computers will be able to print all typefaces. The basic Unix and MS-DOS ports, for example, use color changes instead of actual typeface changes, and do not support proportional printing.</p>
+<p>Note that not all computers will be able to print all typefaces.
+The basic Unix and MS-DOS ports, for example, use color changes instead of actual typeface changes, and do not support proportional printing.</p>
 </div>
-<div class="paragraph">
-<p>[<mark><em>RefHeading</em>_Toc86221384 .anchor]</mark>#Example: Managing Strings</p>
+</td>
+</tr>
+</table>
 </div>
-<div class="paragraph">
-<p>#include "hugolib.h"</p>
+<h4 id="_example_managing_strings" class="discrete">Example: Managing Strings</h4>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl ppc">#include</span> <span class="hl pps">&quot;hugolib.h&quot;</span><span class="hl ppc"></span>&#x000A;&#x000A;<span class="hl kwa">routine</span> main&#x000A;{&#x000A;  StringTests&#x000A;  <span class="hl kwa">return</span>&#x000A;}&#x000A;&#x000A;<span class="hl kwa">array</span> s1[<span class="hl num">32</span>]&#x000A;<span class="hl kwa">array</span> s2[<span class="hl num">10</span>]&#x000A;<span class="hl kwa">array</span> s3[<span class="hl num">10</span>]&#x000A;&#x000A;<span class="hl kwa">routine</span> StringTests&#x000A;{&#x000A;  <span class="hl kwa">local</span> a, len&#x000A;&#x000A;  a <span class="hl opt">=</span> <span class="hl str">&quot;This is a sample string.&quot;</span>&#x000A;  len <span class="hl opt">=</span> <span class="hl kwa">string</span>(s1, a, <span class="hl num">31</span>)&#x000A;  <span class="hl kwa">string</span>(s2, <span class="hl str">&quot;Apple&quot;</span>, <span class="hl num">9</span>)&#x000A;  <span class="hl kwa">string</span>(s3, <span class="hl str">&quot;Tomato&quot;</span>, <span class="hl num">9</span>)&#x000A;&#x000A;  <span class="hl kwa">print</span> <span class="hl str">&quot;a =</span> <span class="hl esc">\&quot;</span><span class="hl str">&quot;</span>; a; <span class="hl str">&quot;</span><span class="hl esc">\&quot;</span><span class="hl str">&quot;</span>&#x000A;  <span class="hl kwa">print</span> <span class="hl str">&quot;(Dictionary address:  &quot;</span>; <span class="hl kwa">number</span> a; <span class="hl str">&quot;)&quot;</span>&#x000A;  <span class="hl kwa">print</span> <span class="hl str">&quot;s1 contains</span> <span class="hl esc">\&quot;</span><span class="hl str">&quot;</span>; StringPrint(s1); <span class="hl str">&quot;</span><span class="hl esc">\&quot;</span><span class="hl str">&quot;</span>&#x000A;  <span class="hl kwa">print</span> <span class="hl str">&quot;(Array address:  &quot;</span>; <span class="hl kwa">number</span> s1;&#x000A;  <span class="hl kwa">print</span> <span class="hl str">&quot;, length = &quot;</span>; <span class="hl kwa">number</span> len; <span class="hl str">&quot;)&quot;</span>&#x000A;  <span class="hl kwa">print</span> <span class="hl str">&quot;s2 is</span> <span class="hl esc">\&quot;</span><span class="hl str">&quot;</span>; StringPrint(s2);&#x000A;  <span class="hl kwa">print</span> <span class="hl str">&quot;</span><span class="hl esc">\&quot;</span><span class="hl str">, s3 is</span> <span class="hl esc">\&quot;</span><span class="hl str">&quot;</span>; StringPrint(s3); <span class="hl str">&quot;</span><span class="hl esc">\&quot;</span><span class="hl str">&quot;</span>&#x000A;&#x000A; <span class="hl str">&quot;</span><span class="hl esc">\n</span><span class="hl str">StringCompare(s1, s2) = &quot;</span>;&#x000A;  <span class="hl kwa">print number</span> StringCompare(s1, s2)&#x000A;  <span class="hl str">&quot;StringCompare(s1, s3) = &quot;</span>;&#x000A;  <span class="hl kwa">print number</span> StringCompare(s1, s3)&#x000A;}</code></pre>
 </div>
-<div class="paragraph">
-<p>routine main</p>
-</div>
-<div class="paragraph">
-<p>\{</p>
-</div>
-<div class="paragraph">
-<p>StringTests</p>
-</div>
-<div class="paragraph">
-<p>return</p>
-</div>
-<div class="paragraph">
-<p>}</p>
-</div>
-<div class="paragraph">
-<p>array s1[32]</p>
-</div>
-<div class="paragraph">
-<p>array s2[10]</p>
-</div>
-<div class="paragraph">
-<p>array s3[10]</p>
-</div>
-<div class="paragraph">
-<p>routine StringTests</p>
-</div>
-<div class="paragraph">
-<p>\{</p>
-</div>
-<div class="paragraph">
-<p>local a, len</p>
-</div>
-<div class="paragraph">
-<p>a = "This is a sample string."</p>
-</div>
-<div class="paragraph">
-<p>len = string(s1, a, 31)</p>
-</div>
-<div class="paragraph">
-<p>string(s2, "Apple", 9)</p>
-</div>
-<div class="paragraph">
-<p>string(s3, "Tomato", 9)</p>
-</div>
-<div class="paragraph">
-<p>print "a = \""; a; "\""</p>
-</div>
-<div class="paragraph">
-<p>print "(Dictionary address: "; number a; ")"</p>
-</div>
-<div class="paragraph">
-<p>print "s1 contains \""; StringPrint(s1); "\""</p>
-</div>
-<div class="paragraph">
-<p>print "(Array address: "; number s1;</p>
-</div>
-<div class="paragraph">
-<p>print ", length = "; number len; ")"</p>
-</div>
-<div class="paragraph">
-<p>print "s2 is \""; StringPrint(s2);</p>
-</div>
-<div class="paragraph">
-<p>print "\", s3 is \""; StringPrint(s3); "\""</p>
-</div>
-<div class="paragraph">
-<p>"\nStringCompare(s1, s2) = ";</p>
-</div>
-<div class="paragraph">
-<p>print number StringCompare(s1, s2)</p>
-</div>
-<div class="paragraph">
-<p>"StringCompare(s1, s3) = ";</p>
-</div>
-<div class="paragraph">
-<p>print number StringCompare(s1, s3)</p>
-</div>
-<div class="paragraph">
-<p>}</p>
 </div>
 <div class="paragraph">
 <p>The output will be:</p>
 </div>
+<div class="exampleblock gametranscript">
+<div class="content">
 <div class="paragraph">
-<p>a = "This is a sample string."</p>
+<p>a = "This is a sample string."<br>
+(Dictionary address = 887)<br>
+s1 contains "This is a sample string."<br>
+(Array address = 1625, length = 24)<br>
+s2 is "Apple", s3 is "Tomato"</p>
 </div>
 <div class="paragraph">
-<p>(Dictionary address = 887)</p>
+<p>StringCompare(s1, s2) = 1<br>
+StringCompare(s1, s3) = -1</p>
 </div>
-<div class="paragraph">
-<p>s1 contains "This is a sample string."</p>
 </div>
-<div class="paragraph">
-<p>(Array address = 1625, length = 24)</p>
-</div>
-<div class="paragraph">
-<p>s2 is "Apple", s3 is "Tomato"</p>
-</div>
-<div class="paragraph">
-<p>StringCompare(s1, s2) = 1</p>
-</div>
-<div class="paragraph">
-<p>StringCompare(s1, s3) = -1</p>
 </div>
 <div class="paragraph">
 <p>As is evident above, a dictionary entry does not need to be a single word; any piece of text which is referred to by the program as a value gets entered into the dictionary table.</p>
 </div>
 <div class="paragraph">
-<p>The argument 31 in the first call to the string function allows up to 31 characters from a to be copied to s1, but since the length of a is only 24 characters, only 25 values (including the terminating 0) get copied, and the string length of s1 is returned in len.</p>
+<p>The argument 31 in the first call to the <code>string</code> function allows up to 31 characters from <code>a</code> to be copied to <code>s1</code>, but since the length of <code>a</code> is only 24 characters, only 25 values (including the terminating 0) get copied, and the string length of <code>s1</code> is returned in <code>len</code>.</p>
 </div>
 <div class="paragraph">
-<p>Since &#8220;A(pple)&#8221; is lexically less than &#8220;T(his&#8230;&#8203;)&#8221;, comparing the two returns -1. As &#8220;To(mato)&#8221; is lexically greater than &#8220;Th(is&#8230;&#8203;)&#8221;, StringCompare returns 1.</p>
+<p>Since &#8220;A(pple)&#8221; is lexically less than &#8220;T(his&#8230;&#8203;)&#8221;, comparing the two returns -1.
+As &#8220;To(mato)&#8221; is lexically greater than &#8220;Th(is&#8230;&#8203;)&#8221;, <code>StringCompare</code> returns 1.</p>
 </div>
 </div>
 </div>
@@ -19868,7 +20145,7 @@ If there is an error, the <code>system_status</code> global variable is set.</p>
 <a href="#_footnoteref_20">20</a>. In terms of order-of-inclusion.
 </div>
 <div class="footnote" id="_footnotedef_21">
-<a href="#_footnoteref_21">21</a>. Those readers who weren&#8217;t already aware of variables and their usage may at this point be starting to have high-school algebra flashbacks. That&#8217;s because we&#8217;re talking about the same concept&#8212;&#8203;but, promise, no one is going to be asked to solve any quadratic equations.
+<a href="#_footnoteref_21">21</a>. Those readers who weren&#8217;t already aware of variables and their usage may at this point be starting to have high-school algebra flashbacks. That&#8217;s because we&#8217;re talking about the same concept&#8201;&#8212;&#8201;but, promise, no one is going to be asked to solve any quadratic equations.
 </div>
 <div class="footnote" id="_footnotedef_22">
 <a href="#_footnoteref_22">22</a>. These formatting combinations are valid for printing only; they are not treated as literal characters, as in, for example, expressions involving dictionary entries. Note also that (unlike in languages such as C) formatting sequences such as <code>\n</code> are treated as two characters in a string.
@@ -19880,13 +20157,13 @@ If there is an error, the <code>system_status</code> global variable is set.</p>
 <a href="#_footnoteref_24">24</a>. Measured in 16-bit words, or 2 bytes per element.
 </div>
 <div class="footnote" id="_footnotedef_25">
-<a href="#_footnoteref_25">25</a>. &#8220;Arguments&#8221; are simply parameters passed to a routine at calling time. See <em>V.a</em> <em>Routines</em>.
+<a href="#_footnoteref_25">25</a>. &#8220;Arguments&#8221; are simply parameters passed to a routine at calling time. See <em>V.a Routines</em>.
 </div>
 <div class="footnote" id="_footnotedef_26">
-<a href="#_footnoteref_26">26</a>. (The built-in engine variables <code>parse$</code> and <code>serial$</code> may be used in place of the dictionary entry address; see <em>VII.b</em> <em>The Parser</em> for a description.)
+<a href="#_footnoteref_26">26</a>. (The built-in engine variables <code>parse$</code> and <code>serial$</code> may be used in place of the dictionary entry address; see <em>VII.b The Parser</em> for a description.)
 </div>
 <div class="footnote" id="_footnotedef_27">
-<a href="#_footnoteref_27">27</a>. C programmers are used to cases that &#8220;fall through&#8221; to the next <code>case</code> unless explicitly told not to do so; such is not the case with Hugo.
+<a href="#_footnoteref_27">27</a>. C programmers are used <span class="hl kwa">to</span> cases that <span class="hl str">&quot;`fall through`&quot;</span> <span class="hl kwa">to</span> the next `<span class="hl kwa">case</span>` unless explicitly told <span class="hl kwa">not to do</span> so; such <span class="hl kwa">is not</span> the <span class="hl kwa">case</span> with Hugo.
 </div>
 <div class="footnote" id="_footnotedef_28">
 <a href="#_footnoteref_28">28</a>. Okay, this isn&#8217;t quite true. While there isn&#8217;t an <em>explicit</em> limit, if you create a single <code>case</code> line that runs on forever and ever, eventually you&#8217;ll reach the point where, for buffer reasons, the compiler isn&#8217;t able to compile it, and it will complain with an appropriate error.

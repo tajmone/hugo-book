@@ -120,7 +120,7 @@ Every chapter in the list provides an [HTML Live Preview] link to quickly jump t
             - [x] §3.2. [Object Tree diagram 1][HB1:3 objT1.svg].
             - [x] §3.2. [Object Tree diagram 2][HB1:3 objT2.svg].
             - [x] §3.2. [Object Tree diagram 3][HB1:3 objT3.svg].
-    + [ ]  [4. _HUGO PROGRAMMING_][Ch4]
+    + [x]  [4. _HUGO PROGRAMMING_][Ch4]
     + [ ]  [5. _ROUTINES AND EVENTS_][Ch5]
     + [ ]  [6. _FUSES, DAEMONS, AND SCRIPTS_][Ch6]
     + [ ]  [7. _GRAMMAR AND PARSING_][Ch7]
