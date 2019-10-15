@@ -32,20 +32,20 @@ echo -e "\e[91m *\e[0m Custom Haml HTML5 templates."
 echo -e "\e[91m *\e[0m Syntax highlighting via Highlight (no JS dependencies)."
 
 asciidoctor \
-  --verbose \
-  --safe-mode unsafe \
-  -a data-uri \
-  -a experimental \
-  -a icons=font \
-  -a sectanchors \
-  -a toc=left \
-  -a toclevels=1 \
-  -a reproducible \
-  -a docinfo=shared-head \
-  -a source-highlighter=highlight \
-  --require      ../assets/adoc/highlight-treeprocessor_mod.rb \
-  --template-dir ../assets/adoc/haml \
-  -o  $output \
-      $source
+	--verbose \
+	--safe-mode unsafe \
+	-a data-uri \
+	-a experimental \
+	-a icons=font \
+	-a sectanchors \
+	-a toc=left \
+	-a toclevels=1 \
+	-a reproducible \
+	-a docinfo=shared-head \
+	-a source-highlighter=highlight \
+	--require      ../assets/adoc/highlight-treeprocessor_mod.rb \
+	--template-dir ../assets/adoc/haml \
+	-o  $output \
+			$source
 
 # EOF #

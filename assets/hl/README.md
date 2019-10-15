@@ -9,7 +9,7 @@ This directory tree contains assets for customizing usage of [André Simon]’s 
 
 
 <!-----------------------------------------------------------------------------
-                               REFERENCE LINKS                                
+                               REFERENCE LINKS
 ------------------------------------------------------------------------------>
 
 <!-- project files & folders -->

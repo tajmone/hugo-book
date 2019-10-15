@@ -13,14 +13,14 @@ $CMD-White: #F2F2F2;
 $CMD-callouts-background: #FFF945; // bright yellow
 
 div.literalblock.cmd pre {
-    background-color: $CMD-Black;
-    color: $CMD-White;
-    
-    // AsciiDoc Callouts
-    .conum {
-        background: $CMD-callouts-background !important;
-        color: $CMD-Black !important;
-    }
+  background-color: $CMD-Black;
+  color: $CMD-White;
+
+  // AsciiDoc Callouts
+  .conum {
+    background: $CMD-callouts-background !important;
+    color: $CMD-Black !important;
+  }
 }
 
 // EOF //

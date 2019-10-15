@@ -20,14 +20,13 @@ This directory tree contains assets required by the Asciidoctor conversion toolc
 # Directory Contents
 
 - [`/haml/`][haml] — customized Haml templates.
-- [`highlight-treeprocessor_mod.rb`][rb] v1.3.0 — extension for [Highlight] integration.
-- [`attributes-it.adoc`][attributes-it] — Italian translation of [Asciidoctor] built-in attributes (by Marco Ciampa).
+- [`highlight-treeprocessor_mod.rb`][HL.rb] v1.3.0 — extension for [Highlight] integration.
 
 # Credits
 
 ## Highlight Extension
 
-The [`highlight-treeprocessor_mod.rb`][rb] file was adapted by Tristano Ajmone from the original file [`highlight-treeprocessor.rb`][rb upstream] taken from the [Asciidoctor Extensions Lab] (commit 18bdf62), Copyright (C) 2014-2016
+The [`highlight-treeprocessor_mod.rb`][HL.rb] file was adapted by Tristano Ajmone from the original file [`highlight-treeprocessor.rb`][rb upstream] taken from the [Asciidoctor Extensions Lab] (commit 18bdf62), Copyright (C) 2014-2016
 The Asciidoctor Project, released under MIT License:
 
     The MIT License
@@ -59,7 +58,7 @@ The files inside the [`/haml/`][haml] folder were adapted by Tristano Ajmone fro
 [Asciidoctor Backends] project, Copyright (C) 2012-2016 Dan Allen and the Asciidoctor Project, released under MIT License:
 
     The MIT License
-    
+
     Copyright (C) 2018 Tristano Ajmone.
     Copyright (C) 2012-2016 Dan Allen and the Asciidoctor Project
 
@@ -84,7 +83,7 @@ The files inside the [`/haml/`][haml] folder were adapted by Tristano Ajmone fro
 
 
 <!-----------------------------------------------------------------------------
-                               REFERENCE LINKS                                
+                               REFERENCE LINKS
 ------------------------------------------------------------------------------>
 
 [Highlight]: http://www.andre-simon.de/ "Visit Highlight website"
@@ -97,8 +96,7 @@ The files inside the [`/haml/`][haml] folder were adapted by Tristano Ajmone fro
 
 <!-- proj files -->
 
-[rb]: ./highlight-treeprocessor_mod.rb
-[attributes-it]: ./attributes-it.adoc
+[HL.rb]: ./highlight-treeprocessor_mod.rb
 
 <!-- third party -->
 

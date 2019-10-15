@@ -33,7 +33,7 @@
 ## ===============
 *.css.map  text
 *.haml     text
-*.rb       text
+*.rb       text eol=lf
 
 ## ============
 ## SASS/SCSS
@@ -127,7 +127,7 @@ readme         text
 *.config       text
 *.ini          text
 *.prefs        text
-.editorconfig  text
+.editorconfig  text eol=lf
 ## -------------
 ## Git settings:
 ## -------------

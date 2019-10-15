@@ -15,7 +15,7 @@
 printBanner "Building SVG Diagrams from Dia Sources"
 
 for f in *.dia ; do
-  dia -n -t svg $f
+	dia -n -t svg $f
 done
 
 printFinished

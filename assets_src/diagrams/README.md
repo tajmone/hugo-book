@@ -127,7 +127,7 @@ In order to edit the diagram's sourcefile, or to run the scripts in this folder,
 
 # Diagrams Editing Notes
 
-Some annotations on Dia assets and settings used in the creation of the SVG diagrams sources. 
+Some annotations on Dia assets and settings used in the creation of the SVG diagrams sources.
 
 ## Object Trees Fonts and Colors
 

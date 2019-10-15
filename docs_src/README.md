@@ -28,8 +28,7 @@ This folder contains the AsciiDoc source files of the _The Hugo Book_.
 List of _The Hugo Book_ AsciiDoc sources and contents-assets:
 
 - [`docinfo.html`][docinfo.html] — [docinfo file] with custom CSS ([generated via Sass]).
-- [`hugo-book.asciidoc`][HB] — the main AsciiDoc source file (contains _[Colophon]_ and 
-_[Foreword]_) that imports all contents:
+- [`hugo-book.asciidoc`][HB] — the main AsciiDoc source file (contains _[Colophon]_ and _[Foreword]_) that imports all contents:
     + [`hugo-book0_preamble.asciidoc`][HB:Preamble] — Document Preamble.
     + [`hugo-book0_colophon.asciidoc`][HB:Colophon] — [_COLOPHON_][COLOPHON]
     + [`hugo-book0_preface.asciidoc`][HB:Preface] — [_AUTHOR'S FOREWORD_][FOREWORD]
@@ -86,8 +85,8 @@ _[Foreword]_) that imports all contents:
     + `preview.html` — no syntax highlighting, no embedded graphics, use default template. (ignored by Git)
 
 > __NOTE 1__ — Since the overhead introduced by using the external Highlight tool is considerable on a big document like this one, the `preview.sh` script is very handy when editing the document, for it provides a very fast-updating preview of the changes (without syntax highlighting).
-> 
-> Furthermore, the `preview.html` doesn't embed graphics via data-URIs, so you won't need to rebuild the whole document to view changed images, but only refresh the page since images are loaded from disk. 
+>
+> Furthermore, the `preview.html` doesn't embed graphics via data-URIs, so you won't need to rebuild the whole document to view changed images, but only refresh the page since images are loaded from disk.
 
 <!---------------------------------------------------------------------------->
 

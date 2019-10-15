@@ -71,93 +71,94 @@ $ref_lang:       "lang"       !default;
 // =============================================================================
 
 .listingblock code[#{$ref_datalang}]::before{
-   // Color of language name (shown when hovering)
-    color: $HL-LangNameHover;
+  // Color of language name (shown when hovering)
+  color: $HL-LangNameHover;
 }
 .listingblock pre[class="highlight"][#{$ref_lang}] {
-    background-color: $HL-Canvas;
-    &>code {
-        color: $HL-Default;
-        font-family: $HL-Font-family;
-        font-size: $HL-Font-size;
-    }
-    border-radius: $HL-Border-radius;
-    border: $HL-Border-width solid $HL-Border-color;
-    .hl {
-        color: $HL-Default;
+  background-color: $HL-Canvas;
+  &>code {
+    color: $HL-Default;
+    font-family: $HL-Font-family;
+    font-size: $HL-Font-size;
+  }
+  border-radius: $HL-Border-radius;
+  border: $HL-Border-width solid $HL-Border-color;
+  .hl {
+    color: $HL-Default;
 
-        &.num {
-            // Numbers
-            color: $HL-Number;
-        }
-        &.esc {
-            // Escape sequences 
-            color: $HL-Escape;
-        }
-        &.ipl {
-            // Interpolation sequences 
-            color: $HL-Interpolation;
-        }
-        &.str {
-            // Strings
-            color: $HL-String;
-        }
-        &.ppc {
-            // Preprocessor directives
-            color: $HL-PreProcessor;
-        }
-        &.pps {
-            // Strings within preprocessor directives
-            color: $HL-StringPreProc;
-        }
-        &.com {
-            // Block comments
-            color: $HL-BlockComment;
-            font-style: italic;
-        }
-        &.slc {
-            // Single-line comments
-            color: $HL-LineComment;
-            font-style: italic;
-        }
-        &.lin {
-            // Line numbers 
-            color: $HL-LineNum;
-        }
-        &.opt {
-            // Operators
-            color: $HL-Operator;
-        }
-        // ---------------------
-        //    Keywords Groups
-        // ---------------------
-        &.kwa, &.kwb, &.kwc, &.kwd, &.kwe, &.kwf {
-            // font-weight: bold;
-        }   
-        &.kwa {
-            // Keywords group 1
-            color: $HL-Keywords1;
-        }
-        &.kwb {
-            // Keywords group 2
-            color: $HL-Keywords2;
-        }
-        &.kwc {
-            // Keywords group 3
-            color: $HL-Keywords3;
-        }
-        &.kwd {
-            // Keywords group 4
-            color: $HL-Keywords4;
-        }
-        &.kwde{
-            // Keywords group 5
-            color: $HL-Keywords5;
-        }
-        &.kwf {
-            // Keywords group 6
-            color: $HL-Keywords6;
-        }
+    &.num {
+      // Numbers
+      color: $HL-Number;
     }
+    &.esc {
+      // Escape sequences
+      color: $HL-Escape;
+    }
+    &.ipl {
+      // Interpolation sequences
+      color: $HL-Interpolation;
+    }
+    &.str {
+      // Strings
+      color: $HL-String;
+    }
+    &.ppc {
+      // Preprocessor directives
+      color: $HL-PreProcessor;
+    }
+    &.pps {
+      // Strings within preprocessor directives
+      color: $HL-StringPreProc;
+    }
+    &.com {
+      // Block comments
+      color: $HL-BlockComment;
+      font-style: italic;
+    }
+    &.slc {
+      // Single-line comments
+      color: $HL-LineComment;
+      font-style: italic;
+    }
+    &.lin {
+      // Line numbers
+      color: $HL-LineNum;
+    }
+    &.opt {
+      // Operators
+      color: $HL-Operator;
+    }
+    // ---------------------
+    //    Keywords Groups
+    // ---------------------
+    &.kwa, &.kwb, &.kwc, &.kwd, &.kwe, &.kwf {
+      // font-weight: bold;
+    }
+    &.kwa {
+      // Keywords group 1
+      color: $HL-Keywords1;
+    }
+    &.kwb {
+      // Keywords group 2
+      color: $HL-Keywords2;
+    }
+    &.kwc {
+      // Keywords group 3
+      color: $HL-Keywords3;
+    }
+    &.kwd {
+      // Keywords group 4
+      color: $HL-Keywords4;
+    }
+    &.kwde{
+      // Keywords group 5
+      color: $HL-Keywords5;
+    }
+    &.kwf {
+      // Keywords group 6
+      color: $HL-Keywords6;
+    }
+  }
 }
+
 // EOF //

@@ -185,7 +185,7 @@ __Asciidoctor Backends__ project:
 Released under MIT License:
 
     The MIT License
-    
+
     Copyright (C) 2012-2016 Dan Allen and the Asciidoctor Project
 
 

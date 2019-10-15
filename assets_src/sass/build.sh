@@ -13,31 +13,31 @@ source ../../assets/sh/_build-funcs.sh
 shopt -s nullglob # Set nullglob to avoid patterns matching null files
 
 function buildSass {
-  printHeading2 "Compile Sass/SCSS to CSS"
-  echo -e "\e[90mSASS INPUT: \e[93m$1\e[0m"
-  echo -e "\e[90mCSS OUTPUT: \e[93m$2\e[0m"
-  sass $1 $2
-  normalizeEOL $2
+	printHeading2 "Compile Sass/SCSS to CSS"
+	echo -e "\e[90mSASS INPUT: \e[93m$1\e[0m"
+	echo -e "\e[90mCSS OUTPUT: \e[93m$2\e[0m"
+	sass $1 $2
+	normalizeEOL $2
 }
 
 function docinfoInject {
-  # ============================================================================
-  # Create ad hoc "docinfo.html" file by injecting a CSS file into it.
-  # ----------------------------------------------------------------------------
-  # Parameters:
-  # - $1: source CSS file.
-  # - $2: destination docinfo file.
-  # ============================================================================
-  sourceCSS=$1
-  destDocinfo=$2
-  printHeading2 "Inject CSS stylesheet in docinfo File"
-  echo -e "\e[90mCSS INPUT FILE: \e[93m$sourceCSS\e[0m"
-  echo -e "\e[90mDOCINFO OUTPUT: \e[93m$destDocinfo\e[0m"
+	# ============================================================================
+	# Create ad hoc "docinfo.html" file by injecting a CSS file into it.
+	# ----------------------------------------------------------------------------
+	# Parameters:
+	# - $1: source CSS file.
+	# - $2: destination docinfo file.
+	# ============================================================================
+	sourceCSS=$1
+	destDocinfo=$2
+	printHeading2 "Inject CSS stylesheet in docinfo File"
+	echo -e "\e[90mCSS INPUT FILE: \e[93m$sourceCSS\e[0m"
+	echo -e "\e[90mDOCINFO OUTPUT: \e[93m$destDocinfo\e[0m"
 
-  echo "<style>"   > $destDocinfo
-  cat $sourceCSS  >> $destDocinfo
-  echo "</style>" >> $destDocinfo
-  normalizeEOL $destDocinfo
+	echo "<style>"   > $destDocinfo
+	cat $sourceCSS  >> $destDocinfo
+	echo "</style>" >> $destDocinfo
+	normalizeEOL $destDocinfo
 }
 
 printBanner "Build Hugo Book CSS Stylesheet from Sass/SCSS"
