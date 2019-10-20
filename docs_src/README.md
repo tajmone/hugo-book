@@ -137,7 +137,7 @@ Every chapter in the list provides an [HTML Live Preview] link to quickly jump t
         * [ ]  _needs to be proof-read once more, carefully!_
     + [x]  [APP. E. _PRECOMPILED HEADERS_][AppE]
     + [x]  [APP. F. _HUGO VERSIONS_][AppF]
-    + [ ]  [APP. G. _ADDITIONAL RESOURCES_][AppG]
+    + [x]  [APP. G. _ADDITIONAL RESOURCES_][AppG]
 - [ ]  [BOOK 2. **TECHNICAL SYSTEM SPECIFICATION**][Book II]
     + [x]  [13. _INTRODUCTION_][Ch13]
     + [x]  [14. _ORGANIZATION OF THE .HEX FILE_][Ch14]
