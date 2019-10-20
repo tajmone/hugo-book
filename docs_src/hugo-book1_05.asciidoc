@@ -595,16 +595,16 @@ routine init
 
 * _Start the counter at one turn before 0 turns, since `Main` will increment it to begin the game:_
 +
-[source,hugo]
+[source,hugo, subs="+attributes"]
 --------------------------------------------------------------------------------
-        counter = -1
+{wj}        counter = -1
 --------------------------------------------------------------------------------
 
 * __Set up the kind of statusline we're going to be displaying, as well as define the default text colors__footnote:[All of the capitalized CONSTANTS used here are defined in *hugolib.h*.]_:_
 +
-[source,hugo]
+[source,hugo, subs="+attributes"]
 --------------------------------------------------------------------------------
-        STATUSTYPE = 1                  ! score/turns
+{wj}        STATUSTYPE = 1                  ! score/turns
         TEXTCOLOR = DEF_FOREGROUND
         BGCOLOR = DEF_BACKGROUND
         SL_TEXTCOLOR = DEF_SL_FOREGROUND
@@ -613,17 +613,17 @@ routine init
 
 * _Set the player prompt to the default `>`, and set the starting foreground and background colors:_
 +
-[source,hugo]
+[source,hugo, subs="+attributes"]
 --------------------------------------------------------------------------------
-        prompt = ">"
+{wj}        prompt = ">"
         color TEXTCOLOR, BGCOLOR
 --------------------------------------------------------------------------------
 
 * _Clear the screen before starting the game, set the font to the default font, and print the game title ("`SHELL`", in this case) and a subtitle, followed by the `BANNER` constant:_
 +
-[source,hugo]
+[source,hugo, subs="+attributes"]
 --------------------------------------------------------------------------------
-        cls
+{wj}        cls
         Font(BOLD_ON | DEFAULT_FONT)
         "SHELL"
         Font(BOLD_OFF)
@@ -633,9 +633,9 @@ routine init
 
 * _Set the player to the `you` object (from **objlib.h**), and set up the starting location:_
 +
-[source,hugo]
+[source,hugo, subs="+attributes"]
 --------------------------------------------------------------------------------
-        player = you                    ! player initialization
+{wj}        player = you                    ! player initialization
         location = emptyroom
         old_location = location
 --------------------------------------------------------------------------------
@@ -643,9 +643,9 @@ routine init
 * _Move the player to the starting location, run the library rules to see if there's light in the location, then describe the starting location and flag it as visited.
 Also, determine the starting bulk of whatever the player is carrying at the outset (if anything):_
 +
-[source,hugo]
+[source,hugo, subs="+attributes"]
 --------------------------------------------------------------------------------
-        move player to location
+{wj}        move player to location
         FindLight(location)
         DescribePlace(location)
         location is visited
@@ -678,9 +678,9 @@ routine main
 
 * _The `counter` global gets incremented each turn, and the statusline gets updated:_
 +
-[source,hugo]
+[source,hugo, subs="+attributes"]
 --------------------------------------------------------------------------------
-        counter = counter + 1
+{wj}        counter = counter + 1
         PrintStatusLine
 --------------------------------------------------------------------------------
 
@@ -688,18 +688,18 @@ routine main
 The `runevents` statement runs all valid events.
 The `RunScripts` library routine runs any active scripts:_
 +
-[source,hugo]
+[source,hugo, subs="+attributes"]
 --------------------------------------------------------------------------------
-        run location.each_turn
+{wj}        run location.each_turn
         runevents
         RunScripts
 --------------------------------------------------------------------------------
 
 * _Finally, we check to see if the player is currently engaged in conversation with a character (if the `speaking` global is set) and, if so, if the character in question has left the current location:_
 +
-[source,hugo]
+[source,hugo, subs="+attributes"]
 --------------------------------------------------------------------------------
-        if parent(speaking)~=location
+{wj}        if parent(speaking)~=location
                 speaking = 0
 }
 --------------------------------------------------------------------------------

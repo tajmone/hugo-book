@@ -535,7 +535,7 @@ div.literalblock.cmd pre .conum {
 <span id="email" class="email"><a href="mailto:general@generalcoffee.com">general@generalcoffee.com</a></span><br>
 <span id="revnumber">version 1,</span>
 <span id="revdate">2018-10-04</span>
-<br><span id="revremark">Draft 55 -- Porting to AsciiDoc</span>
+<br><span id="revremark">Draft 56 -- Porting to AsciiDoc</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -5472,7 +5472,7 @@ For example, if <code>items</code> is an array containing:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">routine</span> Test(v)&#x000A;{&#x000A;  <span class="hl kwa">print array</span> v[<span class="hl num">2</span>]&#x000A;}</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">routine</span> Test(v)&#x000A;{&#x000A;    <span class="hl kwa">print array</span> v[<span class="hl num">2</span>]&#x000A;}</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -5497,7 +5497,7 @@ The line</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">print array</span> v[<span class="hl num">2</span>]</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">&#8288;    <span class="hl kwa">print array</span> v[<span class="hl num">2</span>]</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -6642,7 +6642,7 @@ Here&#8217;s the <code>Init</code> routine from <strong>shell.hug</strong>:</p>
 <p><em>Start the counter at one turn before 0 turns, since <code>Main</code> will increment it to begin the game:</em></p>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">counter <span class="hl opt">= -</span><span class="hl num">1</span></code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">&#8288;        counter <span class="hl opt">= -</span><span class="hl num">1</span></code></pre>
 </div>
 </div>
 </li>
@@ -6650,7 +6650,7 @@ Here&#8217;s the <code>Init</code> routine from <strong>shell.hug</strong>:</p>
 <p><em>Set up the kind of statusline we&#8217;re going to be displaying, as well as define the default text colors</em><sup class="footnote">[<a id="_footnoteref_36" class="footnote" href="#_footnotedef_36" title="View footnote.">36</a>]</sup><em>:</em></p>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">STATUSTYPE <span class="hl opt">=</span> <span class="hl num">1</span>                  <span class="hl slc">! score/turns</span>&#x000A;        TEXTCOLOR <span class="hl opt">=</span> DEF_FOREGROUND&#x000A;        BGCOLOR <span class="hl opt">=</span> DEF_BACKGROUND&#x000A;        SL_TEXTCOLOR <span class="hl opt">=</span> DEF_SL_FOREGROUND&#x000A;        SL_BGCOLOR <span class="hl opt">=</span> DEF_SL_BACKGROUND</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">&#8288;        STATUSTYPE <span class="hl opt">=</span> <span class="hl num">1</span>                  <span class="hl slc">! score/turns</span>&#x000A;        TEXTCOLOR <span class="hl opt">=</span> DEF_FOREGROUND&#x000A;        BGCOLOR <span class="hl opt">=</span> DEF_BACKGROUND&#x000A;        SL_TEXTCOLOR <span class="hl opt">=</span> DEF_SL_FOREGROUND&#x000A;        SL_BGCOLOR <span class="hl opt">=</span> DEF_SL_BACKGROUND</code></pre>
 </div>
 </div>
 </li>
@@ -6658,7 +6658,7 @@ Here&#8217;s the <code>Init</code> routine from <strong>shell.hug</strong>:</p>
 <p><em>Set the player prompt to the default <code>&gt;</code>, and set the starting foreground and background colors:</em></p>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">prompt <span class="hl opt">=</span> <span class="hl str">&quot;&gt;&quot;</span>&#x000A;        <span class="hl kwa">color</span> TEXTCOLOR, BGCOLOR</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">&#8288;        prompt <span class="hl opt">=</span> <span class="hl str">&quot;&gt;&quot;</span>&#x000A;        <span class="hl kwa">color</span> TEXTCOLOR, BGCOLOR</code></pre>
 </div>
 </div>
 </li>
@@ -6666,7 +6666,7 @@ Here&#8217;s the <code>Init</code> routine from <strong>shell.hug</strong>:</p>
 <p><em>Clear the screen before starting the game, set the font to the default font, and print the game title (&#8220;SHELL&#8221;, in this case) and a subtitle, followed by the <code>BANNER</code> constant:</em></p>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">cls</span>&#x000A;        Font(BOLD_ON <span class="hl opt">|</span> DEFAULT_FONT)&#x000A;        <span class="hl str">&quot;SHELL&quot;</span>&#x000A;        Font(BOLD_OFF)&#x000A;        <span class="hl str">&quot;An Interactive Starting Point</span><span class="hl esc">\n</span><span class="hl str">&quot;</span>&#x000A;        <span class="hl kwa">print</span> BANNER</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">&#8288;        <span class="hl kwa">cls</span>&#x000A;        Font(BOLD_ON <span class="hl opt">|</span> DEFAULT_FONT)&#x000A;        <span class="hl str">&quot;SHELL&quot;</span>&#x000A;        Font(BOLD_OFF)&#x000A;        <span class="hl str">&quot;An Interactive Starting Point</span><span class="hl esc">\n</span><span class="hl str">&quot;</span>&#x000A;        <span class="hl kwa">print</span> BANNER</code></pre>
 </div>
 </div>
 </li>
@@ -6674,7 +6674,7 @@ Here&#8217;s the <code>Init</code> routine from <strong>shell.hug</strong>:</p>
 <p><em>Set the player to the <code>you</code> object (from <strong>objlib.h</strong>), and set up the starting location:</em></p>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">player <span class="hl opt">=</span> you                    <span class="hl slc">! player initialization</span>&#x000A;        location <span class="hl opt">=</span> emptyroom&#x000A;        old_location <span class="hl opt">=</span> location</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">&#8288;        player <span class="hl opt">=</span> you                    <span class="hl slc">! player initialization</span>&#x000A;        location <span class="hl opt">=</span> emptyroom&#x000A;        old_location <span class="hl opt">=</span> location</code></pre>
 </div>
 </div>
 </li>
@@ -6683,7 +6683,7 @@ Here&#8217;s the <code>Init</code> routine from <strong>shell.hug</strong>:</p>
 Also, determine the starting bulk of whatever the player is carrying at the outset (if anything):</em></p>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">move</span> player <span class="hl kwa">to</span> location&#x000A;        FindLight(location)&#x000A;        DescribePlace(location)&#x000A;        location <span class="hl kwa">is</span> visited&#x000A;        CalculateHolding(player)</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">&#8288;        <span class="hl kwa">move</span> player <span class="hl kwa">to</span> location&#x000A;        FindLight(location)&#x000A;        DescribePlace(location)&#x000A;        location <span class="hl kwa">is</span> visited&#x000A;        CalculateHolding(player)</code></pre>
 </div>
 </div>
 </li>
@@ -6716,7 +6716,7 @@ The <code>Main</code> routine from <strong>shell.hug</strong> is as follows:</p>
 <p><em>The <code>counter</code> global gets incremented each turn, and the statusline gets updated:</em></p>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">counter <span class="hl opt">=</span> counter <span class="hl opt">+</span> <span class="hl num">1</span>&#x000A;        PrintStatusLine</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">&#8288;        counter <span class="hl opt">=</span> counter <span class="hl opt">+</span> <span class="hl num">1</span>&#x000A;        PrintStatusLine</code></pre>
 </div>
 </div>
 </li>
@@ -6726,7 +6726,7 @@ The <code>runevents</code> statement runs all valid events.
 The <code>RunScripts</code> library routine runs any active scripts:</em></p>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">run</span> location.each_turn&#x000A;        <span class="hl kwa">runevents</span>&#x000A;        RunScripts</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">&#8288;        <span class="hl kwa">run</span> location.each_turn&#x000A;        <span class="hl kwa">runevents</span>&#x000A;        RunScripts</code></pre>
 </div>
 </div>
 </li>
@@ -6734,7 +6734,7 @@ The <code>RunScripts</code> library routine runs any active scripts:</em></p>
 <p><em>Finally, we check to see if the player is currently engaged in conversation with a character (if the <code>speaking</code> global is set) and, if so, if the character in question has left the current location:</em></p>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">if parent</span>(speaking)<span class="hl opt">~=</span>location&#x000A;                speaking <span class="hl opt">=</span> <span class="hl num">0</span>&#x000A;}</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">&#8288;        <span class="hl kwa">if parent</span>(speaking)<span class="hl opt">~=</span>location&#x000A;                speaking <span class="hl opt">=</span> <span class="hl num">0</span>&#x000A;}</code></pre>
 </div>
 </div>
 </li>

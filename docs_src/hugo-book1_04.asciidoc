@@ -1026,12 +1026,12 @@ items[2] = "socks"
 The following:
 
 [source,hugo]
-------------------
+--------------------
 routine Test(v)
 {
-  print array v[2]
+    print array v[2]
 }
-------------------
+--------------------
 
 can be called using
 
@@ -1048,10 +1048,10 @@ socks
 even though v is an argument (i.e., local variable), and technically not an array.
 The line
 
-[source,hugo]
-------------------
-  print array v[2]
-------------------
+[source,hugo, subs="+attributes"]
+---------------------------------
+{wj}    print array v[2]
+---------------------------------
 
 tells the engine to treat `v` as an array address, so that we can follow it with `[<element number>]`.
 
