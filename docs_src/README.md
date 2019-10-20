@@ -132,7 +132,9 @@ Every chapter in the list provides an [HTML Live Preview] link to quickly jump t
         * [ ]  _needs to be proof-read once more, carefully!_
     + [ ]  [APP. B. _THE HUGO LIBRARY_][AppB]
     + [x]  [APP. C. _LIMIT SETTINGS_][AppC]
-    + [ ]  [APP. D. _HUGOFIX AND THE HUGO DEBUGGER_][AppD]
+        * [ ]  _needs to be proof-read once more, carefully!_
+    + [x]  [APP. D. _HUGOFIX AND THE HUGO DEBUGGER_][AppD]
+        * [ ]  _needs to be proof-read once more, carefully!_
     + [ ]  [APP. E. _PRECOMPILED HEADERS_][AppE]
     + [ ]  [APP. F. _HUGO VERSIONS_][AppF]
     + [ ]  [APP. G. _ADDITIONAL RESOURCES_][AppG]

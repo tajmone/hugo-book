@@ -535,7 +535,7 @@ div.literalblock.cmd pre .conum {
 <span id="email" class="email"><a href="mailto:general@generalcoffee.com">general@generalcoffee.com</a></span><br>
 <span id="revnumber">version 1,</span>
 <span id="revdate">2018-10-04</span>
-<br><span id="revremark">Draft 48 -- Porting to AsciiDoc</span>
+<br><span id="revremark">Draft 49 -- Porting to AsciiDoc</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -13894,190 +13894,346 @@ RunScripts</p>
 <div class="sect2">
 <h3 id="_the_hugofix_debugging_library"><a class="anchor" href="#_the_hugofix_debugging_library"></a>D.1. The HugoFix Debugging Library</h3>
 <div class="paragraph">
-<p>The HugoFix Debugging Library is a suite of routines that can be used via typed commands in a running Hugo game without the use of any special debugger program. To use HugoFix, set the compiler flag DEBUG before including <strong>hugolib.h</strong> or any other standard Hugo library files<sup class="footnote">[<a id="_footnoteref_59" class="footnote" href="#_footnotedef_59" title="View footnote.">59</a>]</sup>. Then, from the player input line, type:</p>
+<p>The HugoFix Debugging Library is a suite of routines that can be used via typed commands in a running Hugo game without the use of any special debugger program.
+To use HugoFix, set the compiler flag <code>DEBUG</code> before including <strong>hugolib.h</strong> or any other standard Hugo library files<sup class="footnote">[<a id="_footnoteref_59" class="footnote" href="#_footnotedef_59" title="View footnote.">59</a>]</sup>.
+Then, from the player input line, type:</p>
 </div>
+<div class="exampleblock gametranscript">
+<div class="content">
 <div class="paragraph">
 <p>&gt;$?</p>
+</div>
+</div>
 </div>
 <div class="paragraph">
 <p>to get a list of all HugoFix debugging commands.</p>
 </div>
-<div class="paragraph">
-<p><strong>$?</strong> <strong>– Display help menu</strong></p>
+<table class="tableblock frame-all grid-all stripes-none stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">$?</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Display help menu</strong></p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top" colspan="2"><p class="tableblock">Monitoring:</p></th>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">$fd</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Fuse/daemon monitor on/off</strong></p>
 </div>
 <div class="paragraph">
-<p><em>Monitoring:</em></p>
+<p>Fuse/daemon monitoring prints verbose information about all starting or stopping fuses or daemons, as well as the value of the <code>tick</code> property for any running fuses.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">$fi</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>FindObject monitoring on/off</strong></p>
 </div>
 <div class="paragraph">
-<p><strong>$fd – Fuse/daemon monitor on/off</strong></p>
+<p><code>FindObject</code> monitoring traces calls to the library&#8217;s <code>FindObject</code> routine and their results.
+This can be extremely useful for debugging things like scope and disambiguation problems.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">$on</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Toggle object numbers</strong></p>
 </div>
 <div class="paragraph">
-<p>Fuse/daemon monitoring prints verbose information about all starting or stopping fuses or daemons, as well as the value of the tick property for any running fuses.</p>
+<p>Toggling object numbers on causes an object&#8217;s numerical value to be displayed after the object name whenever the library functions <code>The</code>, <code>CThe</code>, <code>Art</code>, and <code>CArt</code> are called.
+Can be turned used in conjunction with any other HugoFix function that outputs object names.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">$pm</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Parser monitoring on/off</strong></p>
 </div>
 <div class="paragraph">
-<p><strong>$fi – FindObject monitoring on/off</strong></p>
-</div>
-<div class="paragraph">
-<p>FindObject monitoring traces calls to the library&#8217;s FindObject routine and their results. This can be extremely useful for debugging things like scope and disambiguation problems.</p>
-</div>
-<div class="paragraph">
-<p><strong>$on – Toggle object numbers</strong></p>
-</div>
-<div class="paragraph">
-<p>Toggling object numbers on causes an object&#8217;s numerical value to be displayed after the object name whenever the library functions The, CThe, Art, and CArt are called. Can be turned used in conjunction with any other HugoFix function that outputs object names.</p>
-</div>
-<div class="paragraph">
-<p><strong>$pm – Parser monitoring on/off</strong></p>
-</div>
-<div class="paragraph">
-<p>Parser monitoring provides information during calls to Parse, ParseError, and Perform (or SpeakTo, as applicable) to trace the breakdown, parsing, and execution of a given player input line.</p>
-</div>
-<div class="paragraph">
-<p><strong>$sc – Script monitor on/off</strong></p>
+<p>Parser monitoring provides information during calls to <code>Parse</code>, <code>ParseError</code>, and <code>Perform</code> (or <code>SpeakTo</code>, as applicable) to trace the breakdown, parsing, and execution of a given player input line.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">$sc</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Script monitor on/off</strong></p>
 </div>
 <div class="paragraph">
 <p>Script monitoring prints verbose information about all starting, stopping, or otherwise running scripts each turn.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top" colspan="2"><p class="tableblock">Object manipulation:</p></th>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">$at&#160;&lt;obj.&gt;&#160;is&#160;[not]&#160;&lt;attr.&#160;#&gt;&#160;</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Set or clear object attribute</strong></p>
 </div>
 <div class="paragraph">
-<p><em>Object manipulation:</em></p>
+<p>The object will have attribute number <code>&lt;attr. #&gt;</code> set or cleared.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+It&#8217;s useful to have generated debugging information by passing the <code>–i</code> switch to the compiler in order to get attribute numbers and other useful information.
+</td>
+</tr>
+</table>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">$mo &lt;obj.&gt; to &lt;obj.&gt;</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Move object to new parent</strong></p>
 </div>
 <div class="paragraph">
-<p><strong>$at &lt;obj.&gt; is [not] &lt;attr. #&gt; – Set or clear object attribute</strong></p>
+<p>Essentially the same as the Hugo statement:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">move &lt;object&gt; to &lt;parent&gt;.</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>The object will have attribute number &lt;attr. #&gt; set or cleared. (It&#8217;s useful to have generated debugging information by passing the –i switch to the compiler in order to get attribute numbers and other useful information.)</p>
+<p>The object will become the youngest child of the parent object.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">$mp &lt;obj.&gt;</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Move player object to new parent</strong></p>
 </div>
 <div class="paragraph">
-<p><strong>$mo &lt;obj.&gt; to &lt;obj.&gt; – Move object to new parent</strong></p>
+<p>Essentially the same as the Hugo Library function call:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">MovePlayer(&lt;obj.&gt;).</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>Essentially the same as the Hugo statement: move &lt;object&gt; to &lt;parent&gt;. The object will become the youngest child of the parent object.</p>
-</div>
-<div class="paragraph">
-<p><strong>$mp &lt;obj.&gt; – Move player object to new parent</strong></p>
-</div>
-<div class="paragraph">
-<p>Essentially the same as the Hugo Library function call: MovePlayer(&lt;obj.&gt;). The function may fail (and print an appropriate error message) if the specified parent object is not a valid location (i.e., room or room-equivalent object).</p>
-</div>
-<div class="paragraph">
-<p><em>Object testing:</em></p>
-</div>
-<div class="paragraph">
-<p><strong>$fo [obj.] – Find object (or player, if no object given)</strong></p>
+<p>The function may fail (and print an appropriate error message) if the specified parent object is not a valid location (i.e., room or room-equivalent object).</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top" colspan="2"><p class="tableblock">Object testing:</p></th>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">$fo [obj.]</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Find object (or player, if no object given)</strong></p>
 </div>
 <div class="paragraph">
 <p>Prints the name of the parent object of a given object (or the player object).</p>
-</div>
-<div class="paragraph">
-<p><strong>$na &lt;obj. #&gt; – Print name of object number</strong></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">$na &lt;obj. #&gt;</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Print name of object number</strong></p>
 </div>
 <div class="paragraph">
 <p>Prints the name of the object specified by object number.</p>
-</div>
-<div class="paragraph">
-<p><strong>$nu &lt;obj.&gt; – Print number of named object</strong></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">$nu &lt;obj.&gt;</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Print number of named object</strong></p>
 </div>
 <div class="paragraph">
 <p>Prints the object number of a given object.</p>
-</div>
-<div class="paragraph">
-<p><em>Parser testing:</em></p>
-</div>
-<div class="paragraph">
-<p><strong>$ca – Check articles for all objects</strong></p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top" colspan="2"><p class="tableblock">Parser testing:</p></th>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">$ca</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Check articles for all objects</strong></p>
 </div>
 <div class="paragraph">
 <p>Useful for preventing forgotten articles in order to avoid something like &#8220;You get apple&#8221; when it should be &#8220;You get the apple&#8221;, etc.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">$pc [$all] [obj.]</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Check parser conflicts (for object)</strong></p>
 </div>
 <div class="paragraph">
-<p><strong>$pc [$all] [obj.] – Check parser conflicts (for object)</strong></p>
+<p>Attempts to determine what objects might be confused with <code>&lt;obj&gt;</code> by the parser.
+May take quite a while if <code>$all</code> is specified for a large number of objects.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">$pr</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>parse_rank monitoring</strong></p>
 </div>
 <div class="paragraph">
-<p>Attempts to determine what objects might be confused with &lt;obj&gt; by the parser. May take quite a while if $all is specified for a large number of objects.</p>
+<p>Monitors how various objects' <code>parse_rank</code> property values are evaluated during parsing.
+Particularly useful with <code>$fi</code> and <code>$pm</code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top" colspan="2"><p class="tableblock">Other utilities:</p></th>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">$ac &lt;obj.&gt; [timer]</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Activate fuse (with timer) or daemon</strong></p>
 </div>
 <div class="paragraph">
-<p><strong>$pr – parse_rank monitoring</strong></p>
+<p>Generally <code>&lt;obj.&gt;</code> is an object number, since fuses and daemons are normally not otherwise referred to.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">$de &lt;obj.&gt;</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Deactivate fuse or daemon</strong></p>
 </div>
 <div class="paragraph">
-<p>Monitors how various objects' parse_rank property values are evaluated during parsing. Particularly useful with $fi and $pm.</p>
+<p>Generally <code>&lt;obj.&gt;</code> is an object number, since fuses and daemons are normally not otherwise referred to.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">$di [obj.]</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Audit directions (for room object)</strong></p>
 </div>
 <div class="paragraph">
-<p><em>Other utilities:</em></p>
+<p>Attempts to print out all the possible exits from a given location, or from the present <code>location</code> if none is given.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">$kn [&lt;obj. #&gt;]</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Make all object(s) known</strong></p>
 </div>
 <div class="paragraph">
-<p><strong>$ac &lt;obj.&gt; [timer] – Activate fuse (with timer) or daemon</strong></p>
+<p>Sets the <code>known</code> attribute for for an object (or for all objects in the game if no single object is specified.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">$nr</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Normalize random numbers</strong></p>
 </div>
 <div class="paragraph">
-<p>Generally &lt;obj.&gt; is an object number, since fuses and daemons are normally not otherwise referred to.</p>
-</div>
-<div class="paragraph">
-<p><strong>$de &lt;obj.&gt; – Deactivate fuse or daemon</strong></p>
-</div>
-<div class="paragraph">
-<p>Generally &lt;obj.&gt; is an object number, since fuses and daemons are normally not otherwise referred to.</p>
-</div>
-<div class="paragraph">
-<p><strong>$di [obj.] – Audit directions (for room object)</strong></p>
-</div>
-<div class="paragraph">
-<p>Attempts to print out all the possible exits from a given location, or from the present location if none is given.</p>
-</div>
-<div class="paragraph">
-<p><strong>$kn [&lt;obj. #&gt;] – Make all object(s) known</strong></p>
-</div>
-<div class="paragraph">
-<p>Sets the known attribute for for an object (or for all objects in the game if no single object is specified.</p>
-</div>
-<div class="paragraph">
-<p><strong>$nr – Normalize random numbers</strong></p>
-</div>
-<div class="paragraph">
-<p>Sets random number generation to predictable values which can be replicated on subsequent playthroughs. Handy for testing things that may be affected by use of the built-in random function.</p>
-</div>
-<div class="paragraph">
-<p><strong>$ot [obj. | $loc] – Print object tree (beginning with object)</strong></p>
+<p>Sets random number generation to predictable values which can be replicated on subsequent playthroughs.
+Handy for testing things that may be affected by use of the built-in <code>random</code> function.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">$ot [obj. | $loc]</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Print object tree (beginning with object)</strong></p>
 </div>
 <div class="paragraph">
 <p>Prints all the children (beneath a particular object, if given) in tree format.</p>
-</div>
-<div class="paragraph">
-<p><strong>$rr – Restore <code>random</code> random numbers</strong></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">$rr</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Restore &#8220;random&#8221; random numbers</strong></p>
 </div>
 <div class="paragraph">
 <p>Resets random number generation to produce unpredictable values.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">$uk [&lt;obj. #&gt;]</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Make object unknown</strong></p>
 </div>
 <div class="paragraph">
-<p><strong>$uk [&lt;obj. #&gt;] – Make object unknown</strong></p>
+<p>Again for testing involving the <code>known</code> attribute.
+(See <code>$kn</code>, above)</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">$wo &lt;number&gt;</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Print dictionary word entry &lt;number&gt;</strong></p>
 </div>
 <div class="paragraph">
-<p>Again for testing involving the known attribute. (See $kn, above)</p>
+<p>Where <code>&lt;number&gt;</code> is a value representing a dictionary table address.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">$wn &lt;word&gt;</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Value/dictionary address of (lowercase) word</strong></p>
 </div>
 <div class="paragraph">
-<p><strong>$wo &lt;number&gt; – Print dictionary word entry &lt;number&gt;</strong></p>
-</div>
-<div class="paragraph">
-<p>Where &lt;number&gt; is a value representing a dictionary table address.</p>
-</div>
-<div class="paragraph">
-<p><strong>$wn &lt;word&gt; – Value/dictionary address of (lowercase) word</strong></p>
-</div>
-<div class="paragraph">
-<p>Where &lt;word&gt; is a dictionary entry.</p>
-</div>
-<div class="paragraph">
-<p><strong>$au – Run HugoFixAudit</strong></p>
+<p>Where <code>&lt;word&gt;</code> is a dictionary entry.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">$au</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Run HugoFixAudit</strong></p>
 </div>
 <div class="paragraph">
 <p>Runs a number of tests to ensure the validity of certain data, including necessary related properties on individual objects and proper usage of object library classes.</p>
-</div>
+</div></div></td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="sect2">
 <h3 id="_the_hugo_debugger"><a class="anchor" href="#_the_hugo_debugger"></a>D.2. The Hugo Debugger</h3>
 <div class="paragraph">
-<p>The Hugo Debugger is a valuable part of the Hugo design system. It allows a programmer to monitor all aspects of program execution, including watching expressions, modifying values, moving objects, etc.--all things expected of a modern source-level debugger.<sup class="footnote">[<a id="_footnoteref_60" class="footnote" href="#_footnotedef_60" title="View footnote.">60</a>]</sup></p>
+<p>The Hugo Debugger is a valuable part of the Hugo design system.
+It allows a programmer to monitor all aspects of program execution, including watching expressions, modifying values, moving objects, etc.&#8201;&#8212;&#8201;all things expected of a modern source-level debugger.<sup class="footnote">[<a id="_footnoteref_60" class="footnote" href="#_footnotedef_60" title="View footnote.">60</a>]</sup></p>
 </div>
 <div class="paragraph">
-<p>In order to be used with the debugger, a Hugo program must be compiled using the -d switch in order to create an .HDX debuggable file with additional data such as names for objects, variables, properties, etc.</p>
+<p>In order to be used with the debugger, a Hugo program must be compiled using the <code>-d</code> switch in order to create an <strong>.HDX</strong> debuggable file with additional data such as names for objects, variables, properties, etc.</p>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p><strong>.HDX</strong> files can be run by the engine, but <strong>.HEX</strong> files cannot be run by the debugger because of the additional data required.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The Unix or MS-DOS convention for running the debugger is:</p>
+</div>
+<div class="literalblock cmd">
+<div class="content">
+<pre>hd &lt;filename&gt;</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>from the command line.
+In Windows, one may just double-click the debugger&#8217;s icon to launch it.
+In either case, the debugger will begin on the debugging screen.
+Switch back-and-forth from the actual game screen by pressing Tab.
+At this point, it is probably best to select &#8220;Shortcut Keys&#8221; from the Help menu, since the actual keystrokes for running the debugger may vary from system to system.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -14086,92 +14242,145 @@ RunScripts</p>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-
+It is possible to operate the debugger entirely through menus, but this soon becomes tedious for operations like stepping line-by-line.
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>The Unix or MS-DOS convention for running the debugger is:</p>
+<p>The file <strong>hdhelp.hlp</strong> should be in the same directory as the debugger program&#8201;&#8212;&#8201;this is the online help file for the debugger, containing information on such things as:</p>
 </div>
-<div class="paragraph">
-<p><strong>hd &lt;filename&gt;</strong></p>
-</div>
-<div class="paragraph">
-<p>from the command line. In Windows, one may just double-click the debugger&#8217;s icon to launch it. In either case, the debugger will begin on the debugging screen. Switch back-and-forth from the actual game screen by pressing Tab. At this point, it is probably best to select &#8220;Shortcut Keys&#8221; from the Help menu, since the actual keystrokes for running the debugger may vary from system to system. (It is possible to operate the debugger entirely through menus, but this soon becomes tedious for operations like stepping line-by-line.)</p>
-</div>
-<div class="paragraph">
-<p>The file <strong>hdhelp.hlp</strong> should be in the same directory as the debugger program&#8212;&#8203;this is the online help file for the debugger, containing information on such things as:</p>
-</div>
-<div class="paragraph">
-<p><strong>Printing</strong></p>
-</div>
-<div class="paragraph">
-<p><strong>Windows and Views, including:</strong></p>
-</div>
-<div class="paragraph">
-<p><em>Code Window</em> Showing the current program exactly as executed, in (almost) source-level format</p>
-</div>
-<div class="paragraph">
-<p><em>Watch Window</em> Allowing any variable expression to be watched/evaluated at any time during execution</p>
-</div>
-<div class="paragraph">
-<p><em>Calls</em> Giving the sequence of nested routine calls at any given point</p>
-</div>
-<div class="paragraph">
-<p><em>Breakpoints</em> Listing all active breakpoints</p>
-</div>
-<div class="paragraph">
-<p><em>Local Variables</em> Listing all local variables, as values, objects, dictionary entries, etc.</p>
-</div>
-<div class="paragraph">
-<p><em>Property/Attribute Aliases</em></p>
-</div>
-<div class="paragraph">
-<p><em>Auxiliary Window</em></p>
-</div>
-<div class="paragraph">
-<p><em>Output</em></p>
-</div>
-<div class="paragraph">
-<p><strong>Running a program, including:</strong></p>
-</div>
-<div class="paragraph">
-<p><em>Finish Routine</em> While stepping, continues execution without stepping to the end of the current routine</p>
-</div>
-<div class="paragraph">
-<p><em>Stepping Through Code</em> Allows line-by-line execution</p>
-</div>
-<div class="paragraph">
-<p><em>Skipping Over Code</em> Allows the next statement to be passed over without executing</p>
-</div>
-<div class="paragraph">
-<p><em>Stepping Backward</em> Allows retracing of code execution, possibly after values are changed, etc.</p>
-</div>
-<div class="paragraph">
-<p><strong>Searching Code</strong> Searches the record of executed code for any given string</p>
-</div>
-<div class="paragraph">
-<p><strong>Watch Expressions</strong> Allows watching multiple variable values or expressions, and to set a breakpoint should a desired value/expression evaluate non-false</p>
-</div>
-<div class="paragraph">
-<p><strong>Setting or Modifying Values</strong> Any variable, property, array value, or object attribute can be set or reset to a valid value at any point during execution</p>
-</div>
-<div class="paragraph">
-<p><strong>Breakpoints</strong> A code address, routine, or property routine can be given&#8212;&#8203;control is then passed to the debugger on encountering a breakpoint</p>
-</div>
-<div class="paragraph">
-<p><strong>Object Tree</strong> At any point, the entire object tree (or just a branch of it) may be displayed</p>
-</div>
-<div class="paragraph">
-<p><strong>Moving Objects</strong> It is possible to dynamically move objects around the object tree, independent of the program itself</p>
-</div>
-<div class="paragraph">
-<p><strong>Runtime Warnings</strong> Optional runtime warnings instruct the debugger to alert the user to common causes of problem code which, while syntactically valid and therefore acceptable to the compiler, is in context probably not what was intended.</p>
-</div>
-<div class="paragraph">
-<p><strong>Setup</strong> Allowing changes (where applicable) in color scheme, printer, etc.</p>
-</div>
+<table class="tableblock frame-none grid-none stripes-none stretch">
+<colgroup>
+<col style="width: 5%;">
+<col style="width: 25%;">
+<col style="width: 70%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="3"><p class="tableblock"><strong>Printing Windows and Views, including:</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Code Window</em></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Showing the current program exactly as executed, in (almost) source-level format</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Watch Window</em></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Allowing any variable expression to be watched/evaluated at any time during execution</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Calls</em></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Giving the sequence of nested routine calls at any given point</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Breakpoints</em></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Listing all active breakpoints</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Local Variables</em></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Listing all local variables, as values, objects, dictionary entries, etc.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Property/Attribute Aliases</em></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Auxiliary Window</em></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Output</em></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="3"><p class="tableblock"><strong>Running a program, including:</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Finish Routine</em></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>While stepping, continues execution without stepping to the end of the current routine</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Stepping Through Code</em></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Allows line-by-line execution</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Skipping Over Code</em></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Allows the next statement to be passed over without executing</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Stepping Backward</em></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Allows retracing of code execution, possibly after values are changed, etc.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><strong>Searching Code</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Searches the record of executed code for any given string</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><strong>Watch Expressions</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Allows watching multiple variable values or expressions, and to set a breakpoint should a desired value/expression evaluate non-false</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><strong>Setting or Modifying Values</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Any variable, property, array value, or object attribute can be set or reset to a valid value at any point during execution</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><strong>Breakpoints</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A code address, routine, or property routine can be given&#8201;&#8212;&#8201;control is then passed to the debugger on encountering a breakpoint</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><strong>Object Tree</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">At any point, the entire object tree (or just a branch of it) may be displayed</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><strong>Moving Objects</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">It is possible to dynamically move objects around the object tree, independent of the program itself</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><strong>Runtime Warnings</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Optional runtime warnings instruct the debugger to alert the user to common causes of problem code which, while syntactically valid and therefore acceptable to the compiler, is in context probably not what was intended.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><strong>Setup</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Allowing changes (where applicable) in color scheme, printer, etc.</p></td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 </div>
@@ -20291,10 +20500,10 @@ If there is an error, the <code>system_status</code> global variable is set.</p>
 <a href="#_footnoteref_58">58</a>. A &#8220;grandchild&#8221; of an object is a child of a child of a given parent object, or a child object thereof, recursively searched.
 </div>
 <div class="footnote" id="_footnotedef_59">
-<a href="#_footnoteref_59">59</a>. The HugoFix library should only be included during development. As always, when compiling a version for public release, the DEBUG flag should be omitted both to keep the filesize of the final Hugo executable down as well as to ensure that debugging functionality is not included in release builds.
+<a href="#_footnoteref_59">59</a>. The HugoFix library should only be included during development. As always, when compiling a version for public release, the <code>DEBUG</code> flag should be omitted both to keep the filesize of the final Hugo executable down as well as to ensure that debugging functionality is not included in release builds.
 </div>
 <div class="footnote" id="_footnotedef_60">
-<a href="#_footnoteref_60">60</a>. The Hugo Debugger is not technically a source-level debugger, however. During its development, its author has referred to it as a source(ish) level debugger&#8212;&#8203;what the debugger does, in effect, is to &#8220;decompile&#8221; compiled code into the tokens and symbols that comprise each line of code. The result is a very close approximation of the original source code.
+<a href="#_footnoteref_60">60</a>. The Hugo Debugger is not technically a source-level debugger, however. During its development, its author has referred to it as a source(ish) level debugger&#8201;&#8212;&#8201;what the debugger does, in effect, is to &#8220;decompile&#8221; compiled code into the tokens and symbols that comprise each line of code. The result is a very close approximation of the original source code.
 </div>
 <div class="footnote" id="_footnotedef_61">
 <a href="#_footnoteref_61">61</a>. Previously to version 3.1, the size of the grammar and executable code segment was limited to 256K, and the maximum size was 17024K.
