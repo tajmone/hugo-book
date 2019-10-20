@@ -535,7 +535,7 @@ div.literalblock.cmd pre .conum {
 <span id="email" class="email"><a href="mailto:general@generalcoffee.com">general@generalcoffee.com</a></span><br>
 <span id="revnumber">version 1,</span>
 <span id="revdate">2018-10-04</span>
-<br><span id="revremark">Draft 54 -- Porting to AsciiDoc</span>
+<br><span id="revremark">Draft 55 -- Porting to AsciiDoc</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -6032,270 +6032,230 @@ As &#8220;To(mato)&#8221; is lexically greater than &#8220;Th(is&#8230;&#8203;)&
 <div class="sect2">
 <h3 id="_routines"><a class="anchor" href="#_routines"></a>5.1. Routines</h3>
 <div class="paragraph">
-<p>Routines are blocks of code that may be called at any point in a program. A routine may or may not return a value, and it may or may not require a list of <em>parameters</em> or <em>arguments</em>. (Some different uses of routines have already been encountered in previous examples, but here is the formal explication.) Routines are also sometimes referred to <em>subroutines</em> or <em>functions</em>, the latter particularly when they&#8217;re returning a value, i.e., performing some function and reporting the result.</p>
+<p>Routines are blocks of code that may be called at any point in a program.
+A routine may or may not return a value, and it may or may not require a list of <em>parameters</em> or <em>arguments</em>.
+(Some different uses of routines have already been encountered in previous examples, but here is the formal explication.) Routines are also sometimes referred to <em>subroutines</em> or <em>functions</em>, the latter particularly when they&#8217;re returning a value, i.e., performing some function and reporting the result.</p>
 </div>
 <div class="paragraph">
 <p>A routine is defined as:</p>
 </div>
-<div class="paragraph">
-<p>routine &lt;routinename&gt; [(&lt;arg1&gt;, &lt;arg2&gt;, &#8230;&#8203;)]</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">routine</span> <span class="hl opt">&lt;</span>routinename<span class="hl opt">&gt;</span> [(<span class="hl opt">&lt;</span>arg1<span class="hl opt">&gt;</span>, <span class="hl opt">&lt;</span>arg2<span class="hl opt">&gt;</span>, ...)]&#x000A;{&#x000A;    ...&#x000A;}</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>\{</p>
+<p>once again ensuring that the opening brace (<code>{</code>) comes on a new line following the <code>routine</code> specifier.</p>
 </div>
-<div class="paragraph">
-<p>&#8230;&#8203;</p>
-</div>
-<div class="paragraph">
-<p>}</p>
-</div>
-<div class="paragraph">
-<p>once again ensuring that the opening brace (<code>{</code>) comes on a new line following the routine specifier.</p>
-</div>
-<div class="admonitionblock note">
+<div class="admonitionblock tip">
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-note" title="Note"></i>
+<i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>To substitute a new routine for an existing one with the same name (such as in a library file), define the new one using replace instead of routine.</p>
+<p>To substitute a new routine for an existing one with the same name (such as in a library file), define the new one using <code>replace</code> instead of <code>routine</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">replace</span> <span class="hl opt">&lt;</span>routinename<span class="hl opt">&gt;</span> [(<span class="hl opt">&lt;</span>arg1<span class="hl opt">&gt;</span>, <span class="hl opt">&lt;</span>arg2<span class="hl opt">&gt;</span>, ...)]</code></pre>
+</div>
 </div>
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>replace &lt;routinename&gt; [(&lt;arg1&gt;, &lt;arg2&gt;, &#8230;&#8203;)]</p>
-</div>
-<div class="paragraph">
 <p>An example of a simple routine definition is:</p>
 </div>
-<div class="paragraph">
-<p>routine TestRoutine(obj)</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">routine</span> TestRoutine(obj)&#x000A;{&#x000A;    <span class="hl kwa">print</span> <span class="hl str">&quot;The &quot;</span>; obj.<span class="hl kwa">name</span>; <span class="hl str">&quot; has a size of &quot;</span>;&#x000A;    <span class="hl kwa">print</span> obj.size; <span class="hl str">&quot;.&quot;</span>&#x000A;    <span class="hl kwa">return</span> obj.size&#x000A;}</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>\{</p>
+<p>Where <code>TestRoutine</code> takes a single value as an argument, assigns it to a local variable <code>obj</code>, executes a simple printing sequence, and returns the property value: <code>obj.size</code>.</p>
 </div>
 <div class="paragraph">
-<p>print "The "; obj.name; " has a size of ";</p>
+<p>The <code>return</code> keyword exits the current routine, and returns a value if specified.
+Both</p>
 </div>
-<div class="paragraph">
-<p>print obj.size; "."</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">return</span></code></pre>
 </div>
-<div class="paragraph">
-<p>return obj.size</p>
-</div>
-<div class="paragraph">
-<p>}</p>
-</div>
-<div class="paragraph">
-<p>Where TestRoutine takes a single value as an argument, assigns it to a local variable obj, executes a simple printing sequence, and returns the property value: obj.size.</p>
-</div>
-<div class="paragraph">
-<p>The return keyword exits the current routine, and returns a value if specified. Both</p>
-</div>
-<div class="paragraph">
-<p>return</p>
 </div>
 <div class="paragraph">
 <p>and</p>
 </div>
-<div class="paragraph">
-<p>return &lt;expression&gt;</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">return</span> <span class="hl opt">&lt;</span>expression<span class="hl opt">&gt;</span></code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>are valid. If no expression is given, the routine returns 0. If no return statement at all is encountered, the routine continues until the closing brace (<code>}</code>), then returns 0.<sup class="footnote">[<a id="_footnoteref_30" class="footnote" href="#_footnotedef_30" title="View footnote.">30</a>]</sup></p>
+<p>are valid.
+If no expression is given, the routine returns 0.
+If no <code>return</code> statement at all is encountered, the routine continues until the closing brace (<code>}</code>), then returns 0.<sup class="footnote">[<a id="_footnoteref_30" class="footnote" href="#_footnotedef_30" title="View footnote.">30</a>]</sup></p>
 </div>
 <div class="paragraph">
-<p>Once defined, TestRoutine can be called several ways:</p>
+<p>Once defined, <code>TestRoutine</code> can be called several ways:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">TestRoutine(mysuitcase)</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>TestRoutine(mysuitcase)</p>
+<p>will (assuming the <code>mysuitcase</code> object as been defined as previously illustrated) print</p>
+</div>
+<div class="exampleblock gametranscript">
+<div class="content">
+The big green suitcase has a size of 25.
+</div>
 </div>
 <div class="paragraph">
-<p>will (assuming the mysuitcase object as been defined as previously illustrated) print</p>
+<p>The return value will be ignored.
+On the other hand,</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">x <span class="hl opt">=</span> TestRoutine(mysuitcase)</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>"The big green suitcase has a size of 25."</p>
+<p>will print the same output, but will assign the return value of <code>TestRoutine</code> to the variable <code>x</code>.</p>
 </div>
 <div class="paragraph">
-<p>The return value will be ignored. On the other hand,</p>
+<p>Now, unlike C and similar languages, Hugo does not require that routines follow a strict prototype.
+Therefore, both</p>
 </div>
-<div class="paragraph">
-<p>x = TestRoutine(mysuitcase)</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">TestRoutine</code></pre>
 </div>
-<div class="paragraph">
-<p>will print the same output, but will assign the return value of TestRoutine to the variable x.</p>
-</div>
-<div class="paragraph">
-<p>Now, unlike C and similar languages, Hugo does not require that routines follow a strict prototype. Therefore, both</p>
-</div>
-<div class="paragraph">
-<p>TestRoutine</p>
 </div>
 <div class="paragraph">
 <p>and</p>
 </div>
-<div class="paragraph">
-<p>TestRoutine(mysuitcase, 5)</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">TestRoutine(mysuitcase, <span class="hl num">5</span>)</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>are valid calls for the above routine. In the first case, the argument obj defaults to 0, since no value is passed. (The parentheses are not necessary if no arguments are passed.) In the second case, the value 5 is passed to TestRoutine, but ignored.</p>
+<p>are valid calls for the above routine.
+In the first case, the argument <code>obj</code> defaults to 0, since no value is passed.
+(The parentheses are not necessary if no arguments are passed.) In the second case, the value 5 is passed to <code>TestRoutine</code>, but ignored.</p>
 </div>
 <div class="paragraph">
-<p>Arguments are always passed by value, not by reference or address. A local variable in one routine can never be altered by another routine. What this means is that, for example, in the following routines:</p>
+<p>Arguments are always passed by value, not by reference or address.
+A local variable in one routine can never be altered by another routine.
+What this means is that, for example, in the following routines:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">routine</span> TestRoutine&#x000A;{&#x000A;    <span class="hl kwa">local</span> a&#x000A;&#x000A;    a <span class="hl opt">=</span> <span class="hl num">5</span>&#x000A;    Double(a)&#x000A;    <span class="hl kwa">print number</span> a&#x000A;}&#x000A;&#x000A;<span class="hl kwa">routine</span> Double(a)&#x000A;{&#x000A;    a <span class="hl opt">=</span> a <span class="hl opt">*</span> <span class="hl num">2</span>&#x000A;}</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>routine TestRoutine</p>
-</div>
-<div class="paragraph">
-<p>\{</p>
-</div>
-<div class="paragraph">
-<p>local a</p>
-</div>
-<div class="paragraph">
-<p>a = 5</p>
-</div>
-<div class="paragraph">
-<p>Double(a)</p>
-</div>
-<div class="paragraph">
-<p>print number a</p>
-</div>
-<div class="paragraph">
-<p>}</p>
-</div>
-<div class="paragraph">
-<p>routine Double(a)</p>
-</div>
-<div class="paragraph">
-<p>\{</p>
-</div>
-<div class="paragraph">
-<p>a = a * 2</p>
-</div>
-<div class="paragraph">
-<p>}</p>
-</div>
-<div class="paragraph">
-<p>calling TestRoutine would print &#8220;5&#8221; and not &#8220;10&#8221; because the local variable a in Double is only a copy of the variable passed to it as an argument.</p>
+<p>calling <code>TestRoutine</code> would print &#8220;5&#8221; and not &#8220;10&#8221; because the local variable <code>a</code> in <code>Double</code> is only a copy of the variable passed to it as an argument.</p>
 </div>
 <div class="paragraph">
 <p>These two routines would, on the other hand, print &#8220;10&#8221;:</p>
 </div>
-<div class="paragraph">
-<p>routine TestRoutine</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">routine</span> TestRoutine&#x000A;{&#x000A;    <span class="hl kwa">local</span> a&#x000A;&#x000A;    a <span class="hl opt">=</span> <span class="hl num">5</span>&#x000A;    a <span class="hl opt">=</span> Double(a)&#x000A;    <span class="hl kwa">print number</span> a&#x000A;}&#x000A;&#x000A;<span class="hl kwa">routine</span> Double(a)&#x000A;{&#x000A;    <span class="hl kwa">return</span> a <span class="hl opt">*</span> <span class="hl num">2</span>&#x000A;}</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>\{</p>
+<p>The local <code>a</code> in <code>TestRoutine</code> is reassigned with the return value from the <code>Double</code> routine.</p>
 </div>
 <div class="paragraph">
-<p>local a</p>
+<p>An interesting side-effect of a zero (0) return value can be seen using the <code>print</code> command<sup class="footnote">[<a id="_footnoteref_31" class="footnote" href="#_footnotedef_31" title="View footnote.">31</a>]</sup>.
+Consider the <code>The</code> routine in <strong>hugolib.h</strong>, which prints an object&#8217;s definite article (i.e., &#8220;the&#8221;, if appropriate), followed by the object&#8217;s <code>name</code> property.</p>
 </div>
-<div class="paragraph">
-<p>a = 5</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">print</span> <span class="hl str">&quot;You open &quot;</span>; The(<span class="hl kwa">object</span>); <span class="hl str">&quot;.&quot;</span></code></pre>
 </div>
-<div class="paragraph">
-<p>a = Double(a)</p>
-</div>
-<div class="paragraph">
-<p>print number a</p>
-</div>
-<div class="paragraph">
-<p>}</p>
-</div>
-<div class="paragraph">
-<p>routine Double(a)</p>
-</div>
-<div class="paragraph">
-<p>\{</p>
-</div>
-<div class="paragraph">
-<p>return a * 2</p>
-</div>
-<div class="paragraph">
-<p>}</p>
-</div>
-<div class="paragraph">
-<p>The local a in TestRoutine is reassigned with the return value from the Double routine.</p>
-</div>
-<div class="paragraph">
-<p>An interesting side-effect of a zero (0) return value can be seen using the print command<sup class="footnote">[<a id="_footnoteref_31" class="footnote" href="#_footnotedef_31" title="View footnote.">31</a>]</sup>. Consider the The routine in <strong>hugolib.h</strong>, which prints an object&#8217;s definite article (i.e., &#8220;the&#8221;, if appropriate), followed by the object&#8217;s name property.</p>
-</div>
-<div class="paragraph">
-<p>print "You open "; The(object); "."</p>
 </div>
 <div class="paragraph">
 <p>might result in</p>
 </div>
-<div class="paragraph">
-<p>You open the suitcase.</p>
+<div class="exampleblock gametranscript">
+<div class="content">
+You open the suitcase.
+</div>
 </div>
 <div class="paragraph">
-<p>Note that the above print command itself really only prints</p>
+<p>Note that the above <code>print</code> command itself really only prints</p>
 </div>
-<div class="paragraph">
-<p>"You open "</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl str">&quot;You open &quot;</span></code></pre>
+</div>
 </div>
 <div class="paragraph">
 <p>and</p>
 </div>
-<div class="paragraph">
-<p>"."</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl str">&quot;.&quot;</span></code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>It is the The routine that prints</p>
+<p>It is the <code>The</code> routine that prints</p>
+</div>
+<div class="exampleblock gametranscript">
+<div class="content">
+the suitcase
+</div>
 </div>
 <div class="paragraph">
-<p>the suitcase</p>
+<p>Since <code>The</code> returns 0 (the empty string, or <code>""</code>), the <code>print</code> command is actually displaying</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl str">&quot;You open &quot;</span>, <span class="hl str">&quot;&quot;</span>, <span class="hl kwa">and</span> <span class="hl str">&quot;.&quot;</span></code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>Since The returns 0 (the empty string, or <code>""</code>), the print command is actually displaying</p>
-</div>
-<div class="paragraph">
-<p>"You open ", "", and "."</p>
-</div>
-<div class="paragraph">
-<p>where the empty string (<code>""</code>) is preceded on the output line by The&#8217;s printing of "`the `" (notice the trailing space) and the object name.</p>
+<p>where the empty string (<code>""</code>) is preceded on the output line by The&#8217;s printing of <code>"the "</code> (notice the trailing space) and the object name.</p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_property_routines"><a class="anchor" href="#_property_routines"></a>5.2. Property Routines</h3>
 <div class="paragraph">
-<p>Property routines are slightly more complex than the simple routines described so far, but follow the same basic rules. Normally, a property routine runs when the program attempts to get the value of a property that contains a routine.</p>
+<p>Property routines are slightly more complex than the simple routines described so far, but follow the same basic rules.
+Normally, a property routine runs when the program attempts to get the value of a property that contains a routine.</p>
 </div>
 <div class="paragraph">
 <p>That is, instead of having the property value:</p>
 </div>
-<div class="paragraph">
-<p>size 10</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">size <span class="hl num">10</span></code></pre>
+</div>
 </div>
 <div class="paragraph">
 <p>an object may contain the property:</p>
 </div>
-<div class="paragraph">
-<p>size</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">size&#x000A;{&#x000A;    <span class="hl kwa">return</span> some_value <span class="hl opt">+</span> <span class="hl num">5</span>&#x000A;}</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>\{</p>
+<p>Trying to read <code>object.size</code> in either case will return an integer value, although in the second case it is calculated by a routine.</p>
 </div>
-<div class="paragraph">
-<p>return some_value + 5</p>
-</div>
-<div class="paragraph">
-<p>}</p>
-</div>
-<div class="paragraph">
-<p>Trying to read object.size in either case will return an integer value, although in the second case it is calculated by a routine.</p>
-</div>
-<div class="admonitionblock note">
+<div class="admonitionblock important">
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-note" title="Note"></i>
+<i class="fa icon-important" title="Important"></i>
 </td>
 <td class="content">
 <div class="paragraph">
@@ -6306,133 +6266,152 @@ As &#8220;To(mato)&#8221; is lexically greater than &#8220;Th(is&#8230;&#8203;)&
 </table>
 </div>
 <div class="paragraph">
-<p>Here&#8217;s another example. Normally, if &lt;object&gt; is the current room object, then &lt;object&gt;.n_to would contain the object number of the room to the north (if there is one). The library checks &lt;object&gt;.n_to to see if a value exists for it; if none does, the move is invalid.</p>
+<p>Here&#8217;s another example.
+Normally, if <code>&lt;object&gt;</code> is the current room object, then <code>&lt;object&gt;.n_to</code> would contain the object number of the room to the north (if there is one).
+The library checks <code>&lt;object&gt;.n_to</code> to see if a value exists for it; if none does, the move is invalid.</p>
 </div>
 <div class="paragraph">
 <p>Consider this:</p>
 </div>
-<div class="paragraph">
-<p>n_to office</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">n_to office</code></pre>
+</div>
 </div>
 <div class="paragraph">
 <p>and</p>
 </div>
-<div class="paragraph">
-<p>n_to</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">n_to&#x000A;{&#x000A;    <span class="hl str">&quot;The office door is locked.&quot;</span>&#x000A;}</code></pre>
 </div>
-<div class="paragraph">
-<p>\{</p>
-</div>
-<div class="paragraph">
-<p>"The office door is locked."</p>
-</div>
-<div class="paragraph">
-<p>}</p>
 </div>
 <div class="paragraph">
 <p>or</p>
 </div>
-<div class="paragraph">
-<p>n_to</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">n_to&#x000A;{&#x000A;    <span class="hl str">&quot;The office door is locked. &quot;</span>;&#x000A;    <span class="hl kwa">return false</span>&#x000A;}</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>\{</p>
+<p>In the first case, an attempt on the part of the player to move north would result in <code>parent(player)</code> being changed to the <code>office</code> object.
+In the second case, a custom invalid-move message would be displayed.
+In the third case, the custom invalid-move message would be displayed, but then the library would continue as if it had not found a <code>n_to</code> property for <code>&lt;object&gt;</code>, and it would print the standard invalid-move message (without a newline, thanks to the semicolon):</p>
+</div>
+<div class="exampleblock gametranscript">
+<div class="content">
+The office door is locked.
+You can&#8217;t go that way.
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>For those wondering why the true (i.e., equal to 1) return value in the second case doesn&#8217;t prompt a move to object number 1, the library <code>DoGo</code> routine assumes that there will never be a room object numbered one, since there are all manner of system objects that get defined first.</p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
-<p>"The office door is locked. ";</p>
+<p>Property routines may be run directly using the <code>run</code> command:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">run</span> <span class="hl opt">&lt;</span><span class="hl kwa">object</span><span class="hl opt">&gt;</span>.<span class="hl opt">&lt;</span><span class="hl kwa">property</span><span class="hl opt">&gt;</span></code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>return false</p>
-</div>
-<div class="paragraph">
-<p>}</p>
-</div>
-<div class="paragraph">
-<p>In the first case, an attempt on the part of the player to move north would result in parent(player) being changed to the office object. In the second case, a custom invalid-move message would be displayed. In the third case, the custom invalid-move message would be displayed, but then the library would continue as if it had not found a n_to property for &lt;object&gt;, and it would print the standard invalid-move message (without a newline, thanks to the semicolon):</p>
-</div>
-<div class="paragraph">
-<p>"The office door is locked. You can&#8217;t go that way."</p>
-</div>
-<div class="paragraph">
-<p>(For those wondering why the true (i.e., equal to 1) return value in the second case doesn&#8217;t prompt a move to object number 1, the library DoGo routine assumes that there will never be a room object numbered one, since there are all manner of system objects that get defined first.)</p>
-</div>
-<div class="paragraph">
-<p>Property routines may be run directly using the run command:</p>
-</div>
-<div class="paragraph">
-<p>run &lt;object&gt;.&lt;property&gt;</p>
-</div>
-<div class="paragraph">
-<p>If &lt;object&gt; does not have &lt;property&gt;, or if &lt;object&gt;.&lt;property&gt; is not a routine, nothing happens. Otherwise, the property routine executes. Property routines do not take arguments.</p>
+<p>If <code>&lt;object&gt;</code> does not have <code>&lt;property&gt;</code>, or if <code>&lt;object&gt;.&lt;property&gt;</code> is not a routine, nothing happens.
+Otherwise, the property routine executes.
+Property routines do not take arguments.</p>
 </div>
 <div class="paragraph">
 <p>Remember that at any point in a program, an existing property may be changed using</p>
 </div>
-<div class="paragraph">
-<p>&lt;object&gt;.&lt;property&gt; = &lt;value&gt;</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl opt">&lt;</span><span class="hl kwa">object</span><span class="hl opt">&gt;</span>.<span class="hl opt">&lt;</span><span class="hl kwa">property</span><span class="hl opt">&gt; = &lt;</span>value<span class="hl opt">&gt;</span></code></pre>
+</div>
 </div>
 <div class="paragraph">
 <p>A property routine may be changed using</p>
 </div>
-<div class="paragraph">
-<p>&lt;object&gt;.&lt;property&gt; =</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl opt">&lt;</span><span class="hl kwa">object</span><span class="hl opt">&gt;</span>.<span class="hl opt">&lt;</span><span class="hl kwa">property</span><span class="hl opt">&gt; =</span>&#x000A;{&#x000A;    ...the new code <span class="hl kwa">for</span> this <span class="hl kwa">property routine</span>...&#x000A;}</code></pre>
 </div>
-<div class="paragraph">
-<p>\{</p>
-</div>
-<div class="paragraph">
-<p>&#8230;&#8203;the new code for this property routine&#8230;&#8203;</p>
-</div>
-<div class="paragraph">
-<p>}</p>
 </div>
 <div class="paragraph">
 <p>where the new routine must be enclosed in braces.</p>
 </div>
 <div class="paragraph">
-<p>It is entirely possible to change what was once a property routine into a simple value, or vice-versa, providing that space for the routine (and the required number of elements) was allowed for in the original object definition. Even if a property routine is to be assigned later in the program, the property itself must still be defined at the outset in the original object definition. A simple</p>
+<p>It is entirely possible to change what was once a property routine into a simple value, or vice-versa, providing that space for the routine (and the required number of elements) was allowed for in the original object definition.
+Even if a property routine is to be assigned later in the program, the property itself must still be defined at the outset in the original object definition.
+A simple</p>
 </div>
-<div class="paragraph">
-<p>&lt;property&gt; 0</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl opt">&lt;</span><span class="hl kwa">property</span><span class="hl opt">&gt;</span> <span class="hl num">0</span></code></pre>
+</div>
 </div>
 <div class="paragraph">
 <p>or</p>
 </div>
-<div class="paragraph">
-<p>&lt;property&gt; \{return false}</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl opt">&lt;</span><span class="hl kwa">property</span><span class="hl opt">&gt;</span> {<span class="hl kwa">return false</span>}</code></pre>
+</div>
 </div>
 <div class="paragraph">
 <p>will suffice.</p>
 </div>
 <div class="paragraph">
-<p>There is, however, one drawback to this reassignment of property values to routines and vice-versa. A property routine is given a &#8220;length&#8221; of one value, which is the property address. When assigning a value or set of values to a property routine, the engine behaves as if the property was originally defined for this object with only one word of data, since it has no way of knowing the original length of the property data.</p>
+<p>There is, however, one drawback to this reassignment of property values to routines and vice-versa.
+A property routine is given a &#8220;length&#8221; of one value, which is the property address.
+When assigning a value or set of values to a property routine, the engine behaves as if the property was originally defined for this object with only one word of data, since it has no way of knowing the original length of the property data.</p>
 </div>
 <div class="paragraph">
 <p>For example, if the original property specification in the object definition was:</p>
 </div>
-<div class="paragraph">
-<p>found_in bedroom, livingroom, garage</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">found_in bedroom, livingroom, garage</code></pre>
+</div>
 </div>
 <div class="paragraph">
 <p>and at some point the following was executed:</p>
 </div>
-<div class="paragraph">
-<p>found_in = \{ return basement }</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">found_in <span class="hl opt">=</span> { <span class="hl kwa">return</span> basement }</code></pre>
+</div>
 </div>
 <div class="paragraph">
 <p>then the following would not subsequently work:</p>
 </div>
-<div class="paragraph">
-<p>found_in #3 = attic</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">found_in <span class="hl ppc">#3 = attic</span></code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>because the engine now believes &lt;object&gt;.found_in to have only one element&#8212;&#8203;a routine address&#8212;&#8203;attached to it.</p>
+<p>because the engine now believes <code>&lt;object&gt;.found_in</code> to have only one element&#8201;&#8212;&#8201;a routine address&#8201;&#8212;&#8201;attached to it.</p>
 </div>
 <div class="paragraph">
-<p>Finally, keep in mind that whenever calling a property routine, the global variable self is normally set to the object number. To avoid this, such as when &#8220;borrowing&#8221; a property from another object from within a different object, reference the property via</p>
+<p>Finally, keep in mind that whenever calling a property routine, the global variable <code>self</code> is normally set to the object number.
+To avoid this, such as when &#8220;borrowing&#8221; a property from another object from within a different object, reference the property via</p>
 </div>
-<div class="paragraph">
-<p>&lt;object&gt;..&lt;property&gt;</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl opt">&lt;</span><span class="hl kwa">object</span><span class="hl opt">&gt;</span>..<span class="hl opt">&lt;</span><span class="hl kwa">property</span><span class="hl opt">&gt;</span></code></pre>
+</div>
 </div>
 <div class="paragraph">
 <p>using <code>..</code> instead of the normal property operator.</p>
@@ -6441,492 +6420,188 @@ As &#8220;To(mato)&#8221; is lexically greater than &#8220;Th(is&#8230;&#8203;)&
 <div class="sect2">
 <h3 id="_before_and_after_routines"><a class="anchor" href="#_before_and_after_routines"></a>5.3. Before And After Routines</h3>
 <div class="paragraph">
-<p>The Hugo Compiler predefines two special properties: before and after. They are unique in that not only are they always routines, but they are much more complex (and versatile) than a standard property routine.</p>
+<p>The Hugo Compiler predefines two special properties: <code>before</code> and <code>after</code>.
+They are unique in that not only are they always routines, but they are much more complex (and versatile) than a standard property routine.</p>
 </div>
 <div class="paragraph">
-<p><em>Complex</em> properties like before and after are defined with</p>
+<p><em>Complex</em> properties like <code>before</code> and <code>after</code> are defined with</p>
 </div>
-<div class="paragraph">
-<p>property &lt;property name&gt; $complex</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">property</span> <span class="hl opt">&lt;</span><span class="hl kwa">property name</span><span class="hl opt">&gt;</span> <span class="hl kwa">$complex</span></code></pre>
+</div>
 </div>
 <div class="paragraph">
 <p>as in:</p>
 </div>
-<div class="paragraph">
-<p>property before $complex</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">property before $complex</span>&#x000A;<span class="hl kwa">property after $complex</span></code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>property after $complex</p>
+<p>Here is the syntax for the <code>before</code> property:</p>
 </div>
-<div class="paragraph">
-<p>Here is the syntax for the before property:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">before</span>&#x000A;{&#x000A;    <span class="hl opt">&lt;</span>usage1<span class="hl opt">&gt; &lt;</span>verbroutine1<span class="hl opt">&gt;</span>[, <span class="hl opt">&lt;</span>verbroutine2<span class="hl opt">&gt;</span>,...]&#x000A;    {&#x000A;        ...&#x000A;    }&#x000A;    <span class="hl opt">&lt;</span>usage2<span class="hl opt">&gt; &lt;</span>verbroutine3<span class="hl opt">&gt;</span>[, <span class="hl opt">&lt;</span>verbroutine4<span class="hl opt">&gt;</span>,...]&#x000A;    {&#x000A;        ...&#x000A;    }&#x000A;    ...&#x000A;}</code></pre>
 </div>
-<div class="paragraph">
-<p>before</p>
 </div>
-<div class="paragraph">
-<p>\{</p>
-</div>
-<div class="paragraph">
-<p>&lt;usage1&gt; &lt;verbroutine1&gt;[, &lt;verbroutine2&gt;,&#8230;&#8203;]</p>
-</div>
-<div class="paragraph">
-<p>\{</p>
-</div>
-<div class="paragraph">
-<p>&#8230;&#8203;</p>
-</div>
-<div class="paragraph">
-<p>}</p>
-</div>
-<div class="paragraph">
-<p>&lt;usage2&gt; &lt;verbroutine3&gt;[, &lt;verbroutine4&gt;,&#8230;&#8203;]</p>
-</div>
-<div class="paragraph">
-<p>\{</p>
-</div>
-<div class="paragraph">
-<p>&#8230;&#8203;</p>
-</div>
-<div class="paragraph">
-<p>}</p>
-</div>
-<div class="paragraph">
-<p>&#8230;&#8203;</p>
-</div>
-<div class="paragraph">
-<p>}</p>
-</div>
-<div class="paragraph">
-<p>(The after property is the same, substituting after for before.)</p>
-</div>
-<div class="paragraph">
-<p>The &lt;usage&gt; specifier is a value against which the specified object is matched. Most commonly, it is <code>object</code>, <code>xobject</code>, <code>location</code>, <code>actor</code>, <code>parent(object)</code>, etc. The &lt;verbroutine&gt; is the name of a verb routine to which the usage in question applies.</p>
-</div>
-<div class="paragraph">
-<p>When the Hugo Engine goes to execute a player command, it runs a series of tests on the various elements of the command, such as the object on which the specified verb is to be enacted<sup class="footnote">[<a id="_footnoteref_32" class="footnote" href="#_footnotedef_32" title="View footnote.">32</a>]</sup>. Know for now that when a player command is executed, the before properties of the object (i.e., the direct object) and xobject (i.e., the indirect object)<sup class="footnote">[<a id="_footnoteref_33" class="footnote" href="#_footnotedef_33" title="View footnote.">33</a>]</sup> are checked, then if neither has returned non-false, the appropriate verbroutine is run. Afterward, the after properties are checked; if neither returns non-false, a default message is normally printed by the verbroutine. In other words, before routines typically pre-empt the execution of a verbroutine, and after routines typically pre-empt the default response of a verbroutine.</p>
-</div>
-<div class="paragraph">
-<p>When the &lt;object&gt;.before property is checked, with the global verbroutine set to one of the specified verbroutines in the before property, and &lt;usage&gt; in that instance is <code>object</code>, then the following block of code is executed. If no match is found, &lt;object&gt;.before returns false.</p>
-</div>
-<div class="paragraph">
-<p>Here is an example applied to the mysuitcase object created previously:</p>
-</div>
-<div class="paragraph">
-<p>before</p>
-</div>
-<div class="paragraph">
-<p>\{</p>
-</div>
-<div class="paragraph">
-<p>object DoEat</p>
-</div>
-<div class="paragraph">
-<p>\{</p>
-</div>
-<div class="paragraph">
-<p>"You can&#8217;t eat the suitcase!"</p>
-</div>
-<div class="paragraph">
-<p>}</p>
-</div>
-<div class="paragraph">
-<p>}</p>
-</div>
-<div class="paragraph">
-<p>after</p>
-</div>
-<div class="paragraph">
-<p>\{</p>
-</div>
-<div class="paragraph">
-<p>object DoGet</p>
-</div>
-<div class="paragraph">
-<p>\{</p>
-</div>
-<div class="paragraph">
-<p>"With a vigorous effort, you pick up</p>
-</div>
-<div class="paragraph">
-<p>the suitcase."</p>
-</div>
-<div class="paragraph">
-<p>}</p>
-</div>
-<div class="paragraph">
-<p>xobject DoPutIn</p>
-</div>
-<div class="paragraph">
-<p>\{</p>
-</div>
-<div class="paragraph">
-<p>"You put ";</p>
-</div>
-<div class="paragraph">
-<p>The(object)</p>
-</div>
-<div class="paragraph">
-<p>" into the suitcase."</p>
-</div>
-<div class="paragraph">
-<p>}</p>
-</div>
-<div class="paragraph">
-<p>}</p>
-</div>
-<div class="paragraph">
-<p>When the player tries the command &#8220;eat suitcase&#8221;, the response printed will be:</p>
-</div>
-<div class="paragraph">
-<p>You can&#8217;t eat the suitcase!</p>
-</div>
-<div class="paragraph">
-<p>and the normal verbroutine for <code>eat</code>, the library&#8217;s DoEat verbroutine, will not be run. When the player tries to &#8220;get the suitcase&#8221;, the library&#8217;s DoGet verbroutine will be run (since no before property interrupts it), but instead of the default library response (which is a simple &#8220;Taken.&#8221;), the game will print:</p>
-</div>
-<div class="paragraph">
-<p>With a vigorous effort, you pick up the suitcase.</p>
-</div>
-<div class="paragraph">
-<p>Finally, when the player tries to put something into the suitcase using, say, &#8220;put the book in the suitcase&#8221;, the normal DoPutIn routine will be run, but the custom response of the suitcase will be printed instead:</p>
-</div>
-<div class="paragraph">
-<p>You put the book into the suitcase.</p>
-</div>
-<div class="paragraph">
-<p>Each of these examples will return true (as property routines do by default), thereby overriding the engine&#8217;s default operation<sup class="footnote">[<a id="_footnoteref_34" class="footnote" href="#_footnotedef_34" title="View footnote.">34</a>]</sup>. In order to fool the engine into continuing normally, as if no before or after property has been found, return false from the property routine.</p>
-</div>
-<div class="paragraph">
-<p>after</p>
-</div>
-<div class="paragraph">
-<p>\{</p>
-</div>
-<div class="paragraph">
-<p>object DoGet</p>
-</div>
-<div class="paragraph">
-<p>\{</p>
-</div>
-<div class="paragraph">
-<p>"Fine. ";</p>
-</div>
-<div class="paragraph">
-<p>return false</p>
-</div>
-<div class="paragraph">
-<p>}</p>
-</div>
-<div class="paragraph">
-<p>}</p>
-</div>
-<div class="paragraph">
-<p>will result in:</p>
-</div>
-<div class="paragraph">
-<p>&gt;GET SUITCASE</p>
-</div>
-<div class="paragraph">
-<p>Fine. Taken.</p>
-</div>
-<div class="paragraph">
-<p>Since the after routine returns false, and the library&#8217;s default response for a successful call to DoGet is &#8220;Taken.&#8221;</p>
-</div>
-<div class="paragraph">
-<p>It is important to remember that, unlike other property routines, before and after routines are also <em>additive</em>; i.e., a before (or after) routine defined in an inherited class or object is not overwritten by a new property routine in the new object. Instead, the definition for the routine is&#8212;&#8203;in essence&#8212;&#8203;added onto. An additive property is defined using the $additive qualifier, as in:</p>
-</div>
-<div class="paragraph">
-<p>property &lt;property name&gt; $additive &lt;default value&gt;</p>
-</div>
-<div class="paragraph">
-<p>All previously inherited before/after subroutines are carried over. However, the processing of a before/after property begins with the present object, progressing backward through the object&#8217;s ancestry until a usage/verbroutine match is found; once a match is made, no further preceding class inheritances are processed (unless the property routine in question returns false).</p>
-</div>
-<div class="admonitionblock note">
+<div class="admonitionblock important">
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-note" title="Note"></i>
+<i class="fa icon-important" title="Important"></i>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>To force a before or after property routine to apply to <em>any</em> verbroutine, do not explicitly specify a verbroutine.</p>
+<p>The <code>after</code> property is the same, substituting <code>after</code> for <code>before</code>.</p>
 </div>
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
+<p>The <code>&lt;usage&gt;</code> specifier is a value against which the specified object is matched.
+Most commonly, it is <code>object</code>, <code>xobject</code>, <code>location</code>, <code>actor</code>, <code>parent(object)</code>, etc.
+The <code>&lt;verbroutine&gt;</code> is the name of a verb routine to which the usage in question applies.</p>
+</div>
+<div class="paragraph">
+<p>When the Hugo Engine goes to execute a player command, it runs a series of tests on the various elements of the command, such as the object on which the specified verb is to be enacted<sup class="footnote">[<a id="_footnoteref_32" class="footnote" href="#_footnotedef_32" title="View footnote.">32</a>]</sup>.
+Know for now that when a player command is executed, the <code>before</code> properties of the <code>object</code> (i.e., the direct object) and <code>xobject</code> (i.e., the indirect object)<sup class="footnote">[<a id="_footnoteref_33" class="footnote" href="#_footnotedef_33" title="View footnote.">33</a>]</sup> are checked, then if neither has returned non-false, the appropriate <code>&lt;verbroutine&gt;</code> is run.
+Afterward, the <code>after</code> properties are checked; if neither returns non-false, a default message is normally printed by the verbroutine.
+In other words, <code>before</code> routines typically pre-empt the execution of a verbroutine, and <code>after</code> routines typically pre-empt the default response of a verbroutine.</p>
+</div>
+<div class="paragraph">
+<p>When the <code>&lt;object&gt;.before</code> property is checked, with the global verbroutine set to one of the specified verbroutines in the <code>before</code> property, and <code>&lt;usage&gt;</code> in that instance is <code>object</code>, then the following block of code is executed.
+If no match is found, <code>&lt;object&gt;.before</code> returns false.</p>
+</div>
+<div class="paragraph">
+<p>Here is an example applied to the <code>mysuitcase</code> object created previously:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">before</span>&#x000A;{&#x000A;    <span class="hl kwa">object</span> DoEat&#x000A;    {&#x000A;        <span class="hl str">&quot;You can&#39;t eat the suitcase!&quot;</span>&#x000A;    }&#x000A;}&#x000A;&#x000A;<span class="hl kwa">after</span>&#x000A;{&#x000A;    <span class="hl kwa">object</span> DoGet&#x000A;    {&#x000A;        <span class="hl str">&quot;With a vigorous effort, you pick up</span>&#x000A;<span class="hl str">        the suitcase.&quot;</span>&#x000A;    }&#x000A;    <span class="hl kwa">xobject</span> DoPutIn&#x000A;    {&#x000A;        <span class="hl str">&quot;You put &quot;</span>;&#x000A;        The(<span class="hl kwa">object</span>)&#x000A;        <span class="hl str">&quot; into the suitcase.&quot;</span>&#x000A;    }&#x000A;}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>When the player tries the command &#8220;eat suitcase&#8221;, the response printed will be:</p>
+</div>
+<div class="exampleblock gametranscript">
+<div class="content">
+You can&#8217;t eat the suitcase!
+</div>
+</div>
+<div class="paragraph">
+<p>and the normal verbroutine for <code>eat</code>, the library&#8217;s <code>DoEat</code> verbroutine, will not be run.
+When the player tries to &#8220;get the suitcase&#8221;, the library&#8217;s <code>DoGet</code> verbroutine will be run (since no <code>before</code> property interrupts it), but instead of the default library response (which is a simple &#8220;Taken.&#8221;), the game will print:</p>
+</div>
+<div class="exampleblock gametranscript">
+<div class="content">
+With a vigorous effort, you pick up the suitcase.
+</div>
+</div>
+<div class="paragraph">
+<p>Finally, when the player tries to put something into the suitcase using, say, &#8220;put the book in the suitcase&#8221;, the normal <code>DoPutIn</code> routine will be run, but the custom response of the suitcase will be printed instead:</p>
+</div>
+<div class="exampleblock gametranscript">
+<div class="content">
+You put the book into the suitcase.
+</div>
+</div>
+<div class="paragraph">
+<p>Each of these examples will return true (as property routines do by default), thereby overriding the engine&#8217;s default operation<sup class="footnote">[<a id="_footnoteref_34" class="footnote" href="#_footnotedef_34" title="View footnote.">34</a>]</sup>.
+In order to fool the engine into continuing normally, as if no <code>before</code> or <code>after</code> property has been found, return false from the property routine.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">after</span>&#x000A;{&#x000A;    <span class="hl kwa">object</span> DoGet&#x000A;    {&#x000A;        <span class="hl str">&quot;Fine. &quot;</span>;&#x000A;        <span class="hl kwa">return false</span>&#x000A;    }&#x000A;}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>will result in:</p>
+</div>
+<div class="exampleblock gametranscript">
+<div class="content">
+<div class="paragraph">
+<p>&gt;GET SUITCASE</p>
+</div>
+<div class="paragraph">
+<p>Fine. Taken.</p>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Since the <code>after</code> routine returns false, and the library&#8217;s default response for a successful call to <code>DoGet</code> is &#8220;Taken.&#8221;</p>
+</div>
+<div class="paragraph">
+<p>It is important to remember that, unlike other property routines, <code>before</code> and <code>after</code> routines are also <em>additive</em>; i.e., a <code>before</code> (or <code>after</code>) routine defined in an inherited class or object is not overwritten by a new property routine in the new object.
+Instead, the definition for the routine is&#8201;&#8212;&#8201;in essence&#8201;&#8212;&#8201;added onto.
+An additive property is defined using the <code>$additive</code> qualifier, as in:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">property</span> <span class="hl opt">&lt;</span><span class="hl kwa">property name</span><span class="hl opt">&gt;</span> <span class="hl kwa">$additive</span> <span class="hl opt">&lt;</span>default value<span class="hl opt">&gt;</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>All previously inherited <code>before</code>/<code>after</code> subroutines are carried over.
+However, the processing of a <code>before</code>/<code>after</code> property begins with the present object, progressing backward through the object&#8217;s ancestry until a usage/verbroutine match is found; once a match is made, no further preceding class inheritances are processed (unless the property routine in question returns false).</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>To force a <code>before</code> or <code>after</code> property routine to apply to <em>any</em> verbroutine, do not explicitly specify a verbroutine.</p>
+</div>
+<div class="paragraph">
 <p>For example:</p>
 </div>
-<div class="paragraph">
-<p>before</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">before</span>&#x000A;{&#x000A;    <span class="hl kwa">xobject</span>&#x000A;    {&#x000A;        ...<span class="hl kwa">property routine</span>...&#x000A;    }&#x000A;}</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>\{</p>
+<p>The specified routine will be run whenever the object in question is the <code>xobject</code> of any valid input.</p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
-<p>xobject</p>
+<p>If a non-specific block occurs before any block(s) specifying verbroutines, then the following blocks, if matched, will run as well so long as the block does not return true.
+If the non-specific block comes after any other blocks, then it will run only if no other object/verbroutine combination is matched.</p>
 </div>
 <div class="paragraph">
-<p>\{</p>
+<p>A drawback of this non-specification is that all verbroutines are matched&#8201;&#8212;&#8201;both verbs and xverbs<sup class="footnote">[<a id="_footnoteref_35" class="footnote" href="#_footnotedef_35" title="View footnote.">35</a>]</sup>.
+This can be particularly undesirable in the case of location <code>before</code>/<code>after</code> properties, where you may wish to be circumventing any action the player tries to perform in that location, but where the non-specific response will be triggered even for <code>save</code>, <code>restore</code>, etc.
+(i.e.,</p>
 </div>
 <div class="paragraph">
-<p>&#8230;&#8203;property routine&#8230;&#8203;</p>
+<p>To get around this, the library provides a function <code>AnyVerb</code>, which takes an object as its argument and returns that object number if the current verbroutine is not within the group of xverbs; otherwise it returns false.
+Therefore, it can be used via:</p>
 </div>
-<div class="paragraph">
-<p>}</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">before</span>&#x000A;{&#x000A;    AnyVerb(location)&#x000A;    {&#x000A;        ...&#x000A;    }&#x000A;}</code></pre>
 </div>
-<div class="paragraph">
-<p>}</p>
-</div>
-<div class="paragraph">
-<p>The specified routine will be run whenever the object in question is the xobject of any valid input.</p>
-</div>
-<div class="paragraph">
-<p>If a non-specific block occurs before any block(s) specifying verbroutines, then the following blocks, if matched, will run as well so long as the block does not return true. If the non-specific block comes after any other blocks, then it will run only if no other object/verbroutine combination is matched.</p>
-</div>
-<div class="paragraph">
-<p>A drawback of this non-specification is that all verbroutines are matched&#8212;&#8203;both verbs and xverbs<sup class="footnote">[<a id="_footnoteref_35" class="footnote" href="#_footnotedef_35" title="View footnote.">35</a>]</sup>. This can be particularly undesirable in the case of location before/after properties, where you may wish to be circumventing any action the player tries to perform in that location, but where the non-specific response will be triggered even for save, restore, etc. (i.e.,</p>
-</div>
-<div class="paragraph">
-<p>To get around this, the library provides a function AnyVerb, which takes an object as its argument and returns that object number if the current verbroutine is not within the group of xverbs; otherwise it returns false. Therefore, it can be used via:</p>
-</div>
-<div class="paragraph">
-<p>before</p>
-</div>
-<div class="paragraph">
-<p>\{</p>
-</div>
-<div class="paragraph">
-<p>AnyVerb(location)</p>
-</div>
-<div class="paragraph">
-<p>\{</p>
-</div>
-<div class="paragraph">
-<p>&#8230;&#8203;</p>
-</div>
-<div class="paragraph">
-<p>}</p>
-</div>
-<div class="paragraph">
-<p>}</p>
 </div>
 <div class="paragraph">
 <p>instead of</p>
 </div>
-<div class="paragraph">
-<p>before</p>
-</div>
-<div class="paragraph">
-<p>\{</p>
-</div>
-<div class="paragraph">
-<p>location</p>
-</div>
-<div class="paragraph">
-<p>\{</p>
-</div>
-<div class="paragraph">
-<p>&#8230;&#8203;</p>
-</div>
-<div class="paragraph">
-<p>}</p>
-</div>
-<div class="paragraph">
-<p>}</p>
-</div>
-<div class="paragraph">
-<p>The former will execute the conditional block of code whenever the location global matches the current object and the current verbroutine is not an xverb. The latter (without using AnyVerb), will run for verbs and xverbs. (The reason for this, simply put, is that the location global always equals the location global (of course!). But AnyVerb(location) will only equal the location global if the verbroutine is not an xverb.)</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_init_and_main"><a class="anchor" href="#_init_and_main"></a>5.4. Init And Main</h3>
-<div class="paragraph">
-<p>At least two routines are typically part of every Hugo problem: Init and Main. Init is optional but almost always implemented. If it exists, is called once at the start of the program (as well as during a restart command). The routine should configure all variables, objects, and arrays needed to set up the game state and begin the game. Here&#8217;s the Init routine from <strong>shell.hug</strong>:</p>
-</div>
-<div class="paragraph">
-<p>routine init</p>
-</div>
-<div class="paragraph">
-<p>\{</p>
-</div>
-<div class="paragraph">
-<p><em>Start the counter at one turn before 0 turns, since Main will increment it to begin the game:</em></p>
-</div>
-<div class="paragraph">
-<p>counter = -1</p>
-</div>
-<div class="paragraph">
-<p><em>Set up the kind of statusline we&#8217;re going to be displaying, as well as define the default text colors</em><sup class="footnote">[<a id="_footnoteref_36" class="footnote" href="#_footnotedef_36" title="View footnote.">36</a>]</sup><em>:</em></p>
-</div>
-<div class="paragraph">
-<p>STATUSTYPE = 1 ! score/turns</p>
-</div>
-<div class="paragraph">
-<p>TEXTCOLOR = DEF_FOREGROUND</p>
-</div>
-<div class="paragraph">
-<p>BGCOLOR = DEF_BACKGROUND</p>
-</div>
-<div class="paragraph">
-<p>SL_TEXTCOLOR = DEF_SL_FOREGROUND</p>
-</div>
-<div class="paragraph">
-<p>SL_BGCOLOR = DEF_SL_BACKGROUND</p>
-</div>
-<div class="paragraph">
-<p><em>Set the player prompt to the default <code>&gt;</code>, and set the starting foreground and background colors:</em></p>
-</div>
-<div class="paragraph">
-<p>prompt = "&gt;"</p>
-</div>
-<div class="paragraph">
-<p>color TEXTCOLOR, BGCOLOR</p>
-</div>
-<div class="paragraph">
-<p><em>Clear the screen before starting the game, set the font to the default font, and print the game title (&#8220;SHELL&#8221;, in this case) and a subtitle, followed by the BANNER constant:</em></p>
-</div>
-<div class="paragraph">
-<p>cls</p>
-</div>
-<div class="paragraph">
-<p>Font(BOLD_ON | DEFAULT_FONT)</p>
-</div>
-<div class="paragraph">
-<p>"SHELL"</p>
-</div>
-<div class="paragraph">
-<p>Font(BOLD_OFF)</p>
-</div>
-<div class="paragraph">
-<p>"An Interactive Starting Point\n"</p>
-</div>
-<div class="paragraph">
-<p>print BANNER</p>
-</div>
-<div class="paragraph">
-<p><em>Set the player to the <code>you</code> object (from</em> <strong>objlib.h</strong><em>), and set up the starting location:</em></p>
-</div>
-<div class="paragraph">
-<p>player = you ! player initialization</p>
-</div>
-<div class="paragraph">
-<p>location = emptyroom</p>
-</div>
-<div class="paragraph">
-<p>old_location = location</p>
-</div>
-<div class="paragraph">
-<p><em>Move the player to the starting location, run the library rules to see if there&#8217;s light in the location, then describe the starting location and flag it as visited. Also, determine the starting bulk of whatever the player is carrying at the outset (if anything):</em></p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">before</span>&#x000A;{&#x000A;    location&#x000A;    {&#x000A;        ...&#x000A;    }&#x000A;}</code></pre>
 </div>
-<div class="paragraph">
-<p>move player to location</p>
-</div>
-<div class="paragraph">
-<p>FindLight(location)</p>
-</div>
-<div class="paragraph">
-<p>DescribePlace(location)</p>
-</div>
-<div class="paragraph">
-<p>location is visited</p>
-</div>
-<div class="paragraph">
-<p>CalculateHolding(player)</p>
-</div>
-<div class="paragraph">
-<p><em>Finally, if we&#8217;ve defined USE_PLURAL_OBJECTS</em><sup class="footnote">[<a id="_footnoteref_37" class="footnote" href="#_footnotedef_37" title="View footnote.">37</a>]</sup><em>, call the appropriate initialization routine:</em></p>
-</div>
-<div class="paragraph">
-<p>#ifset USE_PLURAL_OBJECTS</p>
-</div>
-<div class="paragraph">
-<p>InitPluralObjects</p>
-</div>
-<div class="paragraph">
-<p>#endif</p>
-</div>
-<div class="paragraph">
-<p>}</p>
-</div>
-<div class="paragraph">
-<p>Main is called every turn. It should take care of general game management such as moving ahead the counter, as well as running events and scripts<sup class="footnote">[<a id="_footnoteref_38" class="footnote" href="#_footnotedef_38" title="View footnote.">38</a>]</sup>. The Main routine from <strong>shell.hug</strong> is as follows:</p>
-</div>
-<div class="paragraph">
-<p>routine main</p>
-</div>
-<div class="paragraph">
-<p>\{</p>
-</div>
-<div class="paragraph">
-<p><em>The counter global gets incremented each turn, and the statusline gets updated:</em></p>
-</div>
-<div class="paragraph">
-<p>counter = counter + 1</p>
-</div>
-<div class="paragraph">
-<p>PrintStatusLine</p>
-</div>
-<div class="paragraph">
-<p><em>The each_turn property of the current location object gets run. The runevents statement runs all valid events. The RunScripts library routine runs any active scripts:</em></p>
-</div>
-<div class="paragraph">
-<p>run location.each_turn</p>
-</div>
-<div class="paragraph">
-<p>runevents</p>
-</div>
-<div class="paragraph">
-<p>RunScripts</p>
-</div>
-<div class="paragraph">
-<p><em>Finally, we check to see if the player is currently engaged in conversation with a character (if the speaking global is set) and, if so, if the character in question has left the current location:</em></p>
-</div>
-<div class="paragraph">
-<p>if parent(speaking)~=location</p>
-</div>
-<div class="paragraph">
-<p>speaking = 0</p>
-</div>
-<div class="paragraph">
-<p>}</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_events"><a class="anchor" href="#_events"></a>5.5. Events</h3>
-<div class="paragraph">
-<p>Events are useful for bringing a game to life, so that little quirks, behaviors, and occurrences can be provided for with little difficulty or complexity. Events are also routines, but their special characteristic is that they may be attached to a particular object, and they are run as a group by the runevents command. Events are defined as:</p>
-</div>
-<div class="paragraph">
-<p>event</p>
-</div>
-<div class="paragraph">
-<p>\{</p>
-</div>
-<div class="paragraph">
-<p>&#8230;&#8203;Event routine&#8230;&#8203;</p>
-</div>
-<div class="paragraph">
-<p>}</p>
-</div>
-<div class="paragraph">
-<p>for global events, and</p>
-</div>
-<div class="paragraph">
-<p>event [in] &lt;object&gt;</p>
-</div>
-<div class="paragraph">
-<p>\{</p>
-</div>
-<div class="paragraph">
-<p>&#8230;&#8203;Event routine&#8230;&#8203;</p>
-</div>
-<div class="paragraph">
-<p>}</p>
 </div>
 <div class="paragraph">
-<p>for events attached to a particular object. (The in is optional, but is recommended for legibility.) If an event is attached to an object, it is run only when that object has the same grandparent as the player object, where &#8220;grandparent&#8221; refers to the last object before 0 (the nothing object as defined in <strong>hugolib.h</strong>), or can otherwise be determined to be in the player&#8217;s current location<sup class="footnote">[<a id="_footnoteref_39" class="footnote" href="#_footnotedef_39" title="View footnote.">39</a>]</sup>.</p>
+<p>The former will execute the conditional block of code whenever the <code>location</code> global matches the current object and the current verbroutine is not an xverb.
+The latter (without using <code>AnyVerb</code>), will run for verbs and xverbs.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -6936,7 +6611,183 @@ As &#8220;To(mato)&#8221; is lexically greater than &#8220;Th(is&#8230;&#8203;)&
 </td>
 <td class="content">
 <div class="paragraph">
-<p>If the event is not a global event, the self global is set to the number of the object to which the event is attached.</p>
+<p>The reason for this, simply put, is that the <code>location</code> global always equals the <code>location</code> global (of course!).
+But <code>AnyVerb(location)</code> will only equal the <code>location</code> global if the verbroutine is not an xverb.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_init_and_main"><a class="anchor" href="#_init_and_main"></a>5.4. Init And Main</h3>
+<div class="paragraph">
+<p>At least two routines are typically part of every Hugo problem: <code>Init</code> and <code>Main</code>.
+<code>Init</code> is optional but almost always implemented.
+If it exists, is called once at the start of the program (as well as during a <code>restart</code> command).
+The routine should configure all variables, objects, and arrays needed to set up the game state and begin the game.
+Here&#8217;s the <code>Init</code> routine from <strong>shell.hug</strong>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p></p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">routine</span> init&#x000A;{</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p><em>Start the counter at one turn before 0 turns, since <code>Main</code> will increment it to begin the game:</em></p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">counter <span class="hl opt">= -</span><span class="hl num">1</span></code></pre>
+</div>
+</div>
+</li>
+<li>
+<p><em>Set up the kind of statusline we&#8217;re going to be displaying, as well as define the default text colors</em><sup class="footnote">[<a id="_footnoteref_36" class="footnote" href="#_footnotedef_36" title="View footnote.">36</a>]</sup><em>:</em></p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">STATUSTYPE <span class="hl opt">=</span> <span class="hl num">1</span>                  <span class="hl slc">! score/turns</span>&#x000A;        TEXTCOLOR <span class="hl opt">=</span> DEF_FOREGROUND&#x000A;        BGCOLOR <span class="hl opt">=</span> DEF_BACKGROUND&#x000A;        SL_TEXTCOLOR <span class="hl opt">=</span> DEF_SL_FOREGROUND&#x000A;        SL_BGCOLOR <span class="hl opt">=</span> DEF_SL_BACKGROUND</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p><em>Set the player prompt to the default <code>&gt;</code>, and set the starting foreground and background colors:</em></p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">prompt <span class="hl opt">=</span> <span class="hl str">&quot;&gt;&quot;</span>&#x000A;        <span class="hl kwa">color</span> TEXTCOLOR, BGCOLOR</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p><em>Clear the screen before starting the game, set the font to the default font, and print the game title (&#8220;SHELL&#8221;, in this case) and a subtitle, followed by the <code>BANNER</code> constant:</em></p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">cls</span>&#x000A;        Font(BOLD_ON <span class="hl opt">|</span> DEFAULT_FONT)&#x000A;        <span class="hl str">&quot;SHELL&quot;</span>&#x000A;        Font(BOLD_OFF)&#x000A;        <span class="hl str">&quot;An Interactive Starting Point</span><span class="hl esc">\n</span><span class="hl str">&quot;</span>&#x000A;        <span class="hl kwa">print</span> BANNER</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p><em>Set the player to the <code>you</code> object (from <strong>objlib.h</strong>), and set up the starting location:</em></p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">player <span class="hl opt">=</span> you                    <span class="hl slc">! player initialization</span>&#x000A;        location <span class="hl opt">=</span> emptyroom&#x000A;        old_location <span class="hl opt">=</span> location</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p><em>Move the player to the starting location, run the library rules to see if there&#8217;s light in the location, then describe the starting location and flag it as visited.
+Also, determine the starting bulk of whatever the player is carrying at the outset (if anything):</em></p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">move</span> player <span class="hl kwa">to</span> location&#x000A;        FindLight(location)&#x000A;        DescribePlace(location)&#x000A;        location <span class="hl kwa">is</span> visited&#x000A;        CalculateHolding(player)</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p><em>Finally, if we&#8217;ve defined <code>USE_PLURAL_OBJECTS</code></em><sup class="footnote">[<a id="_footnoteref_37" class="footnote" href="#_footnotedef_37" title="View footnote.">37</a>]</sup><em>, call the appropriate initialization routine:</em></p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl ppc">#ifset USE_PLURAL_OBJECTS</span>&#x000A;        InitPluralObjects&#x000A;<span class="hl ppc">#endif</span>&#x000A;}</code></pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><code>Main</code> is called every turn.
+It should take care of general game management such as moving ahead the counter, as well as running events and scripts<sup class="footnote">[<a id="_footnoteref_38" class="footnote" href="#_footnotedef_38" title="View footnote.">38</a>]</sup>.
+The <code>Main</code> routine from <strong>shell.hug</strong> is as follows:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p></p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">routine</span> main&#x000A;{</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p><em>The <code>counter</code> global gets incremented each turn, and the statusline gets updated:</em></p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">counter <span class="hl opt">=</span> counter <span class="hl opt">+</span> <span class="hl num">1</span>&#x000A;        PrintStatusLine</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p><em>The <code>each_turn</code> property of the current <code>location</code> object gets run.
+The <code>runevents</code> statement runs all valid events.
+The <code>RunScripts</code> library routine runs any active scripts:</em></p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">run</span> location.each_turn&#x000A;        <span class="hl kwa">runevents</span>&#x000A;        RunScripts</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p><em>Finally, we check to see if the player is currently engaged in conversation with a character (if the <code>speaking</code> global is set) and, if so, if the character in question has left the current location:</em></p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">if parent</span>(speaking)<span class="hl opt">~=</span>location&#x000A;                speaking <span class="hl opt">=</span> <span class="hl num">0</span>&#x000A;}</code></pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_events"><a class="anchor" href="#_events"></a>5.5. Events</h3>
+<div class="paragraph">
+<p>Events are useful for bringing a game to life, so that little quirks, behaviors, and occurrences can be provided for with little difficulty or complexity.
+Events are also routines, but their special characteristic is that they may be attached to a particular object, and they are run as a group by the <code>runevents</code> command.
+Events are defined as:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">event</span>&#x000A;{&#x000A;    ...<span class="hl kwa">Event routine</span>...&#x000A;}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>for global events, and</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">event</span> [<span class="hl kwa">in</span>] <span class="hl opt">&lt;</span><span class="hl kwa">object</span><span class="hl opt">&gt;</span>&#x000A;{&#x000A;    ...<span class="hl kwa">Event routine</span>...&#x000A;}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>for events attached to a particular object.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+The <code>in</code> is optional, but is recommended for legibility.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>If an event is attached to an object, it is run only when that object has the same grandparent as the player object, where &#8220;grandparent&#8221; refers to the last object before 0 (the <code>nothing</code> object as defined in <strong>hugolib.h</strong>), or can otherwise be determined to be in the player&#8217;s current location<sup class="footnote">[<a id="_footnoteref_39" class="footnote" href="#_footnotedef_39" title="View footnote.">39</a>]</sup>.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>If the event is not a global event, the <code>self</code> global is set to the number of the object to which the event is attached.</p>
 </div>
 </td>
 </tr>
@@ -6948,18 +6799,22 @@ As &#8220;To(mato)&#8221; is lexically greater than &#8220;Th(is&#8230;&#8203;)&
 <div class="sect3">
 <h4 id="_example_borrowing_property_routines"><a class="anchor" href="#_example_borrowing_property_routines"></a>Example: &#8220;Borrowing&#8221; Property Routines</h4>
 <div class="paragraph">
-<p>Consider a situation where a class provides a particular property routine. Normally, that routine is inherited by all objects defined using that class. But there may arise a situation where one of those objects must have a variation or expansion on the original routine.</p>
+<p>Consider a situation where a class provides a particular property routine.
+Normally, that routine is inherited by all objects defined using that class.
+But there may arise a situation where one of those objects must have a variation or expansion on the original routine.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">class</span> food&#x000A;&#x000A;\{&#x000A;&#x000A;bites_left <span class="hl num">5</span>&#x000A;&#x000A;eating&#x000A;&#x000A;\{&#x000A;&#x000A;self.bites_left <span class="hl opt">=</span> self.bites_left <span class="hl opt">-</span> <span class="hl num">1</span>&#x000A;&#x000A;<span class="hl kwa">if</span> self.bites_left <span class="hl opt">=</span> <span class="hl num">0</span>&#x000A;&#x000A;<span class="hl kwa">remove</span> self <span class="hl slc">! all gone</span>&#x000A;&#x000A;}&#x000A;&#x000A;}&#x000A;&#x000A;food health_food&#x000A;&#x000A;\{&#x000A;&#x000A;eating&#x000A;&#x000A;\{&#x000A;&#x000A;actor.health <span class="hl opt">=</span> actor.health <span class="hl opt">+</span> <span class="hl num">1</span>&#x000A;&#x000A;<span class="hl kwa">run</span> food..eating&#x000A;&#x000A;}&#x000A;&#x000A;}</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">class</span> food&#x000A;{&#x000A;    bites_left <span class="hl num">5</span>&#x000A;    eating&#x000A;    {&#x000A;        self.bites_left <span class="hl opt">=</span> self.bites_left <span class="hl opt">-</span> <span class="hl num">1</span>&#x000A;        <span class="hl kwa">if</span> self.bites_left <span class="hl opt">=</span> <span class="hl num">0</span>&#x000A;        <span class="hl kwa">remove</span> self              <span class="hl slc">! all gone</span>&#x000A;    }&#x000A;}&#x000A;&#x000A;food health_food&#x000A;{&#x000A;    eating&#x000A;    {&#x000A;        actor.health <span class="hl opt">=</span> actor.health <span class="hl opt">+</span> <span class="hl num">1</span>&#x000A;        <span class="hl kwa">run</span> food..eating&#x000A;    }&#x000A;}</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>(Assuming that bites_left, eating, and health are defined as properties, with eating being called whenever a food object is eaten.)</p>
+<p>(Assuming that <code>bites_left</code>, <code>eating</code>, and <code>health</code> are defined as properties, with <code>eating</code> being called whenever a <code>food</code> object is eaten.)</p>
 </div>
 <div class="paragraph">
-<p>In this case, it would be inconvenient to have to retype the entire food.eating routine for the health_food object just because the latter must also increase actor.health. Using <code>..</code> calls food.eating with self set to health_food, not the food class, so that food.eating affects health_food. This also allows changes to be made to any property, attribute, or property routine in a class, and that change will be reflected in all objects built from that class.</p>
+<p>In this case, it would be inconvenient to have to retype the entire <code>food.eating</code> routine for the <code>health_food</code> object just because the latter must also increase <code>actor.health</code>.
+Using <code>..</code> calls <code>food.eating</code> with <code>self</code> set to <code>health_food</code>, not the <code>food</code> class, so that <code>food.eating</code> affects <code>health_food</code>.
+This also allows changes to be made to any property, attribute, or property routine in a class, and that change will be reflected in all objects built from that class.</p>
 </div>
 </div>
 <div class="sect3">
@@ -6967,248 +6822,61 @@ As &#8220;To(mato)&#8221; is lexically greater than &#8220;Th(is&#8230;&#8203;)&
 <div class="paragraph">
 <p>At this point, enough material has been covered to develop a comprehensive example of a functional object that will serve as a summary of concepts introduced so far, as well as providing instances of a number of common properties from <strong>hugolib.h</strong>.</p>
 </div>
-<div class="paragraph">
-<p>object woodcabinet "wooden cabinet"</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">object</span> woodcabinet <span class="hl str">&quot;wooden cabinet&quot;</span>&#x000A;{&#x000A;    <span class="hl kwa">in</span> emptyroom&#x000A;    <span class="hl kwa">article</span> <span class="hl str">&quot;a&quot;</span>&#x000A;    <span class="hl kwa">nouns</span> <span class="hl str">&quot;cabinet&quot;</span>, <span class="hl str">&quot;shelf&quot;</span>, <span class="hl str">&quot;shelves&quot;</span>, \&#x000A;        <span class="hl str">&quot;furniture&quot;</span>, <span class="hl str">&quot;doors&quot;</span>, <span class="hl str">&quot;door&quot;</span>&#x000A;    <span class="hl kwa">adjectives</span> <span class="hl str">&quot;wooden&quot;</span>, <span class="hl str">&quot;wood&quot;</span>, <span class="hl str">&quot;fine&quot;</span>, <span class="hl str">&quot;mahogany&quot;</span>&#x000A;&#x000A;    short_desc&#x000A;        <span class="hl str">&quot;A wooden cabinet sits along one wall.&quot;</span>&#x000A;    when_open&#x000A;        <span class="hl str">&quot;An open wooden cabinet sits along</span>&#x000A;<span class="hl str">        one wall.&quot;</span>&#x000A;    long_desc&#x000A;    {&#x000A;        <span class="hl str">&quot;The cabinet is made of fine mahogany wood,</span>&#x000A;<span class="hl str">        hand-crafted by a master cabinetmaker. In</span>&#x000A;<span class="hl str">        front are two doors (presently &quot;</span>;&#x000A;        <span class="hl kwa">if</span> self <span class="hl kwa">is</span> open&#x000A;            <span class="hl kwa">print</span> <span class="hl str">&quot;open&quot;</span>;&#x000A;        <span class="hl kwa">else</span>: <span class="hl kwa">print</span> <span class="hl str">&quot;closed&quot;</span>;&#x000A;        <span class="hl kwa">print</span> <span class="hl str">&quot;).&quot;</span>&#x000A;    }&#x000A;    contains_desc&#x000A;        <span class="hl str">&quot;Behind the open doors of the cabinet you</span>&#x000A;<span class="hl str">        can see&quot;</span>;           <span class="hl slc">! note semicolon--</span>&#x000A;                            <span class="hl slc">! no line feed</span>&#x000A;    key_object cabinetkey   <span class="hl slc">! a cabinetkey object</span>&#x000A;                            <span class="hl slc">! must also be created</span>&#x000A;&#x000A;    holding <span class="hl num">0</span>               <span class="hl slc">! starts off empty</span>&#x000A;    capacity <span class="hl num">100</span>&#x000A;&#x000A;    <span class="hl kwa">before</span>&#x000A;    {&#x000A;        <span class="hl kwa">object</span> DoLookUnder&#x000A;            {<span class="hl str">&quot;Nothing there but dust.&quot;</span>}&#x000A;        <span class="hl kwa">object</span> DoGet&#x000A;            {<span class="hl str">&quot;The cabinet is far too heavy</span>&#x000A;<span class="hl str">            to lift!&quot;</span>}&#x000A;    }&#x000A;    <span class="hl kwa">after</span>&#x000A;    {&#x000A;        <span class="hl kwa">object</span> DoLock&#x000A;            {<span class="hl str">&quot;With a twist of the key, you lock the</span>&#x000A;<span class="hl str">            cabinet up tight.&quot;</span>}&#x000A;    }&#x000A;&#x000A;    <span class="hl kwa">is</span> container, openable, <span class="hl kwa">not</span> open&#x000A;    <span class="hl kwa">is</span> lockable, static&#x000A;}</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>\{</p>
+<p>Now, for bonus points for those who have looked ahead to <em>APPENDIX B: THE HUGO LIBRARY</em> to see what things like <code>when_open</code>, <code>contains_desc</code>, and <code>static</code> are for, how could the cabinet be converted into, say, a secret passage into another room?</p>
 </div>
 <div class="paragraph">
-<p>in emptyroom</p>
+<p>The answer is: by adding a <code>door_to</code> property, such as:</p>
 </div>
-<div class="paragraph">
-<p>article "a"</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">door_to secondroom      <span class="hl slc">! a new room object</span></code></pre>
 </div>
-<div class="paragraph">
-<p>nouns "cabinet", "shelf", "shelves", \</p>
-</div>
-<div class="paragraph">
-<p>"furniture", "doors", "door"</p>
-</div>
-<div class="paragraph">
-<p>adjectives "wooden", "wood", "fine", "mahogany"</p>
-</div>
-<div class="paragraph">
-<p>short_desc</p>
-</div>
-<div class="paragraph">
-<p>"A wooden cabinet sits along one wall."</p>
-</div>
-<div class="paragraph">
-<p>when_open</p>
-</div>
-<div class="paragraph">
-<p>"An open wooden cabinet sits along</p>
-</div>
-<div class="paragraph">
-<p>one wall."</p>
-</div>
-<div class="paragraph">
-<p>long_desc</p>
-</div>
-<div class="paragraph">
-<p>\{</p>
-</div>
-<div class="paragraph">
-<p>"The cabinet is made of fine mahogany wood,</p>
-</div>
-<div class="paragraph">
-<p>hand-crafted by a master cabinetmaker. In</p>
-</div>
-<div class="paragraph">
-<p>front are two doors (presently ";</p>
-</div>
-<div class="paragraph">
-<p>if self is open</p>
-</div>
-<div class="paragraph">
-<p>print "open";</p>
-</div>
-<div class="paragraph">
-<p>else: print "closed";</p>
-</div>
-<div class="paragraph">
-<p>print ")."</p>
-</div>
-<div class="paragraph">
-<p>}</p>
-</div>
-<div class="paragraph">
-<p>contains_desc</p>
-</div>
-<div class="paragraph">
-<p>"Behind the open doors of the cabinet you</p>
-</div>
-<div class="paragraph">
-<p>can see"; ! note semicolon--</p>
-</div>
-<div class="paragraph">
-<p>! no line feed</p>
-</div>
-<div class="paragraph">
-<p>key_object cabinetkey ! a cabinetkey object</p>
-</div>
-<div class="paragraph">
-<p>! must also be created</p>
-</div>
-<div class="paragraph">
-<p>holding 0 ! starts off empty</p>
-</div>
-<div class="paragraph">
-<p>capacity 100</p>
-</div>
-<div class="paragraph">
-<p>before</p>
-</div>
-<div class="paragraph">
-<p>\{</p>
-</div>
-<div class="paragraph">
-<p>object DoLookUnder</p>
-</div>
-<div class="paragraph">
-<p>\{"Nothing there but dust."}</p>
-</div>
-<div class="paragraph">
-<p>object DoGet</p>
-</div>
-<div class="paragraph">
-<p>\{"The cabinet is far too heavy</p>
-</div>
-<div class="paragraph">
-<p>to lift!"}</p>
-</div>
-<div class="paragraph">
-<p>}</p>
-</div>
-<div class="paragraph">
-<p>after</p>
-</div>
-<div class="paragraph">
-<p>\{</p>
-</div>
-<div class="paragraph">
-<p>object DoLock</p>
-</div>
-<div class="paragraph">
-<p>\{"With a twist of the key, you lock the</p>
-</div>
-<div class="paragraph">
-<p>cabinet up tight."}</p>
-</div>
-<div class="paragraph">
-<p>}</p>
-</div>
-<div class="paragraph">
-<p>is container, openable, not open</p>
-</div>
-<div class="paragraph">
-<p>is lockable, static</p>
-</div>
-<div class="paragraph">
-<p>}</p>
-</div>
-<div class="paragraph">
-<p>Now, for bonus points for those who have looked ahead to <em>APPENDIX B:</em> <em>THE HUGO LIBRARY</em> to see what things like when_open, contains_desc, and static are for, how could the cabinet be converted into, say, a secret passage into another room?</p>
-</div>
-<div class="paragraph">
-<p>The answer is: by adding a door_to property, such as:</p>
-</div>
-<div class="paragraph">
-<p>door_to secondroom ! a new room object</p>
 </div>
 <div class="paragraph">
 <p>and</p>
 </div>
-<div class="paragraph">
-<p>is enterable</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">is</span> enterable</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>as a new attribute. The cabinet can now be entered via: &#8220;go cabinet&#8221;, &#8220;get into cabinet&#8221;, &#8220;enter cabinet&#8221;, etc.</p>
+<p>as a new attribute.
+The cabinet can now be entered via: &#8220;go cabinet&#8221;, &#8220;get into cabinet&#8221;, &#8220;enter cabinet&#8221;, etc.</p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_example_building_a_clock_event"><a class="anchor" href="#_example_building_a_clock_event"></a>Example: Building a Clock Event</h4>
 <div class="paragraph">
-<p>Suppose that there is a clock object in a room. Here is a possible event:</p>
+<p>Suppose that there is a clock object in a room.
+Here is a possible event:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">event in</span> clock&#x000A;{&#x000A;    <span class="hl kwa">local</span> minutes, hours&#x000A;&#x000A;    hours <span class="hl opt">=</span> counter <span class="hl opt">/</span> <span class="hl num">60</span>&#x000A;    minutes <span class="hl opt">=</span> counter <span class="hl opt">-</span> (hours <span class="hl opt">*</span> <span class="hl num">60</span>)&#x000A;&#x000A;    <span class="hl kwa">if</span> minutes <span class="hl opt">=</span> <span class="hl num">0</span>&#x000A;    {&#x000A;        <span class="hl kwa">print</span> <span class="hl str">&quot;The clock chimes &quot;</span>;&#x000A;        <span class="hl kwa">select</span> hour&#x000A;            <span class="hl kwa">case</span> <span class="hl num">1</span>: <span class="hl kwa">print</span> <span class="hl str">&quot;one&quot;</span>;&#x000A;            <span class="hl kwa">case</span> <span class="hl num">2</span>: <span class="hl kwa">print</span> <span class="hl str">&quot;two&quot;</span>;&#x000A;            <span class="hl kwa">case</span> <span class="hl num">3</span>: <span class="hl kwa">print</span> <span class="hl str">&quot;three&quot;</span>;&#x000A;            .&#x000A;            .&#x000A;            .&#x000A;            <span class="hl kwa">case</span> <span class="hl num">12</span>: <span class="hl kwa">print</span> <span class="hl str">&quot;twelve&quot;</span>;<span class="hl num">40</span>&#x000A;        <span class="hl kwa">print</span> <span class="hl str">&quot; o&#39;clock.&quot;</span>&#x000A;    }&#x000A;}</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>event in clock</p>
+<p>Whenever the player and the clock are in the same room (when a <code>runevents</code> command is given), the event will run.</p>
 </div>
 <div class="paragraph">
-<p>\{</p>
+<p>Now, suppose the clock should be audible throughout the entire game&#8201;&#8212;&#8201;i.e., in any location on the game map.
+Simply changing the event definition to:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">event</span>       <span class="hl slc">! no object is given</span>&#x000A;{&#x000A;    ...&#x000A;}</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>local minutes, hours</p>
-</div>
-<div class="paragraph">
-<p>hours = counter / 60</p>
-</div>
-<div class="paragraph">
-<p>minutes = counter - (hours * 60)</p>
-</div>
-<div class="paragraph">
-<p>if minutes = 0</p>
-</div>
-<div class="paragraph">
-<p>\{</p>
-</div>
-<div class="paragraph">
-<p>print "The clock chimes ";</p>
-</div>
-<div class="paragraph">
-<p>select hour</p>
-</div>
-<div class="paragraph">
-<p>case 1: print "one";</p>
-</div>
-<div class="paragraph">
-<p>case 2: print "two";</p>
-</div>
-<div class="paragraph">
-<p>case 3: print "three";</p>
-</div>
-<div class="paragraph">
-<p>.</p>
-</div>
-<div class="paragraph">
-<p>.</p>
-</div>
-<div class="paragraph">
-<p>.</p>
-</div>
-<div class="paragraph">
-<p>case 12: print "twelve";<sup class="footnote">[<a id="_footnoteref_40" class="footnote" href="#_footnotedef_40" title="View footnote.">40</a>]</sup></p>
-</div>
-<div class="paragraph">
-<p>print " o&#8217;clock."</p>
-</div>
-<div class="paragraph">
-<p>}</p>
-</div>
-<div class="paragraph">
-<p>}</p>
-</div>
-<div class="paragraph">
-<p>Whenever the player and the clock are in the same room (when a runevents command is given), the event will run.</p>
-</div>
-<div class="paragraph">
-<p>Now, suppose the clock should be audible throughout the entire game&#8212;&#8203;i.e., in any location on the game map. Simply changing the event definition to:</p>
-</div>
-<div class="paragraph">
-<p>event ! no object is given</p>
-</div>
-<div class="paragraph">
-<p>\{</p>
-</div>
-<div class="paragraph">
-<p>&#8230;&#8203;</p>
-</div>
-<div class="paragraph">
-<p>}</p>
-</div>
-<div class="paragraph">
-<p>will make the event a global one. (In this case, the self global is not altered.)</p>
+<p>will make the event a global one.
+(In this case, the <code>self</code> global is not altered.)</p>
 </div>
 </div>
 </div>
@@ -7337,7 +7005,7 @@ As &#8220;To(mato)&#8221; is lexically greater than &#8220;Th(is&#8230;&#8203;)&
 <div class="sect2">
 <h3 id="_scripts"><a class="anchor" href="#_scripts"></a>6.3. Scripts</h3>
 <div class="paragraph">
-<p>Scripts are considerably more complex than fuses and daemons. The purpose of a script (also called a character script) is to allow an object&#8212;&#8203;usually a character&#8212;&#8203;to follow a sequence of actions turn-by-turn, independent of the player. Up to 16 scripts may be running at once.<sup class="footnote">[<a id="_footnoteref_41" class="footnote" href="#_footnotedef_41" title="View footnote.">41</a>]</sup></p>
+<p>Scripts are considerably more complex than fuses and daemons. The purpose of a script (also called a character script) is to allow an object&#8212;&#8203;usually a character&#8212;&#8203;to follow a sequence of actions turn-by-turn, independent of the player. Up to 16 scripts may be running at once.<sup class="footnote">[<a id="_footnoteref_40" class="footnote" href="#_footnotedef_40" title="View footnote.">40</a>]</sup></p>
 </div>
 <div class="paragraph">
 <p>A script is represented by two arrays: scriptdata and setscript. The latter was named for programming clarity rather than for what it actually contains. Here&#8217;s why:</p>
@@ -8316,7 +7984,7 @@ As &#8220;To(mato)&#8221; is lexically greater than &#8220;Th(is&#8230;&#8203;)&
 <div class="sect2">
 <h3 id="_before_we_get_to_the_routines"><a class="anchor" href="#_before_we_get_to_the_routines"></a>8.1. Before We Get To The Routines</h3>
 <div class="paragraph">
-<p>Because, the engine is unaware of such things as attributes, properties, and objects in anything but a technical sense<sup class="footnote">[<a id="_footnoteref_42" class="footnote" href="#_footnotedef_42" title="View footnote.">42</a>]</sup>, there are provided a number of routines to facilitate communication between the engine and the program proper. Along with these junction routines are certain global variables and properties that are pre-defined by the compiler and accessed directly by the engine. They are:</p>
+<p>Because, the engine is unaware of such things as attributes, properties, and objects in anything but a technical sense<sup class="footnote">[<a id="_footnoteref_41" class="footnote" href="#_footnotedef_41" title="View footnote.">41</a>]</sup>, there are provided a number of routines to facilitate communication between the engine and the program proper. Along with these junction routines are certain global variables and properties that are pre-defined by the compiler and accessed directly by the engine. They are:</p>
 </div>
 <div class="paragraph">
 <p><strong><span class="underline">GLOBALS</span></strong></p>
@@ -8409,7 +8077,7 @@ As &#8220;To(mato)&#8221; is lexically greater than &#8220;Th(is&#8230;&#8203;)&
 <p>Returning true from the Parse routine calls the engine parser again (i.e., returns to step 1 in the process above); returning false continues normally. This is useful in case the Parse routine has changed the input line substantially, requiring a reconfiguration of the already split words.</p>
 </div>
 <div class="paragraph">
-<p>The HugoFix debugging library can be used at runtime to monitor the goings-on of the Parse routine by enabling parser monitoring with the <code>$pm</code> command.<sup class="footnote">[<a id="_footnoteref_43" class="footnote" href="#_footnotedef_43" title="View footnote.">43</a>]</sup></p>
+<p>The HugoFix debugging library can be used at runtime to monitor the goings-on of the Parse routine by enabling parser monitoring with the <code>$pm</code> command.<sup class="footnote">[<a id="_footnoteref_42" class="footnote" href="#_footnotedef_42" title="View footnote.">42</a>]</sup></p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -8601,7 +8269,7 @@ Other than being non-false, the various values of endflag are insignificant exce
 <p>There is one special case in which the engine expects the FindObject routine to be especially helpful: that is if the routine is called with &lt;location&gt; equal to 0. This occurs whenever the engine needs to determine if an object is available <em>at all</em>--regardless of any rules normally governing object availability&#8212;&#8203;such as when an anything grammar token is encountered, or the engine needs to disambiguate two or more seemingly identical objects. (Also, FindObject may be called by the engine with both &lt;object&gt; and &lt;location&gt; equal to 0 to reset any library-based object disambiguation.)</p>
 </div>
 <div class="paragraph">
-<p>The HugoFix debugging library can be used at runtime to monitor calls to FindObject by enabling the <code>$fi</code> command. <sup class="footnote">[<a id="_footnoteref_44" class="footnote" href="#_footnotedef_44" title="View footnote.">44</a>]</sup></p>
+<p>The HugoFix debugging library can be used at runtime to monitor calls to FindObject by enabling the <code>$fi</code> command. <sup class="footnote">[<a id="_footnoteref_43" class="footnote" href="#_footnotedef_43" title="View footnote.">43</a>]</sup></p>
 </div>
 </div>
 <div class="sect2">
@@ -8655,7 +8323,7 @@ Other than being non-false, the various values of endflag are insignificant exce
 <p>are first directed to the order_response property of the character object in question. It is subsequently up to &lt;character&gt;.order_response to analyze verbroutine (as well as object and xobject, if applicable) to see if the request is a valid one. If no response is provided, order_response should return false.</p>
 </div>
 <div class="paragraph">
-<p>The HugoFix debugging library can be used at runtime to monitor calls to SpeakTo by enabling the <code>$pm</code> command. <sup class="footnote">[<a id="_footnoteref_45" class="footnote" href="#_footnotedef_45" title="View footnote.">45</a>]</sup></p>
+<p>The HugoFix debugging library can be used at runtime to monitor calls to SpeakTo by enabling the <code>$pm</code> command. <sup class="footnote">[<a id="_footnoteref_44" class="footnote" href="#_footnotedef_44" title="View footnote.">44</a>]</sup></p>
 </div>
 <div class="paragraph">
 <p>order_response</p>
@@ -8711,7 +8379,7 @@ Other than being non-false, the various values of endflag are insignificant exce
 <p>Perform(&lt;verbroutine&gt;, &lt;object&gt;, &lt;xobject&gt;, &lt;queue&gt;, &lt;isxverb&gt;)</p>
 </div>
 <div class="paragraph">
-<p>The first three arguments represent the match verb (always), object (if given), and indirect object, i.e., the xobject (if given). The &lt;queue&gt; is 0 unless the verbroutine is being called more than once for multiple objects. (As a special case, &lt;queue&gt; is –1 if object or xobject is a number supplied in the input as one or more digits, in order to signal Perform not to do normal before/after routine calling.) The &lt;isxverb&gt; argument is true if the grammar for invoking Perform designates an xverb<sup class="footnote">[<a id="_footnoteref_46" class="footnote" href="#_footnotedef_46" title="View footnote.">46</a>]</sup>.</p>
+<p>The first three arguments represent the match verb (always), object (if given), and indirect object, i.e., the xobject (if given). The &lt;queue&gt; is 0 unless the verbroutine is being called more than once for multiple objects. (As a special case, &lt;queue&gt; is –1 if object or xobject is a number supplied in the input as one or more digits, in order to signal Perform not to do normal before/after routine calling.) The &lt;isxverb&gt; argument is true if the grammar for invoking Perform designates an xverb<sup class="footnote">[<a id="_footnoteref_45" class="footnote" href="#_footnotedef_45" title="View footnote.">45</a>]</sup>.</p>
 </div>
 <div class="paragraph">
 <p>For example, various player commands might (approximately, depending on verbroutine and object names) result in the routine calls:</p>
@@ -8753,7 +8421,7 @@ Other than being non-false, the various values of endflag are insignificant exce
 <p>(If no Perform routine exists, the engine performs a default calling of player.before, location.before, xobject.before, object.before, and finally verbroutine if none of those returns true.)</p>
 </div>
 <div class="paragraph">
-<p>Using HugoFix&#8217;s parser monitoring (<code>$pm</code>) at runtime will trace calls to Perform. <sup class="footnote">[<a id="_footnoteref_47" class="footnote" href="#_footnotedef_47" title="View footnote.">47</a>]</sup></p>
+<p>Using HugoFix&#8217;s parser monitoring (<code>$pm</code>) at runtime will trace calls to Perform. <sup class="footnote">[<a id="_footnoteref_46" class="footnote" href="#_footnotedef_46" title="View footnote.">46</a>]</sup></p>
 </div>
 </div>
 </div>
@@ -9083,7 +8751,7 @@ You would simply interrupt the <code>DoGet</code> routine before it even execute
 <p>}</p>
 </div>
 <div class="paragraph">
-<p>Since a room is not placed within another object in the object tree (using the in directive), it automatically has a parent of 0 or nothing. By inheriting from the room class, the living_room object acquires the characteristics defined in the object library, including being static and light<sup class="footnote">[<a id="_footnoteref_48" class="footnote" href="#_footnotedef_48" title="View footnote.">48</a>]</sup>.</p>
+<p>Since a room is not placed within another object in the object tree (using the in directive), it automatically has a parent of 0 or nothing. By inheriting from the room class, the living_room object acquires the characteristics defined in the object library, including being static and light<sup class="footnote">[<a id="_footnoteref_47" class="footnote" href="#_footnotedef_47" title="View footnote.">47</a>]</sup>.</p>
 </div>
 <div class="paragraph">
 <p>Additionally, as with other classes in the object library, the type property of an object can be checked to see which class it was derived from. In this case, living_room.type would equal room. (Of course, living_room or an object subsequently derived from living_room could set its type property to something other than room.)</p>
@@ -9194,7 +8862,7 @@ You would simply interrupt the <code>DoGet</code> routine before it even execute
 <p>\{}</p>
 </div>
 <div class="paragraph">
-<p>The PC is by default named in the second person (as opposed to the first-person &#8220;I&#8221; or the third-person &#8220;he&#8221;, &#8220;she&#8221;, &#8220;it&#8221;, or &#8220;them&#8221;). To change to another form, it will be necessary to redefine the PC&#8217;s pronouns property accordingly, as well as to change the global variable player_person<sup class="footnote">[<a id="_footnoteref_49" class="footnote" href="#_footnotedef_49" title="View footnote.">49</a>]</sup> (which defaults to 2) to 1 or 3, as appropriate, and optionally to give a plural PC the plural attribute (in the rare case where that may be desired).</p>
+<p>The PC is by default named in the second person (as opposed to the first-person &#8220;I&#8221; or the third-person &#8220;he&#8221;, &#8220;she&#8221;, &#8220;it&#8221;, or &#8220;them&#8221;). To change to another form, it will be necessary to redefine the PC&#8217;s pronouns property accordingly, as well as to change the global variable player_person<sup class="footnote">[<a id="_footnoteref_48" class="footnote" href="#_footnotedef_48" title="View footnote.">48</a>]</sup> (which defaults to 2) to 1 or 3, as appropriate, and optionally to give a plural PC the plural attribute (in the rare case where that may be desired).</p>
 </div>
 </div>
 <div class="sect2">
@@ -9414,7 +9082,7 @@ You would simply interrupt the <code>DoGet</code> routine before it even execute
 <p>}</p>
 </div>
 <div class="paragraph">
-<p>The most important characteristic of a scenery object created using the scenery class is that it will not be listed by the library as part of the room&#8217;s contents (in this case, the contents of prison_cell). The scenery class is otherwise relatively unadorned: looking at a scenery object will produce a generic message about seeing nothing special, attempting to take a scenery object will generate a generic &#8220;You can&#8217;t take that&#8221;-type response, etc.<sup class="footnote">[<a id="_footnoteref_50" class="footnote" href="#_footnotedef_50" title="View footnote.">50</a>]</sup> The scenery object can be fleshed out with a long_desc property and before/after handling for desired verbroutines.</p>
+<p>The most important characteristic of a scenery object created using the scenery class is that it will not be listed by the library as part of the room&#8217;s contents (in this case, the contents of prison_cell). The scenery class is otherwise relatively unadorned: looking at a scenery object will produce a generic message about seeing nothing special, attempting to take a scenery object will generate a generic &#8220;You can&#8217;t take that&#8221;-type response, etc.<sup class="footnote">[<a id="_footnoteref_49" class="footnote" href="#_footnotedef_49" title="View footnote.">49</a>]</sup> The scenery object can be fleshed out with a long_desc property and before/after handling for desired verbroutines.</p>
 </div>
 <div class="paragraph">
 <p>Components are similar to scenery objects in two important respects in that they&#8217;re not intended to be taken and they&#8217;re not specifically listed in any itemization of contents. Consider a case where a game might contain a machine (for fun, a nefarious machine) and a lever. The intention might be that the lever can be manipulated separately from the nefarious machine itself so that &#8220;&gt;PULL LEVER&#8221; elicits a different response than simply &#8220;&gt;PULL MACHINE&#8221;. At the same time, however, something like the following is probably undesirable:</p>
@@ -9762,7 +9430,7 @@ You would simply interrupt the <code>DoGet</code> routine before it even execute
 <p>plural_is sundaes</p>
 </div>
 <div class="paragraph">
-<p>}<sup class="footnote">[<a id="_footnoteref_51" class="footnote" href="#_footnotedef_51" title="View footnote.">51</a>]</sup></p>
+<p>}<sup class="footnote">[<a id="_footnoteref_50" class="footnote" href="#_footnotedef_50" title="View footnote.">50</a>]</sup></p>
 </div>
 <div class="paragraph">
 <p>The plural_of property on the plural class enumerates the objects which it encompasses; each object encompassed by the plural class then points back to the plural class in its plural_is property.</p>
@@ -9837,7 +9505,7 @@ You would simply interrupt the <code>DoGet</code> routine before it even execute
 <p>}</p>
 </div>
 <div class="paragraph">
-<p>banana1 banana2 "banana"<sup class="footnote">[<a id="_footnoteref_52" class="footnote" href="#_footnotedef_52" title="View footnote.">52</a>]</sup></p>
+<p>banana1 banana2 "banana"<sup class="footnote">[<a id="_footnoteref_51" class="footnote" href="#_footnotedef_51" title="View footnote.">51</a>]</sup></p>
 </div>
 <div class="paragraph">
 <p>\{}</p>
@@ -9852,13 +9520,13 @@ You would simply interrupt the <code>DoGet</code> routine before it even execute
 <p>&#8230;&#8203;</p>
 </div>
 <div class="paragraph">
-<p>The identical object bananas will allow a player to use all the facilities of the identical_class in order to manipulate one or more otherwise indistinguishable banana objects.<sup class="footnote">[<a id="_footnoteref_53" class="footnote" href="#_footnotedef_53" title="View footnote.">53</a>]</sup></p>
+<p>The identical object bananas will allow a player to use all the facilities of the identical_class in order to manipulate one or more otherwise indistinguishable banana objects.<sup class="footnote">[<a id="_footnoteref_52" class="footnote" href="#_footnotedef_52" title="View footnote.">52</a>]</sup></p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_attachables"><a class="anchor" href="#_attachables"></a>10.8. Attachables</h3>
 <div class="paragraph">
-<p>Ropes and other similar objects&#8212;&#8203;anything, really, which ties onto something else or, even worse, ties <em>between</em> two or more objects&#8212;&#8203;are notoriously difficult to code. Safe advice on how to code a rope used to be: code a block of wood instead. The object library provides an attachable class which has successfully been used for everything from ropes to blankets to three-ended chains and darts.<sup class="footnote">[<a id="_footnoteref_54" class="footnote" href="#_footnotedef_54" title="View footnote.">54</a>]</sup></p>
+<p>Ropes and other similar objects&#8212;&#8203;anything, really, which ties onto something else or, even worse, ties <em>between</em> two or more objects&#8212;&#8203;are notoriously difficult to code. Safe advice on how to code a rope used to be: code a block of wood instead. The object library provides an attachable class which has successfully been used for everything from ropes to blankets to three-ended chains and darts.<sup class="footnote">[<a id="_footnoteref_53" class="footnote" href="#_footnotedef_53" title="View footnote.">53</a>]</sup></p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -10361,7 +10029,7 @@ The reason for this is to maximize portability across different platforms and fi
 </table>
 </div>
 <div class="paragraph">
-<p>Currently Hugo supports as resources: JPEG graphic files, RIFF/WAV audio samples, MOD/S3M/XM music modules, MIDI and MP3 songs, and MPEG and AVI movies.<sup class="footnote">[<a id="_footnoteref_55" class="footnote" href="#_footnotedef_55" title="View footnote.">55</a>]</sup></p>
+<p>Currently Hugo supports as resources: JPEG graphic files, RIFF/WAV audio samples, MOD/S3M/XM music modules, MIDI and MP3 songs, and MPEG and AVI movies.<sup class="footnote">[<a id="_footnoteref_54" class="footnote" href="#_footnotedef_54" title="View footnote.">54</a>]</sup></p>
 </div>
 <div class="paragraph">
 <p>For example, here is an imaginary example resourcefile compiled on a Windows platform:</p>
@@ -10396,7 +10064,7 @@ As a result, two resources with the same name but different paths/extensions can
 <div class="paragraph">
 <p>The library extension <strong>resource.h</strong> provides useful routines for managing resources in a Hugo program.
 It also defines the following potential values for the <code>system_status</code> global, which may be tested after a resource operation.
-If <code>system_status</code> is non-zero (where zero signifies normal status), it will contain one of the following values<sup class="footnote">[<a id="_footnoteref_56" class="footnote" href="#_footnotedef_56" title="View footnote.">56</a>]</sup>:</p>
+If <code>system_status</code> is non-zero (where zero signifies normal status), it will contain one of the following values<sup class="footnote">[<a id="_footnoteref_55" class="footnote" href="#_footnotedef_55" title="View footnote.">55</a>]</sup>:</p>
 </div>
 <table class="tableblock frame-all grid-none stripes-even fit-content center">
 <colgroup>
@@ -12999,7 +12667,7 @@ Upon returning from the verb routine, <code>Main</code> is not called.</p>
 <p>article &#8220;a&#8221;, &#8220;an&#8221;, &#8220;the&#8221;, &#8220;some&#8221;, etc.</p>
 </div>
 <div class="paragraph">
-<p>preposition (prep) &#8220;in&#8221;, &#8220;inside&#8221;, &#8220;outside of&#8221;, etc.<sup class="footnote">[<a id="_footnoteref_57" class="footnote" href="#_footnotedef_57" title="View footnote.">57</a>]</sup></p>
+<p>preposition (prep) &#8220;in&#8221;, &#8220;inside&#8221;, &#8220;outside of&#8221;, etc.<sup class="footnote">[<a id="_footnoteref_56" class="footnote" href="#_footnotedef_56" title="View footnote.">56</a>]</sup></p>
 </div>
 <div class="paragraph">
 <p>capacity contains a value representing the capacity of a container or platform</p>
@@ -13422,7 +13090,7 @@ CheckReach(object)</p>
 Contains(parent, object)</p>
 </div>
 <div class="paragraph">
-<p>Returns object if the specified object is present as a possession of the specified parent, even as a grandchild<sup class="footnote">[<a id="_footnoteref_58" class="footnote" href="#_footnotedef_58" title="View footnote.">58</a>]</sup>, otherwise returns false.</p>
+<p>Returns object if the specified object is present as a possession of the specified parent, even as a grandchild<sup class="footnote">[<a id="_footnoteref_57" class="footnote" href="#_footnotedef_57" title="View footnote.">57</a>]</sup>, otherwise returns false.</p>
 </div>
 <div class="paragraph">
 <p>CustomError calling form:<br>
@@ -14048,7 +13716,7 @@ RunScripts</p>
 <h3 id="_the_hugofix_debugging_library"><a class="anchor" href="#_the_hugofix_debugging_library"></a>D.1. The HugoFix Debugging Library</h3>
 <div class="paragraph">
 <p>The HugoFix Debugging Library is a suite of routines that can be used via typed commands in a running Hugo game without the use of any special debugger program.
-To use HugoFix, set the compiler flag <code>DEBUG</code> before including <strong>hugolib.h</strong> or any other standard Hugo library files<sup class="footnote">[<a id="_footnoteref_59" class="footnote" href="#_footnotedef_59" title="View footnote.">59</a>]</sup>.
+To use HugoFix, set the compiler flag <code>DEBUG</code> before including <strong>hugolib.h</strong> or any other standard Hugo library files<sup class="footnote">[<a id="_footnoteref_58" class="footnote" href="#_footnotedef_58" title="View footnote.">58</a>]</sup>.
 Then, from the player input line, type:</p>
 </div>
 <div class="exampleblock gametranscript">
@@ -14354,7 +14022,7 @@ Handy for testing things that may be affected by use of the built-in <code>rando
 <h3 id="_the_hugo_debugger"><a class="anchor" href="#_the_hugo_debugger"></a>D.2. The Hugo Debugger</h3>
 <div class="paragraph">
 <p>The Hugo Debugger is a valuable part of the Hugo design system.
-It allows a programmer to monitor all aspects of program execution, including watching expressions, modifying values, moving objects, etc.&#8201;&#8212;&#8201;all things expected of a modern source-level debugger.<sup class="footnote">[<a id="_footnoteref_60" class="footnote" href="#_footnotedef_60" title="View footnote.">60</a>]</sup></p>
+It allows a programmer to monitor all aspects of program execution, including watching expressions, modifying values, moving objects, etc.&#8201;&#8212;&#8201;all things expected of a modern source-level debugger.<sup class="footnote">[<a id="_footnoteref_59" class="footnote" href="#_footnotedef_59" title="View footnote.">59</a>]</sup></p>
 </div>
 <div class="paragraph">
 <p>In order to be used with the debugger, a Hugo program must be compiled using the <code>-d</code> switch in order to create an <strong>.HDX</strong> debuggable file with additional data such as names for objects, variables, properties, etc.</p>
@@ -14913,7 +14581,7 @@ These low-level operations are, for the most part, transparent to the programmer
 <tr>
 <td class="tableblock halign-center valign-top" colspan="2"><p class="tableblock">(Bottom: <code>$000000</code>)<br>
 <br>
-MAXIMUM SIZE: 17792K bytes<sup class="footnote">[<a id="_footnoteref_61" class="footnote" href="#_footnotedef_61" title="View footnote.">61</a>]</sup></p></td>
+MAXIMUM SIZE: 17792K bytes<sup class="footnote">[<a id="_footnoteref_60" class="footnote" href="#_footnotedef_60" title="View footnote.">60</a>]</sup></p></td>
 </tr>
 </tbody>
 </table>
@@ -14970,12 +14638,12 @@ It contains the bulk of information regarding table offsets, junction routine ad
 <tr>
 <td class="tableblock halign-right valign-top"><p class="tableblock"><code>$00</code></p></td>
 <td class="tableblock halign-right valign-top"><p class="tableblock">1</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Version of Hugo Compiler used<sup class="footnote">[<a id="_footnoteref_62" class="footnote" href="#_footnotedef_62" title="View footnote.">62</a>]</sup></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Version of Hugo Compiler used<sup class="footnote">[<a id="_footnoteref_61" class="footnote" href="#_footnotedef_61" title="View footnote.">61</a>]</sup></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-right valign-top"><p class="tableblock"><code>01</code></p></td>
 <td class="tableblock halign-right valign-top"><p class="tableblock">2</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">ID string (compiler-generated)<sup class="footnote">[<a id="_footnoteref_63" class="footnote" href="#_footnotedef_63" title="View footnote.">63</a>]</sup></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ID string (compiler-generated)<sup class="footnote">[<a id="_footnoteref_62" class="footnote" href="#_footnotedef_62" title="View footnote.">62</a>]</sup></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-right valign-top"><p class="tableblock"><code>03</code></p></td>
@@ -15000,7 +14668,7 @@ It contains the bulk of information regarding table offsets, junction routine ad
 <tr>
 <td class="tableblock halign-right valign-top"><p class="tableblock"><code>0D</code></p></td>
 <td class="tableblock halign-right valign-top"><p class="tableblock">2</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Object table offset<sup class="footnote">[<a id="_footnoteref_64" class="footnote" href="#_footnotedef_64" title="View footnote.">64</a>]</sup></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Object table offset<sup class="footnote">[<a id="_footnoteref_63" class="footnote" href="#_footnotedef_63" title="View footnote.">63</a>]</sup></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-right valign-top"><p class="tableblock"><code>0F</code></p></td>
@@ -15070,7 +14738,7 @@ It contains the bulk of information regarding table offsets, junction routine ad
 <tr>
 <td class="tableblock halign-right valign-top"><p class="tableblock"><code>27</code></p></td>
 <td class="tableblock halign-right valign-top"><p class="tableblock">2</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Perform</code> routine indexed address<sup class="footnote">[<a id="_footnoteref_65" class="footnote" href="#_footnotedef_65" title="View footnote.">65</a>]</sup></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Perform</code> routine indexed address<sup class="footnote">[<a id="_footnoteref_64" class="footnote" href="#_footnotedef_64" title="View footnote.">64</a>]</sup></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top" colspan="3"><div class="content"><div class="paragraph">
@@ -15126,7 +14794,7 @@ It contains the bulk of information regarding table offsets, junction routine ad
 </td>
 <td class="content">
 <div class="paragraph">
-<p><strong>A note on data storage:</strong> whenever 16-bit words (i.e., two bytes representing a single value) are written or read, it is in low-byte/high-byte order, with the first byte being the remainder of <em>x</em>/256 (or the modulus <em>x</em>%256), and the second byte being the integer value <em>x</em>/256.<sup class="footnote">[<a id="_footnoteref_66" class="footnote" href="#_footnotedef_66" title="View footnote.">66</a>]</sup></p>
+<p><strong>A note on data storage:</strong> whenever 16-bit words (i.e., two bytes representing a single value) are written or read, it is in low-byte/high-byte order, with the first byte being the remainder of <em>x</em>/256 (or the modulus <em>x</em>%256), and the second byte being the integer value <em>x</em>/256.<sup class="footnote">[<a id="_footnoteref_65" class="footnote" href="#_footnotedef_65" title="View footnote.">65</a>]</sup></p>
 </div>
 </td>
 </tr>
@@ -15449,9 +15117,9 @@ It contains the bulk of information regarding table offsets, junction routine ad
 <td class="tableblock halign-right valign-top"><p class="tableblock"><code>79</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>repeat</code></p></td>
 <td class="tableblock halign-right valign-top"><p class="tableblock"><code>7A</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>addcontext<sup class="footnote">[<a id="_footnoteref_67" class="footnote" href="#_footnotedef_67" title="View footnote.">67</a>]</sup></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>addcontext<sup class="footnote">[<a id="_footnoteref_66" class="footnote" href="#_footnotedef_66" title="View footnote.">66</a>]</sup></code></p></td>
 <td class="tableblock halign-right valign-top"><p class="tableblock"><code>7B</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>video<sup class="footnote">[<a id="_footnoteref_68" class="footnote" href="#_footnotedef_68" title="View footnote.">68</a>]</sup></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>video<sup class="footnote">[<a id="_footnoteref_67" class="footnote" href="#_footnotedef_67" title="View footnote.">67</a>]</sup></code></p></td>
 <td class="tableblock halign-right valign-top"></td>
 <td class="tableblock halign-left valign-top"></td>
 <td class="tableblock halign-right valign-top"></td>
@@ -15598,7 +15266,7 @@ ROUTINE:
 </div>
 <div class="paragraph">
 <p>The two bytes (one 16-bit word) give the indexed address of the routine.
-All blocks of executable code begin on an address divisible by 16<sup class="footnote">[<a id="_footnoteref_69" class="footnote" href="#_footnotedef_69" title="View footnote.">69</a>]</sup>; this allows 1024K of memory to be addressable via the range 0 to 65536. (Code is padded with empty ($00) values to the next address divisible by the address scale.)</p>
+All blocks of executable code begin on an address divisible by 16<sup class="footnote">[<a id="_footnoteref_68" class="footnote" href="#_footnotedef_68" title="View footnote.">68</a>]</sup>; this allows 1024K of memory to be addressable via the range 0 to 65536. (Code is padded with empty ($00) values to the next address divisible by the address scale.)</p>
 </div>
 <div class="paragraph">
 <p>For example, a routine beginning at $004004 would be divided by 16 and encoded as the indexed address $0401, in the form:</p>
@@ -15710,7 +15378,7 @@ The original &#8220;<em>hh</em>:<em>mm</em>&#8221; is stored in <code>parse$</co
 <p>Up to one word (or set of words) in quotation marks is allowed; if found, it is stored in <code>parse$</code>.</p>
 </li>
 <li>
-<p>Special words are processed, i.e., removals and user-defined punctuation are removed, compounds are combined, and synonyms are replaced.<sup class="footnote">[<a id="_footnoteref_70" class="footnote" href="#_footnotedef_70" title="View footnote.">70</a>]</sup></p>
+<p>Special words are processed, i.e., removals and user-defined punctuation are removed, compounds are combined, and synonyms are replaced.<sup class="footnote">[<a id="_footnoteref_69" class="footnote" href="#_footnotedef_69" title="View footnote.">69</a>]</sup></p>
 </li>
 </ol>
 </div>
@@ -16295,7 +15963,7 @@ Note that an address in the text bank requires 3 bytes in the game code, however
 <div class="paragraph">
 <p>The object table begins with two bytes giving the total number of objects.
 The objects then follow in sequential order.
-Each object requires 24 bytes:<sup class="footnote">[<a id="_footnoteref_71" class="footnote" href="#_footnotedef_71" title="View footnote.">71</a>]</sup></p>
+Each object requires 24 bytes:<sup class="footnote">[<a id="_footnoteref_70" class="footnote" href="#_footnotedef_70" title="View footnote.">70</a>]</sup></p>
 </div>
 <table class="tableblock frame-all grid-none stripes-odd fit-content center">
 <colgroup>
@@ -16349,7 +16017,7 @@ Each object requires 24 bytes:<sup class="footnote">[<a id="_footnoteref_71" cla
 <div class="sect2">
 <h3 id="_attributes_3"><a class="anchor" href="#_attributes_3"></a>20.2. Attributes</h3>
 <div class="paragraph">
-<p>The 16 bytes of the attribute array contain 8 bits each, giving a total of 128 possible attributes.<sup class="footnote">[<a id="_footnoteref_72" class="footnote" href="#_footnotedef_72" title="View footnote.">72</a>]</sup>
+<p>The 16 bytes of the attribute array contain 8 bits each, giving a total of 128 possible attributes.<sup class="footnote">[<a id="_footnoteref_71" class="footnote" href="#_footnotedef_71" title="View footnote.">71</a>]</sup>
 Essentially, if the bits are thought of sequentially in that the first byte represents attributes 0 to 7, the second byte represents attributes 8 to 15, the third 16 to 23, and the fourth and final byte 24 to 31.</p>
 </div>
 </div>
@@ -17685,7 +17353,7 @@ These functions are:</p>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>hugo_hasvideo</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Returns video availability<sup class="footnote">[<a id="_footnoteref_73" class="footnote" href="#_footnotedef_73" title="View footnote.">73</a>]</sup></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Returns video availability<sup class="footnote">[<a id="_footnoteref_72" class="footnote" href="#_footnotedef_72" title="View footnote.">72</a>]</sup></p></td>
 </tr>
 </tbody>
 </table>
@@ -18679,7 +18347,7 @@ This, like the <code>&lt;assignment&gt;</code> is simply a regular executable as
 </div>
 <div class="literalblock">
 <div class="content">
-<pre>26 &lt;value&gt; 4C<sup class="footnote">[<a id="_footnoteref_74" class="footnote" href="#_footnotedef_74" title="View footnote.">74</a>]</sup></pre>
+<pre>26 &lt;value&gt; 4C<sup class="footnote">[<a id="_footnoteref_73" class="footnote" href="#_footnotedef_73" title="View footnote.">73</a>]</sup></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -18687,8 +18355,8 @@ This, like the <code>&lt;assignment&gt;</code> is simply a regular executable as
 </div>
 <div id="footnotes">
 <hr>
-<div class="footnote" id="_footnotedef_74">
-<a href="#_footnoteref_74">74</a>. Pre-v2.3 omitted the <code>eol#</code> marker ($4C).
+<div class="footnote" id="_footnotedef_73">
+<a href="#_footnoteref_73">73</a>. Pre-v2.3 omitted the <code>eol#</code> marker ($4C).
 </div>
 </div></div></td>
 </tr>
@@ -18910,13 +18578,13 @@ This, like the <code>&lt;assignment&gt;</code> is simply a regular executable as
 </div>
 <div class="literalblock">
 <div class="content">
-<pre>36 3B &lt;value&gt; 4C<sup class="footnote">[<a id="_footnoteref_75" class="footnote" href="#_footnotedef_75" title="View footnote.">75</a>]</sup></pre>
+<pre>36 3B &lt;value&gt; 4C<sup class="footnote">[<a id="_footnoteref_74" class="footnote" href="#_footnotedef_74" title="View footnote.">74</a>]</sup></pre>
 </div>
 </div>
 <div id="footnotes">
 <hr>
-<div class="footnote" id="_footnotedef_75">
-<a href="#_footnoteref_75">75</a>. Pre-v2.3 omitted the <code>eol#</code> marker ($4C).
+<div class="footnote" id="_footnotedef_74">
+<a href="#_footnoteref_74">74</a>. Pre-v2.3 omitted the <code>eol#</code> marker ($4C).
 </div>
 </div></div></td>
 </tr>
@@ -18979,7 +18647,7 @@ If a third value is given, separated by a comma ($19), it represents the input c
 </div>
 <div class="literalblock">
 <div class="content">
-<pre>39 &lt;value&gt; 4C<sup class="footnote">[<a id="_footnoteref_76" class="footnote" href="#_footnotedef_76" title="View footnote.">76</a>]</sup></pre>
+<pre>39 &lt;value&gt; 4C<sup class="footnote">[<a id="_footnoteref_75" class="footnote" href="#_footnotedef_75" title="View footnote.">75</a>]</sup></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -18987,8 +18655,8 @@ If a third value is given, separated by a comma ($19), it represents the input c
 </div>
 <div id="footnotes">
 <hr>
-<div class="footnote" id="_footnotedef_76">
-<a href="#_footnoteref_76">76</a>. Pre-v2.3 omitted the <code>eol#</code> marker ($4C).
+<div class="footnote" id="_footnotedef_75">
+<a href="#_footnoteref_75">75</a>. Pre-v2.3 omitted the <code>eol#</code> marker ($4C).
 </div>
 </div></div></td>
 </tr>
@@ -19021,7 +18689,7 @@ If a third value is given, separated by a comma ($19), it represents the input c
 </div>
 <div class="literalblock">
 <div class="content">
-<pre>3A &lt;value&gt; 3B &lt;value&gt; 4<sup class="footnote">[<a id="_footnoteref_77" class="footnote" href="#_footnotedef_77" title="View footnote.">77</a>]</sup></pre>
+<pre>3A &lt;value&gt; 3B &lt;value&gt; 4<sup class="footnote">[<a id="_footnoteref_76" class="footnote" href="#_footnotedef_76" title="View footnote.">76</a>]</sup></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -19029,8 +18697,8 @@ If a third value is given, separated by a comma ($19), it represents the input c
 </div>
 <div id="footnotes">
 <hr>
-<div class="footnote" id="_footnotedef_77">
-<a href="#_footnoteref_77">77</a>. Pre-v2.3 omitted the <code>eol#</code> marker ($4C).
+<div class="footnote" id="_footnotedef_76">
+<a href="#_footnoteref_76">76</a>. Pre-v2.3 omitted the <code>eol#</code> marker ($4C).
 </div>
 </div></div></td>
 </tr>
@@ -19435,7 +19103,7 @@ Read by the debugger; ignored by the engine.</p>
 </div>
 <div class="literalblock">
 <div class="content">
-<pre>4D 01 &lt;value&gt; 02 4C<sup class="footnote">[<a id="_footnoteref_78" class="footnote" href="#_footnotedef_78" title="View footnote.">78</a>]</sup></pre>
+<pre>4D 01 &lt;value&gt; 02 4C<sup class="footnote">[<a id="_footnoteref_77" class="footnote" href="#_footnotedef_77" title="View footnote.">77</a>]</sup></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -19443,8 +19111,8 @@ Read by the debugger; ignored by the engine.</p>
 </div>
 <div id="footnotes">
 <hr>
-<div class="footnote" id="_footnotedef_78">
-<a href="#_footnoteref_78">78</a>. Pre-v2.3 omitted the <code>eol#</code> marker ($4C).
+<div class="footnote" id="_footnotedef_77">
+<a href="#_footnoteref_77">77</a>. Pre-v2.3 omitted the <code>eol#</code> marker ($4C).
 </div>
 </div></div></td>
 </tr>
@@ -19471,7 +19139,7 @@ See <em>The Hugo Programming Manual</em> for further elaboration on the <code>sy
 </table>
 </div>
 <div class="paragraph">
-<p>Obsolete usage:<sup class="footnote">[<a id="_footnoteref_79" class="footnote" href="#_footnotedef_79" title="View footnote.">79</a>]</sup></p>
+<p>Obsolete usage:<sup class="footnote">[<a id="_footnoteref_78" class="footnote" href="#_footnotedef_78" title="View footnote.">78</a>]</sup></p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -19483,8 +19151,8 @@ See <em>The Hugo Programming Manual</em> for further elaboration on the <code>sy
 </div>
 <div id="footnotes">
 <hr>
-<div class="footnote" id="_footnotedef_79">
-<a href="#_footnoteref_79">79</a>. Not implemented post-v2.2.
+<div class="footnote" id="_footnotedef_78">
+<a href="#_footnoteref_78">78</a>. Not implemented post-v2.2.
 </div>
 </div></div></td>
 </tr>
@@ -19835,7 +19503,7 @@ Stores the resulting key value in <code>word[0]</code>.</p>
 </div>
 <div class="literalblock">
 <div class="content">
-<pre>5A &lt;value&gt; 4C<sup class="footnote">[<a id="_footnoteref_80" class="footnote" href="#_footnotedef_80" title="View footnote.">80</a>]</sup></pre>
+<pre>5A &lt;value&gt; 4C<sup class="footnote">[<a id="_footnoteref_79" class="footnote" href="#_footnotedef_79" title="View footnote.">79</a>]</sup></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -19843,8 +19511,8 @@ Stores the resulting key value in <code>word[0]</code>.</p>
 </div>
 <div id="footnotes">
 <hr>
-<div class="footnote" id="_footnotedef_80">
-<a href="#_footnoteref_80">80</a>. Pre-v2.3 omitted the <code>eol#</code> marker ($4C) when used as a statement.
+<div class="footnote" id="_footnotedef_79">
+<a href="#_footnoteref_79">79</a>. Pre-v2.3 omitted the <code>eol#</code> marker ($4C) when used as a statement.
 </div>
 </div></div></td>
 </tr>
@@ -20357,7 +20025,7 @@ Otherwise, it is appended to the end of the table, and the new location is retur
 </div>
 <div class="literalblock">
 <div class="content">
-<pre>6F &lt;value&gt; 4C<sup class="footnote">[<a id="_footnoteref_81" class="footnote" href="#_footnotedef_81" title="View footnote.">81</a>]</sup>
+<pre>6F &lt;value&gt; 4C<sup class="footnote">[<a id="_footnoteref_80" class="footnote" href="#_footnotedef_80" title="View footnote.">80</a>]</sup>
     ...file i/o code block...</pre>
 </div>
 </div>
@@ -20366,8 +20034,8 @@ Otherwise, it is appended to the end of the table, and the new location is retur
 </div>
 <div id="footnotes">
 <hr>
-<div class="footnote" id="_footnotedef_81">
-<a href="#_footnoteref_81">81</a>. Pre-v2.3 omitted the <code>eol#</code> marker ($4C).
+<div class="footnote" id="_footnotedef_80">
+<a href="#_footnoteref_80">80</a>. Pre-v2.3 omitted the <code>eol#</code> marker ($4C).
 </div>
 </div></div></td>
 </tr>
@@ -20401,7 +20069,7 @@ Upon any error, jumps to the end of the file i/o code block and closes <code>&lt
 </div>
 <div class="literalblock">
 <div class="content">
-<pre>70 &lt;value&gt; 4C<sup class="footnote">[<a id="_footnoteref_82" class="footnote" href="#_footnotedef_82" title="View footnote.">82</a>]</sup>
+<pre>70 &lt;value&gt; 4C<sup class="footnote">[<a id="_footnoteref_81" class="footnote" href="#_footnotedef_81" title="View footnote.">81</a>]</sup>
     ...file i/o code block...</pre>
 </div>
 </div>
@@ -20410,8 +20078,8 @@ Upon any error, jumps to the end of the file i/o code block and closes <code>&lt
 </div>
 <div id="footnotes">
 <hr>
-<div class="footnote" id="_footnotedef_82">
-<a href="#_footnoteref_82">82</a>. Pre-v2.3 omitted the <code>eol#</code> marker ($4C).
+<div class="footnote" id="_footnotedef_81">
+<a href="#_footnoteref_81">81</a>. Pre-v2.3 omitted the <code>eol#</code> marker ($4C).
 </div>
 </div></div></td>
 </tr>
@@ -20435,7 +20103,7 @@ Upon any error, jumps to the end of the file i/o code block and closes <code>&lt
 </div>
 <div class="literalblock">
 <div class="content">
-<pre>71 &lt;value&gt; 19 &lt;value&gt; 19 ... 4C<sup class="footnote">[<a id="_footnoteref_83" class="footnote" href="#_footnotedef_83" title="View footnote.">83</a>]</sup></pre>
+<pre>71 &lt;value&gt; 19 &lt;value&gt; 19 ... 4C<sup class="footnote">[<a id="_footnoteref_82" class="footnote" href="#_footnotedef_82" title="View footnote.">82</a>]</sup></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -20445,8 +20113,8 @@ Multiple values are separated by $19.</p>
 </div>
 <div id="footnotes">
 <hr>
-<div class="footnote" id="_footnotedef_83">
-<a href="#_footnoteref_83">83</a>. Pre-v2.3 omitted the <code>eol#</code> marker ($4C).
+<div class="footnote" id="_footnotedef_82">
+<a href="#_footnoteref_82">82</a>. Pre-v2.3 omitted the <code>eol#</code> marker ($4C).
 </div>
 </div></div></td>
 </tr>
@@ -20557,7 +20225,7 @@ If there is an error, the <code>system_status</code> global variable is set.</p>
 </div>
 </div>
 <div class="paragraph">
-<p>Attempts to load and play a music resource<sup class="footnote">[<a id="_footnoteref_84" class="footnote" href="#_footnotedef_84" title="View footnote.">84</a>]</sup> as resource <code>&lt;value2&gt;</code> in resourcefile <code>&lt;value1&gt;</code>.
+<p>Attempts to load and play a music resource<sup class="footnote">[<a id="_footnoteref_83" class="footnote" href="#_footnotedef_83" title="View footnote.">83</a>]</sup> as resource <code>&lt;value2&gt;</code> in resourcefile <code>&lt;value1&gt;</code>.
 (<code>&lt;value1&gt;</code> and <code>&lt;value2&gt;</code> are dictionary entries.)
 If <code>&lt;value3&gt;</code> is given, the music output volume is set to <code>&lt;value3&gt;</code> (as a percentage of normal output).
 If <code>&lt;value1&gt;</code> is 0, the current music is stopped.
@@ -20565,8 +20233,8 @@ If there is an error, the <code>system_status</code> global variable is set.</p>
 </div>
 <div id="footnotes">
 <hr>
-<div class="footnote" id="_footnotedef_84">
-<a href="#_footnoteref_84">84</a>. Version 2.5 supports MOD, S3M, and XM-format music modules. Version 3.0 and later additionally support MIDI and MP3 files.
+<div class="footnote" id="_footnotedef_83">
+<a href="#_footnoteref_83">83</a>. Version 2.5 supports MOD, S3M, and XM-format music modules. Version 3.0 and later additionally support MIDI and MP3 files.
 </div>
 </div></div></td>
 </tr>
@@ -20681,16 +20349,16 @@ If there is an error, the <code>system_status</code> global variable is set.</p>
 <a href="#_footnoteref_31">31</a>. Remember here that both zero (0) and the empty string <code>""</code> are equal in value.
 </div>
 <div class="footnote" id="_footnotedef_32">
-<a href="#_footnoteref_32">32</a>. The actual mechanics are described in <em>VIII.g</em> <em>Perform</em>.
+<a href="#_footnoteref_32">32</a>. The actual mechanics are described in <em>VIII.g Perform</em>.
 </div>
 <div class="footnote" id="_footnotedef_33">
 <a href="#_footnoteref_33">33</a>. In the imperative sentence &#8220;Put the book on the shelf&#8221;, the book is the direct object, and the shelf is the indirect object.
 </div>
 <div class="footnote" id="_footnotedef_34">
-<a href="#_footnoteref_34">34</a>. See <em>IX</em> <em>THE GAME LOOP</em>.
+<a href="#_footnoteref_34">34</a>. See <em>IX THE GAME LOOP</em>.
 </div>
 <div class="footnote" id="_footnotedef_35">
-<a href="#_footnoteref_35">35</a>. <em>Verbs</em> are actions that the player uses to interact with the physical world of the game. <em>Xverbs</em> are &#8220;non-action&#8221; verbs that generally deal with system functions, such as getting help, saving a game, etc. but don&#8217;t otherwise affect the state of the game world See <em>VII.a</em> <em>Grammar Definition</em>.
+<a href="#_footnoteref_35">35</a>. <em>Verbs</em> are actions that the player uses to interact with the physical world of the game. <em>Xverbs</em> are &#8220;non-action&#8221; verbs that generally deal with system functions, such as getting help, saving a game, etc. but don&#8217;t otherwise affect the state of the game world See <em>VII.a Grammar Definition</em>.
 </div>
 <div class="footnote" id="_footnotedef_36">
 <a href="#_footnoteref_36">36</a>. All of the capitalized CONSTANTS used here are defined in <strong>hugolib.h</strong>.
@@ -20702,16 +20370,16 @@ If there is an error, the <code>system_status</code> global variable is set.</p>
 <a href="#_footnoteref_38">38</a>. Events and scripts are discussed next.
 </div>
 <div class="footnote" id="_footnotedef_39">
-<a href="#_footnoteref_39">39</a>. That is, by the FindObject routine in <strong>hugolib.h</strong>, as called by the engine.
+<a href="#_footnoteref_39">39</a>. That is, by the <code>FindObject</code> routine in <strong>hugolib.h</strong>, as called by the engine.
 </div>
 <div class="footnote" id="_footnotedef_40">
-<a href="#_footnoteref_40">40</a>. You can actually use the NumberWord routine from <strong>hugolib.h</strong> to do this a lot more efficiently.
+<a href="#_footnoteref_40">40</a>. This is a library-set limit.
 </div>
 <div class="footnote" id="_footnotedef_41">
-<a href="#_footnoteref_41">41</a>. This is a library-set limit.
+<a href="#_footnoteref_41">41</a>. In other words, it is the library that defines all the rules and useful-sounding names for properties, routines, and the like; the engine doesn&#8217;t really have any idea about the higher-level work being done by the library.
 </div>
 <div class="footnote" id="_footnotedef_42">
-<a href="#_footnoteref_42">42</a>. In other words, it is the library that defines all the rules and useful-sounding names for properties, routines, and the like; the engine doesn&#8217;t really have any idea about the higher-level work being done by the library.
+<a href="#_footnoteref_42">42</a>. For more information on debugging using HugoFix, see <em>APPENDIX D:</em> <em>HUGOFIX AND THE HUGO DEBUGGER</em>.
 </div>
 <div class="footnote" id="_footnotedef_43">
 <a href="#_footnoteref_43">43</a>. For more information on debugging using HugoFix, see <em>APPENDIX D:</em> <em>HUGOFIX AND THE HUGO DEBUGGER</em>.
@@ -20720,91 +20388,88 @@ If there is an error, the <code>system_status</code> global variable is set.</p>
 <a href="#_footnoteref_44">44</a>. For more information on debugging using HugoFix, see <em>APPENDIX D:</em> <em>HUGOFIX AND THE HUGO DEBUGGER</em>.
 </div>
 <div class="footnote" id="_footnotedef_45">
-<a href="#_footnoteref_45">45</a>. For more information on debugging using HugoFix, see <em>APPENDIX D:</em> <em>HUGOFIX AND THE HUGO DEBUGGER</em>.
+<a href="#_footnoteref_45">45</a>. The &lt;isxverb&gt; argument is new in v3.1.
 </div>
 <div class="footnote" id="_footnotedef_46">
-<a href="#_footnoteref_46">46</a>. The &lt;isxverb&gt; argument is new in v3.1.
+<a href="#_footnoteref_46">46</a>. For more information on debugging using HugoFix, see <em>APPENDIX D:</em> <em>HUGOFIX AND THE HUGO DEBUGGER</em>.
 </div>
 <div class="footnote" id="_footnotedef_47">
-<a href="#_footnoteref_47">47</a>. For more information on debugging using HugoFix, see <em>APPENDIX D:</em> <em>HUGOFIX AND THE HUGO DEBUGGER</em>.
+<a href="#_footnoteref_47">47</a>. This also means that in order to create a dark location&#8212;&#8203;i.e., one that has no intrinsic lighting&#8212;&#8203;it is necessary to put an explicit <code>not light</code> in the object&#8217;s definition. In that case, in order for the player to see anything in the location, light will have to be provided either by an object in the location (such as a lamp) or by something portable that can be brought into the location (like a flashlight).
 </div>
 <div class="footnote" id="_footnotedef_48">
-<a href="#_footnoteref_48">48</a>. This also means that in order to create a dark location&#8212;&#8203;i.e., one that has no intrinsic lighting&#8212;&#8203;it is necessary to put an explicit <code>not light</code> in the object&#8217;s definition. In that case, in order for the player to see anything in the location, light will have to be provided either by an object in the location (such as a lamp) or by something portable that can be brought into the location (like a flashlight).
+<a href="#_footnoteref_48">48</a>. The library uses the player_person global to properly format messages to the player.
 </div>
 <div class="footnote" id="_footnotedef_49">
-<a href="#_footnoteref_49">49</a>. The library uses the player_person global to properly format messages to the player.
+<a href="#_footnoteref_49">49</a>. The scenery class has the static attribute, which makes scenery objects untakeable. This is largely the point of scenery objects.
 </div>
 <div class="footnote" id="_footnotedef_50">
-<a href="#_footnoteref_50">50</a>. The scenery class has the static attribute, which makes scenery objects untakeable. This is largely the point of scenery objects.
+<a href="#_footnoteref_50">50</a>. One could prevent duplication of properties and other parts of the object definitions by creating a common sundae class and deriving both fudge_sundae and butterscotch_sundae from it, changing only the adjective property.
 </div>
 <div class="footnote" id="_footnotedef_51">
-<a href="#_footnoteref_51">51</a>. One could prevent duplication of properties and other parts of the object definitions by creating a common sundae class and deriving both fudge_sundae and butterscotch_sundae from it, changing only the adjective property.
+<a href="#_footnoteref_51">51</a>. Using banana1 as a class to build subsequent banana objects from is a simple way of copying objects (and saves typing and/or copying-and-pasting).
 </div>
 <div class="footnote" id="_footnotedef_52">
-<a href="#_footnoteref_52">52</a>. Using banana1 as a class to build subsequent banana objects from is a simple way of copying objects (and saves typing and/or copying-and-pasting).
+<a href="#_footnoteref_52">52</a>. The author encourages the implementation of bananas in any game. More bananas mean more monkeys, and monkeys are always fun.
 </div>
 <div class="footnote" id="_footnotedef_53">
-<a href="#_footnoteref_53">53</a>. The author encourages the implementation of bananas in any game. More bananas mean more monkeys, and monkeys are always fun.
+<a href="#_footnoteref_53">53</a>. See <strong>sample.hug</strong> for examples of the last two.
 </div>
 <div class="footnote" id="_footnotedef_54">
-<a href="#_footnoteref_54">54</a>. See <strong>sample.hug</strong> for examples of the last two.
+<a href="#_footnoteref_54">54</a>. Versions of Hugo prior to v3.0 may not support all resource types. See <em>APPENDIX F:</em> <em>HUGO VERSIONS</em> for more information.
 </div>
 <div class="footnote" id="_footnotedef_55">
-<a href="#_footnoteref_55">55</a>. Versions of Hugo prior to v3.0 may not support all resource types. See <em>APPENDIX F:</em> <em>HUGO VERSIONS</em> for more information.
+<a href="#_footnoteref_55">55</a>. The result codes are defined in <strong>resource.h</strong>.
 </div>
 <div class="footnote" id="_footnotedef_56">
-<a href="#_footnoteref_56">56</a>. The result codes are defined in <strong>resource.h</strong>.
+<a href="#_footnoteref_56">56</a>. Used generally for room objects in order to give a grammatically correct description if necessary; also for containers and platforms.
 </div>
 <div class="footnote" id="_footnotedef_57">
-<a href="#_footnoteref_57">57</a>. Used generally for room objects in order to give a grammatically correct description if necessary; also for containers and platforms.
+<a href="#_footnoteref_57">57</a>. A &#8220;grandchild&#8221; of an object is a child of a child of a given parent object, or a child object thereof, recursively searched.
 </div>
 <div class="footnote" id="_footnotedef_58">
-<a href="#_footnoteref_58">58</a>. A &#8220;grandchild&#8221; of an object is a child of a child of a given parent object, or a child object thereof, recursively searched.
+<a href="#_footnoteref_58">58</a>. The HugoFix library should only be included during development. As always, when compiling a version for public release, the <code>DEBUG</code> flag should be omitted both to keep the filesize of the final Hugo executable down as well as to ensure that debugging functionality is not included in release builds.
 </div>
 <div class="footnote" id="_footnotedef_59">
-<a href="#_footnoteref_59">59</a>. The HugoFix library should only be included during development. As always, when compiling a version for public release, the <code>DEBUG</code> flag should be omitted both to keep the filesize of the final Hugo executable down as well as to ensure that debugging functionality is not included in release builds.
+<a href="#_footnoteref_59">59</a>. The Hugo Debugger is not technically a source-level debugger, however. During its development, its author has referred to it as a source(ish) level debugger&#8201;&#8212;&#8201;what the debugger does, in effect, is to &#8220;decompile&#8221; compiled code into the tokens and symbols that comprise each line of code. The result is a very close approximation of the original source code.
 </div>
 <div class="footnote" id="_footnotedef_60">
-<a href="#_footnoteref_60">60</a>. The Hugo Debugger is not technically a source-level debugger, however. During its development, its author has referred to it as a source(ish) level debugger&#8201;&#8212;&#8201;what the debugger does, in effect, is to &#8220;decompile&#8221; compiled code into the tokens and symbols that comprise each line of code. The result is a very close approximation of the original source code.
+<a href="#_footnoteref_60">60</a>. Previously to version 3.1, the size of the grammar and executable code segment was limited to 256K, and the maximum size was 17024K.
 </div>
 <div class="footnote" id="_footnotedef_61">
-<a href="#_footnoteref_61">61</a>. Previously to version 3.1, the size of the grammar and executable code segment was limited to 256K, and the maximum size was 17024K.
+<a href="#_footnoteref_61">61</a>. The version format was changed between v2.0 and v2.1. Version 2.0 programs contained the value 2; version 2.1 programs contain the value 21, version 2.2 programs contain 22, etc.
 </div>
 <div class="footnote" id="_footnotedef_62">
-<a href="#_footnoteref_62">62</a>. The version format was changed between v2.0 and v2.1. Version 2.0 programs contained the value 2; version 2.1 programs contain the value 21, version 2.2 programs contain 22, etc.
+<a href="#_footnoteref_62">62</a>. Pre-v2.3 allowed the programmer to specify an ID string, an unnecessary convention now&#8201;&#8212;&#8201;the ID string used to be used to create the default savefile name. The ID string is now auto-generated by the compiler and is compared by the engine to the ID of a saved game to see if they match. Precompiled headers have the ID string <code>$$</code>.
 </div>
 <div class="footnote" id="_footnotedef_63">
-<a href="#_footnoteref_63">63</a>. Pre-v2.3 allowed the programmer to specify an ID string, an unnecessary convention now&#8201;&#8212;&#8201;the ID string used to be used to create the default savefile name. The ID string is now auto-generated by the compiler and is compared by the engine to the ID of a saved game to see if they match. Precompiled headers have the ID string <code>$$</code>.
+<a href="#_footnoteref_63">63</a>. Table offsets are equal to the offset of the beginning of the table from the start of data, divided by 16.
 </div>
 <div class="footnote" id="_footnotedef_64">
-<a href="#_footnoteref_64">64</a>. Table offsets are equal to the offset of the beginning of the table from the start of data, divided by 16.
+<a href="#_footnoteref_64">64</a>. Pre-v2.5 had no Perform junction routine; verb routines were called directly by the engine.
 </div>
 <div class="footnote" id="_footnotedef_65">
-<a href="#_footnoteref_65">65</a>. Pre-v2.5 had no Perform junction routine; verb routines were called directly by the engine.
+<a href="#_footnoteref_65">65</a>. For another example, see <em>APPENDIX A:</em> <em>CODE PATTERNS</em>. Several of the conditional statements&#8201;&#8212;&#8201;if, elseif, etc.&#8201;&#8212;&#8201;use two bytes to give the absolute skip distance to the next statement if the conditional test fails. The pair is coded in low-byte/high-byte order.
 </div>
 <div class="footnote" id="_footnotedef_66">
-<a href="#_footnoteref_66">66</a>. For another example, see <em>APPENDIX A:</em> <em>CODE PATTERNS</em>. Several of the conditional statements&#8201;&#8212;&#8201;if, elseif, etc.&#8201;&#8212;&#8201;use two bytes to give the absolute skip distance to the next statement if the conditional test fails. The pair is coded in low-byte/high-byte order.
+<a href="#_footnoteref_66">66</a>. v3.0 and later
 </div>
 <div class="footnote" id="_footnotedef_67">
 <a href="#_footnoteref_67">67</a>. v3.0 and later
 </div>
 <div class="footnote" id="_footnotedef_68">
-<a href="#_footnoteref_68">68</a>. v3.0 and later
+<a href="#_footnoteref_68">68</a>. Prior to version 3.1, this scaling factor was 4.
 </div>
 <div class="footnote" id="_footnotedef_69">
-<a href="#_footnoteref_69">69</a>. Prior to version 3.1, this scaling factor was 4.
+<a href="#_footnoteref_69">69</a>. See <em>XI.b</em> <em>Special Words</em>
 </div>
 <div class="footnote" id="_footnotedef_70">
-<a href="#_footnoteref_70">70</a>. See <em>XI.b</em> <em>Special Words</em>
+<a href="#_footnoteref_70">70</a>. Pre-v2.1 objects had only 32 possible attributes, and the object size was only 12 bytes, with only 4 bytes given to the attribute array.
 </div>
 <div class="footnote" id="_footnotedef_71">
-<a href="#_footnoteref_71">71</a>. Pre-v2.1 objects had only 32 possible attributes, and the object size was only 12 bytes, with only 4 bytes given to the attribute array.
+<a href="#_footnoteref_71">71</a>. In v2.1 and later; there were only 32 attributes in earlier versions
 </div>
 <div class="footnote" id="_footnotedef_72">
-<a href="#_footnoteref_72">72</a>. In v2.1 and later; there were only 32 attributes in earlier versions
-</div>
-<div class="footnote" id="_footnotedef_73">
-<a href="#_footnoteref_73">73</a>. v3.0 and later
+<a href="#_footnoteref_72">72</a>. v3.0 and later
 </div>
 </div>
 <div id="footer">
