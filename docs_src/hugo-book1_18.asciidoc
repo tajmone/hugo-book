@@ -1,21 +1,37 @@
 [appendix]
 = HUGO VERSIONS
 
-As of this writing, the latest version of Hugo is 3.1. Most if not all of the actively developed ports are available in v3.1 distributions.
+As of this writing, the latest version of Hugo is 3.1.
+Most if not all of the actively developed ports are available in v3.1 distributions.
 
-The general rule of thumb is that sequential releases of the Hugo Engine are backward compatible, so that the Hugo Engine in v3.1 is able to run games compiled with v3.0, v2.5, and earlier versions. Earlier versions of the engine, however, are unable to run games compiled with later versions of the compiler. For example, a game compiled with v3.1 cannot be run by the v3.0 engine. (The exceptions to this are v2.5.01 through v2.5.04, which are able to run v3.0-compiled games as a result of the transititional development period for Hugo v3.0. Post-v2.5.04, the official baseline for Hugo releases became v3.0.)
+The general rule of thumb is that sequential releases of the Hugo Engine are backward compatible, so that the Hugo Engine in v3.1 is able to run games compiled with v3.0, v2.5, and earlier versions.
+Earlier versions of the engine, however, are unable to run games compiled with later versions of the compiler.
+For example, a game compiled with v3.1 cannot be run by the v3.0 engine.
 
-Version 3.1 is syntactically fully compatible with v3.0, the Hugo version which introduced features such as video playback, context menus, and mouse input. 3.1's most notable changes are internal, relating to data storage and code organization, and as such will have little effect on the user. Note however that v2.5 versions of the engine are unable to run v3.1 games.
+NOTE: The exceptions to this are v2.5.01 through v2.5.04, which are able to run v3.0-compiled games as a result of the transititional development period for Hugo v3.0.
+Post-v2.5.04, the official baseline for Hugo releases became v3.0.
+
+Version 3.1 is syntactically fully compatible with v3.0, the Hugo version which introduced features such as video playback, context menus, and mouse input. 3.1's most notable changes are internal, relating to data storage and code organization, and as such will have little effect on the user.
+
+WARNING: Note however that v2.5 versions of the engine are unable to run v3.1 games.
 
 Here is a quick breakdown of Hugo versions:
 
-*VERSION SUMMARY*
+// [cols="<s,<a",options=frame=none,grid=none,stripes=none]
+[cols="<5s,<95a",options=frame=all,grid=all,stripes=none]
+|===============================================================================
+| VERSION | SUMMARY
 
-2.5.0x Basic Hugo Engine implementation; v3.0-specific language features such as the video and addcontext keywords unsupported by the v2.5 compiler. Baseline runtime implementation for almost all ports.
+| 2.5.0x
+| Basic Hugo Engine implementation; v3.0-specific language features such as the `video` and `addcontext` keywords unsupported by the v2.5 compiler.
+Baseline runtime implementation for almost all ports.
 
-3.0 Introduction of additional multimedia and user interface functionality. Additional multimedia including sound, music, and video playback fully supported on Windows, Macintosh, and BeOS.
+| 3.0
+| Introduction of additional multimedia and user interface functionality.
+Additional multimedia including sound, music, and video playback fully supported on Windows, Macintosh, and BeOS.
 
-3.1 Syntactically identical to v3.0; internal format changes.
-
+| 3.1
+| Syntactically identical to v3.0; internal format changes.
+|===============================================================================
 
 // EOF //

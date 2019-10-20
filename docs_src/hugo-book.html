@@ -535,7 +535,7 @@ div.literalblock.cmd pre .conum {
 <span id="email" class="email"><a href="mailto:general@generalcoffee.com">general@generalcoffee.com</a></span><br>
 <span id="revnumber">version 1,</span>
 <span id="revdate">2018-10-04</span>
-<br><span id="revremark">Draft 50 -- Porting to AsciiDoc</span>
+<br><span id="revremark">Draft 51 -- Porting to AsciiDoc</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -14510,29 +14510,79 @@ For this reason, it is recommended that <code>#include</code> be used for buildi
 <h2 id="_hugo_versions"><a class="anchor" href="#_hugo_versions"></a>Appendix F: HUGO VERSIONS</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>As of this writing, the latest version of Hugo is 3.1. Most if not all of the actively developed ports are available in v3.1 distributions.</p>
+<p>As of this writing, the latest version of Hugo is 3.1.
+Most if not all of the actively developed ports are available in v3.1 distributions.</p>
 </div>
 <div class="paragraph">
-<p>The general rule of thumb is that sequential releases of the Hugo Engine are backward compatible, so that the Hugo Engine in v3.1 is able to run games compiled with v3.0, v2.5, and earlier versions. Earlier versions of the engine, however, are unable to run games compiled with later versions of the compiler. For example, a game compiled with v3.1 cannot be run by the v3.0 engine. (The exceptions to this are v2.5.01 through v2.5.04, which are able to run v3.0-compiled games as a result of the transititional development period for Hugo v3.0. Post-v2.5.04, the official baseline for Hugo releases became v3.0.)</p>
+<p>The general rule of thumb is that sequential releases of the Hugo Engine are backward compatible, so that the Hugo Engine in v3.1 is able to run games compiled with v3.0, v2.5, and earlier versions.
+Earlier versions of the engine, however, are unable to run games compiled with later versions of the compiler.
+For example, a game compiled with v3.1 cannot be run by the v3.0 engine.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The exceptions to this are v2.5.01 through v2.5.04, which are able to run v3.0-compiled games as a result of the transititional development period for Hugo v3.0.
+Post-v2.5.04, the official baseline for Hugo releases became v3.0.
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
-<p>Version 3.1 is syntactically fully compatible with v3.0, the Hugo version which introduced features such as video playback, context menus, and mouse input. 3.1&#8217;s most notable changes are internal, relating to data storage and code organization, and as such will have little effect on the user. Note however that v2.5 versions of the engine are unable to run v3.1 games.</p>
+<p>Version 3.1 is syntactically fully compatible with v3.0, the Hugo version which introduced features such as video playback, context menus, and mouse input. 3.1&#8217;s most notable changes are internal, relating to data storage and code organization, and as such will have little effect on the user.</p>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+Note however that v2.5 versions of the engine are unable to run v3.1 games.
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>Here is a quick breakdown of Hugo versions:</p>
 </div>
-<div class="paragraph">
-<p><strong>VERSION SUMMARY</strong></p>
-</div>
-<div class="paragraph">
-<p>2.5.0x Basic Hugo Engine implementation; v3.0-specific language features such as the video and addcontext keywords unsupported by the v2.5 compiler. Baseline runtime implementation for almost all ports.</p>
-</div>
-<div class="paragraph">
-<p>3.0 Introduction of additional multimedia and user interface functionality. Additional multimedia including sound, music, and video playback fully supported on Windows, Macintosh, and BeOS.</p>
-</div>
-<div class="paragraph">
-<p>3.1 Syntactically identical to v3.0; internal format changes.</p>
-</div>
+<table class="tableblock frame-all grid-all stripes-none stretch">
+<colgroup>
+<col style="width: 5%;">
+<col style="width: 95%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">VERSION</th>
+<th class="tableblock halign-left valign-top">SUMMARY</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>2.5.0x</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Basic Hugo Engine implementation; v3.0-specific language features such as the <code>video</code> and <code>addcontext</code> keywords unsupported by the v2.5 compiler.
+Baseline runtime implementation for almost all ports.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>3.0</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Introduction of additional multimedia and user interface functionality.
+Additional multimedia including sound, music, and video playback fully supported on Windows, Macintosh, and BeOS.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>3.1</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Syntactically identical to v3.0; internal format changes.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 <div class="sect1">

@@ -136,7 +136,7 @@ Every chapter in the list provides an [HTML Live Preview] link to quickly jump t
     + [x]  [APP. D. _HUGOFIX AND THE HUGO DEBUGGER_][AppD]
         * [ ]  _needs to be proof-read once more, carefully!_
     + [x]  [APP. E. _PRECOMPILED HEADERS_][AppE]
-    + [ ]  [APP. F. _HUGO VERSIONS_][AppF]
+    + [x]  [APP. F. _HUGO VERSIONS_][AppF]
     + [ ]  [APP. G. _ADDITIONAL RESOURCES_][AppG]
 - [ ]  [BOOK 2. **TECHNICAL SYSTEM SPECIFICATION**][Book II]
     + [x]  [13. _INTRODUCTION_][Ch13]
