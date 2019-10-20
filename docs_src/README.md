@@ -124,7 +124,7 @@ Every chapter in the list provides an [HTML Live Preview] link to quickly jump t
     + [ ]  [6. _FUSES, DAEMONS, AND SCRIPTS_][Ch6]
     + [ ]  [7. _GRAMMAR AND PARSING_][Ch7]
     + [ ]  [8. _JUNCTION ROUTINES_][Ch8]
-    + [ ]  [9. _THE GAME LOOP_][Ch9]
+    + [x]  [9. _THE GAME LOOP_][Ch9]
     + [ ]  [10. _USING THE OBJECT LIBRARY_][Ch10]
     + [ ]  [11. _ADVANCED FEATURES_][Ch11]
     + [ ]  [12. _RESOURCES_][Ch12]

@@ -535,7 +535,7 @@ div.literalblock.cmd pre .conum {
 <span id="email" class="email"><a href="mailto:general@generalcoffee.com">general@generalcoffee.com</a></span><br>
 <span id="revnumber">version 1,</span>
 <span id="revdate">2018-10-04</span>
-<br><span id="revremark">Draft 52 -- Porting to AsciiDoc</span>
+<br><span id="revremark">Draft 53 -- Porting to AsciiDoc</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -8764,67 +8764,7 @@ Other than being non-false, the various values of endflag are insignificant exce
 <div class="sect2">
 <h3 id="_overview_of_the_game_loop"><a class="anchor" href="#_overview_of_the_game_loop"></a>9.1. Overview Of The Game Loop</h3>
 <div class="paragraph">
-<p>This the basic execution pattern that the Hugo Engine follows during program execution. (Also mentioned are the calling of before routines and the verbroutine by Perform in <strong>hugolib.h</strong>. While not necessarily part of the game loop&#8212;&#8203;since they may or may not be included in a program&#8212;&#8203;they are mentioned here because they are relevant to any Hugo program that uses the standard Hugo Library.)</p>
-</div>
-<div class="paragraph">
-<p><strong>Init</strong>: The Init routine is called only when the program is first run, or when a restart command is issued.</p>
-</div>
-<div class="paragraph">
-<p><strong>Main:</strong> At the start of the game loop, the engine calls the Main routine. The routine should&#8212;&#8203;as in the provided sample programs&#8212;&#8203;take care of advancing the turn counter, executing the runevents command, and calling such library routines as RunScripts and PrintStatusLine.</p>
-</div>
-<div class="paragraph">
-<p><strong>Input:</strong> Keyboard input is received.</p>
-</div>
-<div class="paragraph">
-<p><strong>Parsing:</strong> The input line is checked for validity, synonyms and other special words are checked, and the user Parse routine (if any) is called.</p>
-</div>
-<div class="paragraph">
-<p><strong>Grammar matching:</strong></p>
-</div>
-<div class="paragraph">
-<p>The engine attempts to match the input line with a valid verb and syntax in the grammar table. If no match is found, the engine loops back to <strong>Input</strong>.</p>
-</div>
-<div class="paragraph">
-<p>Otherwise, a successful grammar match results in at least the verbroutine global being set, as well as potentially object and xobject.</p>
-</div>
-<div class="paragraph">
-<p><strong>Before routines (as called by Perform in hugolib.h):</strong></p>
-</div>
-<div class="paragraph">
-<p>If any objects were specified in the input line, their before properties are checked in the following order, for each object:</p>
-</div>
-<div class="paragraph">
-<p>player.before</p>
-</div>
-<div class="paragraph">
-<p>location.before</p>
-</div>
-<div class="paragraph">
-<p>xobject.before (if applicable)</p>
-</div>
-<div class="paragraph">
-<p>object.before (if applicable)</p>
-</div>
-<div class="paragraph">
-<p>If any of these property routines returns true, the engine skips the verb routine. (The react_before property for relevant objects is checked at this time as well.)</p>
-</div>
-<div class="paragraph">
-<p><strong>Verb routine (as called by Perform in hugolib.h):</strong></p>
-</div>
-<div class="paragraph">
-<p>If no before property routine returns true, the verb routine is run.</p>
-</div>
-<div class="paragraph">
-<p>If an action is successfully completed, the verb routine should return true. Returning false negates any remaining commands in the input line.</p>
-</div>
-<div class="paragraph">
-<p>Perform does not run any after property routines for object or xobject; that is up to the verb routine. It does run both player.after and location.after if the verbroutine returns true. (The react_after property for relevant objects is checked at this time as well.)</p>
-</div>
-<div class="paragraph">
-<p>(Control returns from the library Perform routine to the engine)</p>
-</div>
-<div class="paragraph">
-<p>When finished, the engine loops back to <strong>Main</strong>, calling the Main routine only if the last verb matched was not an xverb.</p>
+<p>This the basic execution pattern that the Hugo Engine follows during program execution.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -8834,7 +8774,169 @@ Other than being non-false, the various values of endflag are insignificant exce
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Setting the global endflag at any point to a non-zero value will terminate the game loop and run the EndGame junction routine.</p>
+<p>Also mentioned are the calling of <code>before</code> routines and the <code>verbroutine</code> by <code>Perform</code> in <strong>hugolib.h</strong>.
+While not necessarily part of the game loop&#8201;&#8212;&#8201;since they may or may not be included in a program&#8201;&#8212;&#8201;they are mentioned here because they are relevant to any Hugo program that uses the standard Hugo Library.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<table class="tableblock frame-all grid-rows stripes-none stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 80%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Init:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>The <code>Init</code> routine is called only when the program is first run, or when a <code>restart</code> command is issued.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Main:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>At the start of the game loop, the engine calls the <code>Main</code> routine.
+The routine should&#8201;&#8212;&#8201;as in the provided sample programs&#8201;&#8212;&#8201;take care of advancing the turn counter, executing the <code>runevents</code> command, and calling such library routines as <code>RunScripts</code> and <code>PrintStatusLine</code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Input:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Keyboard input is received.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Parsing:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>The input line is checked for validity, synonyms and other special words are checked, and the user <code>Parse</code> routine (if any) is called.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Grammar&#160;matching:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>The engine attempts to match the input line with a valid verb and syntax in the grammar table.
+If no match is found, the engine loops back to <strong>Input</strong>.</p>
+</div>
+<div class="paragraph">
+<p>Otherwise, a successful grammar match results in at least the <code>verbroutine</code> global being set, as well as potentially <code>object</code> and <code>xobject</code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><strong>Before routines (as called by Perform in hugolib.h):</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>If any objects were specified in the input line, their <code>before</code> properties are checked in the following order, for each object:</p>
+</div>
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+<code>player.before</code>   
+</td>
+<td class="hdlist2">
+<p></p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>location.before</code> 
+</td>
+<td class="hdlist2">
+<p></p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>xobject.before</code>  
+</td>
+<td class="hdlist2">
+<p>(if applicable)</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>object.before</code>   
+</td>
+<td class="hdlist2">
+<p>(if applicable)</p>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>If any of these property routines returns true, the engine skips the verb routine.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The <code>react_before</code> property for relevant objects is checked at this time as well.
+</td>
+</tr>
+</table>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><strong>Verb routine (as called by Perform in hugolib.h):</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>If no <code>before</code> property routine returns true, the verb routine is run.</p>
+</div>
+<div class="paragraph">
+<p>If an action is successfully completed, the verb routine should return true.
+Returning false negates any remaining commands in the input line.</p>
+</div>
+<div class="paragraph">
+<p><code>Perform</code> does not run any <code>after</code> property routines for <code>object</code> or <code>xobject</code>; that is up to the verb routine.
+It does run both <code>player.after</code> and <code>location.after</code> if the verbroutine returns true.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The <code>react_after</code> property for relevant objects is checked at this time as well.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+Control returns from the library <code>Perform</code> routine to the engine.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>When finished, the engine loops back to <strong>Main</strong>, calling the <code>Main</code> routine only if the last verb matched was not an <code>xverb</code>.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Setting the global <code>endflag</code> at any point to a non-zero value will terminate the game loop and run the <code>EndGame</code> junction routine.</p>
 </div>
 </td>
 </tr>
@@ -8844,106 +8946,97 @@ Other than being non-false, the various values of endflag are insignificant exce
 <div class="sect2">
 <h3 id="_what_should_i_be_able_to_do_now_8"><a class="anchor" href="#_what_should_i_be_able_to_do_now_8"></a>9.2. <em>What Should I Be Able To Do Now?</em></h3>
 <div class="paragraph">
-<p>By this point, you&#8217;ve been introduced to the basic facilities through which the Hugo Engine communicates with a running Hugo game: the junction routines EndGame, FindObject, Parse, ParseError, Perform, and SpeakTo. Becoming familiar with their implementation and use (and even inner workings) is an important step toward mastering an understanding of the Hugo game loop, including determining how a player input line is parsed, what objects are available or in scope, and how a command is either dispatched to a verbroutine or directed to another character. You should be able to create your own verbroutines (and grammar) to handle actions not provided by default in the library. You should now understand how to create an order_response property for characters to respond to actions passed to them by SpeakTo.</p>
+<p>By this point, you&#8217;ve been introduced to the basic facilities through which the Hugo Engine communicates with a running Hugo game: the junction routines <code>EndGame</code>, <code>FindObject</code>, <code>Parse</code>, <code>ParseError</code>, <code>Perform</code>, and <code>SpeakTo</code>.
+Becoming familiar with their implementation and use (and even inner workings) is an important step toward mastering an understanding of the Hugo game loop, including determining how a player input line is parsed, what objects are available or in scope, and how a command is either dispatched to a verbroutine or directed to another character.
+You should be able to create your own verbroutines (and grammar) to handle actions not provided by default in the library.
+You should now understand how to create an <code>order_response</code> property for characters to respond to actions passed to them by <code>SpeakTo</code>.</p>
 </div>
 <div class="paragraph">
-<p>It should be apparent how a game can implement custom versions of things like end-of-game behavior, parser messages, etc. without editing the library itself by using the compiler&#8217;s replace directive with library routines such as EndGame and ParseError. Most often, a programmer will copy the selected routine out of <strong>hugolib.h</strong> (or wherever it comes from) and paste it into the game&#8217;s source, changing (for instance):</p>
+<p>It should be apparent how a game can implement custom versions of things like end-of-game behavior, parser messages, etc. without editing the library itself by using the compiler&#8217;s <code>replace</code> directive with library routines such as <code>EndGame</code> and <code>ParseError</code>.
+Most often, a programmer will copy the selected routine out of <strong>hugolib.h</strong> (or wherever it comes from) and paste it into the game&#8217;s source, changing (for instance):</p>
 </div>
-<div class="paragraph">
-<p>routine EndGame &#8230;&#8203;</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">routine</span> EndGame ...</code></pre>
+</div>
 </div>
 <div class="paragraph">
 <p>to</p>
 </div>
-<div class="paragraph">
-<p>replace EndGame &#8230;&#8203;</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">replace</span> EndGame ...</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>and customize the EndGame routine&#8217;s messages, behavior, or whatever the desired modifications may involve.</p>
+<p>and customize the <code>EndGame</code> routine&#8217;s messages, behavior, or whatever the desired modifications may involve.</p>
 </div>
 <div class="paragraph">
 <p>For instance, to change the default parser error message</p>
 </div>
-<div class="paragraph">
-<p>You don&#8217;t need to use the word "&lt;unknown word&gt;".</p>
+<div class="exampleblock gametranscript">
+<div class="content">
+You don&#8217;t need to use the word "&lt;unknown word&gt;".
+</div>
 </div>
 <div class="paragraph">
 <p>to something along the lines of</p>
 </div>
-<div class="paragraph">
-<p>[This game does not recognize "&lt;unknown word&gt;".]</p>
+<div class="exampleblock gametranscript">
+<div class="content">
+[This game does not recognize "&lt;unknown word&gt;".]
+</div>
 </div>
 <div class="paragraph">
-<p>first copy the ParseError routine from <strong>hugolib.h</strong> to the game&#8217;s source, and change, in the copied ParseError,</p>
+<p>first copy the <code>ParseError</code> routine from <strong>hugolib.h</strong> to the game&#8217;s source, and change, in the copied <code>ParseError</code>,</p>
 </div>
-<div class="paragraph">
-<p>routine ParseError(errornumber, object)</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">routine</span> ParseError(errornumber, obj)</code></pre>
+</div>
 </div>
 <div class="paragraph">
 <p>to</p>
 </div>
-<div class="paragraph">
-<p>replace ParseError(errornumber, object)</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">replace</span> ParseError(errornumber, obj)</code></pre>
+</div>
 </div>
 <div class="paragraph">
 <p>and modify the case for the error message in question from</p>
 </div>
-<div class="paragraph">
-<p>case 1</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">case</span> <span class="hl num">1</span>&#x000A;    <span class="hl kwa">print</span> CThe(player); \&#x000A;        MatchPlural(player, <span class="hl str">&quot;doesn&#39;t, &quot;</span>don&#39;t<span class="hl str">&quot;); \</span>&#x000A;<span class="hl str">        need to use the word</span> <span class="hl esc">\&quot;</span><span class="hl str">&quot;</span>; \&#x000A;        <span class="hl kwa">parse$</span>; <span class="hl str">&quot;</span><span class="hl esc">\&quot;</span><span class="hl str">.&quot;</span></code></pre>
 </div>
-<div class="paragraph">
-<p>print CThe(player); \</p>
-</div>
-<div class="paragraph">
-<p>MatchPlural(player, "doesn&#8217;t, "don&#8217;t"); \</p>
-</div>
-<div class="paragraph">
-<p>need to use the word \""; \</p>
-</div>
-<div class="paragraph">
-<p>parse$; "\"."</p>
 </div>
 <div class="paragraph">
 <p>to</p>
 </div>
-<div class="paragraph">
-<p>case 1</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">case</span> <span class="hl num">1</span>&#x000A;    <span class="hl kwa">print</span> <span class="hl str">&quot;[This game does not recognize</span> <span class="hl esc">\&quot;</span><span class="hl str">&quot;</span>; \&#x000A;        <span class="hl kwa">parse$</span>; <span class="hl str">&quot;</span><span class="hl esc">\&quot;</span><span class="hl str">.]&quot;</span></code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>print "[This game does not recognize \""; \</p>
+<p>You should also by now have an understanding of how to override the game loop using <code>before</code> and <code>after</code> routines in order to provide for custom responses and/or behavior not directly provided by the library.
+Normally, for example, an object having the <code>static</code> attribute is automatically treated as untakeable by the library.
+But what if you created a heavy boulder and wanted to have the response</p>
+</div>
+<div class="exampleblock gametranscript">
+<div class="content">
+The boulder is far too heavy to lift!
+</div>
 </div>
 <div class="paragraph">
-<p>parse$; "\".]"</p>
+<p>in place of the library&#8217;s default &#8220;You can&#8217;t take that.&#8221; message?
+You would simply interrupt the <code>DoGet</code> routine before it even executes via a <code>before</code> property on the boulder object:</p>
 </div>
-<div class="paragraph">
-<p>You should also by now have an understanding of how to override the game loop using before and after routines in order to provide for custom responses and/or behavior not directly provided by the library. Normally, for example, an object having the static attribute is automatically treated as untakeable by the library. But what if you created a heavy boulder and wanted to have the response</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">before</span>&#x000A;{&#x000A;    <span class="hl kwa">object</span> DoGet&#x000A;    {&#x000A;        <span class="hl str">&quot;The boulder is far too heavy to lift!&quot;</span>&#x000A;    }&#x000A;}</code></pre>
 </div>
-<div class="paragraph">
-<p>The boulder is far too heavy to lift!</p>
-</div>
-<div class="paragraph">
-<p>in place of the library&#8217;s default &#8220;You can&#8217;t take that.&#8221; message? You would simply interrupt the DoGet routine before it even executes via a before property on the boulder object:</p>
-</div>
-<div class="paragraph">
-<p>before</p>
-</div>
-<div class="paragraph">
-<p>\{</p>
-</div>
-<div class="paragraph">
-<p>object DoGet</p>
-</div>
-<div class="paragraph">
-<p>\{</p>
-</div>
-<div class="paragraph">
-<p>"The boulder is far too heavy to lift!"</p>
-</div>
-<div class="paragraph">
-<p>}</p>
-</div>
-<div class="paragraph">
-<p>}</p>
 </div>
 </div>
 </div>
