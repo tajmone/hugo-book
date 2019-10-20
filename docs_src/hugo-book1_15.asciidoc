@@ -4,47 +4,72 @@
 The default settings for the complete set of limits may be obtained by invoking the compiler via:
 
 [literal, role="cmd"]
-................................................................................
+.....................
 hc $list
-................................................................................
-
+.....................
 
 
 The following limits are static and non-modifiable, since they reflect the internal configuration of the Hugo Engine:
 
-MAXATTRIBUTES The maximum number of definable attributes, not counting aliases
+[cols="<2m,<8d",grid=none,stripes=even]
+|===============================================================================
 
-MAXGLOBALS The maximum number of definable global variables
+| MAXATTRIBUTES
+| The maximum number of definable attributes, not counting aliases
 
-MAXLOCALS The maximum number of local variables allowed in a routine, including arguments passed to the routine
+| MAXGLOBALS
+| The maximum number of definable global variables
+
+| MAXLOCALS
+| The maximum number of local variables allowed in a routine, including arguments passed to the routine
+|===============================================================================
+
 
 The following are the modifiable settings, which may be set using:
 
+[literal, role="cmd"]
+......................
 $<setting>=<new limit>
+......................
 
 either in the compiler's invocation line or in the source code.
 
-MAXALIASES The maximum number of aliases that may be defined for attributes and/or properties
+[cols="<2m,<8d",grid=none,stripes=even]
+|===============================================================================
 
-MAXARRAYS The maximum number of arrays that may be defined (not the total array space, which is automatically reserved)
+| MAXALIASES
+| The maximum number of aliases that may be defined for attributes and/or properties
 
-MAXCONSTANTS The maximum number of constants that may be defined
+| MAXARRAYS
+| The maximum number of arrays that may be defined (not the total array space, which is automatically reserved)
 
-MAXDICT The maximum number of entries that the compiler can enter into the dictionary table
+| MAXCONSTANTS
+| The maximum number of constants that may be defined
 
-MAXDICTEXTEND The total number of bytes (not the total number of entries) available for dynamic dictionary extension during runtime
+| MAXDICT
+| The maximum number of entries that the compiler can enter into the dictionary table
 
-MAXEVENTS The maximum number of global or object-linked events
+| MAXDICTEXTEND
+| The total number of bytes (not the total number of entries) available for dynamic dictionary extension during runtime
 
-MAXFLAGS The maximum number of compiler flags that may be set at one time to control conditional compilation
+| MAXEVENTS
+| The maximum number of global or object-linked events
 
-MAXLABELS The maximum number of labels that may be defined during compilation
+| MAXFLAGS
+| The maximum number of compiler flags that may be set at one time to control conditional compilation
 
-MAXOBJECTS The maximum number of objects and/or classes that may be created
+| MAXLABELS
+| The maximum number of labels that may be defined during compilation
 
-MAXPROPERTIES The maximum number of properties that may be defined
+| MAXOBJECTS
+| The maximum number of objects and/or classes that may be created
 
-MAXROUTINES The maximum number of standalone routines (not property routines) that may be defined
+| MAXPROPERTIES
+| The maximum number of properties that may be defined
+
+| MAXROUTINES
+| The maximum number of standalone routines (not property routines) that may be defined
+|===============================================================================
 
 
 // EOF //

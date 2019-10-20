@@ -131,7 +131,7 @@ Every chapter in the list provides an [HTML Live Preview] link to quickly jump t
     + [x]  [APP. A. _SUMMARY OF KEYWORDS AND COMMANDS_][AppA]
         * [ ]  _needs to be proof-read once more, carefully!_
     + [ ]  [APP. B. _THE HUGO LIBRARY_][AppB]
-    + [ ]  [APP. C. _LIMIT SETTINGS_][AppC]
+    + [x]  [APP. C. _LIMIT SETTINGS_][AppC]
     + [ ]  [APP. D. _HUGOFIX AND THE HUGO DEBUGGER_][AppD]
     + [ ]  [APP. E. _PRECOMPILED HEADERS_][AppE]
     + [ ]  [APP. F. _HUGO VERSIONS_][AppF]

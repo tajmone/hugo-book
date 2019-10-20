@@ -535,7 +535,7 @@ div.literalblock.cmd pre .conum {
 <span id="email" class="email"><a href="mailto:general@generalcoffee.com">general@generalcoffee.com</a></span><br>
 <span id="revnumber">version 1,</span>
 <span id="revdate">2018-10-04</span>
-<br><span id="revremark">Draft 47 -- Porting to AsciiDoc</span>
+<br><span id="revremark">Draft 48 -- Porting to AsciiDoc</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -13803,57 +13803,89 @@ RunScripts</p>
 <div class="paragraph">
 <p>The following limits are static and non-modifiable, since they reflect the internal configuration of the Hugo Engine:</p>
 </div>
-<div class="paragraph">
-<p>MAXATTRIBUTES The maximum number of definable attributes, not counting aliases</p>
-</div>
-<div class="paragraph">
-<p>MAXGLOBALS The maximum number of definable global variables</p>
-</div>
-<div class="paragraph">
-<p>MAXLOCALS The maximum number of local variables allowed in a routine, including arguments passed to the routine</p>
-</div>
+<table class="tableblock frame-all grid-none stripes-even stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 80%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>MAXATTRIBUTES</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The maximum number of definable attributes, not counting aliases</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>MAXGLOBALS</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The maximum number of definable global variables</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>MAXLOCALS</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The maximum number of local variables allowed in a routine, including arguments passed to the routine</p></td>
+</tr>
+</tbody>
+</table>
 <div class="paragraph">
 <p>The following are the modifiable settings, which may be set using:</p>
 </div>
-<div class="paragraph">
-<p>$&lt;setting&gt;=&lt;new limit&gt;</p>
+<div class="literalblock cmd">
+<div class="content">
+<pre>$&lt;setting&gt;=&lt;new limit&gt;</pre>
+</div>
 </div>
 <div class="paragraph">
 <p>either in the compiler&#8217;s invocation line or in the source code.</p>
 </div>
-<div class="paragraph">
-<p>MAXALIASES The maximum number of aliases that may be defined for attributes and/or properties</p>
-</div>
-<div class="paragraph">
-<p>MAXARRAYS The maximum number of arrays that may be defined (not the total array space, which is automatically reserved)</p>
-</div>
-<div class="paragraph">
-<p>MAXCONSTANTS The maximum number of constants that may be defined</p>
-</div>
-<div class="paragraph">
-<p>MAXDICT The maximum number of entries that the compiler can enter into the dictionary table</p>
-</div>
-<div class="paragraph">
-<p>MAXDICTEXTEND The total number of bytes (not the total number of entries) available for dynamic dictionary extension during runtime</p>
-</div>
-<div class="paragraph">
-<p>MAXEVENTS The maximum number of global or object-linked events</p>
-</div>
-<div class="paragraph">
-<p>MAXFLAGS The maximum number of compiler flags that may be set at one time to control conditional compilation</p>
-</div>
-<div class="paragraph">
-<p>MAXLABELS The maximum number of labels that may be defined during compilation</p>
-</div>
-<div class="paragraph">
-<p>MAXOBJECTS The maximum number of objects and/or classes that may be created</p>
-</div>
-<div class="paragraph">
-<p>MAXPROPERTIES The maximum number of properties that may be defined</p>
-</div>
-<div class="paragraph">
-<p>MAXROUTINES The maximum number of standalone routines (not property routines) that may be defined</p>
-</div>
+<table class="tableblock frame-all grid-none stripes-even stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 80%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>MAXALIASES</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The maximum number of aliases that may be defined for attributes and/or properties</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>MAXARRAYS</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The maximum number of arrays that may be defined (not the total array space, which is automatically reserved)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>MAXCONSTANTS</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The maximum number of constants that may be defined</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>MAXDICT</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The maximum number of entries that the compiler can enter into the dictionary table</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>MAXDICTEXTEND</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The total number of bytes (not the total number of entries) available for dynamic dictionary extension during runtime</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>MAXEVENTS</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The maximum number of global or object-linked events</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>MAXFLAGS</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The maximum number of compiler flags that may be set at one time to control conditional compilation</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>MAXLABELS</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The maximum number of labels that may be defined during compilation</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>MAXOBJECTS</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The maximum number of objects and/or classes that may be created</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>MAXPROPERTIES</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The maximum number of properties that may be defined</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>MAXROUTINES</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The maximum number of standalone routines (not property routines) that may be defined</p></td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 <div class="sect1">
