@@ -4,134 +4,176 @@
 == Creating And Using Resources
 
 
+The engine allows a Hugo program to access external media data (called resources) compiled into a specially formatted file called a resourcefile.
+Resourcefiles contain sounds, music, images, and video files used by the program.
+A resourcefile is created using:
 
-The engine allows a Hugo program to access external media data (called resources) compiled into a specially formatted file called a resourcefile. Resourcefiles contain sounds, music, images, and video files used by the program. A resourcefile is created using:
-
+// @FIXME: HUGO SYNTAX MOCKUP!
+[source,hugo]
+-------------------------
 resource "<resourcefile>"
-
-\{
-
-"<resource1>"
-
-"<resource2>"
-
-...
-
+{
+    "<resource1>"
+    "<resource2>"
+    ...
 }
+-------------------------
 
-The <resourcefile> name must be 8 or fewer alphanumeric characters which will automatically be converted to all-uppercase. (The reason for this is to maximize portability across different platforms and filenaming systems--unfortunately not everyone adheres to the same conventions, so this restriction is intended to reduce filenaming to the lowest common denominator.)
 
-Currently Hugo supports as resources: JPEG graphic files, RIFF/WAV audio samples, MOD/S3M/XM music modules, MIDI and MP3 songs, and MPEG and AVI movies.footnote:[Versions of Hugo prior to v3.0 may not support all resource types. See _APPENDIX F:_ _HUGO VERSIONS_ for more information.]
+The `<resourcefile>` name must be 8 or fewer alphanumeric characters which will automatically be converted to all-uppercase.
+
+NOTE: The reason for this is to maximize portability across different platforms and filenaming systems -- unfortunately not everyone adheres to the same conventions, so this restriction is intended to reduce filenaming to the lowest common denominator.
+
+Currently Hugo supports as resources: JPEG graphic files, RIFF/WAV audio samples, MOD/S3M/XM music modules, MIDI and MP3 songs, and MPEG and AVI movies.footnote:[Versions of Hugo prior to v3.0 may not support all resource types.
+See _APPENDIX F:_ _HUGO VERSIONS_ for more information.]
 
 For example, here is an imaginary example resourcefile compiled on a Windows platform:
 
+[source,hugo]
+---------------------------------
 resource "GAMERES1"
-
-\{
-
-"c:\hugo\graphics\logo.jpg"
-
-"h:\data\scenic panorama.jpg"
-
-"h:\data\background.jpg"
-
-"c:\music\intro_theme.s3m"
-
-"c:\music\theme2.xm"
-
-"c:\sounds\sample1.wav"
-
-"c:\sounds\sample2.wav"
-
+{
+    "c:\hugo\graphics\logo.jpg"
+    "h:\data\scenic panorama.jpg"
+    "h:\data\background.jpg"
+    "c:\music\intro_theme.s3m"
+    "c:\music\theme2.xm"
+    "c:\sounds\sample1.wav"
+    "c:\sounds\sample2.wav"
 }
+---------------------------------
 
-It doesn't matter that the nomenclature within a resource definition is non-portable. In the above `GAMERES1`, for example, the filenaming is specific to Windows, since that's where the original files will be found. The resources, however, are accessed only by their filenames as entries in the resourcefile index. Therefore, after `GAMERES1` is created, the three pictures are referred to as `logo`, `scenic panorama` and `background` within the resourcefile `GAMERES1`. (Note that any drive/path or extension specification is removed and not included in the index. As a result, two resources with the same name but different paths/extensions cannot be written into the same resourcefile.)
+It doesn't matter that the nomenclature within a resource definition is non-portable.
+In the above "`*GAMERES1*`", for example, the filenaming is specific to Windows, since that's where the original files will be found.
+The resources, however, are accessed only by their filenames as entries in the resourcefile index.
+Therefore, after "`*GAMERES1*`" is created, the three pictures are referred to as `logo`, `scenic panorama` and `background` within the resourcefile "`*GAMERES1*`".
+
+WARNING: Note that any drive/path or extension specification is removed and not included in the index.
+As a result, two resources with the same name but different paths/extensions cannot be written into the same resourcefile.
 
 Because of the relative non-portability of resourcefiles (plus the additional time it may take on slower machines to index and consolidate potentially hundreds of kilobytes of data), it is recommended that resources be compiled from separate source files than the rest of a Hugo game.
 
-The library extension *resource.h* provides useful routines for managing resources in a Hugo program. It also defines the following potential values for the system_status global, which may be tested after a resource operation. If system_status is non-zero (where zero signifies normal status), it will contain one of the following valuesfootnote:[The result codes are defined in *resource.h*.]:
+The library extension *resource.h* provides useful routines for managing resources in a Hugo program.
+It also defines the following potential values for the `system_status` global, which may be tested after a resource operation.
+If `system_status` is non-zero (where zero signifies normal status), it will contain one of the following valuesfootnote:[The result codes are defined in *resource.h*.]:
 
--1 STAT_UNAVAILABLE
 
-101 STAT_NOFILE
+[.center]
+[cols=">m,<m",options=autowidth,grid=none,stripes=even]
+|===============================================================================
+| -1  | STAT_UNAVAILABLE
+| 101 | STAT_NOFILE
+| 102 | STAT_NORESOURCE
+| 103 | STAT_LOADERROR
+|===============================================================================
 
-102 STAT_NORESOURCE
-
-103 STAT_LOADERROR
 
 == Pictures
 
-
-
 A picture is displayed as a resource in a resourcefile using:
 
+// @FIXME: HUGO SYNTAX MOCKUP!
+[source,hugo]
 picture "<resourcefile>", "<picture>"
 
 For example,
 
+[source,hugo]
 picture "gameres1", "logo"
 
-(It is also possible to enter the path of a picture directly, such as
+[TIP]
+================================================================================
+It is also possible to enter the path of a picture directly, such as
 
+[source,hugo]
 picture "c:\hugo\graphics\logo.jpg"
 
-but since this path/filename is obviously operating-system-specific, it should be used for testing only. If the named picture is not found in the given resourcefile, the engine will similarly try to load the picture as an independent file from the current search path(s).)
+but since this path/filename is obviously operating-system-specific, it should be used for testing only.
+If the named picture is not found in the given resourcefile, the engine will similarly try to load the picture as an independent file from the current search path(s).
+================================================================================
 
-The picture will be displayed in the currently defined text window. If the picture is smaller than the current window, it will be centered. If larger, it will be shrunk to fit. If the particular version of the Hugo Engine being used is not graphics-enabled, picture will have no effect. If the picture is not found or a recoverable error occurs during loading, normal engine execution continues uninterrupted.
+The picture will be displayed in the currently defined text window.
+If the picture is smaller than the current window, it will be centered.
+If larger, it will be shrunk to fit.
+If the particular version of the Hugo Engine being used is not graphics-enabled, `picture` will have no effect.
+If the picture is not found or a recoverable error occurs during loading, normal engine execution continues uninterrupted.
 
 *resource.h* provides a couple of useful routines for managing graphics:
 
+[source,hugo]
+--------------------------------------------------------------------------------
 LoadPicture("resourcefile", "picture")
-
 LoadPicture("picture")
 
 PictureinText("file", "pic", width, height, preserve)
-
 PictureinText("picture", width, height, preserve)
+--------------------------------------------------------------------------------
 
-LoadPicture is essentially a simple wrapper for the picture statement, providing the additional service of checking display.hasgraphics to ensure that graphics display is available. PictureinText is slightly more complex. It allows a picture to be displayed in the normal flow of text in the main window. The <width> and <height> arguments give the fixed-width character dimensions of the display area. (Because displays differ in their character dimensions, it is recommended to calculate these based on display.screenwidth and display.screenheight instead of passing absolute values.) The <preserve> parameter, if given, specifies the number of lines (i.e., one or more) at the top of the screen that are protected from scrolling off.
+`LoadPicture` is essentially a simple wrapper for the `picture` statement, providing the additional service of checking `display.hasgraphics` to ensure that graphics display is available.
 
-(Either LoadPicture or PictureinText can be called with only a picture, i.e., with no resourcefile named. In this case, *resource.h* will attempt to find the resource in the last used resourcefile, stored in the last_resource_file global. Wherever possible, however, it is recommended to always specify the resourcefile name.)
+`PictureinText` is slightly more complex.
+It allows a picture to be displayed in the normal flow of text in the main window.
+The `<width>` and `<height>` arguments give the fixed-width character dimensions of the display area.
+
+CAUTION: Because displays differ in their character dimensions, it is recommended to calculate these based on `display.screenwidth` and `display.screenheight` instead of passing absolute values.
+
+The `<preserve>` parameter, if given, specifies the number of lines (i.e., one or more) at the top of the screen that are protected from scrolling off.
+
+TIP: Either `LoadPicture` or `PictureinText` can be called with only a picture, i.e., with no resourcefile named.
+In this case, *resource.h* will attempt to find the resource in the last used resourcefile, stored in the `last_resource_file` global.
+Wherever possible, however, it is recommended to always specify the resourcefile name.
+
 
 == Sound And Music
 
-
-
 Sounds and music are played as follows:
 
+// @FIXME: HUGO SYNTAX MOCKUP!
+[source,hugo]
+--------------------------------------------------
 sound [repeat] <resourcefile>, <resource>[, <vol>]
-
 music [repeat] <resourcefile>, <resource>[, <vol>]
+--------------------------------------------------
 
-The repeat keyword is optional; if supplied, it forces the engine to repeatedly play the sound/music resource until further notice (i.e., until it is stopped or a new sound/music resource is played). The <vol> argument is optional. If given, it gives a volume percentage (0-100) for playback. Currently playing sound or music can be stopped using:
+The `repeat` keyword is optional; if supplied, it forces the engine to repeatedly play the sound/music resource until further notice (i.e., until it is stopped or a new sound/music resource is played).
+The `<vol>` argument is optional.
+If given, it gives a volume percentage (0-100) for playback.
+Currently playing sound or music can be stopped using:
 
+[source,hugo]
 sound 0
-
 music 0
 
 *resource.h* provides a pair of wrapper functions to manage playing of audio resources:
 
+[source,hugo]
 PlaySound(resourcefile, sample, loop, force)
-
 PlayMusic(resourcefile, song, loop, force)
 
-In either case, if <loop> is true, it has the same effect as using the repeat token after sound or music. If <force> is true, the sample or song is restarted even if that same sample or song is already playing (otherwise the PlaySound or PlayMusic call will have essentially no effect). To stop a sample or song from playing via the library interface, use:
+In either case, if `<loop>` is true, it has the same effect as using the `repeat` token after `sound` or `music`.
+If `<force>` is true, the sample or song is restarted even if that same sample or song is already playing (otherwise the `PlaySound` or `PlayMusic` call will have essentially no effect).
+To stop a sample or song from playing via the library interface, use:
 
+[source,hugo]
 PlaySound(SOUND_STOP)
-
 PlayMusic(MUSIC_STOP)
 
-(where SOUND_STOP and MUSIC_STOP are constants defined in *resource.h*).
+(where `SOUND_STOP` and `MUSIC_STOP` are constants defined in *resource.h*).
+
 
 == Video
 
+Video is displayed similarly to static graphic images (that is, it is displayed in the currently window) and controlled similarly to music and sound.
+The syntax for playing video looks like:
 
-
-Video is displayed similarly to static graphic images (that is, it is displayed in the currently window) and controlled similarly to music and sound. The syntax for playing video looks like:
-
+// @FIXME: HUGO SYNTAX MOCKUP!
+[source,hugo]
 video [repeat] <resfile>, <res>[, <vol>, <bkground>]
 
-The video resource res is played from resourcefile resfile, at the volume vol. If the optional repeat keyword is used, the video plays in a loop, starting over at the beginning when it hits the end. Normally the engine waits for the video to finish playing. If the bkground parameter is given and is non-false, the video plays in the background and the program continues to run, the player may type input, etc. In combination with the repeat token, this is useful for creating background/scenic animations.
-
+The video resource `<res>` is played from resourcefile `<resfile>`, at the volume `<vol>`.
+If the optional `repeat` keyword is used, the video plays in a loop, starting over at the beginning when it hits the end.
+Normally the engine waits for the video to finish playing.
+If the `<bkground>` parameter is given and is non-false, the video plays in the background and the program continues to run, the player may type input, etc.
+In combination with the `repeat` token, this is useful for creating background/scenic animations.
 
 // EOF //

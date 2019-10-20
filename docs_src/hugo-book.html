@@ -535,7 +535,7 @@ div.literalblock.cmd pre .conum {
 <span id="email" class="email"><a href="mailto:general@generalcoffee.com">general@generalcoffee.com</a></span><br>
 <span id="revnumber">version 1,</span>
 <span id="revdate">2018-10-04</span>
-<br><span id="revremark">Draft 53 -- Porting to AsciiDoc</span>
+<br><span id="revremark">Draft 54 -- Porting to AsciiDoc</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -10336,28 +10336,29 @@ You would simply interrupt the <code>DoGet</code> routine before it even execute
 <div class="sect2">
 <h3 id="_creating_and_using_resources"><a class="anchor" href="#_creating_and_using_resources"></a>12.1. Creating And Using Resources</h3>
 <div class="paragraph">
-<p>The engine allows a Hugo program to access external media data (called resources) compiled into a specially formatted file called a resourcefile. Resourcefiles contain sounds, music, images, and video files used by the program. A resourcefile is created using:</p>
+<p>The engine allows a Hugo program to access external media data (called resources) compiled into a specially formatted file called a resourcefile.
+Resourcefiles contain sounds, music, images, and video files used by the program.
+A resourcefile is created using:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">resource <span class="hl str">&quot;&lt;resourcefile&gt;&quot;</span>&#x000A;{&#x000A;    <span class="hl str">&quot;&lt;resource1&gt;&quot;</span>&#x000A;    <span class="hl str">&quot;&lt;resource2&gt;&quot;</span>&#x000A;    ...&#x000A;}</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>resource "&lt;resourcefile&gt;"</p>
+<p>The <code>&lt;resourcefile&gt;</code> name must be 8 or fewer alphanumeric characters which will automatically be converted to all-uppercase.</p>
 </div>
-<div class="paragraph">
-<p>\{</p>
-</div>
-<div class="paragraph">
-<p>"&lt;resource1&gt;"</p>
-</div>
-<div class="paragraph">
-<p>"&lt;resource2&gt;"</p>
-</div>
-<div class="paragraph">
-<p>&#8230;&#8203;</p>
-</div>
-<div class="paragraph">
-<p>}</p>
-</div>
-<div class="paragraph">
-<p>The &lt;resourcefile&gt; name must be 8 or fewer alphanumeric characters which will automatically be converted to all-uppercase. (The reason for this is to maximize portability across different platforms and filenaming systems&#8212;&#8203;unfortunately not everyone adheres to the same conventions, so this restriction is intended to reduce filenaming to the lowest common denominator.)</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The reason for this is to maximize portability across different platforms and filenaming systems&#8201;&#8212;&#8201;unfortunately not everyone adheres to the same conventions, so this restriction is intended to reduce filenaming to the lowest common denominator.
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>Currently Hugo supports as resources: JPEG graphic files, RIFF/WAV audio samples, MOD/S3M/XM music modules, MIDI and MP3 songs, and MPEG and AVI movies.<sup class="footnote">[<a id="_footnoteref_55" class="footnote" href="#_footnotedef_55" title="View footnote.">55</a>]</sup></p>
@@ -10365,104 +10366,155 @@ You would simply interrupt the <code>DoGet</code> routine before it even execute
 <div class="paragraph">
 <p>For example, here is an imaginary example resourcefile compiled on a Windows platform:</p>
 </div>
-<div class="paragraph">
-<p>resource "GAMERES1"</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">resource <span class="hl str">&quot;GAMERES1&quot;</span>&#x000A;{&#x000A;    <span class="hl str">&quot;c:\hugo\graphics\logo.jpg&quot;</span>&#x000A;    <span class="hl str">&quot;h:\data\scenic panorama.jpg&quot;</span>&#x000A;    <span class="hl str">&quot;h:\data</span><span class="hl esc">\b</span><span class="hl str">ackground.jpg&quot;</span>&#x000A;    <span class="hl str">&quot;c:\music</span><span class="hl esc">\i</span><span class="hl str">ntro_theme.s3m&quot;</span>&#x000A;    <span class="hl str">&quot;c:\music\theme2.xm&quot;</span>&#x000A;    <span class="hl str">&quot;c:\sounds\sample1.wav&quot;</span>&#x000A;    <span class="hl str">&quot;c:\sounds\sample2.wav&quot;</span>&#x000A;}</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>\{</p>
+<p>It doesn&#8217;t matter that the nomenclature within a resource definition is non-portable.
+In the above &#8220;<strong>GAMERES1</strong>&#8221;, for example, the filenaming is specific to Windows, since that&#8217;s where the original files will be found.
+The resources, however, are accessed only by their filenames as entries in the resourcefile index.
+Therefore, after &#8220;<strong>GAMERES1</strong>&#8221; is created, the three pictures are referred to as <code>logo</code>, <code>scenic panorama</code> and <code>background</code> within the resourcefile &#8220;<strong>GAMERES1</strong>&#8221;.</p>
 </div>
-<div class="paragraph">
-<p>"c:\hugo\graphics\logo.jpg"</p>
-</div>
-<div class="paragraph">
-<p>"h:\data\scenic panorama.jpg"</p>
-</div>
-<div class="paragraph">
-<p>"h:\data\background.jpg"</p>
-</div>
-<div class="paragraph">
-<p>"c:\music\intro_theme.s3m"</p>
-</div>
-<div class="paragraph">
-<p>"c:\music\theme2.xm"</p>
-</div>
-<div class="paragraph">
-<p>"c:\sounds\sample1.wav"</p>
-</div>
-<div class="paragraph">
-<p>"c:\sounds\sample2.wav"</p>
-</div>
-<div class="paragraph">
-<p>}</p>
-</div>
-<div class="paragraph">
-<p>It doesn&#8217;t matter that the nomenclature within a resource definition is non-portable. In the above <code>GAMERES1</code>, for example, the filenaming is specific to Windows, since that&#8217;s where the original files will be found. The resources, however, are accessed only by their filenames as entries in the resourcefile index. Therefore, after <code>GAMERES1</code> is created, the three pictures are referred to as <code>logo</code>, <code>scenic panorama</code> and <code>background</code> within the resourcefile <code>GAMERES1</code>. (Note that any drive/path or extension specification is removed and not included in the index. As a result, two resources with the same name but different paths/extensions cannot be written into the same resourcefile.)</p>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+Note that any drive/path or extension specification is removed and not included in the index.
+As a result, two resources with the same name but different paths/extensions cannot be written into the same resourcefile.
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>Because of the relative non-portability of resourcefiles (plus the additional time it may take on slower machines to index and consolidate potentially hundreds of kilobytes of data), it is recommended that resources be compiled from separate source files than the rest of a Hugo game.</p>
 </div>
 <div class="paragraph">
-<p>The library extension <strong>resource.h</strong> provides useful routines for managing resources in a Hugo program. It also defines the following potential values for the system_status global, which may be tested after a resource operation. If system_status is non-zero (where zero signifies normal status), it will contain one of the following values<sup class="footnote">[<a id="_footnoteref_56" class="footnote" href="#_footnotedef_56" title="View footnote.">56</a>]</sup>:</p>
+<p>The library extension <strong>resource.h</strong> provides useful routines for managing resources in a Hugo program.
+It also defines the following potential values for the <code>system_status</code> global, which may be tested after a resource operation.
+If <code>system_status</code> is non-zero (where zero signifies normal status), it will contain one of the following values<sup class="footnote">[<a id="_footnoteref_56" class="footnote" href="#_footnotedef_56" title="View footnote.">56</a>]</sup>:</p>
 </div>
-<div class="paragraph">
-<p>-1 STAT_UNAVAILABLE</p>
-</div>
-<div class="paragraph">
-<p>101 STAT_NOFILE</p>
-</div>
-<div class="paragraph">
-<p>102 STAT_NORESOURCE</p>
-</div>
-<div class="paragraph">
-<p>103 STAT_LOADERROR</p>
-</div>
+<table class="tableblock frame-all grid-none stripes-even fit-content center">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>-1</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>STAT_UNAVAILABLE</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>101</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>STAT_NOFILE</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>102</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>STAT_NORESOURCE</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>103</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>STAT_LOADERROR</code></p></td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="sect2">
 <h3 id="_pictures"><a class="anchor" href="#_pictures"></a>12.2. Pictures</h3>
 <div class="paragraph">
 <p>A picture is displayed as a resource in a resourcefile using:</p>
 </div>
-<div class="paragraph">
-<p>picture "&lt;resourcefile&gt;", "&lt;picture&gt;"</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">picture</span> <span class="hl str">&quot;&lt;resourcefile&gt;&quot;</span>, <span class="hl str">&quot;&lt;picture&gt;&quot;</span></code></pre>
+</div>
 </div>
 <div class="paragraph">
 <p>For example,</p>
 </div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">picture</span> <span class="hl str">&quot;gameres1&quot;</span>, <span class="hl str">&quot;logo&quot;</span></code></pre>
+</div>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
 <div class="paragraph">
-<p>picture "gameres1", "logo"</p>
+<p>It is also possible to enter the path of a picture directly, such as</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">picture</span> <span class="hl str">&quot;c:\hugo\graphics\logo.jpg&quot;</span></code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>(It is also possible to enter the path of a picture directly, such as</p>
+<p>but since this path/filename is obviously operating-system-specific, it should be used for testing only.
+If the named picture is not found in the given resourcefile, the engine will similarly try to load the picture as an independent file from the current search path(s).</p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
-<p>picture "c:\hugo\graphics\logo.jpg"</p>
-</div>
-<div class="paragraph">
-<p>but since this path/filename is obviously operating-system-specific, it should be used for testing only. If the named picture is not found in the given resourcefile, the engine will similarly try to load the picture as an independent file from the current search path(s).)</p>
-</div>
-<div class="paragraph">
-<p>The picture will be displayed in the currently defined text window. If the picture is smaller than the current window, it will be centered. If larger, it will be shrunk to fit. If the particular version of the Hugo Engine being used is not graphics-enabled, picture will have no effect. If the picture is not found or a recoverable error occurs during loading, normal engine execution continues uninterrupted.</p>
+<p>The picture will be displayed in the currently defined text window.
+If the picture is smaller than the current window, it will be centered.
+If larger, it will be shrunk to fit.
+If the particular version of the Hugo Engine being used is not graphics-enabled, <code>picture</code> will have no effect.
+If the picture is not found or a recoverable error occurs during loading, normal engine execution continues uninterrupted.</p>
 </div>
 <div class="paragraph">
 <p><strong>resource.h</strong> provides a couple of useful routines for managing graphics:</p>
 </div>
-<div class="paragraph">
-<p>LoadPicture("resourcefile", "picture")</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">LoadPicture(<span class="hl str">&quot;resourcefile&quot;</span>, <span class="hl str">&quot;picture&quot;</span>)&#x000A;LoadPicture(<span class="hl str">&quot;picture&quot;</span>)&#x000A;&#x000A;PictureinText(<span class="hl str">&quot;file&quot;</span>, <span class="hl str">&quot;pic&quot;</span>, width, height, preserve)&#x000A;PictureinText(<span class="hl str">&quot;picture&quot;</span>, width, height, preserve)</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>LoadPicture("picture")</p>
+<p><code>LoadPicture</code> is essentially a simple wrapper for the <code>picture</code> statement, providing the additional service of checking <code>display.hasgraphics</code> to ensure that graphics display is available.</p>
 </div>
 <div class="paragraph">
-<p>PictureinText("file", "pic", width, height, preserve)</p>
+<p><code>PictureinText</code> is slightly more complex.
+It allows a picture to be displayed in the normal flow of text in the main window.
+The <code>&lt;width&gt;</code> and <code>&lt;height&gt;</code> arguments give the fixed-width character dimensions of the display area.</p>
+</div>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-caution" title="Caution"></i>
+</td>
+<td class="content">
+Because displays differ in their character dimensions, it is recommended to calculate these based on <code>display.screenwidth</code> and <code>display.screenheight</code> instead of passing absolute values.
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
-<p>PictureinText("picture", width, height, preserve)</p>
+<p>The <code>&lt;preserve&gt;</code> parameter, if given, specifies the number of lines (i.e., one or more) at the top of the screen that are protected from scrolling off.</p>
 </div>
-<div class="paragraph">
-<p>LoadPicture is essentially a simple wrapper for the picture statement, providing the additional service of checking display.hasgraphics to ensure that graphics display is available. PictureinText is slightly more complex. It allows a picture to be displayed in the normal flow of text in the main window. The &lt;width&gt; and &lt;height&gt; arguments give the fixed-width character dimensions of the display area. (Because displays differ in their character dimensions, it is recommended to calculate these based on display.screenwidth and display.screenheight instead of passing absolute values.) The &lt;preserve&gt; parameter, if given, specifies the number of lines (i.e., one or more) at the top of the screen that are protected from scrolling off.</p>
-</div>
-<div class="paragraph">
-<p>(Either LoadPicture or PictureinText can be called with only a picture, i.e., with no resourcefile named. In this case, <strong>resource.h</strong> will attempt to find the resource in the last used resourcefile, stored in the last_resource_file global. Wherever possible, however, it is recommended to always specify the resourcefile name.)</p>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+Either <code>LoadPicture</code> or <code>PictureinText</code> can be called with only a picture, i.e., with no resourcefile named.
+In this case, <strong>resource.h</strong> will attempt to find the resource in the last used resourcefile, stored in the <code>last_resource_file</code> global.
+Wherever possible, however, it is recommended to always specify the resourcefile name.
+</td>
+</tr>
+</table>
 </div>
 </div>
 <div class="sect2">
@@ -10470,53 +10522,61 @@ You would simply interrupt the <code>DoGet</code> routine before it even execute
 <div class="paragraph">
 <p>Sounds and music are played as follows:</p>
 </div>
-<div class="paragraph">
-<p>sound [repeat] &lt;resourcefile&gt;, &lt;resource&gt;[, &lt;vol&gt;]</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">sound</span> [<span class="hl kwa">repeat</span>] <span class="hl opt">&lt;</span>resourcefile<span class="hl opt">&gt;</span>, <span class="hl opt">&lt;</span>resource<span class="hl opt">&gt;</span>[, <span class="hl opt">&lt;</span>vol<span class="hl opt">&gt;</span>]&#x000A;<span class="hl kwa">music</span> [<span class="hl kwa">repeat</span>] <span class="hl opt">&lt;</span>resourcefile<span class="hl opt">&gt;</span>, <span class="hl opt">&lt;</span>resource<span class="hl opt">&gt;</span>[, <span class="hl opt">&lt;</span>vol<span class="hl opt">&gt;</span>]</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>music [repeat] &lt;resourcefile&gt;, &lt;resource&gt;[, &lt;vol&gt;]</p>
+<p>The <code>repeat</code> keyword is optional; if supplied, it forces the engine to repeatedly play the sound/music resource until further notice (i.e., until it is stopped or a new sound/music resource is played).
+The <code>&lt;vol&gt;</code> argument is optional.
+If given, it gives a volume percentage (0-100) for playback.
+Currently playing sound or music can be stopped using:</p>
 </div>
-<div class="paragraph">
-<p>The repeat keyword is optional; if supplied, it forces the engine to repeatedly play the sound/music resource until further notice (i.e., until it is stopped or a new sound/music resource is played). The &lt;vol&gt; argument is optional. If given, it gives a volume percentage (0-100) for playback. Currently playing sound or music can be stopped using:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">sound</span> <span class="hl num">0</span>&#x000A;<span class="hl kwa">music</span> <span class="hl num">0</span></code></pre>
 </div>
-<div class="paragraph">
-<p>sound 0</p>
-</div>
-<div class="paragraph">
-<p>music 0</p>
 </div>
 <div class="paragraph">
 <p><strong>resource.h</strong> provides a pair of wrapper functions to manage playing of audio resources:</p>
 </div>
-<div class="paragraph">
-<p>PlaySound(resourcefile, sample, loop, force)</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">PlaySound(resourcefile, sample, loop, force)&#x000A;PlayMusic(resourcefile, song, loop, force)</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>PlayMusic(resourcefile, song, loop, force)</p>
+<p>In either case, if <code>&lt;loop&gt;</code> is true, it has the same effect as using the <code>repeat</code> token after <code>sound</code> or <code>music</code>.
+If <code>&lt;force&gt;</code> is true, the sample or song is restarted even if that same sample or song is already playing (otherwise the <code>PlaySound</code> or <code>PlayMusic</code> call will have essentially no effect).
+To stop a sample or song from playing via the library interface, use:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">PlaySound(SOUND_STOP)&#x000A;PlayMusic(MUSIC_STOP)</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>In either case, if &lt;loop&gt; is true, it has the same effect as using the repeat token after sound or music. If &lt;force&gt; is true, the sample or song is restarted even if that same sample or song is already playing (otherwise the PlaySound or PlayMusic call will have essentially no effect). To stop a sample or song from playing via the library interface, use:</p>
-</div>
-<div class="paragraph">
-<p>PlaySound(SOUND_STOP)</p>
-</div>
-<div class="paragraph">
-<p>PlayMusic(MUSIC_STOP)</p>
-</div>
-<div class="paragraph">
-<p>(where SOUND_STOP and MUSIC_STOP are constants defined in <strong>resource.h</strong>).</p>
+<p>(where <code>SOUND_STOP</code> and <code>MUSIC_STOP</code> are constants defined in <strong>resource.h</strong>).</p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_video"><a class="anchor" href="#_video"></a>12.4. Video</h3>
 <div class="paragraph">
-<p>Video is displayed similarly to static graphic images (that is, it is displayed in the currently window) and controlled similarly to music and sound. The syntax for playing video looks like:</p>
+<p>Video is displayed similarly to static graphic images (that is, it is displayed in the currently window) and controlled similarly to music and sound.
+The syntax for playing video looks like:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">video</span> [<span class="hl kwa">repeat</span>] <span class="hl opt">&lt;</span>resfile<span class="hl opt">&gt;</span>, <span class="hl opt">&lt;</span>res<span class="hl opt">&gt;</span>[, <span class="hl opt">&lt;</span>vol<span class="hl opt">&gt;</span>, <span class="hl opt">&lt;</span>bkground<span class="hl opt">&gt;</span>]</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>video [repeat] &lt;resfile&gt;, &lt;res&gt;[, &lt;vol&gt;, &lt;bkground&gt;]</p>
-</div>
-<div class="paragraph">
-<p>The video resource res is played from resourcefile resfile, at the volume vol. If the optional repeat keyword is used, the video plays in a loop, starting over at the beginning when it hits the end. Normally the engine waits for the video to finish playing. If the bkground parameter is given and is non-false, the video plays in the background and the program continues to run, the player may type input, etc. In combination with the repeat token, this is useful for creating background/scenic animations.</p>
+<p>The video resource <code>&lt;res&gt;</code> is played from resourcefile <code>&lt;resfile&gt;</code>, at the volume <code>&lt;vol&gt;</code>.
+If the optional <code>repeat</code> keyword is used, the video plays in a loop, starting over at the beginning when it hits the end.
+Normally the engine waits for the video to finish playing.
+If the <code>&lt;bkground&gt;</code> parameter is given and is non-false, the video plays in the background and the program continues to run, the player may type input, etc.
+In combination with the <code>repeat</code> token, this is useful for creating background/scenic animations.</p>
 </div>
 </div>
 </div>

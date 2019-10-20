@@ -127,7 +127,7 @@ Every chapter in the list provides an [HTML Live Preview] link to quickly jump t
     + [x]  [9. _THE GAME LOOP_][Ch9]
     + [ ]  [10. _USING THE OBJECT LIBRARY_][Ch10]
     + [ ]  [11. _ADVANCED FEATURES_][Ch11]
-    + [ ]  [12. _RESOURCES_][Ch12]
+    + [x]  [12. _RESOURCES_][Ch12]
     + [x]  [APP. A. _SUMMARY OF KEYWORDS AND COMMANDS_][AppA]
         * [ ]  _needs to be proof-read once more, carefully!_
     + [ ]  [APP. B. _THE HUGO LIBRARY_][AppB]
