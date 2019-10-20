@@ -30,7 +30,7 @@ insert_final_newline = true
 
 ## Configurations
 #################
-[.{git*,editorconfig}]
+[.{git*,editorconfig,*.yml}]
 indent_style = space
 indent_size = unset
 end_of_line = lf
