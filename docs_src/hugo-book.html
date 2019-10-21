@@ -535,7 +535,7 @@ div.literalblock.cmd pre .conum {
 <span id="email" class="email"><a href="mailto:general@generalcoffee.com">general@generalcoffee.com</a></span><br>
 <span id="revnumber">version 1,</span>
 <span id="revdate">2018-10-04</span>
-<br><span id="revremark">Draft 59 -- Porting to AsciiDoc</span>
+<br><span id="revremark">Draft 60 -- Porting to AsciiDoc</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -8027,100 +8027,148 @@ By superseding it, however, we ensure that any grammar matching the desired patt
 <div class="sect2">
 <h3 id="_before_we_get_to_the_routines"><a class="anchor" href="#_before_we_get_to_the_routines"></a>8.1. Before We Get To The Routines</h3>
 <div class="paragraph">
-<p>Because, the engine is unaware of such things as attributes, properties, and objects in anything but a technical sense<sup class="footnote">[<a id="_footnoteref_41" class="footnote" href="#_footnotedef_41" title="View footnote.">41</a>]</sup>, there are provided a number of routines to facilitate communication between the engine and the program proper. Along with these junction routines are certain global variables and properties that are pre-defined by the compiler and accessed directly by the engine. They are:</p>
+<p>Because, the engine is unaware of such things as attributes, properties, and objects in anything but a technical sense<sup class="footnote">[<a id="_footnoteref_41" class="footnote" href="#_footnotedef_41" title="View footnote.">41</a>]</sup>, there are provided a number of routines to facilitate communication between the engine and the program proper.
+Along with these junction routines are certain global variables and properties that are pre-defined by the compiler and accessed directly by the engine.
+They are:</p>
+</div>
+<table class="tableblock frame-all grid-rows stripes-none fit-content center">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock">GLOBALS</p></th>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>object</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">the direct object of a verb</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>xobject</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">the indirect object</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>self</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">self-referential object</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>words</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">total number of words</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>player</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">the player object</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>actor</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">the player, or character obj. (for scripts)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>location</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">location of the player</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>verbroutine</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">the verb routine address</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>endflag</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">if not false (0), call <code>EndGame</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>prompt</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">for the player input line</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>objects</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">total number of objects</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>system_status</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">after certain operations</p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock">PROPERTIES</p></th>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>name</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">basic object name</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>before</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">pre-verb routines</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>after</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">post-verb routines</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>noun</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">noun(s) for referring to object</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>adjective</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">adjective(s) for referring to object</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>article</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&#8220;a&#8221;, &#8220;an&#8221;, &#8220;the&#8221;, &#8220;some&#8221;, etc.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Additionally, the aliases <code>nouns</code> and <code>adjectives</code> for <code>noun</code> and <code>adjective</code>, respectively, are defined by the library.</p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
-<p><strong><span class="underline">GLOBALS</span></strong></p>
-</div>
-<div class="paragraph">
-<p>object the direct object of a verb</p>
-</div>
-<div class="paragraph">
-<p>xobject the indirect object</p>
-</div>
-<div class="paragraph">
-<p>self self-referential object</p>
-</div>
-<div class="paragraph">
-<p>words total number of words</p>
-</div>
-<div class="paragraph">
-<p>player the player object</p>
-</div>
-<div class="paragraph">
-<p>actor the player, or character obj. (for scripts)</p>
-</div>
-<div class="paragraph">
-<p>location location of the player</p>
-</div>
-<div class="paragraph">
-<p>verbroutine the verb routine address</p>
-</div>
-<div class="paragraph">
-<p>endflag if not false (0), call EndGame</p>
-</div>
-<div class="paragraph">
-<p>prompt for the player input line</p>
-</div>
-<div class="paragraph">
-<p>objects total number of objects</p>
-</div>
-<div class="paragraph">
-<p>system_status after certain operations</p>
-</div>
-<div class="paragraph">
-<p><strong><span class="underline">PROPERTIES</span></strong></p>
-</div>
-<div class="paragraph">
-<p>name basic object name</p>
-</div>
-<div class="paragraph">
-<p>before pre-verb routines</p>
-</div>
-<div class="paragraph">
-<p>after post-verb routines</p>
-</div>
-<div class="paragraph">
-<p>noun noun(s) for referring to object</p>
-</div>
-<div class="paragraph">
-<p>adjective adjective(s) for referring to object</p>
-</div>
-<div class="paragraph">
-<p>article &#8220;a&#8221;, &#8220;an&#8221;, &#8220;the&#8221;, &#8220;some&#8221;, etc.</p>
-</div>
-<div class="paragraph">
-<p>(Additionally, the aliases nouns and adjectives for noun and adjective, respectively, are defined by the library.)</p>
-</div>
-<div class="paragraph">
-<p>Junction routines are not required. The engine has built-in default routines, although it&#8217;s likely that not all of these will be satisfactory for most programmers. <strong>hugolib.h</strong> contains each of the following routines which fully implement all the features of the library. If a different routine is desired in place of a provided one, the routine should be substituted using replace.</p>
+<p>Junction routines are not required.
+The engine has built-in default routines, although it&#8217;s likely that not all of these will be satisfactory for most programmers. <strong>hugolib.h</strong> contains each of the following routines which fully implement all the features of the library.
+If a different routine is desired in place of a provided one, the routine should be substituted using <code>replace</code>.</p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_parse"><a class="anchor" href="#_parse"></a>8.2. Parse</h3>
 <div class="paragraph">
-<p>The Parse routine, if one exists, is called by the engine parser. Here, the program itself may modify the input line before grammar matching is attempted. What happens is:</p>
+<p>The <code>Parse</code> routine, if one exists, is called by the engine parser.
+Here, the program itself may modify the input line before grammar matching is attempted.
+What happens is:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The input line is split into discrete words (by the engine).</p>
+</li>
+<li>
+<p>The <code>Parse</code> routine, if it exists, is called.</p>
+</li>
+<li>
+<p>Control returns to the engine for grammar matching.</p>
+</li>
+<li>
+<p>During grammar matching, the <code>FindObject</code> routine may be called (possibly repeatedly).</p>
+</li>
+</ol>
 </div>
 <div class="paragraph">
-<p>1. The input line is split into discrete words (by the engine).</p>
+<p>For example, the <code>Parse</code> routine in <strong>hugolib.h</strong> takes care of such things as pronouns (&#8220;he&#8221;, &#8220;she&#8221;, &#8220;it&#8221;, &#8220;them&#8221;) and repeating the last legal command (with &#8220;again&#8221; or simply &#8220;g&#8221;).</p>
 </div>
 <div class="paragraph">
-<p>2. The Parse routine, if it exists, is called.</p>
+<p>Returning true from the <code>Parse</code> routine calls the engine parser again (i.e., returns to step 1 in the process above); returning false continues normally.
+This is useful in case the <code>Parse</code> routine has changed the input line substantially, requiring a reconfiguration of the already split words.</p>
 </div>
 <div class="paragraph">
-<p>3. Control returns to the engine for grammar matching.</p>
-</div>
-<div class="paragraph">
-<p>4. During grammar matching, the FindObject routine may be called (possibly repeatedly).</p>
-</div>
-<div class="paragraph">
-<p>For example, the Parse routine in <strong>hugolib.h</strong> takes care of such things as pronouns (&#8220;he&#8221;, &#8220;she&#8221;, &#8220;it&#8221;, &#8220;them&#8221;) and repeating the last legal command (with &#8220;again&#8221; or simply &#8220;g&#8221;).</p>
-</div>
-<div class="paragraph">
-<p>Returning true from the Parse routine calls the engine parser again (i.e., returns to step 1 in the process above); returning false continues normally. This is useful in case the Parse routine has changed the input line substantially, requiring a reconfiguration of the already split words.</p>
-</div>
-<div class="paragraph">
-<p>The HugoFix debugging library can be used at runtime to monitor the goings-on of the Parse routine by enabling parser monitoring with the <code>$pm</code> command.<sup class="footnote">[<a id="_footnoteref_42" class="footnote" href="#_footnotedef_42" title="View footnote.">42</a>]</sup></p>
+<p>The HugoFix debugging library can be used at runtime to monitor the goings-on of the <code>Parse</code> routine by enabling parser monitoring with the <code>$pm</code> command.<sup class="footnote">[<a id="_footnoteref_42" class="footnote" href="#_footnotedef_42" title="View footnote.">42</a>]</sup></p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -8130,7 +8178,7 @@ By superseding it, however, we ensure that any grammar matching the desired patt
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Since the library&#8217;s Parse routine is rather extensive, a provision is made for a PreParse routine&#8212;&#8203;which in the library is defined as being empty&#8212;&#8203;which may more easily be replaced for additional parsing.</p>
+<p>Since the library&#8217;s <code>Parse</code> routine is rather extensive, a provision is made for a <code>PreParse</code> routine&#8201;&#8212;&#8201;which in the library is defined as being empty&#8201;&#8212;&#8201;which may more easily be replaced for additional parsing.</p>
 </div>
 </td>
 </tr>
@@ -8140,13 +8188,16 @@ By superseding it, however, we ensure that any grammar matching the desired patt
 <div class="sect2">
 <h3 id="_parseerror"><a class="anchor" href="#_parseerror"></a>8.3. ParseError</h3>
 <div class="paragraph">
-<p>The ParseError routine is called whenever a command is invalid. ParseError is called in the form:</p>
+<p>The <code>ParseError</code> routine is called whenever a command is invalid.
+<code>ParseError</code> is called in the form:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">ParseError(<span class="hl opt">&lt;</span>errornumber<span class="hl opt">&gt;</span>, <span class="hl opt">&lt;</span><span class="hl kwa">object</span><span class="hl opt">&gt;</span>)</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>ParseError(&lt;errornumber&gt;, &lt;object&gt;)</p>
-</div>
-<div class="paragraph">
-<p>where &lt;object&gt; is the object number (if any) of the object involved in the error.</p>
+<p>where <code>&lt;object&gt;</code> is the object number (if any) of the object involved in the error.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -8156,83 +8207,116 @@ By superseding it, however, we ensure that any grammar matching the desired patt
 </td>
 <td class="content">
 <div class="paragraph">
-<p>The engine also sets up the special variable parse$, which represents the illegal component of an input line, whether it is the verb itself, an object name, a partial object name, or any other word combination.</p>
+<p>The engine also sets up the special variable <code>parse$</code>, which represents the illegal component of an input line, whether it is the verb itself, an object name, a partial object name, or any other word combination.</p>
+</div>
+<div class="paragraph">
+<p>For example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">print</span> <span class="hl str">&quot;The illegal word was: &quot;</span>; <span class="hl kwa">parse$</span>; <span class="hl str">&quot;.&quot;</span></code></pre>
+</div>
 </div>
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>For example:</p>
-</div>
-<div class="paragraph">
-<p>print "The illegal word was: "; parse$; "."</p>
-</div>
-<div class="paragraph">
 <p>The default responses provided by the engine parse error routine are:</p>
 </div>
+<table class="tableblock frame-all grid-none stripes-even fit-content center">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-center valign-top">ERROR&#160;NUMBER</th>
+<th class="tableblock halign-left valign-top">RESPONSE</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>"What?"</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>"You can&#8217;t use the word <em>&lt;parse$&gt;</em>."</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock">2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>"Better start with a verb."</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock">3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>"You can&#8217;t <em>&lt;parse$&gt;</em> multiple objects."</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock">4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>"Can&#8217;t do that."</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock">5</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>"You haven&#8217;t seen any <em>&lt;parse$&gt;</em>, nor are you likely to in the near future even if such a thing exists."</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock">6</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>"That doesn&#8217;t make any sense."</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock">7</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>"You can&#8217;t use multiple objects like that."</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock">8</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>"Which <em>&lt;parse$&gt;</em> do you mean,&#8230;&#8203;?"</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock">9</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>"Nothing to <em>&lt;parse$&gt;</em>."</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock">10</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>"You haven&#8217;t seen anything like that."</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock">11</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>"You don&#8217;t see that."</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock">12</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>"You can&#8217;t do that with the <em>&lt;parse$&gt;</em>."</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock">13</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>"You&#8217;ll have to be a little more specific."</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock">14</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>"You don&#8217;t see that there."</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock">15</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>"You don&#8217;t have that."</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock">16</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>"You&#8217;ll have to make a mistake first."</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock">17</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>"You can only correct one word at a time."</code></p></td>
+</tr>
+</tbody>
+</table>
 <div class="paragraph">
-<p><strong>ERROR NUMBER RESPONSE</strong></p>
+<p>The <code>ParseError</code> routine in <strong>hugolib.h</strong> provides customized responses that take into account such things as, for example, whether the player is first or second-person, whether or not an object is a character or not, and if so, if it is male or female, etc.</p>
 </div>
 <div class="paragraph">
-<p>0 <code>What?</code></p>
-</div>
-<div class="paragraph">
-<p>1 <code>You can&#8217;t use the word <em>&lt;parse$&gt;</em>.</code></p>
-</div>
-<div class="paragraph">
-<p>2 <code>Better start with a verb.</code></p>
-</div>
-<div class="paragraph">
-<p>3 <code>You can&#8217;t <em>&lt;parse$&gt;</em> multiple objects.</code></p>
-</div>
-<div class="paragraph">
-<p>4 <code>Can&#8217;t do that.</code></p>
-</div>
-<div class="paragraph">
-<p>5 <code>You haven&#8217;t seen any <em>&lt;parse$&gt;</em>, nor are you likely to in the near future even if such a thing exists.</code></p>
-</div>
-<div class="paragraph">
-<p>6 <code>That doesn&#8217;t make any sense.</code></p>
-</div>
-<div class="paragraph">
-<p>7 <code>You can&#8217;t use multiple objects like that.</code></p>
-</div>
-<div class="paragraph">
-<p>8 <code>Which <em>&lt;parse$&gt;</em> do you mean,&#8230;&#8203;?</code></p>
-</div>
-<div class="paragraph">
-<p>9 <code>Nothing to <em>&lt;parse$&gt;</em>.</code></p>
-</div>
-<div class="paragraph">
-<p>10 <code>You haven&#8217;t seen anything like that.</code></p>
-</div>
-<div class="paragraph">
-<p>11 <code>You don&#8217;t see that.</code></p>
-</div>
-<div class="paragraph">
-<p>12 <code>You can&#8217;t do that with the <em>&lt;parse$&gt;</em>.</code></p>
-</div>
-<div class="paragraph">
-<p>13 <code>You&#8217;ll have to be a little more specific.</code></p>
-</div>
-<div class="paragraph">
-<p>14 <code>You don&#8217;t see that there.</code></p>
-</div>
-<div class="paragraph">
-<p>15 <code>You don&#8217;t have that.</code></p>
-</div>
-<div class="paragraph">
-<p>16 <code>You&#8217;ll have to make a mistake first.</code></p>
-</div>
-<div class="paragraph">
-<p>17 <code>You can only correct one word at a time.</code></p>
-</div>
-<div class="paragraph">
-<p>The ParseError routine in <strong>hugolib.h</strong> provides customized responses that take into account such things as, for example, whether the player is first or second-person, whether or not an object is a character or not, and if so, if it is male or female, etc.</p>
-</div>
-<div class="paragraph">
-<p>If the ParseError routine does not provide a response for a particular &lt;errornumber&gt;, it should return false. Returning false is a signal that the engine should continue with the default message. Returning 2 is a signal to reparse the entire existing line (useful in cases where a peculiar syntax is trapped as an error, changed, and must then be reparsed).</p>
+<p>If the <code>ParseError</code> routine does not provide a response for a particular <code>&lt;errornumber&gt;</code>, it should return false.
+Returning false is a signal that the engine should continue with the default message.
+Returning 2 is a signal to reparse the entire existing line (useful in cases where a peculiar syntax is trapped as an error, changed, and must then be reparsed).</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -8242,7 +8326,7 @@ By superseding it, however, we ensure that any grammar matching the desired patt
 </td>
 <td class="content">
 <div class="paragraph">
-<p>If custom error messages are desired for user parsing routines, replace the routine CustomError with a new routine (called with the same parameters as ParseError), providing that &lt;errornumber&gt; is greater than or equal to 100.</p>
+<p>If custom error messages are desired for user parsing routines, replace the routine <code>CustomError</code> with a new routine (called with the same parameters as <code>ParseError</code>), providing that <code>&lt;errornumber&gt;</code> is greater than or equal to 100.</p>
 </div>
 </td>
 </tr>
@@ -8252,36 +8336,50 @@ By superseding it, however, we ensure that any grammar matching the desired patt
 <div class="sect2">
 <h3 id="_endgame"><a class="anchor" href="#_endgame"></a>8.4. EndGame</h3>
 <div class="paragraph">
-<p>The EndGame routine is called immediately whenever the global variable endflag is non-zero, regardless of whether or not the current function has not yet been terminated.</p>
+<p>The <code>EndGame</code> routine is called immediately whenever the global variable <code>endflag</code> is non-zero, regardless of whether or not the current function has not yet been terminated.</p>
 </div>
 <div class="paragraph">
-<p><strong>hugolib.h</strong>'s EndGame routine behaves according to the value to which endflag is set:</p>
+<p><strong>hugolib.h</strong>&#8288;&#8217;s <code>EndGame</code> routine behaves according to the value to which <code>endflag</code> is set:</p>
 </div>
+<table class="tableblock frame-all grid-none stripes-even fit-content center">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-center valign-top">endflag</th>
+<th class="tableblock halign-left valign-top">RESULT</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Player wins</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock">2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Player&#8217;s demise</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Other ending&#8201;&#8212;&#8201;not provided for by default <code>PrintEndGame</code> routine</p></td>
+</tr>
+</tbody>
+</table>
 <div class="paragraph">
-<p><strong>endflag RESULT</strong></p>
+<p>Returning false from <code>Endgame</code> terminates the game completely; returning non-false restarts.</p>
 </div>
-<div class="paragraph">
-<p>1 Player wins</p>
-</div>
-<div class="paragraph">
-<p>2 Player&#8217;s demise</p>
-</div>
-<div class="paragraph">
-<p>0 Other ending&#8212;&#8203;not provided for by default PrintEndGame routine)</p>
-</div>
-<div class="paragraph">
-<p>Returning false from Endgame terminates the game completely; returning non-false restarts.</p>
-</div>
-<div class="admonitionblock note">
+<div class="admonitionblock tip">
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-note" title="Note"></i>
+<i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>To modify only the message displayed at the end of the game (defaults: <code><strong>* YOU&#8217;VE WON THE GAME! </strong><strong></code> and <code><strong></strong> YOU ARE DEAD </strong>*</code>), replace the PrintEndGame routine.
-Other than being non-false, the various values of endflag are insignificant except to PrintEndGame.</p>
+<p>To modify only the message displayed at the end of the game (defaults: <code>*** YOU'VE WON THE GAME! ***</code> and <code>*** YOU ARE DEAD ***</code>), replace the <code>PrintEndGame</code> routine.
+Other than being non-false, the various values of <code>endflag</code> are insignificant except to <code>PrintEndGame</code>.</p>
 </div>
 </td>
 </tr>
@@ -8291,103 +8389,45 @@ Other than being non-false, the various values of endflag are insignificant exce
 <div class="sect2">
 <h3 id="_findobject"><a class="anchor" href="#_findobject"></a>8.5. FindObject</h3>
 <div class="paragraph">
-<p>The FindObject routine takes into account all the relevant properties, attributes, and object hierarchy to determine whether or not a particular object is available in the current context. For example, the child of a parent object may be available if the parent is a platform, but unavailable if the parent is a container (and closed)--although internally, the object hierarchy is the same. FindObject is called via:</p>
+<p>The <code>FindObject</code> routine takes into account all the relevant properties, attributes, and object hierarchy to determine whether or not a particular object is available in the current context.
+For example, the child of a parent object may be available if the parent is a platform, but unavailable if the parent is a container (and closed)&#8201;&#8212;&#8201;although internally, the object hierarchy is the same.
+<code>FindObject</code> is called via:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">FindObject(<span class="hl opt">&lt;</span><span class="hl kwa">object</span><span class="hl opt">&gt;</span>, <span class="hl opt">&lt;</span>location<span class="hl opt">&gt;</span>)</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>FindObject(&lt;object&gt;, &lt;location&gt;)</p>
+<p>where <code>&lt;object&gt;</code> is the object in question, and <code>&lt;location&gt;</code> is the object where its availability is being tested.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Usually <code>&lt;location&gt;</code> is a room, unless a different parent has been specified in the input line.
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
-<p>where &lt;object&gt; is the object in question, and &lt;location&gt; is the object where its availability is being tested. (Usually &lt;location&gt; is a room, unless a different parent has been specified in the input line.)</p>
+<p><code>FindObject</code> returns true (1) if the object is available, false (0) if unavailable.
+It returns 2 if the object is visible but not physically accessible.</p>
 </div>
 <div class="paragraph">
-<p>FindObject returns true (1) if the object is available, false (0) if unavailable. It returns 2 if the object is visible but not physically accessible.</p>
+<p>The <code>FindObject</code> routine in <strong>hugolib.h</strong> considers not only the location of <code>&lt;object&gt;</code> in the object tree, but also tests the attributes of the parent to see if it is open or closed.
+As well, it checks the <code>found_in</code> property, in case <code>&lt;object&gt;</code> has been assigned multiple locations instead of an explicit parent, and then scans the <code>in_scope</code> property of the object (if one exists).</p>
 </div>
 <div class="paragraph">
-<p>The FindObject routine in <strong>hugolib.h</strong> considers not only the location of &lt;object&gt; in the object tree, but also tests the attributes of the parent to see if it is open or closed. As well, it checks the found_in property, in case &lt;object&gt; has been assigned multiple locations instead of an explicit parent, and then scans the in_scope property of the object (if one exists).</p>
+<p>Finally, the default behavior of the library&#8217;s <code>FindObject</code> requires that a player have encountered an object for it to be valid in an action, i.e., it must have the <code>known</code> attribute set.
+To override this, replace the routine <code>ObjectisKnown</code> with a routine that returns an unconditional true value.</p>
 </div>
 <div class="paragraph">
-<p>Finally, the default behavior of the library&#8217;s FindObject requires that a player have encountered an object for it to be valid in an action, i.e., it must have the known attribute set. To override this, replace the routine ObjectisKnown with a routine that returns an unconditional true value.</p>
-</div>
-<div class="paragraph">
-<p>There is one special case in which the engine expects the FindObject routine to be especially helpful: that is if the routine is called with &lt;location&gt; equal to 0. This occurs whenever the engine needs to determine if an object is available <em>at all</em>--regardless of any rules normally governing object availability&#8212;&#8203;such as when an anything grammar token is encountered, or the engine needs to disambiguate two or more seemingly identical objects. (Also, FindObject may be called by the engine with both &lt;object&gt; and &lt;location&gt; equal to 0 to reset any library-based object disambiguation.)</p>
-</div>
-<div class="paragraph">
-<p>The HugoFix debugging library can be used at runtime to monitor calls to FindObject by enabling the <code>$fi</code> command. <sup class="footnote">[<a id="_footnoteref_43" class="footnote" href="#_footnotedef_43" title="View footnote.">43</a>]</sup></p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_speakto"><a class="anchor" href="#_speakto"></a>8.6. SpeakTo</h3>
-<div class="paragraph">
-<p>The SpeakTo routine is called whenever an input line begins with a valid object name instead of a verb. This is so the player may direct commands to (usually) characters in the game. For example:</p>
-</div>
-<div class="paragraph">
-<p>&gt;Professor Plum, drop the lead pipe</p>
-</div>
-<div class="paragraph">
-<p>It is up to the SpeakTo routine to properly interpret the instruction. SpeakTo is called via:</p>
-</div>
-<div class="paragraph">
-<p>SpeakTo(&lt;character&gt;)</p>
-</div>
-<div class="paragraph">
-<p>where &lt;character&gt; in the above example would be the Professor Plum object. The globals object, xobject, and verbroutine are all set up as normal. For the above example, then, these would be</p>
-</div>
-<div class="paragraph">
-<p>object leadpipe</p>
-</div>
-<div class="paragraph">
-<p>xobject nothing</p>
-</div>
-<div class="paragraph">
-<p>verbroutine &amp;DoDrop</p>
-</div>
-<div class="paragraph">
-<p>when SpeakTo is called.</p>
-</div>
-<div class="paragraph">
-<p><strong>hugolib.h</strong>'s SpeakTo routine provides basic interpretation of questions, so that</p>
-</div>
-<div class="paragraph">
-<p>&gt;Professor Plum, what about the lead pipe?</p>
-</div>
-<div class="paragraph">
-<p>may be directed to the proper verb routine, as if the player had typed:</p>
-</div>
-<div class="paragraph">
-<p>&gt;ask Professor Plum about the lead pipe</p>
-</div>
-<div class="paragraph">
-<p>Imperative commands are, such as</p>
-</div>
-<div class="paragraph">
-<p>&gt;Colonel Mustard, stand up</p>
-</div>
-<div class="paragraph">
-<p>are first directed to the order_response property of the character object in question. It is subsequently up to &lt;character&gt;.order_response to analyze verbroutine (as well as object and xobject, if applicable) to see if the request is a valid one. If no response is provided, order_response should return false.</p>
-</div>
-<div class="paragraph">
-<p>The HugoFix debugging library can be used at runtime to monitor calls to SpeakTo by enabling the <code>$pm</code> command. <sup class="footnote">[<a id="_footnoteref_44" class="footnote" href="#_footnotedef_44" title="View footnote.">44</a>]</sup></p>
-</div>
-<div class="paragraph">
-<p>order_response</p>
-</div>
-<div class="paragraph">
-<p>\{</p>
-</div>
-<div class="paragraph">
-<p>if verbroutine = &amp;DoGet</p>
-</div>
-<div class="paragraph">
-<p>"I would, but my back is too sore."</p>
-</div>
-<div class="paragraph">
-<p>else</p>
-</div>
-<div class="paragraph">
-<p>return false</p>
-</div>
-<div class="paragraph">
-<p>}</p>
+<p>There is one special case in which the engine expects the <code>FindObject</code> routine to be especially helpful: that is if the routine is called with <code>&lt;location&gt;</code> equal to 0.
+This occurs whenever the engine needs to determine if an object is available <em>at all</em>&#8201;&#8212;&#8201;regardless of any rules normally governing object availability&#8201;&#8212;&#8201;such as when an <code>anything</code> grammar token is encountered, or the engine needs to disambiguate two or more seemingly identical objects.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -8397,74 +8437,268 @@ Other than being non-false, the various values of endflag are insignificant exce
 </td>
 <td class="content">
 <div class="paragraph">
-<p>It is important to check in an order_response property if any objects to be acted upon are present (or otherwise available), since this check is not necessarily done before SpeakTo is called.</p>
+<p>Also, <code>FindObject</code> may be called by the engine with both <code>&lt;object&gt;</code> and <code>&lt;location&gt;</code> equal to 0 to reset any library-based object disambiguation.</p>
 </div>
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
+<p>The HugoFix debugging library can be used at runtime to monitor calls to <code>FindObject</code> by enabling the <code>$fi</code> command. <sup class="footnote">[<a id="_footnoteref_43" class="footnote" href="#_footnotedef_43" title="View footnote.">43</a>]</sup></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_speakto"><a class="anchor" href="#_speakto"></a>8.6. SpeakTo</h3>
+<div class="paragraph">
+<p>The <code>SpeakTo</code> routine is called whenever an input line begins with a valid object name instead of a verb.
+This is so the player may direct commands to (usually) characters in the game.
+For example:</p>
+</div>
+<div class="exampleblock gametranscript">
+<div class="content">
+&gt;Professor Plum, drop the lead pipe
+</div>
+</div>
+<div class="paragraph">
+<p>It is up to the <code>SpeakTo</code> routine to properly interpret the instruction.
+<code>SpeakTo</code> is called via:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">SpeakTo(<span class="hl opt">&lt;</span>character<span class="hl opt">&gt;</span>)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>where <code>&lt;character&gt;</code> in the above example would be the Professor Plum object.
+The globals <code>object</code>, <code>xobject</code>, and <code>verbroutine</code> are all set up as normal.
+For the above example, then, these would be</p>
+</div>
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+<code>object</code>       
+</td>
+<td class="hdlist2">
+<p>&#8594; <code>leadpipe</code></p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>xobject</code>      
+</td>
+<td class="hdlist2">
+<p>&#8594; <code>nothing</code></p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>verbroutine</code>  
+</td>
+<td class="hdlist2">
+<p>&#8594; <code>&amp;DoDrop</code></p>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>when <code>SpeakTo</code> is called.</p>
+</div>
+<div class="paragraph">
+<p><strong>hugolib.h</strong>'s <code>SpeakTo</code> routine provides basic interpretation of questions, so that</p>
+</div>
+<div class="exampleblock gametranscript">
+<div class="content">
+&gt;Professor Plum, what about the lead pipe?
+</div>
+</div>
+<div class="paragraph">
+<p>may be directed to the proper verb routine, as if the player had typed:</p>
+</div>
+<div class="exampleblock gametranscript">
+<div class="content">
+&gt;ask Professor Plum about the lead pipe
+</div>
+</div>
+<div class="paragraph">
+<p>Imperative commands are, such as</p>
+</div>
+<div class="exampleblock gametranscript">
+<div class="content">
+&gt;Colonel Mustard, stand up
+</div>
+</div>
+<div class="paragraph">
+<p>are first directed to the <code>order_response</code> property of the character object in question.
+It is subsequently up to <code>&lt;character&gt;.order_response</code> to analyze <code>verbroutine</code> (as well as <code>object</code> and <code>xobject</code>, if applicable) to see if the request is a valid one.
+If no response is provided, <code>order_response</code> should return false.</p>
+</div>
+<div class="paragraph">
+<p>The HugoFix debugging library can be used at runtime to monitor calls to <code>SpeakTo</code> by enabling the <code>$pm</code> command. <sup class="footnote">[<a id="_footnoteref_44" class="footnote" href="#_footnotedef_44" title="View footnote.">44</a>]</sup></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">order_response&#x000A;{&#x000A;    <span class="hl kwa">if</span> verbroutine <span class="hl opt">= &amp;</span>DoGet&#x000A;        <span class="hl str">&quot;I would, but my back is too sore.&quot;</span>&#x000A;    <span class="hl kwa">else</span>&#x000A;        <span class="hl kwa">return false</span>&#x000A;}</code></pre>
+</div>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>It is important to check in an <code>order_response</code> property if any objects to be acted upon are present (or otherwise available), since this check is not necessarily done before <code>SpeakTo</code> is called.</p>
+</div>
+<div class="paragraph">
 <p>When something like the following is directed toward a character:</p>
 </div>
-<div class="paragraph">
-<p>&gt;BOB, GET THE PACKAGE</p>
+<div class="exampleblock gametranscript">
+<div class="content">
+&gt;BOB, GET THE PACKAGE
+</div>
 </div>
 <div class="paragraph">
-<p>SpeakTo(bob) will be called with verbroutine = &amp;DoGet and object = package, even if the package object is not physically present.</p>
+<p><code>SpeakTo(bob)</code> will be called with <code>verbroutine = &amp;DoGet</code> and <code>object = package</code>, even if the <code>package</code> object is not physically present.</p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_perform"><a class="anchor" href="#_perform"></a>8.7. Perform</h3>
 <div class="paragraph">
-<p>The Perform routine is what is called by the engine in order to execute the appropriate verbroutine with the given object(s) and/or indirect object, if either or both are applicable. It is the responsibility of Perform to do the appropriate checking of before routines to determine if execution actually gets to the verbroutine. Perform is called as:</p>
+<p>The <code>Perform</code> routine is what is called by the engine in order to execute the appropriate verbroutine with the given object(s) and/or indirect object, if either or both are applicable.
+It is the responsibility of <code>Perform</code> to do the appropriate checking of <code>before</code> routines to determine if execution actually gets to the verbroutine.
+<code>Perform</code> is called as:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">Perform(<span class="hl opt">&lt;</span>verbroutine<span class="hl opt">&gt;</span>, <span class="hl opt">&lt;</span><span class="hl kwa">object</span><span class="hl opt">&gt;</span>, <span class="hl opt">&lt;</span><span class="hl kwa">xobject</span><span class="hl opt">&gt;</span>, <span class="hl opt">&lt;</span>queue<span class="hl opt">&gt;</span>, <span class="hl opt">&lt;</span>isxverb<span class="hl opt">&gt;</span>)</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>Perform(&lt;verbroutine&gt;, &lt;object&gt;, &lt;xobject&gt;, &lt;queue&gt;, &lt;isxverb&gt;)</p>
+<p>The first three arguments represent the match verb (always), object (if given), and indirect object, i.e., the xobject (if given).
+The <code>&lt;queue&gt;</code> is 0 unless the verbroutine is being called more than once for multiple objects.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>As a special case, <code>&lt;queue&gt;</code> is –1 if <code>object</code> or <code>xobject</code> is a number supplied in the input as one or more digits, in order to signal <code>Perform</code> not to do normal <code>before</code>/<code>after</code> routine calling.</p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
-<p>The first three arguments represent the match verb (always), object (if given), and indirect object, i.e., the xobject (if given). The &lt;queue&gt; is 0 unless the verbroutine is being called more than once for multiple objects. (As a special case, &lt;queue&gt; is –1 if object or xobject is a number supplied in the input as one or more digits, in order to signal Perform not to do normal before/after routine calling.) The &lt;isxverb&gt; argument is true if the grammar for invoking Perform designates an xverb<sup class="footnote">[<a id="_footnoteref_45" class="footnote" href="#_footnotedef_45" title="View footnote.">45</a>]</sup>.</p>
+<p>The <code>&lt;isxverb&gt;</code> argument is true if the grammar for invoking <code>Perform</code> designates an xverb<sup class="footnote">[<a id="_footnoteref_45" class="footnote" href="#_footnotedef_45" title="View footnote.">45</a>]</sup>.</p>
 </div>
 <div class="paragraph">
 <p>For example, various player commands might (approximately, depending on verbroutine and object names) result in the routine calls:</p>
 </div>
-<div class="paragraph">
-<p>&gt;i</p>
+<div class="ulist">
+<ul>
+<li>
+<p></p>
+<div class="exampleblock gametranscript">
+<div class="content">
+&gt;i
 </div>
-<div class="paragraph">
-<p>Perform(&amp;DoInventory, 0, 0, 0)</p>
 </div>
-<div class="paragraph">
-<p>&gt;get key</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">Perform(<span class="hl opt">&amp;</span>DoInventory, <span class="hl num">0</span>, <span class="hl num">0</span>, <span class="hl num">0</span>)</code></pre>
 </div>
-<div class="paragraph">
-<p>Perform(&amp;DoGet, key_object, 0, 0)</p>
 </div>
-<div class="paragraph">
-<p>&gt;put the key on the table</p>
+</li>
+<li>
+<p></p>
+<div class="exampleblock gametranscript">
+<div class="content">
+&gt;get key
 </div>
-<div class="paragraph">
-<p>Perform(&amp;DoGet, key_object, 0, 0)</p>
 </div>
-<div class="paragraph">
-<p>&gt;turn the dial to 127</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">Perform(<span class="hl opt">&amp;</span>DoGet, key_object, <span class="hl num">0</span>, <span class="hl num">0</span>)</code></pre>
 </div>
-<div class="paragraph">
-<p>Perform(&amp;DoTurn, dial, 127, -1)</p>
 </div>
-<div class="paragraph">
-<p>&gt;get key and banana</p>
+</li>
+<li>
+<p></p>
+<div class="exampleblock gametranscript">
+<div class="content">
+&gt;put the key on the table
 </div>
-<div class="paragraph">
-<p>Perform(&amp;DoGet, key_object, 0, 1)</p>
 </div>
-<div class="paragraph">
-<p>Perform(&amp;DoGet, banana, 0, 2)</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">Perform(<span class="hl opt">&amp;</span>DoGet, key_object, <span class="hl num">0</span>, <span class="hl num">0</span>)</code></pre>
 </div>
-<div class="paragraph">
-<p>(If no Perform routine exists, the engine performs a default calling of player.before, location.before, xobject.before, object.before, and finally verbroutine if none of those returns true.)</p>
 </div>
+</li>
+<li>
+<p></p>
+<div class="exampleblock gametranscript">
+<div class="content">
+&gt;turn the dial to 127
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">Perform(<span class="hl opt">&amp;</span>DoTurn, dial, <span class="hl num">127</span>, <span class="hl opt">-</span><span class="hl num">1</span>)</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p></p>
+<div class="exampleblock gametranscript">
+<div class="content">
+&gt;get key and banana
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">Perform(<span class="hl opt">&amp;</span>DoGet, key_object, <span class="hl num">0</span>, <span class="hl num">1</span>)&#x000A;Perform(<span class="hl opt">&amp;</span>DoGet, banana, <span class="hl num">0</span>, <span class="hl num">2</span>)</code></pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
 <div class="paragraph">
-<p>Using HugoFix&#8217;s parser monitoring (<code>$pm</code>) at runtime will trace calls to Perform. <sup class="footnote">[<a id="_footnoteref_46" class="footnote" href="#_footnotedef_46" title="View footnote.">46</a>]</sup></p>
+<p>If no <code>Perform</code> routine exists, the engine performs a default calling of <code>player.before</code>, <code>location.before</code>, <code>xobject.before</code>, <code>object.before</code>, and finally <code>verbroutine</code> if none of those returns true.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Using HugoFix&#8217;s parser monitoring (<code>$pm</code>) at runtime will trace calls to <code>Perform</code>. <sup class="footnote">[<a id="_footnoteref_46" class="footnote" href="#_footnotedef_46" title="View footnote.">46</a>]</sup></p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 </div>
 </div>
@@ -20425,16 +20659,16 @@ If there is an error, the <code>system_status</code> global variable is set.</p>
 <a href="#_footnoteref_42">42</a>. For more information on debugging using HugoFix, see <em>APPENDIX D:</em> <em>HUGOFIX AND THE HUGO DEBUGGER</em>.
 </div>
 <div class="footnote" id="_footnotedef_43">
-<a href="#_footnoteref_43">43</a>. For more information on debugging using HugoFix, see <em>APPENDIX D:</em> <em>HUGOFIX AND THE HUGO DEBUGGER</em>.
+<a href="#_footnoteref_43">43</a>. For more information on debugging using HugoFix, see <em>APPENDIX D: HUGOFIX AND THE HUGO DEBUGGER</em>.
 </div>
 <div class="footnote" id="_footnotedef_44">
 <a href="#_footnoteref_44">44</a>. For more information on debugging using HugoFix, see <em>APPENDIX D:</em> <em>HUGOFIX AND THE HUGO DEBUGGER</em>.
 </div>
 <div class="footnote" id="_footnotedef_45">
-<a href="#_footnoteref_45">45</a>. The &lt;isxverb&gt; argument is new in v3.1.
+<a href="#_footnoteref_45">45</a>. The <code>&lt;isxverb&gt;</code> argument is new in v3.1.
 </div>
 <div class="footnote" id="_footnotedef_46">
-<a href="#_footnoteref_46">46</a>. For more information on debugging using HugoFix, see <em>APPENDIX D:</em> <em>HUGOFIX AND THE HUGO DEBUGGER</em>.
+<a href="#_footnoteref_46">46</a>. For more information on debugging using HugoFix, see <em>APPENDIX D: HUGOFIX AND THE HUGO DEBUGGER</em>.
 </div>
 <div class="footnote" id="_footnotedef_47">
 <a href="#_footnoteref_47">47</a>. This also means that in order to create a dark location&#8212;&#8203;i.e., one that has no intrinsic lighting&#8212;&#8203;it is necessary to put an explicit <code>not light</code> in the object&#8217;s definition. In that case, in order for the player to see anything in the location, light will have to be provided either by an object in the location (such as a lamp) or by something portable that can be brought into the location (like a flashlight).
