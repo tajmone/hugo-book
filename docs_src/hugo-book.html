@@ -535,7 +535,7 @@ div.literalblock.cmd pre .conum {
 <span id="email" class="email"><a href="mailto:general@generalcoffee.com">general@generalcoffee.com</a></span><br>
 <span id="revnumber">version 1,</span>
 <span id="revdate">2018-10-04</span>
-<br><span id="revremark">Draft 57 -- Porting to AsciiDoc</span>
+<br><span id="revremark">Draft 58 -- Porting to AsciiDoc</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -6894,175 +6894,263 @@ Simply changing the event definition to:</p>
 <div class="sect2">
 <h3 id="_fuses_and_daemons"><a class="anchor" href="#_fuses_and_daemons"></a>6.2. Fuses And Daemons</h3>
 <div class="paragraph">
-<p>A <em>daemon</em> is the traditional name for a recurring activity. Hugo handles daemons as special events attached to objects that may be activated or deactivated (i.e., moved in and out of the scope of runevents). Since the daemon class is defined in the library, define a daemon itself using:</p>
+<p>A <em>daemon</em> is the traditional name for a recurring activity.
+Hugo handles daemons as special events attached to objects that may be activated or deactivated (i.e., moved in and out of the scope of <code>runevents</code>).
+Since the daemon class is defined in the library, define a daemon itself using:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">daemon <span class="hl opt">&lt;</span><span class="hl kwa">name</span><span class="hl opt">&gt;</span>&#x000A;{}</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>daemon &lt;name&gt;</p>
+<p>The body of the daemon definition is empty.
+The daemon object is only needed to attach the daemon event to, so the daemon definition must be followed by:</p>
 </div>
-<div class="paragraph">
-<p>\{}</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">event</span> [<span class="hl kwa">in</span>] <span class="hl opt">&lt;</span><span class="hl kwa">name</span><span class="hl opt">&gt;</span>&#x000A;{&#x000A;    ...&#x000A;}</code></pre>
 </div>
-<div class="paragraph">
-<p>The body of the daemon definition is empty. The daemon object is only needed to attach the daemon event to, so the daemon definition must be followed by:</p>
-</div>
-<div class="paragraph">
-<p>event [in] &lt;name&gt;</p>
-</div>
-<div class="paragraph">
-<p>\{</p>
-</div>
-<div class="paragraph">
-<p>&#8230;&#8203;</p>
-</div>
-<div class="paragraph">
-<p>}</p>
 </div>
 <div class="paragraph">
 <p>Activate it by:</p>
 </div>
-<div class="paragraph">
-<p>Activate(&lt;name&gt;)</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">Activate(<span class="hl opt">&lt;</span><span class="hl kwa">name</span><span class="hl opt">&gt;</span>)</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>which moves the specified daemon object into scope of the player. This way, whenever a runevents command is given (as it should be in the Main routine), the event attached to &lt;name&gt; will run.</p>
+<p>which moves the specified daemon object into scope of the player.
+This way, whenever a <code>runevents</code> command is given (as it should be in the <code>Main</code> routine), the event attached to <code>&lt;name&gt;</code> will run.</p>
 </div>
 <div class="paragraph">
 <p>Deactivate the daemon using:</p>
 </div>
-<div class="paragraph">
-<p>Deactivate(&lt;name&gt;)</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">Deactivate(<span class="hl opt">&lt;</span><span class="hl kwa">name</span><span class="hl opt">&gt;</span>)</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>which removes the daemon object from scope. (It can be seen here that a daemon is actually a special type of object which is moved in and out of the scope of runevents, and that it is the event attached to the daemon that actually contains the code.)</p>
+<p>which removes the daemon object from scope.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>It can be seen here that a daemon is actually a special type of object which is moved in and out of the scope of <code>runevents</code>, and that it is the event attached to the daemon that actually contains the code.</p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
-<p>A fuse is the traditional name for a timer&#8212;&#8203;i.e., any event set to happen after a certain period of time. The fuse itself is a slightly more complex version of a daemon object, containing two additional properties as well as in_scope:</p>
+<p>A fuse is the traditional name for a timer&#8201;&#8212;&#8201;i.e., any event set to happen after a certain period of time.
+The fuse itself is a slightly more complex version of a daemon object, containing two additional properties as well as <code>in_scope</code>:</p>
 </div>
-<div class="paragraph">
-<p>timer the number of turns before the fuse event runs</p>
-</div>
-<div class="paragraph">
-<p>tick a routine that decrements timer and returns the number of turns remaining (i.e., the value of timer)</p>
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+<code>timer</code>  
+</td>
+<td class="hdlist2">
+<p>the number of turns before the fuse event runs</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>tick</code>   
+</td>
+<td class="hdlist2">
+<p>a routine that decrements <code>timer</code> and returns the number of turns remaining (i.e., the value of <code>timer</code>)</p>
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>Similarly to a daemon, define a fuse in two steps:</p>
 </div>
-<div class="paragraph">
-<p>fuse &lt;name&gt;</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">fuse <span class="hl opt">&lt;</span><span class="hl kwa">name</span><span class="hl opt">&gt;</span>&#x000A;{}&#x000A;&#x000A;<span class="hl kwa">event</span> [<span class="hl kwa">in</span>] <span class="hl opt">&lt;</span><span class="hl kwa">name</span><span class="hl opt">&gt;</span>&#x000A;{&#x000A;    ...&#x000A;    <span class="hl kwa">if not</span> self.tick&#x000A;    {&#x000A;        ...&#x000A;    }&#x000A;}</code></pre>
 </div>
-<div class="paragraph">
-<p>\{}</p>
-</div>
-<div class="paragraph">
-<p>event [in] &lt;name&gt;</p>
-</div>
-<div class="paragraph">
-<p>\{</p>
-</div>
-<div class="paragraph">
-<p>&#8230;&#8203;</p>
-</div>
-<div class="paragraph">
-<p>if not self.tick</p>
-</div>
-<div class="paragraph">
-<p>\{</p>
-</div>
-<div class="paragraph">
-<p>&#8230;&#8203;</p>
-</div>
-<div class="paragraph">
-<p>}</p>
-</div>
-<div class="paragraph">
-<p>}</p>
 </div>
 <div class="paragraph">
 <p>and turn it on or off by:</p>
 </div>
-<div class="paragraph">
-<p>Activate(&lt;name&gt;, &lt;setting&gt;)</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">Activate(<span class="hl opt">&lt;</span><span class="hl kwa">name</span><span class="hl opt">&gt;</span>, <span class="hl opt">&lt;</span>setting<span class="hl opt">&gt;</span>)</code></pre>
+</div>
 </div>
 <div class="paragraph">
 <p>and</p>
 </div>
-<div class="paragraph">
-<p>Deactivate(&lt;name&gt;)</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">Deactivate(<span class="hl opt">&lt;</span><span class="hl kwa">name</span><span class="hl opt">&gt;</span>)</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>where &lt;setting&gt; is the initial value of the timer property.</p>
+<p>where <code>&lt;setting&gt;</code> is the initial value of the <code>timer</code> property.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Note that it is up to the event itself to run the <code>timer</code> and check for its expiration.
+The line</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">if not</span> self.tick</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>Note that it is up to the event itself to run the timer and check for its expiration. The line</p>
+<p>runs the <code>tick</code> property&#8201;&#8212;&#8201;defined in the library, which is responsible for decrementing the timer&#8201;&#8212;&#8201;and executes the following conditional block if <code>self.timer</code> is 0.</p>
 </div>
-<div class="paragraph">
-<p>if not self.tick</p>
-</div>
-<div class="paragraph">
-<p>runs the tick property&#8212;&#8203;defined in the library, which is responsible for decrementing the timer&#8212;&#8203;and executes the following conditional block if self.timer is 0.</p>
+</td>
+</tr>
+</table>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_scripts"><a class="anchor" href="#_scripts"></a>6.3. Scripts</h3>
 <div class="paragraph">
-<p>Scripts are considerably more complex than fuses and daemons. The purpose of a script (also called a character script) is to allow an object&#8212;&#8203;usually a character&#8212;&#8203;to follow a sequence of actions turn-by-turn, independent of the player. Up to 16 scripts may be running at once.<sup class="footnote">[<a id="_footnoteref_40" class="footnote" href="#_footnotedef_40" title="View footnote.">40</a>]</sup></p>
+<p>Scripts are considerably more complex than fuses and daemons.
+The purpose of a script (also called a character script) is to allow an object&#8201;&#8212;&#8201;usually a character&#8201;&#8212;&#8201;to follow a sequence of actions turn-by-turn, independent of the player.
+Up to 16 scripts may be running at once.<sup class="footnote">[<a id="_footnoteref_40" class="footnote" href="#_footnotedef_40" title="View footnote.">40</a>]</sup></p>
 </div>
 <div class="paragraph">
-<p>A script is represented by two arrays: scriptdata and setscript. The latter was named for programming clarity rather than for what it actually contains. Here&#8217;s why:</p>
+<p>A script is represented by two arrays: <code>scriptdata</code> and <code>setscript</code>.
+The latter was named for programming clarity rather than for what it actually contains.
+Here&#8217;s why:</p>
 </div>
 <div class="paragraph">
 <p>To define a script, use the following notation:</p>
 </div>
-<div class="paragraph">
-<p>setscript[Script(&lt;char&gt;, &lt;num&gt;)] = &amp;CharRoutine, obj,</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">setscript[Script(<span class="hl opt">&lt;</span>char<span class="hl opt">&gt;</span>, <span class="hl opt">&lt;</span>num<span class="hl opt">&gt;</span>)] <span class="hl opt">=  &amp;</span>CharRoutine, obj,&#x000A;                                    <span class="hl opt">&amp;</span>CharRoutine, obj,&#x000A;                                    ...</code></pre>
 </div>
-<div class="paragraph">
-<p>&amp;CharRoutine, obj,</p>
 </div>
-<div class="paragraph">
-<p>&#8230;&#8203;</p>
-</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
 <div class="paragraph">
 <p>(remembering that a hanging comma at the end of a line of code is a signal to the compiler that the line continues onto the next unbroken.)</p>
 </div>
-<div class="paragraph">
-<p>Notice that <code>setscript</code> is actually an array, taking its starting element from the return value of the Script routine, which has &lt;object&gt; and &lt;number&gt; as its arguments.</p>
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
-<p>Script returns a pointer within the large <code>setscript</code> array where &lt;num&gt; number of steps of a script for &lt;object&gt; may reside. A single script may have up to 32 steps. A step in a script consists of a routine and an object&#8212;&#8203;both are required, even if the routine does not require an object. (Use the nothing object (0); see the CharWait routine in <strong>hugolib.h</strong> for reference.)</p>
+<p>Notice that <code>setscript</code> is actually an array, taking its starting element from the return value of the <code>Script</code> routine, which has <code>&lt;object&gt;</code> and <code>&lt;number&gt;</code> as its arguments.</p>
 </div>
 <div class="paragraph">
-<p>The custom in <strong>hugolib.h</strong> is that character script routines use the prefix <code>Char</code> although this is not required. Currently, routines provided include:</p>
+<p><code>Script</code> returns a pointer within the large <code>setscript</code> array where <code>&lt;num&gt;</code> number of steps of a script for <code>&lt;object&gt;</code> may reside.
+A single script may have up to 32 steps.
+A step in a script consists of a routine and an object&#8201;&#8212;&#8201;both are required, even if the routine does not require an object.
+(Use the <code>nothing</code> object (0); see the <code>CharWait</code> routine in <strong>hugolib.h</strong> for reference.)</p>
 </div>
 <div class="paragraph">
-<p>CharMove (requiring a direction object)</p>
+<p>The custom in <strong>hugolib.h</strong> is that character script routines use the prefix <code>Char</code> although this is not required.
+Currently, routines provided include:</p>
 </div>
-<div class="paragraph">
-<p>CharWait (using the nothing object)</p>
-</div>
-<div class="paragraph">
-<p>CharGet (requiring a takeable object)</p>
-</div>
-<div class="paragraph">
-<p>CharDrop (requiring an object held by the character)</p>
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+<code>CharMove</code> 
+</td>
+<td class="hdlist2">
+<p>(requiring a direction object)</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>CharWait</code> 
+</td>
+<td class="hdlist2">
+<p>(using the <code>nothing</code> object)</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>CharGet</code>  
+</td>
+<td class="hdlist2">
+<p>(requiring a takeable object)</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>CharDrop</code> 
+</td>
+<td class="hdlist2">
+<p>(requiring an object held by the character)</p>
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>as well as the special routine</p>
 </div>
-<div class="paragraph">
-<p>LoopScript (using the nothing object)</p>
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+<code>LoopScript</code> 
+</td>
+<td class="hdlist2">
+<p>(using the <code>nothing</code> object)</p>
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
-<p>which indicates that a script will continually execute. (It is the responsibility of the programmer to ensure that the ending position of the character or object is suitable to loop back to the beginning if LoopScript is used. That is, if the script consists of a complex series of directions, the character should always return to the same starting point.)</p>
+<p>which indicates that a script will continually execute.</p>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>It is the responsibility of the programmer to ensure that the ending position of the character or object is suitable to loop back to the beginning if <code>LoopScript</code> is used.
+That is, if the script consists of a complex series of directions, the character should always return to the same starting point.</p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
-<p>The sequence of routines and objects for each script is stored in the setscript array.</p>
+<p>The sequence of routines and objects for each script is stored in the <code>setscript</code> array.</p>
 </div>
 <div class="paragraph">
-<p>Scripts are run using the RunScripts routine, similar to runevents, the only difference being that runevents is an engine command while RunScripts is contained entirely in <strong>hugolib.h</strong>. The line:</p>
+<p>Scripts are run using the <code>RunScripts</code> routine, similar to <code>runevents</code>, the only difference being that <code>runevents</code> is an engine command while <code>RunScripts</code> is contained entirely in <strong>hugolib.h</strong>.
+The line:</p>
 </div>
-<div class="paragraph">
-<p>RunScripts</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">RunScripts</code></pre>
+</div>
 </div>
 <div class="paragraph">
 <p>will run all active object/character scripts, one turn at a time, freeing the space used by each once it has run its course.</p>
@@ -7070,77 +7158,91 @@ Simply changing the event definition to:</p>
 <div class="paragraph">
 <p>Here is a sample script for a character named &#8220;Ned&#8221;:</p>
 </div>
-<div class="paragraph">
-<p>setscript[Script(ned, 4)] = &amp;CharMove, s_obj,</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">setscript[Script(ned, <span class="hl num">4</span>)] <span class="hl opt">= &amp;</span>CharMove, s_obj,&#x000A;                            <span class="hl opt">&amp;</span>CharGet, cannonb&#x000A;                            <span class="hl opt">&amp;</span>CharMove, n_obj,&#x000A;                            <span class="hl opt">&amp;</span>CharWait, <span class="hl num">0</span>,&#x000A;                            <span class="hl opt">&amp;</span>CharDrop, ca</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>&amp;CharGet, cannonball,</p>
+<p>Ned will go south, retrieve the cannonball object, bring it north, wait a turn, and drop it.</p>
 </div>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-caution" title="Caution"></i>
+</td>
+<td class="content">
 <div class="paragraph">
-<p>&amp;CharMove, n_obj,</p>
+<p>The character script routines provided in the library are relatively basic; for example, <code>CharGet</code> assumes that the specified object will be there when the character comes to get it, so it&#8217;s more or less up to the game author&#8201;&#8212;&#8201;at least when using the default library routines for character scripting&#8201;&#8212;&#8201;to have things well planned out.)</p>
 </div>
-<div class="paragraph">
-<p>&amp;CharWait, 0,</p>
-</div>
-<div class="paragraph">
-<p>&amp;CharDrop, cannonball</p>
-</div>
-<div class="paragraph">
-<p>Ned will go south, retrieve the cannonball object, bring it north, wait a turn, and drop it. (The character script routines provided in the library are relatively basic; for example, CharGet assumes that the specified object will be there when the character comes to get it, so it&#8217;s more or less up to the game author&#8212;&#8203;at least when using the default library routines for character scripting&#8212;&#8203;to have things well planned out.)</p>
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>Other script-management routines in <strong>hugolib.h</strong> include:</p>
 </div>
-<div class="paragraph">
-<p>CancelScript(obj) to immediately halt execution of the script for &lt;obj&gt;</p>
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+<code>CancelScript(obj)</code> 
+</td>
+<td class="hdlist2">
+<p>to immediately halt execution of the script for <code>&lt;obj&gt;</code></p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>PauseScript(obj)</code>  
+</td>
+<td class="hdlist2">
+<p>to temporarily pause execution of the script for <code>&lt;obj&gt;</code></p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>ResumeScript(obj)</code> 
+</td>
+<td class="hdlist2">
+<p>to resume execution of a paused script</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>SkipScript(obj)</code>   
+</td>
+<td class="hdlist2">
+<p>skips the script for <code>&lt;obj&gt;</code> during the next call to <code>RunScripts</code> only</p>
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
-<p>PauseScript(obj) to temporarily pause execution of the script for &lt;obj&gt;</p>
+<p>The <code>RunScripts</code> routine also checks for <code>before</code> and <code>after</code> properties.
+It continues with the default action&#8201;&#8212;&#8201;i.e., the character action routine specified in the script&#8201;&#8212;&#8201;if it finds a false value.</p>
 </div>
 <div class="paragraph">
-<p>ResumeScript(obj) to resume execution of a paused script</p>
+<p>To override a default character action routine, include a <code>before</code> property for the character object using the following form:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">before</span>&#x000A;{&#x000A;    actor CharRoutine&#x000A;    {&#x000A;        ...&#x000A;    }&#x000A;}</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>SkipScript(obj) skips the script for &lt;obj&gt; during the next call to RunScripts only</p>
-</div>
-<div class="paragraph">
-<p>The RunScripts routine also checks for before and after properties. It continues with the default action&#8212;&#8203;i.e., the character action routine specified in the script&#8212;&#8203;if it finds a false value.</p>
-</div>
-<div class="paragraph">
-<p>To override a default character action routine, include a before property for the character object using the following form:</p>
-</div>
-<div class="paragraph">
-<p>before</p>
-</div>
-<div class="paragraph">
-<p>\{</p>
-</div>
-<div class="paragraph">
-<p>actor CharRoutine</p>
-</div>
-<div class="paragraph">
-<p>\{</p>
-</div>
-<div class="paragraph">
-<p>&#8230;&#8203;</p>
-</div>
-<div class="paragraph">
-<p>}</p>
-</div>
-<div class="paragraph">
-<p>}</p>
-</div>
-<div class="paragraph">
-<p>where CharRoutine is CharWait, CharMove, CharGet, CharDrop, etc.</p>
+<p>where <code>CharRoutine</code> is <code>CharWait</code>, <code>CharMove</code>, <code>CharGet</code>, <code>CharDrop</code>, etc.</p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_a_note_about_the_event_flag_global"><a class="anchor" href="#_a_note_about_the_event_flag_global"></a>6.4. A Note About The event_flag Global</h3>
 <div class="paragraph">
-<p>The library routines&#8212;&#8203;particularly the DoWait&#8230;&#8203; verb routines (invoked whenever a player types &#8220;wait&#8221;, &#8220;wait for (someone)&#8221;, or &#8220;wait for 5 turns&#8221;--expect the event_flag global variable to be set to a non-false value if something happens (i.e., in an event or script) so that the player may be notified and given the opportunity to quit waiting. For instance, the character script routines in <strong>hugolib.h</strong> set event_flag whenever a character does something in the same location as the player.</p>
+<p>The library routines&#8201;&#8212;&#8201;particularly the <code>DoWait&#8230;&#8203;</code> verb routines (invoked whenever a player types &#8220;wait&#8221;, &#8220;wait for (someone)&#8221;, or &#8220;wait for 5 turns&#8221;&#8201;&#8212;&#8201;expect the <code>event_flag</code> global variable to be set to a non-false value if something happens (i.e., in an event or script) so that the player may be notified and given the opportunity to quit waiting.
+For instance, the character script routines in <strong>hugolib.h</strong> set <code>event_flag</code> whenever a character does something in the same location as the player.</p>
 </div>
 <div class="paragraph">
-<p>If <strong>hugolib.h</strong> is to be used, the convention of setting event_flag after every significant event should be adhered to.</p>
+<p>If <strong>hugolib.h</strong> is to be used, the convention of setting <code>event_flag</code> after every significant event should be adhered to.</p>
 </div>
 </div>
 <div class="sect2">
@@ -7148,109 +7250,41 @@ Simply changing the event definition to:</p>
 <div class="sect3">
 <h4 id="_example_a_simple_daemon_and_a_simpler_fuse"><a class="anchor" href="#_example_a_simple_daemon_and_a_simpler_fuse"></a>Example: A Simple Daemon and a Simpler Fuse</h4>
 <div class="paragraph">
-<p>The most basic daemon would be something like a sleep counter, which measures how far a player can go beginning from a certain rested state. Assume that the player&#8217;s amount of rest is kept in a property called rest, which decreases by 2 each turn.</p>
+<p>The most basic daemon would be something like a sleep counter, which measures how far a player can go beginning from a certain rested state.
+Assume that the player&#8217;s amount of rest is kept in a property called <code>rest</code>, which decreases by 2 each turn.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">daemon gettired&#x000A;{}&#x000A;&#x000A;<span class="hl kwa">event in</span> gettired&#x000A;{&#x000A;    player.rest <span class="hl opt">=</span> player.rest <span class="hl opt">-</span> <span class="hl num">2</span>&#x000A;    <span class="hl kwa">if</span> player.rest <span class="hl opt">&lt;</span> <span class="hl num">0</span>&#x000A;        player.rest <span class="hl opt">=</span> <span class="hl num">0</span>&#x000A;    <span class="hl kwa">select</span> player.rest&#x000A;        <span class="hl kwa">case</span> <span class="hl num">20</span>&#x000A;            <span class="hl str">&quot;You&#39;re getting quite tired.&quot;</span>&#x000A;        <span class="hl kwa">case</span> <span class="hl num">10</span>&#x000A;            <span class="hl str">&quot;You&#39;re getting</span> <span class="hl esc">\I</span><span class="hl str">very</span><span class="hl esc">\i</span> <span class="hl str">tired.&quot;</span>&#x000A;        <span class="hl kwa">case</span> <span class="hl num">0</span>&#x000A;            <span class="hl str">&quot;You fall asleep!&quot;</span>&#x000A;}</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>daemon gettired</p>
+<p>Start and stop the daemon with <code>Activate(gettired)</code> and <code>Deactivate(gettired)</code>.</p>
 </div>
 <div class="paragraph">
-<p>\{}</p>
+<p>Now, as for a fuse, why not construct the most obvious example: that of a ticking bomb?
+(Assume that there exists another physical <code>bomb</code> object; <code>tickingbomb</code> is only the countdown fuse.)</p>
 </div>
-<div class="paragraph">
-<p>event in gettired</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">fuse tickingbomb&#x000A;{}&#x000A;&#x000A;<span class="hl kwa">event in</span> tickingbomb&#x000A;{&#x000A;    <span class="hl kwa">if not</span> self.tick&#x000A;    {&#x000A;        <span class="hl kwa">if</span> Contains(location, bomb)&#x000A;            <span class="hl str">&quot;You vanish in a nifty KABOOM!&quot;</span>&#x000A;        <span class="hl kwa">else</span>&#x000A;            <span class="hl str">&quot;You hear a distant KABOOM!&quot;</span>&#x000A;        <span class="hl kwa">remove</span> bomb&#x000A;    }&#x000A;}</code></pre>
 </div>
-<div class="paragraph">
-<p>\{</p>
-</div>
-<div class="paragraph">
-<p>player.rest = player.rest - 2</p>
-</div>
-<div class="paragraph">
-<p>if player.rest &lt; 0</p>
-</div>
-<div class="paragraph">
-<p>player.rest = 0</p>
-</div>
-<div class="paragraph">
-<p>select player.rest</p>
-</div>
-<div class="paragraph">
-<p>case 20</p>
-</div>
-<div class="paragraph">
-<p>"You&#8217;re getting quite tired."</p>
-</div>
-<div class="paragraph">
-<p>case 10</p>
-</div>
-<div class="paragraph">
-<p>"You&#8217;re getting \Ivery\i tired."</p>
-</div>
-<div class="paragraph">
-<p>case 0</p>
-</div>
-<div class="paragraph">
-<p>"You fall asleep!"</p>
-</div>
-<div class="paragraph">
-<p>}</p>
-</div>
-<div class="paragraph">
-<p>Start and stop the daemon with Activate(gettired) and Deactivate(gettired).</p>
-</div>
-<div class="paragraph">
-<p>Now, as for a fuse, why not construct the most obvious example: that of a ticking bomb? (Assume that there exists another physical bomb object; tickingbomb is only the countdown fuse.)</p>
-</div>
-<div class="paragraph">
-<p>fuse tickingbomb</p>
-</div>
-<div class="paragraph">
-<p>\{}</p>
-</div>
-<div class="paragraph">
-<p>event in tickingbomb</p>
-</div>
-<div class="paragraph">
-<p>\{</p>
-</div>
-<div class="paragraph">
-<p>if not self.tick</p>
-</div>
-<div class="paragraph">
-<p>\{</p>
-</div>
-<div class="paragraph">
-<p>if Contains(location, bomb)</p>
-</div>
-<div class="paragraph">
-<p>"You vanish in a nifty KABOOM!"</p>
-</div>
-<div class="paragraph">
-<p>else</p>
-</div>
-<div class="paragraph">
-<p>"You hear a distant KABOOM!"</p>
-</div>
-<div class="paragraph">
-<p>remove bomb</p>
-</div>
-<div class="paragraph">
-<p>}</p>
-</div>
-<div class="paragraph">
-<p>}</p>
 </div>
 <div class="paragraph">
 <p>Start it (with a countdown of 25 turns):</p>
 </div>
-<div class="paragraph">
-<p>Activate(tickingbomb, 25)</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">Activate(tickingbomb, <span class="hl num">25</span>)</code></pre>
+</div>
 </div>
 <div class="paragraph">
 <p>and stop it with:</p>
 </div>
-<div class="paragraph">
-<p>Deactivate(tickingbomb)</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">Deactivate(tickingbomb)</code></pre>
+</div>
 </div>
 </div>
 </div>

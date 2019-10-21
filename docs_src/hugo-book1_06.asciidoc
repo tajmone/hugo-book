@@ -3,258 +3,301 @@
 
 == Introduction
 
-
-
 While most of the previously discussed elements of programming with Hugo (such as events) are part of the internal architecture of the Hugo Engine, the means of running fuses, daemons, and scripts are written entirely in the Hugo language itself and contained in the Hugo Library.
+
 
 == Fuses And Daemons
 
+A _daemon_ is the traditional name for a recurring activity.
+Hugo handles daemons as special events attached to objects that may be activated or deactivated (i.e., moved in and out of the scope of `runevents`).
+Since the daemon class is defined in the library, define a daemon itself using:
 
-
-A _daemon_ is the traditional name for a recurring activity. Hugo handles daemons as special events attached to objects that may be activated or deactivated (i.e., moved in and out of the scope of runevents). Since the daemon class is defined in the library, define a daemon itself using:
-
+// @FIXME: HUGO SYNTAX MOCKUP!
+[source,hugo]
+-------------
 daemon <name>
+{}
+-------------
 
-\{}
+The body of the daemon definition is empty.
+The daemon object is only needed to attach the daemon event to, so the daemon definition must be followed by:
 
-The body of the daemon definition is empty. The daemon object is only needed to attach the daemon event to, so the daemon definition must be followed by:
-
+// @FIXME: HUGO SYNTAX MOCKUP!
+[source,hugo]
+-----------------
 event [in] <name>
-
-\{
-
-...
-
+{
+    ...
 }
+-----------------
 
 Activate it by:
 
+// @FIXME: HUGO SYNTAX MOCKUP!
+[source,hugo]
+----------------
 Activate(<name>)
+----------------
 
-which moves the specified daemon object into scope of the player. This way, whenever a runevents command is given (as it should be in the Main routine), the event attached to <name> will run.
+which moves the specified daemon object into scope of the player.
+This way, whenever a `runevents` command is given (as it should be in the `Main` routine), the event attached to `<name>` will run.
 
 Deactivate the daemon using:
 
+// @FIXME: HUGO SYNTAX MOCKUP!
+[source,hugo]
+------------------
 Deactivate(<name>)
+------------------
 
-which removes the daemon object from scope. (It can be seen here that a daemon is actually a special type of object which is moved in and out of the scope of runevents, and that it is the event attached to the daemon that actually contains the code.)
+which removes the daemon object from scope.
 
-A fuse is the traditional name for a timer--i.e., any event set to happen after a certain period of time. The fuse itself is a slightly more complex version of a daemon object, containing two additional properties as well as in_scope:
+[NOTE]
+================================================================================
+It can be seen here that a daemon is actually a special type of object which is moved in and out of the scope of `runevents`, and that it is the event attached to the daemon that actually contains the code.
+================================================================================
 
-timer the number of turns before the fuse event runs
+A fuse is the traditional name for a timer -- i.e., any event set to happen after a certain period of time.
+The fuse itself is a slightly more complex version of a daemon object, containing two additional properties as well as `in_scope`:
 
-tick a routine that decrements timer and returns the number of turns remaining (i.e., the value of timer)
+[horizontal]
+`timer`  :: the number of turns before the fuse event runs
+`tick`   :: a routine that decrements `timer` and returns the number of turns remaining (i.e., the value of `timer`)
 
 Similarly to a daemon, define a fuse in two steps:
 
+// @FIXME: HUGO SYNTAX MOCKUP!
+[source,hugo]
+--------------------
 fuse <name>
-
-\{}
+{}
 
 event [in] <name>
-
-\{
-
-...
-
-if not self.tick
-
-\{
-
-...
-
+{
+    ...
+    if not self.tick
+    {
+        ...
+    }
 }
-
-}
+--------------------
 
 and turn it on or off by:
 
+// @FIXME: HUGO SYNTAX MOCKUP!
+[source,hugo]
+---------------------------
 Activate(<name>, <setting>)
+---------------------------
 
 and
 
+// @FIXME: HUGO SYNTAX MOCKUP!
+[source,hugo]
+------------------
 Deactivate(<name>)
+------------------
 
-where <setting> is the initial value of the timer property.
+where `<setting>` is the initial value of the `timer` property.
 
-Note that it is up to the event itself to run the timer and check for its expiration. The line
+[IMPORTANT]
+================================================================================
+Note that it is up to the event itself to run the `timer` and check for its expiration.
+The line
 
+// @FIXME: HUGO SYNTAX MOCKUP!
+[source,hugo]
+----------------
 if not self.tick
+----------------
 
-runs the tick property--defined in the library, which is responsible for decrementing the timer--and executes the following conditional block if self.timer is 0.
+runs the `tick` property -- defined in the library, which is responsible for decrementing the timer -- and executes the following conditional block if `self.timer` is 0.
+================================================================================
+
 
 == Scripts
 
+Scripts are considerably more complex than fuses and daemons.
+The purpose of a script (also called a character script) is to allow an object -- usually a character -- to follow a sequence of actions turn-by-turn, independent of the player.
+Up to 16 scripts may be running at once.footnote:[This is a library-set limit.]
 
-
-Scripts are considerably more complex than fuses and daemons. The purpose of a script (also called a character script) is to allow an object--usually a character--to follow a sequence of actions turn-by-turn, independent of the player. Up to 16 scripts may be running at once.footnote:[This is a library-set limit.]
-
-A script is represented by two arrays: scriptdata and setscript. The latter was named for programming clarity rather than for what it actually contains. Here's why:
+A script is represented by two arrays: `scriptdata` and `setscript`.
+The latter was named for programming clarity rather than for what it actually contains.
+Here's why:
 
 To define a script, use the following notation:
 
-setscript[Script(<char>, <num>)] = &CharRoutine, obj,
+// @FIXME: HUGO SYNTAX MOCKUP!
+[source,hugo]
+------------------------------------------------------
+setscript[Script(<char>, <num>)] =  &CharRoutine, obj,
+                                    &CharRoutine, obj,
+                                    ...
+------------------------------------------------------
 
-&CharRoutine, obj,
-
-...
-
+[TIP]
+================================================================================
 (remembering that a hanging comma at the end of a line of code is a signal to the compiler that the line continues onto the next unbroken.)
+================================================================================
 
-Notice that `setscript` is actually an array, taking its starting element from the return value of the Script routine, which has <object> and <number> as its arguments.
+Notice that `setscript` is actually an array, taking its starting element from the return value of the `Script` routine, which has `<object>` and `<number>` as its arguments.
 
-Script returns a pointer within the large `setscript` array where <num> number of steps of a script for <object> may reside. A single script may have up to 32 steps. A step in a script consists of a routine and an object--both are required, even if the routine does not require an object. (Use the nothing object (0); see the CharWait routine in *hugolib.h* for reference.)
+`Script` returns a pointer within the large `setscript` array where `<num>` number of steps of a script for `<object>` may reside.
+A single script may have up to 32 steps.
+A step in a script consists of a routine and an object -- both are required, even if the routine does not require an object.
+(Use the `nothing` object (0); see the `CharWait` routine in *hugolib.h* for reference.)
 
-The custom in *hugolib.h* is that character script routines use the prefix `Char` although this is not required. Currently, routines provided include:
+The custom in *hugolib.h* is that character script routines use the prefix `Char` although this is not required.
+Currently, routines provided include:
 
-CharMove (requiring a direction object)
-
-CharWait (using the nothing object)
-
-CharGet (requiring a takeable object)
-
-CharDrop (requiring an object held by the character)
+[horizontal]
+`CharMove` :: (requiring a direction object)
+`CharWait` :: (using the `nothing` object)
+`CharGet`  :: (requiring a takeable object)
+`CharDrop` :: (requiring an object held by the character)
 
 as well as the special routine
 
-LoopScript (using the nothing object)
+[horizontal]
+`LoopScript` :: (using the `nothing` object)
 
-which indicates that a script will continually execute. (It is the responsibility of the programmer to ensure that the ending position of the character or object is suitable to loop back to the beginning if LoopScript is used. That is, if the script consists of a complex series of directions, the character should always return to the same starting point.)
+which indicates that a script will continually execute.
 
-The sequence of routines and objects for each script is stored in the setscript array.
+[WARNING]
+================================================================================
+It is the responsibility of the programmer to ensure that the ending position of the character or object is suitable to loop back to the beginning if `LoopScript` is used.
+That is, if the script consists of a complex series of directions, the character should always return to the same starting point.
+================================================================================
 
-Scripts are run using the RunScripts routine, similar to runevents, the only difference being that runevents is an engine command while RunScripts is contained entirely in *hugolib.h*. The line:
+The sequence of routines and objects for each script is stored in the `setscript` array.
 
+Scripts are run using the `RunScripts` routine, similar to `runevents`, the only difference being that `runevents` is an engine command while `RunScripts` is contained entirely in *hugolib.h*.
+The line:
+
+[source,hugo]
+-------------
 RunScripts
+-------------
 
 will run all active object/character scripts, one turn at a time, freeing the space used by each once it has run its course.
 
 Here is a sample script for a character named "`Ned`":
 
+[source,hugo]
+---------------------------------------------
 setscript[Script(ned, 4)] = &CharMove, s_obj,
+                            &CharGet, cannonb
+                            &CharMove, n_obj,
+                            &CharWait, 0,
+                            &CharDrop, ca
+---------------------------------------------
 
-&CharGet, cannonball,
+Ned will go south, retrieve the cannonball object, bring it north, wait a turn, and drop it.
 
-&CharMove, n_obj,
-
-&CharWait, 0,
-
-&CharDrop, cannonball
-
-Ned will go south, retrieve the cannonball object, bring it north, wait a turn, and drop it. (The character script routines provided in the library are relatively basic; for example, CharGet assumes that the specified object will be there when the character comes to get it, so it's more or less up to the game author--at least when using the default library routines for character scripting--to have things well planned out.)
+[CAUTION]
+================================================================================
+The character script routines provided in the library are relatively basic; for example, `CharGet` assumes that the specified object will be there when the character comes to get it, so it's more or less up to the game author -- at least when using the default library routines for character scripting -- to have things well planned out.)
+================================================================================
 
 Other script-management routines in *hugolib.h* include:
 
-CancelScript(obj) to immediately halt execution of the script for <obj>
+[horizontal]
+`CancelScript(obj)` :: to immediately halt execution of the script for `<obj>`
+`PauseScript(obj)`  :: to temporarily pause execution of the script for `<obj>`
+`ResumeScript(obj)` :: to resume execution of a paused script
+`SkipScript(obj)`   :: skips the script for `<obj>` during the next call to `RunScripts` only
 
-PauseScript(obj) to temporarily pause execution of the script for <obj>
+The `RunScripts` routine also checks for `before` and `after` properties.
+It continues with the default action -- i.e., the character action routine specified in the script -- if it finds a false value.
 
-ResumeScript(obj) to resume execution of a paused script
+To override a default character action routine, include a `before` property for the character object using the following form:
 
-SkipScript(obj) skips the script for <obj> during the next call to RunScripts only
-
-The RunScripts routine also checks for before and after properties. It continues with the default action--i.e., the character action routine specified in the script--if it finds a false value.
-
-To override a default character action routine, include a before property for the character object using the following form:
-
+// @FIXME: HUGO SYNTAX MOCKUP!
+[source,hugo]
+---------------------
 before
-
-\{
-
-actor CharRoutine
-
-\{
-
-...
-
+{
+    actor CharRoutine
+    {
+        ...
+    }
 }
+---------------------
 
-}
+where `CharRoutine` is `CharWait`, `CharMove`, `CharGet`, `CharDrop`, etc.
 
-where CharRoutine is CharWait, CharMove, CharGet, CharDrop, etc.
 
 == A Note About The event_flag Global
 
+The library routines -- particularly the `DoWait...` verb routines (invoked whenever a player types "`wait`", "`wait for (someone)`", or "`wait for 5 turns`" -- expect the `event_flag` global variable to be set to a non-false value if something happens (i.e., in an event or script) so that the player may be notified and given the opportunity to quit waiting.
+For instance, the character script routines in *hugolib.h* set `event_flag` whenever a character does something in the same location as the player.
 
+If *hugolib.h* is to be used, the convention of setting `event_flag` after every significant event should be adhered to.
 
-The library routines--particularly the DoWait... verb routines (invoked whenever a player types "`wait`", "`wait for (someone)`", or "`wait for 5 turns`"--expect the event_flag global variable to be set to a non-false value if something happens (i.e., in an event or script) so that the player may be notified and given the opportunity to quit waiting. For instance, the character script routines in *hugolib.h* set event_flag whenever a character does something in the same location as the player.
-
-If *hugolib.h* is to be used, the convention of setting event_flag after every significant event should be adhered to.
 
 == __What Should I Be Able To Do Now?__
 
-
 === Example: A Simple Daemon and a Simpler Fuse
 
-The most basic daemon would be something like a sleep counter, which measures how far a player can go beginning from a certain rested state. Assume that the player's amount of rest is kept in a property called rest, which decreases by 2 each turn.
+The most basic daemon would be something like a sleep counter, which measures how far a player can go beginning from a certain rested state.
+Assume that the player's amount of rest is kept in a property called `rest`, which decreases by 2 each turn.
 
+[source,hugo]
+--------------------------------------------
 daemon gettired
-
-\{}
+{}
 
 event in gettired
-
-\{
-
-player.rest = player.rest - 2
-
-if player.rest < 0
-
-player.rest = 0
-
-select player.rest
-
-case 20
-
-"You're getting quite tired."
-
-case 10
-
-"You're getting \Ivery\i tired."
-
-case 0
-
-"You fall asleep!"
-
+{
+    player.rest = player.rest - 2
+    if player.rest < 0
+        player.rest = 0
+    select player.rest
+        case 20
+            "You're getting quite tired."
+        case 10
+            "You're getting \Ivery\i tired."
+        case 0
+            "You fall asleep!"
 }
+--------------------------------------------
 
-Start and stop the daemon with Activate(gettired) and Deactivate(gettired).
+Start and stop the daemon with `Activate(gettired)` and `Deactivate(gettired)`.
 
-Now, as for a fuse, why not construct the most obvious example: that of a ticking bomb? (Assume that there exists another physical bomb object; tickingbomb is only the countdown fuse.)
+Now, as for a fuse, why not construct the most obvious example: that of a ticking bomb?
+(Assume that there exists another physical `bomb` object; `tickingbomb` is only the countdown fuse.)
 
+[source,hugo]
+-------------------------------------------
 fuse tickingbomb
-
-\{}
+{}
 
 event in tickingbomb
-
-\{
-
-if not self.tick
-
-\{
-
-if Contains(location, bomb)
-
-"You vanish in a nifty KABOOM!"
-
-else
-
-"You hear a distant KABOOM!"
-
-remove bomb
-
+{
+    if not self.tick
+    {
+        if Contains(location, bomb)
+            "You vanish in a nifty KABOOM!"
+        else
+            "You hear a distant KABOOM!"
+        remove bomb
+    }
 }
-
-}
+-------------------------------------------
 
 Start it (with a countdown of 25 turns):
 
+[source,hugo]
+-------------------------
 Activate(tickingbomb, 25)
+-------------------------
 
 and stop it with:
 
+[source,hugo]
+--------------------------------------------------------------------------------
 Deactivate(tickingbomb)
+--------------------------------------------------------------------------------
 
 
 // EOF //
