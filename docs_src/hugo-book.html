@@ -535,7 +535,7 @@ div.literalblock.cmd pre .conum {
 <span id="email" class="email"><a href="mailto:general@generalcoffee.com">general@generalcoffee.com</a></span><br>
 <span id="revnumber">version 1,</span>
 <span id="revdate">2018-10-04</span>
-<br><span id="revremark">Draft 56 -- Porting to AsciiDoc</span>
+<br><span id="revremark">Draft 57 -- Porting to AsciiDoc</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -6580,7 +6580,7 @@ If the non-specific block comes after any other blocks, then it will run only if
 <div class="paragraph">
 <p>A drawback of this non-specification is that all verbroutines are matched&#8201;&#8212;&#8201;both verbs and xverbs<sup class="footnote">[<a id="_footnoteref_35" class="footnote" href="#_footnotedef_35" title="View footnote.">35</a>]</sup>.
 This can be particularly undesirable in the case of location <code>before</code>/<code>after</code> properties, where you may wish to be circumventing any action the player tries to perform in that location, but where the non-specific response will be triggered even for <code>save</code>, <code>restore</code>, etc.
-(i.e.,</p>
+(i.e., xverbs).</p>
 </div>
 <div class="paragraph">
 <p>To get around this, the library provides a function <code>AnyVerb</code>, which takes an object as its argument and returns that object number if the current verbroutine is not within the group of xverbs; otherwise it returns false.
