@@ -535,7 +535,7 @@ div.literalblock.cmd pre .conum {
 <span id="email" class="email"><a href="mailto:general@generalcoffee.com">general@generalcoffee.com</a></span><br>
 <span id="revnumber">version 1,</span>
 <span id="revdate">2018-10-04</span>
-<br><span id="revremark">Draft 58 -- Porting to AsciiDoc</span>
+<br><span id="revremark">Draft 59 -- Porting to AsciiDoc</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -7296,280 +7296,303 @@ Assume that the player&#8217;s amount of rest is kept in a property called <code
 <div class="sect2">
 <h3 id="_grammar_definition"><a class="anchor" href="#_grammar_definition"></a>7.1. Grammar Definition</h3>
 <div class="paragraph">
-<p>Every valid player command must specified. More precisely, each usage of a particular verb must be detailed in full by the source code. Grammar definitions must <em>always</em> come at the start of a program, preceding any objects or executable code. That is, if several additional grammar files are to be included, or new grammar is to be explicitly defined in the source code, it must be done before any files containing executable code are included, or any routines, objects, etc. are defined.</p>
+<p>Every valid player command must specified.
+More precisely, each usage of a particular verb must be detailed in full by the source code.
+Grammar definitions must <em>always</em> come at the start of a program, preceding any objects or executable code.
+That is, if several additional grammar files are to be included, or new grammar is to be explicitly defined in the source code, it must be done before any files containing executable code are included, or any routines, objects, etc. are defined.</p>
 </div>
 <div class="paragraph">
 <p>The syntax used for grammar definition is:</p>
 </div>
-<div class="paragraph">
-<p>[x]verb "&lt;verb1&gt;" [, "&lt;verb2&gt;", "&lt;verb3&gt;",&#8230;&#8203;]</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">[x]<span class="hl kwa">verb</span> <span class="hl str">&quot;&lt;verb1&gt;&quot;</span> [, <span class="hl str">&quot;&lt;verb2&gt;&quot;</span>, <span class="hl str">&quot;&lt;verb3&gt;&quot;</span>,...]&#x000A;<span class="hl opt">* &lt;</span>syntax specification <span class="hl num">1</span><span class="hl opt">&gt;      &lt;</span>VerbRoutine1<span class="hl opt">&gt;</span>&#x000A;<span class="hl opt">* &lt;</span>syntax specification <span class="hl num">2</span><span class="hl opt">&gt;      &lt;</span>VerbRoutine2<span class="hl opt">&gt;</span>&#x000A;...</code></pre>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p>&lt;syntax specification 1&gt; &lt;VerbRoutine1&gt;</p>
-</li>
-<li>
-<p>&lt;syntax specification 2&gt; &lt;VerbRoutine2&gt;</p>
-</li>
-</ul>
 </div>
 <div class="paragraph">
-<p>&#8230;&#8203;</p>
+<p>Now, what does that mean?
+Here are some examples from the library grammar file <strong>verblib.g</strong>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">verb</span> <span class="hl str">&quot;get&quot;</span>, <span class="hl str">&quot;step&quot;</span>&#x000A;        <span class="hl opt">*</span>                                                       DoVague&#x000A;        <span class="hl opt">*</span> <span class="hl str">&quot;up&quot;</span><span class="hl opt">/</span><span class="hl str">&quot;out&quot;</span><span class="hl opt">/</span><span class="hl str">&quot;off&quot;</span><span class="hl opt">/</span><span class="hl str">&quot;down&quot;</span>                               DoStand&#x000A;        <span class="hl opt">*</span> <span class="hl str">&quot;outof&quot;</span><span class="hl opt">/</span><span class="hl str">&quot;offof&quot;</span><span class="hl opt">/</span><span class="hl str">&quot;off&quot;</span> <span class="hl kwa">object</span>                          DoExit&#x000A;        <span class="hl opt">*</span> <span class="hl str">&quot;in&quot;</span><span class="hl opt">/</span><span class="hl str">&quot;inside&quot;</span><span class="hl opt">/</span><span class="hl str">&quot;on&quot;</span>                                    DoEnter&#x000A;        <span class="hl opt">*</span> <span class="hl str">&quot;in&quot;</span><span class="hl opt">/</span><span class="hl str">&quot;into&quot;</span><span class="hl opt">/</span><span class="hl str">&quot;inside&quot;</span><span class="hl opt">/</span><span class="hl str">&quot;on&quot;</span><span class="hl opt">/</span><span class="hl str">&quot;onto&quot;</span> <span class="hl kwa">object</span>               DoEnter&#x000A;&#x000A;<span class="hl kwa">verb</span> <span class="hl str">&quot;take&quot;</span>&#x000A;        <span class="hl opt">*</span>                                                       DoVague&#x000A;        <span class="hl opt">*</span> <span class="hl str">&quot;inventory&quot;</span>                                           DoInventory&#x000A;        <span class="hl opt">*</span> <span class="hl str">&quot;off&quot;</span> <span class="hl kwa">multiheld</span>                                       DoTakeOff&#x000A;        <span class="hl opt">*</span> <span class="hl kwa">multiheld</span> <span class="hl str">&quot;off&quot;</span>                                       DoTakeOff&#x000A;&#x000A;<span class="hl kwa">xverb</span> <span class="hl str">&quot;save&quot;</span>, <span class="hl str">&quot;suspend&quot;</span>&#x000A;        <span class="hl opt">*</span>                                                       DoSave&#x000A;        <span class="hl opt">*</span> <span class="hl str">&quot;game&quot;</span><span class="hl opt">/</span><span class="hl str">&quot;story&quot;</span>                                        DoSave&#x000A;&#x000A;<span class="hl kwa">verb</span> <span class="hl str">&quot;read&quot;</span>, <span class="hl str">&quot;peruse&quot;</span>&#x000A;        <span class="hl opt">*</span>                                                       DoVague&#x000A;        <span class="hl opt">*</span> readable                                              DoLook&#x000A;&#x000A;<span class="hl kwa">verb</span> <span class="hl str">&quot;unlock&quot;</span>&#x000A;        <span class="hl opt">*</span>                                                       DoVague&#x000A;        <span class="hl opt">*</span> lockable <span class="hl str">&quot;with&quot;</span><span class="hl opt">/</span><span class="hl str">&quot;using&quot;</span> <span class="hl kwa">held</span>                          DoUnlock&#x000A;        <span class="hl opt">*</span> lockable                                              DoUnlock</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>Now, what does that mean? Here are some examples from the library grammar file <strong>verblib.g</strong>:</p>
-</div>
-<div class="paragraph">
-<p>verb "get"</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>DoVague</p>
-</li>
-<li>
-<p>"up"/"out"/"off" DoExit</p>
-</li>
-<li>
-<p>"outof"/"offof"/"off" object DoExit</p>
-</li>
-<li>
-<p>"in"/"on" object DoEnter</p>
-</li>
-<li>
-<p>multinotheld "from"/"off" parent DoGet</p>
-</li>
-<li>
-<p>multinotheld "offof"/"outof" parent DoGet</p>
-</li>
-<li>
-<p>multinotheld DoGet</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>verb "take"</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>DoVague</p>
-</li>
-<li>
-<p>"off" multiheld DoTakeOff</p>
-</li>
-<li>
-<p>multiheld "off" DoTakeOff</p>
-</li>
-<li>
-<p>multinotheld DoGet</p>
-</li>
-<li>
-<p>multinotheld "from"/"off" parent DoGet</p>
-</li>
-<li>
-<p>multinotheld "offof"/"outof" parent DoGet</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>xverb "save"</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>DoSave</p>
-</li>
-<li>
-<p>"game" DoSave</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>verb "read", "peruse"</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>DoVague</p>
-</li>
-<li>
-<p>readable DoRead</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>verb "unlock"</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>DoVague</p>
-</li>
-<li>
-<p>lockable "with" held DoUnLock</p>
-</li>
-<li>
-<p>lockable DoUnLock</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Each verb or xverb header begins a new verb definition. An xverb is a special signifier that indicates that the engine should not call the Main routine after successful completion of the action. xverb is typically used with non-action, housekeeping-type verbs such as saving, restoring, quitting, and restarting.</p>
+<p>Each <code>verb</code> or <code>xverb</code> header begins a new verb definition.
+An <code>xverb</code> is a special signifier that indicates that the engine should not call the <code>Main</code> routine after successful completion of the action.
+<code>xverb</code> is typically used with non-action, housekeeping-type verbs such as saving, restoring, quitting, and restarting.</p>
 </div>
 <div class="paragraph">
 <p>Another thing that can be done is to specify:</p>
 </div>
-<div class="paragraph">
-<p>verb some_object</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">verb</span> some_object&#x000A;    <span class="hl opt">*</span> <span class="hl kwa">object</span>        DoVerb</code></pre>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p>object DoVerb</p>
-</li>
-</ul>
 </div>
 <div class="paragraph">
-<p>which will have the effect of, instead of defining the verb with a dictionary word, checking at runtime some_object.noun as the verb word to be matched. What this allows is for the some_object.noun property to be a routine that can return varying values at runtime in order to provide for dynamic grammar, if required. However, since this sort of dynamic grammar isn&#8217;t often required, static grammar definitions are far more common.</p>
+<p>which will have the effect of, instead of defining the verb with a dictionary word, checking at runtime <code>some_object.noun</code> as the verb word to be matched.
+What this allows is for the <code>some_object.noun</code> property to be a routine that can return varying values at runtime in order to provide for dynamic grammar, if required.
+However, since this sort of dynamic grammar isn&#8217;t often required, static grammar definitions are far more common.</p>
 </div>
 <div class="paragraph">
-<p>Next in the header comes one or more verb words. Each of the specified words will share the following verb grammar <em>exactly</em>. This is why <code>get</code> and <code>take</code> in the above examples are defined separately, instead of as</p>
+<p>Next in the header comes one or more verb words.
+Each of the specified words will share the following verb grammar <em>exactly</em>.
+This is why <code>get</code> and <code>take</code> in the above examples are defined separately, instead of as</p>
 </div>
-<div class="paragraph">
-<p>verb "get", "take"</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">verb</span> <span class="hl str">&quot;get&quot;</span>, <span class="hl str">&quot;take&quot;</span></code></pre>
+</div>
 </div>
 <div class="paragraph">
 <p>In this way, the commands like</p>
 </div>
-<div class="paragraph">
-<p>&gt;get up</p>
+<div class="exampleblock gametranscript">
+<div class="content">
+&gt;get up
+</div>
 </div>
 <div class="paragraph">
 <p>and</p>
 </div>
-<div class="paragraph">
-<p>&gt;take off hat</p>
+<div class="exampleblock gametranscript">
+<div class="content">
+&gt;take off hat
+</div>
 </div>
 <div class="paragraph">
 <p>are allowable, while</p>
 </div>
-<div class="paragraph">
-<p>&gt;take up</p>
+<div class="exampleblock gametranscript">
+<div class="content">
+&gt;take up
+</div>
 </div>
 <div class="paragraph">
 <p>and</p>
 </div>
-<div class="paragraph">
-<p>&gt;get off hat</p>
+<div class="exampleblock gametranscript">
+<div class="content">
+&gt;get off hat
+</div>
 </div>
 <div class="paragraph">
 <p>won&#8217;t make any sense.</p>
 </div>
 <div class="paragraph">
-<p>Each line beginning with an asterisk (<code>*</code>) is a separate valid usage of the verb being defined. (Every player input line must begin with a verb. Exceptions, where a command is directed to an object as in</p>
-</div>
-<div class="paragraph">
-<p>&gt;Ned, get the ball</p>
-</div>
-<div class="paragraph">
-<p>will be dealt with later.)</p>
-</div>
-<div class="paragraph">
-<p>Up to two objects and any number of dictionary words may make up a syntax line. The objects must be separated by at least one dictionary word.</p>
-</div>
-<div class="paragraph">
-<p>Valid object specifications are:</p>
-</div>
-<div class="paragraph">
-<p>object any visible object (the direct object)</p>
-</div>
-<div class="paragraph">
-<p>xobject the indirect object</p>
-</div>
-<div class="paragraph">
-<p>attribute any visible object that is attribute</p>
-</div>
-<div class="paragraph">
-<p>parent an xobject that is the parent of the object</p>
-</div>
-<div class="paragraph">
-<p>held any object possessed by the player object</p>
-</div>
-<div class="paragraph">
-<p>notheld an object explicitly not held</p>
-</div>
-<div class="paragraph">
-<p>anything any object, held or not, visible or not</p>
-</div>
-<div class="paragraph">
-<p>multi multiple visible objects</p>
-</div>
-<div class="paragraph">
-<p>multiheld multiple held objects</p>
-</div>
-<div class="paragraph">
-<p>multinotheld multiple notheld objects</p>
-</div>
-<div class="paragraph">
-<p>number a positive integer number</p>
-</div>
-<div class="paragraph">
-<p>word any dictionary word</p>
-</div>
-<div class="paragraph">
-<p>string a quoted string</p>
-</div>
-<div class="paragraph">
-<p>(RoutineName) a routine name, in parentheses</p>
-</div>
-<div class="paragraph">
-<p>(objectname) a single object name, in parentheses</p>
-</div>
-<div class="paragraph">
-<p>(If a number is specified in the grammar syntax, it will be passed to the verbroutine in the object global. If a string is specified, it will be passed in the engine&#8217;s parse$ variable, which can then be turned into a string array using the string function.)</p>
-</div>
-<div class="paragraph">
-<p>Dictionary words that may be used interchangeably are separated by a slash (<code>/</code>).</p>
-</div>
-<div class="paragraph">
-<p>Two or more dictionary words in sequence must be specified separately. That is, in the input line:</p>
-</div>
-<div class="paragraph">
-<p>&gt;take hat out of suitcase</p>
-</div>
-<div class="paragraph">
-<p>the syntax line</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>object "out" "of" container</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>will be matched, while</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>object "out of" container</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>would never be recognized, since the engine will automatically parse &#8220;out&#8221; and &#8220;of&#8221; as two separate words; the parser will never find a match for &#8220;out of&#8221;.</p>
-</div>
-<div class="paragraph">
-<p>Regarding object specification within the syntax line: once the direct object has been found, the remaining object in the input line will be stored as the xobject. That is, in the example immediately above, a valid object in the input line with the attribute container will be treated as the indirect object by the verb routine.</p>
+<p>Each line beginning with an asterisk (<code>*</code>) is a separate valid usage of the verb being defined.</p>
 </div>
 <div class="admonitionblock note">
 <table>
 <tr>
 <td class="icon">
 <i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Every player input line must begin with a verb.
+Exceptions, where a command is directed to an object as in</p>
+</div>
+<div class="exampleblock gametranscript">
+<div class="content">
+&gt;Ned, get the ball
+</div>
+</div>
+<div class="paragraph">
+<p>will be dealt with later.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Up to two objects and any number of dictionary words may make up a syntax line.
+The objects must be separated by at least one dictionary word.</p>
+</div>
+<div class="paragraph">
+<p>Valid object specifications are:</p>
+</div>
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+<code>object</code>        
+</td>
+<td class="hdlist2">
+<p>any visible object (the direct object)</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>xobject</code>       
+</td>
+<td class="hdlist2">
+<p>the indirect object</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>attribute</code>     
+</td>
+<td class="hdlist2">
+<p>any visible object that is <code>attribute</code></p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>parent</code>        
+</td>
+<td class="hdlist2">
+<p>an xobject that is the parent of the object</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>held</code>          
+</td>
+<td class="hdlist2">
+<p>any object possessed by the player object</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>notheld</code>       
+</td>
+<td class="hdlist2">
+<p>an object explicitly not held</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>anything</code>      
+</td>
+<td class="hdlist2">
+<p>any object, held or not, visible or not</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>multi</code>         
+</td>
+<td class="hdlist2">
+<p>multiple visible objects</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>multiheld</code>     
+</td>
+<td class="hdlist2">
+<p>multiple held objects</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>multinotheld</code>  
+</td>
+<td class="hdlist2">
+<p>multiple notheld objects</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>number</code>        
+</td>
+<td class="hdlist2">
+<p>a positive integer number</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>word</code>          
+</td>
+<td class="hdlist2">
+<p>any dictionary word</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>string</code>        
+</td>
+<td class="hdlist2">
+<p>a quoted string</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>(RoutineName)</code> 
+</td>
+<td class="hdlist2">
+<p>a routine name, in parentheses</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>(objectname)</code>  
+</td>
+<td class="hdlist2">
+<p>a single object name, in parentheses</p>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>If a number is specified in the grammar syntax, it will be passed to the verbroutine in the <code>object</code> global.
+If a string is specified, it will be passed in the engine&#8217;s <code>parse$</code> variable, which can then be turned into a string array using the <code>string</code> function.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Dictionary words that may be used interchangeably are separated by a slash (<code>/</code>).</p>
+</div>
+<div class="paragraph">
+<p>Two or more dictionary words in sequence must be specified separately.
+That is, in the input line:</p>
+</div>
+<div class="exampleblock gametranscript">
+<div class="content">
+&gt;take hat out of suitcase
+</div>
+</div>
+<div class="paragraph">
+<p>the syntax line</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl opt">*</span> <span class="hl kwa">object</span> <span class="hl str">&quot;out&quot;</span> <span class="hl str">&quot;of&quot;</span> container</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>will be matched, while</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl opt">*</span> <span class="hl kwa">object</span> <span class="hl str">&quot;out of&quot;</span> container</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>would never be recognized, since the engine will automatically parse &#8220;out&#8221; and &#8220;of&#8221; as two separate words; the parser will never find a match for &#8220;out of&#8221;.</p>
+</div>
+<div class="paragraph">
+<p>Regarding object specification within the syntax line: once the direct object has been found, the remaining object in the input line will be stored as the xobject.
+That is, in the example immediately above, a valid object in the input line with the attribute <code>container</code> will be treated as the indirect object by the verb routine.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
 </td>
 <td class="content">
 <div class="paragraph">
@@ -7582,79 +7605,65 @@ Assume that the player&#8217;s amount of rest is kept in a property called <code
 <div class="paragraph">
 <p>Consider the following:</p>
 </div>
-<div class="paragraph">
-<p>verb "pick"</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">verb</span> <span class="hl str">&quot;pick&quot;</span>&#x000A;        <span class="hl opt">*</span> <span class="hl kwa">object</span>            DoGet&#x000A;        <span class="hl opt">*</span> <span class="hl str">&quot;up&quot;</span> <span class="hl kwa">object</span>       DoGet</code></pre>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p>object DoGet</p>
-</li>
-<li>
-<p>"up" object DoGet</p>
-</li>
-</ul>
 </div>
 <div class="paragraph">
 <p>This definition will result in something like</p>
 </div>
+<div class="exampleblock gametranscript">
+<div class="content">
 <div class="paragraph">
 <p>&gt;pick up box</p>
 </div>
 <div class="paragraph">
 <p>You haven&#8217;t seen any "up box", nor are you likely to in the near future even if such a thing exists.</p>
 </div>
+</div>
+</div>
 <div class="paragraph">
 <p>(assuming that &#8220;up&#8221; has been defined elsewhere as part of a different object name, as in <strong>objlib.h</strong>), because the processor processes the syntax</p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p>object</p>
-</li>
-</ul>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">&#8288;        <span class="hl opt">*</span> <span class="hl kwa">object</span></code></pre>
+</div>
 </div>
 <div class="paragraph">
 <p>and determines that an invalid object name is being used; it never gets to</p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p>"up" object</p>
-</li>
-</ul>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">&#8288;        <span class="hl opt">*</span> <span class="hl str">&quot;up&quot;</span> <span class="hl kwa">object</span></code></pre>
+</div>
 </div>
 <div class="paragraph">
 <p>The proper verb definition would be ordered like</p>
 </div>
-<div class="paragraph">
-<p>verb "pick"</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">verb</span> <span class="hl str">&quot;pick&quot;</span>&#x000A;        <span class="hl opt">*</span> <span class="hl str">&quot;up&quot;</span> <span class="hl kwa">object</span>       DoGet&#x000A;        <span class="hl opt">*</span> <span class="hl kwa">object</span>            DoGet</code></pre>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p>"up" object DoGet</p>
-</li>
-<li>
-<p>object DoGet</p>
-</li>
-</ul>
 </div>
 <div class="paragraph">
-<p>so that both “pick &lt;object&gt;“ and “pick up &lt;object&gt;“ are valid player commands. It&#8217;s generally good practice to make sure that more specific grammar precedes more general grammar for this reason.</p>
+<p>so that both &#8220;pick &lt;object&gt;&#8221; and &#8220;pick up &lt;object&gt;&#8221; are valid player commands.
+It&#8217;s generally good practice to make sure that more specific grammar precedes more general grammar for this reason.</p>
 </div>
 <div class="paragraph">
-<p>To define a new grammar condition that will take precedence over an existing one&#8212;&#8203;such as in <strong>verblib.g</strong>--simply define the new condition first (i.e., before including <strong>verblib.g</strong>).</p>
+<p>To define a new grammar condition that will take precedence over an existing one&#8201;&#8212;&#8201;such as in <strong>verblib.g</strong>&#8201;&#8212;&#8201;simply define the new condition first (i.e., before including <strong>verblib.g</strong>).</p>
 </div>
-<div class="admonitionblock note">
+<div class="admonitionblock tip">
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-note" title="Note"></i>
+<i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>As a rule, unless you need to preempt the library&#8217;s normal grammar processing, include any new grammar <em>after</em> the library files. (The reason for this is that the library grammar is carefully tuned to handle situations exactly like that described above.)</p>
+<p>As a rule, unless you need to preempt the library&#8217;s normal grammar processing, include any new grammar <em>after</em> the library files.
+(The reason for this is that the library grammar is carefully tuned to handle situations exactly like that described above.)</p>
 </div>
 </td>
 </tr>
@@ -7663,31 +7672,25 @@ Assume that the player&#8217;s amount of rest is kept in a property called <code
 <div class="paragraph">
 <p>A single object may be specified as the only valid object for a particular syntax:</p>
 </div>
-<div class="paragraph">
-<p>verb "rub"</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">verb</span> <span class="hl str">&quot;rub&quot;</span>&#x000A;        <span class="hl opt">*</span> (magic_lamp)      DoRubMagicLamp</code></pre>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p>(magic_lamp) DoRubMagicLamp</p>
-</li>
-</ul>
 </div>
 <div class="paragraph">
-<p>will produce a &#8220;You can&#8217;t do that with&#8230;&#8203;&#8221; error for any object other than the magic_lamp object.</p>
+<p>will produce a &#8220;You can&#8217;t do that with&#8230;&#8203;&#8221; error for any object other than the <code>magic_lamp</code> object.</p>
 </div>
 <div class="paragraph">
-<p>Using a routine name to specify an object is slightly more involved: the engine calls the given routine with the object specified in the input line as its argument; if the routine returns true, the object is valid&#8212;&#8203;if not, a parsing error is expected to have been printed by the routine. If two routine names are used in a particular syntax, such as</p>
+<p>Using a routine name to specify an object is slightly more involved: the engine calls the given routine with the object specified in the input line as its argument; if the routine returns true, the object is valid&#8201;&#8212;&#8201;if not, a parsing error is expected to have been printed by the routine.
+If two routine names are used in a particular syntax, such as</p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p>(FirstRoutine) "with" (SecondRoutine)</p>
-</li>
-</ul>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">&#8288;        <span class="hl opt">*</span> (FirstRoutine) <span class="hl str">&quot;with&quot;</span> (SecondRoutine)</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>then FirstRoutine validates the object and SecondRoutine validates the xobject.</p>
+<p>then <code>FirstRoutine</code> validates the object and <code>SecondRoutine</code> validates the xobject.</p>
 </div>
 </div>
 <div class="sect2">
@@ -7703,133 +7706,141 @@ Assume that the player&#8217;s amount of rest is kept in a property called <code
 </td>
 <td class="content">
 <div class="paragraph">
-<p>One non-dictionary word or phrase is allowed in an input line, providing it is enclosed in quotation marks. If the command is successfully parsed and the quoted word or phrase is matched to a string grammar token, that string is passed to parse$. More than one non-dictionary word or phrase (even if the additional phrases are enclosed in quotes) are not allowed.</p>
+<p>One non-dictionary word or phrase is allowed in an input line, providing it is enclosed in quotation marks.
+If the command is successfully parsed and the quoted word or phrase is matched to a <code>string</code> grammar token, that string is passed to <code>parse$</code>.
+More than one non-dictionary word or phrase (even if the additional phrases are enclosed in quotes) are not allowed.</p>
 </div>
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>The next step is to break the line down into individual words. Words are separated by spaces and basic punctuation (including <code>!</code> and <code>?</code>) which are removed. All characters in an input line are converted to lowercase (except those inside quotation marks).</p>
+<p>The next step is to break the line down into individual words.
+Words are separated by spaces and basic punctuation (including <code>!</code> and <code>?</code>) which are removed.
+All characters in an input line are converted to lowercase (except those inside quotation marks).</p>
 </div>
 <div class="paragraph">
 <p>The next step is to process the four types of special &#8220;words&#8221; which may be defined in the source code.</p>
 </div>
 <div class="paragraph">
-<p><em>Removals</em> are the simplest. These are simply words that are to be automatically removed from any input line, and are generally limited to words such as &#8220;a&#8221; and &#8220;the&#8221; which would, generally speaking, only make grammar matching more complicated and difficult. The syntax for defining a removal is:</p>
+<p><span class="big red"><em>Removals</em></span> are the simplest.
+These are simply words that are to be automatically removed from any input line, and are generally limited to words such as &#8220;a&#8221; and &#8220;the&#8221; which would, generally speaking, only make grammar matching more complicated and difficult.
+The syntax for defining a removal is:</p>
 </div>
-<div class="paragraph">
-<p>removal "&lt;word1&gt;"[, "&lt;word2&gt;", "word&lt;3&gt;",&#8230;&#8203;]</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">removal</span> <span class="hl str">&quot;&lt;word1&gt;&quot;</span>[, <span class="hl str">&quot;&lt;word2&gt;&quot;</span>, <span class="hl str">&quot;word&lt;3&gt;&quot;</span>,...]</code></pre>
 </div>
-<div class="paragraph">
-<p>as in</p>
-</div>
-<div class="paragraph">
-<p>removal "a", "an", "the"</p>
-</div>
-<div class="paragraph">
-<p><em>Punctuation</em> is similar to a removal, except it specifies the removal of individual characters instead of whole words:</p>
-</div>
-<div class="paragraph">
-<p>punctuation "&lt;character1&gt;[&lt;character2&gt;&#8230;&#8203;]</p>
 </div>
 <div class="paragraph">
 <p>as in</p>
 </div>
-<div class="paragraph">
-<p>punctuation "$%"</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">removal</span> <span class="hl str">&quot;a&quot;</span>, <span class="hl str">&quot;an&quot;</span>, <span class="hl str">&quot;the&quot;</span></code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p><em>Synonyms</em> are slightly more complex. These are words that will never be found in the parsed input line; they are replaced by the specified word for which they are a synonym.</p>
+<p><span class="big red"><em>Punctuation</em></span> is similar to a removal, except it specifies the removal of individual characters instead of whole words:</p>
 </div>
-<div class="paragraph">
-<p>synonym "&lt;synonym&gt;" for "&lt;word&gt;"</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">punctuation</span> <span class="hl str">&quot;&lt;character1&gt;[&lt;character2&gt;...]</span></code></pre>
 </div>
-<div class="paragraph">
-<p>as in</p>
-</div>
-<div class="paragraph">
-<p>synonym "myself" for "me"</p>
-</div>
-<div class="paragraph">
-<p>The above example will replace every occurrence of &#8220;myself&#8221; in the input line with &#8220;me&#8221;. Usage of synonyms will likely not be extensive, since of course it is possible to, particularly in the case of object nouns and adjectives specify synonymous words which are still treated as distinct.</p>
-</div>
-<div class="paragraph">
-<p><em>Compounds</em> are the final type of special word, specified as:</p>
-</div>
-<div class="paragraph">
-<p>compound "&lt;word1&gt;", "&lt;word2&gt;"</p>
 </div>
 <div class="paragraph">
 <p>as in</p>
 </div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">punctuation</span> <span class="hl str">&quot;$%&quot;</span></code></pre>
+</div>
+</div>
 <div class="paragraph">
-<p>compound "out", "of"</p>
+<p><span class="big red"><em>Synonyms</em></span> are slightly more complex.
+These are words that will never be found in the parsed input line; they are replaced by the specified word for which they are a synonym.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">synonym</span> <span class="hl str">&quot;&lt;synonym&gt;&quot;</span> <span class="hl kwa">for</span> <span class="hl str">&quot;&lt;word&gt;&quot;</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>as in</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">synonym</span> <span class="hl str">&quot;myself&quot;</span> <span class="hl kwa">for</span> <span class="hl str">&quot;me&quot;</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The above example will replace every occurrence of &#8220;myself&#8221; in the input line with &#8220;me&#8221;.
+Usage of synonyms will likely not be extensive, since of course it is possible to, particularly in the case of object nouns and adjectives specify synonymous words which are still treated as distinct.</p>
+</div>
+<div class="paragraph">
+<p><span class="big red"><em>Compounds</em></span> are the final type of special word, specified as:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">compound</span> <span class="hl str">&quot;&lt;word1&gt;&quot;</span>, <span class="hl str">&quot;&lt;word2&gt;&quot;</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>as in</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">compound</span> <span class="hl str">&quot;out&quot;</span>, <span class="hl str">&quot;of&quot;</span></code></pre>
+</div>
 </div>
 <div class="paragraph">
 <p>so that the input line</p>
 </div>
-<div class="paragraph">
-<p>&gt;get hat out of suitcase</p>
+<div class="exampleblock gametranscript">
+<div class="content">
+&gt;get hat out of suitcase
+</div>
 </div>
 <div class="paragraph">
 <p>would be parsed to</p>
 </div>
-<div class="paragraph">
-<p>&gt;get hat outof suitcase</p>
+<div class="exampleblock gametranscript">
+<div class="content">
+&gt;get hat outof suitcase
+</div>
 </div>
 <div class="paragraph">
 <p>Depending on the design of grammar tables for certain syntaxes, the use of compounds may make grammar definition more straightforward, so that by using the above compound,</p>
 </div>
-<div class="paragraph">
-<p>verb "get"</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">verb</span> <span class="hl str">&quot;get&quot;</span>&#x000A;        <span class="hl opt">*</span> <span class="hl kwa">multinotheld</span> <span class="hl str">&quot;outof&quot;</span><span class="hl opt">/</span><span class="hl str">&quot;offof&quot;</span><span class="hl opt">/</span><span class="hl str">&quot;from&quot;</span> <span class="hl kwa">parent</span></code></pre>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p>multinotheld "outof"/"offof"/"from" parent</p>
-</li>
-</ul>
 </div>
 <div class="paragraph">
 <p>is possible, and likely more desirable to</p>
 </div>
-<div class="paragraph">
-<p>verb "get"</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">verb</span> <span class="hl str">&quot;get&quot;</span>&#x000A;        <span class="hl opt">*</span> <span class="hl kwa">multinotheld</span> <span class="hl str">&quot;out&quot;</span><span class="hl opt">/</span><span class="hl str">&quot;off&quot;</span> <span class="hl str">&quot;of&quot;</span> <span class="hl kwa">parent</span>&#x000A;        <span class="hl opt">*</span> <span class="hl kwa">multinotheld</span> <span class="hl str">&quot;from&quot;</span> <span class="hl kwa">parent</span></code></pre>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p>multinotheld "out"/"off" "of" parent</p>
-</li>
-<li>
-<p>multinotheld "from" parent</p>
-</li>
-</ul>
 </div>
 <div class="paragraph">
-<p>When the parser has finished processing the input line, the result is a specially defined (by the Hugo Engine) array called word[], where the number of valid elements is held in the global variable words. Therefore, in</p>
+<p>When the parser has finished processing the input line, the result is a specially defined (by the Hugo Engine) array called <code>word[]</code>, where the number of valid elements is held in the global variable <code>words</code>.
+Therefore, in</p>
+</div>
+<div class="exampleblock gametranscript">
+<div class="content">
+&gt;get the hat from the table
+</div>
 </div>
 <div class="paragraph">
-<p>&gt;get the hat from the table</p>
+<p>the parser&#8201;&#8212;&#8201;using the removals defined in <strong>hugolib.h</strong>&#8201;&#8212;&#8201;will produce the following results:</p>
 </div>
-<div class="paragraph">
-<p>the parser&#8212;&#8203;using the removals defined in <strong>hugolib.h</strong>--will produce the following results:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">word</span>[<span class="hl num">1</span>] <span class="hl opt">=</span> <span class="hl str">&quot;get&quot;</span>&#x000A;<span class="hl kwa">word</span>[<span class="hl num">2</span>] <span class="hl opt">=</span> <span class="hl str">&quot;hat&quot;</span>&#x000A;<span class="hl kwa">word</span>[<span class="hl num">3</span>] <span class="hl opt">=</span> <span class="hl str">&quot;from&quot;</span>&#x000A;<span class="hl kwa">word</span>[<span class="hl num">4</span>] <span class="hl opt">=</span> <span class="hl str">&quot;table&quot;</span>&#x000A;&#x000A;words <span class="hl opt">=</span> <span class="hl num">4</span></code></pre>
 </div>
-<div class="paragraph">
-<p>word[1] = "get"</p>
-</div>
-<div class="paragraph">
-<p>word[2] = "hat"</p>
-</div>
-<div class="paragraph">
-<p>word[3] = "from"</p>
-</div>
-<div class="paragraph">
-<p>word[4] = "table"</p>
-</div>
-<div class="paragraph">
-<p>words = 4</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -7845,71 +7856,52 @@ Assume that the player&#8217;s amount of rest is kept in a property called <code
 </tr>
 </table>
 </div>
-<div class="paragraph">
-<p>&gt;get hat. go n. go e.</p>
+<div class="exampleblock gametranscript">
+<div class="content">
+&gt;get hat. go n. go e.
+</div>
 </div>
 <div class="paragraph">
 <p>would become</p>
 </div>
-<div class="paragraph">
-<p>word[1] = "get"</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">word</span>[<span class="hl num">1</span>] <span class="hl opt">=</span> <span class="hl str">&quot;get&quot;</span>&#x000A;<span class="hl kwa">word</span>[<span class="hl num">2</span>] <span class="hl opt">=</span> <span class="hl str">&quot;hat&quot;</span>&#x000A;<span class="hl kwa">word</span>[<span class="hl num">3</span>] <span class="hl opt">=</span> <span class="hl str">&quot;&quot;</span>&#x000A;<span class="hl kwa">word</span>[<span class="hl num">4</span>] <span class="hl opt">=</span> <span class="hl str">&quot;go&quot;</span>&#x000A;<span class="hl kwa">word</span>[<span class="hl num">5</span>] <span class="hl opt">=</span> <span class="hl str">&quot;n&quot;</span>&#x000A;<span class="hl kwa">word</span>[<span class="hl num">6</span>] <span class="hl opt">=</span> <span class="hl str">&quot;&quot;</span>&#x000A;<span class="hl kwa">word</span>[<span class="hl num">7</span>] <span class="hl opt">=</span> <span class="hl str">&quot;go&quot;</span>&#x000A;<span class="hl kwa">word</span>[<span class="hl num">8</span>] <span class="hl opt">=</span> <span class="hl str">&quot;e&quot;</span>&#x000A;<span class="hl kwa">word</span>[<span class="hl num">9</span>] <span class="hl opt">=</span> <span class="hl str">&quot;&quot;</span>&#x000A;&#x000A;words <span class="hl opt">=</span> <span class="hl num">9</span></code></pre>
 </div>
-<div class="paragraph">
-<p>word[2] = "hat"</p>
 </div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
 <div class="paragraph">
-<p>word[3] = ""</p>
+<p>See <strong>hugolib.h</strong> for an example of how</p>
 </div>
-<div class="paragraph">
-<p>word[4] = "go"</p>
+<div class="exampleblock gametranscript">
+<div class="content">
+&gt;get hat then go n
 </div>
-<div class="paragraph">
-<p>word[5] = "n"</p>
-</div>
-<div class="paragraph">
-<p>word[6] = ""</p>
-</div>
-<div class="paragraph">
-<p>word[7] = "go"</p>
-</div>
-<div class="paragraph">
-<p>word[8] = "e"</p>
-</div>
-<div class="paragraph">
-<p>word[9] = ""</p>
-</div>
-<div class="paragraph">
-<p>words = 9</p>
-</div>
-<div class="paragraph">
-<p>(See <strong>hugolib.h</strong> for an example of how</p>
-</div>
-<div class="paragraph">
-<p>&gt;get hat then go n</p>
 </div>
 <div class="paragraph">
 <p>is translated into:</p>
 </div>
-<div class="paragraph">
-<p>word[1] = "get"</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">word</span>[<span class="hl num">1</span>] <span class="hl opt">=</span> <span class="hl str">&quot;get&quot;</span>&#x000A;<span class="hl kwa">word</span>[<span class="hl num">2</span>] <span class="hl opt">=</span> <span class="hl str">&quot;hat&quot;</span>&#x000A;<span class="hl kwa">word</span>[<span class="hl num">3</span>] <span class="hl opt">=</span> <span class="hl str">&quot;&quot;</span>&#x000A;<span class="hl kwa">word</span>[<span class="hl num">4</span>] <span class="hl opt">=</span> <span class="hl str">&quot;go&quot;</span>&#x000A;<span class="hl kwa">word</span>[<span class="hl num">5</span>] <span class="hl opt">=</span> <span class="hl str">&quot;n&quot;</span></code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>word[2] = "hat"</p>
+<p>in the <code>Parse</code> routine.</p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
-<p>word[3] = ""</p>
-</div>
-<div class="paragraph">
-<p>word[4] = "go"</p>
-</div>
-<div class="paragraph">
-<p>word[5] = "n"</p>
-</div>
-<div class="paragraph">
-<p>in the Parse routine.)</p>
-</div>
-<div class="paragraph">
-<p>A maximum of thirty-two words is allowed. The period is in each case converted to the empty dictionary entry (<code>""</code>; dictionary address = 0), which is a signal to the engine that processing of the current command should end here.</p>
+<p>A maximum of thirty-two words is allowed.
+The period is in each case converted to the empty dictionary entry (<code>""</code>; dictionary address = 0), which is a signal to the engine that processing of the current command should end here.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -7919,95 +7911,112 @@ Assume that the player&#8217;s amount of rest is kept in a property called <code
 </td>
 <td class="content">
 <div class="paragraph">
-<p>The parsing and grammar routines also recognize several system words, each in the format <code>~word</code>. These are:</p>
+<p>The parsing and grammar routines also recognize several system words, each in the format <code>~word</code>.
+These are:</p>
 </div>
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+<code>~and</code>    
+</td>
+<td class="hdlist2">
+<p>referring to: multiple specific objects</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>~all</code>    
+</td>
+<td class="hdlist2">
+<p>referring to: multiple objects in general</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>~any</code>    
+</td>
+<td class="hdlist2">
+<p>referring to: any one of a list of objects</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>~except</code> 
+</td>
+<td class="hdlist2">
+<p>referring to: an excluded object</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>~oops</code>   
+</td>
+<td class="hdlist2">
+<p>to correct an error in the previous input line</p>
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p><strong>~and referring to: multiple specific objects</strong></p>
-</div>
-<div class="paragraph">
-<p><strong>~all “ “ multiple objects in general</strong></p>
-</div>
-<div class="paragraph">
-<p><strong>~any “ “ any one of a list of objects</strong></p>
-</div>
-<div class="paragraph">
-<p><strong>~except “ “ an excluded object</strong></p>
-</div>
-<div class="paragraph">
-<p><strong>~oops to correct an error in the previous input line</strong></p>
-</div>
-<div class="paragraph">
 <p>To allow an input line to access any of these system words, a synonym must be defined, such as:</p>
 </div>
-<div class="paragraph">
-<p>synonym <code>and</code> for <code>~and</code></p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">synonym</span> <span class="hl str">&quot;and&quot;</span> <span class="hl kwa">for</span> <span class="hl str">&quot;~and&quot;</span></code></pre>
+</div>
 </div>
 <div class="paragraph">
 <p>The library defines several such synonyms.</p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_what_should_i_be_able_to_do_now_7"><a class="anchor" href="#_what_should_i_be_able_to_do_now_7"></a>7.3. <em>What Should I Be Able To Do Now?</em></h3>
 <div class="paragraph">
-<p>It should by now be relatively straightforward how to go about adding a new verb (with appropriate grammer)--or even modifying an existing one. For instance, consider a game in which disco dancing plays an absolutely vital role, and where the command &#8220;&gt;GET DOWN&#8221; must at all costs be implemented as a synonym for &#8220;&gt;DANCE&#8221; or &#8220;&gt;BOOGIE&#8221;.</p>
+<p>It should by now be relatively straightforward how to go about adding a new verb (with appropriate grammar)&#8201;&#8212;&#8201;or even modifying an existing one.
+For instance, consider a game in which disco dancing plays an absolutely vital role, and where the command &#8220;&gt;GET DOWN&#8221; must at all costs be implemented as a synonym for &#8220;&gt;DANCE&#8221; or &#8220;&gt;BOOGIE&#8221;.</p>
 </div>
 <div class="paragraph">
 <p>For starters, you&#8217;ll need to add the initial grammar and verbroutine:</p>
 </div>
-<div class="paragraph">
-<p>verb "dance", "boogie"</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">verb</span> <span class="hl str">&quot;dance&quot;</span>, <span class="hl str">&quot;boogie&quot;</span>&#x000A;        <span class="hl opt">*</span>                   DoDance</code></pre>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p>DoDance</p>
-</li>
-</ul>
 </div>
 <div class="paragraph">
 <p>and</p>
 </div>
-<div class="paragraph">
-<p>routine DoDance</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">routine</span> DoDance&#x000A;{&#x000A;    <span class="hl str">&quot;You get down, all night long.&quot;</span>&#x000A;}</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>\{</p>
+<p>Keep in mind that the verb definition, as with all grammar, must come before any other code, definitions, etc.
+Now, you&#8217;ll have to add the &#8220;&gt;GET DOWN&#8221; grammar:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">verb</span> <span class="hl str">&quot;get&quot;</span>&#x000A;        <span class="hl opt">*</span> <span class="hl str">&quot;down&quot;</span>            DoDance</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>"You get down, all night long."</p>
+<p>Now, this must come both before any other code or definitions as well as the <em>existing</em> grammar for &#8220;&gt;GET &lt;object&gt;&#8221; (from <strong>VERBLIB.G</strong>).
+Otherwise, the regular grammar for</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">&#8288;        <span class="hl opt">*</span> <span class="hl kwa">object</span>            DoGet</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>}</p>
-</div>
-<div class="paragraph">
-<p>Keep in mind that the verb definition, as with all grammar, must come before any other code, definitions, etc. Now, you&#8217;ll have to add the &#8220;&gt;GET DOWN&#8221; grammar:</p>
-</div>
-<div class="paragraph">
-<p>verb "get"</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>"down" DoDance</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Now, this must come both before any other code or definitions as well as the <em>existing</em> grammar for &#8220;&gt;GET &lt;object&gt;&#8221; (from VERBLIB.G). Otherwise, the regular grammar for</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>object DoGet</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>will take precedence. By superseding it, however, we ensure that any grammar matching the desired pattern will result in DoDance being called instead.</p>
+<p>will take precedence.
+By superseding it, however, we ensure that any grammar matching the desired pattern will result in <code>DoDance</code> being called instead.</p>
 </div>
 </div>
 </div>

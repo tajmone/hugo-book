@@ -122,7 +122,7 @@ Every chapter in the list provides an [HTML Live Preview] link to quickly jump t
     + [x]  [4. _HUGO PROGRAMMING_][Ch4]
     + [x]  [5. _ROUTINES AND EVENTS_][Ch5]
     + [x]  [6. _FUSES, DAEMONS, AND SCRIPTS_][Ch6]
-    + [ ]  [7. _GRAMMAR AND PARSING_][Ch7]
+    + [x]  [7. _GRAMMAR AND PARSING_][Ch7]
     + [ ]  [8. _JUNCTION ROUTINES_][Ch8]
     + [x]  [9. _THE GAME LOOP_][Ch9]
     + [ ]  [10. _USING THE OBJECT LIBRARY_][Ch10]
