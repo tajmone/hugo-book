@@ -535,7 +535,7 @@ div.literalblock.cmd pre .conum {
 <span id="email" class="email"><a href="mailto:general@generalcoffee.com">general@generalcoffee.com</a></span><br>
 <span id="revnumber">version 1,</span>
 <span id="revdate">2018-10-04</span>
-<br><span id="revremark">Draft 60 -- Porting to AsciiDoc</span>
+<br><span id="revremark">Draft 61 -- Porting to AsciiDoc</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -8990,929 +8990,620 @@ You would simply interrupt the <code>DoGet</code> routine before it even execute
 <h2 id="_using_the_object_library"><a class="anchor" href="#_using_the_object_library"></a>10. USING THE OBJECT LIBRARY</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The Hugo Object Library (<strong>objlib.h</strong>), included by default by <strong>hugolib.h</strong> as part of the standard Hugo Library, provides a number of useful classes for common elements of many games. These classes can be used as-is to create objects or as base classes for more complex and/or game-specific classes.</p>
+<p>The Hugo Object Library (<strong>objlib.h</strong>), included by default by <strong>hugolib.h</strong> as part of the standard Hugo Library, provides a number of useful classes for common elements of many games.
+These classes can be used as-is to create objects or as base classes for more complex and/or game-specific classes.</p>
 </div>
 <div class="sect2">
 <h3 id="_rooms_and_directions"><a class="anchor" href="#_rooms_and_directions"></a>10.1. Rooms and Directions</h3>
 <div class="paragraph">
-<p>Most games will make use of rooms, directions, and possibly characters. A room in this context is an object which specifically functions as a location in the game world, and as such contains other objects as children in branches beneath it in the object tree. Despite being called &#8220;rooms&#8221;, these generic locations aren&#8217;t explicitly indoors or outdoors; most games won&#8217;t make a distinction except in the textual description (the long_desc) of the location.</p>
+<p>Most games will make use of rooms, directions, and possibly characters.
+A room in this context is an object which specifically functions as a location in the game world, and as such contains other objects as children in branches beneath it in the object tree.
+Despite being called &#8220;rooms&#8221;, these generic locations aren&#8217;t explicitly indoors or outdoors; most games won&#8217;t make a distinction except in the textual description (the <code>long_desc</code>) of the location.</p>
 </div>
 <div class="paragraph">
 <p>A room is defined like this:</p>
 </div>
-<div class="paragraph">
-<p>room living_room "living room"</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">room living_room <span class="hl str">&quot;living room&quot;</span>&#x000A;{&#x000A;    long_desc&#x000A;        <span class="hl str">&quot;The living room is about fifteen feet</span>&#x000A;<span class="hl str">        square, with a bay window on one wall</span>&#x000A;<span class="hl str">        looking out over the garden. The kitchen</span>&#x000A;<span class="hl str">        is to the south, or you can walk into the</span>&#x000A;<span class="hl str">        back hallway to the east.&quot;</span>&#x000A;}</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>\{</p>
+<p>Since a room is not placed within another object in the object tree (using the <code>in</code> directive), it automatically has a parent of 0 or <code>nothing</code>.
+By inheriting from the <code>room</code> class, the <code>living_room</code> object acquires the characteristics defined in the object library, including being <code>static</code> and <code>light</code><sup class="footnote">[<a id="_footnoteref_47" class="footnote" href="#_footnotedef_47" title="View footnote.">47</a>]</sup>.</p>
 </div>
 <div class="paragraph">
-<p>long_desc</p>
+<p>Additionally, as with other classes in the object library, the <code>type</code> property of an object can be checked to see which class it was derived from.
+In this case, <code>living_room.type</code> would equal <code>room</code>.
+(Of course, <code>living_room</code> or an object subsequently derived from <code>living_room</code> could set its <code>type</code> property to something other than <code>room</code>.)</p>
 </div>
 <div class="paragraph">
-<p>"The living room is about fifteen feet</p>
+<p>Travel between rooms is managed by default using the eight cardinal compass directions (north, northeast, east, southeast, south, southwest, west, northwest) as well as up, down, in, and out.
+These are represented in object form as <code>n_obj</code>, <code>ne_obj</code>, <code>e_obj</code>, <code>se_obj</code>, <code>s_obj</code>, <code>sw_obj</code>, <code>w_obj</code>, <code>nw_obj</code>, <code>u_obj</code>, <code>d_obj</code>, <code>in_obj</code>, and <code>out_obj</code> (each derived from the <code>direction</code> class).
+Each of these objects is defined in the object library as a child of the <code>compass</code> parent object, and each defines an appropriate <code>dir_to</code> property reflecting the direction of travel it describes.
+For instance, <code>n_obj.dir_to</code> equals <code>n_to</code>, <code>in_obj.dir_to</code> equals <code>in_to</code>, etc.
+It is the <code>dir_to</code> property of a direction that is used to map out travel from one location to another.</p>
 </div>
 <div class="paragraph">
-<p>square, with a bay window on one wall</p>
+<p>The <code>living_room</code> object&#8217;s description claims that the kitchen is to the south and the back hallway is to the east, but neither connection is known to the game until those directional links are added to the object definition (and, of course, assuming that the <code>kitchen</code> and <code>back_hallway</code> objects also exist).</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">room living_room <span class="hl str">&quot;living room&quot;</span>&#x000A;{&#x000A;    long_desc&#x000A;        <span class="hl str">&quot;The living room is about fifteen feet</span>&#x000A;<span class="hl str">        square, with a bay window on one wall</span>&#x000A;<span class="hl str">        looking out over the garden. The kitchen</span>&#x000A;<span class="hl str">        is to the south, or you can walk into the</span>&#x000A;<span class="hl str">        back hallway to the east.&quot;</span>&#x000A;    s_to kitchen&#x000A;    e_to back_hallway&#x000A;}</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>looking out over the garden. The kitchen</p>
+<p>The player will now be able to go either south or east from the kitchen.
+Keep in mind, however, that it is possible to make travel from one location to another one-way.
+In order to allow the player to travel back to the living kitchen in the same direction, you would need to add</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">n_to living_room</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>is to the south, or you can walk into the</p>
+<p>to the <code>kitchen</code> object and</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">w_to living_room</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>back hallway to the east."</p>
-</div>
-<div class="paragraph">
-<p>}</p>
-</div>
-<div class="paragraph">
-<p>Since a room is not placed within another object in the object tree (using the in directive), it automatically has a parent of 0 or nothing. By inheriting from the room class, the living_room object acquires the characteristics defined in the object library, including being static and light<sup class="footnote">[<a id="_footnoteref_47" class="footnote" href="#_footnotedef_47" title="View footnote.">47</a>]</sup>.</p>
-</div>
-<div class="paragraph">
-<p>Additionally, as with other classes in the object library, the type property of an object can be checked to see which class it was derived from. In this case, living_room.type would equal room. (Of course, living_room or an object subsequently derived from living_room could set its type property to something other than room.)</p>
-</div>
-<div class="paragraph">
-<p>Travel between rooms is managed by default using the eight cardinal compass directions (north, northeast, east, southeast, south, southwest, west, northwest) as well as up, down, in, and out. These are represented in object form as n_obj, ne_obj, e_obj, se_obj, s_obj, sw_obj, w_obj, nw_obj, u_obj, d_obj, in_obj, and out_obj (each derived from the direction class). Each of these objects is defined in the object library as a child of the compass parent object, and each defines an appropriate dir_to property reflecting the direction of travel it describes. For instance, n_obj.dir_to equals n_to, in_obj.dir_to equals in_to, etc. It is the dir_to property of a direction that is used to map out travel from one location to another.</p>
-</div>
-<div class="paragraph">
-<p>The living_room object&#8217;s description claims that the kitchen is to the south and the back hallway is to the east, but neither connection is known to the game until those directional links are added to the object definition (and, of course, assuming that the kitchen and back_hallway objects also exist).</p>
-</div>
-<div class="paragraph">
-<p>room living_room "living room"</p>
-</div>
-<div class="paragraph">
-<p>\{</p>
-</div>
-<div class="paragraph">
-<p>long_desc</p>
-</div>
-<div class="paragraph">
-<p>"The living room is about fifteen feet</p>
-</div>
-<div class="paragraph">
-<p>square, with a bay window on one wall</p>
-</div>
-<div class="paragraph">
-<p>looking out over the garden. The kitchen</p>
-</div>
-<div class="paragraph">
-<p>is to the south, or you can walk into the</p>
-</div>
-<div class="paragraph">
-<p>back hallway to the east."</p>
-</div>
-<div class="paragraph">
-<p>s_to kitchen</p>
-</div>
-<div class="paragraph">
-<p>e_to back_hallway</p>
-</div>
-<div class="paragraph">
-<p>}</p>
-</div>
-<div class="paragraph">
-<p>The player will now be able to go either south or east from the kitchen. Keep in mind, however, that it is possible to make travel from one location to another one-way. In order to allow the player to travel back to the living kitchen in the same direction, you would need to add</p>
-</div>
-<div class="paragraph">
-<p>n_to living_room</p>
-</div>
-<div class="paragraph">
-<p>to the kitchen object and</p>
-</div>
-<div class="paragraph">
-<p>w_to living_room</p>
-</div>
-<div class="paragraph">
-<p>to the back_hallway object.</p>
+<p>to the <code>back_hallway</code> object.</p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_characters"><a class="anchor" href="#_characters"></a>10.2. Characters</h3>
 <div class="paragraph">
-<p>The basic character class takes care of defining the basic elements that the library expects character objects to have. These include obvious attributes such as living, as well as useful properties such as capacity and holding for carrying objects. Also importantly, the character class defines its pronouns property as:</p>
+<p>The basic <code>character</code> class takes care of defining the basic elements that the library expects character objects to have.
+These include obvious attributes such as <code>living</code>, as well as useful properties such as <code>capacity</code> and <code>holding</code> for carrying objects.
+Also importantly, the <code>character</code> class defines its <code>pronouns</code> property as:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">pronouns <span class="hl str">&quot;he&quot;</span>, <span class="hl str">&quot;him&quot;</span>, <span class="hl str">&quot;his&quot;</span>, <span class="hl str">&quot;himself&quot;</span></code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>pronouns "he", "him", "his", "himself"</p>
+<p>The accompanying <code>female_character</code> class (which is identical to the <code>character</code> class but with the <code>female</code> attribute) defines:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">pronouns <span class="hl str">&quot;she&quot;</span>, <span class="hl str">&quot;her&quot;</span>, <span class="hl str">&quot;her&quot;</span>, <span class="hl str">&quot;herself&quot;</span></code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>The accompanying female_character class (which is identical to the character class but with the female attribute) defines:</p>
+<p>The order of pronouns is <em>subject</em>, <em>object</em>, <em>possessive</em>, <em>reflexive</em>, so that the library can refer to the <code>pronouns</code> property to print appropriate messages such as:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">print capital object</span>.pronoun; <span class="hl str">&quot; is in the room.&quot;</span></code></pre>
+</div>
+</div>
+<div class="exampleblock gametranscript">
+<div class="content">
+He is in the room.
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">print</span> <span class="hl str">&quot;Bob gave &quot;</span>; <span class="hl kwa">object</span>.pronoun <span class="hl ppc">#2;</span> <span class="hl pps">&quot; the box. &quot;</span><span class="hl ppc"></span></code></pre>
+</div>
+</div>
+<div class="exampleblock gametranscript">
+<div class="content">
+Bob gave him the box.
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">print capital object</span>.pronoun; <span class="hl str">&quot; opened &quot;</span>; <span class="hl kwa">object</span>.pronoun <span class="hl ppc">#3;</span> <span class="hl pps">&quot; box. &quot;</span><span class="hl ppc"></span></code></pre>
+</div>
+</div>
+<div class="exampleblock gametranscript">
+<div class="content">
+He opened his box.
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">print capital object</span>.pronoun; <span class="hl str">&quot; looked at &quot;</span>; <span class="hl kwa">object</span>.pronoun <span class="hl ppc">#4;</span> <span class="hl pps">&quot; in the mirror. &quot;</span><span class="hl ppc"></span></code></pre>
+</div>
+</div>
+<div class="exampleblock gametranscript">
+<div class="content">
+He looked at himself in the mirror.
+</div>
 </div>
 <div class="paragraph">
-<p>pronouns "she", "her", "her", "herself"</p>
+<p>A <code>player_character</code> class is also provided that will usually be the basis for the player character (PC).
+A game&#8217;s PC can be defined easily as:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">player_character you <span class="hl str">&quot;you&quot;</span>&#x000A;{}</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>The order of pronouns is <em>subject</em>, <em>object</em>, <em>possessive</em>, <em>reflexive</em>, so that the library can refer to the pronouns property to print appropriate messages such as:</p>
-</div>
-<div class="paragraph">
-<p>print capital object.pronoun; " is in the room."</p>
-</div>
-<div class="paragraph">
-<p>He is in the room.</p>
-</div>
-<div class="paragraph">
-<p>print "Bob gave "; object.pronoun #2; " the box. "</p>
-</div>
-<div class="paragraph">
-<p>Bob gave him the box.</p>
-</div>
-<div class="paragraph">
-<p>print capital object.pronoun; " opened "; object.pronoun #3; " box. "</p>
-</div>
-<div class="paragraph">
-<p>He opened his box.</p>
-</div>
-<div class="paragraph">
-<p>print capital object.pronoun; " looked at "; object.pronoun #4; " in the mirror. "</p>
-</div>
-<div class="paragraph">
-<p>He looked at himself in the mirror.</p>
-</div>
-<div class="paragraph">
-<p>A player_character class is also provided that will usually be the basis for the player character (PC). A game&#8217;s PC can be defined easily as:</p>
-</div>
-<div class="paragraph">
-<p>player_character you "you"</p>
-</div>
-<div class="paragraph">
-<p>\{}</p>
-</div>
-<div class="paragraph">
-<p>The PC is by default named in the second person (as opposed to the first-person &#8220;I&#8221; or the third-person &#8220;he&#8221;, &#8220;she&#8221;, &#8220;it&#8221;, or &#8220;them&#8221;). To change to another form, it will be necessary to redefine the PC&#8217;s pronouns property accordingly, as well as to change the global variable player_person<sup class="footnote">[<a id="_footnoteref_48" class="footnote" href="#_footnotedef_48" title="View footnote.">48</a>]</sup> (which defaults to 2) to 1 or 3, as appropriate, and optionally to give a plural PC the plural attribute (in the rare case where that may be desired).</p>
+<p>The PC is by default named in the second person (as opposed to the first-person &#8220;I&#8221; or the third-person &#8220;he&#8221;, &#8220;she&#8221;, &#8220;it&#8221;, or &#8220;them&#8221;).
+To change to another form, it will be necessary to redefine the PC&#8217;s <code>pronouns</code> property accordingly, as well as to change the global variable <code>player_person</code><sup class="footnote">[<a id="_footnoteref_48" class="footnote" href="#_footnotedef_48" title="View footnote.">48</a>]</sup> (which defaults to 2) to 1 or 3, as appropriate, and optionally to give a plural PC the <code>plural</code> attribute (in the rare case where that may be desired).</p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_character_responses"><a class="anchor" href="#_character_responses"></a>10.3. Character responses</h3>
 <div class="paragraph">
-<p>One thing that will likely be important for NPCs (non-player characters) is enabling them to respond to questions and otherwise interact with the player. This is traditionally accomplished by implementing NPC responses to the verbroutines DoAsk, DoTell, DoShow, and DoGive.</p>
+<p>One thing that will likely be important for NPCs (non-player characters) is enabling them to respond to questions and otherwise interact with the player.
+This is traditionally accomplished by implementing NPC responses to the verbroutines <code>DoAsk</code>, <code>DoTell</code>, <code>DoShow</code>, and <code>DoGive</code>.</p>
+</div>
+<div class="exampleblock gametranscript">
+<div class="content">
+<div class="paragraph">
+<p>&gt;ASK GUSTAV ABOUT APPLE<br>
+"I must admit I rather prefer them to bananas," Gustav tells you.</p>
 </div>
 <div class="paragraph">
-<p>&gt;ASK GUSTAV ABOUT APPLE</p>
+<p>&gt;GIVE BANANA TO GUSTAV<br>
+"No, thank you," Gustav says. "I would rather have an apple."</p>
 </div>
-<div class="paragraph">
-<p>"I must admit I rather prefer them to bananas," Gustav tells you.</p>
 </div>
-<div class="paragraph">
-<p>&gt;GIVE BANANA TO GUSTAV</p>
-</div>
-<div class="paragraph">
-<p>"No, thank you," Gustav says. "I would rather have an apple."</p>
 </div>
 <div class="paragraph">
 <p>The grammar for asking an NPC about something looks something like this:</p>
 </div>
-<div class="paragraph">
-<p>verb "ask"</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">verb</span> <span class="hl str">&quot;ask&quot;</span>&#x000A;        <span class="hl opt">*</span> living about <span class="hl kwa">xobject</span>      DoAsk</code></pre>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p>living about xobject DoAsk</p>
-</li>
-</ul>
 </div>
 <div class="paragraph">
-<p>The object is the NPC being asked, the xobject is whatever is being asked about, and the verbroutine is DoAsk. The response is handled in the NPC&#8217;s after property routine:</p>
+<p>The object is the NPC being asked, the xobject is whatever is being asked about, and the verbroutine is <code>DoAsk</code>.
+The response is handled in the NPC&#8217;s <code>after</code> property routine:</p>
 </div>
-<div class="paragraph">
-<p>after</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">after</span>&#x000A;{&#x000A;    <span class="hl kwa">object</span> DoAsk&#x000A;    {&#x000A;        <span class="hl kwa">select xobject</span>&#x000A;        <span class="hl kwa">case</span> apple&#x000A;            <span class="hl str">&quot;</span><span class="hl esc">\&quot;</span><span class="hl str">I must admit I rather prefer them to</span>&#x000A;<span class="hl str">            bananas,</span><span class="hl esc">\&quot;</span> <span class="hl str">Gustav tells you.&quot;</span>&#x000A;        <span class="hl kwa">case else</span>&#x000A;            <span class="hl kwa">return false</span>    <span class="hl slc">! important</span>&#x000A;    }&#x000A;}</code></pre>
 </div>
-<div class="paragraph">
-<p>\{</p>
-</div>
-<div class="paragraph">
-<p>object DoAsk</p>
-</div>
-<div class="paragraph">
-<p>\{</p>
-</div>
-<div class="paragraph">
-<p>select xobject</p>
-</div>
-<div class="paragraph">
-<p>case apple</p>
-</div>
-<div class="paragraph">
-<p>"\"I must admit I rather prefer them to bananas,\" Gustav tells you."</p>
-</div>
-<div class="paragraph">
-<p>case else</p>
-</div>
-<div class="paragraph">
-<p>return false ! important</p>
-</div>
-<div class="paragraph">
-<p>}</p>
-</div>
-<div class="paragraph">
-<p>}</p>
 </div>
 <div class="paragraph">
 <p>Note that it&#8217;s necessary to return false if the routine fails to find an appropriate response.</p>
 </div>
 <div class="paragraph">
-<p>DoTell responses are handled similarly to DoAsk, since the NPC is the object and whatever is being told about is the xobject:</p>
+<p><code>DoTell</code> responses are handled similarly to <code>DoAsk</code>, since the NPC is the object and whatever is being told about is the xobject:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">verb</span> <span class="hl str">&quot;tell&quot;</span>&#x000A;        <span class="hl opt">*</span> living about <span class="hl kwa">xobject</span>      DoTell</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>verb "tell"</p>
+<p><code>DoGive</code> and <code>DoShow</code>, however, are handled differently, since the word ordering is different:</p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p>living about xobject DoTell</p>
-</li>
-</ul>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">verb</span> <span class="hl str">&quot;give&quot;</span>&#x000A;        <span class="hl opt">*</span> <span class="hl kwa">object to</span> living          DoGive&#x000A;&#x000A;<span class="hl kwa">verb</span> <span class="hl str">&quot;show&quot;</span>&#x000A;        <span class="hl opt">*</span> <span class="hl kwa">object to</span> living          DoShow</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>DoGive and DoShow, however, are handled differently, since the word ordering is different:</p>
+<p>For these, the <code>after</code> property routine will look something like:</p>
 </div>
-<div class="paragraph">
-<p>verb "give"</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">after</span>&#x000A;{&#x000A;    <span class="hl kwa">object</span> DoAsk&#x000A;    {&#x000A;        ...&#x000A;    }&#x000A;    <span class="hl kwa">xobject</span> DoGive&#x000A;    {&#x000A;        <span class="hl kwa">select object</span>&#x000A;        <span class="hl kwa">case</span> banana&#x000A;            <span class="hl str">&quot;</span><span class="hl esc">\&quot;</span><span class="hl str">No thank you,</span><span class="hl esc">\&quot;</span> <span class="hl str">Gustav says.</span> <span class="hl esc">\&quot;</span><span class="hl str">I</span>&#x000A;<span class="hl str">            would rather have an apple.</span><span class="hl esc">\&quot;</span><span class="hl str">&quot;</span>&#x000A;        <span class="hl kwa">case else</span>&#x000A;            <span class="hl kwa">return false</span>&#x000A;    }&#x000A;    <span class="hl kwa">xobject</span> DoShow&#x000A;    {&#x000A;        <span class="hl kwa">select object</span>&#x000A;        ...&#x000A;        <span class="hl kwa">case else</span>&#x000A;            <span class="hl kwa">return false</span>&#x000A;    }&#x000A;}</code></pre>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p>object to living DoGive</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>verb "show"</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>object to living DoShow</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>For these, the after property routine will look something like:</p>
-</div>
-<div class="paragraph">
-<p>after</p>
-</div>
-<div class="paragraph">
-<p>\{</p>
-</div>
-<div class="paragraph">
-<p>object DoAsk</p>
-</div>
-<div class="paragraph">
-<p>\{</p>
-</div>
-<div class="paragraph">
-<p>&#8230;&#8203;</p>
-</div>
-<div class="paragraph">
-<p>}</p>
-</div>
-<div class="paragraph">
-<p>xobject DoGive</p>
-</div>
-<div class="paragraph">
-<p>\{</p>
-</div>
-<div class="paragraph">
-<p>select object</p>
-</div>
-<div class="paragraph">
-<p>case banana</p>
-</div>
-<div class="paragraph">
-<p>"\"No thank you,\" Gustav says. \"I would rather have an apple.\""</p>
-</div>
-<div class="paragraph">
-<p>case else</p>
-</div>
-<div class="paragraph">
-<p>return false</p>
-</div>
-<div class="paragraph">
-<p>}</p>
-</div>
-<div class="paragraph">
-<p>xobject DoShow</p>
-</div>
-<div class="paragraph">
-<p>\{</p>
-</div>
-<div class="paragraph">
-<p>select object</p>
-</div>
-<div class="paragraph">
-<p>&#8230;&#8203;</p>
-</div>
-<div class="paragraph">
-<p>case else</p>
-</div>
-<div class="paragraph">
-<p>return false</p>
-</div>
-<div class="paragraph">
-<p>}</p>
-</div>
-<div class="paragraph">
-<p>}</p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_scenery_and_components"><a class="anchor" href="#_scenery_and_components"></a>10.4. Scenery and Components</h3>
 <div class="paragraph">
-<p>It has become more and more expected of interactive fiction that objects mentioned in the textual description of a location should be implemented in a manipulable fashion. With this goal in mind, something like the following would be less than desirable:</p>
+<p>It has become more and more expected of interactive fiction that objects mentioned in the textual description of a location should be implemented in a manipulable fashion.
+With this goal in mind, something like the following would be less than desirable:</p>
+</div>
+<div class="exampleblock gametranscript">
+<div class="content">
+<div class="paragraph">
+<p><strong>PRISON CELL</strong></p>
 </div>
 <div class="paragraph">
-<p>PRISON CELL</p>
+<p>The entire place is probably just shy of fifty square feet.
+The bars on the doors and single small window ensure that you won&#8217;t be going anywhere anytime soon.</p>
 </div>
 <div class="paragraph">
-<p>The entire place is probably just shy of fifty square feet. The bars on the doors and single small window ensure that you won&#8217;t be going anywhere anytime soon.</p>
+<p>&gt;EXAMINE WINDOW<br>
+You don&#8217;t need to use the word "window".</p>
+</div>
+</div>
 </div>
 <div class="paragraph">
-<p>&gt;EXAMINE WINDOW</p>
+<p>Depending on the game (and, arguably, the player) that response may be somewhat jarring in light of the window just mentioned in the room description.
+It may be gotten around by adding an embellishment like this:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">scenery prison_window <span class="hl str">&quot;prison window&quot;</span>&#x000A;{&#x000A;    <span class="hl kwa">in</span> prison_cell&#x000A;    <span class="hl kwa">article</span> <span class="hl str">&quot;a&quot;</span>&#x000A;    <span class="hl kwa">adjectives</span> <span class="hl str">&quot;single&quot;</span>, <span class="hl str">&quot;small&quot;</span>, <span class="hl str">&quot;prison&quot;</span>, <span class="hl str">&quot;cell&quot;</span>&#x000A;    <span class="hl kwa">noun</span> <span class="hl str">&quot;window&quot;</span>&#x000A;}</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>You don&#8217;t need to use the word "window".</p>
+<p>The most important characteristic of a scenery object created using the <code>scenery</code> class is that it will not be listed by the library as part of the room&#8217;s contents (in this case, the contents of <code>prison_cell</code>).
+The <code>scenery</code> class is otherwise relatively unadorned: looking at a scenery object will produce a generic message about seeing nothing special, attempting to take a scenery object will generate a generic &#8220;You can&#8217;t take that&#8221;-type response, etc.<sup class="footnote">[<a id="_footnoteref_49" class="footnote" href="#_footnotedef_49" title="View footnote.">49</a>]</sup> The scenery object can be fleshed out with a <code>long_desc</code> property and <code>before</code>/<code>after</code> handling for desired verbroutines.</p>
 </div>
 <div class="paragraph">
-<p>Depending on the game (and, arguably, the player) that response may be somewhat jarring in light of the window just mentioned in the room description. It may be gotten around by adding an embellishment like this:</p>
+<p>Components are similar to scenery objects in two important respects in that they&#8217;re not intended to be taken and they&#8217;re not specifically listed in any itemization of contents.
+Consider a case where a game might contain a machine (for fun, a nefarious machine) and a lever.
+The intention might be that the lever can be manipulated separately from the nefarious machine itself so that &#8220;&gt;PULL LEVER&#8221; elicits a different response than simply &#8220;&gt;PULL MACHINE&#8221;.
+At the same time, however, something like the following is probably undesirable:</p>
+</div>
+<div class="exampleblock gametranscript">
+<div class="content">
+<div class="paragraph">
+<p>A nefarious machine whirs and buzzes in the corner.<br>
+There is also a lever here.</p>
+</div>
+</div>
 </div>
 <div class="paragraph">
-<p>scenery prison_window "prison window"</p>
+<p>What is needed is a way to implement the lever as a separate though inseparable part of the nefarious machine object.
+The <code>component</code> class provides for this.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">component lever <span class="hl str">&quot;lever&quot;</span>&#x000A;{&#x000A;    part_of nefarious_machine&#x000A;    <span class="hl kwa">article</span> <span class="hl str">&quot;a&quot;</span>&#x000A;    <span class="hl kwa">noun</span> <span class="hl str">&quot;lever&quot;</span>&#x000A;}</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>\{</p>
-</div>
-<div class="paragraph">
-<p>in prison_cell</p>
-</div>
-<div class="paragraph">
-<p>article "a"</p>
-</div>
-<div class="paragraph">
-<p>adjectives "single", "small", "prison", "cell"</p>
-</div>
-<div class="paragraph">
-<p>noun "window"</p>
-</div>
-<div class="paragraph">
-<p>}</p>
-</div>
-<div class="paragraph">
-<p>The most important characteristic of a scenery object created using the scenery class is that it will not be listed by the library as part of the room&#8217;s contents (in this case, the contents of prison_cell). The scenery class is otherwise relatively unadorned: looking at a scenery object will produce a generic message about seeing nothing special, attempting to take a scenery object will generate a generic &#8220;You can&#8217;t take that&#8221;-type response, etc.<sup class="footnote">[<a id="_footnoteref_49" class="footnote" href="#_footnotedef_49" title="View footnote.">49</a>]</sup> The scenery object can be fleshed out with a long_desc property and before/after handling for desired verbroutines.</p>
-</div>
-<div class="paragraph">
-<p>Components are similar to scenery objects in two important respects in that they&#8217;re not intended to be taken and they&#8217;re not specifically listed in any itemization of contents. Consider a case where a game might contain a machine (for fun, a nefarious machine) and a lever. The intention might be that the lever can be manipulated separately from the nefarious machine itself so that &#8220;&gt;PULL LEVER&#8221; elicits a different response than simply &#8220;&gt;PULL MACHINE&#8221;. At the same time, however, something like the following is probably undesirable:</p>
-</div>
-<div class="paragraph">
-<p>A nefarious machine whirs and buzzes in the corner.</p>
-</div>
-<div class="paragraph">
-<p>There is also a lever here.</p>
-</div>
-<div class="paragraph">
-<p>What is needed is a way to implement the lever as a separate though inseparable part of the nefarious machine object. The component class provides for this.</p>
-</div>
-<div class="paragraph">
-<p>component lever "lever"</p>
-</div>
-<div class="paragraph">
-<p>\{</p>
-</div>
-<div class="paragraph">
-<p>part_of nefarious_machine</p>
-</div>
-<div class="paragraph">
-<p>article "a"</p>
-</div>
-<div class="paragraph">
-<p>noun "lever"</p>
-</div>
-<div class="paragraph">
-<p>}</p>
-</div>
-<div class="paragraph">
-<p>The part_of property specifies the primary object (the nefarious machine) of which this object (the lever) is a component; it is not necessary to place the component object <em>in</em> the primary object; in fact, doing so will probably lead to all manner of extra complications especially if the primary object isn&#8217;t a container or platform, isn&#8217;t open, etc. A component object will automatically be available to the player whenever the primary object is.</p>
+<p>The <code>part_of</code> property specifies the primary object (the nefarious machine) of which this object (the lever) is a component; it is not necessary to place the component object <em>in</em> the primary object; in fact, doing so will probably lead to all manner of extra complications especially if the primary object isn&#8217;t a container or platform, isn&#8217;t open, etc.
+A component object will automatically be available to the player whenever the primary object is.</p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_doors"><a class="anchor" href="#_doors"></a>10.5. Doors</h3>
 <div class="paragraph">
-<p>Doors are fairly common objects, and a given game&#8212;&#8203;particularly one with a significant number of indoor locations&#8212;&#8203;will likely make frequent use of them. The unfortunate thing is that they can be somewhat finicky and repetitive to code, ensuring that they respond to opening, closing, locking (if applicable), providing an appropriate open or closed description, and behaving appropriately from either side. The object library&#8217;s door class provides a simple implementation that will largely suffice for most basic doors.</p>
+<p>Doors are fairly common objects, and a given game&#8201;&#8212;&#8201;particularly one with a significant number of indoor locations&#8201;&#8212;&#8201;will likely make frequent use of them.
+The unfortunate thing is that they can be somewhat finicky and repetitive to code, ensuring that they respond to opening, closing, locking (if applicable), providing an appropriate open or closed description, and behaving appropriately from either side.
+The object library&#8217;s <code>door</code> class provides a simple implementation that will largely suffice for most basic doors.</p>
 </div>
 <div class="paragraph">
-<p>Here&#8217;s how to put a simple door between the kitchen and living_room locations created above:</p>
+<p>Here&#8217;s how to put a simple door between the <code>kitchen</code> and <code>living_room</code> locations created above:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">door kitchen_door <span class="hl str">&quot;kitchen door&quot;</span>&#x000A;{&#x000A;    between kitchen, living_room&#x000A;    <span class="hl kwa">article</span> <span class="hl str">&quot;the&quot;</span>&#x000A;    <span class="hl kwa">adjective</span> <span class="hl str">&quot;kitchen&quot;</span>&#x000A;    <span class="hl kwa">noun</span> <span class="hl str">&quot;door&quot;</span>&#x000A;}</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>door kitchen_door "kitchen door"</p>
+<p>The <code>between</code> property takes care of making the room available in both locations as well as determining where the player travels to when leaving either location.
+In order to incorporate the door into the <code>kitchen</code> and <code>living_room</code> locations, it&#8217;s only necessary to change the two room objects to specify:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">n_to&#x000A;{&#x000A;    <span class="hl kwa">return</span> kitchen_door.door_to&#x000A;}</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>\{</p>
+<p>for the <code>kitchen</code> object and</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">s_to&#x000A;{&#x000A;    <span class="hl kwa">return</span> kitchen_door.door_to&#x000A;}</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>between kitchen, living_room</p>
+<p>for the <code>living_room</code> object.</p>
 </div>
 <div class="paragraph">
-<p>article "the"</p>
-</div>
-<div class="paragraph">
-<p>adjective "kitchen"</p>
-</div>
-<div class="paragraph">
-<p>noun "door"</p>
-</div>
-<div class="paragraph">
-<p>}</p>
-</div>
-<div class="paragraph">
-<p>The between property takes care of making the room available in both locations as well as determining where the player travels to when leaving either location. In order to incorporate the door into the kitchen and living_room locations, it&#8217;s only necessary to change the two room objects to specify:</p>
-</div>
-<div class="paragraph">
-<p>n_to</p>
-</div>
-<div class="paragraph">
-<p>\{</p>
-</div>
-<div class="paragraph">
-<p>return kitchen_door.door_to</p>
-</div>
-<div class="paragraph">
-<p>}</p>
-</div>
-<div class="paragraph">
-<p>for the kitchen object and</p>
-</div>
-<div class="paragraph">
-<p>s_to</p>
-</div>
-<div class="paragraph">
-<p>\{</p>
-</div>
-<div class="paragraph">
-<p>return kitchen_door.door_to</p>
-</div>
-<div class="paragraph">
-<p>}</p>
-</div>
-<div class="paragraph">
-<p>for the living_room object. Notice that the use of kitchen_door.door_to is the same for both; the door class&#8217;s door_to property returns the appropriate location from the between property depending on where the player is when the door_to property is checked. The door_to property will also automatically result in an attempt to open a closed door (by calling the DoOpen verbroutine), resulting in an additional turn by calling the Main routine.</p>
+<p>Notice that the use of <code>kitchen_door.door_to</code> is the same for both; the <code>door</code> class&#8217;s <code>door_to</code> property returns the appropriate location from the <code>between</code> property depending on where the player is when the <code>door_to</code> property is checked.
+The <code>door_to</code> property will also automatically result in an attempt to open a closed door (by calling the <code>DoOpen</code> verbroutine), resulting in an additional turn by calling the <code>Main</code> routine.</p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_vehicles"><a class="anchor" href="#_vehicles"></a>10.6. Vehicles</h3>
 <div class="paragraph">
-<p>Less frequently used but somewhat more complex than doors are vehicles. Anything from a car to a UFO to a wild zebra may make an appearance in a game, and often it is necessary that the player be able to use that object&#8212;&#8203;whatever it may be&#8212;&#8203;as a means of moving around the game&#8217;s geography. The object library&#8217;s vehicle class provides a generic class that can be used to implement any of these (just for starters), allowing behavior like the following:</p>
+<p>Less frequently used but somewhat more complex than doors are vehicles.
+Anything from a car to a UFO to a wild zebra may make an appearance in a game, and often it is necessary that the player be able to use that object&#8201;&#8212;&#8201;whatever it may be&#8201;&#8212;&#8201;as a means of moving around the game&#8217;s geography.
+The object library&#8217;s <code>vehicle</code> class provides a generic class that can be used to implement any of these (just for starters), allowing behavior like the following:</p>
 </div>
+<div class="exampleblock gametranscript">
+<div class="content">
 <div class="paragraph">
-<p>&gt;GET ON THE HORSE</p>
-</div>
-<div class="paragraph">
-<p>You get on the wild mustang.</p>
+<p>&gt;GET ON THE HORSE<br>
+You get on the wild mustang.</p>
 </div>
 <div class="paragraph">
 <p>&gt;RIDE WEST</p>
 </div>
 <div class="paragraph">
-<p>Dusty Trail</p>
+<p><strong>Dusty Trail</strong></p>
 </div>
 <div class="paragraph">
 <p>This trail leads southwest out of town toward the river valley and the old prospector&#8217;s camp.</p>
 </div>
-<div class="admonitionblock note">
+</div>
+</div>
+<div class="admonitionblock important">
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-note" title="Note"></i>
+<i class="fa icon-important" title="Important"></i>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Before using vehicle objects it is necessary to set the compiler flag USE_VEHICLES.</p>
+<p>Before using vehicle objects it is necessary to set the compiler flag <code>USE_VEHICLES</code>.</p>
 </div>
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>Create a vehicle from the vehicle class like this:</p>
+<p>Create a vehicle from the <code>vehicle</code> class like this:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">vehicle mustang <span class="hl str">&quot;wild mustang&quot;</span>&#x000A;{&#x000A;    <span class="hl kwa">article</span> <span class="hl str">&quot;a&quot;</span>&#x000A;    <span class="hl kwa">adjectives</span> <span class="hl str">&quot;wild&quot;</span>, <span class="hl str">&quot;untamed&quot;</span>&#x000A;    <span class="hl kwa">nouns</span> <span class="hl str">&quot;mustang&quot;</span>, <span class="hl str">&quot;horse&quot;</span>&#x000A;    vehicle_verb <span class="hl str">&quot;ride&quot;</span>&#x000A;    preposition <span class="hl str">&quot;on&quot;</span>, <span class="hl str">&quot;off&quot;</span>&#x000A;}</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>vehicle mustang "wild mustang"</p>
+<p>The <code>vehicle_verb</code> property provides one or more synonyms for the verb used to &#8220;drive&#8221; this particular vehicle object.
+In the case of a horse, it is appropriately &#8220;ride&#8221;.
+The <code>preposition</code> property defaults in the <code>vehicle</code> class itself defaults to &#8220;in&#8221; and &#8220;out&#8221;, but in the case of a horse should be changed to the more suitable &#8220;on&#8221; and &#8220;off&#8221;.</p>
 </div>
 <div class="paragraph">
-<p>\{</p>
+<p>It is also necessary to provide grammar to relate the words in the <code>vehicle_verb</code> list to the object library&#8217;s <code>DoMoveInVehicle</code> routine.
+The following grammar is recommended:</p>
 </div>
-<div class="paragraph">
-<p>article "a"</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">verb</span> <span class="hl str">&quot;&lt;verb1&gt;&quot;</span>[, <span class="hl str">&quot;&lt;verb2&gt;&quot;</span>,...]&#x000A;        <span class="hl opt">*</span>                   DoMoveinVehicle&#x000A;        <span class="hl opt">*</span> <span class="hl kwa">object</span>            DoMoveinVehicle</code></pre>
 </div>
-<div class="paragraph">
-<p>adjectives "wild", "untamed"</p>
-</div>
-<div class="paragraph">
-<p>nouns "mustang", "horse"</p>
-</div>
-<div class="paragraph">
-<p>vehicle_verb "ride"</p>
-</div>
-<div class="paragraph">
-<p>preposition "on", "off"</p>
-</div>
-<div class="paragraph">
-<p>}</p>
-</div>
-<div class="paragraph">
-<p>The vehicle_verb property provides one or more synonyms for the verb used to &#8220;drive&#8221; this particular vehicle object. In the case of a horse, it is appropriately &#8220;ride&#8221;. The preposition property defaults in the vehicle class itself defaults to &#8220;in&#8221; and &#8220;out&#8221;, but in the case of a horse should be changed to the more suitable &#8220;on&#8221; and &#8220;off&#8221;.</p>
-</div>
-<div class="paragraph">
-<p>It is also necessary to provide grammar to relate the words in the vehicle_verb list to the object library&#8217;s DoMoveInVehicle routine.Grammar he following is recommended:</p>
-</div>
-<div class="paragraph">
-<p>verb "&lt;verb1&gt;"[, "&lt;verb2&gt;",&#8230;&#8203;]</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>DoMoveinVehicle</p>
-</li>
-<li>
-<p>object DoMoveinVehicle</p>
-</li>
-</ul>
 </div>
 <div class="paragraph">
 <p>So, for our horse &#8220;vehicle&#8221;, something like the following might suffice:</p>
 </div>
-<div class="paragraph">
-<p>verb "ride</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">verb</span> <span class="hl str">&quot;ride</span>&#x000A;<span class="hl str">        *                   DoMoveinVehicle</span>&#x000A;<span class="hl str">        * object            DoMoveinVehicle</span></code></pre>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p>DoMoveinVehicle</p>
-</li>
-<li>
-<p>object DoMoveinVehicle</p>
-</li>
-</ul>
 </div>
 <div class="paragraph">
-<p>It is possible to easily maintain some control over whether a vehicle is currently capable of moving via the vehicle_move property. This property, which is true by default, can return false (after printing an appropriate failure message) if the vehicle is currently not capable of being driven (or ridden or sailed or whatever the appropriate action may be).</p>
+<p>It is possible to easily maintain some control over whether a vehicle is currently capable of moving via the <code>vehicle_move</code> property.
+This property, which is true by default, can return false (after printing an appropriate failure message) if the vehicle is currently not capable of being driven (or ridden or sailed or whatever the appropriate action may be).</p>
 </div>
 <div class="paragraph">
-<p>To prevent the player from riding the mustang until the horse has been fed, implement a vehicle_move property similar to this:</p>
+<p>To prevent the player from riding the mustang until the horse has been fed, implement a <code>vehicle_move</code> property similar to this:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">vehicle_move&#x000A;{&#x000A;    <span class="hl kwa">if</span> self <span class="hl kwa">is not</span> fed <span class="hl slc">! assuming a &#39;fed&#39; attribute</span>&#x000A;    {&#x000A;        <span class="hl str">&quot;This horse isn&#39;t going anywhere until you</span>&#x000A;<span class="hl str">        feed it.&quot;</span>&#x000A;        <span class="hl kwa">return false</span>&#x000A;    }&#x000A;    <span class="hl kwa">else</span>&#x000A;        <span class="hl kwa">return true</span>&#x000A;}</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>vehicle_move</p>
+<p>And finally, it is also necessary to give the vehicle some idea about where it is able to move.
+Every location that a vehicle may travel to must contain the vehicle in a <code>vehicle_path</code> property.
+For instance, a location to which both the mustang and a <code>wagon</code> object may move would need:</p>
 </div>
-<div class="paragraph">
-<p>\{</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">vehicle_path mustang, wagon</code></pre>
 </div>
-<div class="paragraph">
-<p>if self is not fed ! assuming a 'fed' attribute</p>
-</div>
-<div class="paragraph">
-<p>\{</p>
-</div>
-<div class="paragraph">
-<p>"This horse isn&#8217;t going anywhere until you feed it."</p>
-</div>
-<div class="paragraph">
-<p>return false</p>
-</div>
-<div class="paragraph">
-<p>}</p>
-</div>
-<div class="paragraph">
-<p>else</p>
-</div>
-<div class="paragraph">
-<p>return true</p>
-</div>
-<div class="paragraph">
-<p>}</p>
-</div>
-<div class="paragraph">
-<p>And finally, it is also necessary to give the vehicle some idea about where it is able to move. Every location that a vehicle may travel to must contain the vehicle in a vehicle_path property. For instance, a location to which both the mustang and a wagon object may move would need:</p>
-</div>
-<div class="paragraph">
-<p>vehicle_path mustang, wagon</p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_plural_and_identical_objects"><a class="anchor" href="#_plural_and_identical_objects"></a>10.7. Plural and Identical Objects</h3>
 <div class="paragraph">
-<p>Sometimes it is desirable to have a player be able to (or required to) refer to multiple objects as a group, or to be able to refer to only a certain number of such objects out of a larger group even if all the objects are identical. The object library&#8217;s plural_class and identical_class make these sorts of things possible.</p>
+<p>Sometimes it is desirable to have a player be able to (or required to) refer to multiple objects as a group, or to be able to refer to only a certain number of such objects out of a larger group even if all the objects are identical.
+The object library&#8217;s <code>plural_class</code> and <code>identical_class</code> make these sorts of things possible.</p>
 </div>
-<div class="admonitionblock note">
+<div class="admonitionblock important">
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-note" title="Note"></i>
+<i class="fa icon-important" title="Important"></i>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Before using plural or identical objects it is necessary to set the compiler flag USE_PLURAL_OBJECTS and call InitPluralObjects (usually in the Init routine).</p>
+<p>Before using plural or identical objects it is necessary to set the compiler flag <code>USE_PLURAL_OBJECTS</code> and call <code>InitPluralObjects</code> (usually in the <code>Init</code> routine).</p>
 </div>
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>The plural_class is used in situations where two or more similar objects may be grouped together and referred to as a unit. For instance:</p>
+<p>The <code>plural_class</code> is used in situations where two or more similar objects may be grouped together and referred to as a unit.
+For instance:</p>
 </div>
+<div class="exampleblock gametranscript">
+<div class="content">
 <div class="paragraph">
 <p>There are a fudge sundae and a butterscotch sundae here.</p>
 </div>
 <div class="paragraph">
-<p>&gt;GET BUTTERSCOTCH SUNDAE</p>
+<p>&gt;GET BUTTERSCOTCH SUNDAE<br>
+Taken.</p>
 </div>
 <div class="paragraph">
-<p>Taken.</p>
+<p>&gt;GET FUDGE SUNDAE<br>
+Taken.</p>
+</div>
+</div>
 </div>
 <div class="paragraph">
-<p>&gt;GET FUDGE SUNDAE</p>
+<p>All&#8217;s well and good.
+But it would also maybe be nice to be able to take both at the same time.</p>
+</div>
+<div class="exampleblock gametranscript">
+<div class="content">
+<div class="paragraph">
+<p>&gt;GET SUNDAES<br>
+fudge sundae: Taken.<br>
+butterscotch sundae: Taken.</p>
+</div>
+</div>
 </div>
 <div class="paragraph">
-<p>Taken.</p>
+<p>That&#8217;s where the <code>plural_class</code> comes in.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">plural_class sundaes <span class="hl str">&quot;sundaes&quot;</span>&#x000A;{&#x000A;    plural_of fudge_sundae, butterscotch_sundae&#x000A;    <span class="hl kwa">noun</span> <span class="hl str">&quot;sundaes&quot;</span>&#x000A;    single_noun <span class="hl str">&quot;sundae&quot;</span>&#x000A;}&#x000A;&#x000A;<span class="hl kwa">object</span> fudge_sundae <span class="hl str">&quot;fudge sundae&quot;</span>&#x000A;{&#x000A;    <span class="hl kwa">article</span> <span class="hl str">&quot;a&quot;</span>&#x000A;    <span class="hl kwa">adjective</span> <span class="hl str">&quot;fudge&quot;</span>&#x000A;    <span class="hl kwa">noun</span> <span class="hl str">&quot;sundae&quot;</span>&#x000A;    plural_is sundaes&#x000A;}&#x000A;&#x000A;<span class="hl kwa">object</span> butterscotch_sundae <span class="hl str">&quot;butterscotch_sundae&quot;</span>&#x000A;{&#x000A;    <span class="hl kwa">article</span> <span class="hl str">&quot;a&quot;</span>&#x000A;    <span class="hl kwa">adjective</span> <span class="hl str">&quot;butterscotch&quot;</span>&#x000A;    <span class="hl kwa">noun</span> <span class="hl str">&quot;sundae&quot;</span>&#x000A;    plural_is sundaes&#x000A;}<sup class="footnote">[<a id="_footnoteref_50" class="footnote" href="#_footnotedef_50" title="View footnote.">50</a>]</sup></code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>All&#8217;s well and good. But it would also maybe be nice to be able to take both at the same time.</p>
+<p>The <code>plural_of</code> property on the <code>plural</code> class enumerates the objects which it encompasses; each object encompassed by the <code>plural</code> class then points back to the <code>plural</code> class in its <code>plural_is</code> property.</p>
 </div>
 <div class="paragraph">
-<p>&gt;GET SUNDAES</p>
-</div>
-<div class="paragraph">
-<p>fudge sundae: Taken.</p>
-</div>
-<div class="paragraph">
-<p>butterscotch sundae: Taken.</p>
-</div>
-<div class="paragraph">
-<p>That&#8217;s where the plural_class comes in.</p>
-</div>
-<div class="paragraph">
-<p>plural_class sundaes "sundaes"</p>
-</div>
-<div class="paragraph">
-<p>\{</p>
-</div>
-<div class="paragraph">
-<p>plural_of fudge_sundae, butterscotch_sundae</p>
-</div>
-<div class="paragraph">
-<p>noun "sundaes"</p>
-</div>
-<div class="paragraph">
-<p>single_noun "sundae"</p>
-</div>
-<div class="paragraph">
-<p>}</p>
-</div>
-<div class="paragraph">
-<p>object fudge_sundae "fudge sundae"</p>
-</div>
-<div class="paragraph">
-<p>\{</p>
-</div>
-<div class="paragraph">
-<p>article "a"</p>
-</div>
-<div class="paragraph">
-<p>adjective "fudge"</p>
-</div>
-<div class="paragraph">
-<p>noun "sundae"</p>
-</div>
-<div class="paragraph">
-<p>plural_is sundaes</p>
-</div>
-<div class="paragraph">
-<p>}</p>
-</div>
-<div class="paragraph">
-<p>object butterscotch_sundae "butterscotch_sundae"</p>
-</div>
-<div class="paragraph">
-<p>\{</p>
-</div>
-<div class="paragraph">
-<p>article "a"</p>
-</div>
-<div class="paragraph">
-<p>adjective "butterscotch"</p>
-</div>
-<div class="paragraph">
-<p>noun "sundae"</p>
-</div>
-<div class="paragraph">
-<p>plural_is sundaes</p>
-</div>
-<div class="paragraph">
-<p>}<sup class="footnote">[<a id="_footnoteref_50" class="footnote" href="#_footnotedef_50" title="View footnote.">50</a>]</sup></p>
-</div>
-<div class="paragraph">
-<p>The plural_of property on the plural class enumerates the objects which it encompasses; each object encompassed by the plural class then points back to the plural class in its plural_is property.</p>
-</div>
-<div class="paragraph">
-<p>The plural_verbs property governs which verbs may be used on the plural object. The plural_class class itself provides a default plural_verbs which allows basic verbroutines like DoLook, DoDrop, DoGet, and DoPutIn to be used. Other actions will result in a response on the order of &#8220;You&#8217;ll have to do that one at a time&#8221;. To change the possible actions for a given plural object, provide a custom plural_verbs replacement that returns true only if the verbroutine global variable is a valid verbroutine for the object.</p>
+<p>The <code>plural_verbs</code> property governs which verbs may be used on the plural object.
+The <code>plural_class</code> class itself provides a default <code>plural_verbs</code> which allows basic verbroutines like <code>DoLook</code>, <code>DoDrop</code>, <code>DoGet</code>, and <code>DoPutIn</code> to be used.
+Other actions will result in a response on the order of &#8220;You&#8217;ll have to do that one at a time&#8221;.
+To change the possible actions for a given plural object, provide a custom <code>plural_verbs</code> replacement that returns true only if the <code>verbroutine</code> global variable is a valid verbroutine for the object.</p>
 </div>
 <div class="paragraph">
 <p>Now, consider the following:</p>
 </div>
+<div class="exampleblock gametranscript">
+<div class="content">
 <div class="paragraph">
 <p>There are five bananas here.</p>
 </div>
 <div class="paragraph">
-<p>&gt;GET TWO BANANAS</p>
+<p>&gt;GET TWO BANANAS<br>
+banana: Taken.<br>
+banana: Taken.</p>
 </div>
 <div class="paragraph">
-<p>banana: Taken.</p>
+<p>&gt;INVENTORY<br>
+You are carrying two bananas.</p>
 </div>
 <div class="paragraph">
-<p>banana: Taken.</p>
+<p>&gt;LOOK<br>
+There are three bananas here.</p>
+</div>
+</div>
 </div>
 <div class="paragraph">
-<p>&gt;INVENTORY</p>
+<p>Something like that can be done easily by creating an identical object from the <code>identical_class</code> in the object library.
+The <code>identical_class</code> is similar to the <code>plural_class</code> except for a couple details of implementation and behavior.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">identical_class bananas <span class="hl str">&quot;bananas&quot;</span>&#x000A;{&#x000A;    plural_of banana1, banana2, banana3,&#x000A;        banana4, banana5&#x000A;    <span class="hl kwa">noun</span> <span class="hl str">&quot;bananas&quot;</span>&#x000A;    single_noun <span class="hl str">&quot;banana&quot;</span>&#x000A;}&#x000A;&#x000A;<span class="hl kwa">object</span> banana1 <span class="hl str">&quot;banana&quot;</span>&#x000A;{&#x000A;    <span class="hl kwa">noun</span> <span class="hl str">&quot;banana&quot;</span>&#x000A;    identical_to bananas&#x000A;}&#x000A;&#x000A;banana1 banana2 <span class="hl str">&quot;banana&quot;</span><sup class="footnote">[<a id="_footnoteref_51" class="footnote" href="#_footnotedef_51" title="View footnote.">51</a>]</sup>&#x000A;{}&#x000A;&#x000A;banana1 banana3 <span class="hl str">&quot;banana&quot;</span>&#x000A;{}&#x000A;...</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>You are carrying two bananas.</p>
-</div>
-<div class="paragraph">
-<p>&gt;LOOK</p>
-</div>
-<div class="paragraph">
-<p>There are three bananas here.</p>
-</div>
-<div class="paragraph">
-<p>Something like that can be done easily by creating an identical object from the identical_class in the object library. The identical_class is similar to the plural_class except for a couple details of implementation and behavior.</p>
-</div>
-<div class="paragraph">
-<p>identical_class bananas "bananas"</p>
-</div>
-<div class="paragraph">
-<p>\{</p>
-</div>
-<div class="paragraph">
-<p>plural_of banana1, banana2, banana3,</p>
-</div>
-<div class="paragraph">
-<p>banana4, banana5</p>
-</div>
-<div class="paragraph">
-<p>noun "bananas"</p>
-</div>
-<div class="paragraph">
-<p>single_noun "banana"</p>
-</div>
-<div class="paragraph">
-<p>}</p>
-</div>
-<div class="paragraph">
-<p>object banana1 "banana"</p>
-</div>
-<div class="paragraph">
-<p>\{</p>
-</div>
-<div class="paragraph">
-<p>noun "banana"</p>
-</div>
-<div class="paragraph">
-<p>identical_to bananas</p>
-</div>
-<div class="paragraph">
-<p>}</p>
-</div>
-<div class="paragraph">
-<p>banana1 banana2 "banana"<sup class="footnote">[<a id="_footnoteref_51" class="footnote" href="#_footnotedef_51" title="View footnote.">51</a>]</sup></p>
-</div>
-<div class="paragraph">
-<p>\{}</p>
-</div>
-<div class="paragraph">
-<p>banana1 banana3 "banana"</p>
-</div>
-<div class="paragraph">
-<p>\{}</p>
-</div>
-<div class="paragraph">
-<p>&#8230;&#8203;</p>
-</div>
-<div class="paragraph">
-<p>The identical object bananas will allow a player to use all the facilities of the identical_class in order to manipulate one or more otherwise indistinguishable banana objects.<sup class="footnote">[<a id="_footnoteref_52" class="footnote" href="#_footnotedef_52" title="View footnote.">52</a>]</sup></p>
+<p>The identical object <code>bananas</code> will allow a player to use all the facilities of the <code>identical_class</code> in order to manipulate one or more otherwise indistinguishable banana objects.<sup class="footnote">[<a id="_footnoteref_52" class="footnote" href="#_footnotedef_52" title="View footnote.">52</a>]</sup></p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_attachables"><a class="anchor" href="#_attachables"></a>10.8. Attachables</h3>
 <div class="paragraph">
-<p>Ropes and other similar objects&#8212;&#8203;anything, really, which ties onto something else or, even worse, ties <em>between</em> two or more objects&#8212;&#8203;are notoriously difficult to code. Safe advice on how to code a rope used to be: code a block of wood instead. The object library provides an attachable class which has successfully been used for everything from ropes to blankets to three-ended chains and darts.<sup class="footnote">[<a id="_footnoteref_53" class="footnote" href="#_footnotedef_53" title="View footnote.">53</a>]</sup></p>
+<p>Ropes and other similar objects&#8201;&#8212;&#8201;anything, really, which ties onto something else or, even worse, ties <em>between</em> two or more objects&#8201;&#8212;&#8201;are notoriously difficult to code.
+Safe advice on how to code a rope used to be: code a block of wood instead.
+The object library provides an <code>attachable</code> class which has successfully been used for everything from ropes to blankets to three-ended chains and darts.<sup class="footnote">[<a id="_footnoteref_53" class="footnote" href="#_footnotedef_53" title="View footnote.">53</a>]</sup></p>
 </div>
-<div class="admonitionblock note">
+<div class="admonitionblock important">
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-note" title="Note"></i>
+<i class="fa icon-important" title="Important"></i>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Before using attachable objects it is necessary to set the compiler flag USE_ATTACHABLES.</p>
+<p>Before using attachable objects it is necessary to set the compiler flag <code>USE_ATTACHABLES</code>.</p>
 </div>
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>The attachable class&#8217;s attachable_to property contains a list of all items to which the object may be attached. The attached_to property contains a list of all the objects to which the attachable object currently <em>is</em> attached. When defined, it must be given an appropriate number of elements. For instance, something that is attachable to only one object would have</p>
+<p>The <code>attachable</code> class&#8217;s <code>attachable_to</code> property contains a list of all items to which the object may be attached.
+The <code>attached_to</code> property contains a list of all the objects to which the attachable object currently <em>is</em> attached.
+When defined, it must be given an appropriate number of elements.
+For instance, something that is attachable to only one object would have</p>
 </div>
-<div class="paragraph">
-<p>attached_to 0</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">attached_to <span class="hl num">0</span></code></pre>
+</div>
 </div>
 <div class="paragraph">
 <p>while, for instance, a rope that can be tied between two other objects must have:</p>
 </div>
-<div class="paragraph">
-<p>attached_to 0, 0</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">attached_to <span class="hl num">0</span>, <span class="hl num">0</span></code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>The 0 value (the nothing object) is just an empty placeholder for the attached_to property. If the attachable&#8217;s initial state is to be attached to a given object, that object can be used instead. For example, a harness that is already attached to a wagon, but which can also be attached to six horses (objects) at the same time, might be initialized as follows:</p>
+<p>The 0 value (the <code>nothing</code> object) is just an empty placeholder for the <code>attached_to</code> property.
+If the attachable&#8217;s initial state is to be attached to a given object, that object can be used instead.
+For example, a harness that is already attached to a wagon, but which can also be attached to six horses (objects) at the same time, might be initialized as follows:</p>
 </div>
-<div class="paragraph">
-<p>attached_to wagon, 0, 0, 0, 0, 0, 0</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">attached_to wagon, <span class="hl num">0</span>, <span class="hl num">0</span>, <span class="hl num">0</span>, <span class="hl num">0</span>, <span class="hl num">0</span>, <span class="hl num">0</span></code></pre>
+</div>
 </div>
 <div class="paragraph">
 <p>with room for seven elements.</p>
 </div>
 <div class="paragraph">
-<p>The attach_take and attach_drop properties are less frequently used. If attach_take is true, an attempt to take (via calling the DoTake verbroutine) the attachable is made before attaching (or detaching) it. If attach_drop is true, the object is automatically dropped after it is attached.</p>
+<p>The <code>attach_take</code> and <code>attach_drop</code> properties are less frequently used.
+If <code>attach_take</code> is true, an attempt to take (via calling the <code>DoTake</code> verbroutine) the attachable is made before attaching (or detaching) it.
+If <code>attach_drop</code> is true, the object is automatically dropped after it is attached.</p>
 </div>
 <div class="paragraph">
-<p>The attach_verbs and detach_verbs properties contain lists of all valid verbs to attach or detach the object. The DoAttachObject and DoDetachObject verbroutines can be used by all basic attachables, with new grammar specified for the object (corresponding exactly to the verb lists in attach_verbs and detach_verbs) as in:</p>
+<p>The <code>attach_verbs</code> and <code>detach_verbs</code> properties contain lists of all valid verbs to attach or detach the object.
+The <code>DoAttachObject</code> and <code>DoDetachObject</code> verbroutines can be used by all basic attachables, with new grammar specified for the object (corresponding exactly to the verb lists in <code>attach_verbs</code> and <code>detach_verbs</code>) as in:</p>
 </div>
-<div class="paragraph">
-<p>verb "&lt;verb1&gt;"[, "&lt;verb2&gt;",&#8230;&#8203;]</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">verb</span> <span class="hl str">&quot;&lt;verb1&gt;&quot;</span>[, <span class="hl str">&quot;&lt;verb2&gt;&quot;</span>,...]&#x000A;        <span class="hl opt">*</span>                           DoVague&#x000A;        <span class="hl opt">*</span> <span class="hl kwa">object</span>                    DoAttachObject&#x000A;        <span class="hl opt">*</span> <span class="hl kwa">object</span> <span class="hl str">&quot;to&quot;</span> <span class="hl kwa">xobject</span>       DoAttachObject&#x000A;        ...</code></pre>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p>DoVague</p>
-</li>
-<li>
-<p>object DoAttachObject</p>
-</li>
-<li>
-<p>object "to" xobject DoAttachObject</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>&#8230;&#8203;</p>
 </div>
 <div class="paragraph">
 <p>For instance:</p>
 </div>
-<div class="paragraph">
-<p>verb "tie", "fasten"</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">verb</span> <span class="hl str">&quot;tie&quot;</span>, <span class="hl str">&quot;fasten&quot;</span>&#x000A;        <span class="hl opt">*</span>                           DoVague&#x000A;        <span class="hl opt">*</span> <span class="hl kwa">object</span>                    DoAttachObject&#x000A;        <span class="hl opt">*</span> <span class="hl kwa">object</span> <span class="hl str">&quot;to&quot;</span> <span class="hl kwa">xobject</span>       DoAttachObject</code></pre>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p>DoVague</p>
-</li>
-<li>
-<p>object DoAttachObject</p>
-</li>
-<li>
-<p>object "to" xobject DoAttachObject</p>
-</li>
-</ul>
 </div>
 <div class="paragraph">
-<p>DoAttachObject expects a second object (the xobject) to be given as the target for the object to be attached to; the routine itself contains appropriate error-handling if only one object is supplied.</p>
+<p><code>DoAttachObject</code> expects a second object (the xobject) to be given as the target for the object to be attached to; the routine itself contains appropriate error-handling if only one object is supplied.</p>
 </div>
 <div class="paragraph">
-<p>To attach and detach an attachable from an object, use the AttachObject and DetachObject routines:</p>
+<p>To attach and detach an attachable from an object, use the <code>AttachObject</code> and <code>DetachObject</code> routines:</p>
 </div>
-<div class="paragraph">
-<p>AttachObject(attachable_object, to_object)</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">AttachObject(attachable_object, to_object)</code></pre>
+</div>
 </div>
 <div class="paragraph">
 <p>and</p>
 </div>
-<div class="paragraph">
-<p>DetachObject(attachable_object, from_object)</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">DetachObject(attachable_object, from_object)</code></pre>
+</div>
 </div>
 <div class="paragraph">
 <p>Either routine returns true on success or false on failure.</p>
 </div>
 <div class="paragraph">
-<p>To check if a particular object is kept immovable by an attachable, call ObjectisAttached(this_object); it returns the object number of the attachable keeping this_object from moving, or false if there is no such impediment and this_object is free to move. Also, any routine that moves the player or player&#8217;s parent&#8212;&#8203;such as MovePlayer or DoMoveinVehicle&#8212;&#8203;should call MoveAllAttachables to reconcile the location of attached objects (since they are not necessarily connected via the object tree).</p>
+<p>To check if a particular object is kept immovable by an attachable, call <code>ObjectisAttached(this_object)</code>; it returns the object number of the attachable keeping <code>this_object</code> from moving, or false if there is no such impediment and <code>this_object</code> is free to move.
+Also, any routine that moves the player or player&#8217;s parent&#8201;&#8212;&#8201;such as <code>MovePlayer</code> or <code>DoMoveinVehicle</code>&#8201;&#8212;&#8201;should call <code>MoveAllAttachables</code> to reconcile the location of attached objects (since they are not necessarily connected via the object tree).</p>
 </div>
 <div class="paragraph">
-<p>Objects with the mobile attribute set may be dragged. Non-attachables may have an attach_immobile property, which governs whether they may be pulled, dragged, etc. by returning false when freely moveable or true if something is keeping it from moving. In the second case, attach_immobile is also responsible for printing any explanatory message.</p>
+<p>Objects with the <code>mobile</code> attribute set may be dragged.
+Non-attachables may have an <code>attach_immobile</code> property, which governs whether they may be pulled, dragged, etc. by returning false when freely moveable or true if something is keeping it from moving.
+In the second case, <code>attach_immobile</code> is also responsible for printing any explanatory message.</p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_what_should_i_be_able_to_do_now_9"><a class="anchor" href="#_what_should_i_be_able_to_do_now_9"></a>10.9. <em>What Should I Be Able To Do Now?</em></h3>
 <div class="paragraph">
-<p>By now you should feel comfortable experimenting with the classes in the object library. You should be able to look at the various implementations of scenery, components, characters, doors, vehicles, identical/plural objects, and attachables in existing code (such as in <strong>sample.hug</strong>) and not only understand what the various properties of the objects are for, but also how to modify them to achieve a desired effect.</p>
+<p>By now you should feel comfortable experimenting with the classes in the object library.
+You should be able to look at the various implementations of scenery, components, characters, doors, vehicles, identical/plural objects, and attachables in existing code (such as in <strong>sample.hug</strong>) and not only understand what the various properties of the objects are for, but also how to modify them to achieve a desired effect.</p>
 </div>
 <div class="paragraph">
 <p>You should, for instance, be able to implement the following:</p>
@@ -9920,22 +9611,22 @@ You would simply interrupt the <code>DoGet</code> routine before it even execute
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Two rooms, such as a garden and a shed;</p>
+<p>Two <code>room</code>s, such as a garden and a shed;</p>
 </li>
 <li>
-<p>A door leading into the shed;</p>
+<p>A <code>door</code> leading into the shed;</p>
 </li>
 <li>
-<p>Various static scenery objects in each location;</p>
+<p>Various static <code>scenery</code> objects in each location;</p>
 </li>
 <li>
-<p>A dozen identical roses;</p>
+<p>A dozen <code>identical</code> roses;</p>
 </li>
 <li>
-<p>A rideable bicycle vehicle kept from going anywhere by a locked attachable bicycle lock; and even</p>
+<p>A rideable bicycle <code>vehicle</code> kept from going anywhere by a locked <code>attachable</code> bicycle lock; and even</p>
 </li>
 <li>
-<p>A gardener character who is capable of answering questions about the things in the shed and the garden.</p>
+<p>A gardener <code>character</code> who is capable of answering questions about the things in the shed and the garden.</p>
 </li>
 </ol>
 </div>
@@ -20671,7 +20362,7 @@ If there is an error, the <code>system_status</code> global variable is set.</p>
 <a href="#_footnoteref_46">46</a>. For more information on debugging using HugoFix, see <em>APPENDIX D: HUGOFIX AND THE HUGO DEBUGGER</em>.
 </div>
 <div class="footnote" id="_footnotedef_47">
-<a href="#_footnoteref_47">47</a>. This also means that in order to create a dark location&#8212;&#8203;i.e., one that has no intrinsic lighting&#8212;&#8203;it is necessary to put an explicit <code>not light</code> in the object&#8217;s definition. In that case, in order for the player to see anything in the location, light will have to be provided either by an object in the location (such as a lamp) or by something portable that can be brought into the location (like a flashlight).
+<a href="#_footnoteref_47">47</a>. This also means that in order to create a dark location&#8201;&#8212;&#8201;i.e., one that has no intrinsic lighting&#8201;&#8212;&#8201;it is necessary to put an explicit <code>not light</code> in the object&#8217;s definition. In that case, in order for the player to see anything in the location, light will have to be provided either by an object in the location (such as a lamp) or by something portable that can be brought into the location (like a flashlight).
 </div>
 <div class="footnote" id="_footnotedef_48">
 <a href="#_footnoteref_48">48</a>. The library uses the player_person global to properly format messages to the player.
@@ -20680,10 +20371,10 @@ If there is an error, the <code>system_status</code> global variable is set.</p>
 <a href="#_footnoteref_49">49</a>. The scenery class has the static attribute, which makes scenery objects untakeable. This is largely the point of scenery objects.
 </div>
 <div class="footnote" id="_footnotedef_50">
-<a href="#_footnoteref_50">50</a>. One could prevent duplication of properties and other parts of the object definitions by creating a common sundae class and deriving both fudge_sundae and butterscotch_sundae from it, changing only the adjective property.
+<a href="#_footnoteref_50">50</a>. One could prevent duplication of properties <span class="hl kwa">and</span> other parts of the <span class="hl kwa">object</span> definitions by creating a common sundae <span class="hl kwa">class and</span> deriving both fudge_sundae <span class="hl kwa">and</span> butterscotch_sundae from it, changing only the <span class="hl kwa">adjective property</span>.
 </div>
 <div class="footnote" id="_footnotedef_51">
-<a href="#_footnoteref_51">51</a>. Using banana1 as a class to build subsequent banana objects from is a simple way of copying objects (and saves typing and/or copying-and-pasting).
+<a href="#_footnoteref_51">51</a>. Using banana1 as a <span class="hl kwa">class to</span> build subsequent banana objects from <span class="hl kwa">is</span> a simple way of copying objects (<span class="hl kwa">and</span> saves typing <span class="hl kwa">and</span><span class="hl opt">/</span><span class="hl kwa">or</span> copying<span class="hl opt">-</span><span class="hl kwa">and</span><span class="hl opt">-</span>pasting).
 </div>
 <div class="footnote" id="_footnotedef_52">
 <a href="#_footnoteref_52">52</a>. The author encourages the implementation of bananas in any game. More bananas mean more monkeys, and monkeys are always fun.
