@@ -158,7 +158,7 @@ At this point it's probably helpful to know that you can assign a value to a var
 
 // @TODO: Missing XRef: "IV.e. Operators and Assignments" (in footnote!)
 
-// @FIXME: HUGO SYNTAX MOCKUP!
+// @HUGO SYNTAX MOCKUP!
 [listing, subs="+macros"]
 --------------------------------------------------------------------------------
 <some variable> = <some value>footnote:[The section _IV.e. Operators and Assignments_ goes into greater detail on assigning values to variables.]
@@ -487,7 +487,7 @@ These special commands or instructions are called _compiler directives_, and are
 
 To set switches within the source code so that they do not have to be specified each time the compiler is invoked for that particular program, the line
 
-// @FIXME: HUGO SYNTAX MOCKUP!
+// @HUGO SYNTAX MOCKUP!
 [source,hugo]
 --------------------------------------------------------------------------------
 #switches -<sequence>
@@ -505,7 +505,7 @@ the first line in every new program, which will automatically print a statistica
 
 Using
 
-// @FIXME: HUGO SYNTAX MOCKUP!
+// @HUGO SYNTAX MOCKUP!
 [source,hugo]
 --------------------------------------------------------------------------------
 #version <version>[.<revision>]
@@ -523,7 +523,7 @@ Its general usage is largely deprecated.
 
 To include the contents of another file at the specified point in the current file, use
 
-// @FIXME: HUGO SYNTAX MOCKUP!
+// @HUGO SYNTAX MOCKUP!
 [source,hugo]
 --------------------------------------------------------------------------------
 #include "<filename>"
@@ -550,7 +550,7 @@ Only if it has do they include the *hugofix.h* and *hugofix.g* files, which in t
 
 To set and clear flags, use
 
-// @FIXME: HUGO SYNTAX MOCKUP!
+// @HUGO SYNTAX MOCKUP!
 [source,hugo]
 --------------------------------------------------------------------------------
 #set <flagname>
@@ -558,7 +558,7 @@ To set and clear flags, use
 
 and
 
-// @FIXME: HUGO SYNTAX MOCKUP!
+// @HUGO SYNTAX MOCKUP!
 [source,hugo]
 --------------------------------------------------------------------------------
 #clear <flagname>
@@ -581,7 +581,7 @@ similarly to compiler limit settings and directories, with the same caveat that 
 
 Then, check to see if a flag is set or not (and include or exclude the specified block of source code) by using
 
-// @FIXME: HUGO SYNTAX MOCKUP!
+// @HUGO SYNTAX MOCKUP!
 [source,hugo, subs="+quotes"]
 --------------------------------------------------------------------------------
 #ifset <flagname>
@@ -591,7 +591,7 @@ Then, check to see if a flag is set or not (and include or exclude the specified
 
 or
 
-// @FIXME: HUGO SYNTAX MOCKUP!
+// @HUGO SYNTAX MOCKUP!
 [source,hugo, subs="+quotes"]
 --------------------------------------------------------------------------------
 #ifclear <flagname>
@@ -623,7 +623,7 @@ Use `#if defined <symbol>` and `#if undefined <symbol>` to test if objects, prop
 
 As seen above, the `#message` directive can be used as
 
-// @FIXME: HUGO SYNTAX MOCKUP!
+// @HUGO SYNTAX MOCKUP!
 [source,hugo]
 --------------------------------------------------------------------------------
 #message "<text>"
@@ -633,7 +633,7 @@ to output `<text>` when (or if) that statement is processed during the first com
 
 Including `error` or `warning` before `<text>` as in
 
-// @FIXME: HUGO SYNTAX MOCKUP!
+// @HUGO SYNTAX MOCKUP!
 [source,hugo]
 --------------------------------------------------------------------------------
 #message error "<text>"
@@ -641,7 +641,7 @@ Including `error` or `warning` before `<text>` as in
 
 or
 
-// @FIXME: HUGO SYNTAX MOCKUP!
+// @HUGO SYNTAX MOCKUP!
 [source,hugo]
 --------------------------------------------------------------------------------
 #message warning "<text>"
@@ -657,7 +657,7 @@ That is, it's printed only when the compiler initially compiles the source code,
 
 It is also possible to include inline limit settings, such as
 
-// @FIXME: HUGO SYNTAX MOCKUP!
+// @HUGO SYNTAX MOCKUP!
 [source,hugo]
 --------------------------------------------------------------------------------
 $<setting>=<limit>

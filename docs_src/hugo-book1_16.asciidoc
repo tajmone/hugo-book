@@ -67,7 +67,7 @@ TIP: It's useful to have generated debugging information by passing the `–i` s
 
 Essentially the same as the Hugo statement:
 
-// @FIXME: HUGO SYNTAX MOCKUP!
+// @HUGO SYNTAX MOCKUP!
 [source,hugo]
 --------------------------
 move <object> to <parent>.
@@ -79,7 +79,7 @@ The object will become the youngest child of the parent object.
 
 Essentially the same as the Hugo Library function call:
 
-// @FIXME: HUGO SYNTAX MOCKUP!
+// @HUGO SYNTAX MOCKUP!
 [source,hugo]
 -------------------
 MovePlayer(<obj.>).

@@ -12,7 +12,7 @@ A _daemon_ is the traditional name for a recurring activity.
 Hugo handles daemons as special events attached to objects that may be activated or deactivated (i.e., moved in and out of the scope of `runevents`).
 Since the daemon class is defined in the library, define a daemon itself using:
 
-// @FIXME: HUGO SYNTAX MOCKUP!
+// @HUGO SYNTAX MOCKUP!
 [source,hugo]
 -------------
 daemon <name>
@@ -22,7 +22,7 @@ daemon <name>
 The body of the daemon definition is empty.
 The daemon object is only needed to attach the daemon event to, so the daemon definition must be followed by:
 
-// @FIXME: HUGO SYNTAX MOCKUP!
+// @HUGO SYNTAX MOCKUP!
 [source,hugo]
 -----------------
 event [in] <name>
@@ -33,7 +33,7 @@ event [in] <name>
 
 Activate it by:
 
-// @FIXME: HUGO SYNTAX MOCKUP!
+// @HUGO SYNTAX MOCKUP!
 [source,hugo]
 ----------------
 Activate(<name>)
@@ -44,7 +44,7 @@ This way, whenever a `runevents` command is given (as it should be in the `Main`
 
 Deactivate the daemon using:
 
-// @FIXME: HUGO SYNTAX MOCKUP!
+// @HUGO SYNTAX MOCKUP!
 [source,hugo]
 ------------------
 Deactivate(<name>)
@@ -66,7 +66,7 @@ The fuse itself is a slightly more complex version of a daemon object, containin
 
 Similarly to a daemon, define a fuse in two steps:
 
-// @FIXME: HUGO SYNTAX MOCKUP!
+// @HUGO SYNTAX MOCKUP!
 [source,hugo]
 --------------------
 fuse <name>
@@ -84,7 +84,7 @@ event [in] <name>
 
 and turn it on or off by:
 
-// @FIXME: HUGO SYNTAX MOCKUP!
+// @HUGO SYNTAX MOCKUP!
 [source,hugo]
 ---------------------------
 Activate(<name>, <setting>)
@@ -92,7 +92,7 @@ Activate(<name>, <setting>)
 
 and
 
-// @FIXME: HUGO SYNTAX MOCKUP!
+// @HUGO SYNTAX MOCKUP!
 [source,hugo]
 ------------------
 Deactivate(<name>)
@@ -105,7 +105,7 @@ where `<setting>` is the initial value of the `timer` property.
 Note that it is up to the event itself to run the `timer` and check for its expiration.
 The line
 
-// @FIXME: HUGO SYNTAX MOCKUP!
+// @HUGO SYNTAX MOCKUP!
 [source,hugo]
 ----------------
 if not self.tick
@@ -127,7 +127,7 @@ Here's why:
 
 To define a script, use the following notation:
 
-// @FIXME: HUGO SYNTAX MOCKUP!
+// @HUGO SYNTAX MOCKUP!
 [source,hugo]
 ------------------------------------------------------
 setscript[Script(<char>, <num>)] =  &CharRoutine, obj,
@@ -212,7 +212,7 @@ It continues with the default action -- i.e., the character action routine speci
 
 To override a default character action routine, include a `before` property for the character object using the following form:
 
-// @FIXME: HUGO SYNTAX MOCKUP!
+// @HUGO SYNTAX MOCKUP!
 [source,hugo]
 ---------------------
 before

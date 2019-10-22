@@ -46,7 +46,7 @@ temp_word = "the"
 _Global_ variables are visible throughout the program.
 They must be defined similarly to properties and attributes as
 
-// @FIXME: HUGO SYNTAX MOCKUP!
+// @HUGO SYNTAX MOCKUP!
 [source,hugo]
 -------------------------------------------------
 global <global variable name>[ = <initial value>]
@@ -55,7 +55,7 @@ global <global variable name>[ = <initial value>]
 _Local_ variables, on the other hand, are recognized only within the routine in which they are defined.
 They are defined using
 
-// @FIXME: HUGO SYNTAX MOCKUP!
+// @HUGO SYNTAX MOCKUP!
 [source,hugo]
 --------------------------------------------------------------------------------
 local <local variable name>[ = <initial value>]
@@ -214,7 +214,7 @@ A = 1, B = 2, C = 4, D = 8.
 
 Enumeration of global variables is also possible, using the `globals` specifier, as in:
 
-// @FIXME: HUGO SYNTAX MOCKUP!
+// @HUGO SYNTAX MOCKUP!
 [source,hugo]
 --------------------------------------------------------------------------------
 enumerate globals
@@ -444,7 +444,7 @@ is illegal.
 The color of text may be changed using the `color` command (also valid with the U.K. spelling `colour`).
 The format is
 
-// @FIXME: HUGO SYNTAX MOCKUP!
+// @HUGO SYNTAX MOCKUP!
 [source,hugo]
 ---------------------------------------------------
 color <foreground>[, <background>[, <input color>]]
@@ -532,7 +532,7 @@ Date:
 
 Text can be specifically located using the `locate` command via
 
-// @FIXME: HUGO SYNTAX MOCKUP!
+// @HUGO SYNTAX MOCKUP!
 [source,hugo]
 ----------------------
 locate <column>, <row>
@@ -588,7 +588,7 @@ A **bold string with some _italics_ and [.underline]#underline#** [.underline]#t
 
 Print style can also be changed using the `Font` routine in *hugolib.h*, so that in
 
-// @FIXME: HUGO SYNTAX MOCKUP!
+// @HUGO SYNTAX MOCKUP!
 [source,hugo]
 ------------------------
 Font(<font change code>)
@@ -797,7 +797,7 @@ FindLight(location) + a   ! return value and variable
 
 Expressions can be evaluated and assigned to either a variable, a property, or an array element.
 
-// @FIXME: HUGO SYNTAX MOCKUP!
+// @HUGO SYNTAX MOCKUP!
 [source,hugo]
 -----------------------------------------------
 <variable> = <expression>
@@ -916,7 +916,7 @@ Prior to this point, little has been said about arrays.
 Arrays are sets of values that share a common name, and where the elements are referenced by number.
 Arrays are defined by
 
-// @FIXME: HUGO SYNTAX MOCKUP!
+// @HUGO SYNTAX MOCKUP!
 [source,hugo]
 --------------------------------
 array <arrayname> [<array size>]
@@ -957,7 +957,7 @@ would result in `10`.
 
 Array elements can be assigned more than one at a time, as in
 
-// @FIXME: HUGO SYNTAX MOCKUP!
+// @HUGO SYNTAX MOCKUP!
 [source,hugo]
 -----------------------------------------
 <arrayname> = <element1>, <element2>, ...
@@ -1073,7 +1073,7 @@ apple_array[5] = 0
 
 Hugo provides a handy way to store a dictionary entry in an array as a series of characters using the `string` built-in function:
 
-// @FIXME: HUGO SYNTAX MOCKUP!
+// @HUGO SYNTAX MOCKUP!
 [source,hugo]
 -----------------------------------------------------
 string(<array address>, <dict. entry>, <max. length>)
@@ -1110,7 +1110,7 @@ The Hugo Library defines the functions `StringCopy`, `StringEqual`, `StringLengt
 
 `StringCopy` copies one string array to another array.
 
-// @FIXME: HUGO SYNTAX MOCKUP!
+// @HUGO SYNTAX MOCKUP!
 [source,hugo]
 ------------------------------------------------
 StringCopy(<new array>, <old array>[, <length>])
@@ -1132,7 +1132,7 @@ StringCopy(a, b, 5)
 
 copies only up to 5 characters of `b` to `a`.
 
-// @FIXME: HUGO SYNTAX MOCKUP!
+// @HUGO SYNTAX MOCKUP!
 [source,hugo]
 ---------------------------------------
 x = StringEqual(<string1>, <string2>)
@@ -1151,7 +1151,7 @@ len = StringLength(a)
 
 and `StringPrint` prints a string array (or part of it).
 
-// @FIXME: HUGO SYNTAX MOCKUP!
+// @HUGO SYNTAX MOCKUP!
 [source,hugo]
 ----------------------------------------------
 StringPrint(<array address>[, <start>, <end>])
@@ -1192,7 +1192,7 @@ That is, while a dictionary entry is a simple value representing an address, a s
 
 The library provides the following to overcome this:
 
-// @FIXME: HUGO SYNTAX MOCKUP!
+// @HUGO SYNTAX MOCKUP!
 [source,hugo]
 -----------------------------------------
 StringDictCompare(<array>, <dict. entry>)
@@ -1203,7 +1203,7 @@ which returns the same values (1, -1, 0) as `StringCompare`, depending on whethe
 There is also a complement to `string`: the `dict` built-in function, that dynamically creates a new dictionary entry at runtime.
 Its syntax is:
 
-// @FIXME: HUGO SYNTAX MOCKUP!
+// @HUGO SYNTAX MOCKUP!
 [source,hugo]
 ---------------------------
 x = dict(<array>, <maxlen>)
@@ -1215,7 +1215,7 @@ where the contents of `<``array>` or `parse$` are written into the dictionary, t
 However, since this requires extending the actual length of the dictionary table in the game file, it is necessary to provide for this during compilation.
 Inserting
 
-// @FIXME: HUGO SYNTAX MOCKUP!
+// @HUGO SYNTAX MOCKUP!
 [source,hugo]
 -----------------------
 $MAXDICTEXTEND=<number>
@@ -1235,7 +1235,7 @@ Program flow can be controlled using a variety of constructions, each of which i
 
 The most basic of these is the `if` statement.
 
-// @FIXME: HUGO SYNTAX MOCKUP!
+// @HUGO SYNTAX MOCKUP!
 [source,hugo]
 --------------------------------
 if <expression>
@@ -1245,7 +1245,7 @@ if <expression>
 The enclosing braces are not necessary if the code block is a single line.
 Note also that the conditional block may begin (and even end) on the same line as the `if` statement provided that braces are used.
 
-// @FIXME: HUGO SYNTAX MOCKUP!
+// @HUGO SYNTAX MOCKUP!
 [source,hugo]
 --------------------------------------------------------------------------------
 if <expression>
@@ -1257,7 +1257,7 @@ if <expression> {...conditional code block...}
 If braces are not used for a single line, the compiler automatically inserts them, although special care must be taken when constructing a block of code nesting several single-line conditionals.
 While
 
-// @FIXME: HUGO SYNTAX MOCKUP!
+// @HUGO SYNTAX MOCKUP!
 [source,hugo]
 --------------------------------------------------------------------------------
 if <expression1>
@@ -1268,7 +1268,7 @@ if <expression1>
 may be properly interpreted, other constructions (particularly those involving some of the more complex program-flow concepts we're about to get into) may not be.
 Therefore, it's always best to be as clear as possible about your intent, more along the lines of:
 
-// @FIXME: HUGO SYNTAX MOCKUP!
+// @HUGO SYNTAX MOCKUP!
 [source,hugo]
 --------------------------------------------------------------------------------
 if <expression1>
@@ -1280,7 +1280,7 @@ if <expression1>
 
 More elaborate uses of `if` involve the use of `elseif` and `else`.
 
-// @FIXME: HUGO SYNTAX MOCKUP!
+// @HUGO SYNTAX MOCKUP!
 [source,hugo]
 --------------------------------------------------------------------------------
 if <expression1>
@@ -1304,7 +1304,7 @@ Of course, all three (`if`, `elseif`, and `else`) need not be used every time, a
 In certain cases, the `if` statement may not lend itself perfectly to clarity, and the `select`-`case` construction may be more appropriate.
 The general form is:
 
-// @FIXME: HUGO SYNTAX MOCKUP!
+// @HUGO SYNTAX MOCKUP!
 [source,hugo, subs="+macros"]
 --------------------------------------------------------------------------------
 select <var>
@@ -1319,7 +1319,7 @@ select <var>
 
 In this case, the evaluation is essentially
 
-// @FIXME: HUGO SYNTAX MOCKUP!
+// @HUGO SYNTAX MOCKUP!
 [source,hugo]
 ---------------------------------------------
 if <var> = <value1> [or <var> = <value2> ...]
@@ -1331,14 +1331,14 @@ The same rules for bracing multiple-line code blocks apply as with `if` (as well
 
 Basic loops may be coded using `while` and `do`-`while`.
 
-// @FIXME: HUGO SYNTAX MOCKUP!
+// @HUGO SYNTAX MOCKUP!
 [source,hugo]
 ------------------------------
 while <expression>
   ...conditional code block...
 ------------------------------
 
-// @FIXME: HUGO SYNTAX MOCKUP!
+// @HUGO SYNTAX MOCKUP!
 [source,hugo]
 ------------------------------
 do
@@ -1376,7 +1376,7 @@ The most important side effect of this is that if you're doing something in the 
 
 The most complex loop construction uses the `for` statement:
 
-// @FIXME: HUGO SYNTAX MOCKUP!
+// @HUGO SYNTAX MOCKUP!
 [source,hugo]
 --------------------------------------------
 for (<assignment>; <expression>; <modifier>)
@@ -1419,7 +1419,7 @@ It may be a routine that modifies a global variable, for example, which is then 
 
 A second form of a `for` loop is:
 
-// @FIXME: HUGO SYNTAX MOCKUP!
+// @HUGO SYNTAX MOCKUP!
 [source,hugo]
 ------------------------------
 for <var> in <object>
@@ -1457,7 +1457,7 @@ At any point during a loop, it may be necessary to exit immediately (and probabl
 The `break` statement passes control to the statement immediately following the current loop.
 In the example:
 
-// @FIXME: HUGO SYNTAX MOCKUP!
+// @HUGO SYNTAX MOCKUP!
 [source,hugo]
 --------------------------------------------------------------------------------
 do

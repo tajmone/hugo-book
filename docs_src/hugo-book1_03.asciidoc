@@ -7,7 +7,7 @@ Objects are the building blocks of any Hugo program.
 Anything that will be accessible to a player during the game -- including items, rooms, other characters, and even directions -- will most likely be defined as an object.
 The basic object definition looks like this:
 
-// @FIXME: HUGO SYNTAX MOCKUP!
+// @HUGO SYNTAX MOCKUP!
 [source,hugo]
 --------------------------------------------------------------------------------
 object <objectname> "object name"
@@ -254,7 +254,7 @@ Compiling with the `-d` switch will generate a debuggable (*.HDX*) version of th
 
 To initially place an object in the object tree, use
 
-// @FIXME: HUGO SYNTAX MOCKUP!
+// @HUGO SYNTAX MOCKUP!
 [source,hugo]
 --------------------------------------------------------------------------------
 in <parent>
@@ -262,7 +262,7 @@ in <parent>
 
 in the object definition, or, alternatively
 
-// @FIXME: HUGO SYNTAX MOCKUP!
+// @HUGO SYNTAX MOCKUP!
 [source,hugo]
 --------------------------------------------------------------------------------
 nearby <object>
@@ -281,7 +281,7 @@ All normal room objects have 0 as their parent.
 
 Therefore, the expanded basic case of an object definition is
 
-// @FIXME: HUGO SYNTAX MOCKUP!
+// @HUGO SYNTAX MOCKUP!
 [source,hugo]
 --------------------------------------------------------------------------------
 object <objectname> "object name"
@@ -297,7 +297,7 @@ object <objectname> "object name"
 Ensure that the opening brace `{` does not come on the same line as the `object` definition.
 Trying to do:
 
-// @FIXME: HUGO SYNTAX MOCKUP!
+// @HUGO SYNTAX MOCKUP!
 [source,hugo]
 --------------------------------------
 object <objectname> "object name" {...
@@ -330,7 +330,7 @@ object mysuitcase "suitcase"
 
 Objects can later be moved around the object tree using the `move` command as in:
 
-// @FIXME: HUGO SYNTAX MOCKUP!
+// @HUGO SYNTAX MOCKUP!
 [source,hugo]
 --------------------------------------------------------------------------------
 move <object> to <new parent>
@@ -352,7 +352,7 @@ image::hugo-book1_03_object-tree3.svg[align="center",width=40%]
 
 There is also a command to remove an object from its position in the tree:
 
-// @FIXME: HUGO SYNTAX MOCKUP!
+// @HUGO SYNTAX MOCKUP!
 [source,hugo]
 ---------------
 remove <object>
@@ -360,7 +360,7 @@ remove <object>
 
 which is the same as
 
-// @FIXME: HUGO SYNTAX MOCKUP!
+// @HUGO SYNTAX MOCKUP!
 [source,hugo]
 ------------------
 move <object> to 0
@@ -371,7 +371,7 @@ The object may of course be moved to any position later.
 Logical tests can also be evaluated with regard to objects and children.
 The structure
 
-// @FIXME: HUGO SYNTAX MOCKUP!
+// @HUGO SYNTAX MOCKUP!
 [source,hugo]
 --------------------------------------------------------------------------------
 <object> [not] in <parent>
@@ -407,7 +407,7 @@ We'll cover the `if...else...` structure in _IV.h Conditional Expressions and Pr
 Attributes are essentially qualities that every object either does or doesn't havefootnote:[For this reason, attributes are sometimes thought of as being "`lightweight classes`" in that, as can be seen in the list of attributes, they generally categorize an object as a certain "`kind`" of object -- although other than flagging the object with that particular quality they have no other direct effect.].
 An attribute is defined as
 
-// @FIXME: HUGO SYNTAX MOCKUP!
+// @HUGO SYNTAX MOCKUP!
 [source,hugo]
 --------------------------------------------------------------------------------
 attribute <attribute name>
@@ -457,7 +457,7 @@ There are available classes that aren't part of the standard library distributio
 Some of these attributes are actually the same attribute with different names.
 This is primarily just to save on the absolute number of attributes defined and is accomplished via
 
-// @FIXME: HUGO SYNTAX MOCKUP!
+// @HUGO SYNTAX MOCKUP!
 [source,hugo]
 --------------------------------------------------------------------------------
 attribute <attribute2> alias <attribute1>
@@ -476,7 +476,7 @@ For the most part, you should never need to alias your own attributes, although 
 
 Attributes are given to an object during its definition as follows:
 
-// @FIXME: HUGO SYNTAX MOCKUP!
+// @HUGO SYNTAX MOCKUP!
 [source,hugo]
 --------------------------------------------------------------------------------
 object <objectname> "object name"
@@ -506,7 +506,7 @@ object mysuitcase "suitcase"
 
 Even if an object was not given a particular attribute in its object definition, it may be given that attribute at any later point in the program with the command
 
-// @FIXME: HUGO SYNTAX MOCKUP!
+// @HUGO SYNTAX MOCKUP!
 [source,hugo]
 --------------------------------------------------------------------------------
 <object> is [not] <attribute>
@@ -531,7 +531,7 @@ mysuitcase is not open
 Attributes can also be read using the `is` and `is not` structures and evaluate to either true or false.
 In code, the expression
 
-// @FIXME: HUGO SYNTAX MOCKUP!
+// @HUGO SYNTAX MOCKUP!
 [source,hugo]
 --------------------------------------------------------------------------------
 <object> is [not] <attribute>
@@ -629,7 +629,7 @@ For now, think of a property as simply containing one or more values of some kin
 
 A property is defined similiarly to an attribute as
 
-// @FIXME: HUGO SYNTAX MOCKUP!
+// @HUGO SYNTAX MOCKUP!
 [source,hugo]
 --------------------------------------------------------------------------------
 property <property name>
@@ -638,7 +638,7 @@ property <property name>
 A default value may be defined for the property using
 
 
-// @FIXME: HUGO SYNTAX MOCKUP!
+// @HUGO SYNTAX MOCKUP!
 [source,hugo]
 --------------------------------------------------------------------------------
 property <property name> <default value>
@@ -732,7 +732,7 @@ The following properties are also defined and used exclusively by the display ob
 
 Property names may be aliased similarly to attributes using:
 
-// @FIXME: HUGO SYNTAX MOCKUP!
+// @HUGO SYNTAX MOCKUP!
 [source,hugo]
 --------------------------------------
 property <property2> alias <property1>
@@ -751,7 +751,7 @@ pronouns alias pronoun
 
 Whereas a simple property is expressed as
 
-// @FIXME: HUGO SYNTAX MOCKUP!
+// @HUGO SYNTAX MOCKUP!
 [source,hugo]
 -------------------
 <object>.<property>
@@ -760,7 +760,7 @@ Whereas a simple property is expressed as
 The number of elements to a property with more than a single value can be found via
 
 
-// @FIXME: HUGO SYNTAX MOCKUP!
+// @HUGO SYNTAX MOCKUP!
 [source,hugo]
 --------------------
 <object>.#<property>
@@ -768,7 +768,7 @@ The number of elements to a property with more than a single value can be found 
 
 and a single element is expressed as
 
-// @FIXME: HUGO SYNTAX MOCKUP!
+// @HUGO SYNTAX MOCKUP!
 [source,hugo]
 -------------------------------------
 <object>.<property> #<element number>
@@ -838,7 +838,7 @@ found_in kitchen
 
 and later, the program tries to set
 
-// @FIXME: HUGO SYNTAX MOCKUP!
+// @HUGO SYNTAX MOCKUP!
 [source,hugo]
 --------------------------------------------------------------------------------
 <object>.found_in #2 = livingroom
@@ -850,7 +850,7 @@ Trying to read `<object>.found_in #2` will return a value of 0 -- a non-existent
 
 To overcome this, if it is known that eventually a second (or third, or fourth, or ninth) value is going to be set -- even if only one value is defined at the outset -- use
 
-// @FIXME: HUGO SYNTAX MOCKUP!
+// @HUGO SYNTAX MOCKUP!
 [source,hugo]
 -------------------------------
 found_in kitchen, 0[, 0, 0,...]
@@ -893,7 +893,7 @@ Classes are objects that are specifically intended to be used as prototypes for 
 They're extremely useful for when you want to create a number of objects that will all share certain basic characteristics.
 Here is how a class is defined:
 
-// @FIXME: HUGO SYNTAX MOCKUP!
+// @HUGO SYNTAX MOCKUP!
 [source,hugo]
 --------------------------------------------------------------------------------
 class <classname> ["<optional name>"]
@@ -980,7 +980,7 @@ We created what amounts to a "`copy`" of `largebox`, with a different name ("`la
 Occasionally, it may be necessary to have an object or class inherit from more than one previously defined class.
 This can be done using the `inherits` instruction.
 
-// @FIXME: HUGO SYNTAX MOCKUP!
+// @HUGO SYNTAX MOCKUP!
 [source,hugo]
 --------------------------------------------------------------------------------
 <class1> <objectname> "name"
@@ -992,7 +992,7 @@ This can be done using the `inherits` instruction.
 
 or even
 
-// @FIXME: HUGO SYNTAX MOCKUP!
+// @HUGO SYNTAX MOCKUP!
 [source,hugo]
 --------------------------------------------------------------------------------
 object <objectname> "name"
@@ -1011,7 +1011,7 @@ Sometimes, however, it may be desirable to use a different definition for, say, 
 Instead of actually editing *objlib.h*,footnote:[Editing the library files is generally not recommended, and not only because you'll have to re-apply your changes if you update to a newer release of the library.
 If you absolutely must change one of the library files, make a copy first.] use:
 
-// @FIXME: HUGO SYNTAX MOCKUP!
+// @HUGO SYNTAX MOCKUP!
 [source,hugo]
 --------------------------------------------------------------------------------
 replace <class> ["<optional name>"]

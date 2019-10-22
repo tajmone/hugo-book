@@ -12,7 +12,7 @@
 s| Description: a| Logical AND.
 
 s| Syntax: a|
-// @FIXME: HUGO SYNTAX MOCKUP!
+// @HUGO SYNTAX MOCKUP!
 [source,hugo]
 -------------------------
 x = <value1> and <value2>
@@ -39,7 +39,7 @@ s| Description: a|
 When used as a data type modifier, specifies that the following value is to be treated as an array address.
 
 s| Example: a|
-// @FIXME: HUGO SYNTAX MOCKUP!
+// @HUGO SYNTAX MOCKUP!
 [source,hugo]
 --------------------------
 <var1> = array <var2>[<n>]
@@ -55,7 +55,7 @@ The variable `<var2>` will be treated as an array address.
 s| Description: a| Terminates the immediate enclosing loop.
 
 s| Example: a|
-// @FIXME: HUGO SYNTAX MOCKUP!
+// @HUGO SYNTAX MOCKUP!
 [source,hugo]
 --------------------------
 while <expression1>
@@ -81,13 +81,13 @@ s| Description: a|
 Calls a routine indirectly, i.e., when the routine address has been stored in a variable, object property, etc.
 
 s| Syntax: a|
-// @FIXME: HUGO SYNTAX MOCKUP!
+// @HUGO SYNTAX MOCKUP!
 [source,hugo]
 call <value>[(<arg1>, <arg2>,...)]
 
 or
 
-// @FIXME: HUGO SYNTAX MOCKUP!
+// @HUGO SYNTAX MOCKUP!
 [source,hugo]
 x = call <value>(...)
 
@@ -105,7 +105,7 @@ s| Description: a|
 Print statement modifier, indicating that the next word should be printed with the first letter capitalized.
 
 s| Syntax: a|
-// @FIXME: HUGO SYNTAX MOCKUP!
+// @HUGO SYNTAX MOCKUP!
 [source,hugo]
 print capital <address>
 
@@ -120,7 +120,7 @@ where `<address>` is any dictionary word, such as, for example, an `object.name`
 s| Description: a| Specifies a conditional case in a select structure.
 
 s| Syntax: a|
-// @FIXME: HUGO SYNTAX MOCKUP!
+// @HUGO SYNTAX MOCKUP!
 [source,hugo]
 -------------------------------
 select <val>
@@ -138,7 +138,7 @@ where `<val>` is value such as a variable, routine return value, object property
 .2+| {blank}
 
 s| Syntax: a|
-// @FIXME: HUGO SYNTAX MOCKUP!
+// @HUGO SYNTAX MOCKUP!
 [source,hugo]
 -------------------
 x = child(<parent>)
@@ -154,7 +154,7 @@ The object number of the immediate child object of `<parent>`, or 0 if `<parent>
 .2+| {blank}
 
 s| Syntax: a|
-// @FIXME: HUGO SYNTAX MOCKUP!
+// @HUGO SYNTAX MOCKUP!
 [source,hugo]
 ----------------------
 x = children(<parent>)
@@ -172,7 +172,7 @@ s| Description: a|
 Clears the current text window repositions the output coordinates at the bottom left of the text window.
 
 s| Syntax: a|
-// @FIXME: HUGO SYNTAX MOCKUP!
+// @HUGO SYNTAX MOCKUP!
 [source,hugo]
 ----------------------
 cls
@@ -187,7 +187,7 @@ cls
 s| Description: a| Sets the display colors for text output.
 
 s| Syntax: a|
-// @FIXME: HUGO SYNTAX MOCKUP!
+// @HUGO SYNTAX MOCKUP!
 [source,hugo]
 ----------------------------------
 color <foreground>[, <background>]
@@ -229,7 +229,7 @@ Standard color values for `<foreground>` and `<background>` with constants defin
 s| Description: a| Dynamically creates a new dictionary entry at runtime.
 
 s| Syntax: a|
-// @FIXME: HUGO SYNTAX MOCKUP!
+// @HUGO SYNTAX MOCKUP!
 [source,hugo]
 ------------------------------
 x = dict(<array>, <maxlen>)
@@ -252,7 +252,7 @@ Space should be reserved for any dictionary entries to be created at runtime usi
 s| Description: a| Marks the starting point of a do-while loop.
 
 s| Syntax: a|
-// @FIXME: HUGO SYNTAX MOCKUP!
+// @HUGO SYNTAX MOCKUP!
 [source,hugo]
 -------------
 do
@@ -270,7 +270,7 @@ The loop will continue to run as long as `<expr>` holds true.
 .2+| {blank}
 
 s| Syntax: a|
-// @FIXME: HUGO SYNTAX MOCKUP!
+// @HUGO SYNTAX MOCKUP!
 [source,hugo]
 ------------------------------
 x = elder(<object>)
@@ -297,7 +297,7 @@ s| Description: a|
 In an `if`-`elseif`-`else` conditional block, indicates the default operation if no previous condition has been met.
 
 s| Syntax: a|
-// @FIXME: HUGO SYNTAX MOCKUP!
+// @HUGO SYNTAX MOCKUP!
 [source,hugo]
 ------------------------------
 if <condition>
@@ -316,7 +316,7 @@ s| Description: a|
 In an `if`-`elseif`-`else` conditional block, indicates a condition that will be checked only if no preceding condition has been met.
 
 s| Syntax: a|
-// @FIXME: HUGO SYNTAX MOCKUP!
+// @HUGO SYNTAX MOCKUP!
 [source,hugo]
 -------------------
 if <condition1>
@@ -343,7 +343,7 @@ s| Description: a| A predefined constant value: 0.
 s| Description: a| Loop construction.
 
 s| Syntax: a|
-// @FIXME: HUGO SYNTAX MOCKUP!
+// @HUGO SYNTAX MOCKUP!
 [source,hugo]
 ------------------------------
 for (<initial>; <test>; <mod>)
@@ -352,7 +352,7 @@ for (<initial>; <test>; <mod>)
 }
 ------------------------------
 
-// @FIXME: HUGO SYNTAX MOCKUP!
+// @HUGO SYNTAX MOCKUP!
 [source,hugo]
 ------------------------------
 for <var> in <object>
@@ -383,7 +383,7 @@ s| Description: a|
 Print statement modifier signifying that the following value is not a dictionary address, but should be printed as a hexadecimal number.
 
 s| Syntax: a|
-// @FIXME: HUGO SYNTAX MOCKUP!
+// @HUGO SYNTAX MOCKUP!
 [source,hugo]
 ---------------
 print hex <var>
@@ -399,7 +399,7 @@ where, for example, `<var>` is equal to 26, will print "`1A`".
 s| Description: a| A conditional expression.
 
 s| Syntax: a|
-// @FIXME: HUGO SYNTAX MOCKUP!
+// @HUGO SYNTAX MOCKUP!
 [source,hugo]
 ------------------------------
 if <condition>
@@ -418,7 +418,7 @@ When used in an object definition, places the object in the object tree as a pos
 When used in an expression, returns true if the object is in the specified parent.
 
 s| Syntax: a|
-// @FIXME: HUGO SYNTAX MOCKUP!
+// @HUGO SYNTAX MOCKUP!
 [source,hugo]
 ------------------------------
 in <parent>
@@ -426,7 +426,7 @@ in <parent>
 
 or, for example:
 
-// @FIXME: HUGO SYNTAX MOCKUP!
+// @HUGO SYNTAX MOCKUP!
 [source,hugo]
 ------------------------------
 if <object> [not] in <parent>
@@ -459,7 +459,7 @@ input
 s| Description: a| Attribute assignment/testing.
 
 s| Syntax: a|
-// @FIXME: HUGO SYNTAX MOCKUP!
+// @HUGO SYNTAX MOCKUP!
 [source,hugo]
 <object> is [not] <attribute>
 
@@ -481,13 +481,13 @@ Otherwise, it returns false.
 s| Description: a| Jumps to a specified label.
 
 s| Syntax: a|
-// @FIXME: HUGO SYNTAX MOCKUP!
+// @HUGO SYNTAX MOCKUP!
 [source,hugo]
 jump <label>
 
 where a unique `<label>` exists on a separate line somewhere in the program, in the form:
 
-// @FIXME: HUGO SYNTAX MOCKUP!
+// @HUGO SYNTAX MOCKUP!
 [source,hugo]
 :<label>
 
@@ -501,7 +501,7 @@ where a unique `<label>` exists on a separate line somewhere in the program, in 
 s| Description: a| Defines one or more variables local to the current routine.
 
 s| Syntax: a|
-// @FIXME: HUGO SYNTAX MOCKUP!
+// @HUGO SYNTAX MOCKUP!
 [source,hugo]
 local <var1>[, <var2>, <var3>,...]
 
@@ -515,7 +515,7 @@ local <var1>[, <var2>, <var3>,...]
 s| Description: a| Sets the cursor position within the current text window.
 
 s| Syntax: a|
-// @FIXME: HUGO SYNTAX MOCKUP!
+// @HUGO SYNTAX MOCKUP!
 [source,hugo]
 -----------------------
 locate(<row>, <column>)
@@ -534,7 +534,7 @@ The cursor position is calculated in fixed-width character coordinates.
 s| Description: a| Moves an object with all its possessions to a new parent.
 
 s| Syntax: a|
-// @FIXME: HUGO SYNTAX MOCKUP!
+// @HUGO SYNTAX MOCKUP!
 [source,hugo]
 ------------------------------
 move <object> to <new parent>
@@ -573,7 +573,7 @@ Object specifier in grammar syntax line, indicating that multiple objects explic
 s| Description: a| Load and play a music resource (if audio output is available).
 
 s| Syntax: a|
-// @FIXME: HUGO SYNTAX MOCKUP!
+// @HUGO SYNTAX MOCKUP!
 [source,hugo]
 ------------------------------
 music [repeat] "file", "song"[, vol]
@@ -593,7 +593,7 @@ s| Description: a|
 Used in an object definition to place the object in the specified position in the object tree.
 
 s| Syntax: a|
-// @FIXME: HUGO SYNTAX MOCKUP!
+// @HUGO SYNTAX MOCKUP!
 [source,hugo]
 ------------------------------
 nearby <object>
@@ -631,13 +631,13 @@ print newline
 s| Description: a| Logical not.
 
 s| Syntax: a|
-// @FIXME: HUGO SYNTAX MOCKUP!
+// @HUGO SYNTAX MOCKUP!
 [source,hugo]
 ------------------------------
 x = not <value>
 ------------------------------
 
-// @FIXME: HUGO SYNTAX MOCKUP!
+// @HUGO SYNTAX MOCKUP!
 [source,hugo]
 ------------------------------
 <object> is not <attribute>
@@ -671,7 +671,7 @@ When used as a `print` statement modifier, indicates that the following value is
 s| Syntax: a|
 (for usage as a `print` statement modifier)
 
-// @FIXME: HUGO SYNTAX MOCKUP!
+// @HUGO SYNTAX MOCKUP!
 [source,hugo]
 ------------------
 print number <val>
@@ -697,7 +697,7 @@ When used in a grammar syntax line, indicates that a single available object is 
 s| Description: a| Logical OR.
 
 s| Syntax: a|
-// @FIXME: HUGO SYNTAX MOCKUP!
+// @HUGO SYNTAX MOCKUP!
 [source,hugo]
 ------------------------------
 x = <value1> or <value2>
@@ -714,7 +714,7 @@ s| Result: a|
 
 2+d| (Usage 1)
 s| Syntax: a|
-// @FIXME: HUGO SYNTAX MOCKUP!
+// @HUGO SYNTAX MOCKUP!
 [source,hugo]
 ------------------------------
 x = parent(<object>)
@@ -754,7 +754,7 @@ s| Description: a|
 Load and display an image resource in the currently defined window (if graphics are available).
 
 s| Syntax: a|
-// @FIXME: HUGO SYNTAX MOCKUP!
+// @HUGO SYNTAX MOCKUP!
 [source,hugo]
 -------------------------------------
 picture "<resourcefile>", "<picture>"
@@ -787,7 +787,7 @@ s| Return{nbsp}value: a| True if successful, false if not.
 s| Description: a| Print text output.
 
 s| Syntax: a|
-// @FIXME: HUGO SYNTAX MOCKUP!
+// @HUGO SYNTAX MOCKUP!
 [source,hugo]
 print <output>
 
@@ -806,7 +806,7 @@ Prints a character or series of characters at the current cursor position.
 No newline is printed.
 
 s| Syntax: a|
-// @FIXME: HUGO SYNTAX MOCKUP!
+// @HUGO SYNTAX MOCKUP!
 [source,hugo]
 printchar <val1>[, <val2>,...]
 
@@ -833,7 +833,7 @@ quit
 s| Description: a| Engine function which generates a random number.
 
 s| Syntax: a|
-// @FIXME: HUGO SYNTAX MOCKUP!
+// @HUGO SYNTAX MOCKUP!
 [source,hugo]
 x = random(<val>)
 
@@ -851,7 +851,7 @@ s| Description: a|
 A structure that allows values to be read from a file written using `writefile`.
 
 s| Syntax: a|
-// @FIXME: HUGO SYNTAX MOCKUP!
+// @HUGO SYNTAX MOCKUP!
 [source,hugo]
 ------------------------------
 readfile <filename>
@@ -967,7 +967,7 @@ s| Value: a| True if successful, false if not.
 s| Description: a| Returns from a called routine.
 
 s| Syntax: a|
-// @FIXME: HUGO SYNTAX MOCKUP!
+// @HUGO SYNTAX MOCKUP!
 [source,hugo]
 return [<expression>]
 
@@ -984,7 +984,7 @@ Returns `<expression>` if provided, otherwise returns false.
 s| Description: a| Runs an object property routine if one exists.
 
 s| Syntax: a|
-// @FIXME: HUGO SYNTAX MOCKUP!
+// @HUGO SYNTAX MOCKUP!
 [source,hugo]
 run <object>.<property>
 
@@ -1062,7 +1062,7 @@ s| Description: a|
 Specifies the value for comparison in a `select`-`case` conditional structure.
 
 s| Syntax: a|
-// @FIXME: HUGO SYNTAX MOCKUP!
+// @HUGO SYNTAX MOCKUP!
 [source,hugo]
 ------------------------------
 select <val>
@@ -1088,7 +1088,7 @@ Read-only engine variable that contains the serial number as written by the comp
 .2+| {blank}
 
 s| Syntax: a|
-// @FIXME: HUGO SYNTAX MOCKUP!
+// @HUGO SYNTAX MOCKUP!
 [source,hugo]
 x = sibling(<object>)
 
@@ -1106,7 +1106,7 @@ s| Description: a|
 Load and play an audio sample resource (if waveform audio output is available).
 
 s| Syntax: a|
-// @FIXME: HUGO SYNTAX MOCKUP!
+// @HUGO SYNTAX MOCKUP!
 [source,hugo]
 sound [repeat] "file", "sample"[, vol]
 sound 0
@@ -1126,7 +1126,7 @@ When used in a grammar syntax line, indicates that a string array enclosed in qu
 When used as a function, stores a dictionary entry in a string array.
 
 s| Syntax: a|
-// @FIXME: HUGO SYNTAX MOCKUP!
+// @HUGO SYNTAX MOCKUP!
 [source,hugo]
 x = string(<array>, <dict>, <maxlen>)
 x = string(<array>, parse$, <maxlen>)
@@ -1142,7 +1142,7 @@ Returns the length of the string stored in `<array>`.
 s| Description: a| Built-in function to call low-level system functions.
 
 s| Syntax: a|
-// @FIXME: HUGO SYNTAX MOCKUP!
+// @HUGO SYNTAX MOCKUP!
 [source,hugo]
 system(<function>)
 
@@ -1184,7 +1184,7 @@ s| Description: a|
 In a `print` statement, prints blank spaces in the current background color to the specified position.
 
 s| Syntax: a|
-// @FIXME: HUGO SYNTAX MOCKUP!
+// @HUGO SYNTAX MOCKUP!
 [source,hugo]
 print to <val>
 
@@ -1236,7 +1236,7 @@ verb "<word1>"[, "<word2>",...]
 s| Description: a| Component of `while` or `do`-`while` loop construct.
 
 s| Syntax: a|
-// @FIXME: HUGO SYNTAX MOCKUP!
+// @HUGO SYNTAX MOCKUP!
 [source,hugo]
 ------------------------------
 while <expr>
@@ -1247,7 +1247,7 @@ while <expr>
 
 or
 
-// @FIXME: HUGO SYNTAX MOCKUP!
+// @HUGO SYNTAX MOCKUP!
 [source,hugo]
 ------------------------------
 do
@@ -1267,7 +1267,7 @@ where the loop will run as long as `<expr>` holds true.
 s| Description: a| Switches output to the status window.
 
 s| Syntax: a|
-// @FIXME: HUGO SYNTAX MOCKUP!
+// @HUGO SYNTAX MOCKUP!
 [source,hugo]
 ------------------------------
 window a[, b, c, d]
@@ -1276,7 +1276,7 @@ window a[, b, c, d]
 
 or
 
-// @FIXME: HUGO SYNTAX MOCKUP!
+// @HUGO SYNTAX MOCKUP!
 [source,hugo]
 ------------------------------
 window
@@ -1284,7 +1284,7 @@ window
 ------------------------------
 
 or
-// @FIXME: HUGO SYNTAX MOCKUP!
+// @HUGO SYNTAX MOCKUP!
 [source,hugo]
 window 0
 
@@ -1305,7 +1305,7 @@ s| Description: a|
 A structure that writes values to a file that may be read using `readfile`.
 
 s| Syntax: a|
-// @FIXME: HUGO SYNTAX MOCKUP!
+// @HUGO SYNTAX MOCKUP!
 [source,hugo]
 ------------------------------
 writefile <filename>
@@ -1324,7 +1324,7 @@ The file is opened and positioned to the start at the beginning of the `writefil
 s| Description: a| Writes one or more values in a `writefile` block.
 
 s| Syntax: a|
-// @FIXME: HUGO SYNTAX MOCKUP!
+// @HUGO SYNTAX MOCKUP!
 [source,hugo]
 writefile value1[, value2, ...]
 
@@ -1350,7 +1350,7 @@ Begins definition of non-action verb.
 Upon returning from the verb routine, `Main` is not called.
 
 s| Syntax: a|
-// @FIXME: HUGO SYNTAX MOCKUP!
+// @HUGO SYNTAX MOCKUP!
 [source,hugo]
 xverb "<word1>"[, "<word2>", ...]
 
@@ -1369,7 +1369,7 @@ xverb "<word1>"[, "<word2>", ...]
 .2+| {blank}
 
 s| Syntax: a|
-// @FIXME: HUGO SYNTAX MOCKUP!
+// @HUGO SYNTAX MOCKUP!
 [source,hugo]
 x = youngest(<parent>)
 
