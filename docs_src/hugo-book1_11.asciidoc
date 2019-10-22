@@ -3,227 +3,231 @@
 
 == The Display Object
 
+The display object is a special object with which the Hugo Engine interacts to allow the program to be knowledgeable about as well as set certain characteristics of the display.
+The engine provides access to the following read-only properties (although the names themselves are defined in *hugolib.h*):
 
-
-The display object is a special object with which the Hugo Engine interacts to allow the program to be knowledgeable about as well as set certain characteristics of the display. The engine provides access to the following read-only properties (although the names themselves are defined in *hugolib.h*):
-
-screenwidth - width of the display, in characters
-
-screenheight - height of the display, in characters
-
-linelength - width of the current text window
-
-windowlines - height of the current text window
-
-cursor_column - horizontal and vertical position of
-
-cursor_row - the cursor in the current text window
-
-hasgraphics - returns true if graphic display is available
-
-hasvideo - returns true if video playback is available
-
-pointer_x - horizontal mouse position (in characters)
-
-pointer_y - vertical mouse position (in characters)
+[horizontal]
+`screenwidth`   :: width of the display, in characters
+`screenheight`  :: height of the display, in characters
+`linelength`    :: width of the current text window
+`windowlines`   :: height of the current text window
+`cursor_column` :: horizontal and vertical position of
+`cursor_row`    :: the cursor in the current text window
+`hasgraphics`   :: returns true if graphic display is available
+`hasvideo`      :: returns true if video playback is available
+`pointer_x`     :: horizontal mouse position (in characters)
+`pointer_y`     :: vertical mouse position (in characters)
 
 [NOTE]
 ================================================================================
-In this usage, `display` refers to the virtual screen usable by the Hugo Engine. Depending on the mode of the engine, this may refer to the full-screen (as for terminal-based ports) or a subsection thereof (i.e., for the engine running in a window).
+In this usage, "`display`" refers to the virtual screen usable by the Hugo Engine.
+Depending on the mode of the engine, this may refer to the full-screen (as for terminal-based ports) or a subsection thereof (i.e., for the engine running in a window).
 ================================================================================
-
-
 
 Additionally, the following display object properties are also writable by a program:
 
-title_caption - sets the window title for the game (where supported)
-
-needs_repaint - set to true when the GUI display changes (such as when window size is changed); may then be reset to false by the program
+[horizontal]
+`title_caption` :: sets the window title for the game (where supported)
+`needs_repaint` :: set to true when the GUI display changes (such as when window size is changed); may then be reset to false by the program
 
 The Hugo Library also defines the normal read/writable:
 
-statusline_height - of the last-printed status line
+[horizontal]
+`statusline_height` :: of the last-printed status line
 
 In order for the engine to properly identify the display object, it selects the object (if any) with the textual name `(display)`, i.e., an object that is defined as
 
+// @FIXME: HUGO SYNTAX MOCKUP!
+[source,hugo]
+--------------------------------------------------------------------------------
 object display
-
-\{
-
-...
-
+{
+    ...
 }
+--------------------------------------------------------------------------------
 
-with no explicit textual name. This is how the Hugo Library defines the display object, so that the various display object properties are readable as display.screenheight, display.cursor_column, etc.
+with no explicit textual name.
+This is how the Hugo Library defines the display object, so that the various display object properties are readable as `display.screenheight`, `display.cursor_column`, etc.
+
 
 == Windows
 
+It is possible to create an enclosing window within the full-screen display for text output.
+Cursor position, line-wrapping, etc. are trimmed to the boundaries of the current window.
+Cursor positioning and window boundaries are always calculated in fixed-width character dimensions.
+Various syntaxes for the window statement are:
+
+[caption=]
+[cols="<2m,<8d",grid=rows,stripes=none]
+|===============================================================================
+
+|window 0
+| Restores full-screen output
+
+| window n +
+{...}
+| Creates a window of `n` lines, bordering on the top edge and sides of the full-screen
+
+| window{nbsp}l,{nbsp}t,{nbsp}r,{nbsp}b +
+{...}
+| Creates a window with the left-top corner (`l`, `t`) and the right-bottom corner (`r`, `b`), where these coordinates are character coordinates on the full-screen
+
+| window +
+{...}
+| Redraws the last-defined window
+|===============================================================================
 
 
-It is possible to create an enclosing window within the full-screen display for text output. Cursor position, line-wrapping, etc. are trimmed to the boundaries of the current window. Cursor positioning and window boundaries are always calculated in fixed-width character dimensions. Various syntaxes for the window statement are:
+Each usage except `window 0` is followed by a block of code during which, normally, text is output to the window.
+The window (i.e., its boundaries) exists for the duration of the `{...}` block.
+After it finishes, the top of the main text window is redefined as being immediately below the lowest-drawn window.
+To clear the record of any window and restore the main text window to the full-screen, use `window 0`.
 
-window 0 Restores full-screen output
+A windowing library file exists called *window.h* which defines a `window_class` and the associated properties so a window object can be created via:
 
-window n Creates a window of n lines, bordering
-
-\{...} on the top edge and sides of the full-screen
-
-window l, t, r, b Creates a window with the left-top
-
-\{...} corner (l, t) and the right-bottom corner (r, b), where these coordinates are character coordinates on the full-screen
-
-window Redraws the last-defined window
-
-\{...}
-
-Each usage except `window 0` is followed by a block of code during which, normally, text is output to the window. The window (i.e., its boundaries) exists for the duration of the `{...}` block. After it finishes, the top of the main text window is redefined as being immediately below the lowest-drawn window. To clear the record of any window and restore the main text window to the full-screen, use `window 0`.
-
-A windowing library file exists called *window.h* which defines a window_class and the associated properties so a window object can be created via:
-
+// @FIXME: HUGO SYNTAX MOCKUP!
+[source,hugo]
+--------------------------------------------------------------------------------
 window_class <window name> "title"
+{
+    win_position <screen column>, <screen row>
+    win_size <columns>, <rows>
 
-\{
-
-win_position <screen column>, <screen row>
-
-win_size <columns>, <rows>
-
-win_textcolor <text color>
-
-win_backcolor <background color>
-
-win_titlecolor <title text>
-
-win_titleback <title background>
-
+    win_textcolor <text color>
+    win_backcolor <background color>
+    win_titlecolor <title text>
+    win_titleback <title background>
 }
+--------------------------------------------------------------------------------
 
-The window_class also incorporates the property routines win_init, win_clear, and win_end.
+The `window_class` also incorporates the property routines `win_init`, `win_clear`, and `win_end`.
 
-[NOTE]
+[IMPORTANT]
 ================================================================================
-It may be important to keep in mind that measures such as display.screenwidth may change during execution, particularly in a graphical user interface windowing environment which allows resizing of the Hugo program window. For this reason, it is wise to resample display.<property> whenever a window is to be drawn instead of basing the coordinates on, for example, a set of boundaries calculated during program initialization.
+It may be important to keep in mind that measures such as `display.screenwidth` may change during execution, particularly in a graphical user interface windowing environment which allows resizing of the Hugo program window.
+For this reason, it is wise to resample `display.<property>` whenever a window is to be drawn instead of basing the coordinates on, for example, a set of boundaries calculated during program initialization.
 ================================================================================
-
 
 
 == Reading And Writing Files
 
+There may be times when it will be useful to store data in a file for later recovery.
+The most basic way of doing this involves
 
-
-There may be times when it will be useful to store data in a file for later recovery. The most basic way of doing this involves
-
+[source,hugo]
 x = save
 
 and
 
+[source,hugo]
 x = restore
 
-where save and restore return a true value if successful, or a false value if for some reason they fail. The user is promped for a filename, and, in either case, the entire set of game data--including object locations, variable values, arrays, attributes, etc.--is saved or restored, as appropriate.
+where `save` and `restore` return a true value if successful, or a false value if for some reason they fail.
+The user is promped for a filename, and, in either case, the entire set of game data -- including object locations, variable values, arrays, attributes, etc. -- is saved or restored, as appropriate.
 
-Other times, it may be desirable to save only certain values. For example, a particular game may allow a player to create certain player characteristics or other "`remembered data`" that can be restored in the same game or in different games. To accomplish this, use the writefile and readfile operations.
+Other times, it may be desirable to save only certain values.
+For example, a particular game may allow a player to create certain player characteristics or other "`remembered data`" that can be restored in the same game or in different games.
+To accomplish this, use the `writefile` and `readfile` operations.
 
 The structure
 
+// @FIXME: HUGO SYNTAX MOCKUP!
+[source,hugo]
+--------------------------------------------------------------------------------
 writefile <filename>
-
-\{
-
-...
-
+{
+    ...
 }
+--------------------------------------------------------------------------------
 
-will, at the start of the writefile block, open <filename> for writing and position <filename> to the start of the (empty) file. (If the file exists, it will be cleared/erased.) At the conclusion of the block, the file will be closed again.
+will, at the start of the `writefile` block, open `<filename>` for writing and position `<filename>` to the start of the (empty) file.
+(If the file exists, it will be cleared/erased.) At the conclusion of the block, the file will be closed again.
 
-Within a writefile block, write individual values using
+Within a `writefile` block, write individual values using
 
+// @FIXME: HUGO SYNTAX MOCKUP!
+[source,hugo]
+--------------------------------------------------------------------------------
 writeval <value1>[, <value2>, ...]
+--------------------------------------------------------------------------------
 
 where one or more values can be specified.
 
 To read the file, use the structure
 
+// @FIXME: HUGO SYNTAX MOCKUP!
+[source,hugo]
+--------------------------------------------------------------------------------
 readfile <filename>
-
-\{
-
-...
-
+{
+    ...
 }
+--------------------------------------------------------------------------------
 
 which will contain the assignment
 
+[source,hugo]
 x = readval
 
-for each value to be read, where x can be any storage type such as a variable, property, etc.
+for each value to be read, where `x` can be any storage type such as a variable, property, etc.
 
 For example:
 
+[source,hugo]
+--------------------------------------------------------------------------------
 local count, test
 
 count = 10
-
 writefile "testfile"
-
-\{
-
-writeval count, "telephone", 10
-
-test = FILE_CHECK
-
-writeval test
-
+{
+    writeval count, "telephone", 10
+    test = FILE_CHECK
+    writeval test
 }
-
-if test ~= FILE_CHECK ! an error has occurred
-
-\{
-
-print "An error has occurred."
-
+if test ~= FILE_CHECK   ! an error has occurred
+{
+    print "An error has occurred."
 }
+--------------------------------------------------------------------------------
 
-will write the variable count, the dictionary entry `telephone`, and the value 10 to `testfile`. Then,
+will write the variable `count`, the dictionary entry "`telephone`", and the value 10 to "`*testfile*`".
+Then,
 
+[source,hugo]
+--------------------------------------------------------------------------------
 local a, b, c, test
 
 readfile "testfile"
-
-\{
-
-a = readval
-
-b = readval
-
-c = readval
-
-test = readval
-
+{
+    a = readval
+    b = readval
+    c = readval
+    test = readval
 }
-
-if test ~= FILE_CHECK ! an error has occurred
-
-\{
-
-print "Error reading file."
-
+if test ~= FILE_CHECK   ! an error has occurred
+{
+    print "Error reading file."
 }
+--------------------------------------------------------------------------------
 
-If the readfile block executes successfully, a will be equal to the former value count, b will be `telephone`, and c will be 10.
+If the `readfile` block executes successfully, `a` will be equal to the former value `count`, `b` will be "`telephone`", and `c` will be 10.
 
-The constant FILE_CHECK, defined in *hugolib.h*, is useful because writefile and readfile provide no explicit error return to indicate failure. FILE_CHECK is a unique two-byte sequence that can be used to test for success. In the writefile block, if the block is exited prematurely due to an error, test will never be set to FILE_CHECK. The if statement following the block tests for this. In the readfile block, test will only be set to FILE_CHECK if the sequence of readval functions finds the expected number of values in `testfile`. If there are too many or too few values in `testfile`, or if an error forces an early exit from the readfile block, test will equal a value other than FILE_CHECK.
+The constant `FILE_CHECK`, defined in *hugolib.h*, is useful because `writefile` and `readfile` provide no explicit error return to indicate failure.
+`FILE_CHECK` is a unique two-byte sequence that can be used to test for success.
+In the `writefile` block, if the block is exited prematurely due to an error, `test` will never be set to `FILE_CHECK`.
+The `if` statement following the block tests for this.
+In the `readfile` block, `test` will only be set to `FILE_CHECK` if the sequence of `readval` functions finds the expected number of values in "`*testfile*`".
+If there are too many or too few values in "`*testfile*`", or if an error forces an early exit from the `readfile` block, `test` will equal a value other than `FILE_CHECK`.
+
 
 == Mouse Input
 
+If the player clicks somewhere on the screen with the mouse pointer (or taps on the screen on a handheld device, or whatever the comparable action is for the platform in question), a Hugo program may read that action.
+Specifically, a `pause` statement, which normally stores the ASCII value of a keypress in `word[0]`, will instead store the value `MOUSE_CLICK` (defined in *hugolib.h* to be 1) if the mouse is clicked while the engine is waiting for that keypress.
 
+A mouse click (or equivalent action) has no effect during player input -- i.e., when the program is waiting for a typed command -- unless the individual port provides some behavior such as bringing up a menu, entering a double-clicked word into the input line, etc.
+The running Hugo program cannot itself monitor mouse input during typed input.
 
-If the player clicks somewhere on the screen with the mouse pointer (or taps on the screen on a handheld device, or whatever the comparable action is for the platform in question), a Hugo program may read that action. Specifically, a pause statement, which normally stores the ASCII value of a keypress in word[0], will instead store the value MOUSE_CLICK (defined in *hugolib.h* to be 1) if the mouse is clicked while the engine is waiting for that keypress.
-
-A mouse click (or equivalent action) has no effect during player input--i.e., when the program is waiting for a typed command--unless the individual port provides some behavior such as bringing up a menu, entering a double-clicked word into the input line, etc. The running Hugo program cannot itself monitor mouse input during typed input.
-
-As mentioned above, the display object provides the read-only properties pointer_x and pointer_y, which give the horizontal and vertical position of the mouse (in characters) respectively.
-
-
-
+As mentioned above, the display object provides the read-only properties `pointer_x` and `pointer_y`, which give the horizontal and vertical position of the mouse (in characters) respectively.
 
 // EOF //

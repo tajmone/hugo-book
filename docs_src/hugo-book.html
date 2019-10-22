@@ -535,7 +535,7 @@ div.literalblock.cmd pre .conum {
 <span id="email" class="email"><a href="mailto:general@generalcoffee.com">general@generalcoffee.com</a></span><br>
 <span id="revnumber">version 1,</span>
 <span id="revdate">2018-10-04</span>
-<br><span id="revremark">Draft 61 -- Porting to AsciiDoc</span>
+<br><span id="revremark">Draft 62 -- Porting to AsciiDoc</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -9639,37 +9639,92 @@ You should be able to look at the various implementations of scenery, components
 <div class="sect2">
 <h3 id="_the_display_object"><a class="anchor" href="#_the_display_object"></a>11.1. The Display Object</h3>
 <div class="paragraph">
-<p>The display object is a special object with which the Hugo Engine interacts to allow the program to be knowledgeable about as well as set certain characteristics of the display. The engine provides access to the following read-only properties (although the names themselves are defined in <strong>hugolib.h</strong>):</p>
+<p>The display object is a special object with which the Hugo Engine interacts to allow the program to be knowledgeable about as well as set certain characteristics of the display.
+The engine provides access to the following read-only properties (although the names themselves are defined in <strong>hugolib.h</strong>):</p>
 </div>
-<div class="paragraph">
-<p>screenwidth - width of the display, in characters</p>
-</div>
-<div class="paragraph">
-<p>screenheight - height of the display, in characters</p>
-</div>
-<div class="paragraph">
-<p>linelength - width of the current text window</p>
-</div>
-<div class="paragraph">
-<p>windowlines - height of the current text window</p>
-</div>
-<div class="paragraph">
-<p>cursor_column - horizontal and vertical position of</p>
-</div>
-<div class="paragraph">
-<p>cursor_row - the cursor in the current text window</p>
-</div>
-<div class="paragraph">
-<p>hasgraphics - returns true if graphic display is available</p>
-</div>
-<div class="paragraph">
-<p>hasvideo - returns true if video playback is available</p>
-</div>
-<div class="paragraph">
-<p>pointer_x - horizontal mouse position (in characters)</p>
-</div>
-<div class="paragraph">
-<p>pointer_y - vertical mouse position (in characters)</p>
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+<code>screenwidth</code>   
+</td>
+<td class="hdlist2">
+<p>width of the display, in characters</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>screenheight</code>  
+</td>
+<td class="hdlist2">
+<p>height of the display, in characters</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>linelength</code>    
+</td>
+<td class="hdlist2">
+<p>width of the current text window</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>windowlines</code>   
+</td>
+<td class="hdlist2">
+<p>height of the current text window</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>cursor_column</code> 
+</td>
+<td class="hdlist2">
+<p>horizontal and vertical position of</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>cursor_row</code>    
+</td>
+<td class="hdlist2">
+<p>the cursor in the current text window</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>hasgraphics</code>   
+</td>
+<td class="hdlist2">
+<p>returns true if graphic display is available</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>hasvideo</code>      
+</td>
+<td class="hdlist2">
+<p>returns true if video playback is available</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>pointer_x</code>     
+</td>
+<td class="hdlist2">
+<p>horizontal mouse position (in characters)</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>pointer_y</code>     
+</td>
+<td class="hdlist2">
+<p>vertical mouse position (in characters)</p>
+</td>
+</tr>
+</table>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -9679,7 +9734,8 @@ You should be able to look at the various implementations of scenery, components
 </td>
 <td class="content">
 <div class="paragraph">
-<p>In this usage, <code>display</code> refers to the virtual screen usable by the Hugo Engine. Depending on the mode of the engine, this may refer to the full-screen (as for terminal-based ports) or a subsection thereof (i.e., for the engine running in a window).</p>
+<p>In this usage, &#8220;display&#8221; refers to the virtual screen usable by the Hugo Engine.
+Depending on the mode of the engine, this may refer to the full-screen (as for terminal-based ports) or a subsection thereof (i.e., for the engine running in a window).</p>
 </div>
 </td>
 </tr>
@@ -9688,108 +9744,116 @@ You should be able to look at the various implementations of scenery, components
 <div class="paragraph">
 <p>Additionally, the following display object properties are also writable by a program:</p>
 </div>
-<div class="paragraph">
-<p>title_caption - sets the window title for the game (where supported)</p>
-</div>
-<div class="paragraph">
-<p>needs_repaint - set to true when the GUI display changes (such as when window size is changed); may then be reset to false by the program</p>
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+<code>title_caption</code> 
+</td>
+<td class="hdlist2">
+<p>sets the window title for the game (where supported)</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>needs_repaint</code> 
+</td>
+<td class="hdlist2">
+<p>set to true when the GUI display changes (such as when window size is changed); may then be reset to false by the program</p>
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>The Hugo Library also defines the normal read/writable:</p>
 </div>
-<div class="paragraph">
-<p>statusline_height - of the last-printed status line</p>
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+<code>statusline_height</code> 
+</td>
+<td class="hdlist2">
+<p>of the last-printed status line</p>
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>In order for the engine to properly identify the display object, it selects the object (if any) with the textual name <code>(display)</code>, i.e., an object that is defined as</p>
 </div>
-<div class="paragraph">
-<p>object display</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">object</span> display&#x000A;{&#x000A;    ...&#x000A;}</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>\{</p>
-</div>
-<div class="paragraph">
-<p>&#8230;&#8203;</p>
-</div>
-<div class="paragraph">
-<p>}</p>
-</div>
-<div class="paragraph">
-<p>with no explicit textual name. This is how the Hugo Library defines the display object, so that the various display object properties are readable as display.screenheight, display.cursor_column, etc.</p>
+<p>with no explicit textual name.
+This is how the Hugo Library defines the display object, so that the various display object properties are readable as <code>display.screenheight</code>, <code>display.cursor_column</code>, etc.</p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_windows"><a class="anchor" href="#_windows"></a>11.2. Windows</h3>
 <div class="paragraph">
-<p>It is possible to create an enclosing window within the full-screen display for text output. Cursor position, line-wrapping, etc. are trimmed to the boundaries of the current window. Cursor positioning and window boundaries are always calculated in fixed-width character dimensions. Various syntaxes for the window statement are:</p>
+<p>It is possible to create an enclosing window within the full-screen display for text output.
+Cursor position, line-wrapping, etc. are trimmed to the boundaries of the current window.
+Cursor positioning and window boundaries are always calculated in fixed-width character dimensions.
+Various syntaxes for the window statement are:</p>
+</div>
+<table class="tableblock frame-all grid-rows stripes-none stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 80%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>window 0</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Restores full-screen output</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>window n<br>
+{&#8230;&#8203;}</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Creates a window of <code>n</code> lines, bordering on the top edge and sides of the full-screen</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>window&#160;l,&#160;t,&#160;r,&#160;b<br>
+{&#8230;&#8203;}</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Creates a window with the left-top corner (<code>l</code>, <code>t</code>) and the right-bottom corner (<code>r</code>, <code>b</code>), where these coordinates are character coordinates on the full-screen</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>window<br>
+{&#8230;&#8203;}</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Redraws the last-defined window</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Each usage except <code>window 0</code> is followed by a block of code during which, normally, text is output to the window.
+The window (i.e., its boundaries) exists for the duration of the <code>{&#8230;&#8203;}</code> block.
+After it finishes, the top of the main text window is redefined as being immediately below the lowest-drawn window.
+To clear the record of any window and restore the main text window to the full-screen, use <code>window 0</code>.</p>
 </div>
 <div class="paragraph">
-<p>window 0 Restores full-screen output</p>
+<p>A windowing library file exists called <strong>window.h</strong> which defines a <code>window_class</code> and the associated properties so a window object can be created via:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">window_class <span class="hl opt">&lt;</span><span class="hl kwa">window name</span><span class="hl opt">&gt;</span> <span class="hl str">&quot;title&quot;</span>&#x000A;{&#x000A;    win_position <span class="hl opt">&lt;</span>screen column<span class="hl opt">&gt;</span>, <span class="hl opt">&lt;</span>screen row<span class="hl opt">&gt;</span>&#x000A;    win_size <span class="hl opt">&lt;</span>columns<span class="hl opt">&gt;</span>, <span class="hl opt">&lt;</span>rows<span class="hl opt">&gt;</span>&#x000A;&#x000A;    win_textcolor <span class="hl opt">&lt;</span><span class="hl kwa">text color</span><span class="hl opt">&gt;</span>&#x000A;    win_backcolor <span class="hl opt">&lt;</span>background <span class="hl kwa">color</span><span class="hl opt">&gt;</span>&#x000A;    win_titlecolor <span class="hl opt">&lt;</span>title <span class="hl kwa">text</span><span class="hl opt">&gt;</span>&#x000A;    win_titleback <span class="hl opt">&lt;</span>title background<span class="hl opt">&gt;</span>&#x000A;}</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>window n Creates a window of n lines, bordering</p>
+<p>The <code>window_class</code> also incorporates the property routines <code>win_init</code>, <code>win_clear</code>, and <code>win_end</code>.</p>
 </div>
-<div class="paragraph">
-<p>\{&#8230;&#8203;} on the top edge and sides of the full-screen</p>
-</div>
-<div class="paragraph">
-<p>window l, t, r, b Creates a window with the left-top</p>
-</div>
-<div class="paragraph">
-<p>\{&#8230;&#8203;} corner (l, t) and the right-bottom corner (r, b), where these coordinates are character coordinates on the full-screen</p>
-</div>
-<div class="paragraph">
-<p>window Redraws the last-defined window</p>
-</div>
-<div class="paragraph">
-<p>\{&#8230;&#8203;}</p>
-</div>
-<div class="paragraph">
-<p>Each usage except <code>window 0</code> is followed by a block of code during which, normally, text is output to the window. The window (i.e., its boundaries) exists for the duration of the <code>{&#8230;&#8203;}</code> block. After it finishes, the top of the main text window is redefined as being immediately below the lowest-drawn window. To clear the record of any window and restore the main text window to the full-screen, use <code>window 0</code>.</p>
-</div>
-<div class="paragraph">
-<p>A windowing library file exists called <strong>window.h</strong> which defines a window_class and the associated properties so a window object can be created via:</p>
-</div>
-<div class="paragraph">
-<p>window_class &lt;window name&gt; "title"</p>
-</div>
-<div class="paragraph">
-<p>\{</p>
-</div>
-<div class="paragraph">
-<p>win_position &lt;screen column&gt;, &lt;screen row&gt;</p>
-</div>
-<div class="paragraph">
-<p>win_size &lt;columns&gt;, &lt;rows&gt;</p>
-</div>
-<div class="paragraph">
-<p>win_textcolor &lt;text color&gt;</p>
-</div>
-<div class="paragraph">
-<p>win_backcolor &lt;background color&gt;</p>
-</div>
-<div class="paragraph">
-<p>win_titlecolor &lt;title text&gt;</p>
-</div>
-<div class="paragraph">
-<p>win_titleback &lt;title background&gt;</p>
-</div>
-<div class="paragraph">
-<p>}</p>
-</div>
-<div class="paragraph">
-<p>The window_class also incorporates the property routines win_init, win_clear, and win_end.</p>
-</div>
-<div class="admonitionblock note">
+<div class="admonitionblock important">
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-note" title="Note"></i>
+<i class="fa icon-important" title="Important"></i>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>It may be important to keep in mind that measures such as display.screenwidth may change during execution, particularly in a graphical user interface windowing environment which allows resizing of the Hugo program window. For this reason, it is wise to resample display.&lt;property&gt; whenever a window is to be drawn instead of basing the coordinates on, for example, a set of boundaries calculated during program initialization.</p>
+<p>It may be important to keep in mind that measures such as <code>display.screenwidth</code> may change during execution, particularly in a graphical user interface windowing environment which allows resizing of the Hugo program window.
+For this reason, it is wise to resample <code>display.&lt;property&gt;</code> whenever a window is to be drawn instead of basing the coordinates on, for example, a set of boundaries calculated during program initialization.</p>
 </div>
 </td>
 </tr>
@@ -9799,46 +9863,50 @@ You should be able to look at the various implementations of scenery, components
 <div class="sect2">
 <h3 id="_reading_and_writing_files"><a class="anchor" href="#_reading_and_writing_files"></a>11.3. Reading And Writing Files</h3>
 <div class="paragraph">
-<p>There may be times when it will be useful to store data in a file for later recovery. The most basic way of doing this involves</p>
+<p>There may be times when it will be useful to store data in a file for later recovery.
+The most basic way of doing this involves</p>
 </div>
-<div class="paragraph">
-<p>x = save</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">x <span class="hl opt">=</span> <span class="hl kwa">save</span></code></pre>
+</div>
 </div>
 <div class="paragraph">
 <p>and</p>
 </div>
-<div class="paragraph">
-<p>x = restore</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">x <span class="hl opt">=</span> <span class="hl kwa">restore</span></code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>where save and restore return a true value if successful, or a false value if for some reason they fail. The user is promped for a filename, and, in either case, the entire set of game data&#8212;&#8203;including object locations, variable values, arrays, attributes, etc.--is saved or restored, as appropriate.</p>
+<p>where <code>save</code> and <code>restore</code> return a true value if successful, or a false value if for some reason they fail.
+The user is promped for a filename, and, in either case, the entire set of game data&#8201;&#8212;&#8201;including object locations, variable values, arrays, attributes, etc.&#8201;&#8212;&#8201;is saved or restored, as appropriate.</p>
 </div>
 <div class="paragraph">
-<p>Other times, it may be desirable to save only certain values. For example, a particular game may allow a player to create certain player characteristics or other &#8220;remembered data&#8221; that can be restored in the same game or in different games. To accomplish this, use the writefile and readfile operations.</p>
+<p>Other times, it may be desirable to save only certain values.
+For example, a particular game may allow a player to create certain player characteristics or other &#8220;remembered data&#8221; that can be restored in the same game or in different games.
+To accomplish this, use the <code>writefile</code> and <code>readfile</code> operations.</p>
 </div>
 <div class="paragraph">
 <p>The structure</p>
 </div>
-<div class="paragraph">
-<p>writefile &lt;filename&gt;</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">writefile</span> <span class="hl opt">&lt;</span>filename<span class="hl opt">&gt;</span>&#x000A;{&#x000A;    ...&#x000A;}</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>\{</p>
+<p>will, at the start of the <code>writefile</code> block, open <code>&lt;filename&gt;</code> for writing and position <code>&lt;filename&gt;</code> to the start of the (empty) file.
+(If the file exists, it will be cleared/erased.) At the conclusion of the block, the file will be closed again.</p>
 </div>
 <div class="paragraph">
-<p>&#8230;&#8203;</p>
+<p>Within a <code>writefile</code> block, write individual values using</p>
 </div>
-<div class="paragraph">
-<p>}</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">writeval</span> <span class="hl opt">&lt;</span>value1<span class="hl opt">&gt;</span>[, <span class="hl opt">&lt;</span>value2<span class="hl opt">&gt;</span>, ...]</code></pre>
 </div>
-<div class="paragraph">
-<p>will, at the start of the writefile block, open &lt;filename&gt; for writing and position &lt;filename&gt; to the start of the (empty) file. (If the file exists, it will be cleared/erased.) At the conclusion of the block, the file will be closed again.</p>
-</div>
-<div class="paragraph">
-<p>Within a writefile block, write individual values using</p>
-</div>
-<div class="paragraph">
-<p>writeval &lt;value1&gt;[, &lt;value2&gt;, &#8230;&#8203;]</p>
 </div>
 <div class="paragraph">
 <p>where one or more values can be specified.</p>
@@ -9846,122 +9914,63 @@ You should be able to look at the various implementations of scenery, components
 <div class="paragraph">
 <p>To read the file, use the structure</p>
 </div>
-<div class="paragraph">
-<p>readfile &lt;filename&gt;</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">readfile</span> <span class="hl opt">&lt;</span>filename<span class="hl opt">&gt;</span>&#x000A;{&#x000A;    ...&#x000A;}</code></pre>
 </div>
-<div class="paragraph">
-<p>\{</p>
-</div>
-<div class="paragraph">
-<p>&#8230;&#8203;</p>
-</div>
-<div class="paragraph">
-<p>}</p>
 </div>
 <div class="paragraph">
 <p>which will contain the assignment</p>
 </div>
-<div class="paragraph">
-<p>x = readval</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">x <span class="hl opt">=</span> <span class="hl kwa">readval</span></code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>for each value to be read, where x can be any storage type such as a variable, property, etc.</p>
+<p>for each value to be read, where <code>x</code> can be any storage type such as a variable, property, etc.</p>
 </div>
 <div class="paragraph">
 <p>For example:</p>
 </div>
-<div class="paragraph">
-<p>local count, test</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">local</span> count, test&#x000A;&#x000A;count <span class="hl opt">=</span> <span class="hl num">10</span>&#x000A;<span class="hl kwa">writefile</span> <span class="hl str">&quot;testfile&quot;</span>&#x000A;{&#x000A;    <span class="hl kwa">writeval</span> count, <span class="hl str">&quot;telephone&quot;</span>, <span class="hl num">10</span>&#x000A;    test <span class="hl opt">=</span> FILE_CHECK&#x000A;    <span class="hl kwa">writeval</span> test&#x000A;}&#x000A;<span class="hl kwa">if</span> test <span class="hl opt">~=</span> FILE_CHECK   <span class="hl slc">! an error has occurred</span>&#x000A;{&#x000A;    <span class="hl kwa">print</span> <span class="hl str">&quot;An error has occurred.&quot;</span>&#x000A;}</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>count = 10</p>
+<p>will write the variable <code>count</code>, the dictionary entry &#8220;telephone&#8221;, and the value 10 to &#8220;<strong>testfile</strong>&#8221;.
+Then,</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">local</span> a, b, c, test&#x000A;&#x000A;<span class="hl kwa">readfile</span> <span class="hl str">&quot;testfile&quot;</span>&#x000A;{&#x000A;    a <span class="hl opt">=</span> <span class="hl kwa">readval</span>&#x000A;    b <span class="hl opt">=</span> <span class="hl kwa">readval</span>&#x000A;    c <span class="hl opt">=</span> <span class="hl kwa">readval</span>&#x000A;    test <span class="hl opt">=</span> <span class="hl kwa">readval</span>&#x000A;}&#x000A;<span class="hl kwa">if</span> test <span class="hl opt">~=</span> FILE_CHECK   <span class="hl slc">! an error has occurred</span>&#x000A;{&#x000A;    <span class="hl kwa">print</span> <span class="hl str">&quot;Error reading file.&quot;</span>&#x000A;}</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>writefile "testfile"</p>
+<p>If the <code>readfile</code> block executes successfully, <code>a</code> will be equal to the former value <code>count</code>, <code>b</code> will be &#8220;telephone&#8221;, and <code>c</code> will be 10.</p>
 </div>
 <div class="paragraph">
-<p>\{</p>
-</div>
-<div class="paragraph">
-<p>writeval count, "telephone", 10</p>
-</div>
-<div class="paragraph">
-<p>test = FILE_CHECK</p>
-</div>
-<div class="paragraph">
-<p>writeval test</p>
-</div>
-<div class="paragraph">
-<p>}</p>
-</div>
-<div class="paragraph">
-<p>if test ~= FILE_CHECK ! an error has occurred</p>
-</div>
-<div class="paragraph">
-<p>\{</p>
-</div>
-<div class="paragraph">
-<p>print "An error has occurred."</p>
-</div>
-<div class="paragraph">
-<p>}</p>
-</div>
-<div class="paragraph">
-<p>will write the variable count, the dictionary entry <code>telephone</code>, and the value 10 to <code>testfile</code>. Then,</p>
-</div>
-<div class="paragraph">
-<p>local a, b, c, test</p>
-</div>
-<div class="paragraph">
-<p>readfile "testfile"</p>
-</div>
-<div class="paragraph">
-<p>\{</p>
-</div>
-<div class="paragraph">
-<p>a = readval</p>
-</div>
-<div class="paragraph">
-<p>b = readval</p>
-</div>
-<div class="paragraph">
-<p>c = readval</p>
-</div>
-<div class="paragraph">
-<p>test = readval</p>
-</div>
-<div class="paragraph">
-<p>}</p>
-</div>
-<div class="paragraph">
-<p>if test ~= FILE_CHECK ! an error has occurred</p>
-</div>
-<div class="paragraph">
-<p>\{</p>
-</div>
-<div class="paragraph">
-<p>print "Error reading file."</p>
-</div>
-<div class="paragraph">
-<p>}</p>
-</div>
-<div class="paragraph">
-<p>If the readfile block executes successfully, a will be equal to the former value count, b will be <code>telephone</code>, and c will be 10.</p>
-</div>
-<div class="paragraph">
-<p>The constant FILE_CHECK, defined in <strong>hugolib.h</strong>, is useful because writefile and readfile provide no explicit error return to indicate failure. FILE_CHECK is a unique two-byte sequence that can be used to test for success. In the writefile block, if the block is exited prematurely due to an error, test will never be set to FILE_CHECK. The if statement following the block tests for this. In the readfile block, test will only be set to FILE_CHECK if the sequence of readval functions finds the expected number of values in <code>testfile</code>. If there are too many or too few values in <code>testfile</code>, or if an error forces an early exit from the readfile block, test will equal a value other than FILE_CHECK.</p>
+<p>The constant <code>FILE_CHECK</code>, defined in <strong>hugolib.h</strong>, is useful because <code>writefile</code> and <code>readfile</code> provide no explicit error return to indicate failure.
+<code>FILE_CHECK</code> is a unique two-byte sequence that can be used to test for success.
+In the <code>writefile</code> block, if the block is exited prematurely due to an error, <code>test</code> will never be set to <code>FILE_CHECK</code>.
+The <code>if</code> statement following the block tests for this.
+In the <code>readfile</code> block, <code>test</code> will only be set to <code>FILE_CHECK</code> if the sequence of <code>readval</code> functions finds the expected number of values in &#8220;<strong>testfile</strong>&#8221;.
+If there are too many or too few values in &#8220;<strong>testfile</strong>&#8221;, or if an error forces an early exit from the <code>readfile</code> block, <code>test</code> will equal a value other than <code>FILE_CHECK</code>.</p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_mouse_input"><a class="anchor" href="#_mouse_input"></a>11.4. Mouse Input</h3>
 <div class="paragraph">
-<p>If the player clicks somewhere on the screen with the mouse pointer (or taps on the screen on a handheld device, or whatever the comparable action is for the platform in question), a Hugo program may read that action. Specifically, a pause statement, which normally stores the ASCII value of a keypress in word[0], will instead store the value MOUSE_CLICK (defined in <strong>hugolib.h</strong> to be 1) if the mouse is clicked while the engine is waiting for that keypress.</p>
+<p>If the player clicks somewhere on the screen with the mouse pointer (or taps on the screen on a handheld device, or whatever the comparable action is for the platform in question), a Hugo program may read that action.
+Specifically, a <code>pause</code> statement, which normally stores the ASCII value of a keypress in <code>word[0]</code>, will instead store the value <code>MOUSE_CLICK</code> (defined in <strong>hugolib.h</strong> to be 1) if the mouse is clicked while the engine is waiting for that keypress.</p>
 </div>
 <div class="paragraph">
-<p>A mouse click (or equivalent action) has no effect during player input&#8212;&#8203;i.e., when the program is waiting for a typed command&#8212;&#8203;unless the individual port provides some behavior such as bringing up a menu, entering a double-clicked word into the input line, etc. The running Hugo program cannot itself monitor mouse input during typed input.</p>
+<p>A mouse click (or equivalent action) has no effect during player input&#8201;&#8212;&#8201;i.e., when the program is waiting for a typed command&#8201;&#8212;&#8201;unless the individual port provides some behavior such as bringing up a menu, entering a double-clicked word into the input line, etc.
+The running Hugo program cannot itself monitor mouse input during typed input.</p>
 </div>
 <div class="paragraph">
-<p>As mentioned above, the display object provides the read-only properties pointer_x and pointer_y, which give the horizontal and vertical position of the mouse (in characters) respectively.</p>
+<p>As mentioned above, the display object provides the read-only properties <code>pointer_x</code> and <code>pointer_y</code>, which give the horizontal and vertical position of the mouse (in characters) respectively.</p>
 </div>
 </div>
 </div>
