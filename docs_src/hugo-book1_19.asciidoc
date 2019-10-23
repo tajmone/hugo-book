@@ -9,7 +9,8 @@ with a mirror at
 link:https://mirror.ifarchive.org[_**https://mirror.ifarchive.org**_^,title="Visit the IF Archive mirror"].
 
 
-// @NOTE: Links updated to current URLs at Google Groups:
+// @EDITED DEAD LINKS: (undocumented)
+//      Links updated to current URLs at Google Groups:
 Two newsgroups serve as the hubs of the interactive fiction community:
 link:++https://groups.google.com/forum/#!forum/rec.arts.int-fiction++[_**rec.arts.int-fiction**_^,title="Visit rec.arts.int-fiction at Google Groups"]
 where the focus is on writing games, and

@@ -107,7 +107,8 @@ to something along the lines of
 
 first copy the `ParseError` routine from *hugolib.h* to the game's source, and change, in the copied `ParseError`,
 
-// @NOTE: Changed "object" into "obj", to match current "hugolib.h" code!
+// @EDITED CODE HUGO LIB: (undocumented)
+// Changed "object" into "obj", to match current "hugolib.h" code!
 [source,hugo]
 routine ParseError(errornumber, obj)
 

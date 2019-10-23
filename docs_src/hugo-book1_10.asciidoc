@@ -387,7 +387,8 @@ The `vehicle_verb` property provides one or more synonyms for the verb used to "
 In the case of a horse, it is appropriately "`ride`".
 The `preposition` property defaults in the `vehicle` class itself defaults to "`in`" and "`out`", but in the case of a horse should be changed to the more suitable "`on`" and "`off`".
 
-// @NOTE: Fixed sentence:
+// @EDITED MALFORMED SENTENCE:  (undocumented & waiting approval: Issue #18)
+//      Fixed sentence:
 //          from:   "`DoMoveInVehicle` routine.GRAMMAR HE FOLLOWING is..."
 //          to:     "`DoMoveInVehicle` routine. THE FOLLOWING GRAMMAR is..."
 

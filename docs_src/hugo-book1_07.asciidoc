@@ -262,8 +262,9 @@ All characters in an input line are converted to lowercase (except those inside 
 
 The next step is to process the four types of special "`words`" which may be defined in the source code.
 
-// @NOTE: Added extra [.big.red] styles to the four special words, to make them
-//        stand out more.
+// @EDITED STYLES: (undocumented)
+//      Added extra [.big.red] styles to the four special words, to make them
+//      stand out more.
 
 [.big.red]#_Removals_# are the simplest.
 These are simply words that are to be automatically removed from any input line, and are generally limited to words such as "`a`" and "`the`" which would, generally speaking, only make grammar matching more complicated and difficult.

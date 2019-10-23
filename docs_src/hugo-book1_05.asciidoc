@@ -72,7 +72,8 @@ TestRoutine(mysuitcase)
 
 will (assuming the `mysuitcase` object as been defined as previously illustrated) print
 
-// @NOTE: Removed enclosing "", to emulate transcript.
+// @EDITED PUNCTUATION: (undocumented)
+// Removed enclosing "", to emulate transcript.
 [example,role="gametranscript"]
 The big green suitcase has a size of 25.
 
@@ -259,7 +260,8 @@ In the first case, an attempt on the part of the player to move north would resu
 In the second case, a custom invalid-move message would be displayed.
 In the third case, the custom invalid-move message would be displayed, but then the library would continue as if it had not found a `n_to` property for `<object>`, and it would print the standard invalid-move message (without a newline, thanks to the semicolon):
 
-// @NOTE: Removed enclosing "", to emulate transcript.
+// @EDITED PUNCTUATION: (undocumented)
+// Removed enclosing "", to emulate transcript.
 [example,role="gametranscript"]
 The office door is locked.
 You can't go that way.
@@ -528,8 +530,8 @@ The specified routine will be run whenever the object in question is the `xobjec
 If a non-specific block occurs before any block(s) specifying verbroutines, then the following blocks, if matched, will run as well so long as the block does not return true.
 If the non-specific block comes after any other blocks, then it will run only if no other object/verbroutine combination is matched.
 
-
 // @TODO: Missing XRef: "VII.a Grammar Definition" (in footnote!)
+// @EDITED MALFORMED SENTENCE: (documented & approved: Issue #14)
 A drawback of this non-specification is that all verbroutines are matched -- both verbs and xverbsfootnote:[_Verbs_ are actions that the player uses to interact with the physical world of the game. _Xverbs_ are "`non-action`" verbs that generally deal with system functions, such as getting help, saving a game, etc. but don't otherwise affect the state of the game world See _VII.a Grammar Definition_.].
 This can be particularly undesirable in the case of location `before`/`after` properties, where you may wish to be circumventing any action the player tries to perform in that location, but where the non-specific response will be triggered even for `save`, `restore`, etc.
 (i.e., xverbs).
