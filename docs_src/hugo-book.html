@@ -535,7 +535,7 @@ div.literalblock.cmd pre .conum {
 <span id="email" class="email"><a href="mailto:general@generalcoffee.com">general@generalcoffee.com</a></span><br>
 <span id="revnumber">version 1,</span>
 <span id="revdate">2018-10-04</span>
-<br><span id="revremark">Draft 64 -- Porting to AsciiDoc</span>
+<br><span id="revremark">Draft 65 -- Porting to AsciiDoc</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -12221,50 +12221,100 @@ Upon returning from the verb routine, <code>Main</code> is not called.</p>
 <div class="sectionbody">
 <div class="sect2">
 <h3 id="_attributes_2"><a class="anchor" href="#_attributes_2"></a>B.1. ATTRIBUTES</h3>
-<div class="paragraph">
-<p>clothing for objects that can be worn</p>
-</div>
-<div class="paragraph">
-<p>container if an object can hold other objects</p>
-</div>
-<div class="paragraph">
-<p>enterable if an object is enterable</p>
-</div>
-<div class="paragraph">
-<p>female if a character is female</p>
-</div>
-<div class="paragraph">
-<p>hidden if an object is not to be listed</p>
-</div>
-<div class="paragraph">
-<p>known if an object is known to the player</p>
-</div>
-<div class="paragraph">
-<p>light if an object is or provides light</p>
-</div>
-<div class="paragraph">
-<p>living if an object is a character</p>
-</div>
-<div class="paragraph">
-<p>lockable if an object can be locked</p>
-</div>
-<div class="paragraph">
-<p>locked if an object is locked</p>
-</div>
-<div class="paragraph">
-<p>mobile if an object can be rolled, etc.</p>
-</div>
-<div class="paragraph">
-<p>moved if an object has been moved</p>
-</div>
-<div class="paragraph">
-<p>open if an object is open</p>
-</div>
-<div class="paragraph">
-<p>openable if an object can be opened</p>
-</div>
-<div class="paragraph">
-<p>platform if other objects can be placed on it</p>
+<table class="tableblock frame-all grid-all stripes-none stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 80%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>clothing</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>for objects that can be worn</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>container</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>if an object can hold other objects</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>enterable</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>if an object is enterable</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>female</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>if a character is female</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>hidden</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>if an object is not to be listed</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>known</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>if an object is known to the player</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>light</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>if an object is or provides light</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>living</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>if an object is a character</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>lockable</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>if an object can be locked</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>locked</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>if an object is locked</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>mobile</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>if an object can be rolled, etc.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>moved</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>if an object has been moved</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>open</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>if an object is open</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>openable</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>if an object can be opened</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>platform</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>if other objects can be placed on it</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -12273,502 +12323,1020 @@ Upon returning from the verb routine, <code>Main</code> is not called.</p>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-<div class="paragraph">
-<p>container and platform are generally mutually exclusive)</p>
-</div>
+<code>container</code> and <code>platform</code> are generally mutually exclusive
 </td>
 </tr>
 </table>
-</div>
-<div class="paragraph">
-<p>plural for plural objects (i.e., some hats)</p>
-</div>
-<div class="paragraph">
-<p>quiet if container or platform is quiet (i.e., the initial listing of contents is suppressed)</p>
-</div>
-<div class="paragraph">
-<p>readable if an object can be read</p>
-</div>
-<div class="paragraph">
-<p>special for miscellaneous use</p>
-</div>
-<div class="paragraph">
-<p>static if an object cannot be taken</p>
-</div>
-<div class="paragraph">
-<p>switchable if an object can be turned on or off</p>
-</div>
-<div class="paragraph">
-<p>switchedon if an object is on</p>
-</div>
-<div class="paragraph">
-<p>transparent if an object is not opaque</p>
-</div>
-<div class="paragraph">
-<p>unfriendly if a character is unfriendly</p>
-</div>
-<div class="paragraph">
-<p>visited if a room has been visited</p>
-</div>
-<div class="paragraph">
-<p>worn if an object is being worn</p>
-</div>
-<div class="paragraph">
-<p><em>For system use:</em></p>
-</div>
-<div class="paragraph">
-<p>already_listed if object has been pre-listed (i.e., before, for example, a WhatsIn listing)</p>
-</div>
-<div class="paragraph">
-<p>workflag for system use</p>
-</div>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>plural</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>for plural objects (i.e., some hats)</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>quiet</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>if container or platform is quiet (i.e., the initial listing of contents is suppressed)</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>readable</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>if an object can be read</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>special</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>for miscellaneous use</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>static</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>if an object cannot be taken</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>switchable</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>if an object can be turned on or off</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>switchedon</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>if an object is on</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>transparent</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>if an object is not opaque</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>unfriendly</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>if a character is unfriendly</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>visited</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>if a room has been visited</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>worn</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>if an object is being worn</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top" colspan="2"><p class="tableblock">For system use:</p></th>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>already_listed</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>if object has been pre-listed (i.e., before, for example, a <code>WhatsIn</code> listing)</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>workflag</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>for system use</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="sect2">
 <h3 id="_globals"><a class="anchor" href="#_globals"></a>B.2. GLOBALS</h3>
-<div class="paragraph">
-<p><em>The first 12 globals are pre-defined by the compiler:</em></p>
-</div>
-<div class="paragraph">
-<p>object direct object of a verb action</p>
-</div>
-<div class="paragraph">
-<p>xobject indirect object</p>
-</div>
-<div class="paragraph">
-<p>self self-referential object</p>
-</div>
-<div class="paragraph">
-<p>words total number of words</p>
-</div>
-<div class="paragraph">
-<p>player the player object</p>
-</div>
-<div class="paragraph">
-<p>actor player, or another char. (for scripts)</p>
-</div>
-<div class="paragraph">
-<p>location location of the player object</p>
-</div>
-<div class="paragraph">
-<p>verbroutine the verb routine</p>
-</div>
-<div class="paragraph">
-<p>endflag if not false (0), run EndGame</p>
-</div>
-<div class="paragraph">
-<p>prompt for the player input line</p>
-</div>
-<div class="paragraph">
-<p>objects the total number of objects</p>
-</div>
-<div class="paragraph">
-<p>system_status after certain operations</p>
-</div>
-<div class="paragraph">
-<p><em>Game setup global variables:</em></p>
-</div>
-<div class="paragraph">
-<p>MAX_SCORE total possible score</p>
-</div>
-<div class="paragraph">
-<p>MAX_RANK up to x levels of player ranking</p>
-</div>
-<div class="paragraph">
-<p>player_person first (1), second (2), or third (3)</p>
-</div>
-<div class="paragraph">
-<p><em>Formatting/output global variables:</em></p>
-</div>
-<div class="paragraph">
-<p>FORMAT specifies text-printing format</p>
-</div>
-<div class="paragraph">
-<p>DEFAULT_FONT initially 0; could be set to, e.g., PROP_ON</p>
-</div>
-<div class="paragraph">
-<p>STATUSTYPE 0=none, 1=score/turns, 2=time</p>
-</div>
-<div class="paragraph">
-<p>TEXTCOLOR normal text color</p>
-</div>
-<div class="paragraph">
-<p>BGCOLOR normal background color</p>
-</div>
-<div class="paragraph">
-<p>SL_TEXTCOLOR statusline text color</p>
-</div>
-<div class="paragraph">
-<p>SL_BGCOLOR statusline background color</p>
-</div>
-<div class="paragraph">
-<p>INDENT_SIZE for paragraph indenting</p>
-</div>
-<div class="paragraph">
-<p>AFTER_PERIOD string of spaces following a full-stop</p>
-</div>
-<div class="paragraph">
-<p><em>Runtime global variables:</em></p>
-</div>
-<div class="paragraph">
-<p>counter elapsed turns (or time, as desired)</p>
-</div>
-<div class="paragraph">
-<p>event_flag set when something happens (see DoWait)</p>
-</div>
-<div class="paragraph">
-<p>general for general use</p>
-</div>
-<div class="paragraph">
-<p>light_source light source in location</p>
-</div>
-<div class="paragraph">
-<p>number_scripts number of active character scripts</p>
-</div>
-<div class="paragraph">
-<p>obstacle if something is stopping the player</p>
-</div>
-<div class="paragraph">
-<p>score accumulated score</p>
-</div>
-<div class="paragraph">
-<p>speaking if the player is talking to a character</p>
-</div>
-<div class="paragraph">
-<p>verbosity for room descriptions</p>
-</div>
-<div class="paragraph">
-<p>it_obj to reference objects via pronouns</p>
-</div>
-<div class="paragraph">
-<p>her_obj</p>
-</div>
-<div class="paragraph">
-<p>him_obj</p>
-</div>
-<div class="paragraph">
-<p>them_obj</p>
-</div>
-<div class="paragraph">
-<p><em>The following are generally for system use, but may be accessed if necessary:</em></p>
-</div>
-<div class="paragraph">
-<p>customerror_flag true once CustomError is called</p>
-</div>
-<div class="paragraph">
-<p>last_object set by Perform to value of object</p>
-</div>
-<div class="paragraph">
-<p>list_nest used by ListObjects</p>
-</div>
-<div class="paragraph">
-<p>need_newline true when newline should be printed</p>
-</div>
-<div class="paragraph">
-<p>old_location whenever location changes</p>
-</div>
-<div class="paragraph">
-<p>override_indent true if no indent should be printed</p>
-</div>
+<table class="tableblock frame-all grid-all stripes-none stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 80%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-left valign-top" colspan="2"><p class="tableblock">The first 12 globals are pre-defined by the compiler:</p></th>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>object</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>direct object of a verb action</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>xobject</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>indirect object</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>self</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>self-referential object</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>words</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>total number of words</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>player</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>the player object</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>actor</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>player, or another char. (for scripts)</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>location</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>location of the player object</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>verbroutine</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>the verb routine</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>endflag</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>if not false (0), run <code>EndGame</code></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>prompt</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>for the player input line</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>objects</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>the total number of objects</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>system_status</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>after certain operations</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top" colspan="2"><p class="tableblock">Game setup global variables:</p></th>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>MAX_SCORE</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>total possible score</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>MAX_RANK</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>up to x levels of player ranking</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>player_person</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>first (1), second (2), or third (3)</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top" colspan="2"><p class="tableblock">Formatting/output global variables:</p></th>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>FORMAT</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>specifies text-printing format</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DEFAULT_FONT</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>initially 0; could be set to, e.g., <code>PROP_ON</code></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>STATUSTYPE</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>0=none, 1=score/turns, 2=time</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>TEXTCOLOR</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>normal text color</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>BGCOLOR</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>normal background color</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>SL_TEXTCOLOR</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>statusline text color</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>SL_BGCOLOR</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>statusline background color</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>INDENT_SIZE</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>for paragraph indenting</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>AFTER_PERIOD</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>string of spaces following a full-stop</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top" colspan="2"><p class="tableblock">Runtime global variables:</p></th>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>counter</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>elapsed turns (or time, as desired)</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>event_flag</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>set when something happens (see <code>DoWait</code>)</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>general</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>for general use</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>light_source</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>light source in location</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>number_scripts</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>number of active character scripts</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>obstacle</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>if something is stopping the player</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>score</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>accumulated score</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>speaking</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>if the player is talking to a character</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>verbosity</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>for room descriptions</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code>&#160;</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>it_obj</code></p></td>
+<td class="tableblock halign-left valign-middle" rowspan="4"><div class="content"><div class="paragraph">
+<p>to reference objects via pronouns</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>her_obj</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>him_obj</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>them_obj</code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top" colspan="2"><p class="tableblock">The following are generally for system use, but may be accessed if necessary:</p></th>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>customerror_flag</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>true once <code>CustomError</code> is called</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>last_object</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>set by <code>Perform</code> to value of <code>object</code></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>list_nest</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>used by <code>ListObjects</code></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>need_newline</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>true when newline should be printed</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>old_location</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>whenever location changes</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>override_indent</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>true if no indent should be printed</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="sect2">
 <h3 id="_arrays"><a class="anchor" href="#_arrays"></a>B.3. ARRAYS</h3>
-<div class="paragraph">
-<p><code>_temp_array[256]</code> used by string manipulation functions</p>
-</div>
-<div class="paragraph">
-<p>menuitem[11] required by the Menu function</p>
-</div>
-<div class="paragraph">
-<p>oldword[MAX_WORDS] for &#8220;again&#8221; command</p>
-</div>
-<div class="paragraph">
-<p>parse_rank[] for library parser state</p>
-</div>
-<div class="paragraph">
-<p>ranking[] in tandem with scoring</p>
-</div>
-<div class="paragraph">
-<p>replace_pronoun[] for it_obj, him_obj, etc.</p>
-</div>
-<div class="paragraph">
-<p>scriptdata[] for object scripts</p>
-</div>
-<div class="paragraph">
-<p>setscript[] the actual scripts</p>
-</div>
+<table class="tableblock frame-all grid-all stripes-none stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 80%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>_temp_array[256]</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>used by string manipulation functions</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>menuitem[11]</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>required by the <code>Menu</code> function</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>oldword[MAX_WORDS]</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>for &#8220;again&#8221; command</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>parse_rank[]</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>for library parser state</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ranking[]</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>in tandem with scoring</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>replace_pronoun[]</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>for <code>it_obj</code>, <code>him_obj</code>, etc.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>scriptdata[]</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>for object scripts</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>setscript[]</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>the actual scripts</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="sect2">
 <h3 id="_constants_2"><a class="anchor" href="#_constants_2"></a>B.4. CONSTANTS</h3>
-<div class="paragraph">
-<p>BANNER should be printed in every game header</p>
-</div>
-<div class="paragraph">
-<p>MAX_SCRIPTS that may be active at one time</p>
-</div>
-<div class="paragraph">
-<p>MAX_WORDS in a parsed input line</p>
-</div>
-<div class="paragraph">
-<p><em>Color constants:</em></p>
-</div>
-<div class="paragraph">
-<p>BLACK DARK_GRAY</p>
-</div>
-<div class="paragraph">
-<p>BLUE LIGHT_BLUE</p>
-</div>
-<div class="paragraph">
-<p>GREEN LIGHT_GREEN</p>
-</div>
-<div class="paragraph">
-<p>CYAN LIGHT_CYAN</p>
-</div>
-<div class="paragraph">
-<p>RED LIGHT_RED</p>
-</div>
-<div class="paragraph">
-<p>MAGENTA LIGHT_MAGENTA</p>
-</div>
-<div class="paragraph">
-<p>BROWN YELLOW</p>
-</div>
-<div class="paragraph">
-<p>WHITE BRIGHT_WHITE</p>
-</div>
-<div class="paragraph">
-<p>DEF_FOREGROUND DEF_BACKGROUND</p>
-</div>
-<div class="paragraph">
-<p>DEF_SL_FOREGROUND DEF_SL_BACKGROUND</p>
-</div>
-<div class="paragraph">
-<p>MATCH_FOREGROUND</p>
-</div>
-<div class="paragraph">
-<p><em>Printing format mask constants (for setting the FORMAT global):</em></p>
-</div>
-<div class="paragraph">
-<p>LIST_F print itemized lists, not sentences</p>
-</div>
-<div class="paragraph">
-<p>NORECURSE_F do not recurse object contents</p>
-</div>
-<div class="paragraph">
-<p>NOINDENT_F do not indent listings</p>
-</div>
-<div class="paragraph">
-<p>DESCFORM_F alternate room description formatting</p>
-</div>
-<div class="paragraph">
-<p>GROUPPLURALS_F list plurals together where possible</p>
-</div>
-<div class="paragraph">
-<p><em>Font style mask constants (for use with the Font routine):</em></p>
-</div>
-<div class="paragraph">
-<p>BOLD_ON BOLD_OFF boldface</p>
-</div>
-<div class="paragraph">
-<p>ITALIC_ON ITALIC_OFF italics</p>
-</div>
-<div class="paragraph">
-<p>UNDERLINE_ON UNDERLINE_OFF underline</p>
-</div>
-<div class="paragraph">
-<p>PROP_ON PROP_OFF proportional printing</p>
-</div>
-<div class="paragraph">
-<p><em>Additional constants:</em></p>
-</div>
-<div class="paragraph">
-<p>UP_ARROW LEFT_ARROW for reading keystrokes</p>
-</div>
-<div class="paragraph">
-<p>DOWN_ARROW ENTER_KEY</p>
-</div>
-<div class="paragraph">
-<p>RIGHT_ARROW ESCAPE_KEY</p>
-</div>
-<div class="paragraph">
-<p>MOUSE_CLICK</p>
-</div>
-<div class="paragraph">
-<p>AND_WORD (&#8220;and&#8221;) IN_WORD (&#8220;in&#8221;)</p>
-</div>
-<div class="paragraph">
-<p>ARE_WORD (&#8220;are&#8221;) IS_WORD (&#8220;is&#8221;)</p>
-</div>
-<div class="paragraph">
-<p>HERE_WORD (&#8220;here&#8221;) ON_WORD (&#8220;on&#8221;)</p>
-</div>
-<div class="paragraph">
-<p>FILE_CHECK for verifying writefile and</p>
-</div>
-<div class="paragraph">
-<p>readfile operations</p>
-</div>
-<div class="paragraph">
-<p>MENU_TEXTCOLOR normal menu text color</p>
-</div>
-<div class="paragraph">
-<p>MENU_BGCOLOR normal menu background color</p>
-</div>
-<div class="paragraph">
-<p>MENU_SELECTCOLOR menu highlight color</p>
-</div>
-<div class="paragraph">
-<p>MENU_SELECTBGCOLOR menu highlight background color)</p>
-</div>
+<table class="tableblock frame-all grid-all stripes-none stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 60%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>BANNER</code></p></td>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>should be printed in every game header</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>MAX_SCRIPTS</code></p></td>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>that may be active at one time</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>MAX_WORDS</code></p></td>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>in a parsed input line</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top" colspan="3"><p class="tableblock">Color constants:</p></th>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>BLACK</code></p></td>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code>DARK_GRAY</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>BLUE</code></p></td>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code>LIGHT_BLUE</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>GREEN</code></p></td>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code>LIGHT_GREEN</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>CYAN</code></p></td>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code>LIGHT_CYAN</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>RED</code></p></td>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code>LIGHT_RED</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>MAGENTA</code></p></td>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code>LIGHT_MAGENTA</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>BROWN</code></p></td>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code>YELLOW</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>WHITE</code></p></td>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code>BRIGHT_WHITE</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="3"><p class="tableblock"><code>&#160;</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DEF_FOREGROUND</code></p></td>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code>DEF_BACKGROUND</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DEF_SL_FOREGROUND</code></p></td>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code>DEF_SL_BACKGROUND</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>MATCH_FOREGROUND</code></p></td>
+<td class="tableblock halign-left valign-top" colspan="2"></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top" colspan="3"><p class="tableblock">Printing format mask constants (for setting the <code>FORMAT</code> global):</p></th>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>LIST_F</code></p></td>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>print itemized lists, not sentences</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>NORECURSE_F</code></p></td>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>do not recurse object contents</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>NOINDENT_F</code></p></td>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>do not indent listings</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DESCFORM_F</code></p></td>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>alternate room description formatting</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>GROUPPLURALS_F</code></p></td>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>list plurals together where possible</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top" colspan="3"><p class="tableblock">Font style mask constants (for use with the <code>Font</code> routine):</p></th>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>BOLD_ON</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>BOLD_OFF</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>boldface</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ITALIC_ON</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ITALIC_OFF</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>italics</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>UNDERLINE_ON</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>UNDERLINE_OFF</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>underline</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>PROP_ON</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>PROP_OFF</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>proportional printing</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top" colspan="3"><p class="tableblock">Additional constants:</p></th>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>UP_ARROW</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>LEFT_ARROW</code></p></td>
+<td class="tableblock halign-left valign-middle" rowspan="4"><div class="content"><div class="paragraph">
+<p>for reading keystrokes</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DOWN_ARROW</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ENTER_KEY</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>RIGHT_ARROW</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ESCAPE_KEY</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>MOUSE_CLICK</code></p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="3"><p class="tableblock"><code>&#160;</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>AND_WORD</code>  &#160;&#160;(&#8220;and&#8221;)</p></td>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code>IN_WORD</code> &#160;&#160;(&#8220;in&#8221;)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ARE_WORD</code>  &#160;&#160;(&#8220;are&#8221;)</p></td>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code>IS_WORD</code> &#160;&#160;(&#8220;is&#8221;)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>HERE_WORD</code>       &#160;(&#8220;here&#8221;)</p></td>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code>ON_WORD</code> &#160;&#160;(&#8220;on&#8221;)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="3"><p class="tableblock"><code>&#160;</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>FILE_CHECK</code></p></td>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>for verifying <code>writefile</code> and <code>readfile</code> operations</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="3"><p class="tableblock"><code>&#160;</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>MENU_TEXTCOLOR</code></p></td>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>normal menu text color</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>MENU_BGCOLOR</code></p></td>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>normal menu background color</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>MENU_SELECTCOLOR</code></p></td>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>menu highlight color</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>MENU_SELECTBGCOLOR</code></p></td>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>menu highlight background color</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="sect2">
 <h3 id="_properties_2"><a class="anchor" href="#_properties_2"></a>B.5. PROPERTIES</h3>
+<table class="tableblock frame-all grid-all stripes-none stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 80%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-left valign-top" colspan="2"><p class="tableblock">The first 6 properties are pre-defined by the compiler:</p></th>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>name</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>basic object name</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>before</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>pre-verb routines</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>after</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>post-verb routines</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>noun (nouns)</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>noun(s) for referring to object</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>adjective (adjectives)</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>adjective(s) describing object</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>article</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>&#8220;a&#8221;, &#8220;an&#8221;, &#8220;the&#8221;, &#8220;some&#8221;, etc.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>preposition (prep)</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&#8220;in&#8221;, &#8220;inside&#8221;, &#8220;outside of&#8221;, etc.<sup class="footnote">[<a id="_footnoteref_56" class="footnote" href="#_footnotedef_56" title="View footnote.">56</a>]</sup></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>capacity</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>contains a value representing the capacity of a container or platform</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>exclude_from_all</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>returns true if the object should be excluded from actions such as &#8220;&gt;GET ALL&#8221;</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>found_in</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>in case of multiple virtual (not &#8220;physical&#8221;) parents, <code>found_in</code> may hold one or more object numbers; in this case, an <code>in &lt;object&gt;</code> specifier should probably not be included in the object definition, since <code>found_in</code> values are unrelated to <code>&lt;object&gt; in &lt;parent&gt;</code> relationships</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>holding</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>contains a value representing the current encumbrance of a container or platform</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>in_scope</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>contains a list of actors or objects to which the object is accessible beyond the use of the object tree or the <code>found_in</code> property; generally contains either the player object (or, less commonly, another character) and is set using <code>PutInScope</code> or cleared using <code>RemoveFromScope</code></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>initial_desc</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>routine; same as above, but if object has not been moved and an <code>initial_desc</code> exists, it is called in place of short_desc</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>list_contents</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>a routine that overrides the normal contents listing for a room or object; normal listing is only carried out if it returns false</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>long_desc</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>routine; detailed description of an object</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>misc</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>miscellaneous use</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>parse_rank</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>when there is ambiguity between similarly named objects, the parser will choose the one with a higher <code>parse_rank</code> over one with a lower (or non-existent) value; used when <code>FindObject(&lt;object&gt;, 0)</code> is called</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>pronoun</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>&#8220;he&#8221;, &#8220;him&#8221;, &#8220;his&#8221; or equivalent, so that an object is properly referred to</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>reach</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>for <code>enterable</code> objects such as chairs, vehicles, etc., if the accessibility of objects outside the object in question is limited, <code>reach</code> contains a list of the objects which may be accessed</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>react_before</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>to allow reaction by an object that is not</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>react_after</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>directly involved in the action</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>short_desc</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>routine; basic &#8220;X is here&#8221; description</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>size</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>for holding/inventory purposes, contains a value representing the size of an individual object</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>type</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>to identify the type of object, used primarily by class definitions in <strong>objlib.h</strong></p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top" colspan="2"><p class="tableblock">For room objects only:</p></th>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>n_to</code></p></td>
+<td class="tableblock halign-left valign-middle" rowspan="12"><div class="content"><div class="paragraph">
+<p>If a player can move to another location to the north, then <code>n_to</code> holds the new room object; if the new object is to the south, <code>s_to</code> holds the new object, etc.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ne_to</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>e_to</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>se_to</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>s_to</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>sw_to</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>w_to</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>nw_to</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>u_to</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>d_to</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>in_to</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>out_to</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code>&#160;</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cant_go</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>routine; message instead of the default &#8220;You can&#8217;t go that way.&#8221;</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top" colspan="2"><p class="tableblock">For non-room objects only:</p></th>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>contains_desc</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>a routine that prints the introduction to a list of child objects, instead of the default &#8220;Inside &lt;object&gt; are &#8230;&#8203;&#8221; or &#8220;&lt;Character&gt; has &#8230;&#8203;&#8221;; <code>contains_desc</code> should always conclude with a semicolon (<code>;</code>) instead of a new line</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>desc_detail</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>a routine that prints a parenthetical detail following an object listing, such as: &#8220;&#160;(which is open)&#8221;; the leading space is expected, as are the parentheses, and the <code>print</code> statement should conclude with a semicolon (<code>;</code>)</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>door_to</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>for handling &#8220;<strong>&gt;ENTER &lt;object&gt;</strong>&#8221;, holds the object number of the object to which an object enters (where the latter behaves as a door or portal)</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ignore_response</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>for characters, a routine that runs if the character ignores a player&#8217;s question, request, etc., instead of the default &#8220;X ignores you.&#8221;</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>inv_desc</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>a routine that prints a special description when the object is listed as part of the player&#8217;s inventory; <code>inv_desc</code> should conclude with a semicolon (<code>;</code>)</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>key_object</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>if <code>lockable</code>, contains the object number of the key</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>order_response</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>also for characters, a routine that processes an imperative command addressed to the character by the player; it should return false if no response is provided</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>when_open</code></p></td>
+<td class="tableblock halign-left valign-middle" rowspan="2"><div class="content"><div class="paragraph">
+<p>routines; special short descriptions for <code>openable</code> objects, where if one exists it is called in place of <code>short_desc</code> (when the object is <code>open</code> or <code>not open</code>, as appropriate) if an <code>initial_desc</code> does not exist, or if the object has been <code>moved</code></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>when_closed</code></p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
 <div class="paragraph">
-<p><em>The first 6 properties are pre-defined by the compiler:</em></p>
+<p>It is recommended for property routines that print a description&#8201;&#8212;&#8201;such as <code>short_desc</code>, <code>initial_desc</code>, etc.&#8201;&#8212;&#8201;that the routine not simply return true without printing anything as a means of &#8220;hiding&#8221; the object; such a method may throw text formatting into disarray.
+The proper means of omitting an object from a list is to set the <code>hidden</code> attribute.</p>
 </div>
-<div class="paragraph">
-<p>name basic object name</p>
+</td>
+</tr>
+</table>
 </div>
-<div class="paragraph">
-<p>before pre-verb routines</p>
-</div>
-<div class="paragraph">
-<p>after post-verb routines</p>
-</div>
-<div class="paragraph">
-<p>noun (nouns) noun(s) for referring to object</p>
-</div>
-<div class="paragraph">
-<p>adjective (adjectives) adjective(s) describing object</p>
-</div>
-<div class="paragraph">
-<p>article &#8220;a&#8221;, &#8220;an&#8221;, &#8220;the&#8221;, &#8220;some&#8221;, etc.</p>
-</div>
-<div class="paragraph">
-<p>preposition (prep) &#8220;in&#8221;, &#8220;inside&#8221;, &#8220;outside of&#8221;, etc.<sup class="footnote">[<a id="_footnoteref_56" class="footnote" href="#_footnotedef_56" title="View footnote.">56</a>]</sup></p>
-</div>
-<div class="paragraph">
-<p>capacity contains a value representing the capacity of a container or platform</p>
-</div>
-<div class="paragraph">
-<p>exclude_from_all returns true if the object should be excluded from actions such as &#8220;&gt;GET ALL&#8221;</p>
-</div>
-<div class="paragraph">
-<p>found_in in case of multiple virtual (not &#8220;physical&#8221;) parents, found_in may hold one or more object numbers; in this case, an <code>in &lt;object&gt;</code> specifier should probably not be included in the object definition, since found_in values are unrelated to <code>&lt;object&gt; in &lt;parent&gt;</code> relationships</p>
-</div>
-<div class="paragraph">
-<p>holding contains a value representing the current encumbrance of a container or platform</p>
-</div>
-<div class="paragraph">
-<p>in_scope contains a list of actors or objects to which the object is accessible beyond the use of the object tree or the found_in property; generally contains either the player object (or, less commonly, another character) and is set using PutInScope or cleared using RemoveFromScope</p>
-</div>
-<div class="paragraph">
-<p>initial_desc routine; same as above, but if object has not been moved and an initial_desc exists, it is called in place of short_desc</p>
-</div>
-<div class="paragraph">
-<p>list_contents a routine that overrides the normal contents listing for a room or object; normal listing is only carried out if it returns false</p>
-</div>
-<div class="paragraph">
-<p>long_desc routine; detailed description of an object</p>
-</div>
-<div class="paragraph">
-<p>misc miscellaneous use</p>
-</div>
-<div class="paragraph">
-<p>parse_rank when there is ambiguity between similarly named objects, the parser will choose the one with a higher parse_rank over one with a lower (or non-existent) value; used when FindObject(&lt;object&gt;, 0) is called</p>
-</div>
-<div class="paragraph">
-<p>pronoun &#8220;he&#8221;, &#8220;him&#8221;, &#8220;his&#8221; or equivalent, so that an object is properly referred to</p>
-</div>
-<div class="paragraph">
-<p>reach for enterable objects such as chairs, vehicles, etc., if the accessibility of objects outside the object in question is limited, reach contains a list of the objects which may be accessed</p>
-</div>
-<div class="paragraph">
-<p>react_before to allow reaction by an object that is not</p>
-</div>
-<div class="paragraph">
-<p>react_after directly involved in the action</p>
-</div>
-<div class="paragraph">
-<p>short_desc routine; basic &#8220;X is here&#8221; description</p>
-</div>
-<div class="paragraph">
-<p>size for holding/inventory purposes, contains a value representing the size of an individual object</p>
-</div>
-<div class="paragraph">
-<p>type to identify the type of object, used primarily by class definitions in <strong>objlib.h</strong></p>
-</div>
-<div class="paragraph">
-<p><em>For room objects only:</em></p>
-</div>
-<div class="paragraph">
-<p>n_to If a player can move to another</p>
-</div>
-<div class="paragraph">
-<p>ne_to location to the north, then n_to</p>
-</div>
-<div class="paragraph">
-<p>e_to holds the new room object; if the</p>
-</div>
-<div class="paragraph">
-<p>se_to new object is to the south, s_to</p>
-</div>
-<div class="paragraph">
-<p>s_to holds the new object, etc.</p>
-</div>
-<div class="paragraph">
-<p>sw_to</p>
-</div>
-<div class="paragraph">
-<p>w_to</p>
-</div>
-<div class="paragraph">
-<p>nw_to</p>
-</div>
-<div class="paragraph">
-<p>u_to</p>
-</div>
-<div class="paragraph">
-<p>d_to</p>
-</div>
-<div class="paragraph">
-<p>in_to</p>
-</div>
-<div class="paragraph">
-<p>out_to</p>
-</div>
-<div class="paragraph">
-<p>cant_go routine; message instead of the default &#8220;You can&#8217;t go that way.&#8221;</p>
-</div>
-<div class="paragraph">
-<p><em>For non-room objects only:</em></p>
-</div>
-<div class="paragraph">
-<p>contains_desc a routine that prints the introduction to a list of child objects, instead of the default &#8220;Inside &lt;object&gt; are &#8230;&#8203;&#8221; or &#8220;&lt;Character&gt; has &#8230;&#8203;&#8221;; contains_desc should always conclude with a semicolon (<code>;</code>) instead of a new line</p>
-</div>
-<div class="paragraph">
-<p>desc_detail a routine that prints a parenthetical detail following an object listing, such as: "` (which is open)<code>"; the leading space is expected, as are the parentheses, and the print statement should conclude with a semicolon (</code>;`)</p>
-</div>
-<div class="paragraph">
-<p>door_to for handling “&gt;ENTER &lt;object&gt;“, holds the object number of the object to which an object enters (where the latter behaves as a door or portal)</p>
-</div>
-<div class="paragraph">
-<p>ignore_response for characters, a routine that runs if the character ignores a player&#8217;s question, request, etc., instead of the default &#8220;X ignores you.&#8221;</p>
-</div>
-<div class="paragraph">
-<p>inv_desc a routine that prints a special description when the object is listed as part of the player&#8217;s inventory; inv_desc should conclude with a semicolon (<code>;</code>)</p>
-</div>
-<div class="paragraph">
-<p>key_object if lockable, contains the object number of the key</p>
-</div>
-<div class="paragraph">
-<p>order_response also for characters, a routine that processes an imperative command addressed to the character by the player; it should return false if no response is provided</p>
-</div>
-<div class="paragraph">
-<p>when_open routines; special short descriptions for</p>
-</div>
-<div class="paragraph">
-<p>when_closed openable objects, where if one exists it is called in place of short_desc (when the object is open or not open, as appropriate) if an initial_desc does not exist, or if the object has been moved</p>
-</div>
+<table class="tableblock frame-all grid-all stripes-none stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 80%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-left valign-top" colspan="2"><p class="tableblock">For the display object only:</p></th>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><em>Read-only:</em></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cursor_column</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>horizontal and vertical position of</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cursor_row</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>the cursor in the current text window</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>hasgraphics</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>true if graphics display is available</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>hasvideo</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>true if video playback is available</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>linelength</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>width of the current text window</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>pointer_x</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>fixed-width column of last mouse click</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>pointer_y</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>fixed-width row of last mouse click</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>screenwidth</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>width of the display, in characters</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>screenheight</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>height of the display, in characters</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>windowlines</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>height of the current text window</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><em>Read/writable:</em></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>needs_repaint</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>true if the operating system has requested a repaint (for ports which support it)</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>statusline_height</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>the number of lines used to print the statusline</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>title_caption</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>dictionary entry giving the full proper name of the program (optional)</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -12777,95 +13345,183 @@ Upon returning from the verb routine, <code>Main</code> is not called.</p>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>It is recommended for property routines that print a description&#8212;&#8203;such as short_desc, initial_desc, etc.--that the routine not simply return true without printing anything as a means of &#8220;hiding&#8221; the object; such a method may throw text formatting into disarray. The proper means of omitting an object from a list is to set the hidden attribute.</p>
+<p>While <code>screenwidth</code> through <code>title_caption</code> are technically defined by <strong>hugolib.h</strong> as constants, they are used as property numbers to reference data on the display object.</p>
 </div>
 </td>
 </tr>
 </table>
-</div>
-<div class="paragraph">
-<p>For the display object only:</p>
-</div>
-<div class="paragraph">
-<p><em>Read-only:</em></p>
-</div>
-<div class="paragraph">
-<p>cursor_column horizontal and vertical position of</p>
-</div>
-<div class="paragraph">
-<p>cursor_row the cursor in the current text window</p>
-</div>
-<div class="paragraph">
-<p>hasgraphics true if graphics display is available</p>
-</div>
-<div class="paragraph">
-<p>hasvideo true if video playback is available</p>
-</div>
-<div class="paragraph">
-<p>linelength width of the current text window</p>
-</div>
-<div class="paragraph">
-<p>pointer_x fixed-width column of last mouse click</p>
-</div>
-<div class="paragraph">
-<p>pointer_y fixed-width row of last mouse click</p>
-</div>
-<div class="paragraph">
-<p>screenwidth width of the display, in characters</p>
-</div>
-<div class="paragraph">
-<p>screenheight height of the display, in characters</p>
-</div>
-<div class="paragraph">
-<p>windowlines height of the current text window</p>
-</div>
-<div class="paragraph">
-<p><em>Read/writable:</em></p>
-</div>
-<div class="paragraph">
-<p>needs_repaint true if the operating system has requested a repaint (for ports which support it)</p>
-</div>
-<div class="paragraph">
-<p>statusline_height the number of lines used to print the statusline</p>
-</div>
-<div class="paragraph">
-<p>title_caption dictionary entry giving the full proper</p>
-</div>
-<div class="paragraph">
-<p>name of the program (optional)</p>
-</div>
-<div class="paragraph">
-<p>While screenwidth through title_caption are technically defined by <strong>hugolib.h</strong> as constants, they are used as property numbers to reference data on the display object.</p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_verb_routines"><a class="anchor" href="#_verb_routines"></a>B.6. VERB ROUTINES</h3>
 <div class="paragraph">
-<p>The library file <strong>verblib.h</strong> (included by <strong>hugolib.h</strong>) contains a fairly extensive set of basic actions, each of which takes the form Do&lt;verb&gt;, so that the action for taking an object is DoGet, the action for basic player movement is DoGo, etc. Each is called by the engine when a grammar syntax line specifying the particular verb routine is matched. The globals object and xobject are set up by the engine, and the routine is called with no parameters.</p>
+<p>The library file <strong>verblib.h</strong> (included by <strong>hugolib.h</strong>) contains a fairly extensive set of basic actions, each of which takes the form <code>Do&lt;verb&gt;</code>, so that the action for taking an object is <code>DoGet</code>, the action for basic player movement is <code>DoGo</code>, etc.
+Each is called by the engine when a grammar syntax line specifying the particular verb routine is matched.
+The globals object and <code>xobject</code> are set up by the engine, and the routine is called with no parameters.</p>
 </div>
 <div class="paragraph">
 <p>Here is a list of the provided verb routines for action verbs:</p>
 </div>
-<div class="paragraph">
-<p>DoAsk, DoAskQuestion, DoClose, DoDrink, DoDrop, DoEat, DoEmpty, DoEnter, DoExit, DoGet, DoGive, DoGo, DoHello, DoHit, DoInventory, DoListen, DoLock, DoLook, DoLookAround, DoLookIn, DoLookThrough, DoLookUnder, DoMove, DoOpen, DoPutIn, DoPutOnGround, DoShow, DoSit, DoSwitchOff, DoSwitchOn, DoTakeOff, DoTalk, DoTell, DoUnlock, DoVague, DoWait, DoWaitforChar, DoWaitUntil, DoWear</p>
-</div>
+<table class="tableblock frame-none grid-none stripes-none fit-content center">
+<colgroup>
+<col>
+<col>
+<col>
+<col>
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DoAsk</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DoAskQuestion</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DoClose</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DoDrink</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DoDrop</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DoEat</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DoEmpty</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DoEnter</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DoExit</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DoGet</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DoGive</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DoGo</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DoHello</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DoHit</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DoInventory</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DoListen</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DoLock</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DoLook</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DoLookAround</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DoLookIn</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DoLookThrough</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DoLookUnder</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DoMove</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DoOpen</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DoPutIn</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DoPutOnGround</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DoShow</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DoSit</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DoSwitchOff</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DoSwitchOn</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DoTakeOff</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DoTalk</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DoTell</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DoUnlock</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DoVague</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DoWait</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DoWaitforChar</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DoWaitUntil</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DoWear</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
 <div class="paragraph">
 <p>Here are the non-action verb routines:</p>
 </div>
+<table class="tableblock frame-none grid-none stripes-none fit-content center">
+<colgroup>
+<col>
+<col>
+<col>
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DoBrief</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DoRecordOnOff</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DoRestart</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DoRestore</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DoSave</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DoScriptOnOff</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DoScore</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DoSuperbrief</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DoUndo</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DoVerbose</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DoQuit</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
 <div class="paragraph">
-<p>DoBrief, DoRecordOnOff, DoRestart, DoRestore, DoSave, DoScriptOnOff, DoScore, DoSuperbrief, DoUndo, DoVerbose, DoQuit</p>
-</div>
-<div class="paragraph">
-<p>Output messages for these verbroutines are handled by the routine VMessage in <strong>verblib.h</strong>.</p>
+<p>Output messages for these verbroutines are handled by the routine <code>VMessage</code> in <strong>verblib.h</strong>.</p>
 </div>
 <div class="paragraph">
 <p>A set of verb stub routines is also available in <strong>verbstub.h</strong>, including the actions:</p>
 </div>
+<table class="tableblock frame-none grid-none stripes-none fit-content center">
+<colgroup>
+<col>
+<col>
+<col>
+<col>
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DoBurn</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DoClimb</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DoClimbOut</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DoCut</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DoDig</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DoFollow</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DoHelp</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DoHelpChar</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DoJump</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DoKiss</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DoNo</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DoPull</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DoPush</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DoSearch</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DoSleep</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DoSmell</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DoSorry</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DoSwim</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DoThrowAt</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DoTie</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DoTouch</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DoUntie</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DoUse</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DoWake</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DoWakeCharacter</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DoWave</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DoWaveHands</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DoYell</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DoYes</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
 <div class="paragraph">
-<p>DoBurn, DoClimb, DoClimbOut, DoCut, DoDig, DoFollow, DoHelp, DoHelpChar, DoJump, DoKiss, DoNo, DoPull, DoPush, DoSearch, DoSleep, DoSmell, DoSorry, DoSwim, DoThrowAt, DoTie, DoTouch, DoUntie, DoUse, DoWake, DoWakeCharacter, DoWave, DoWaveHands, DoYell, DoYes</p>
-</div>
-<div class="paragraph">
-<p>The default response for each of these stub routines is a more colorful variation of &#8220;Try something else.&#8221; Any more meaningful response must be incorporated into before property routines. To use these verbs, set the VERBSTUBS flag before compiling <strong>hugolib.h</strong>.</p>
+<p>The default response for each of these stub routines is a more colorful variation of &#8220;Try something else.&#8221; Any more meaningful response must be incorporated into <code>before</code> property routines.
+To use these verbs, set the <code>VERBSTUBS</code> flag before compiling <strong>hugolib.h</strong>.</p>
 </div>
 </div>
 <div class="sect2">
@@ -12878,7 +13534,10 @@ Upon returning from the verb routine, <code>Main</code> is not called.</p>
 EndGame(end_type)</p>
 </div>
 <div class="paragraph">
-<p>If end_type = 1, the game is won; if 2, the game is lost. (Since endflag may be any value, a value of, for example, 0 will still call EndGame, but with no additional effects via the default PrintEndGame routine.) The global endflag is cleared upon calling. Returning false from EndGame terminates the Hugo Engine.</p>
+<p>If end_type = 1, the game is won; if 2, the game is lost.
+(Since endflag may be any value, a value of, for example, 0 will still call EndGame, but with no additional effects via the default PrintEndGame routine.)
+The global endflag is cleared upon calling.
+Returning false from EndGame terminates the Hugo Engine.</p>
 </div>
 <div class="paragraph">
 <p>Also calls: PrintEndGame and PrintScore</p>
@@ -12888,7 +13547,8 @@ EndGame(end_type)</p>
 FindObject(object, location)</p>
 </div>
 <div class="paragraph">
-<p>Returns true (1) if the specified object is available in the specified location, or false (0) if it is not. Returns 2 if the object is visible but not physically accessible.</p>
+<p>Returns true (1) if the specified object is available in the specified location, or false (0) if it is not.
+Returns 2 if the object is visible but not physically accessible.</p>
 </div>
 <div class="paragraph">
 <p>The location argument is 0 during object disambiguation performed by the engine.</p>
@@ -12901,7 +13561,8 @@ FindObject(object, location)</p>
 Parse()</p>
 </div>
 <div class="paragraph">
-<p>Performs all library-side parsing of the player input. Returning true forces the engine to reparse the modified input line.</p>
+<p>Performs all library-side parsing of the player input.
+Returning true forces the engine to reparse the modified input line.</p>
 </div>
 <div class="paragraph">
 <p>Also calls: PreParse, AssignPronoun and SetObjWord</p>
@@ -12911,7 +13572,9 @@ Parse()</p>
 ParseError(errornumber, object)</p>
 </div>
 <div class="paragraph">
-<p>Prints the parsing message/error given by errornumber, where an additional object value may also be provided. Returning false signals the engine to print the engine&#8217;s default error message. Return 2 to force the existing line to be reparsed as is.</p>
+<p>Prints the parsing message/error given by errornumber, where an additional object value may also be provided.
+Returning false signals the engine to print the engine&#8217;s default error message.
+Return 2 to force the existing line to be reparsed as is.</p>
 </div>
 <div class="paragraph">
 <p>May also call: CustomError</p>
@@ -12923,14 +13586,16 @@ ParseError(errornumber, object)</p>
 <p>Perform(verbroutine, object, xobject, queue, isxverb)</p>
 </div>
 <div class="paragraph">
-<p>Runs the requested verbroutine, setting up the object and xobject globals if necessary. The queue argument is true if more than one call to Perform is being made for multiple objects, and the isxverb argument is true for verbroutine calls associated with xverb grammar.</p>
+<p>Runs the requested verbroutine, setting up the object and xobject globals if necessary.
+The queue argument is true if more than one call to Perform is being made for multiple objects, and the isxverb argument is true for verbroutine calls associated with xverb grammar.</p>
 </div>
 <div class="paragraph">
 <p>SpeakTo called by the engine via:<br>
 SpeakTo(character)</p>
 </div>
 <div class="paragraph">
-<p>Handles character responses to directed actions. Globals object, xobject, and verbroutine are set up as in a normal verb routine call.</p>
+<p>Handles character responses to directed actions.
+Globals object, xobject, and verbroutine are set up as in a normal verb routine call.</p>
 </div>
 <div class="paragraph">
 <p>Also calls: AssignPronoun</p>
@@ -12986,7 +13651,8 @@ MatchPlural(object, w1, w2)</p>
 MatchSubject(object)</p>
 </div>
 <div class="paragraph">
-<p>Matches a verb to the given subject object. If the object is plural, nothing is printed; if the object is singular, an &#8220;s&#8221; is printed.</p>
+<p>Matches a verb to the given subject object.
+If the object is plural, nothing is printed; if the object is singular, an &#8220;s&#8221; is printed.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -12996,7 +13662,8 @@ MatchSubject(object)</p>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>None of the above printing routines prints a carriage return, and all return 0 (the empty string). Therefore, either of the following uses are valid:</p>
+<p>None of the above printing routines prints a carriage return, and all return 0 (the empty string).
+Therefore, either of the following uses are valid:</p>
 </div>
 </td>
 </tr>
@@ -13022,7 +13689,9 @@ MatchSubject(object)</p>
 Acquire(parent, object)</p>
 </div>
 <div class="paragraph">
-<p>Checks to see if parent.capacity is greater than or equal to parent.holding plus object.size. If so, it moves the object to the specified parent, and returns true. If the object cannot be moved, Acquire returns false.</p>
+<p>Checks to see if parent.capacity is greater than or equal to parent.holding plus object.size.
+If so, it moves the object to the specified parent, and returns true.
+If the object cannot be moved, Acquire returns false.</p>
 </div>
 <div class="paragraph">
 <p>Also calls: CalculateHolding</p>
@@ -13053,14 +13722,16 @@ CalculateHolding(object)</p>
 CenterTitle(text[, lines])</p>
 </div>
 <div class="paragraph">
-<p>Clears the screen and centers the text given by the specified dictionary entry in the top window. The default height of the title (i.e., one line) can be overridden with a second argument giving the number of lines.</p>
+<p>Clears the screen and centers the text given by the specified dictionary entry in the top window.
+The default height of the title (i.e., one line) can be overridden with a second argument giving the number of lines.</p>
 </div>
 <div class="paragraph">
 <p>CheckReach calling form:<br>
 CheckReach(object)</p>
 </div>
 <div class="paragraph">
-<p>Checks to see if the specified object is within reach of the player object. Returns true if accessible; returns false and prints an appropriate message if not accessible.</p>
+<p>Checks to see if the specified object is within reach of the player object.
+Returns true if accessible; returns false and prints an appropriate message if not accessible.</p>
 </div>
 <div class="paragraph">
 <p>Contains calling form:<br>
@@ -13074,35 +13745,40 @@ Contains(parent, object)</p>
 CustomError(errornumber, object)</p>
 </div>
 <div class="paragraph">
-<p>Replace if custom error messages are desired. Is called by ParseError whenever errornumber is greater than or equal to 100, specifying a user-provided and user-called parser error. Should return false if no user message is found.</p>
+<p>Replace if custom error messages are desired.
+Is called by ParseError whenever errornumber is greater than or equal to 100, specifying a user-provided and user-called parser error.
+Should return false if no user message is found.</p>
 </div>
 <div class="paragraph">
 <p>DarkWarning calling form:<br>
 DarkWarning</p>
 </div>
 <div class="paragraph">
-<p>Is called by MovePlayer whenever the player object is moved into a location without a light source. The default library routine simply prints a message; for a more sinister response or action, such as the demise of the player, replace the default with a new DarkWarning routine.</p>
+<p>Is called by MovePlayer whenever the player object is moved into a location without a light source.
+The default library routine simply prints a message; for a more sinister response or action, such as the demise of the player, replace the default with a new DarkWarning routine.</p>
 </div>
 <div class="paragraph">
 <p>DeleteWord calling form:<br>
 DeleteWord(wordnumber[, number])</p>
 </div>
 <div class="paragraph">
-<p>Deletes number words&#8212;&#8203;or only one word if no second argument is given&#8212;&#8203;starting with word[wordnumber]. Returns the number of words deleted.</p>
+<p>Deletes number words&#8201;&#8212;&#8201;or only one word if no second argument is given&#8201;&#8212;&#8201;starting with word[wordnumber].
+Returns the number of words deleted.</p>
 </div>
 <div class="paragraph">
 <p>DescribePlace calling form:<br>
 DescribePlace(location[, long])</p>
 </div>
 <div class="paragraph">
-<p>Prints the location name and, when appropriate, a location description (i.e., its long_desc). Including a non-false long parameter will always force a location description.</p>
+<p>Prints the location name and, when appropriate, a location description (i.e., its long_desc).
+Including a non-false long parameter will always force a location description.</p>
 </div>
 <div class="paragraph">
 <p>ExcludeFromAll calling form:<br>
 ExcludeFromAll(object)</p>
 </div>
 <div class="paragraph">
-<p>Returns true if, based on the current circumstances (verbroutine, etc.), the supplied object should be excluded from actions using &#8220;all&#8221;--such as multi, multiheld, and multinotheld grammar tokens.</p>
+<p>Returns true if, based on the current circumstances (verbroutine, etc.), the supplied object should be excluded from actions using &#8220;all&#8221;&#8201;&#8212;&#8201;such as multi, multiheld, and multinotheld grammar tokens.</p>
 </div>
 <div class="paragraph">
 <p>FindLight calling form:<br>
@@ -13126,14 +13802,17 @@ Font(bitmask)</p>
 GetInput([prompt string])</p>
 </div>
 <div class="paragraph">
-<p>Receives input from the keyboard, storing individual words in the word array; unknown words&#8212;&#8203;i.e., those that are not in the dictionary&#8212;&#8203;are assigned the empty string, 0 or <code>""</code>. If an argument is passed, it is assumed to be a dictionary address for the prompt string. If no argument is passed, no prompt is printed.</p>
+<p>Receives input from the keyboard, storing individual words in the word array; unknown words&#8201;&#8212;&#8201;i.e., those that are not in the dictionary&#8201;&#8212;&#8201;are assigned the empty string, 0 or <code>""</code>.
+If an argument is passed, it is assumed to be a dictionary address for the prompt string.
+If no argument is passed, no prompt is printed.</p>
 </div>
 <div class="paragraph">
 <p>HoursMinutes calling form:<br>
 HoursMinutes(counter[, military])</p>
 </div>
 <div class="paragraph">
-<p>Prints the time in hh:mm format given that counter represents the time in minutes from 12:00 a.m. If the optional military value is given as a true value, the time is printed in 24-hour format.</p>
+<p>Prints the time in hh:mm format given that counter represents the time in minutes from 12:00 a.m.
+If the optional military value is given as a true value, the time is printed in 24-hour format.</p>
 </div>
 <div class="paragraph">
 <p>Indent calling form:<br>
@@ -13154,21 +13833,25 @@ InList(object, property, value)</p>
 InsertWord(wordnumber[, number])</p>
 </div>
 <div class="paragraph">
-<p>Makes space for either the number of words given by the number argument&#8212;&#8203;or one word if no second argument is given&#8212;&#8203;if possible, at word[wordnumber], shifting upward all words from that point to the end of the input line. Returns the number of words inserted.</p>
+<p>Makes space for either the number of words given by the number argument&#8201;&#8212;&#8201;or one word if no second argument is given&#8201;&#8212;&#8201;if possible, at word[wordnumber], shifting upward all words from that point to the end of the input line.
+Returns the number of words inserted.</p>
 </div>
 <div class="paragraph">
 <p>IsPossibleXobject calling form:<br>
 IsPossibleXobject(object)</p>
 </div>
 <div class="paragraph">
-<p>Returns true if the object is potentially the xobject in the current command. Does not, however, guarantee that the object <em>is</em> an xobject, but is instead a quick and inexpensive utility routine for parsing.</p>
+<p>Returns true if the object is potentially the xobject in the current command.
+Does not, however, guarantee that the object <em>is</em> an xobject, but is instead a quick and inexpensive utility routine for parsing.</p>
 </div>
 <div class="paragraph">
 <p>ListObjects calling form:<br>
 ListObjects(object)</p>
 </div>
 <div class="paragraph">
-<p>Lists all the possessions of the specified object in the appropriate form (according to the global FORMAT). Possessions of possessions are listed recursively if FORMAT does not contain the NORECURSE_F bit. Format masks are combined, as in:</p>
+<p>Lists all the possessions of the specified object in the appropriate form (according to the global FORMAT).
+Possessions of possessions are listed recursively if FORMAT does not contain the NORECURSE_F bit.
+Format masks are combined, as in:</p>
 </div>
 <div class="paragraph">
 <p>FORMAT = LIST_F | NORECURSE_F | &#8230;&#8203;</p>
@@ -13181,7 +13864,9 @@ ListObjects(object)</p>
 Menu(number, [width[, selection]])</p>
 </div>
 <div class="paragraph">
-<p>Prints a menu, given that the possible number of choices (up to 10) are contained in the menuitem array, with menuitem[0] is the title of the menu. A width (in characters) argument and a starting selection number are optional. Returns the number of the item selected, or 0 if none is chosen.</p>
+<p>Prints a menu, given that the possible number of choices (up to 10) are contained in the menuitem array, with menuitem[0] is the title of the menu.
+A width (in characters) argument and a starting selection number are optional.
+Returns the number of the item selected, or 0 if none is chosen.</p>
 </div>
 <div class="paragraph">
 <p>Also calls: CenterTitle</p>
@@ -13191,7 +13876,8 @@ Menu(number, [width[, selection]])</p>
 Message(&amp;routine, num, a, b)</p>
 </div>
 <div class="paragraph">
-<p>Used by most routines in <strong>hugolib.h</strong> for text output, so that the bulk of the library text is centralized in one location. Message number num for the specified routine is printed; a and b are optional parameters that may represent objects, dictionary entries, or any other value.</p>
+<p>Used by most routines in <strong>hugolib.h</strong> for text output, so that the bulk of the library text is centralized in one location.
+Message number num for the specified routine is printed; a and b are optional parameters that may represent objects, dictionary entries, or any other value.</p>
 </div>
 <div class="paragraph">
 <p>(Similar routines are provided in VMessage in <strong>verblib.h</strong> and OMessage in <strong>objlib.h</strong>.)</p>
@@ -13202,7 +13888,8 @@ MovePlayer(loc[, silent[, none]])<br>
 MovePlayer(dir[, silent[, none]])</p>
 </div>
 <div class="paragraph">
-<p>Moves the player to the new location, properly setting all relevant variables and attributes. If silent is passed as a true value, no room description is printed following the move.</p>
+<p>Moves the player to the new location, properly setting all relevant variables and attributes.
+If silent is passed as a true value, no room description is printed following the move.</p>
 </div>
 <div class="paragraph">
 <p>A direction object (i.e., n_obj, d_obj) may be specified instead of a location; in that case, MovePlayer moves in that direction from present location.</p>
@@ -13211,7 +13898,8 @@ MovePlayer(dir[, silent[, none]])</p>
 <p>If none is true, before and after routines are not run.</p>
 </div>
 <div class="paragraph">
-<p>MovePlayer can be checked in a location&#8217;s before or after property as <code>location MovePlayer</code> to catch a player&#8217;s exit from or entrance to a location. In a before property, <code>object MovePlayer</code> can be used to check the target location.</p>
+<p>MovePlayer can be checked in a location&#8217;s before or after property as <code>location MovePlayer</code> to catch a player&#8217;s exit from or entrance to a location.
+In a before property, <code>object MovePlayer</code> can be used to check the target location.</p>
 </div>
 <div class="paragraph">
 <p>Returns the object number of the new location.</p>
@@ -13227,7 +13915,9 @@ MovePlayer(dir[, silent[, none]])</p>
 NumberWord(number[, true])</p>
 </div>
 <div class="paragraph">
-<p>Prints a number in non-numerical word format, where &lt;number&gt; is between -32768 to 32767. Always returns 0 (the empty string). If a second true argument is supplied, the word is capitalized.</p>
+<p>Prints a number in non-numerical word format, where &lt;number&gt; is between -32768 to 32767.
+Always returns 0 (the empty string).
+If a second true argument is supplied, the word is capitalized.</p>
 </div>
 <div class="paragraph">
 <p>ObjectIs calling form:<br>
@@ -13248,7 +13938,8 @@ ObjectisKnown(object)</p>
 ObjectisLight(object)</p>
 </div>
 <div class="paragraph">
-<p>Returns true if the object or one of its visible possessions is providing light. If so, it also sets the global light_source the object number of the source.</p>
+<p>Returns true if the object or one of its visible possessions is providing light.
+If so, it also sets the global light_source the object number of the source.</p>
 </div>
 <div class="paragraph">
 <p>ObjWord calling form:<br>
@@ -13261,7 +13952,8 @@ ObjWord(word, object)</p>
 <p>PreParse calling form: PreParse</p>
 </div>
 <div class="paragraph">
-<p>Provided so that, if needed, this routine may be replaced instead of the more extensive library Parse routine. The default PreParse routine defined in the library is empty.</p>
+<p>Provided so that, if needed, this routine may be replaced instead of the more extensive library Parse routine.
+The default PreParse routine defined in the library is empty.</p>
 </div>
 <div class="paragraph">
 <p>PrintEndGame calling form:<br>
@@ -13316,14 +14008,16 @@ PropertyList(object, property)</p>
 PutInScope(object, actor)</p>
 </div>
 <div class="paragraph">
-<p>Makes the given object accessible to the specified actor, regardless of their respective locations, and providing that the in_scope property of the object has at least one empty slot&#8212;&#8203;i.e., one that equals 0. Returns true if successful.</p>
+<p>Makes the given object accessible to the specified actor, regardless of their respective locations, and providing that the in_scope property of the object has at least one empty slot&#8201;&#8212;&#8201;i.e., one that equals 0.
+Returns true if successful.</p>
 </div>
 <div class="paragraph">
 <p>RemoveFromScope calling form:<br>
 RemoveFromScope(object, actor)</p>
 </div>
 <div class="paragraph">
-<p>Removes the given object from the scope of the specified actor. Returns true if successful, or false if the object was never in scope of the actor to begin with.</p>
+<p>Removes the given object from the scope of the specified actor.
+Returns true if successful, or false if the object was never in scope of the actor to begin with.</p>
 </div>
 <div class="paragraph">
 <p>SetObjWord calling form:<br>
@@ -13340,7 +14034,8 @@ SetObjWord(position, object)</p>
 ShortDescribe(object)</p>
 </div>
 <div class="paragraph">
-<p>Prints the short description (short_desc) of the given object, first checking to see if it should run initial_desc, when_open, or when_closed, as appropriate. Then, if no short_desc property exists, it prints a default &#8220;X is here.&#8221;</p>
+<p>Prints the short description (short_desc) of the given object, first checking to see if it should run initial_desc, when_open, or when_closed, as appropriate.
+Then, if no short_desc property exists, it prints a default &#8220;X is here.&#8221;</p>
 </div>
 <div class="paragraph">
 <p>Also calls: WhatsIn</p>
@@ -13350,7 +14045,8 @@ ShortDescribe(object)</p>
 SpecialDesc(object)</p>
 </div>
 <div class="paragraph">
-<p>Checks each child object of the specified object, running any appropriate initial_desc or inv_desc property routines (depending on the calling situation). Sets the global variable list_count to the number of remaining (i.e., non-listed) objects.</p>
+<p>Checks each child object of the specified object, running any appropriate initial_desc or inv_desc property routines (depending on the calling situation).
+Sets the global variable list_count to the number of remaining (i.e., non-listed) objects.</p>
 </div>
 <div class="paragraph">
 <p>VerbWord calling form:<br>
@@ -13364,7 +14060,8 @@ VerbWord</p>
 WhatsIn(parent)</p>
 </div>
 <div class="paragraph">
-<p>Lists the possessions of the specified parent, according the form given by the global FORMAT. Returns the number of objects listed.</p>
+<p>Lists the possessions of the specified parent, according the form given by the global FORMAT.
+Returns the number of objects listed.</p>
 </div>
 <div class="paragraph">
 <p>Also calls: SpecialDesc, ListObjects</p>
@@ -13374,7 +14071,9 @@ WhatsIn(parent)</p>
 YesorNo</p>
 </div>
 <div class="paragraph">
-<p>Checks to see if the just-received input is &#8220;yes&#8221;, &#8220;y&#8221;, &#8220;no&#8221;, or &#8220;n&#8221;. If none of the above, it prompts for a yes or no answer. Once a valid answer is received, it returns true (if yes) or false (if no).</p>
+<p>Checks to see if the just-received input is &#8220;yes&#8221;, &#8220;y&#8221;, &#8220;no&#8221;, or &#8220;n&#8221;.
+If none of the above, it prompts for a yes or no answer.
+Once a valid answer is received, it returns true (if yes) or false (if no).</p>
 </div>
 </div>
 <div class="sect2">
@@ -13412,7 +14111,8 @@ mod(a, b)</p>
 pow(a, b)</p>
 </div>
 <div class="paragraph">
-<p>Returns one number to the power of another number. (The return value is undefined if the result is outside the boundary of -32768 to 32767.)</p>
+<p>Returns one number to the power of another number.
+(The return value is undefined if the result is outside the boundary of -32768 to 32767.)</p>
 </div>
 </div>
 <div class="sect2">
@@ -13467,7 +14167,8 @@ StringPrint(array[, start, end])</p>
 Activate(object[, setting])</p>
 </div>
 <div class="paragraph">
-<p>Activates the specified fuse or daemon object. The setting value is only specified for fuses, where it represents the initial value of the timer property.</p>
+<p>Activates the specified fuse or daemon object.
+The setting value is only specified for fuses, where it represents the initial value of the timer property.</p>
 </div>
 <div class="paragraph">
 <p>Deactivate calling form:<br>
@@ -13484,21 +14185,24 @@ Deactivate(object)</p>
 CancelScript(character)</p>
 </div>
 <div class="paragraph">
-<p>Immediately cancels the character script associated with the object character. Returns true if successful, i.e., if a script for character is found.</p>
+<p>Immediately cancels the character script associated with the object character.
+Returns true if successful, i.e., if a script for character is found.</p>
 </div>
 <div class="paragraph">
 <p>PauseScript calling form:<br>
 PauseScript(character)</p>
 </div>
 <div class="paragraph">
-<p>Temporarily pauses the character script associated with the given character. Returns true if successful.</p>
+<p>Temporarily pauses the character script associated with the given character.
+Returns true if successful.</p>
 </div>
 <div class="paragraph">
 <p>ResumeScript calling form:<br>
 ResumeScript(character)</p>
 </div>
 <div class="paragraph">
-<p>Resumes execution of a paused script for the given character. Returns true if successful.</p>
+<p>Resumes execution of a paused script for the given character.
+Returns true if successful.</p>
 </div>
 <div class="paragraph">
 <p>SkipScript calling form:<br>
@@ -13512,7 +14216,8 @@ SkipScript(character)</p>
 Script(character, steps)</p>
 </div>
 <div class="paragraph">
-<p>Initializes space for the requested number of steps in the setscript array, sets up the data for the script in the scriptdata array, and returns the location of the script in setscript. Returns -1 if MAX_SCRIPTS is exceeded.</p>
+<p>Initializes space for the requested number of steps in the setscript array, sets up the data for the script in the scriptdata array, and returns the location of the script in setscript.
+Returns -1 if MAX_SCRIPTS is exceeded.</p>
 </div>
 <div class="paragraph">
 <p>RunScripts calling form:<br>
@@ -13528,7 +14233,8 @@ RunScripts</p>
 <div class="sect2">
 <h3 id="_character_action_routines"><a class="anchor" href="#_character_action_routines"></a>B.12. CHARACTER ACTION ROUTINES:</h3>
 <div class="paragraph">
-<p>As a starting point, the library also provides a limited number of routines for character scripts to use. They are:</p>
+<p>As a starting point, the library also provides a limited number of routines for character scripts to use.
+They are:</p>
 </div>
 <div class="paragraph">
 <p>&amp;CharWait, 0</p>
