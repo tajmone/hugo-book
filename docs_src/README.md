@@ -14,7 +14,9 @@ This folder contains the AsciiDoc source files of the _The Hugo Book_.
     - [Book Sources](#book-sources)
     - [Build Toolchain](#build-toolchain)
 - [Toolchain Dependencies](#toolchain-dependencies)
-- [Book Preview and Status](#book-preview-and-status)
+- [Book Status](#book-status)
+    - [List of Book-Wide Task](#list-of-book-wide-task)
+    - [Chapters Status and Previews](#chapters-status-and-previews)
 - [Annotations Convention](#annotations-convention)
 - [System Requirements](#system-requirements)
 
@@ -103,67 +105,150 @@ The build process depends on further assets stored elsewhere inside this project
 
 These assets are required to introduce support for Hugo highlighting in the [Asciidoctor] toolchain via the external [Highlight] tool and our custom syntax definition for Hugo.
 
-# Book Preview and Status
 
-The tasks list below indicates the current status of the initial Word-to-AsciiDoc porting stage.
+# Book Status
+
+The initial Word-to-AsciiDoc porting stage is now completed: all the basic style elements are in place, and the whole text as been proofread.
+
+There's still a lot of work to be done in terms of enforcing consistent styles, _ad hoc_ customizations, and solving various problems.
+
+## List of Book-Wide Task
+
+- [x] Word to AsciiDoc porting and basic formatting and styles clean-up.
+- [ ] **FOOTNOTES** — Proofread, format and fix all footnotes.
+- [ ] **XREFS** — Restore all XRefs and create custom anchors.
+- [ ] **CODE BLOCKS:**
+    + [ ] Hugo code:
+        * [ ] Enforce consistent indentation.
+        * [ ] Fix Hugo syntax examples (requires _ad hoc_ Highlight syntax).
+- [ ] Solve all annotated problems.
+
+
+## Chapters Status and Previews
+
+The tasks list below indicates the status of the pending tasks after the initial Word-to-AsciiDoc porting stage.
 
 Every chapter in the list provides an [HTML Live Preview] link to quickly jump to its position in the single-file online preview.
 
-
-- [ ]  [_COLOPHON_][COLOPHON]
-- [ ]  [_AUTHOR'S FOREWORD_][FOREWORD]
+- [ ]  [_COLOPHON_][COLOPHON]:
+    + [ ]  Custom styling and adaptation to HTML5 version.
+- [ ]  [_AUTHOR'S FOREWORD_][FOREWORD]:
+    + [ ]  Custom styling and adaptation to HTML5 version.
+    + [ ]  Fix all XRefs.
 - [ ]  [BOOK 1. **THE HUGO PROGRAMMING MANUAL**][Book I]
-    + [x]  [1. _INTRODUCTION_][Ch1]
-    + [x]  [2. _A FIRST LOOK AT HUGO_][Ch2]
-    + [x]  [3. _OBJECTS_][Ch3]
-        * [x]  AsciiArt to SVG:
-            - [x] §3.2. [Object Tree diagram 1][HB1:3 objT1.svg].
-            - [x] §3.2. [Object Tree diagram 2][HB1:3 objT2.svg].
-            - [x] §3.2. [Object Tree diagram 3][HB1:3 objT3.svg].
-    + [x]  [4. _HUGO PROGRAMMING_][Ch4]
-    + [x]  [5. _ROUTINES AND EVENTS_][Ch5]
-    + [x]  [6. _FUSES, DAEMONS, AND SCRIPTS_][Ch6]
-    + [x]  [7. _GRAMMAR AND PARSING_][Ch7]
-    + [x]  [8. _JUNCTION ROUTINES_][Ch8]
-    + [x]  [9. _THE GAME LOOP_][Ch9]
-    + [x]  [10. _USING THE OBJECT LIBRARY_][Ch10]
-    + [x]  [11. _ADVANCED FEATURES_][Ch11]
-    + [x]  [12. _RESOURCES_][Ch12]
-    + [x]  [APP. A. _SUMMARY OF KEYWORDS AND COMMANDS_][AppA]
+    + [ ]  [1. _INTRODUCTION_][Ch1]
+        * [ ]  Fix all XRefs.
+        * [ ]  Fix footnotes.
+    + [ ]  [2. _A FIRST LOOK AT HUGO_][Ch2]
+        * [ ]  Fix all XRefs.
+        * [ ]  Fix footnotes.
+    + [ ]  [3. _OBJECTS_][Ch3]
+        * [ ]  Fix all XRefs.
+        * [ ]  Fix footnotes.
+    + [ ]  [4. _HUGO PROGRAMMING_][Ch4]
+        * [ ]  Fix all XRefs.
+        * [ ]  Fix footnotes.
+    + [ ]  [5. _ROUTINES AND EVENTS_][Ch5]
+        * [ ]  Fix all XRefs.
+        * [ ]  Fix footnotes.
+    + [ ]  [6. _FUSES, DAEMONS, AND SCRIPTS_][Ch6]
+        * [ ]  Fix all XRefs.
+        * [ ]  Fix footnotes.
+    + [ ]  [7. _GRAMMAR AND PARSING_][Ch7]
+        * [ ]  Fix all XRefs.
+        * [ ]  Fix footnotes.
+    + [ ]  [8. _JUNCTION ROUTINES_][Ch8]
+        * [ ]  Fix all XRefs.
+        * [ ]  Fix footnotes.
+    + [ ]  [9. _THE GAME LOOP_][Ch9]
+        * [ ]  Fix all XRefs.
+        * [ ]  Fix footnotes.
+    + [ ]  [10. _USING THE OBJECT LIBRARY_][Ch10]
+        * [ ]  Fix all XRefs.
+        * [ ]  Fix footnotes.
+    + [ ]  [11. _ADVANCED FEATURES_][Ch11]
+        * [ ]  Fix all XRefs.
+        * [ ]  Fix footnotes.
+    + [ ]  [12. _RESOURCES_][Ch12]
+        * [ ]  Fix all XRefs.
+        * [ ]  Fix footnotes.
+    + [ ]  [APP. A. _SUMMARY OF KEYWORDS AND COMMANDS_][AppA]
         * [ ]  _needs to be proof-read once more, carefully!_
-    + [x]  [APP. B. _THE HUGO LIBRARY_][AppB]
+        * [ ]  Fix all XRefs.
+        * [ ]  Fix footnotes.
+    + [ ]  [APP. B. _THE HUGO LIBRARY_][AppB]
         * [ ]  _needs to be proof-read once more, carefully!_
-    + [x]  [APP. C. _LIMIT SETTINGS_][AppC]
+        * [ ]  Fix all XRefs.
+        * [ ]  Fix footnotes.
+    + [ ]  [APP. C. _LIMIT SETTINGS_][AppC]
         * [ ]  _needs to be proof-read once more, carefully!_
-    + [x]  [APP. D. _HUGOFIX AND THE HUGO DEBUGGER_][AppD]
+        * [ ]  Fix all XRefs.
+        * [ ]  Fix footnotes.
+    + [ ]  [APP. D. _HUGOFIX AND THE HUGO DEBUGGER_][AppD]
         * [ ]  _needs to be proof-read once more, carefully!_
-    + [x]  [APP. E. _PRECOMPILED HEADERS_][AppE]
-    + [x]  [APP. F. _HUGO VERSIONS_][AppF]
-    + [x]  [APP. G. _ADDITIONAL RESOURCES_][AppG]
+        * [ ]  Fix all XRefs.
+        * [ ]  Fix footnotes.
+    + [ ]  [APP. E. _PRECOMPILED HEADERS_][AppE]
+        * [ ]  Fix all XRefs.
+        * [ ]  Fix footnotes.
+    + [ ]  [APP. F. _HUGO VERSIONS_][AppF]
+        * [ ]  Fix all XRefs.
+        * [ ]  Fix footnotes.
+    + [ ]  [APP. G. _ADDITIONAL RESOURCES_][AppG]
+        * [ ]  Fix all XRefs.
+        * [ ]  Fix footnotes.
 - [ ]  [BOOK 2. **TECHNICAL SYSTEM SPECIFICATION**][Book II]
-    + [x]  [13. _INTRODUCTION_][Ch13]
-    + [x]  [14. _ORGANIZATION OF THE .HEX FILE_][Ch14]
-    + [x]  [15. _TOKENS AND DATA TYPES_][Ch15]
-    + [x]  [16. _ENGINE PARSING_][Ch16]
-    + [x]  [17. _GRAMMAR_][Ch17]
-    + [x]  [18. _EXECUTABLE CODE_][Ch18]
-    + [x]  [19. _ENCODING TEXT_][Ch19]
-    + [x]  [20. _THE OBJECT TABLE_][Ch20]
-    + [x]  [21. _THE PROPERTY TABLE_][Ch21]
-    + [x]  [22. _THE EVENT TABLE_][Ch22]
-    + [x]  [23. _THE DICTIONARY AND SPECIAL WORDS_][Ch23]
-    + [x]  [24. _RESOURCEFILES_][Ch24]
-    + [x]  [25. _THE HUGO COMPILER AND HOW IT WORKS_][Ch25]
-        * [x]  [AsciiArt to SVG: flowchart of Hugo compiler][HB2:13 com.svg].
-    + [x]  [26. _THE HUGO ENGINE AND HOW IT WORKS_][Ch26]
-        * [x]  [AsciiArt to SVG: flowchart of Hugo engine][HB2:14 eng.svg].
-    + [x]  [27. _DARK SECRETS OF THE HUGO DEBUGGER_][Ch27]
-        * [x]  [AsciiArt to SVG: flowchart of Hugo debugger][HB2:15 dbg.svg].
-    + [x]  [APP. H. _CODE PATTERNS_][AppH]
+    + [ ]  [13. _INTRODUCTION_][Ch13]
+        * [ ]  Fix all XRefs.
+        * [ ]  Fix footnotes.
+    + [ ]  [14. _ORGANIZATION OF THE .HEX FILE_][Ch14]
+        * [ ]  Fix all XRefs.
+        * [ ]  Fix footnotes.
+    + [ ]  [15. _TOKENS AND DATA TYPES_][Ch15]
+        * [ ]  Fix all XRefs.
+        * [ ]  Fix footnotes.
+    + [ ]  [16. _ENGINE PARSING_][Ch16]
+        * [ ]  Fix all XRefs.
+        * [ ]  Fix footnotes.
+    + [ ]  [17. _GRAMMAR_][Ch17]
+        * [ ]  Fix all XRefs.
+        * [ ]  Fix footnotes.
+    + [ ]  [18. _EXECUTABLE CODE_][Ch18]
+        * [ ]  Fix all XRefs.
+        * [ ]  Fix footnotes.
+    + [ ]  [19. _ENCODING TEXT_][Ch19]
+        * [ ]  Fix all XRefs.
+        * [ ]  Fix footnotes.
+    + [ ]  [20. _THE OBJECT TABLE_][Ch20]
+        * [ ]  Fix all XRefs.
+        * [ ]  Fix footnotes.
+    + [ ]  [21. _THE PROPERTY TABLE_][Ch21]
+        * [ ]  Fix all XRefs.
+        * [ ]  Fix footnotes.
+    + [ ]  [22. _THE EVENT TABLE_][Ch22]
+        * [ ]  Fix all XRefs.
+        * [ ]  Fix footnotes.
+    + [ ]  [23. _THE DICTIONARY AND SPECIAL WORDS_][Ch23]
+        * [ ]  Fix all XRefs.
+        * [ ]  Fix footnotes.
+    + [ ]  [24. _RESOURCEFILES_][Ch24]
+        * [ ]  Fix all XRefs.
+        * [ ]  Fix footnotes.
+    + [ ]  [25. _THE HUGO COMPILER AND HOW IT WORKS_][Ch25]
+        * [ ]  Fix all XRefs.
+        * [ ]  Fix footnotes.
+    + [ ]  [26. _THE HUGO ENGINE AND HOW IT WORKS_][Ch26]
+        * [ ]  Fix all XRefs.
+        * [ ]  Fix footnotes.
+    + [ ]  [27. _DARK SECRETS OF THE HUGO DEBUGGER_][Ch27]
+        * [ ]  Fix all XRefs.
+        * [ ]  Fix footnotes.
+    + [ ]  [APP. H. _CODE PATTERNS_][AppH]
         * [ ]  _needs to be proof-read once more, carefully!_
+        * [ ]  Fix all XRefs.
+        * [ ]  Fix footnotes.
 - [ ] _INDEX_ (supported only in PDF format)
 
-Once all chapters are fully ported, the whole book needs to be checked over again, from scratch, to ensure that formatting and styles are consistent.
 
 # Annotations Convention
 
