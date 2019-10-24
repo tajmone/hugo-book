@@ -298,7 +298,7 @@ Here, we'll end a sentence on one line.{nbsp}
 However, we'd like to make sure there are two spaces before the second sentence.
 ===============================
 
-// @EDITED TYPO: (undocumented & waiting approval: Issue #17)
+// @EDITED TYPO: (documented & approved: Issue #17)
 // Was "if the `/` were ", but must have been a typo, for it didn't make sense!
 
 since normally, if the `{nbsp}\` were omitted after "`...on one line.`", the compiler would assume only a single space before continuing with "`However...`" from the next line.

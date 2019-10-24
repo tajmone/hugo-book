@@ -65,9 +65,21 @@ The source files of the Hugo Library v3.1.03.2 that I've used can be found here:
 
 # List of Text Corrections
 
+<!-- Issue #17 (approved) ---------------------------------------------------->
+
+In _§2.4. Multiple Lines_, inside the tip admonition on how to preserve a double space when splitting a string over multiple line, the original text:
+
+> since normally, if the `/` were omitted after “…​on one line.”,
+
+was changed to:
+
+> since normally, if the ` \` were omitted after “…​on one line.”,
+
+----
+
 <!-- Issue #14 (approved) ---------------------------------------------------->
 
-In §5.3, toward the section end, there was a paragraph where some text ending text had gone lost:
+In _§5.3. Before And After Routines_, toward the section end, there was a paragraph where some text ending text had gone lost:
 
 > A drawback of this non-specification is that all verbroutines are matched — both verbs and xverbs.
 > This can be particularly undesirable in the case of location `before`/`after` properties, where you may wish to be circumventing any action the player tries to perform in that location, but where the non-specific response will be triggered even for `save`, `restore`, etc. (i.e.,
@@ -75,6 +87,19 @@ In §5.3, toward the section end, there was a paragraph where some text ending t
 The paragraph end was amended by Kent Tessman to:
 
 > [...] for `save`, `restore`, etc. (i.e., xverbs).
+
+----
+
+<!-- Issue #18 (approved) ---------------------------------------------------->
+
+In _§10.6. Vehicles_, the accidentally damaged sentence:
+
+> It is also necessary to provide grammar to relate the words in the `vehicle_verb` list to the object library's `DoMoveInVehicle` routine.Grammar he following is recommended:
+
+was fixed by Kent Tessman to:
+
+> It is also necessary to provide grammar to relate the words in the `vehicle_verb` list to the object library’s `DoMoveInVehicle` routine.
+> Grammar such as the following is recommended:
 
 
 <!-----------------------------------------------------------------------------
