@@ -196,7 +196,7 @@ arr      [  7        ]  )
 [source,hugo]
 if loc = glob + 11
 
-// @TODO: Missing XREf: "APPENDIX A: CODE PATTERNS"
+// @XREF ADD: "APPENDIX A: CODE PATTERNS"
 
 TIP: See _APPENDIX A: CODE PATTERNS_ for details on how if statements and other conditionals are coded.
 

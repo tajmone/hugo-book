@@ -314,7 +314,7 @@ as in
 synonym "myself" for "me"
 --------------------------------------------------------------------------------
 
-// @FIXME: The sentence "is possible to, particularly [..] and adjectives specify"
+// @TEXT:  The sentence "is possible to, particularly [..] and adjectives specify"
 //         might need a comma (-> "adjectives, specify") to reduce ambiguity and
 //         increase readability.
 

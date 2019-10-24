@@ -47,12 +47,12 @@ object placeholder
 {}
 --------------------------------------------------------------------------------
 
-// @TODO: Missing XRef: "III.e Classes"
+// @XREF ADD: "III.e Classes"
 
 creates an object called "`(placeholder)`".
 Usually the latter is used for system objects or classes (see _III.e Classes_) that will never actually appear in a game.
 
-// @TODO: Missing XRef: "XI.a The Display Object"
+// @XREF ADD: "XI.a The Display Object"
 
 [NOTE]
 ================================================================================
@@ -68,7 +68,7 @@ In order for objects to have a "`physical place`" in the game, i.e., to be in a 
 The object tree is a simple map which represents the relationships between all objects in the game.
 The total number of objects is held in the global variable `objects`.
 
-// @TODO: Missing XRef: "II.c Data Types" (in footnote!)
+// @XREF ADD: "II.c Data Types" (in footnote!)
 
 The "`nothing`" object is defined in the library as object 0 and is referred to in code using the label `nothing`.
 This is the root of the object tree, upon which all other objects are based.footnote:[It's also no coincidence that the "`nothing`" object is equal in its value to 0, which also represents the empty string `+""+` (see _II.c Data Types_).
@@ -243,7 +243,7 @@ and
 ////
 
 
-// @TODO: Missing XRef: "APPENDIX D: HUGOFIX AND THE HUGO DEBUGGER" (in footnote!)
+// @XREF ADD: "APPENDIX D: HUGOFIX AND THE HUGO DEBUGGER" (in footnote!)
 
 [TIP]
 ================================================================================
@@ -394,7 +394,7 @@ else
 }
 --------------------------------------------------------------------------------
 
-// @TODO: Missing XRef: "IV.h Conditional Expressions and Program Flow"
+// @XREF ADD: "IV.h Conditional Expressions and Program Flow"
 
 [NOTE]
 ================================================================================
@@ -571,7 +571,7 @@ They are sets of valid data associated with an object, where the values may repr
 These are some valid properties as they would appear in an object definition (using property names defined in *hugolib.h*):{wj}footnote:[Don't worry too much about the specifics about what this code is supposed to be doing, or about the details of the language syntax.
 We'll cover all of that in due course.]
 
-// @FIXME: EXTERNALIZE FOOTNOTE
+// @FOOTNOTE: EXTERNALIZE!
 
 [source,hugo, subs="+macros"]
 --------------------------------------------------------------------------------
@@ -615,7 +615,7 @@ beforefootnote:[pass:q[Just for clarity: the `Art` routine from *hugolib.h* prin
 
 The `nouns` property contains four dictionary addresses; the `size` property is a single integer value; the `found_in` property holds two object numbers; and the long and short description properties are both _property routines_, which instead of just containing one or more simple values stored as a data type are actually sections of executable code attached to the object.
 
-// @TODO: Missing XRef: "V.c Before And After Routines"
+// @XREF ADD: "V.c Before And After Routines"
 
 The `before` property is a special case.
 This _complex property routine_ is defined by the compiler and handled differently by the engine than a normal property routine.
@@ -708,7 +708,7 @@ The found_in property allows you have an object considered in a location (i.e., 
 |===============================================================================
 
 
-// @TODO: Missing XRef: "APPENDIX B: THE HUGO LIBRARY"
+// @XREF ADD: "APPENDIX B: THE HUGO LIBRARY"
 
 [TIP]
 ================================================================================

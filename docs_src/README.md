@@ -15,6 +15,7 @@ This folder contains the AsciiDoc source files of the _The Hugo Book_.
     - [Build Toolchain](#build-toolchain)
 - [Toolchain Dependencies](#toolchain-dependencies)
 - [Book Preview and Status](#book-preview-and-status)
+- [Annotations Convention](#annotations-convention)
 - [System Requirements](#system-requirements)
 
 <!-- /MarkdownTOC -->
@@ -162,6 +163,29 @@ Every chapter in the list provides an [HTML Live Preview] link to quickly jump t
 - [ ] _INDEX_ (supported only in PDF format)
 
 Once all chapters are fully ported, the whole book needs to be checked over again, from scratch, to ensure that formatting and styles are consistent.
+
+# Annotations Convention
+
+In the AsciiDoc sources of the book I've added comments to annotate contents changes, pending tasks, and other points of interest.
+To simplify looking up these notes via editors S&R functionality, I've adopted a formal annotation convention:
+
+|   comment start   |                     indicates                      |
+|-------------------|----------------------------------------------------|
+| `// @DELME`       | Commented-out contents to delete on final release. |
+| `// @EDITED`      | Changes to the original contents.                  |
+| `// @FIXME`       | An issue that needs to be addressed.               |
+| `// @FOOTNOTE`    | An issue regarding footnotes.                      |
+| `// @HUGO SYNTAX` | Syntax highlighting problems.                      |
+| `// @NOTE`        | Generic note of interest.                          |
+| `// @TEXT`        | Problem or error in original text.                 |
+| `// @TODO`        | A pending task.                                    |
+| `// @XREF`        | An issue regarding cross references.               |
+
+<!--
+| `// @xxx`     | xxx.                                                |
+-->
+
+Most of these notes pertain work in progress and will be deleted on final release, while other might be left in the sources for the benefit of other contributors.
 
 # System Requirements
 

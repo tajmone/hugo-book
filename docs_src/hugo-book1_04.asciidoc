@@ -106,7 +106,7 @@ The `self` global is undefined except when an object is being referenced (as in 
 In that case, it is set to the number of that object.
 The `player` variable holds the number of the object that the player is controlling; the `endflag` variable must be 0 unless something has occurred to end the game; and the `prompt` variable represents the dictionary word appearing at the start of an input line (which most programs set to `>` by convention).
 
-// @TODO: Missing XRef: "Resources"
+// @XREF ADD: "Resources"
 
 The `objects` variable can be set by the program, but to no useful effect.
 The engine will reset it to the "`real`" value whenever referenced.
@@ -1006,7 +1006,7 @@ b = test_array[3] + test_array[5]
 
 which would set the variable `b` to 4 + 2, or 6.
 
-// @TODO: Missing XRef: "V.a Routines" (in footnote!)
+// @XREF ADD: "V.a Routines" (in footnote!)
 
 Because array space is statically allocated by the compiler, all arrays must be declared at the global level.
 Local arrays are illegal, as are entire arrays passed as argumentsfootnote:["`Arguments`" are simply parameters passed to a routine at calling time.
@@ -1102,7 +1102,7 @@ For example,
 x = string(a, "microscopic", 10)
 --------------------------------
 
-// @TODO: Missing XRef: "VII.b The Parser" (in footnote!)
+// @XREF ADD: "VII.b The Parser" (in footnote!)
 
 will store up to 10 characters of "`microscopic`" in the array `a`, and return the length of the stored string to the variable `x`.{wj}footnote:[(The built-in engine variables `parse$` and `serial$` may be used in place of the dictionary entry address; see _VII.b The Parser_ for a description.)]
 
@@ -1606,7 +1606,7 @@ routine StringTests
 
 The output will be:
 
-// @FIXME: discrepancy between source and output:
+// @TEXT: discrepancy between source and output:
 //        "(Dictionary address:  " -> "(Dictionary address =" (":  " vs "= ")
 //        "(Array address:  "      -> "(Array address =" (":  " vs "= ")
 

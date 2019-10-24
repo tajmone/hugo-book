@@ -196,7 +196,7 @@ This occurs whenever the engine needs to determine if an object is available _at
 Also, `FindObject` may be called by the engine with both `<object>` and `<location>` equal to 0 to reset any library-based object disambiguation.
 ================================================================================
 
-// @TODO: Missing XRef: "APPENDIX D: HUGOFIX AND THE HUGO DEBUGGER" (in footnote!)
+// @XREF ADD: "APPENDIX D: HUGOFIX AND THE HUGO DEBUGGER" (in footnote!)
 
 The HugoFix debugging library can be used at runtime to monitor calls to `FindObject` by enabling the `$fi` command. footnote:[For more information on debugging using HugoFix, see _APPENDIX D: HUGOFIX AND THE HUGO DEBUGGER_.]
 
@@ -349,7 +349,7 @@ Perform(&DoGet, banana, 0, 2)
 If no `Perform` routine exists, the engine performs a default calling of `player.before`, `location.before`, `xobject.before`, `object.before`, and finally `verbroutine` if none of those returns true.
 ================================================================================
 
-// @TODO: Missing XRef: "APPENDIX D: HUGOFIX AND THE HUGO DEBUGGER" (in footnote!)
+// @XREF ADD: "APPENDIX D: HUGOFIX AND THE HUGO DEBUGGER" (in footnote!)
 
 [TIP]
 ================================================================================

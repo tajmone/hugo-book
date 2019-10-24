@@ -197,7 +197,7 @@ where `<background>` is optional.
 
 s| Parameters: a|
 
-// @TODO: Missing XRef: page 64
+// @XREF ADD: page 64
 Standard color values for `<foreground>` and `<background>` with constants defined in *hugolib.h* (see page 64) are:
 
 [cols=">m,<s,<m",options=autowidth,grid=none,stripes=even]
@@ -791,7 +791,7 @@ s| Syntax: a|
 [source,hugo]
 print <output>
 
-// @FIXME TYPO: "both TEST strings" --> "both TEXT strings"?
+// @TEXT TYPO: "both TEST strings" --> "both TEXT strings"?
 where `<output>` can consist of both test strings enclosed in quotation marks (`"..."`), and values representing dictionary addresses, such as object names.
 Separate components of `<output>` are separated by a semicolon (`;`).
 Each component may also be preceded by a modifier such as `capital`, `hex`, or `number`.

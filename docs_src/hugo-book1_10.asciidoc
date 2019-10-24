@@ -309,8 +309,9 @@ door kitchen_door "kitchen door"
 }
 --------------------------------
 
-// @FIXME: Seems a mistake:  "making the ROOM available in both locations"
-//         ... change to ->  "making the DOOR available in both locations"???
+// @TEXT: ROOM vs DOOR (Issue #19)
+//   Seems a mistake:  "making the ROOM available in both locations"
+//  ... change to ->  "making the DOOR available in both locations"???
 
 The `between` property takes care of making the room available in both locations as well as determining where the player travels to when leaving either location.
 In order to incorporate the door into the `kitchen` and `living_room` locations, it's only necessary to change the two room objects to specify:
@@ -378,7 +379,7 @@ vehicle mustang "wild mustang"
 }
 --------------------------------
 
-// @FIXME: Something isn't right here:
+// @TEXT: Something isn't right here:
 //  "The `preposition` property DEFAULTS in the `vehicle` class itself DEFAULTS to..."
 // maybe -> fix to:
 //  "The `preposition` property in the `vehicle` class itself DEFAULTS to..."

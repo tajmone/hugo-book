@@ -52,7 +52,7 @@ This extension is provided so that grammar may be dynamically coded and changed 
 
 Following the verb header giving the number of verb words and the dictionary address of each is one or more grammar lines, each beginning with a `*` signifying the matched verb word.
 
-// @TODO: Missing XRef: Hugo Manual
+// @XREF ADD: Hugo Manual
 
 [NOTE]
 ================================================================================

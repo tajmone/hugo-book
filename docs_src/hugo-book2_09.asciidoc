@@ -25,7 +25,7 @@ At the end of each object in the property table comes the property number 255 ($
 Each object has a place in the object table, even if it has no properties per se.
 A propertyless object simply has the value 255 at its position in the property table.
 
-// @TODO: Missing XREf: "XIII.b The Linker"
+// @XREF ADD: "XIII.b The Linker"
 
 [NOTE]
 ================================================================================
@@ -53,7 +53,7 @@ after
 }
 --------------------------------------------------------------------------------
 
-// @TODO: Missing XREf: "Hugo Manual"
+// @XREF ADD: "Hugo Manual"
 
 [NOTE]
 ================================================================================

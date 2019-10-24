@@ -4,7 +4,7 @@
 == Why You're Here (or, Just What Is Hugo?)
 
 
-// @TODO: Missing XRef: "APPENDIX G: ADDITIONAL RESOURCES"
+// @XREF ADD: "APPENDIX G: ADDITIONAL RESOURCES"
 
 Chances are if you're reading this book you're already at least a little familiar with adventure games, and maybe even more specifically interactive fiction or text adventures. footnote:[If not, or if you'd like some additional interesting reading, there are a number of excellent resources to investigate further, some of which are listed in _APPENDIX G: ADDITIONAL RESOURCES_.]
 Hugo is a system for designing, programming, and running these.
@@ -131,7 +131,7 @@ hugofix.g   :: Debugging grammar
 verbstub.h  :: Additional verb routines
 verbstub.g  :: Additional verb grammar
 
-// @FIXME: "you'RE probably want" -> "you'LL probably want"
+// @TEXT: "you'RE probably want" -> "you'LL probably want"
 
 [.big]#*Sources.*#
 It's probably a good idea as you delve into Hugo programming to have some existing source code to look at.
@@ -142,7 +142,7 @@ Additionally, you're probably want to download *shell.hug*, which provides the v
 sample.hug  :: Sample game source code
 shell.hug   :: Empty source code to build on
 
-// @TODO: Missing XRef: "APPENDIX E: PRECOMPILED HEADERS"
+// @XREF ADD: "APPENDIX E: PRECOMPILED HEADERS"
 An additional Hugo source file demonstrates the ability to create precompiled headers (and not something you probably need to worry about just now; it's covered in _APPENDIX E: PRECOMPILED HEADERS_):
 
 [horizontal]
@@ -240,7 +240,7 @@ hc <sourcefile>
 With no other parameters explicitly described, the compiler assumes an extension of *.hug*.
 The default object filename is *<sourcefile>.hex*.
 
-// @TODO: Missing XRef: "I.e. Packing List"
+// @XREF ADD: "I.e. Packing List"
 
 Here's how to compile the sample game from the *sample.hug* source code mentioned earlier in _I.e. Packing List_.
 Make sure the compiler executable, library files, and sample game source code are all in the current directory, then type
@@ -261,7 +261,7 @@ and after a few seconds (or more, or less, depending on your processor and confi
 The new file *sample.hex* will have appeared in current directory.
 As well, the `-l` switch wrote all compile-time output (which would have included errors, had there been any) to the file *sample.lst*.
 
-// @TODO: Missing XRefs:
+// @XREF ADD: Multiple missing XRefs:
 //    -- "I.i. Compiler Switches"
 //    -- "I.j. Limit Settings"
 //    -- "I.k. Directories"
@@ -306,7 +306,7 @@ Using `-a` will stop compilation after the first error.
 * The standard format in which the Hugo Compiler reports errors is relatively concise, but can sometimes be used by more advanced editors to automatically locate the error-causing line.
 To have the compiler print errors in greater detail than this standard format, use the `-e` switch.
 * Using the `-f` switch will tell the compiler to output a list of detailed information about each object, which can sometimes be useful for debugging.
-// @TODO: Missing XRef: "APPENDIX E: PRECOMPILED HEADERS"
+// @XREF ADD: "APPENDIX E: PRECOMPILED HEADERS"
 * The `-h` switch is used to generate a precompiled header, described in _APPENDIX E: PRECOMPILED HEADERS_.
 * The `-i` switch tells the compiler to finish compilation by printing a list of all symbols used, as well as their numerical equivalents and any address information.
 Again, this can sometimes be useful in debugging.
@@ -329,7 +329,7 @@ Use the `-w` switch to generate *<objectfile>* regardless of any errors encounte
 This is useful in a situation where you want to try out a section of code that has nothing to do with another section that may currently have errors, but is otherwise rarely used (for obvious reasons -- it's always best to get rid of those pesky errors).
 * The version 3.0 (or later) compiler may be invoked with the `-25` switch in order to generate a v2.5 gamefile.
 Note, however that it's generally unnecessary to do so, since v2.5 and v3.x are compatible; i.e., the v3.0 (or later) engine will run v2.5 gamefiles, and most recent v2.5 builds of the engine will run v3.0 gamefiles.
-// @TODO: Missing XRef: "APPENDIX F: HUGO VERSIONS"
+// @XREF ADD: "APPENDIX F: HUGO VERSIONS"
 See _APPENDIX F: HUGO VERSIONS_ for more information.
 
 
@@ -377,7 +377,7 @@ To change a non-static limit (and compile a source file), type:
 hc $<setting>=<new limit> <sourcefile>...
 ................................................................................
 
-// @TODO: Check "or `'list'`" --> "or `'$list'`" ???
+// @TEXT: Check "or `'list'`" --> "or `'$list'`" ???
 
 [IMPORTANT]
 ================================================================================
@@ -394,7 +394,7 @@ hc -ls $MAXDICT=2048 sample
 
 If a compile-time error is generated indicating that too many symbols of a particular type have been declared, it is probably possible to overcome this simply by recompiling with a higher limit for that setting specified in the invocation line.
 
-// @TODO: Missing XRef: "APPENDIX C: LIMIT SETTINGS"
+// @XREF ADD: "APPENDIX C: LIMIT SETTINGS"
 See _APPENDIX C: LIMIT SETTINGS_ for a complete listing of valid limit settings.
 
 
@@ -468,8 +468,6 @@ The location for save files may be specified with `HUGO_SAVE`.
 All of these are optional.
 ================================================================================
 
-
-// @PROOFREAD UP TO HERE! //////////////////////////////////////////////////////
 
 == __What Should I Be Able To Do Now?__
 

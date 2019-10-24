@@ -7,7 +7,7 @@ The first two places to start inspecting how the Hugo compiler writes a *.HEX* f
 
 // @NOTE: 123 tokens | 5 tokens x col = 2 empty cells
 
-// @FOOTNOTE: Two footnotes inside CSV file!
+// @FOOTNOTE: There are two footnotes inside CSV file!
 
 [cols=">2m,<8m,>2m,<8m,>2m,<8m,>2m,<8m,>2m,<8m",format=csv,stripes=even]
 |===============================================================================
