@@ -535,7 +535,7 @@ div.literalblock.cmd pre .conum {
 <span id="email" class="email"><a href="mailto:general@generalcoffee.com">general@generalcoffee.com</a></span><br>
 <span id="revnumber">version 1,</span>
 <span id="revdate">2018-10-04</span>
-<br><span id="revremark">Draft 66 -- Porting to AsciiDoc</span>
+<br><span id="revremark">Draft 67 -- Porting to AsciiDoc</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -14514,8 +14514,16 @@ Once a valid answer is received, it returns true (if yes) or false (if no).</p>
 </div>
 <div class="sect2">
 <h3 id="_auxiliary_math_routines"><a class="anchor" href="#_auxiliary_math_routines"></a>B.8. AUXILIARY MATH ROUTINES:</h3>
-<div class="paragraph">
-<p>abs calling form:</p>
+<table class="tableblock frame-all grid-all stripes-none stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 80%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><span class="big">abs</span></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>calling form:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -14524,9 +14532,12 @@ Once a valid answer is received, it returns true (if yes) or false (if no).</p>
 </div>
 <div class="paragraph">
 <p>Returns an absolute value given a supplied value.</p>
-</div>
-<div class="paragraph">
-<p>higher calling form:</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><span class="big">higher</span></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>calling form:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -14535,9 +14546,12 @@ Once a valid answer is received, it returns true (if yes) or false (if no).</p>
 </div>
 <div class="paragraph">
 <p>Returns the higher number of two supplied values.</p>
-</div>
-<div class="paragraph">
-<p>lower calling form:</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><span class="big">lower</span></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>calling form:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -14546,9 +14560,12 @@ Once a valid answer is received, it returns true (if yes) or false (if no).</p>
 </div>
 <div class="paragraph">
 <p>Returns the lower number of two supplied values.</p>
-</div>
-<div class="paragraph">
-<p>mod calling form:</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><span class="big">mod</span></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>calling form:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -14557,9 +14574,12 @@ Once a valid answer is received, it returns true (if yes) or false (if no).</p>
 </div>
 <div class="paragraph">
 <p>Returns the remainder of one number divided by a second number.</p>
-</div>
-<div class="paragraph">
-<p>pow calling form:</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><span class="big">pow</span></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>calling form:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -14567,14 +14587,36 @@ Once a valid answer is received, it returns true (if yes) or false (if no).</p>
 </div>
 </div>
 <div class="paragraph">
-<p>Returns one number to the power of another number.
-(The return value is undefined if the result is outside the boundary of -32768 to 32767.)</p>
+<p>Returns one number to the power of another number.</p>
 </div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+The return value is undefined if the result is outside the boundary of -32768 to 32767.
+</td>
+</tr>
+</table>
+</div></div></td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="sect2">
 <h3 id="_string_array_routines"><a class="anchor" href="#_string_array_routines"></a>B.9. STRING ARRAY ROUTINES:</h3>
-<div class="paragraph">
-<p>StringCompare calling form:</p>
+<table class="tableblock frame-all grid-all stripes-none stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 80%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><span class="big">StringCompare</span></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>calling form:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -14582,10 +14624,13 @@ Once a valid answer is received, it returns true (if yes) or false (if no).</p>
 </div>
 </div>
 <div class="paragraph">
-<p>Returns 1 if array1 is lexically greater than array2, -1 if array1 is lexically less than array2, and 0 if the strings are identical.</p>
-</div>
-<div class="paragraph">
-<p>StringCopy calling form:</p>
+<p>Returns 1 if <code>array1</code> is lexically greater than <code>array2</code>, -1 if <code>array1</code> is lexically less than <code>array2</code>, and 0 if the strings are identical.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><span class="big">StringCopy</span></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>calling form:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -14593,21 +14638,27 @@ Once a valid answer is received, it returns true (if yes) or false (if no).</p>
 </div>
 </div>
 <div class="paragraph">
-<p>Copies the contents of the array at the address given by old to the array at new, to a maximum of len characters if len is given, or the length of old if it isn&#8217;t.</p>
-</div>
-<div class="paragraph">
-<p>StringDictCompare calling form:</p>
+<p>Copies the contents of the array at the address given by <code>old</code> to the array at <code>new</code>, to a maximum of <code>len</code> characters if <code>len</code> is given, or the length of <code>old</code> if it isn&#8217;t.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><span class="big">StringDictCompare</span></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>calling form:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">StringDictCompare(<span class="hl kwa">array</span>, dictentry)</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">StringDictCompare(array, dictentry)</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Performs a StringCompare-like comparison of a string array given by array and the dictionary entry dictentry, returning 1, -1, or 0 if array is lexically greater than, less than, or equal to dictentry, respectively.</p>
-</div>
-<div class="paragraph">
-<p>StringEqual calling form:</p>
+<p>Performs a <code>StringCompare</code>-like comparison of a string array given by <code>array</code> and the dictionary entry <code>dictentry</code>, returning 1, -1, or 0 if <code>array</code> is lexically greater than, less than, or equal to <code>dictentry</code>, respectively.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><span class="big">StringEqual</span></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>calling form:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -14615,61 +14666,92 @@ Once a valid answer is received, it returns true (if yes) or false (if no).</p>
 </div>
 </div>
 <div class="paragraph">
-<p>Returns true only if array1 and array2 are identical.</p>
-</div>
-<div class="paragraph">
-<p>StringLength calling form:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">StringLength(<span class="hl kwa">array</span>)</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Returns the length of the string stored as array.</p>
-</div>
-<div class="paragraph">
-<p>StringPrint calling form:</p>
+<p>Returns true only if <code>array1</code> and <code>array2</code> are identical.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><span class="big">StringLength</span></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>calling form:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">StringPrint(<span class="hl kwa">array</span>[, <span class="hl kwa">start</span>, end])</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">StringLength(array)</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Prints the string stored as array, beginning with start and ending with end if given.</p>
+<p>Returns the length of the string stored as <code>array</code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><span class="big">StringPrint</span></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>calling form:</p>
 </div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">StringPrint(array[, start, end])</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Prints the string stored as <code>array</code>, beginning with <code>start</code> and ending with <code>end</code> if given.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="sect2">
 <h3 id="_fusedaemon_routines"><a class="anchor" href="#_fusedaemon_routines"></a>B.10. FUSE/DAEMON ROUTINES:</h3>
-<div class="paragraph">
-<p>Activate calling form:</p>
+<table class="tableblock frame-all grid-all stripes-none stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 80%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><span class="big">Activate</span></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>calling form:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">Activate(<span class="hl kwa">object</span>[, setting])</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">Activate(object[, setting])</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Activates the specified fuse or daemon object.
+<p>Activates the specified <code>fuse</code> or <code>daemon</code> object.
 The setting value is only specified for fuses, where it represents the initial value of the timer property.</p>
-</div>
-<div class="paragraph">
-<p>Deactivate calling form:</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><span class="big">Deactivate</span></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>calling form:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">Deactivate(<span class="hl kwa">object</span>)</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">Deactivate(object)</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Deactivates the specified fuse or daemon object.</p>
-</div>
+<p>Deactivates the specified <code>fuse</code> or <code>daemon</code> object.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="sect2">
 <h3 id="_character_script_routines"><a class="anchor" href="#_character_script_routines"></a>B.11. CHARACTER SCRIPT ROUTINES:</h3>
-<div class="paragraph">
-<p>CancelScript calling form:</p>
+<table class="tableblock frame-all grid-all stripes-none stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 80%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><span class="big">CancelScript</span></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>calling form:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -14677,11 +14759,14 @@ The setting value is only specified for fuses, where it represents the initial v
 </div>
 </div>
 <div class="paragraph">
-<p>Immediately cancels the character script associated with the object character.
-Returns true if successful, i.e., if a script for character is found.</p>
-</div>
-<div class="paragraph">
-<p>PauseScript calling form:</p>
+<p>Immediately cancels the character script associated with the object <code>character</code>.
+Returns true if successful, i.e., if a script for <code>character</code> is found.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><span class="big">PauseScript</span></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>calling form:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -14689,11 +14774,14 @@ Returns true if successful, i.e., if a script for character is found.</p>
 </div>
 </div>
 <div class="paragraph">
-<p>Temporarily pauses the character script associated with the given character.
+<p>Temporarily pauses the character script associated with the given <code>character</code>.
 Returns true if successful.</p>
-</div>
-<div class="paragraph">
-<p>ResumeScript calling form:</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><span class="big">ResumeScript</span></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>calling form:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -14701,11 +14789,14 @@ Returns true if successful.</p>
 </div>
 </div>
 <div class="paragraph">
-<p>Resumes execution of a paused script for the given character.
+<p>Resumes execution of a paused script for the given <code>character</code>.
 Returns true if successful.</p>
-</div>
-<div class="paragraph">
-<p>SkipScript calling form:</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><span class="big">SkipScript</span></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>calling form:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -14713,10 +14804,13 @@ Returns true if successful.</p>
 </div>
 </div>
 <div class="paragraph">
-<p>Skips execution of the script for a given character during the next call to RunScripts only.</p>
-</div>
-<div class="paragraph">
-<p>Script calling form:</p>
+<p>Skips execution of the script for a given <code>character</code> during the next call to <code>RunScripts</code> only.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><span class="big">Script</span></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>calling form:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -14724,11 +14818,14 @@ Returns true if successful.</p>
 </div>
 </div>
 <div class="paragraph">
-<p>Initializes space for the requested number of steps in the setscript array, sets up the data for the script in the scriptdata array, and returns the location of the script in setscript.
-Returns -1 if MAX_SCRIPTS is exceeded.</p>
-</div>
-<div class="paragraph">
-<p>RunScripts calling form:</p>
+<p>Initializes space for the requested number of <code>steps</code> in the <code>setscript</code> array, sets up the data for the script in the <code>scriptdata</code> array, and returns the location of the script in <code>setscript</code>.
+Returns -1 if <code>MAX_SCRIPTS</code> is exceeded.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><span class="big">RunScripts</span></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>calling form:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -14738,9 +14835,17 @@ Returns -1 if MAX_SCRIPTS is exceeded.</p>
 <div class="paragraph">
 <p>Runs all active scripts, calling them in the form:</p>
 </div>
-<div class="paragraph">
-<p>CharRoutine(character, object)</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">CharRoutine(character, object)</code></pre>
 </div>
+</div>
+<div class="paragraph">
+<p></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="sect2">
 <h3 id="_character_action_routines"><a class="anchor" href="#_character_action_routines"></a>B.12. CHARACTER ACTION ROUTINES:</h3>
@@ -14748,23 +14853,31 @@ Returns -1 if MAX_SCRIPTS is exceeded.</p>
 <p>As a starting point, the library also provides a limited number of routines for character scripts to use.
 They are:</p>
 </div>
-<div class="paragraph">
-<p>&amp;CharWait, 0</p>
-</div>
-<div class="paragraph">
-<p>&amp;CharMove, direction_object (requires <strong>objlib.h</strong>)</p>
-</div>
-<div class="paragraph">
-<p>&amp;CharGet, object</p>
-</div>
-<div class="paragraph">
-<p>&amp;CharDrop, object</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>&amp;CharWait, 0</code></p>
+</li>
+<li>
+<p><code>&amp;CharMove, direction_object</code> (requires <strong>objlib.h</strong>)</p>
+</li>
+<li>
+<p><code>&amp;CharGet, object</code></p>
+</li>
+<li>
+<p><code>&amp;CharDrop, object</code></p>
+</li>
+</ul>
 </div>
 <div class="paragraph">
 <p>and</p>
 </div>
-<div class="paragraph">
-<p>&amp;LoopScript, 0</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>&amp;LoopScript, 0</code></p>
+</li>
+</ul>
 </div>
 </div>
 <div class="sect2">
@@ -14772,36 +14885,56 @@ They are:</p>
 <div class="paragraph">
 <p>A number of compiler flags may be set to exclude certain portions of <strong>hugolib.h</strong> from compilation if these functions or objects are not required.</p>
 </div>
-<div class="paragraph">
-<p><strong>FLAG EXCLUDES</strong></p>
-</div>
-<div class="paragraph">
-<p>NO_AUX_MATH Auxiliary math routines</p>
-</div>
-<div class="paragraph">
-<p>NO_FUSES Fuses and daemons</p>
-</div>
-<div class="paragraph">
-<p>NO_MENUS Use of the Menu function</p>
-</div>
-<div class="paragraph">
-<p>NO_OBJLIB The contents of <strong>objlib.h</strong></p>
-</div>
-<div class="paragraph">
-<p>NO_RECORDING Command recording functions</p>
-</div>
-<div class="paragraph">
-<p>NO_SCRIPTS Character scripting routines</p>
-</div>
-<div class="paragraph">
-<p>NO_STRING_ARRAYS String array functions</p>
-</div>
-<div class="paragraph">
-<p>NO_VERBS All action verbs</p>
-</div>
-<div class="paragraph">
-<p>NO_XVERBS All non-action verbs</p>
-</div>
+<table class="tableblock frame-all grid-none stripes-even fit-content center">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">FLAG</th>
+<th class="tableblock halign-left valign-top">EXCLUDES</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>NO_AUX_MATH</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Auxiliary math routines</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>NO_FUSES</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Fuses and daemons</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>NO_MENUS</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Use of the <code>Menu</code> function</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>NO_OBJLIB</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The contents of <strong>objlib.h</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>NO_RECORDING</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Command recording functions</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>NO_SCRIPTS</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Character scripting routines</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>NO_STRING_ARRAYS</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String array functions</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>NO_VERBS</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">All action verbs</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>NO_XVERBS</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">All non-action verbs</p></td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 </div>

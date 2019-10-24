@@ -131,7 +131,8 @@ Every chapter in the list provides an [HTML Live Preview] link to quickly jump t
     + [x]  [12. _RESOURCES_][Ch12]
     + [x]  [APP. A. _SUMMARY OF KEYWORDS AND COMMANDS_][AppA]
         * [ ]  _needs to be proof-read once more, carefully!_
-    + [ ]  [APP. B. _THE HUGO LIBRARY_][AppB]
+    + [x]  [APP. B. _THE HUGO LIBRARY_][AppB]
+        * [ ]  _needs to be proof-read once more, carefully!_
     + [x]  [APP. C. _LIMIT SETTINGS_][AppC]
         * [ ]  _needs to be proof-read once more, carefully!_
     + [x]  [APP. D. _HUGOFIX AND THE HUGO DEBUGGER_][AppD]

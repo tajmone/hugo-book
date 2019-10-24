@@ -1,13 +1,10 @@
 [appendix]
 = THE HUGO LIBRARY
 
+
+
 == ATTRIBUTES
 
-// [cols="1m,3d,20a",frame=none,grid=none,stripes=none]
-
-// [.center]
-// [cols="<m,<d",options=autowidth,grid=none,stripes=even]
-// [cols="<m,<d",options=autowidth,grid=rows,stripes=none]
 [cols="<2m,<8a",options=grid=rows,stripes=none]
 |===============================================================================
 
@@ -534,7 +531,7 @@ Return 2 to force the existing line to be reparsed as is.
 
 May also call: `CustomError`
 
-//-----{ Perform }----------------------------------------------------------------
+//-----{ Perform }--------------------------------------------------------------
 | [.big]#Perform#
 | called by the engine via:
 
@@ -544,7 +541,7 @@ Perform(verbroutine, object, xobject, queue, isxverb)
 Runs the requested verbroutine, setting up the `object` and `xobject` globals if necessary.
 The `queue` argument is true if more than one call to `Perform` is being made for multiple objects, and the `isxverb` argument is true for verbroutine calls associated with xverb grammar.
 
-//-----{ SpeakTo }----------------------------------------------------------------
+//-----{ SpeakTo }--------------------------------------------------------------
 | [.big]#SpeakTo#
 | called by the engine via:
 
@@ -626,7 +623,7 @@ MatchPlural(object, w1, w2)
 
 Prints the dictionary entry given by `w1` if the supplied object is not plural, or `w2` if it is.
 
-//-----{ MatchSubject }----------------------------------------------------------------
+//-----{ MatchSubject }---------------------------------------------------------
 
 | [.big]#MatchSubject#
 | calling form:
@@ -1163,197 +1160,274 @@ Once a valid answer is received, it returns true (if yes) or false (if no).
 |===============================================================================
 
 
-// @PROOFREAD UP TO HERE! //////////////////////////////////////////////////////
-
 == AUXILIARY MATH ROUTINES:
 
-abs calling form:
+
+[cols="<2m,<8a",options=grid=rows,stripes=none]
+|===============================================================================
+
+//-----{ abs }------------------------------------------------------------------
+
+| [.big]#abs#
+| calling form:
 
 [source,hugo]
 abs(a)
 
 Returns an absolute value given a supplied value.
 
-higher calling form:
+//-----{ higher }---------------------------------------------------------------
+
+| [.big]#higher#
+| calling form:
 
 [source,hugo]
 higher(a, b)
 
 Returns the higher number of two supplied values.
 
-lower calling form:
+//-----{ lower }----------------------------------------------------------------
+
+| [.big]#lower#
+| calling form:
 
 [source,hugo]
 lower(a, b)
 
 Returns the lower number of two supplied values.
 
-mod calling form:
+//-----{ mod }------------------------------------------------------------------
+
+| [.big]#mod#
+| calling form:
 
 [source,hugo]
 mod(a, b)
 
 Returns the remainder of one number divided by a second number.
 
-pow calling form:
+//-----{ pow }------------------------------------------------------------------
+
+| [.big]#pow#
+| calling form:
 
 [source,hugo]
 pow(a, b)
 
 Returns one number to the power of another number.
-(The return value is undefined if the result is outside the boundary of -32768 to 32767.)
+
+WARNING: The return value is undefined if the result is outside the boundary of -32768 to 32767.
+|===============================================================================
+
+
 
 == STRING ARRAY ROUTINES:
 
-StringCompare calling form:
+[cols="<2m,<8a",options=grid=rows,stripes=none]
+|===============================================================================
+
+//-----{ StringCompare }--------------------------------------------------------
+
+| [.big]#StringCompare#
+| calling form:
 
 [source,hugo]
 StringCompare(array1, array2)
 
-Returns 1 if array1 is lexically greater than array2, -1 if array1 is lexically less than array2, and 0 if the strings are identical.
+Returns 1 if `array1` is lexically greater than `array2`, -1 if `array1` is lexically less than `array2`, and 0 if the strings are identical.
 
-StringCopy calling form:
+//-----{ StringCopy }-----------------------------------------------------------
+
+| [.big]#StringCopy#
+| calling form:
 
 [source,hugo]
 StringCopy(new, old[, len])
 
-Copies the contents of the array at the address given by old to the array at new, to a maximum of len characters if len is given, or the length of old if it isn't.
+Copies the contents of the array at the address given by `old` to the array at `new`, to a maximum of `len` characters if `len` is given, or the length of `old` if it isn't.
 
-StringDictCompare calling form:
+//-----{ StringDictCompare }----------------------------------------------------
+
+| [.big]#StringDictCompare#
+| calling form:
 
 [source,hugo]
 StringDictCompare(array, dictentry)
 
-Performs a StringCompare-like comparison of a string array given by array and the dictionary entry dictentry, returning 1, -1, or 0 if array is lexically greater than, less than, or equal to dictentry, respectively.
+Performs a `StringCompare`-like comparison of a string array given by `array` and the dictionary entry `dictentry`, returning 1, -1, or 0 if `array` is lexically greater than, less than, or equal to `dictentry`, respectively.
 
-StringEqual calling form:
+//-----{ StringEqual }----------------------------------------------------------
+
+| [.big]#StringEqual#
+| calling form:
 
 [source,hugo]
 StringEqual(array1, array2)
 
-Returns true only if array1 and array2 are identical.
+Returns true only if `array1` and `array2` are identical.
 
-StringLength calling form:
+//-----{ StringLength }---------------------------------------------------------
+
+| [.big]#StringLength#
+| calling form:
 
 [source,hugo]
 StringLength(array)
 
-Returns the length of the string stored as array.
+Returns the length of the string stored as `array`.
 
-StringPrint calling form:
+//-----{ StringPrint }----------------------------------------------------------
+
+| [.big]#StringPrint#
+| calling form:
 
 [source,hugo]
 StringPrint(array[, start, end])
 
-Prints the string stored as array, beginning with start and ending with end if given.
+Prints the string stored as `array`, beginning with `start` and ending with `end` if given.
+|===============================================================================
+
+
 
 == FUSE/DAEMON ROUTINES:
 
-Activate calling form:
+[cols="<2m,<8a",options=grid=rows,stripes=none]
+|===============================================================================
+
+//-----{ Activate }-------------------------------------------------------------
+
+| [.big]#Activate#
+| calling form:
 
 [source,hugo]
 Activate(object[, setting])
 
-Activates the specified fuse or daemon object.
+Activates the specified `fuse` or `daemon` object.
 The setting value is only specified for fuses, where it represents the initial value of the timer property.
 
-Deactivate calling form:
+//-----{ Deactivate }-----------------------------------------------------------
+
+| [.big]#Deactivate#
+| calling form:
 
 [source,hugo]
 Deactivate(object)
 
-Deactivates the specified fuse or daemon object.
+Deactivates the specified `fuse` or `daemon` object.
+|===============================================================================
+
+
 
 == CHARACTER SCRIPT ROUTINES:
 
-CancelScript calling form:
+[cols="<2m,<8a",options=grid=rows,stripes=none]
+|===============================================================================
+
+//-----{ CancelScript }---------------------------------------------------------
+
+| [.big]#CancelScript#
+| calling form:
 
 [source,hugo]
 CancelScript(character)
 
-Immediately cancels the character script associated with the object character.
-Returns true if successful, i.e., if a script for character is found.
+Immediately cancels the character script associated with the object `character`.
+Returns true if successful, i.e., if a script for `character` is found.
 
-PauseScript calling form:
+//-----{ PauseScript }----------------------------------------------------------
+
+| [.big]#PauseScript#
+| calling form:
 
 [source,hugo]
 PauseScript(character)
 
-Temporarily pauses the character script associated with the given character.
+Temporarily pauses the character script associated with the given `character`.
 Returns true if successful.
 
-ResumeScript calling form:
+//-----{ ResumeScript }---------------------------------------------------------
+
+| [.big]#ResumeScript#
+| calling form:
 
 [source,hugo]
 ResumeScript(character)
 
-Resumes execution of a paused script for the given character.
+Resumes execution of a paused script for the given `character`.
 Returns true if successful.
 
-SkipScript calling form:
+//-----{ SkipScript }-----------------------------------------------------------
+
+| [.big]#SkipScript#
+| calling form:
 
 [source,hugo]
 SkipScript(character)
 
-Skips execution of the script for a given character during the next call to RunScripts only.
+Skips execution of the script for a given `character` during the next call to `RunScripts` only.
 
-Script calling form:
+//-----{ Script }---------------------------------------------------------------
+
+| [.big]#Script#
+| calling form:
 
 [source,hugo]
 Script(character, steps)
 
-Initializes space for the requested number of steps in the setscript array, sets up the data for the script in the scriptdata array, and returns the location of the script in setscript.
-Returns -1 if MAX_SCRIPTS is exceeded.
+Initializes space for the requested number of `steps` in the `setscript` array, sets up the data for the script in the `scriptdata` array, and returns the location of the script in `setscript`.
+Returns -1 if `MAX_SCRIPTS` is exceeded.
 
-RunScripts calling form:
+//-----{ RunScripts }-----------------------------------------------------------
+
+| [.big]#RunScripts#
+| calling form:
 
 [source,hugo]
 RunScripts
 
 Runs all active scripts, calling them in the form:
 
+[source,hugo]
 CharRoutine(character, object)
+
+{blank}
+|===============================================================================
+
+
+
 
 == CHARACTER ACTION ROUTINES:
 
 As a starting point, the library also provides a limited number of routines for character scripts to use.
 They are:
 
-&CharWait, 0
-
-&CharMove, direction_object (requires *objlib.h*)
-
-&CharGet, object
-
-&CharDrop, object
+* `&CharWait, 0`
+* `&CharMove, direction_object` (requires *objlib.h*)
+* `&CharGet, object`
+* `&CharDrop, object`
 
 and
 
-&LoopScript, 0
+* `&LoopScript, 0`
 
 == CONDITIONAL COMPILATION:
 
 A number of compiler flags may be set to exclude certain portions of *hugolib.h* from compilation if these functions or objects are not required.
 
-*FLAG EXCLUDES*
+[.center]
+[cols="<m,<d",options=autowidth,grid=none,stripes=even]
+|======================================================
+| FLAG             | EXCLUDES
 
-NO_AUX_MATH Auxiliary math routines
-
-NO_FUSES Fuses and daemons
-
-NO_MENUS Use of the Menu function
-
-NO_OBJLIB The contents of *objlib.h*
-
-NO_RECORDING Command recording functions
-
-NO_SCRIPTS Character scripting routines
-
-NO_STRING_ARRAYS String array functions
-
-NO_VERBS All action verbs
-
-NO_XVERBS All non-action verbs
-
+| NO_AUX_MATH      | Auxiliary math routines
+| NO_FUSES         | Fuses and daemons
+| NO_MENUS         | Use of the `Menu` function
+| NO_OBJLIB        | The contents of *objlib.h*
+| NO_RECORDING     | Command recording functions
+| NO_SCRIPTS       | Character scripting routines
+| NO_STRING_ARRAYS | String array functions
+| NO_VERBS         | All action verbs
+| NO_XVERBS        | All non-action verbs
+|======================================================
 
 // EOF //
