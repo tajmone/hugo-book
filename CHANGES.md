@@ -65,6 +65,20 @@ The source files of the Hugo Library v3.1.03.2 that I've used can be found here:
 
 # List of Text Corrections
 
+
+
+<!-- Issue #XX (pending approval) -------------------------------------------->
+
+In _§1.10. Limit Settings_, the following admonition block:
+
+> Users of Unix or similar systems (including OS X, BeOS, and others) may, depending on the shell being used, need to escape special tokens like `$` or enclose these arguments in single quotes (e.g. `\$list` and `\$<setting>=<new limit>` or `'list'`, `'$<setting>=<new limit>'`, etc.) to override the shell's parsing of those tokens in the compiler invocation line.
+
+was a missing the `$` symbol in `'list'`, and was fixed to:
+
+> (e.g. `\$list` and `\$<setting>=<new limit>` or `'$list'`,
+
+----
+
 <!-- Issue #17 (approved) ---------------------------------------------------->
 
 In _§2.4. Multiple Lines_, inside the tip admonition on how to preserve a double space when splitting a string over multiple line, the original text:

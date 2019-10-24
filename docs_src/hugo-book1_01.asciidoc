@@ -377,11 +377,12 @@ To change a non-static limit (and compile a source file), type:
 hc $<setting>=<new limit> <sourcefile>...
 ................................................................................
 
-// @TEXT: Check "or `'list'`" --> "or `'$list'`" ???
+// @EDITED TYPO: (documented & WAITING APPROVAL: Issue #20)
+// Fixed missing '$'in: "or `'list'`" --> "or `'$list'`" ???
 
 [IMPORTANT]
 ================================================================================
-Users of Unix or similar systems (including OS X, BeOS, and others) may, depending on the shell being used, need to escape special tokens like `$` or enclose these arguments in single quotes (e.g. `\$list` and `\$<setting>=<new limit>` or `'list'`, `'$<setting>=<new limit>'`, etc.) to override the shell's parsing of those tokens in the compiler invocation line.
+Users of Unix or similar systems (including OS X, BeOS, and others) may, depending on the shell being used, need to escape special tokens like `$` or enclose these arguments in single quotes (e.g. `\$list` and `\$<setting>=<new limit>` or `'$list'`, `'$<setting>=<new limit>'`, etc.) to override the shell's parsing of those tokens in the compiler invocation line.
 (Non-Unix users probably don't need to worry about what that means.)
 ================================================================================
 
