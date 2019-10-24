@@ -467,431 +467,737 @@ The default response for each of these stub routines is a more colorful variatio
 To use these verbs, set the `VERBSTUBS` flag before compiling *hugolib.h*.
 
 
-// @PROOFREAD UP TO HERE! //////////////////////////////////////////////////////
 
 == UTILITY ROUTINES, ETC.
 
 First, the junction routines:
 
-EndGame called by the engine via: +
+[cols="<2m,<8a",options=grid=rows,stripes=none]
+|===============================================================================
+
+//-----{ EndGame }--------------------------------------------------------------
+
+| [.big]#EndGame#
+| called by the engine via:
+
+[source,hugo]
 EndGame(end_type)
 
-If end_type = 1, the game is won; if 2, the game is lost.
-(Since endflag may be any value, a value of, for example, 0 will still call EndGame, but with no additional effects via the default PrintEndGame routine.)
-The global endflag is cleared upon calling.
-Returning false from EndGame terminates the Hugo Engine.
+If `end_type` = 1, the game is won; if 2, the game is lost.
 
-Also calls: PrintEndGame and PrintScore
+NOTE: Since `endflag` may be any value, a value of, for example, 0 will still call `EndGame`, but with no additional effects via the default `PrintEndGame` routine.
 
-FindObject called by the engine via: +
+The global `endflag` is cleared upon calling.
+Returning false from `EndGame` terminates the Hugo Engine.
+
+Also calls: `PrintEndGame` and `PrintScore`
+
+//-----{ FindObject }-----------------------------------------------------------
+
+| [.big]#FindObject#
+| called by the engine via:
+
+[source,hugo]
 FindObject(object, location)
 
 Returns true (1) if the specified object is available in the specified location, or false (0) if it is not.
 Returns 2 if the object is visible but not physically accessible.
 
-The location argument is 0 during object disambiguation performed by the engine.
+The `location` argument is 0 during object disambiguation performed by the engine.
 
-Also calls: ObjectisKnown, ExcludeFromAll
+Also calls: `ObjectisKnown`, `ExcludeFromAll`
 
-Parse called by the engine via: +
+//-----{ Parse }----------------------------------------------------------------
+
+| [.big]#Parse#
+| called by the engine via:
+
+[source,hugo]
 Parse()
 
 Performs all library-side parsing of the player input.
 Returning true forces the engine to reparse the modified input line.
 
-Also calls: PreParse, AssignPronoun and SetObjWord
+Also calls: `PreParse`, `AssignPronoun` and `SetObjWord`
 
-ParseError called by the engine via: +
+//-----{ ParseError }-----------------------------------------------------------
+
+| [.big]#ParseError#
+| called by the engine via:
+
+[source,hugo]
 ParseError(errornumber, object)
 
-Prints the parsing message/error given by errornumber, where an additional object value may also be provided.
+Prints the parsing message/error given by `errornumber`, where an additional object value may also be provided.
 Returning false signals the engine to print the engine's default error message.
 Return 2 to force the existing line to be reparsed as is.
 
-May also call: CustomError
+May also call: `CustomError`
 
-Perform called by the engine via:
+//-----{ Perform }----------------------------------------------------------------
+| [.big]#Perform#
+| called by the engine via:
 
+[source,hugo]
 Perform(verbroutine, object, xobject, queue, isxverb)
 
-Runs the requested verbroutine, setting up the object and xobject globals if necessary.
-The queue argument is true if more than one call to Perform is being made for multiple objects, and the isxverb argument is true for verbroutine calls associated with xverb grammar.
+Runs the requested verbroutine, setting up the `object` and `xobject` globals if necessary.
+The `queue` argument is true if more than one call to `Perform` is being made for multiple objects, and the `isxverb` argument is true for verbroutine calls associated with xverb grammar.
 
-SpeakTo called by the engine via: +
+//-----{ SpeakTo }----------------------------------------------------------------
+| [.big]#SpeakTo#
+| called by the engine via:
+
+[source,hugo]
 SpeakTo(character)
 
 Handles character responses to directed actions.
-Globals object, xobject, and verbroutine are set up as in a normal verb routine call.
+Globals `object`, `xobject`, and `verbroutine` are set up as in a normal verb routine call.
 
-Also calls: AssignPronoun
+Also calls: `AssignPronoun`
+|===============================================================================
 
 And the routines for grammatically-correct printing:
 
-Art calling form: +
+[cols="<2m,<8a",options=grid=rows,stripes=none]
+|===============================================================================
+
+//-----{ Art }------------------------------------------------------------------
+
+| [.big]#Art#
+| calling form:
+
+[source,hugo]
 Art(object)
 
 Prints the indefinite article form of the object name, e.g. "`an apple`"
 
-The calling form: +
+//-----{ The }------------------------------------------------------------------
+
+| [.big]#The#
+| calling form:
+
+[source,hugo]
 The(object)
 
 Prints the definite article form of the object name, e.g. "`the apple`"
 
-CArt calling form: +
+//-----{ CArt }-----------------------------------------------------------------
+
+| [.big]#CArt#
+| calling form:
+
+[source,hugo]
 CArt(object)
 
 Prints the capitalized indefinite article form of the object name, e.g. "`An apple`"
 
-CThe calling form: +
+//-----{ CThe }-----------------------------------------------------------------
+
+| [.big]#CThe#
+| calling form:
+
+[source,hugo]
 CThe(object)
 
 Prints the capitalized definite article form of the object name, e.g. "`The apple`"
 
-IsorAre calling form: +
+//-----{ IsorAre }--------------------------------------------------------------
+
+| [.big]#IsorAre#
+| calling form:
+
+[source,hugo]
 IsorAre(object[, formal]) +
-where the parameter formal is optional
 
-Depending on whether or not the specified object is plural or singular, prints `+'re+` or `+'s+`, respectively (or `` are`` or `` is`` if a non-false formal parameter is passed).
+where the parameter `formal` is optional
 
-MatchPlural calling form: +
+// @EDITED: Used monospace instead of enclosing in typographical quotes,
+//  becaue it's more readble and less messy.
+Depending on whether or not the specified object is `plural` or singular, prints `+'re+` or `+'s+`, respectively (or `` are`` or `` is`` if a non-false `formal` parameter is passed).
+
+//-----{ MatchPlural }----------------------------------------------------------
+
+| [.big]#MatchPlural#
+| calling form:
+
+[source,hugo]
 MatchPlural(object, w1, w2)
 
-Prints the dictionary entry given by w1 if the supplied object is not plural, or w2 if it is.
+Prints the dictionary entry given by `w1` if the supplied object is not plural, or `w2` if it is.
 
-MatchSubject calling form: +
+//-----{ MatchSubject }----------------------------------------------------------------
+
+| [.big]#MatchSubject#
+| calling form:
+
+[source,hugo]
 MatchSubject(object)
 
-Matches a verb to the given subject object.
-If the object is plural, nothing is printed; if the object is singular, an "`s`" is printed.
+Matches a verb to the given subject `object`.
+If the object is `plural`, nothing is printed; if the object is singular, an "`s`" is printed.
+|===============================================================================
+
 
 [NOTE]
-================================================================================
+=====================
 None of the above printing routines prints a carriage return, and all return 0 (the empty string).
 Therefore, either of the following uses are valid:
-================================================================================
 
-
-
+[source,hugo]
 CThe(apple)
-
 print " is here."
 
 or
 
+[source,hugo]
 print CThe(apple); " is here."
+=====================
+
 
 Other library routines:
 
-Acquire calling form: +
+[cols="<2m,<8a",options=grid=rows,stripes=none]
+|===============================================================================
+
+//-----{ Acquire }--------------------------------------------------------------
+
+| [.big]#Acquire#
+| calling form:
+
+[source,hugo]
 Acquire(parent, object)
 
-Checks to see if parent.capacity is greater than or equal to parent.holding plus object.size.
+Checks to see if `parent.capacity` is greater than or equal to `parent.holding` plus `object.size`.
 If so, it moves the object to the specified parent, and returns true.
-If the object cannot be moved, Acquire returns false.
+If the object cannot be moved, `Acquire` returns false.
 
-Also calls: CalculateHolding
+Also calls: `CalculateHolding`
 
-AnyVerb calling form: +
+//-----{ AnyVerb }--------------------------------------------------------------
+
+| [.big]#AnyVerb#
+| calling form:
+
+[source,hugo]
 AnyVerb(value)
 
-Returns value if the current verbroutine is not an xverb; otherwise it returns false.
+Returns `value` if the current verbroutine is not an xverb; otherwise it returns false.
 
-AssignPronoun calling form: +
+//-----{ AssignPronoun }--------------------------------------------------------
+
+| [.big]#AssignPronoun#
+| calling form:
+
+[source,hugo]
 AssignPronoun(object)
 
-Sets the appropriate global it_obj, them_obj, him_obj, or her_obj to the specified object.
+Sets the appropriate global `it_obj`, `them_obj`, `him_obj`, or `her_obj` to the specified object.
 
-CalculateHolding calling form: +
+//-----{ CalculateHolding }-----------------------------------------------------
+
+| [.big]#CalculateHolding#
+| calling form:
+
+[source,hugo]
 CalculateHolding(object)
 
-Properly recalculates object.holding based on the sizes of all child objects.
+Properly recalculates `object.holding` based on the sizes of all child objects.
 
-CenterTitle calling form: +
+//-----{ CenterTitle }----------------------------------------------------------
+
+| [.big]#CenterTitle#
+| calling form:
+
+[source,hugo]
 CenterTitle(text[, lines])
 
 Clears the screen and centers the text given by the specified dictionary entry in the top window.
 The default height of the title (i.e., one line) can be overridden with a second argument giving the number of lines.
 
-CheckReach calling form: +
+//-----{ CheckReach }-----------------------------------------------------------
+
+| [.big]#CheckReach#
+| calling form:
+
+[source,hugo]
 CheckReach(object)
 
 Checks to see if the specified object is within reach of the player object.
 Returns true if accessible; returns false and prints an appropriate message if not accessible.
 
-Contains calling form: +
+//-----{ Contains }-------------------------------------------------------------
+
+| [.big]#Contains#
+| calling form:
+
+[source,hugo]
 Contains(parent, object)
 
-Returns object if the specified object is present as a possession of the specified parent, even as a grandchildfootnote:[A "`grandchild`" of an object is a child of a child of a given parent object, or a child object thereof, recursively searched.], otherwise returns false.
+// @FOOTNOTE: In table cell!
+Returns `object` if the specified object is present as a possession of the specified parent, even as a grandchildfootnote:[A "`grandchild`" of an object is a child of a child of a given parent object, or a child object thereof, recursively searched.], otherwise returns false.
 
-CustomError calling form: +
+//-----{ CustomError }----------------------------------------------------------
+
+| [.big]#CustomError#
+| calling form:
+
+[source,hugo]
 CustomError(errornumber, object)
 
 Replace if custom error messages are desired.
-Is called by ParseError whenever errornumber is greater than or equal to 100, specifying a user-provided and user-called parser error.
+Is called by `ParseError` whenever `errornumber` is greater than or equal to 100, specifying a user-provided and user-called parser error.
 Should return false if no user message is found.
 
-DarkWarning calling form: +
+//-----{ DarkWarning }----------------------------------------------------------
+
+| [.big]#DarkWarning#
+| calling form:
+
+[source,hugo]
 DarkWarning
 
-Is called by MovePlayer whenever the player object is moved into a location without a light source.
-The default library routine simply prints a message; for a more sinister response or action, such as the demise of the player, replace the default with a new DarkWarning routine.
+Is called by `MovePlayer` whenever the player object is moved into a location without a light source.
+The default library routine simply prints a message; for a more sinister response or action, such as the demise of the player, replace the default with a new `DarkWarning` routine.
 
-DeleteWord calling form: +
+//-----{ DeleteWord }-----------------------------------------------------------
+
+| [.big]#DeleteWord#
+| calling form:
+
+[source,hugo]
 DeleteWord(wordnumber[, number])
 
-Deletes number words -- or only one word if no second argument is given -- starting with word[wordnumber].
+Deletes `number` words -- or only one word if no second argument is given -- starting with `word[wordnumber]`.
 Returns the number of words deleted.
 
-DescribePlace calling form: +
+//-----{ DescribePlace }--------------------------------------------------------
+
+| [.big]#DescribePlace#
+| calling form:
+
+[source,hugo]
 DescribePlace(location[, long])
 
-Prints the location name and, when appropriate, a location description (i.e., its long_desc).
+Prints the location `name` and, when appropriate, a location description (i.e., its `long_desc`).
 Including a non-false long parameter will always force a location description.
 
-ExcludeFromAll calling form: +
+//-----{ ExcludeFromAll }-------------------------------------------------------
+
+| [.big]#ExcludeFromAll#
+| calling form:
+
+[source,hugo]
 ExcludeFromAll(object)
 
-Returns true if, based on the current circumstances (verbroutine, etc.), the supplied object should be excluded from actions using "`all`" -- such as multi, multiheld, and multinotheld grammar tokens.
+Returns true if, based on the current circumstances (verbroutine, etc.), the supplied `object` should be excluded from actions using "`all`" -- such as `multi`, `multiheld`, and `multinotheld` grammar tokens.
 
-FindLight calling form: +
+//-----{ FindLight }------------------------------------------------------------
+
+| [.big]#FindLight#
+| calling form:
+
+[source,hugo]
 FindLight(location)
 
-Checks to see if a light source is available in location; if so, it sets the global light_source to the object number of the source and returns that value.
+Checks to see if a light source is available in `location`; if so, it sets the global `light_source` to the object number of the source and returns that value.
 
-Also calls: ObjectIsLight
+Also calls: `ObjectIsLight`
 
-Font calling form: +
+//-----{ Font }-----------------------------------------------------------------
+
+| [.big]#Font#
+| calling form:
+
+[source,hugo]
 Font(bitmask)
 
-Sets the current font attributes as specified by bitmask, where bitmask is one or more font-style constants (see library constants, above) combined with `|` or `+`.
+Sets the current font attributes as specified by `bitmask`, where `bitmask` is one or more font-style constants (see library constants, above) combined with `{vbar}` or `+`.
 
-GetInput calling form: +
+//-----{ GetInput }-------------------------------------------------------------
+
+| [.big]#GetInput#
+| calling form:
+
+[source,hugo]
 GetInput([prompt string])
 
-Receives input from the keyboard, storing individual words in the word array; unknown words -- i.e., those that are not in the dictionary -- are assigned the empty string, 0 or `+""+`.
-If an argument is passed, it is assumed to be a dictionary address for the prompt string.
+Receives input from the keyboard, storing individual words in the `word` array; unknown words -- i.e., those that are not in the dictionary -- are assigned the empty string, 0 or `+""+`.
+If an argument is passed, it is assumed to be a dictionary address for the `prompt` string.
 If no argument is passed, no prompt is printed.
 
-HoursMinutes calling form: +
+//-----{ HoursMinutes }---------------------------------------------------------
+
+| [.big]#HoursMinutes#
+| calling form:
+
+[source,hugo]
 HoursMinutes(counter[, military])
 
-Prints the time in hh:mm format given that counter represents the time in minutes from 12:00 a.m.
-If the optional military value is given as a true value, the time is printed in 24-hour format.
+Prints the time in `hh:mm` format given that `counter` represents the time in minutes from 12:00 a.m.
+If the optional `military` value is given as a true value, the time is printed in 24-hour format.
 
-Indent calling form: +
+//-----{ Indent }---------------------------------------------------------------
+
+| [.big]#Indent#
+| calling form:
+
+[source,hugo]
 Indent
 
-If the NOINDENT_F bit is not set in the FORMAT mask, Indent prints INDENT_SIZE spaces without printing a newline.
+If the `NOINDENT_F` bit is not set in the `FORMAT` mask, `Indent` prints `INDENT_SIZE` spaces without printing a newline.
 
-InList calling form: +
+//-----{ InList }---------------------------------------------------------------
+
+| [.big]#InList#
+| calling form:
+
+[source,hugo]
 InList(object, property, value)
 
-If the value is in the list of values held in object.property, returns the element number of the (first) property element equal to value; otherwise returns 0.
+If the `value` is in the list of values held in `object.property`, returns the element number of the (first) property element equal to `value`; otherwise returns 0.
 
-InsertWord calling form: +
+//-----{ InsertWord }-----------------------------------------------------------
+
+| [.big]#InsertWord#
+| calling form:
+
+[source,hugo]
 InsertWord(wordnumber[, number])
 
-Makes space for either the number of words given by the number argument -- or one word if no second argument is given -- if possible, at word[wordnumber], shifting upward all words from that point to the end of the input line.
+Makes space for either the number of words given by the `number` argument -- or one word if no second argument is given -- if possible, at `word[wordnumber]`, shifting upward all words from that point to the end of the input line.
 Returns the number of words inserted.
 
-IsPossibleXobject calling form: +
+//-----{ IsPossibleXobject }----------------------------------------------------
+
+| [.big]#IsPossibleXobject#
+| calling form:
+
+[source,hugo]
 IsPossibleXobject(object)
 
 Returns true if the object is potentially the xobject in the current command.
 Does not, however, guarantee that the object _is_ an xobject, but is instead a quick and inexpensive utility routine for parsing.
 
-ListObjects calling form: +
+//-----{ ListObjects }----------------------------------------------------------
+
+| [.big]#ListObjects#
+| calling form:
+
+[source,hugo]
 ListObjects(object)
 
-Lists all the possessions of the specified object in the appropriate form (according to the global FORMAT).
-Possessions of possessions are listed recursively if FORMAT does not contain the NORECURSE_F bit.
+Lists all the possessions of the specified object in the appropriate form (according to the global `FORMAT`).
+Possessions of possessions are listed recursively if `FORMAT` does not contain the `NORECURSE_F` bit.
 Format masks are combined, as in:
 
-FORMAT = LIST_F | NORECURSE_F | ...
+// @HUGO SYNTAX MOCKUP!
+[source,hugo, subs="+attributes"]
+FORMAT = LIST_F {vbar} NORECURSE_F {vbar} ...
 
-Also calls: WhatsIn
+Also calls: `WhatsIn`
 
-Menu calling form: +
+//-----{ Menu }-----------------------------------------------------------------
+
+| [.big]#Menu#
+| calling form:
+
+[source,hugo]
 Menu(number, [width[, selection]])
 
-Prints a menu, given that the possible number of choices (up to 10) are contained in the menuitem array, with menuitem[0] is the title of the menu.
-A width (in characters) argument and a starting selection number are optional.
+Prints a menu, given that the possible `number` of choices (up to 10) are contained in the `menuitem` array, with `menuitem[0]` is the title of the menu.
+A `width` (in characters) argument and a starting `selection` number are optional.
 Returns the number of the item selected, or 0 if none is chosen.
 
-Also calls: CenterTitle
+Also calls: `CenterTitle`
 
-Message calling form: +
+//-----{ Message }--------------------------------------------------------------
+
+| [.big]#Message#
+| calling form:
+
+[source,hugo]
 Message(&routine, num, a, b)
 
 Used by most routines in *hugolib.h* for text output, so that the bulk of the library text is centralized in one location.
-Message number num for the specified routine is printed; a and b are optional parameters that may represent objects, dictionary entries, or any other value.
+Message number `num` for the specified routine is printed; `a` and `b` are optional parameters that may represent objects, dictionary entries, or any other value.
 
-(Similar routines are provided in VMessage in *verblib.h* and OMessage in *objlib.h*.)
+TIP: Similar routines are provided in `VMessage` in *verblib.h* and `OMessage` in *objlib.h*.
 
-MovePlayer calling form: +
-MovePlayer(loc[, silent[, none]]) +
+//-----{ MovePlayer }-----------------------------------------------------------
+
+| [.big]#MovePlayer#
+| calling form:
+
+[source,hugo]
+MovePlayer(loc[, silent[, none]])
 MovePlayer(dir[, silent[, none]])
 
 Moves the player to the new location, properly setting all relevant variables and attributes.
-If silent is passed as a true value, no room description is printed following the move.
+If `silent` is passed as a true value, no room description is printed following the move.
 
-A direction object (i.e., n_obj, d_obj) may be specified instead of a location; in that case, MovePlayer moves in that direction from present location.
+A direction object (i.e., `n_obj`, `d_obj`) may be specified instead of a location; in that case, `MovePlayer` moves in that direction from present `location`.
 
-If none is true, before and after routines are not run.
+If `none` is true, `before` and `after` routines are not run.
 
-MovePlayer can be checked in a location's before or after property as `location MovePlayer` to catch a player's exit from or entrance to a location.
-In a before property, `object MovePlayer` can be used to check the target location.
+// @TEXT: Verify if required dots are missing:
+//     "location MovePlayer" -> "location.MovePlayer"
+//     "object MovePlayer"   -> "object.MovePlayer"
 
-Returns the object number of the new location.
+`MovePlayer` can be checked in a location's `before` or `after` property as `location MovePlayer` to catch a player's exit from or entrance to a location.
+In a `before` property, `object MovePlayer` can be used to check the target location.
 
-MovePlayer does not check to see if a move is valid; that must be done before calling the routine.
+Returns the object number of the new `location`.
 
-May also call: DarkWarning
+`MovePlayer` does not check to see if a move is valid; that must be done before calling the routine.
 
-NumberWord calling form: +
+May also call: `DarkWarning`
+
+//-----{ NumberWord }-----------------------------------------------------------
+
+| [.big]#NumberWord#
+| calling form:
+
+[source,hugo]
 NumberWord(number[, true])
 
-Prints a number in non-numerical word format, where <number> is between -32768 to 32767.
+Prints a number in non-numerical word format, where `<number>` is between -32768 to 32767.
 Always returns 0 (the empty string).
 If a second true argument is supplied, the word is capitalized.
 
-ObjectIs calling form: +
+//-----{ ObjectIs }-------------------------------------------------------------
+
+| [.big]#ObjectIs#
+| calling form:
+
+[source,hugo]
 ObjectIs(object)
 
-Lists certain attributes, such as providing light or being worn, of the given object in parenthetical form.
+Lists certain attributes, such as providing `light` or being `worn`, of the given object in parenthetical form.
 
-ObjectisKnown calling form: +
+//-----{ ObjectisKnown }--------------------------------------------------------
+
+| [.big]#ObjectisKnown#
+| calling form:
+
+[source,hugo]
 ObjectisKnown(object)
 
-Returns true if the object is known to the player.
+Returns true if the object is `known` to the player.
 
-ObjectisLight calling form: +
+//-----{ ObjectisLight }--------------------------------------------------------
+
+| [.big]#ObjectisLight#
+| calling form:
+
+[source,hugo]
 ObjectisLight(object)
 
-Returns true if the object or one of its visible possessions is providing light.
-If so, it also sets the global light_source the object number of the source.
+Returns true if the object or one of its visible possessions is providing `light`.
+If so, it also sets the global `light_source` the object number of the source.
 
-ObjWord calling form: +
+//-----{ ObjWord }--------------------------------------------------------------
+
+| [.big]#ObjWord#
+| calling form:
+
+[source,hugo]
 ObjWord(word, object)
 
-Returns either adjective or noun (i.e., the property number) if the given is either an adjective or noun of the specified object.
+Returns either `adjective` or `noun` (i.e., the property number) if the given is either an adjective or noun of the specified object.
 
-PreParse calling form: PreParse
+//-----{ PreParse }-------------------------------------------------------------
 
-Provided so that, if needed, this routine may be replaced instead of the more extensive library Parse routine.
-The default PreParse routine defined in the library is empty.
+| [.big]#PreParse#
+| calling form: PreParse
 
-PrintEndGame calling form: +
+Provided so that, if needed, this routine may be replaced instead of the more extensive library `Parse` routine.
+The default `PreParse` routine defined in the library is empty.
+
+//-----{ PrintEndGame }---------------------------------------------------------
+
+| [.big]#PrintEndGame#
+| calling form:
+
+[source,hugo]
 PrintEndGame(end_type)
 
-Depending on whether end_type is 1 or 2, prints, respectively:
+Depending on whether `end_type` is 1 or 2, prints, respectively:
 
 [example,role="gametranscript"]
-================================================================================
 +++*** YOU'VE WON THE GAME! ***+++
-================================================================================
 
 or
 
 [example,role="gametranscript"]
-================================================================================
 +++*** YOU ARE DEAD. ***+++
-================================================================================
 
-If end_type is some other value, nothing is printed.
+If `end_type` is some other value, nothing is printed.
 
-PrintScore calling form: +
+//-----{ PrintScore }-----------------------------------------------------------
+
+| [.big]#PrintScore#
+| calling form:
+
+[source,hugo]
 PrintScore(end_of_game)
 
-Prints the score in the appropriate form, depending on whether or not end_of_game is true.
+Prints the `score` in the appropriate form, depending on whether or not `end_of_game` is true.
 
-PrintStatusLine calling form: +
+//-----{ PrintStatusLine }------------------------------------------------------
+
+| [.big]#PrintStatusLine#
+| calling form:
+
+[source,hugo]
 PrintStatusLine
 
-Prints the statusline in the appropriate format, according to the global STATUSTYPE.
+Prints the statusline in the appropriate format, according to the global `STATUSTYPE`.
 
-PropertyList calling form: +
+//-----{ PropertyList }---------------------------------------------------------
+
+| [.big]#PropertyList#
+| calling form:
+
+[source,hugo]
 PropertyList(object, property)
 
-Lists the objects held in object.property (if any), returning the number of objects listed.
+Lists the objects held in `object.property` (if any), returning the number of objects listed.
 
-PutInScope calling form: +
+//-----{ PutInScope }-----------------------------------------------------------
+
+| [.big]#PutInScope#
+| calling form:
+
+[source,hugo]
 PutInScope(object, actor)
 
-Makes the given object accessible to the specified actor, regardless of their respective locations, and providing that the in_scope property of the object has at least one empty slot -- i.e., one that equals 0.
+Makes the given object accessible to the specified actor, regardless of their respective locations, and providing that the `in_scope` property of the object has at least one empty slot -- i.e., one that equals 0.
 Returns true if successful.
 
-RemoveFromScope calling form: +
+//-----{ RemoveFromScope }------------------------------------------------------
+
+| [.big]#RemoveFromScope#
+| calling form:
+
+[source,hugo]
 RemoveFromScope(object, actor)
 
 Removes the given object from the scope of the specified actor.
 Returns true if successful, or false if the object was never in scope of the actor to begin with.
 
-SetObjWord calling form: +
+//-----{ SetObjWord }-----------------------------------------------------------
+
+| [.big]#SetObjWord#
+| calling form:
+
+[source,hugo]
 SetObjWord(position, object)
 
-Inserts the specified object in the word array in the format:
+Inserts the specified object in the `word` array in the format:
 
-`adjective1 adjective2 ... noun`
+// @HUGO SYNTAX MOCKUP!
+[source,hugo]
+"adjective1 adjective2 ... noun"
 
-ShortDescribe calling form: +
+{blank}
+
+//-----{ ShortDescribe }--------------------------------------------------------
+
+| [.big]#ShortDescribe#
+| calling form:
+
+[source,hugo]
 ShortDescribe(object)
 
-Prints the short description (short_desc) of the given object, first checking to see if it should run initial_desc, when_open, or when_closed, as appropriate.
-Then, if no short_desc property exists, it prints a default "`X is here.`"
+Prints the short description (`short_desc`) of the given object, first checking to see if it should run `initial_desc`, `when_open`, or `when_closed`, as appropriate.
+Then, if no `short_desc` property exists, it prints a default "`X is here.`"
 
-Also calls: WhatsIn
+Also calls: `WhatsIn`
 
-SpecialDesc calling form: +
+//-----{ SpecialDesc }----------------------------------------------------------
+
+| [.big]#SpecialDesc#
+| calling form:
+
+[source,hugo]
 SpecialDesc(object)
 
-Checks each child object of the specified object, running any appropriate initial_desc or inv_desc property routines (depending on the calling situation).
-Sets the global variable list_count to the number of remaining (i.e., non-listed) objects.
+Checks each child object of the specified object, running any appropriate `initial_desc` or `inv_desc` property routines (depending on the calling situation).
+Sets the global variable `list_count` to the number of remaining (i.e., non-listed) objects.
 
-VerbWord calling form: +
+//-----{ VerbWord }-------------------------------------------------------------
+
+| [.big]#VerbWord#
+| calling form:
+
+[source,hugo]
 VerbWord
 
 Returns the dictionary word used as the verb in a typed command.
 
-WhatsIn calling form: +
+//-----{ WhatsIn }--------------------------------------------------------------
+
+| [.big]#WhatsIn#
+| calling form:
+
+[source,hugo]
 WhatsIn(parent)
 
-Lists the possessions of the specified parent, according the form given by the global FORMAT.
+Lists the possessions of the specified parent, according the form given by the global `FORMAT`.
 Returns the number of objects listed.
 
-Also calls: SpecialDesc, ListObjects
+Also calls: `SpecialDesc`, `ListObjects`
 
-YesorNo calling form: +
+//-----{ YesorNo }--------------------------------------------------------------
+
+| [.big]#YesorNo#
+| calling form:
+
+[source,hugo]
 YesorNo
 
 Checks to see if the just-received input is "`yes`", "`y`", "`no`", or "`n`".
 If none of the above, it prompts for a yes or no answer.
 Once a valid answer is received, it returns true (if yes) or false (if no).
+|===============================================================================
 
+
+// @PROOFREAD UP TO HERE! //////////////////////////////////////////////////////
 
 == AUXILIARY MATH ROUTINES:
 
-abs calling form: +
+abs calling form:
+
+[source,hugo]
 abs(a)
 
 Returns an absolute value given a supplied value.
 
-higher calling form: +
+higher calling form:
+
+[source,hugo]
 higher(a, b)
 
 Returns the higher number of two supplied values.
 
-lower calling form: +
+lower calling form:
+
+[source,hugo]
 lower(a, b)
 
 Returns the lower number of two supplied values.
 
-mod calling form: +
+mod calling form:
+
+[source,hugo]
 mod(a, b)
 
 Returns the remainder of one number divided by a second number.
 
-pow calling form: +
+pow calling form:
+
+[source,hugo]
 pow(a, b)
 
 Returns one number to the power of another number.
@@ -899,81 +1205,109 @@ Returns one number to the power of another number.
 
 == STRING ARRAY ROUTINES:
 
-StringCompare calling form: +
+StringCompare calling form:
+
+[source,hugo]
 StringCompare(array1, array2)
 
 Returns 1 if array1 is lexically greater than array2, -1 if array1 is lexically less than array2, and 0 if the strings are identical.
 
-StringCopy calling form: +
+StringCopy calling form:
+
+[source,hugo]
 StringCopy(new, old[, len])
 
 Copies the contents of the array at the address given by old to the array at new, to a maximum of len characters if len is given, or the length of old if it isn't.
 
-StringDictCompare calling form: +
+StringDictCompare calling form:
+
+[source,hugo]
 StringDictCompare(array, dictentry)
 
 Performs a StringCompare-like comparison of a string array given by array and the dictionary entry dictentry, returning 1, -1, or 0 if array is lexically greater than, less than, or equal to dictentry, respectively.
 
-StringEqual calling form: +
+StringEqual calling form:
+
+[source,hugo]
 StringEqual(array1, array2)
 
 Returns true only if array1 and array2 are identical.
 
-StringLength calling form: +
+StringLength calling form:
+
+[source,hugo]
 StringLength(array)
 
 Returns the length of the string stored as array.
 
-StringPrint calling form: +
+StringPrint calling form:
+
+[source,hugo]
 StringPrint(array[, start, end])
 
 Prints the string stored as array, beginning with start and ending with end if given.
 
 == FUSE/DAEMON ROUTINES:
 
-Activate calling form: +
+Activate calling form:
+
+[source,hugo]
 Activate(object[, setting])
 
 Activates the specified fuse or daemon object.
 The setting value is only specified for fuses, where it represents the initial value of the timer property.
 
-Deactivate calling form: +
+Deactivate calling form:
+
+[source,hugo]
 Deactivate(object)
 
 Deactivates the specified fuse or daemon object.
 
 == CHARACTER SCRIPT ROUTINES:
 
-CancelScript calling form: +
+CancelScript calling form:
+
+[source,hugo]
 CancelScript(character)
 
 Immediately cancels the character script associated with the object character.
 Returns true if successful, i.e., if a script for character is found.
 
-PauseScript calling form: +
+PauseScript calling form:
+
+[source,hugo]
 PauseScript(character)
 
 Temporarily pauses the character script associated with the given character.
 Returns true if successful.
 
-ResumeScript calling form: +
+ResumeScript calling form:
+
+[source,hugo]
 ResumeScript(character)
 
 Resumes execution of a paused script for the given character.
 Returns true if successful.
 
-SkipScript calling form: +
+SkipScript calling form:
+
+[source,hugo]
 SkipScript(character)
 
 Skips execution of the script for a given character during the next call to RunScripts only.
 
-Script calling form: +
+Script calling form:
+
+[source,hugo]
 Script(character, steps)
 
 Initializes space for the requested number of steps in the setscript array, sets up the data for the script in the scriptdata array, and returns the location of the script in setscript.
 Returns -1 if MAX_SCRIPTS is exceeded.
 
-RunScripts calling form: +
+RunScripts calling form:
+
+[source,hugo]
 RunScripts
 
 Runs all active scripts, calling them in the form:
