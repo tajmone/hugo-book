@@ -206,7 +206,7 @@ d| `HERE_WORD`       {nbsp}("`here`")   2+d| `ON_WORD` {nbsp}{nbsp}("`on`")
 | adjective (adjectives) | adjective(s) describing object
 | article | "`a`", "`an`", "`the`", "`some`", etc.
 
-// @FOOTNOTE: in table cell:
+// @FOOTNOTE IN TABLE: EXTERNALIZE!
 | preposition (prep)
 d| "`in`", "`inside`", "`outside of`", etc.footnote:[Used generally for room objects in order to give a grammatically correct description if necessary; also for containers and platforms.]
 
@@ -731,7 +731,7 @@ Returns true if accessible; returns false and prints an appropriate message if n
 [source,hugo]
 Contains(parent, object)
 
-// @FOOTNOTE: In table cell!
+// @FOOTNOTE IN TABLE: EXTERNALIZE!
 Returns `object` if the specified object is present as a possession of the specified parent, even as a grandchildfootnote:[A "`grandchild`" of an object is a child of a child of a given parent object, or a child object thereof, recursively searched.], otherwise returns false.
 
 //-----{ CustomError }----------------------------------------------------------

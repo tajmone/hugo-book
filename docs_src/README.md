@@ -138,115 +138,124 @@ Every chapter in the list provides an [HTML Live Preview] link to quickly jump t
 - [ ]  [BOOK 1. **THE HUGO PROGRAMMING MANUAL**][Book I]
     + [ ]  [1. _INTRODUCTION_][Ch1]
         * [ ]  Fix all XRefs.
-        * [ ]  Fix footnotes.
+        * [ ]  Fix footnotes (**3**).
     + [ ]  [2. _A FIRST LOOK AT HUGO_][Ch2]
         * [ ]  Fix all XRefs.
-        * [ ]  Fix footnotes.
+        * [ ]  Fix footnotes (**7**).
     + [ ]  [3. _OBJECTS_][Ch3]
         * [ ]  Fix all XRefs.
-        * [ ]  Fix footnotes.
+        * [ ]  Fix footnotes (**10**):
+            - [ ]  3 footnotes inside table.
+            - [ ]  1 footnote inside code.
     + [ ]  [4. _HUGO PROGRAMMING_][Ch4]
         * [ ]  Fix all XRefs.
-        * [ ]  Fix footnotes.
+        * [ ]  Fix footnotes (**9**):
+            - [ ]  1 footnote inside code.
     + [ ]  [5. _ROUTINES AND EVENTS_][Ch5]
         * [ ]  Fix all XRefs.
-        * [ ]  Fix footnotes.
+        * [ ]  Fix footnotes (**10**).
     + [ ]  [6. _FUSES, DAEMONS, AND SCRIPTS_][Ch6]
         * [ ]  Fix all XRefs.
-        * [ ]  Fix footnotes.
+        * [ ]  Fix footnotes (**1**).
     + [ ]  [7. _GRAMMAR AND PARSING_][Ch7]
         * [ ]  Fix all XRefs.
-        * [ ]  Fix footnotes.
+        *  (_No footnotes_).
     + [ ]  [8. _JUNCTION ROUTINES_][Ch8]
         * [ ]  Fix all XRefs.
-        * [ ]  Fix footnotes.
+        * [ ]  Fix footnotes (**6**).
     + [ ]  [9. _THE GAME LOOP_][Ch9]
         * [ ]  Fix all XRefs.
-        * [ ]  Fix footnotes.
+        *  (_No footnotes_).
     + [ ]  [10. _USING THE OBJECT LIBRARY_][Ch10]
         * [ ]  Fix all XRefs.
-        * [ ]  Fix footnotes.
-    + [ ]  [11. _ADVANCED FEATURES_][Ch11]
+        * [ ]  Fix footnotes (**10**):
+            - [ ]  2 footnotes inside code.
+     + [ ]  [11. _ADVANCED FEATURES_][Ch11]
         * [ ]  Fix all XRefs.
-        * [ ]  Fix footnotes.
+        *  (_No footnotes_).
     + [ ]  [12. _RESOURCES_][Ch12]
         * [ ]  Fix all XRefs.
-        * [ ]  Fix footnotes.
+        * [ ]  Fix footnotes (**2**).
     + [ ]  [APP. A. _SUMMARY OF KEYWORDS AND COMMANDS_][AppA]
         * [ ]  _needs to be proof-read once more, carefully!_
         * [ ]  Fix all XRefs.
-        * [ ]  Fix footnotes.
+        *  (_No footnotes_).
     + [ ]  [APP. B. _THE HUGO LIBRARY_][AppB]
         * [ ]  _needs to be proof-read once more, carefully!_
         * [ ]  Fix all XRefs.
-        * [ ]  Fix footnotes.
+        * [ ]  Fix footnotes (**2**):
+            - [ ]  2 footnotes inside tables.
     + [ ]  [APP. C. _LIMIT SETTINGS_][AppC]
         * [ ]  _needs to be proof-read once more, carefully!_
         * [ ]  Fix all XRefs.
-        * [ ]  Fix footnotes.
+        *  (_No footnotes_).
     + [ ]  [APP. D. _HUGOFIX AND THE HUGO DEBUGGER_][AppD]
         * [ ]  _needs to be proof-read once more, carefully!_
         * [ ]  Fix all XRefs.
-        * [ ]  Fix footnotes.
+        * [ ]  Fix footnotes (**2**).
     + [ ]  [APP. E. _PRECOMPILED HEADERS_][AppE]
         * [ ]  Fix all XRefs.
-        * [ ]  Fix footnotes.
+        *  (_No footnotes_).
     + [ ]  [APP. F. _HUGO VERSIONS_][AppF]
         * [ ]  Fix all XRefs.
-        * [ ]  Fix footnotes.
+        *  (_No footnotes_).
     + [ ]  [APP. G. _ADDITIONAL RESOURCES_][AppG]
         * [ ]  Fix all XRefs.
-        * [ ]  Fix footnotes.
+        *  (_No footnotes_).
 - [ ]  [BOOK 2. **TECHNICAL SYSTEM SPECIFICATION**][Book II]
     + [ ]  [13. _INTRODUCTION_][Ch13]
         * [ ]  Fix all XRefs.
-        * [ ]  Fix footnotes.
+        *  (_No footnotes_).
     + [ ]  [14. _ORGANIZATION OF THE .HEX FILE_][Ch14]
         * [ ]  Fix all XRefs.
-        * [ ]  Fix footnotes.
+        * [ ]  Fix footnotes (**6**):
+            - [ ]  5 footnotes inside tables.
     + [ ]  [15. _TOKENS AND DATA TYPES_][Ch15]
         * [ ]  Fix all XRefs.
-        * [ ]  Fix footnotes.
+        * [ ]  Fix footnotes (**1**).
     + [ ]  [16. _ENGINE PARSING_][Ch16]
         * [ ]  Fix all XRefs.
-        * [ ]  Fix footnotes.
+        * [ ]  Fix footnotes (**1**).
     + [ ]  [17. _GRAMMAR_][Ch17]
         * [ ]  Fix all XRefs.
-        * [ ]  Fix footnotes.
+        *  (_No footnotes_).
     + [ ]  [18. _EXECUTABLE CODE_][Ch18]
         * [ ]  Fix all XRefs.
-        * [ ]  Fix footnotes.
+        *  (_No footnotes_).
     + [ ]  [19. _ENCODING TEXT_][Ch19]
         * [ ]  Fix all XRefs.
-        * [ ]  Fix footnotes.
+        *  (_No footnotes_).
     + [ ]  [20. _THE OBJECT TABLE_][Ch20]
         * [ ]  Fix all XRefs.
-        * [ ]  Fix footnotes.
+        * [ ]  Fix footnotes (**2**).
     + [ ]  [21. _THE PROPERTY TABLE_][Ch21]
         * [ ]  Fix all XRefs.
-        * [ ]  Fix footnotes.
+        *  (_No footnotes_).
     + [ ]  [22. _THE EVENT TABLE_][Ch22]
         * [ ]  Fix all XRefs.
-        * [ ]  Fix footnotes.
+        *  (_No footnotes_).
     + [ ]  [23. _THE DICTIONARY AND SPECIAL WORDS_][Ch23]
         * [ ]  Fix all XRefs.
-        * [ ]  Fix footnotes.
+        *  (_No footnotes_).
     + [ ]  [24. _RESOURCEFILES_][Ch24]
         * [ ]  Fix all XRefs.
-        * [ ]  Fix footnotes.
+        *  (_No footnotes_).
     + [ ]  [25. _THE HUGO COMPILER AND HOW IT WORKS_][Ch25]
         * [ ]  Fix all XRefs.
-        * [ ]  Fix footnotes.
+        *  (_No footnotes_).
     + [ ]  [26. _THE HUGO ENGINE AND HOW IT WORKS_][Ch26]
         * [ ]  Fix all XRefs.
-        * [ ]  Fix footnotes.
+        * [ ]  Fix footnotes (**1**):
+            - [ ]  1 footnote inside tables.
     + [ ]  [27. _DARK SECRETS OF THE HUGO DEBUGGER_][Ch27]
         * [ ]  Fix all XRefs.
-        * [ ]  Fix footnotes.
+        *  (_No footnotes_).
     + [ ]  [APP. H. _CODE PATTERNS_][AppH]
         * [ ]  _needs to be proof-read once more, carefully!_
         * [ ]  Fix all XRefs.
-        * [ ]  Fix footnotes.
+        * [ ]  Fix footnotes (**11**)
+            - [ ]  11 footnotes inside tables (many duplicate notes):
+                * [ ]  9 of these footnotes are inside code-blocks.
 - [ ] _INDEX_ (supported only in PDF format)
 
 

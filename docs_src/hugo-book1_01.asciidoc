@@ -4,9 +4,11 @@
 == Why You're Here (or, Just What Is Hugo?)
 
 
-// @XREF ADD: "APPENDIX G: ADDITIONAL RESOURCES"
+// @XREF ADD: "APPENDIX G: ADDITIONAL RESOURCES" (in footnote!)
+// @FOOTNOTE: EXTERNALIZE!
 
 Chances are if you're reading this book you're already at least a little familiar with adventure games, and maybe even more specifically interactive fiction or text adventures. footnote:[If not, or if you'd like some additional interesting reading, there are a number of excellent resources to investigate further, some of which are listed in _APPENDIX G: ADDITIONAL RESOURCES_.]
+// @FOOTNOTE: EXTERNALIZE!
 Hugo is a system for designing, programming, and running these.
 It is not the first such system -- and it's difficult to find substantial fault in any general way with the best of those systems that predate Hugofootnote:[The best and most popular of these earlier systems are TADS (Mike Roberts, 1987) and Inform (Graham Nelson, 1993).] -- but Hugo does hope to extend the concepts developed in earlier, similar systems in order to make interactive fiction programming less cryptic, and more flexible and accessible to designers, as well as to add functionality in certain areas where other systems are lacking.
 
@@ -34,6 +36,8 @@ The Hugo Compiler, the Hugo Engine, the Hugo Debugger, the Hugo Library, and rel
 
 
 == Names And Acknowledgments
+
+// @FOOTNOTE: EXTERNALIZE!
 
 Those who have taken upon themselves the task of porting Hugo to various platforms include Julian Arnold (Acorn/RiscOS port), Gerald Bostock (OS/2 port), David Kinder (Amiga port), Bill Lash (original Unix/Linux port), Andrew Plotkin (Macintosh port using his Glk library), and Colin Turnbull (original Acorn Archimedes port).
 The author is considerably indebted to them, for all their work as well as for their input on how to improve the compiler and engine.

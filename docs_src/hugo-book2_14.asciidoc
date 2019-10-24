@@ -148,6 +148,7 @@ These functions are:
 | hugo_strlen          | `strlen()` for embedded codes
 | hugo_specialchar     | Translation for special characters
 2+^a| {blank}
+// @FOOTNOTE IN TABLE: EXTERNALIZE!
 | hugo_hasvideo        | Returns video availabilityfootnote:[v3.0 and later]
 |===============================================================================
 

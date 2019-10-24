@@ -3,6 +3,7 @@
 
 == The HugoFix Debugging Library
 
+// @FOOTNOTE: EXTERNALIZE!
 The HugoFix Debugging Library is a suite of routines that can be used via typed commands in a running Hugo game without the use of any special debugger program.
 To use HugoFix, set the compiler flag `DEBUG` before including *hugolib.h* or any other standard Hugo library filesfootnote:[The HugoFix library should only be included during development.
 As always, when compiling a version for public release, the `DEBUG` flag should be omitted both to keep the filesize of the final Hugo executable down as well as to ensure that debugging functionality is not included in release builds.].
@@ -172,6 +173,7 @@ Runs a number of tests to ensure the validity of certain data, including necessa
 
 == The Hugo Debugger
 
+// @FOOTNOTE: EXTERNALIZE!
 The Hugo Debugger is a valuable part of the Hugo design system.
 It allows a programmer to monitor all aspects of program execution, including watching expressions, modifying values, moving objects, etc. -- all things expected of a modern source-level debugger.footnote:[The Hugo Debugger is not technically a source-level debugger, however.
 During its development, its author has referred to it as a source(ish) level debugger -- what the debugger does, in effect, is to "`decompile`" compiled code into the tokens and symbols that comprise each line of code.

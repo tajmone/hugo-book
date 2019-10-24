@@ -60,6 +60,7 @@ Two routines are normally required for any Hugo program, the other being the `In
 ================================================================================
 
 // @XREF ADD: "IX. THE GAME LOOP" (in footonote!)
+// @FOOTNOTE: EXTERNALIZE!
 
 The Main routine is automatically called by the engine.
 It is from here that the central behavior of any Hugo program is controlled.
@@ -73,6 +74,7 @@ For more elaboration on the execution pattern of a Hugo program, see _IX. THE GA
 Computer programs are mainly about two things: input and output (called _i/o_, for short), and modifying values.
 In fact, the bulk of a computer program (that is, what happens behind the scenes, whirring away, unbeknownst to the user) consists of setting, changing, and comparing various values.
 Hugo is no exception.
+// @FOOTNOTE: EXTERNALIZE!
 All data in Hugo is represented in terms of 16-bit integersfootnote:[While it's a little beyond the scope of this manual to talk about what exactly a 16-bit integer is (partly because you don't need to worry about it, other than to know they involve a range of 65536, either 0 to 65535 or -32768 to 32767).
 Essentially, "`bits`" refer to 1s or 0s in a base 2 number system (so that the right-most bit is the 1s, the next-to-right-most is the 2s, the next the 4s, the next the 8s, etc.) For example, the 4-bit number 1100 is equal to decimal 12, since 8+4=12.
 (If you're familiar with bitwise notation, you already knew that.
@@ -132,6 +134,7 @@ Dictionary entries are addresses in the dictionary table (comprising all diction
 Array addresses (as opposed to separate array elements) represent the address at which the array begins in the array table (comprising all array data in the *.HEX* file).
 Properties and attributes treated as discrete values represent the number of that property or attribute, assigned sequentially as the individual property or attribute is defined.
 
+// @FOOTNOTE: EXTERNALIZE!
 As mentioned, routines also return values, as do built-infootnote:[Built-in functions are just like other Hugo functions except that they're never defined anywhere in source code or any library file: the compiler and engine always know about them.
 To distinguish them, they're generally printed in lowercase, whereas program-defined routines (including library routines) are almost always capitalized.] engine functions, so that
 
@@ -147,6 +150,7 @@ and
 parent(object)
 --------------------------------------------------------------------------------
 
+// @FOOTNOTE: EXTERNALIZE!
 are also valid integer data types. footnote:[Routine addresses are also stored as 16-bit integers.
 However, those versed at all in such calculations will notice that if such a value was treated as an absolute address, then any addressable executable code would be limited to 64K in size (65536 bytes, the maximum size of an unsigned 16-bit integer).
 Such is not the case, since the routine address is actually an indexed representation of the absolute address, allowing Hugo games to far exceed any such limit in their size of executable code.]
@@ -158,6 +162,7 @@ At this point it's probably helpful to know that you can assign a value to a var
 
 // @XREF ADD: "IV.e. Operators and Assignments" (in footnote!)
 
+// @FOOTNOTE IN CODE: EXTERNALIZE!
 // @HUGO SYNTAX MOCKUP!
 [listing, subs="+macros"]
 --------------------------------------------------------------------------------
@@ -401,6 +406,7 @@ Despite the complaints that some people may have about over-commented code -- ge
 x = 5
 --------------------------------------------------------------------------------
 
+// @FOOTNOTE: EXTERNALIZE!
 with the rather obvious explanation of "`set x equal to 5`" -- it's always better to err on the side of too many comments in order to avoid the situation that every programmer find himself or herself in at least once (and once only if very, very lucky) of trying to remember what a piece of code does that you wrote yesterday, or last week, or several months ago.
 Comment, comment, comment.footnote:[But keep an eye out for issues of comment maintenance.
 Again, a good comment should add clarity to a section of code, but it (usually) shouldn't restate exactly what the code is doing.
@@ -452,6 +458,7 @@ A non-fatal error typically looks like:
 
 Non-fatal errors are usually programming mistakes: either doing something illegal (like trying to assign a value to something to which you're not allowed to assign a value), making a syntax error such as using a symbol name that the compiler doesn't know about (often due to a typing mistake), or making a formatting mistake (like missing something that the compiler knows is supposed to be coming next but you forgot to include).
 Unless the `-a` switch is specified at invocation to tell the compiler to quit after the first error, multiple non-fatal errors may be printed.
+// @FOOTNOTE: EXTERNALIZE!
 The side-effect of this is that a specific error (particularly a formatting error) may affect many lines of code after it, so that the compiler -- having become lost and not really knowing what you're trying to do -- may report a whole string of errors, even on lines that, if the compiler understood their proper context, would be error free.footnote:[Which is why, in certain cases, the `-a` switch can be helpful.]
 
 When a compiler issues a warning, it looks like:

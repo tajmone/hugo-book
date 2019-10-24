@@ -30,6 +30,7 @@ or
 The temperature is –9 degrees.
 ================================================================================
 
+// @FOOTNOTE: EXTERNALIZE!
 or any other similar variation depending on what the _variable_ `temp` happens to be equal to at the time.footnote:[Those readers who weren't already aware of variables and their usage may at this point be starting to have high-school algebra flashbacks.
 That's because we're talking about the same concept -- but, promise, no one is going to be asked to solve any quadratic equations.]
 
@@ -238,6 +239,7 @@ print "<string>"
 
 where `<string>` consists of a series of alphanumeric characters and punctuation.
 
+// @FOOTNOTE: EXTERNALIZE!
 The backslash character (`\`) is handled specially.
 It modifies how the character following it in a string is treated.footnote:[These formatting combinations are valid for printing only; they are not treated as literal characters, as in, for example, expressions involving dictionary entries.
 Note also that (unlike in languages such as C) formatting sequences such as `\n` are treated as two characters in a string.]
@@ -703,6 +705,7 @@ Hugo allows use of all standard mathematical operators:
 `*` :: multiplication
 `/` :: integer division
 
+// @FOOTNOTE: EXTERNALIZE!
 which take precedencefootnote:[Hugo follows standard order of operations for operator precedence.] over:
 
 [horizontal]
@@ -924,6 +927,7 @@ array <arrayname> [<array size>]
 
 where `<array size>` must be a numerical constant.
 
+// @FOOTNOTE: EXTERNALIZE!
 An array definition reserves a block of memory of `<array size>`footnote:[Measured in 16-bit words, or 2 bytes per element.], so that, for example,
 
 [source,hugo]
@@ -1008,6 +1012,7 @@ which would set the variable `b` to 4 + 2, or 6.
 
 // @XREF ADD: "V.a Routines" (in footnote!)
 
+// @FOOTNOTE: EXTERNALIZE!
 Because array space is statically allocated by the compiler, all arrays must be declared at the global level.
 Local arrays are illegal, as are entire arrays passed as argumentsfootnote:["`Arguments`" are simply parameters passed to a routine at calling time.
 See _V.a Routines_.].
@@ -1104,6 +1109,7 @@ x = string(a, "microscopic", 10)
 
 // @XREF ADD: "VII.b The Parser" (in footnote!)
 
+// @FOOTNOTE: EXTERNALIZE!
 will store up to 10 characters of "`microscopic`" in the array `a`, and return the length of the stored string to the variable `x`.{wj}footnote:[(The built-in engine variables `parse$` and `serial$` may be used in place of the dictionary entry address; see _VII.b The Parser_ for a description.)]
 
 The Hugo Library defines the functions `StringCopy`, `StringEqual`, `StringLength`, and `StringPrint`, which are extremely useful when dealing with string arrays.
@@ -1304,6 +1310,7 @@ Of course, all three (`if`, `elseif`, and `else`) need not be used every time, a
 In certain cases, the `if` statement may not lend itself perfectly to clarity, and the `select`-`case` construction may be more appropriate.
 The general form is:
 
+// @FOOTNOTE IN CODE: EXTERNALIZE!
 // @HUGO SYNTAX MOCKUP!
 [source,hugo, subs="+macros"]
 --------------------------------------------------------------------------------
@@ -1325,6 +1332,7 @@ In this case, the evaluation is essentially
 if <var> = <value1> [or <var> = <value2> ...]
 ---------------------------------------------
 
+// @FOOTNOTE: EXTERNALIZE!
 There is no limit on the number of values (separated by commas) that can appear on a line following ``case``footnote:[Okay, this isn't quite true.
 While there isn't an _explicit_ limit, if you create a single `case` line that runs on forever and ever, eventually you'll reach the point where, for buffer reasons, the compiler isn't able to compile it, and it will complain with an appropriate error.].
 The same rules for bracing multiple-line code blocks apply as with `if` (as well as for every other type of conditional block).
@@ -1436,6 +1444,7 @@ for i in mysuitcase
 
 will print the names of each object in the `mysuitcase` object.
 
+// @FOOTNOTE: EXTERNALIZE!
 Hugo also supports `jump` commands and labels.
 A label is simply a user-specified token preceded by a colon (`:`) at the beginning of a line.
 The label name must be a unique token in the program.footnote:[The jump keyword is more or less equivalent to goto in other languages.

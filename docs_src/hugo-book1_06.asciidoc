@@ -117,6 +117,7 @@ runs the `tick` property -- defined in the library, which is responsible for dec
 
 == Scripts
 
+// @FOOTNOTE: EXTERNALIZE!
 Scripts are considerably more complex than fuses and daemons.
 The purpose of a script (also called a character script) is to allow an object -- usually a character -- to follow a sequence of actions turn-by-turn, independent of the player.
 Up to 16 scripts may be running at once.footnote:[This is a library-set limit.]

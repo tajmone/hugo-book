@@ -12,6 +12,7 @@ The first parsing pass also does the following:
 . Time given in "`__hh__:__mm__`" (hours:minutes) format is converted to an integer number representing the total minutes since midnight, i.e., through the formula: _hh_ * 60 + _mm_.
 The original "`__hh__:__mm__`" is stored in `parse$`.
 . Up to one word (or set of words) in quotation marks is allowed; if found, it is stored in `parse$`.
+// @FOOTNOTE: EXTERNALIZE!
 . Special words are processed, i.e., removals and user-defined punctuation are removed, compounds are combined, and synonyms are replaced.footnote:[See _XI.b_ _Special Words_]
 
 If a user-defined `Parse` routine exists (i.e., if bytes $1D-1E in the header are not $0000), it is called next.
