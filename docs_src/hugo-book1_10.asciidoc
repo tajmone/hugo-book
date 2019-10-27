@@ -1,5 +1,29 @@
 = USING THE OBJECT LIBRARY
 
+// >>> footnotes definitions >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+:fn1: pass:q[footnote:[ \
+This also means that in order to create a dark location -- i.e., one that has no intrinsic lighting -- it is necessary to put an explicit `not light` in the object's definition. \
+In that case, in order for the player to see anything in the location, light will have to be provided either by an object in the location (such as a lamp) or by something portable that can be brought into the location (like a flashlight).]]
+
+:fn2: pass:q[footnote:[The library uses the `player_person` global to properly format messages to the player.]]
+
+:fn3: pass:q[footnote:[ \
+The `scenery` class has the `static` attribute, which makes scenery objects untakeable. \
+This is largely the point of scenery objects.]]
+
+:fn4: pass:q[footnote:[One could prevent duplication of properties and other parts of the object definitions by creating a common `sundae` class and deriving both `fudge_sundae` and `butterscotch_sundae` from it, changing only the `adjective` property.]]
+
+:fn5: pass:q[footnote:[Using `banana1` as a class to build subsequent banana objects from is a simple way of copying objects (and saves typing and/or copying-and-pasting).]]
+
+:fn6: footnote:[ \
+The author encourages the implementation of bananas in any game. \
+More bananas mean more monkeys, and monkeys are always fun.]]
+
+:fn7: pass:q[footnote:[See *sample.hug* for examples of the last two.]]
+
+// <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
 The Hugo Object Library (*objlib.h*), included by default by *hugolib.h* as part of the standard Hugo Library, provides a number of useful classes for common elements of many games.
 These classes can be used as-is to create objects or as base classes for more complex and/or game-specific classes.
 
@@ -26,10 +50,8 @@ room living_room "living room"
 -------------------------------------------------
 
 
-// @FOOTNOTE: EXTERNALIZE!
 Since a room is not placed within another object in the object tree (using the `in` directive), it automatically has a parent of 0 or `nothing`.
-By inheriting from the `room` class, the `living_room` object acquires the characteristics defined in the object library, including being `static` and ``light``footnote:[This also means that in order to create a dark location -- i.e., one that has no intrinsic lighting -- it is necessary to put an explicit `not light` in the object's definition.
-In that case, in order for the player to see anything in the location, light will have to be provided either by an object in the location (such as a lamp) or by something portable that can be brought into the location (like a flashlight).].
+By inheriting from the `room` class, the `living_room` object acquires the characteristics defined in the object library, including being `static` and `light`.{fn1}
 
 Additionally, as with other classes in the object library, the `type` property of an object can be checked to see which class it was derived from.
 In this case, `living_room.type` would equal `room`.
@@ -126,9 +148,8 @@ player_character you "you"
 {}
 --------------------------------------------------------------------------------
 
-// @FOOTNOTE: EXTERNALIZE!
 The PC is by default named in the second person (as opposed to the first-person "`I`" or the third-person "`he`", "`she`", "`it`", or "`them`").
-To change to another form, it will be necessary to redefine the PC's `pronouns` property accordingly, as well as to change the global variable ``player_person``footnote:[The library uses the player_person global to properly format messages to the player.] (which defaults to 2) to 1 or 3, as appropriate, and optionally to give a plural PC the `plural` attribute (in the rare case where that may be desired).
+To change to another form, it will be necessary to redefine the PC's `pronouns` property accordingly, as well as to change the global variable `player_person`{fn2} (which defaults to 2) to 1 or 3, as appropriate, and optionally to give a plural PC the `plural` attribute (in the rare case where that may be desired).
 
 
 
@@ -260,10 +281,9 @@ scenery prison_window "prison window"
 }
 --------------------------------------------------
 
-// @FOOTNOTE: EXTERNALIZE!
 The most important characteristic of a scenery object created using the `scenery` class is that it will not be listed by the library as part of the room's contents (in this case, the contents of `prison_cell`).
-The `scenery` class is otherwise relatively unadorned: looking at a scenery object will produce a generic message about seeing nothing special, attempting to take a scenery object will generate a generic "`You can't take that`"-type response, etc.footnote:[The scenery class has the static attribute, which makes scenery objects untakeable.
-This is largely the point of scenery objects.] The scenery object can be fleshed out with a `long_desc` property and `before`/`after` handling for desired verbroutines.
+The `scenery` class is otherwise relatively unadorned: looking at a scenery object will produce a generic message about seeing nothing special, attempting to take a scenery object will generate a generic "`You can't take that`"-type response, etc.{fn3}
+The scenery object can be fleshed out with a `long_desc` property and `before`/`after` handling for desired verbroutines.
 
 Components are similar to scenery objects in two important respects in that they're not intended to be taken and they're not specifically listed in any itemization of contents.
 Consider a case where a game might contain a machine (for fun, a nefarious machine) and a lever.
@@ -483,8 +503,7 @@ butterscotch sundae: Taken.
 
 That's where the `plural_class` comes in.
 
-// @FOOTNOTE IN CODE: EXTERNALIZE!
-[source,hugo, subs="+macros"]
+[listing, subs="+attributes,macros"]
 --------------------------------------------------------------------------------
 plural_class sundaes "sundaes"
 {
@@ -507,7 +526,7 @@ object butterscotch_sundae "butterscotch_sundae"
     adjective "butterscotch"
     noun "sundae"
     plural_is sundaes
-}footnote:[One could prevent duplication of properties and other parts of the object definitions by creating a common sundae class and deriving both fudge_sundae and butterscotch_sundae from it, changing only the adjective property.]
+}{fn4}
 --------------------------------------------------------------------------------
 
 The `plural_of` property on the `plural` class enumerates the objects which it encompasses; each object encompassed by the `plural` class then points back to the `plural` class in its `plural_is` property.
@@ -537,8 +556,7 @@ There are three bananas here.
 Something like that can be done easily by creating an identical object from the `identical_class` in the object library.
 The `identical_class` is similar to the `plural_class` except for a couple details of implementation and behavior.
 
-// @FOOTNOTE IN CODE: EXTERNALIZE!
-[source,hugo, subs="+macros"]
+[listing, subs="+attributes,macros"]
 ----------------------------------------
 identical_class bananas "bananas"
 {
@@ -554,7 +572,7 @@ object banana1 "banana"
     identical_to bananas
 }
 
-banana1 banana2 "banana"footnote:[Using banana1 as a class to build subsequent banana objects from is a simple way of copying objects (and saves typing and/or copying-and-pasting).]
+banana1 banana2 "banana"{fn5}
 {}
 
 banana1 banana3 "banana"
@@ -563,18 +581,15 @@ banana1 banana3 "banana"
 ----------------------------------------
 
 
-// @FOOTNOTE: EXTERNALIZE!
-The identical object `bananas` will allow a player to use all the facilities of the `identical_class` in order to manipulate one or more otherwise indistinguishable banana objects.footnote:[The author encourages the implementation of bananas in any game.
-More bananas mean more monkeys, and monkeys are always fun.]
+The identical object `bananas` will allow a player to use all the facilities of the `identical_class` in order to manipulate one or more otherwise indistinguishable banana objects.{fn6}
 
 
 
 == Attachables
 
-// @FOOTNOTE: EXTERNALIZE!
 Ropes and other similar objects -- anything, really, which ties onto something else or, even worse, ties _between_ two or more objects -- are notoriously difficult to code.
 Safe advice on how to code a rope used to be: code a block of wood instead.
-The object library provides an `attachable` class which has successfully been used for everything from ropes to blankets to three-ended chains and darts.footnote:[See *sample.hug* for examples of the last two.]
+The object library provides an `attachable` class which has successfully been used for everything from ropes to blankets to three-ended chains and darts.{fn7}
 
 [IMPORTANT]
 ================================================================================

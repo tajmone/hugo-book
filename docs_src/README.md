@@ -173,14 +173,14 @@ Every chapter in the list provides an [HTML Live Preview] link to quickly jump t
         *  (_No footnotes_).
     + [ ]  [10. _USING THE OBJECT LIBRARY_][Ch10]
         * [ ]  Fix all XRefs.
-        * [ ]  Fix footnotes (**10**):
-            - [ ]  2 footnotes inside code.
+        * [x]  Fix footnotes (**10**):
+            - [x]  2 footnotes inside code.
      + [ ]  [11. _ADVANCED FEATURES_][Ch11]
         * [ ]  Fix all XRefs.
         *  (_No footnotes_).
     + [ ]  [12. _RESOURCES_][Ch12]
         * [ ]  Fix all XRefs.
-        * [ ]  Fix footnotes (**2**).
+        * [x]  Fix footnotes (**2**).
     + [ ]  [APP. A. _SUMMARY OF KEYWORDS AND COMMANDS_][AppA]
         * [ ]  _needs to be proof-read once more, carefully!_
         * [ ]  Fix all XRefs.
@@ -197,7 +197,7 @@ Every chapter in the list provides an [HTML Live Preview] link to quickly jump t
     + [ ]  [APP. D. _HUGOFIX AND THE HUGO DEBUGGER_][AppD]
         * [ ]  _needs to be proof-read once more, carefully!_
         * [ ]  Fix all XRefs.
-        * [ ]  Fix footnotes (**2**).
+        * [x]  Fix footnotes (**2**).
     + [ ]  [APP. E. _PRECOMPILED HEADERS_][AppE]
         * [ ]  Fix all XRefs.
         *  (_No footnotes_).
@@ -220,7 +220,7 @@ Every chapter in the list provides an [HTML Live Preview] link to quickly jump t
         * [ ]  Fix footnotes (**1**).
     + [ ]  [16. _ENGINE PARSING_][Ch16]
         * [ ]  Fix all XRefs.
-        * [ ]  Fix footnotes (**1**).
+        * [x]  Fix footnotes (**1**).
     + [ ]  [17. _GRAMMAR_][Ch17]
         * [ ]  Fix all XRefs.
         *  (_No footnotes_).
@@ -232,7 +232,7 @@ Every chapter in the list provides an [HTML Live Preview] link to quickly jump t
         *  (_No footnotes_).
     + [ ]  [20. _THE OBJECT TABLE_][Ch20]
         * [ ]  Fix all XRefs.
-        * [ ]  Fix footnotes (**2**).
+        * [x]  Fix footnotes (**2**).
     + [ ]  [21. _THE PROPERTY TABLE_][Ch21]
         * [ ]  Fix all XRefs.
         *  (_No footnotes_).

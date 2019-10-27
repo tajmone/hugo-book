@@ -1,5 +1,16 @@
 = RESOURCES
 
+// >>> footnotes definitions >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+// @XREF ADD: "APPENDIX F: HUGO VERSIONS" (in footnote!)
+:fn1: pass:q[footnote:[ \
+Versions of Hugo prior to v3.0 may not support all resource types. \
+See _APPENDIX F: HUGO VERSIONS_ for more information.]]
+
+:fn2: pass:q[footnote:[The result codes are defined in *resource.h*.]]
+
+// <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
 
 == Creating And Using Resources
 
@@ -24,10 +35,7 @@ The `<resourcefile>` name must be 8 or fewer alphanumeric characters which will 
 
 NOTE: The reason for this is to maximize portability across different platforms and filenaming systems -- unfortunately not everyone adheres to the same conventions, so this restriction is intended to reduce filenaming to the lowest common denominator.
 
-// @XREF ADD: "APPENDIX F: HUGO VERSIONS" (in footnote!)
-// @FOOTNOTE: EXTERNALIZE!
-Currently Hugo supports as resources: JPEG graphic files, RIFF/WAV audio samples, MOD/S3M/XM music modules, MIDI and MP3 songs, and MPEG and AVI movies.footnote:[Versions of Hugo prior to v3.0 may not support all resource types.
-See _APPENDIX F: HUGO VERSIONS_ for more information.]
+Currently Hugo supports as resources: JPEG graphic files, RIFF/WAV audio samples, MOD/S3M/XM music modules, MIDI and MP3 songs, and MPEG and AVI movies.{fn1}
 
 For example, here is an imaginary example resourcefile compiled on a Windows platform:
 
@@ -55,10 +63,9 @@ As a result, two resources with the same name but different paths/extensions can
 
 Because of the relative non-portability of resourcefiles (plus the additional time it may take on slower machines to index and consolidate potentially hundreds of kilobytes of data), it is recommended that resources be compiled from separate source files than the rest of a Hugo game.
 
-// @FOOTNOTE: EXTERNALIZE!
 The library extension *resource.h* provides useful routines for managing resources in a Hugo program.
 It also defines the following potential values for the `system_status` global, which may be tested after a resource operation.
-If `system_status` is non-zero (where zero signifies normal status), it will contain one of the following valuesfootnote:[The result codes are defined in *resource.h*.]:
+If `system_status` is non-zero (where zero signifies normal status), it will contain one of the following values:{fn2}
 
 
 [.center]

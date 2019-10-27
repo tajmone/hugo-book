@@ -1,5 +1,13 @@
 = ENGINE PARSING
 
+
+// >>> footnotes definitions >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+// @XREF ADD: "XI.b Special Words" (in footnote!)
+:fn1: footnote:[See _XI.b Special Words_.]
+
+// <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
 The engine is responsible for all the low-level parsing of an input line (i.e., player command).
 Upon receiving an input, the engine parses the line into separate words, storing them in the word array.
 The word array -- i.e., that which is referenced in a Hugo program via `word[_n_]` -- is an internal structure coded using the `word` token instead of `array#`.
@@ -13,7 +21,7 @@ The first parsing pass also does the following:
 The original "`__hh__:__mm__`" is stored in `parse$`.
 . Up to one word (or set of words) in quotation marks is allowed; if found, it is stored in `parse$`.
 // @FOOTNOTE: EXTERNALIZE!
-. Special words are processed, i.e., removals and user-defined punctuation are removed, compounds are combined, and synonyms are replaced.footnote:[See _XI.b_ _Special Words_]
+. Special words are processed, i.e., removals and user-defined punctuation are removed, compounds are combined, and synonyms are replaced.{fn1}
 
 If a user-defined `Parse` routine exists (i.e., if bytes $1D-1E in the header are not $0000), it is called next.
 If the routine returns true, the engine parsing routine is called a second time to reconcile any changes to the word set.
