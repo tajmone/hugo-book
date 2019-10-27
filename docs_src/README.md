@@ -258,9 +258,9 @@ Every chapter in the list provides an [HTML Live Preview] link to quickly jump t
     + [ ]  [APP. H. _CODE PATTERNS_][AppH]
         * [ ]  _needs to be proof-read once more, carefully!_
         * [ ]  Fix all XRefs.
-        * [ ]  Fix footnotes (**11**)
-            - [ ]  11 footnotes inside tables (many duplicate notes):
-                * [ ]  9 of these footnotes are inside code-blocks.
+        * [x]  Fix footnotes (**11**)
+            - [x]  11 footnotes inside tables (8 identical):
+                * [x]  9 of these footnotes are inside literal-blocks.
 - [ ] _INDEX_ (supported only in PDF format)
 
 

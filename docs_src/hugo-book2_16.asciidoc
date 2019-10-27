@@ -1,6 +1,30 @@
 [appendix]
 = CODE PATTERNS
 
+// >>> footnotes definitions >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+// @FOOTNOTE SAME TEXT: 73-77, 80-82 (i.e. 1-5, 8-10)
+:fn-eol: pass:q[Pre-v2.3 omitted the `eol#` marker ($4C).]
+
+:fn1: footnote:[{fn-eol}]
+:fn2: footnote:[{fn-eol}]
+:fn3: footnote:[{fn-eol}]
+:fn4: footnote:[{fn-eol}]
+:fn5: footnote:[{fn-eol}]
+:fn8: footnote:[{fn-eol}]
+:fn9: footnote:[{fn-eol}]
+:fn10: footnote:[{fn-eol}]
+
+:fn6: footnote:[Not implemented post-v2.2.]
+
+:fn7: pass:q[footnote:[Pre-v2.3 omitted the `eol#` marker ($4C) when used as a statement.]]
+
+:fn11: footnote:[ \
+Version 2.5 supports MOD, S3M, and XM-format music modules. \
+Version 3.0 and later additionally support MIDI and MP3 files.]
+
+// <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
 What follows is a detailed breakdown of how the set of valid tokens in Hugo is encoded and read within compiled code.
 
 Tokens simply marked *TOKEN* are coded just as the byte value of the token in question; no other formatting or necessary token/value is required to follow.
@@ -320,8 +344,8 @@ Where `<address>` is two bytes giving the indexed address of the next statement 
 | 26 | run | *STATEMENT*
 
 // @FOOTNOTE IN TABLE + CODE: EXTERNALIZE!
-[literal,subs="+macros"]
-26 <value> 4Cfootnote:[pass:q[Pre-v2.3 omitted the `eol#` marker ($4C).]]
+[literal,subs="+attributes,macros"]
+26 <value> 4C{fn1}
 
 Where `<value>` is simply read and forgotten, as in running an `object.property` property routine and throwing away the value.
 // -----------------------------------------------------------------------------
@@ -403,8 +427,8 @@ Signals that the following dictionary entry should have its first letter capital
 .2+| 36 | text | *STATEMENT*
 
 // @FOOTNOTE IN TABLE + CODE: EXTERNALIZE!
-[literal,subs="+macros"]
-36 3B <value> 4Cfootnote:[pass:q[Pre-v2.3 omitted the `eol#` marker ($4C).]]
+[literal,subs="+attributes,macros"]
+36 3B <value> 4C{fn2}
 
 >s| As in:  <a|
 
@@ -444,8 +468,8 @@ If a third value is given, separated by a comma ($19), it represents the input c
 .3+| 39 | remove | *STATEMENT*
 
 // @FOOTNOTE IN TABLE + CODE: EXTERNALIZE!
-[literal,subs="+macros"]
-39 <value> 4Cfootnote:[pass:q[Pre-v2.3 omitted the `eol#` marker ($4C).]]
+[literal,subs="+attributes,macros"]
+39 <value> 4C{fn3}
 
 {blank}
 
@@ -464,8 +488,8 @@ remove <object>
 .3+| 3A | move | *STATEMENT*
 
 // @FOOTNOTE IN TABLE + CODE: EXTERNALIZE!
-[literal,subs="+macros"]
-3A <value> 3B <value> 4footnote:[pass:q[Pre-v2.3 omitted the `eol#` marker ($4C).]]
+[literal,subs="+attributes,macros"]
+3A <value> 3B <value> 4C{fn4}
 
 {blank}
 
@@ -673,8 +697,8 @@ End-of-line marker.
 .3+| 4D | system | *INTERNAL STATEMENT* or *VALUE*
 
 // @FOOTNOTE IN TABLE + CODE: EXTERNALIZE!
-[literal,subs="+macros"]
-4D 01 <value> 02 4Cfootnote:[pass:q[Pre-v2.3 omitted the `eol#` marker ($4C).]]
+[literal,subs="+attributes,macros"]
+4D 01 <value> 02 4C{fn5}
 
 {blank}
 
@@ -692,7 +716,7 @@ Calls the system-level function designated by `<value>`.
 TIP: See _The Hugo Programming Manual_ for further elaboration on the `system` statement.
 
 // @FOOTNOTE IN TABLE: EXTERNALIZE!
-Obsolete usage:footnote:[Not implemented post-v2.2.]
+Obsolete usage:{fn6}
 
     4D <value>
 
@@ -881,8 +905,8 @@ Where `<array>` is two bytes giving the address of the array in the array table.
 .2+| 5A | call | STATEMENT or VALUE
 
 // @FOOTNOTE IN TABLE + CODE: EXTERNALIZE!
-[literal,subs="+macros"]
-5A <value> 4Cfootnote:[pass:q[Pre-v2.3 omitted the `eol#` marker ($4C) when used as a statement.]]
+[literal,subs="+attributes,macros"]
+5A <value> 4C{fn7}
 
 {blank}
 
@@ -1141,8 +1165,8 @@ Calls the engine's end-command-recording procedure; returns a true value on succ
 .3+| 6F | writefile | *STATEMENT*
 
 // @FOOTNOTE IN TABLE + CODE: EXTERNALIZE!
-[literal,subs="+macros"]
-6F <value> 4Cfootnote:[pass:q[Pre-v2.3 omitted the `eol#` marker ($4C).]]
+[literal,subs="+attributes,macros"]
+6F <value> 4C{fn8}
     ...file i/o code block...
 
 {blank}
@@ -1166,8 +1190,8 @@ Upon any error, jumps to the end of the file i/o code block and closes `<file>`.
 .2+| 70 | readfile | *STATEMENT*
 
 // @FOOTNOTE IN TABLE + CODE: EXTERNALIZE!
-[literal,subs="+macros"]
-70 <value> 4Cfootnote:[pass:q[Pre-v2.3 omitted the `eol#` marker ($4C).]]
+[literal,subs="+attributes,macros"]
+70 <value> 4C{fn9}
     ...file i/o code block...
 
 {blank}
@@ -1186,8 +1210,8 @@ Upon any error, jumps to the end of the file i/o code block and closes `<file>`.
 | 71 | writeval | *STATEMENT*
 
 // @FOOTNOTE IN TABLE + CODE: EXTERNALIZE!
-[literal,subs="+macros"]
-71 <value> 19 <value> 19 ... 4Cfootnote:[pass:q[Pre-v2.3 omitted the `eol#` marker ($4C).]]
+[literal,subs="+attributes,macros"]
+71 <value> 19 <value> 19 ... 4C{fn10}
 
 Valid only in a `writefile` block.
 Writes `<value>` as a 16-bit integer to the currently open file.
@@ -1249,7 +1273,7 @@ If there is an error, the `system_status` global variable is set.
     78 <value1> 4C
 
 // @FOOTNOTE IN TABLE: EXTERNALIZE!
-Attempts to load and play a music resourcefootnote:[Version 2.5 supports MOD, S3M, and XM-format music modules. Version 3.0 and later additionally support MIDI and MP3 files.] as resource `<value2>` in resourcefile `<value1>`.
+Attempts to load and play a music resource{fn11} as resource `<value2>` in resourcefile `<value1>`.
 (`<value1>` and `<value2>` are dictionary entries.)
 If `<value3>` is given, the music output volume is set to `<value3>` (as a percentage of normal output).
 If `<value1>` is 0, the current music is stopped.
