@@ -115,7 +115,11 @@ There's still a lot of work to be done in terms of enforcing consistent styles, 
 ## List of Book-Wide Task
 
 - [x] Word to AsciiDoc porting and basic formatting and styles clean-up.
-- [ ] **FOOTNOTES** — Proofread, format and fix all footnotes.
+- [ ] **FOOTNOTES** — Proofread, format and fix all footnotes. (see [#21] and [milestone 4])
+- [ ] **TITLE CASE** — Enforce [_Chicago_ style title capitalization]  (see [#13]):
+    + [ ] All chapters and appendices titles (from all-caps).
+    + [ ] All sections.
+    + [ ] All captions (tables, figures, etc.).
 - [ ] **XREFS** — Restore all XRefs and create custom anchors.
 - [ ] **CODE BLOCKS:**
     + [ ] Hugo code:
@@ -138,10 +142,11 @@ Every chapter in the list provides an [HTML Live Preview] link to quickly jump t
 - [ ]  [BOOK 1. **THE HUGO PROGRAMMING MANUAL**][Book I]
     + [ ]  [1. _INTRODUCTION_][Ch1]
         * [ ]  Fix all XRefs.
-        * [ ]  Fix footnotes (**3**).
+        * [x]  Fix footnotes (**3**).
     + [ ]  [2. _A FIRST LOOK AT HUGO_][Ch2]
         * [ ]  Fix all XRefs.
-        * [ ]  Fix footnotes (**7**).
+        * [x]  Fix footnotes (**7**);
+            - [x]  1 footnote inside code.
     + [ ]  [3. _OBJECTS_][Ch3]
         * [ ]  Fix all XRefs.
         * [ ]  Fix footnotes (**10**):
@@ -293,10 +298,10 @@ In order to convert _The Hugo Book_ to HTML you'll need to install the following
                                REFERENCE LINKS
 ------------------------------------------------------------------------------>
 
+[_Chicago_ style title capitalization]: https://en.wikipedia.org/wiki/The_Chicago_Manual_of_Style "Chicago Manual of Style Capitalization Rules"
+[docinfo file]: https://asciidoctor.org/docs/user-manual/#docinfo-file "Read about docinfo files in Asciidoctor Manual"
 [generated via Dia]: ../assets_src/diagrams/ "Navigate to folder of SVG Dia sources"
 [generated via Sass]: ../assets_src/sass/ "Navigate to Sass sources folder"
-
-[docinfo file]: https://asciidoctor.org/docs/user-manual/#docinfo-file "Read about docinfo files in Asciidoctor Manual"
 
 <!-- 3rd party tools -->
 
@@ -421,5 +426,11 @@ In order to convert _The Hugo Book_ to HTML you'll need to install the following
 [HB1:3 objT1.svg]: ./hugo-book1_03_object-tree1.svg "Open diagram image file"
 [HB1:3 objT2.svg]: ./hugo-book1_03_object-tree2.svg "Open diagram image file"
 [HB1:3 objT3.svg]: ./hugo-book1_03_object-tree3.svg "Open diagram image file"
+
+<!-- Issues and milestones -->
+
+[#13]: https://github.com/tajmone/hugo-book/issues/13
+[#21]: https://github.com/tajmone/hugo-book/issues/21
+[milestone 4]: https://github.com/tajmone/hugo-book/milestone/4
 
 <!-- EOF -->

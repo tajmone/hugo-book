@@ -1,16 +1,21 @@
 = INTRODUCTION
 
+// >>> footnotes definitions >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+// @XREF ADD: "APPENDIX G: ADDITIONAL RESOURCES" (in footnote!)
+:fn1: footnote:[If not, or if you'd like some additional interesting reading, there are a number of excellent resources to investigate further, some of which are listed in _APPENDIX G: ADDITIONAL RESOURCES_.]
+
+:fn2: footnote:[The best and most popular of these earlier systems are TADS (Mike Roberts, 1987) and Inform (Graham Nelson, 1993).]
+
+:fn3: footnote:[Other ports done by the author are for Windows, Linux, Macintosh, DOS, BeOS, Pocket PC, and PalmOS.]
+// <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
 == Why You're Here (or, Just What Is Hugo?)
 
 
-// @XREF ADD: "APPENDIX G: ADDITIONAL RESOURCES" (in footnote!)
-// @FOOTNOTE: EXTERNALIZE!
-
-Chances are if you're reading this book you're already at least a little familiar with adventure games, and maybe even more specifically interactive fiction or text adventures. footnote:[If not, or if you'd like some additional interesting reading, there are a number of excellent resources to investigate further, some of which are listed in _APPENDIX G: ADDITIONAL RESOURCES_.]
-// @FOOTNOTE: EXTERNALIZE!
+Chances are if you're reading this book you're already at least a little familiar with adventure games, and maybe even more specifically interactive fiction or text adventures.{fn1}
 Hugo is a system for designing, programming, and running these.
-It is not the first such system -- and it's difficult to find substantial fault in any general way with the best of those systems that predate Hugofootnote:[The best and most popular of these earlier systems are TADS (Mike Roberts, 1987) and Inform (Graham Nelson, 1993).] -- but Hugo does hope to extend the concepts developed in earlier, similar systems in order to make interactive fiction programming less cryptic, and more flexible and accessible to designers, as well as to add functionality in certain areas where other systems are lacking.
+It is not the first such system -- and it's difficult to find substantial fault in any general way with the best of those systems that predate Hugo{fn2} -- but Hugo does hope to extend the concepts developed in earlier, similar systems in order to make interactive fiction programming less cryptic, and more flexible and accessible to designers, as well as to add functionality in certain areas where other systems are lacking.
 
 What does it mean to be a "`system`" for interactive fiction?
 In Hugo's case, it means that not only does it provide an environment for running Hugo games -- the rather exciting-sounding Hugo Engine -- but also the means of creating them (the Hugo Compiler) and a tool for troubleshooting (the Hugo Debugger).
@@ -41,7 +46,7 @@ The Hugo Compiler, the Hugo Engine, the Hugo Debugger, the Hugo Library, and rel
 
 Those who have taken upon themselves the task of porting Hugo to various platforms include Julian Arnold (Acorn/RiscOS port), Gerald Bostock (OS/2 port), David Kinder (Amiga port), Bill Lash (original Unix/Linux port), Andrew Plotkin (Macintosh port using his Glk library), and Colin Turnbull (original Acorn Archimedes port).
 The author is considerably indebted to them, for all their work as well as for their input on how to improve the compiler and engine.
-Without their efforts, Hugo and the games created with it would not be available for so nearly as wide an audience.footnote:[Other ports done by the author are for Windows, Linux, Macintosh, DOS, BeOS, Pocket PC, and PalmOS.]
+Without their efforts, Hugo and the games created with it would not be available for so nearly as wide an audience.{fn3}
 
 More than a few words of appreciation must be given to Volker Blasius, the original maintainer of the Interactive Fiction Archive at GMD, one of the key resources for interactive fiction players and developers, and a primary hub of material for contributors to (and readers of) the Usenet newsgroups
 link:++https://groups.google.com/forum/#!forum/rec.arts.int-fiction++[_rec.arts.int-fiction_^,title="Visit rec.arts.int-fiction at Google Groups"] and

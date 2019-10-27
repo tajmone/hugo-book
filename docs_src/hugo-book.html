@@ -535,7 +535,7 @@ div.literalblock.cmd pre .conum {
 <span id="email" class="email"><a href="mailto:general@generalcoffee.com">general@generalcoffee.com</a></span><br>
 <span id="revnumber">version 1,</span>
 <span id="revdate">2018-10-04</span>
-<br><span id="revremark">Draft 68 -- Porting to AsciiDoc</span>
+<br><span id="revremark">Draft 69 -- Porting to AsciiDoc</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -673,7 +673,7 @@ HOW TO WRITE GAMES AND INFLUENCE PEOPLE
 <div class="sect2">
 <h3 id="_why_youre_here_or_just_what_is_hugo"><a class="anchor" href="#_why_youre_here_or_just_what_is_hugo"></a>1.1. Why You&#8217;re Here (or, Just What Is Hugo?)</h3>
 <div class="paragraph">
-<p>Chances are if you&#8217;re reading this book you&#8217;re already at least a little familiar with adventure games, and maybe even more specifically interactive fiction or text adventures. <sup class="footnote">[<a id="_footnoteref_1" class="footnote" href="#_footnotedef_1" title="View footnote.">1</a>]</sup>
+<p>Chances are if you&#8217;re reading this book you&#8217;re already at least a little familiar with adventure games, and maybe even more specifically interactive fiction or text adventures.<sup class="footnote">[<a id="_footnoteref_1" class="footnote" href="#_footnotedef_1" title="View footnote.">1</a>]</sup>
 Hugo is a system for designing, programming, and running these.
 It is not the first such system&#8201;&#8212;&#8201;and it&#8217;s difficult to find substantial fault in any general way with the best of those systems that predate Hugo<sup class="footnote">[<a id="_footnoteref_2" class="footnote" href="#_footnotedef_2" title="View footnote.">2</a>]</sup>&#8201;&#8212;&#8201;but Hugo does hope to extend the concepts developed in earlier, similar systems in order to make interactive fiction programming less cryptic, and more flexible and accessible to designers, as well as to add functionality in certain areas where other systems are lacking.</p>
 </div>
@@ -1682,7 +1682,7 @@ In this case the task at hand is the printing of &#8220;Hello, Sailor!&#8221;, f
 <p>Computer programs are mainly about two things: input and output (called <em>i/o</em>, for short), and modifying values.
 In fact, the bulk of a computer program (that is, what happens behind the scenes, whirring away, unbeknownst to the user) consists of setting, changing, and comparing various values.
 Hugo is no exception.
-All data in Hugo is represented in terms of 16-bit integers<sup class="footnote">[<a id="_footnoteref_5" class="footnote" href="#_footnotedef_5" title="View footnote.">5</a>]</sup>, treated as signed (-32768 to 32767) or unsigned (0 to 65535) as appropriate.
+All data in Hugo is represented in terms of 16-bit integers,<sup class="footnote">[<a id="_footnoteref_5" class="footnote" href="#_footnotedef_5" title="View footnote.">5</a>]</sup> treated as signed (-32768 to 32767) or unsigned (0 to 65535) as appropriate.
 It&#8217;s up to the compiler and engine to decide what a particular value means in a given context.
 The name of any individual data type may contain up to 32 alphanumeric characters (as well as the underscore <code>_</code>).</p>
 </div>
@@ -1792,7 +1792,7 @@ Properties and attributes treated as discrete values represent the number of tha
 </div>
 </div>
 <div class="paragraph">
-<p>are also valid integer data types. <sup class="footnote">[<a id="_footnoteref_7" class="footnote" href="#_footnotedef_7" title="View footnote.">7</a>]</sup></p>
+<p>are also valid integer data types.<sup class="footnote">[<a id="_footnoteref_7" class="footnote" href="#_footnotedef_7" title="View footnote.">7</a>]</sup></p>
 </div>
 <div class="paragraph">
 <p>It&#8217;s good medicine to be as descriptive as possible in naming symbols, regardless of what you&#8217;re naming.
@@ -1803,7 +1803,7 @@ A variable that holds the count of a number of objects <em>could</em> be called 
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>&lt;some variable&gt; = &lt;some value&gt;<sup class="footnote">[<a id="_footnoteref_8" class="footnote" href="#_footnotedef_8" title="View footnote.">8</a>]</sup></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl opt">&lt;</span>some variable<span class="hl opt">&gt; = &lt;</span>some value<span class="hl opt">&gt;</span><sup class="footnote">[<a id="_footnoteref_8" class="footnote" href="#_footnotedef_8" title="View footnote.">8</a>]</sup></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -21592,7 +21592,7 @@ If there is an error, the <code>system_status</code> global variable is set.</p>
 <div id="footnotes">
 <hr>
 <div class="footnote" id="_footnotedef_1">
-<a href="#_footnoteref_1">1</a>. If not, or if you&#8217;d like some additional interesting reading, there are a number of excellent resources to investigate further, some of which are listed in <em>APPENDIX G: ADDITIONAL RESOURCES</em>.
+<a href="#_footnoteref_1">1</a>. If not, or if you&#8217;d like some additional interesting reading, there are a number of excellent resources to investigate further, some of which are listed in _APPENDIX G: ADDITIONAL RESOURCES_.
 </div>
 <div class="footnote" id="_footnotedef_2">
 <a href="#_footnoteref_2">2</a>. The best and most popular of these earlier systems are TADS (Mike Roberts, 1987) and Inform (Graham Nelson, 1993).
