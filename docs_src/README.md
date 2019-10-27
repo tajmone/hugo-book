@@ -213,8 +213,8 @@ Every chapter in the list provides an [HTML Live Preview] link to quickly jump t
         *  (_No footnotes_).
     + [ ]  [14. _ORGANIZATION OF THE .HEX FILE_][Ch14]
         * [ ]  Fix all XRefs.
-        * [ ]  Fix footnotes (**6**):
-            - [ ]  5 footnotes inside tables.
+        * [x]  Fix footnotes (**6**):
+            - [x]  5 footnotes inside tables.
     + [ ]  [15. _TOKENS AND DATA TYPES_][Ch15]
         * [ ]  Fix all XRefs.
         * [x]  Fix footnotes (**3**):
