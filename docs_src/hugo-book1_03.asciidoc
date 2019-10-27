@@ -1,6 +1,48 @@
 = OBJECTS
 
 
+// >>> footnotes definitions >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+// @XREF ADD: "II.c Data Types" (in footnote!)
+:fn1: pass:q[footnote:[ \
+It's also no coincidence that the "`nothing`" object is equal in its value to 0, which also represents the empty string `""` (see _II.c Data Types_). \
+The fact that these three are (value-wise, at least) identical will come in handy, as what it means in practice is that 0/null/empty/nothing/etc. is the same in every context.]]
+
+// @XREF ADD: "APPENDIX D: HUGOFIX AND THE HUGO DEBUGGER" (in footnote!)
+:fn2: footnote:[See _APPENDIX D: HUGOFIX AND THE HUGO DEBUGGER_.]
+
+:fn3: pass:q[footnote:[For this reason, attributes are sometimes thought of as being "`lightweight classes`" in that, as can be seen in the list of attributes, they generally categorize an object as a certain "`kind`" of object -- although other than flagging the object with that particular quality they have no other direct effect.]]
+
+:fn4: pass:q[footnote:[ \
+The `container` and `platform` attributes are mutually exclusive. \
+An object cannot have both attributes, since in the library the idea of containment is one of an object being either "`in`" _or_ "`on`" another object. \
+There are available classes that aren't part of the standard library distribution that allow an object to function as both.]]
+
+// @XREF ADD: "APPENDIX B: THE HUGO LIBRARY" (in footnote!)
+:fn5: pass:q[footnote:[`WhatsIn` is a library function used to list in formatted fashion all the objects present in a location: see _APPENDIX B: THE HUGO LIBRARY._]]
+
+
+:fn6: footnote:[ \
+Don't worry too much about the specifics about what this code is supposed to be doing, or about the details of the language syntax. \
+We'll cover all of that in due course.]
+
+:fn7: pass:q[footnote:[ \
+Just for clarity: the `Art` routine from *hugolib.h* prints the appropriate article, if any, followed by the name of the object, such as "`an apple`" or "`a suitcase`". \
+The `Acquire` routine returns true only if the first object's `holding` property plus the `size` property of the second object does not exceed the `capacity` property of the first object (i.e., if there's room in the first object to move the second object into it).]]
+
+:fn8: pass:q[footnote:[ \
+In this usage, a "`physical`" parent is one in the object tree. \
+The `found_in` property allows you have an object considered in a location (i.e., a room object) without it being "`physically`" in that room object.]]
+
+:fn9: footnote:[ \
+Editing the library files is generally not recommended, and not only because you'll have to re-apply your changes if you update to a newer release of the library. \
+If you absolutely must change one of the library files, make a copy first.]
+
+:fn10: footnote:[In terms of order-of-inclusion.]
+
+// <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+
 == Getting To Know Your Objects
 
 Objects are the building blocks of any Hugo program.
@@ -68,12 +110,8 @@ In order for objects to have a "`physical place`" in the game, i.e., to be in a 
 The object tree is a simple map which represents the relationships between all objects in the game.
 The total number of objects is held in the global variable `objects`.
 
-// @XREF ADD: "II.c Data Types" (in footnote!)
-// @FOOTNOTE: EXTERNALIZE!
-
 The "`nothing`" object is defined in the library as object 0 and is referred to in code using the label `nothing`.
-This is the root of the object tree, upon which all other objects are based.footnote:[It's also no coincidence that the "`nothing`" object is equal in its value to 0, which also represents the empty string `+""+` (see _II.c Data Types_).
-The fact that these three are (value-wise, at least) identical will come in handy, as what it means in practice is that 0/null/empty/nothing/etc. is the same in every context.]
+This is the root of the object tree, upon which all other objects are based.{fn1}
 (And again, the name "`nothing`" is given to this first object by the library.)
 
 [NOTE]
@@ -230,27 +268,10 @@ and
 |===============================================================================
 --
 
-// @DELME: Commented-Out alternative version...
-////
-// >>>> h.desc.list alt. >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-// Alternative version, using horizontal description lists instead.
-
-[horizontal]
-`child(Chair)`     :: = `Player`
-`parent(Player)`   :: = `Chair`
-`children(Chair)`  :: = `1`
-
-// <<<< h.desc.list alt. <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-////
-
-
-// @XREF ADD: "APPENDIX D: HUGOFIX AND THE HUGO DEBUGGER" (in footnote!)
-// @FOOTNOTE: EXTERNALIZE!
-
 [TIP]
 ================================================================================
 Try compiling *sample.hug* with the `-o` switch in order to see the object tree for the sample game.
-Or, if the `DEBUG` flag was set during compilation, use the HugoFixfootnote:[See _APPENDIX D: HUGOFIX AND THE HUGO DEBUGGER_.] command `$ot` or `$ot <object>` during play to view the current state of the object tree during play.
+Or, if the `DEBUG` flag was set during compilation, use the HugoFix{fn2} command `$ot` or `$ot <object>` during play to view the current state of the object tree during play.
 Compiling with the `-d` switch will generate a debuggable (*.HDX*) version of the file -- the object tree can then be viewed directly from the debugger.
 ================================================================================
 
@@ -406,8 +427,7 @@ We'll cover the `if...else...` structure in _IV.h Conditional Expressions and Pr
 
 == Attributes
 
-// @FOOTNOTE: EXTERNALIZE!
-Attributes are essentially qualities that every object either does or doesn't havefootnote:[For this reason, attributes are sometimes thought of as being "`lightweight classes`" in that, as can be seen in the list of attributes, they generally categorize an object as a certain "`kind`" of object -- although other than flagging the object with that particular quality they have no other direct effect.].
+Attributes are essentially qualities that every object either does or doesn't have.{fn3}
 An attribute is defined as
 
 // @HUGO SYNTAX MOCKUP!
@@ -423,38 +443,32 @@ Those defined in *hugolib.h* include:
 [.center,caption=]
 [cols="<m,<d",options=autowidth,grid=none,stripes=even]
 |===============================================================================
-| known     | if an object is known to the player
-| moved     | if an object has been moved
-| visited   | if a room has been visited
-| static    | if an object cannot be taken
-| plural    | for plural objects (i.e., some hats)
-| living    | if an object is a character
-| female    | if a character is female
-| openable  | if an object can be opened
-| open      | if it is open
-| lockable  | if an object can be locked
-| locked    | if it is locked
-| unfriendly| if a character is unfriendly
-| light     | if an object is or provides light
-| readable  | if an object can be read
-| switchable| if an object can be turned on or off
-| switchedon| if it is on
-| clothing  | for objects that can be worn
-| worn      | if the object is being worn
-| mobile    | if the object can be rolled, etc.
-| enterable | if an object is enterable
-| container | if an object can hold other objects
-// @FOOTNOTE IN TABLE: EXTERNALIZE!
-| platform  | if other objects can be placed on itfootnote:[The container and platform attributes are mutually exclusive.
-An object cannot have both attributes, since in the library the idea of containment is one of an object being either "`in`" _or_ "`on`" another object.
-There are available classes that aren't part of the standard library distribution that allow an object to function as both.]
-
+| known          | if an object is known to the player
+| moved          | if an object has been moved
+| visited        | if a room has been visited
+| static         | if an object cannot be taken
+| plural         | for plural objects (i.e., some hats)
+| living         | if an object is a character
+| female         | if a character is female
+| openable       | if an object can be opened
+| open           | if it is open
+| lockable       | if an object can be locked
+| locked         | if it is locked
+| unfriendly     | if a character is unfriendly
+| light          | if an object is or provides light
+| readable       | if an object can be read
+| switchable     | if an object can be turned on or off
+| switchedon     | if it is on
+| clothing       | for objects that can be worn
+| worn           | if the object is being worn
+| mobile         | if the object can be rolled, etc.
+| enterable      | if an object is enterable
+| container      | if an object can hold other objects
+| platform       | if other objects can be placed on it{fn4}
 | hidden         | if an object is not to be listed
 | quiet          | if container or platform is quiet (i.e., the initial listing of contents is suppressed)
 | transparent    | if object is not opaque
-// @FOOTNOTE IN TABLE: EXTERNALIZE!
-| already_listed | if object has been pre-listed (i.e., before a `WhatsIn` listingfootnote:[`WhatsIn` is a library function used to list in formatted fashion all the objects present in a location: see _APPENDIX B: THE HUGO LIBRARY._])
-
+| already_listed | if object has been pre-listed (i.e., before a `WhatsIn` listing{fn5})
 | workflag       | for system use
 | special        | for miscellaneous use
 |===============================================================================
@@ -573,13 +587,9 @@ First, not every object may have every property; in order for an object to have 
 As well, properties are not simple on/off flags.
 They are sets of valid data associated with an object, where the values may represent almost anything, including object numbers, dictionary addresses, integer values, and sections of executable code.
 
-// @FOOTNOTE: EXTERNALIZE!
-These are some valid properties as they would appear in an object definition (using property names defined in *hugolib.h*):{wj}footnote:[Don't worry too much about the specifics about what this code is supposed to be doing, or about the details of the language syntax.
-We'll cover all of that in due course.]
+These are some valid properties as they would appear in an object definition (using property names defined in *hugolib.h*):{wj}{fn6}
 
-// @FOOTNOTE IN CODE: EXTERNALIZE!
-
-[source,hugo, subs="+macros"]
+[source,hugo, subs="+attributes,macros"]
 --------------------------------------------------------------------------------
 nouns "tree", "bush", "shrub", "plant"
 
@@ -604,7 +614,7 @@ short_desc
     print "."
 }
 
-beforefootnote:[pass:q[Just for clarity: the `Art` routine from *hugolib.h* prints the appropriate article, if any, followed by the name of the object, such as "`an apple`" or "`a suitcase`". The `Acquire` routine returns true only if the first object's `holding` property plus the `size` property of the second object does not exceed the `capacity` property of the first object (i.e., if there's room in the first object to move the second object into it).]]
+before{fn7}
 {
     object DoGet
     {
@@ -674,10 +684,7 @@ The list of properties defined in *hugolib.h* is:
 | short_desc   | basic "`X is here`" description
 | initial_desc | supersedes `short_desc` (or `long_desc` for locations)
 | long_desc    | detailed description
-// @FOOTNOTE IN TABLE: EXTERNALIZE!
-| found_in     | in case of multiple locations (virtual, _not_ physical parent objectsfootnote:[In this usage, a "`physical`" parent is one in the object tree.
-The found_in property allows you have an object considered in a location (i.e., a room object) without it being "`physically`" in that room object.])
-
+| found_in     | in case of multiple locations (virtual, _not_ physical parent objects{fn8})
 | type             | to identify the type of object
 | size        .3+.^| for holding/inventory
 | capacity
@@ -1015,9 +1022,7 @@ In either example, the object inherits its properties and attributes first from 
 The Hugo Object Library (*objlib.h*) contains a number of useful class definitions for things like rooms, characters, scenery, vehicles, etc.
 Sometimes, however, it may be desirable to use a different definition for, say, the room class while keeping all the others in the Object Library.
 
-// @FOOTNOTE: EXTERNALIZE!
-Instead of actually editing *objlib.h*,footnote:[Editing the library files is generally not recommended, and not only because you'll have to re-apply your changes if you update to a newer release of the library.
-If you absolutely must change one of the library files, make a copy first.] use:
+Instead of actually editing *objlib.h*,{fn9} use:
 
 // @HUGO SYNTAX MOCKUP!
 [source,hugo]
@@ -1032,15 +1037,14 @@ replace <class> ["<optional name>"]
 where `<class>` is the name of a previously defined object or class, such as `room`.
 All subsequent references to `<class>` will use this object instead of the previously defined one.
 
-// @FOOTNOTE: EXTERNALIZE!
 [IMPORTANT]
 ================================================================================
-Note that this means that the replacement must come __before__footnote:[In terms of order-of-inclusion.] any uses of the class as the parent class for other objects.
+Note that this means that the replacement must come _before_{fn10} any uses of the class as the parent class for other objects.
 ================================================================================
+
 
 
 == __What Should I Be Able To Do Now?__
-
 
 By now you should:
 

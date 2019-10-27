@@ -535,7 +535,7 @@ div.literalblock.cmd pre .conum {
 <span id="email" class="email"><a href="mailto:general@generalcoffee.com">general@generalcoffee.com</a></span><br>
 <span id="revnumber">version 1,</span>
 <span id="revdate">2018-10-04</span>
-<br><span id="revremark">Draft 76 -- Porting to AsciiDoc</span>
+<br><span id="revremark">Draft 77 -- Porting to AsciiDoc</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -3006,7 +3006,7 @@ In this way, you can write a piece of code that looks something like:</p>
 <div class="sect2">
 <h3 id="_attributes"><a class="anchor" href="#_attributes"></a>3.3. Attributes</h3>
 <div class="paragraph">
-<p>Attributes are essentially qualities that every object either does or doesn&#8217;t have<sup class="footnote">[<a id="_footnoteref_13" class="footnote" href="#_footnotedef_13" title="View footnote.">13</a>]</sup>.
+<p>Attributes are essentially qualities that every object either does or doesn&#8217;t have.<sup class="footnote">[<a id="_footnoteref_13" class="footnote" href="#_footnotedef_13" title="View footnote.">13</a>]</sup>
 An attribute is defined as</p>
 </div>
 <div class="listingblock">
@@ -3257,7 +3257,7 @@ They are sets of valid data associated with an object, where the values may repr
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">nouns</span> <span class="hl str">&quot;tree&quot;</span>, <span class="hl str">&quot;bush&quot;</span>, <span class="hl str">&quot;shrub&quot;</span>, <span class="hl str">&quot;plant&quot;</span>&#x000A;&#x000A;size <span class="hl num">20</span>&#x000A;&#x000A;found_in livingroom, entrancehall&#x000A;&#x000A;long_desc&#x000A;{&#x000A;    <span class="hl str">&quot;Exits lead north and west. A door is set</span>&#x000A;<span class="hl str">    in the southeast wall.&quot;</span>&#x000A;&#x000A;}&#x000A;&#x000A;short_desc&#x000A;{&#x000A;    <span class="hl str">&quot;There is a box here. It is &quot;</span>;&#x000A;    <span class="hl kwa">if</span> self <span class="hl kwa">is</span> open&#x000A;        <span class="hl kwa">print</span> <span class="hl str">&quot;open&quot;</span>;&#x000A;    <span class="hl kwa">else</span>&#x000A;        <span class="hl kwa">print</span> <span class="hl str">&quot;closed&quot;</span>;&#x000A;    <span class="hl kwa">print</span> <span class="hl str">&quot;.&quot;</span>&#x000A;}&#x000A;&#x000A;before<sup class="footnote">[<a id="_footnoteref_17" class="footnote" href="#_footnotedef_17" title="View footnote.">17</a>]</sup>&#x000A;{&#x000A;    <span class="hl kwa">object</span> DoGet&#x000A;    {&#x000A;        <span class="hl kwa">if</span> Acquire(player, self)&#x000A;        {&#x000A;            <span class="hl str">&quot;You pick up &quot;</span>;&#x000A;            <span class="hl kwa">print</span> Art(self); <span class="hl str">&quot;.&quot;</span>&#x000A;        }&#x000A;        <span class="hl kwa">else</span>&#x000A;            <span class="hl kwa">return false</span>&#x000A;    }&#x000A;}</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">nouns</span> <span class="hl str">&quot;tree&quot;</span>, <span class="hl str">&quot;bush&quot;</span>, <span class="hl str">&quot;shrub&quot;</span>, <span class="hl str">&quot;plant&quot;</span>&#x000A;&#x000A;size <span class="hl num">20</span>&#x000A;&#x000A;found_in livingroom, entrancehall&#x000A;&#x000A;long_desc&#x000A;{&#x000A;    <span class="hl str">&quot;Exits lead north and west. A door is set</span>&#x000A;<span class="hl str">    in the southeast wall.&quot;</span>&#x000A;&#x000A;}&#x000A;&#x000A;short_desc&#x000A;{&#x000A;    <span class="hl str">&quot;There is a box here. It is &quot;</span>;&#x000A;    <span class="hl kwa">if</span> self <span class="hl kwa">is</span> open&#x000A;        <span class="hl kwa">print</span> <span class="hl str">&quot;open&quot;</span>;&#x000A;    <span class="hl kwa">else</span>&#x000A;        <span class="hl kwa">print</span> <span class="hl str">&quot;closed&quot;</span>;&#x000A;    <span class="hl kwa">print</span> <span class="hl str">&quot;.&quot;</span>&#x000A;}&#x000A;&#x000A;<span class="hl kwa">before</span><sup class="footnote">[<a id="_footnoteref_17" class="footnote" href="#_footnotedef_17" title="View footnote.">17</a>]</sup>&#x000A;{&#x000A;    <span class="hl kwa">object</span> DoGet&#x000A;    {&#x000A;        <span class="hl kwa">if</span> Acquire(player, self)&#x000A;        {&#x000A;            <span class="hl str">&quot;You pick up &quot;</span>;&#x000A;            <span class="hl kwa">print</span> Art(self); <span class="hl str">&quot;.&quot;</span>&#x000A;        }&#x000A;        <span class="hl kwa">else</span>&#x000A;            <span class="hl kwa">return false</span>&#x000A;    }&#x000A;}</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -21618,13 +21618,13 @@ If there is an error, the <code>system_status</code> global variable is set.</p>
 <a href="#_footnoteref_11">11</a>. It&#8217;s also no coincidence that the &#8220;nothing&#8221; object is equal in its value to 0, which also represents the empty string <code>""</code> (see <em>II.c Data Types</em>). The fact that these three are (value-wise, at least) identical will come in handy, as what it means in practice is that 0/null/empty/nothing/etc. is the same in every context.
 </div>
 <div class="footnote" id="_footnotedef_12">
-<a href="#_footnoteref_12">12</a>. See <em>APPENDIX D: HUGOFIX AND THE HUGO DEBUGGER</em>.
+<a href="#_footnoteref_12">12</a>. See _APPENDIX D: HUGOFIX AND THE HUGO DEBUGGER_.
 </div>
 <div class="footnote" id="_footnotedef_13">
 <a href="#_footnoteref_13">13</a>. For this reason, attributes are sometimes thought of as being &#8220;lightweight classes&#8221; in that, as can be seen in the list of attributes, they generally categorize an object as a certain &#8220;kind&#8221; of object&#8201;&#8212;&#8201;although other than flagging the object with that particular quality they have no other direct effect.
 </div>
 <div class="footnote" id="_footnotedef_14">
-<a href="#_footnoteref_14">14</a>. The container and platform attributes are mutually exclusive. An object cannot have both attributes, since in the library the idea of containment is one of an object being either &#8220;in&#8221; <em>or</em> &#8220;on&#8221; another object. There are available classes that aren&#8217;t part of the standard library distribution that allow an object to function as both.
+<a href="#_footnoteref_14">14</a>. The <code>container</code> and <code>platform</code> attributes are mutually exclusive. An object cannot have both attributes, since in the library the idea of containment is one of an object being either &#8220;in&#8221; <em>or</em> &#8220;on&#8221; another object. There are available classes that aren&#8217;t part of the standard library distribution that allow an object to function as both.
 </div>
 <div class="footnote" id="_footnotedef_15">
 <a href="#_footnoteref_15">15</a>. <code>WhatsIn</code> is a library function used to list in formatted fashion all the objects present in a location: see <em>APPENDIX B: THE HUGO LIBRARY.</em>
@@ -21633,10 +21633,10 @@ If there is an error, the <code>system_status</code> global variable is set.</p>
 <a href="#_footnoteref_16">16</a>. Don&#8217;t worry too much about the specifics about what this code is supposed to be doing, or about the details of the language syntax. We&#8217;ll cover all of that in due course.
 </div>
 <div class="footnote" id="_footnotedef_17">
-<a href="#_footnoteref_17">17</a>. Just <span class="hl kwa">for</span> clarity: the <code>Art</code> <span class="hl kwa">routine</span> from <span class="hl opt"><strong></span>hugolib.h<span class="hl opt"></strong></span> prints the appropriate <span class="hl kwa">article</span>, <span class="hl kwa">if</span> any, followed by the <span class="hl kwa">name</span> of the <span class="hl kwa">object</span>, such as <span class="hl str">&quot;`an apple`&quot;</span> <span class="hl kwa">or</span> <span class="hl str">&quot;`a suitcase`&quot;</span>. The <code>Acquire</code> <span class="hl kwa">routine</span> returns <span class="hl kwa">true</span> only <span class="hl kwa">if</span> the first <span class="hl kwa">object</span>&#39;s <code>holding</code> <span class="hl kwa">property</span> plus the <code>size</code> <span class="hl kwa">property</span> of the second <span class="hl kwa">object</span> does <span class="hl kwa">not</span> exceed the <code>capacity</code> <span class="hl kwa">property</span> of the first <span class="hl kwa">object</span> (i.e., <span class="hl kwa">if</span> there&#39;s room <span class="hl kwa">in</span> the first <span class="hl kwa">object to move</span> the second <span class="hl kwa">object</span> into it).
+<a href="#_footnoteref_17">17</a>. Just for clarity: the <code>Art</code> routine from <strong>hugolib.h</strong> prints the appropriate article, if any, followed by the name of the object, such as &#8220;an apple&#8221; or &#8220;a suitcase&#8221;. The <code>Acquire</code> routine returns true only if the first object's <code>holding</code> property plus the <code>size</code> property of the second object does not exceed the <code>capacity</code> property of the first object (i.e., if there's room in the first object to move the second object into it).
 </div>
 <div class="footnote" id="_footnotedef_18">
-<a href="#_footnoteref_18">18</a>. In this usage, a &#8220;physical&#8221; parent is one in the object tree. The found_in property allows you have an object considered in a location (i.e., a room object) without it being &#8220;physically&#8221; in that room object.
+<a href="#_footnoteref_18">18</a>. In this usage, a &#8220;physical&#8221; parent is one in the object tree. The <code>found_in</code> property allows you have an object considered in a location (i.e., a room object) without it being &#8220;physically&#8221; in that room object.
 </div>
 <div class="footnote" id="_footnotedef_19">
 <a href="#_footnoteref_19">19</a>. Editing the library files is generally not recommended, and not only because you&#8217;ll have to re-apply your changes if you update to a newer release of the library. If you absolutely must change one of the library files, make a copy first.

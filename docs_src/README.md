@@ -149,9 +149,9 @@ Every chapter in the list provides an [HTML Live Preview] link to quickly jump t
             - [x]  1 footnote inside code.
     + [ ]  [3. _OBJECTS_][Ch3]
         * [ ]  Fix all XRefs.
-        * [ ]  Fix footnotes (**10**):
-            - [ ]  3 footnotes inside table.
-            - [ ]  1 footnote inside code.
+        * [x]  Fix footnotes (**10**):
+            - [x]  3 footnotes inside table.
+            - [x]  1 footnote inside code.
     + [ ]  [4. _HUGO PROGRAMMING_][Ch4]
         * [ ]  Fix all XRefs.
         * [x]  Fix footnotes (**9**):
