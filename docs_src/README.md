@@ -250,8 +250,8 @@ Every chapter in the list provides an [HTML Live Preview] link to quickly jump t
         *  (_No footnotes_).
     + [ ]  [26. _THE HUGO ENGINE AND HOW IT WORKS_][Ch26]
         * [ ]  Fix all XRefs.
-        * [ ]  Fix footnotes (**1**):
-            - [ ]  1 footnote inside tables.
+        * [x]  Fix footnotes (**1**):
+            - [x]  1 footnote inside tables.
     + [ ]  [27. _DARK SECRETS OF THE HUGO DEBUGGER_][Ch27]
         * [ ]  Fix all XRefs.
         *  (_No footnotes_).

@@ -1,5 +1,12 @@
 = THE HUGO ENGINE AND HOW IT WORKS
 
+
+// >>> footnotes definitions >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+:fn1: footnote:[v3.0 and later]
+
+// <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
 Here is a simple map of the main engine loop and the associated functions:
 
 image::hugo-book2_14_flowchart-engine.svg[align="center",width=60%]
@@ -149,7 +156,7 @@ These functions are:
 | hugo_specialchar     | Translation for special characters
 2+^a| {blank}
 // @FOOTNOTE IN TABLE: EXTERNALIZE!
-| hugo_hasvideo        | Returns video availabilityfootnote:[v3.0 and later]
+| hugo_hasvideo        | Returns video availability{fn1}
 |===============================================================================
 
 
