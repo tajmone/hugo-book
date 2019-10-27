@@ -188,8 +188,8 @@ Every chapter in the list provides an [HTML Live Preview] link to quickly jump t
     + [ ]  [APP. B. _THE HUGO LIBRARY_][AppB]
         * [ ]  _needs to be proof-read once more, carefully!_
         * [ ]  Fix all XRefs.
-        * [ ]  Fix footnotes (**2**):
-            - [ ]  2 footnotes inside tables.
+        * [x]  Fix footnotes (**2**):
+            - [x]  2 footnotes inside tables.
     + [ ]  [APP. C. _LIMIT SETTINGS_][AppC]
         * [ ]  _needs to be proof-read once more, carefully!_
         * [ ]  Fix all XRefs.

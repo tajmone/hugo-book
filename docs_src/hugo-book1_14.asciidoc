@@ -2,6 +2,16 @@
 = THE HUGO LIBRARY
 
 
+// >>> footnotes definitions >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+// @FOOTNOTE IN TABLE: 1 inside cell, 2 at doc end.
+
+:fn1: footnote:[Used generally for room objects in order to give a grammatically correct description if necessary; also for containers and platforms.]
+
+:fn2: pass:q[footnote:[A "`grandchild`" of an object is a child of a child of a given parent object, or a child object thereof, recursively searched.]]
+
+// <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
 
 == ATTRIBUTES
 
@@ -206,9 +216,8 @@ d| `HERE_WORD`       {nbsp}("`here`")   2+d| `ON_WORD` {nbsp}{nbsp}("`on`")
 | adjective (adjectives) | adjective(s) describing object
 | article | "`a`", "`an`", "`the`", "`some`", etc.
 
-// @FOOTNOTE IN TABLE: EXTERNALIZE!
 | preposition (prep)
-d| "`in`", "`inside`", "`outside of`", etc.footnote:[Used generally for room objects in order to give a grammatically correct description if necessary; also for containers and platforms.]
+d| "`in`", "`inside`", "`outside of`", etc.{fn1}
 
 | capacity
 | contains a value representing the capacity of a container or platform
@@ -731,8 +740,7 @@ Returns true if accessible; returns false and prints an appropriate message if n
 [source,hugo]
 Contains(parent, object)
 
-// @FOOTNOTE IN TABLE: EXTERNALIZE!
-Returns `object` if the specified object is present as a possession of the specified parent, even as a grandchildfootnote:[A "`grandchild`" of an object is a child of a child of a given parent object, or a child object thereof, recursively searched.], otherwise returns false.
+Returns `object` if the specified object is present as a possession of the specified parent, even as a grandchild,{fn2} otherwise returns false.
 
 //-----{ CustomError }----------------------------------------------------------
 
