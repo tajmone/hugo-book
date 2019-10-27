@@ -1,5 +1,14 @@
 = TOKENS AND DATA TYPES
 
+// >>> footnotes definitions >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+// @FOOTNOTE SAME TEXT: 66, 67 (i.e. 1, 2)
+// @FOOTNOTE: Footnote 1 is used twice in CSV file!
+:fn1: footnote:[v3.0 and later]
+:fn3: footnote:[Prior to version 3.1, this scaling factor was 4.]
+
+// <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
 The first two places to start inspecting how the Hugo compiler writes a *.HEX* file are: (1) what byte values are written to represent each individual token (i.e. keywords, built-in functions, etc.), and (2) how different data types and values are formatted.
 
 
@@ -7,7 +16,7 @@ The first two places to start inspecting how the Hugo compiler writes a *.HEX* f
 
 // @NOTE: 123 tokens | 5 tokens x col = 2 empty cells
 
-// @FOOTNOTE: There are two footnotes inside CSV file!
+// @FOOTNOTE: Two footnotes inside CSV file (1 and 2 = fn1).
 
 [cols=">2m,<8m,>2m,<8m,>2m,<8m,>2m,<8m,>2m,<8m",format=csv,stripes=even]
 |===============================================================================
@@ -99,9 +108,8 @@ ROUTINE: ::
 <routine#> <2 bytes>
 ....................
 
-// @FOOTNOTE: EXTERNALIZE!
 The two bytes (one 16-bit word) give the indexed address of the routine.
-All blocks of executable code begin on an address divisible by 16footnote:[Prior to version 3.1, this scaling factor was 4.]; this allows 1024K of memory to be addressable via the range 0 to 65536. (Code is padded with empty ($00) values to the next address divisible by the address scale.)
+All blocks of executable code begin on an address divisible by 16;{fn3} this allows 1024K of memory to be addressable via the range 0 to 65536. (Code is padded with empty ($00) values to the next address divisible by the address scale.)
 
 For example, a routine beginning at $004004 would be divided by 16 and encoded as the indexed address $0401, in the form:
 

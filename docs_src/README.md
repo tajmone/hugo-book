@@ -217,7 +217,8 @@ Every chapter in the list provides an [HTML Live Preview] link to quickly jump t
             - [ ]  5 footnotes inside tables.
     + [ ]  [15. _TOKENS AND DATA TYPES_][Ch15]
         * [ ]  Fix all XRefs.
-        * [ ]  Fix footnotes (**1**).
+        * [x]  Fix footnotes (**3**):
+            - [x]  2 footnotes inside CSV file populating table.
     + [ ]  [16. _ENGINE PARSING_][Ch16]
         * [ ]  Fix all XRefs.
         * [x]  Fix footnotes (**1**).

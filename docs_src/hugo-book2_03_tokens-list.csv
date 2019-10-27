@@ -119,5 +119,5 @@
 77,sound
 78,music
 79,repeat
-7A,addcontextfootnote:[v3.0 and later]
-7B,videofootnote:[v3.0 and later]
+7A,addcontext{fn1}
+7B,video{fn1}

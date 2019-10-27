@@ -535,7 +535,7 @@ div.literalblock.cmd pre .conum {
 <span id="email" class="email"><a href="mailto:general@generalcoffee.com">general@generalcoffee.com</a></span><br>
 <span id="revnumber">version 1,</span>
 <span id="revdate">2018-10-04</span>
-<br><span id="revremark">Draft 74 -- Porting to AsciiDoc</span>
+<br><span id="revremark">Draft 75 -- Porting to AsciiDoc</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -16595,7 +16595,7 @@ ROUTINE:
 </div>
 <div class="paragraph">
 <p>The two bytes (one 16-bit word) give the indexed address of the routine.
-All blocks of executable code begin on an address divisible by 16<sup class="footnote">[<a id="_footnoteref_68" class="footnote" href="#_footnotedef_68" title="View footnote.">68</a>]</sup>; this allows 1024K of memory to be addressable via the range 0 to 65536. (Code is padded with empty ($00) values to the next address divisible by the address scale.)</p>
+All blocks of executable code begin on an address divisible by 16;<sup class="footnote">[<a id="_footnoteref_68" class="footnote" href="#_footnotedef_68" title="View footnote.">68</a>]</sup> this allows 1024K of memory to be addressable via the range 0 to 65536. (Code is padded with empty ($00) values to the next address divisible by the address scale.)</p>
 </div>
 <div class="paragraph">
 <p>For example, a routine beginning at $004004 would be divided by 16 and encoded as the indexed address $0401, in the form:</p>
