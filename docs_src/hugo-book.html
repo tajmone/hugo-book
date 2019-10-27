@@ -535,7 +535,7 @@ div.literalblock.cmd pre .conum {
 <span id="email" class="email"><a href="mailto:general@generalcoffee.com">general@generalcoffee.com</a></span><br>
 <span id="revnumber">version 1,</span>
 <span id="revdate">2018-10-04</span>
-<br><span id="revremark">Draft 70 -- Porting to AsciiDoc</span>
+<br><span id="revremark">Draft 71 -- Porting to AsciiDoc</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -8027,7 +8027,7 @@ By superseding it, however, we ensure that any grammar matching the desired patt
 <div class="sect2">
 <h3 id="_before_we_get_to_the_routines"><a class="anchor" href="#_before_we_get_to_the_routines"></a>8.1. Before We Get To The Routines</h3>
 <div class="paragraph">
-<p>Because, the engine is unaware of such things as attributes, properties, and objects in anything but a technical sense<sup class="footnote">[<a id="_footnoteref_41" class="footnote" href="#_footnotedef_41" title="View footnote.">41</a>]</sup>, there are provided a number of routines to facilitate communication between the engine and the program proper.
+<p>Because, the engine is unaware of such things as attributes, properties, and objects in anything but a technical sense,<sup class="footnote">[<a id="_footnoteref_41" class="footnote" href="#_footnotedef_41" title="View footnote.">41</a>]</sup> there are provided a number of routines to facilitate communication between the engine and the program proper.
 Along with these junction routines are certain global variables and properties that are pre-defined by the compiler and accessed directly by the engine.
 They are:</p>
 </div>
@@ -8444,7 +8444,7 @@ This occurs whenever the engine needs to determine if an object is available <em
 </table>
 </div>
 <div class="paragraph">
-<p>The HugoFix debugging library can be used at runtime to monitor calls to <code>FindObject</code> by enabling the <code>$fi</code> command. <sup class="footnote">[<a id="_footnoteref_43" class="footnote" href="#_footnotedef_43" title="View footnote.">43</a>]</sup></p>
+<p>The HugoFix debugging library can be used at runtime to monitor calls to <code>FindObject</code> by enabling the <code>$fi</code> command.<sup class="footnote">[<a id="_footnoteref_43" class="footnote" href="#_footnotedef_43" title="View footnote.">43</a>]</sup></p>
 </div>
 </div>
 <div class="sect2">
@@ -8534,7 +8534,7 @@ It is subsequently up to <code>&lt;character&gt;.order_response</code> to analyz
 If no response is provided, <code>order_response</code> should return false.</p>
 </div>
 <div class="paragraph">
-<p>The HugoFix debugging library can be used at runtime to monitor calls to <code>SpeakTo</code> by enabling the <code>$pm</code> command. <sup class="footnote">[<a id="_footnoteref_44" class="footnote" href="#_footnotedef_44" title="View footnote.">44</a>]</sup></p>
+<p>The HugoFix debugging library can be used at runtime to monitor calls to <code>SpeakTo</code> by enabling the <code>$pm</code> command.<sup class="footnote">[<a id="_footnoteref_44" class="footnote" href="#_footnotedef_44" title="View footnote.">44</a>]</sup></p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -8598,7 +8598,7 @@ The <code>&lt;queue&gt;</code> is 0 unless the verbroutine is being called more 
 </table>
 </div>
 <div class="paragraph">
-<p>The <code>&lt;isxverb&gt;</code> argument is true if the grammar for invoking <code>Perform</code> designates an xverb<sup class="footnote">[<a id="_footnoteref_45" class="footnote" href="#_footnotedef_45" title="View footnote.">45</a>]</sup>.</p>
+<p>The <code>&lt;isxverb&gt;</code> argument is true if the grammar for invoking <code>Perform</code> designates an xverb.<sup class="footnote">[<a id="_footnoteref_45" class="footnote" href="#_footnotedef_45" title="View footnote.">45</a>]</sup></p>
 </div>
 <div class="paragraph">
 <p>For example, various player commands might (approximately, depending on verbroutine and object names) result in the routine calls:</p>
@@ -8694,7 +8694,7 @@ The <code>&lt;queue&gt;</code> is 0 unless the verbroutine is being called more 
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Using HugoFix&#8217;s parser monitoring (<code>$pm</code>) at runtime will trace calls to <code>Perform</code>. <sup class="footnote">[<a id="_footnoteref_46" class="footnote" href="#_footnotedef_46" title="View footnote.">46</a>]</sup></p>
+<p>Using HugoFix&#8217;s parser monitoring (<code>$pm</code>) at runtime will trace calls to <code>Perform</code>.<sup class="footnote">[<a id="_footnoteref_46" class="footnote" href="#_footnotedef_46" title="View footnote.">46</a>]</sup></p>
 </div>
 </td>
 </tr>
@@ -21707,19 +21707,19 @@ If there is an error, the <code>system_status</code> global variable is set.</p>
 <a href="#_footnoteref_41">41</a>. In other words, it is the library that defines all the rules and useful-sounding names for properties, routines, and the like; the engine doesn&#8217;t really have any idea about the higher-level work being done by the library.
 </div>
 <div class="footnote" id="_footnotedef_42">
-<a href="#_footnoteref_42">42</a>. For more information on debugging using HugoFix, see <em>APPENDIX D:</em> <em>HUGOFIX AND THE HUGO DEBUGGER</em>.
+<a href="#_footnoteref_42">42</a>. For more information on debugging using HugoFix, see _APPENDIX D: HUGOFIX AND THE HUGO DEBUGGER_.
 </div>
 <div class="footnote" id="_footnotedef_43">
-<a href="#_footnoteref_43">43</a>. For more information on debugging using HugoFix, see <em>APPENDIX D: HUGOFIX AND THE HUGO DEBUGGER</em>.
+<a href="#_footnoteref_43">43</a>. For more information on debugging using HugoFix, see _APPENDIX D: HUGOFIX AND THE HUGO DEBUGGER_.
 </div>
 <div class="footnote" id="_footnotedef_44">
-<a href="#_footnoteref_44">44</a>. For more information on debugging using HugoFix, see <em>APPENDIX D: HUGOFIX AND THE HUGO DEBUGGER</em>.
+<a href="#_footnoteref_44">44</a>. For more information on debugging using HugoFix, see _APPENDIX D: HUGOFIX AND THE HUGO DEBUGGER_.
 </div>
 <div class="footnote" id="_footnotedef_45">
 <a href="#_footnoteref_45">45</a>. The <code>&lt;isxverb&gt;</code> argument is new in v3.1.
 </div>
 <div class="footnote" id="_footnotedef_46">
-<a href="#_footnoteref_46">46</a>. For more information on debugging using HugoFix, see <em>APPENDIX D: HUGOFIX AND THE HUGO DEBUGGER</em>.
+<a href="#_footnoteref_46">46</a>. For more information on debugging using HugoFix, see _APPENDIX D: HUGOFIX AND THE HUGO DEBUGGER_.
 </div>
 <div class="footnote" id="_footnotedef_47">
 <a href="#_footnoteref_47">47</a>. This also means that in order to create a dark location&#8201;&#8212;&#8201;i.e., one that has no intrinsic lighting&#8201;&#8212;&#8201;it is necessary to put an explicit <code>not light</code> in the object&#8217;s definition. In that case, in order for the player to see anything in the location, light will have to be provided either by an object in the location (such as a lamp) or by something portable that can be brought into the location (like a flashlight).

@@ -1,10 +1,24 @@
 = JUNCTION ROUTINES
 
+// >>> footnotes definitions >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+:fn1: footnote:[In other words, it is the library that defines all the rules and useful-sounding names for properties, routines, and the like; the engine doesn't really have any idea about the higher-level work being done by the library.]
+
+// @XREF ADD: "APPENDIX D: HUGOFIX AND THE HUGO DEBUGGER" (in footnote!)
+:fn-debug: For more information on debugging using HugoFix, see _APPENDIX D: HUGOFIX AND THE HUGO DEBUGGER_.
+// @FOOTNOTE SAME TEXT: 42-44, 46 (i.e. 2,3,4, 6)
+:fn2: footnote:[{fn-debug}]
+:fn3: footnote:[{fn-debug}]
+:fn4: footnote:[{fn-debug}]
+:fn6: footnote:[{fn-debug}]
+
+:fn5: pass:q[footnote:[The `&lt;isxverb&gt;` argument is new in v3.1.]]
+
+// <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
 == Before We Get To The Routines
 
-// @FOOTNOTE: EXTERNALIZE!
-Because, the engine is unaware of such things as attributes, properties, and objects in anything but a technical sensefootnote:[In other words, it is the library that defines all the rules and useful-sounding names for properties, routines, and the like; the engine doesn't really have any idea about the higher-level work being done by the library.], there are provided a number of routines to facilitate communication between the engine and the program proper.
+Because, the engine is unaware of such things as attributes, properties, and objects in anything but a technical sense,{fn1} there are provided a number of routines to facilitate communication between the engine and the program proper.
 Along with these junction routines are certain global variables and properties that are pre-defined by the compiler and accessed directly by the engine.
 They are:
 
@@ -63,8 +77,7 @@ For example, the `Parse` routine in *hugolib.h* takes care of such things as pro
 Returning true from the `Parse` routine calls the engine parser again (i.e., returns to step 1 in the process above); returning false continues normally.
 This is useful in case the `Parse` routine has changed the input line substantially, requiring a reconfiguration of the already split words.
 
-// @FOOTNOTE: EXTERNALIZE!
-The HugoFix debugging library can be used at runtime to monitor the goings-on of the `Parse` routine by enabling parser monitoring with the `$pm` command.footnote:[For more information on debugging using HugoFix, see _APPENDIX D:_ _HUGOFIX AND THE HUGO DEBUGGER_.]
+The HugoFix debugging library can be used at runtime to monitor the goings-on of the `Parse` routine by enabling parser monitoring with the `$pm` command.{fn2}
 
 [NOTE]
 ================================================================================
@@ -198,9 +211,7 @@ This occurs whenever the engine needs to determine if an object is available _at
 Also, `FindObject` may be called by the engine with both `<object>` and `<location>` equal to 0 to reset any library-based object disambiguation.
 ================================================================================
 
-// @XREF ADD: "APPENDIX D: HUGOFIX AND THE HUGO DEBUGGER" (in footnote!)
-// @FOOTNOTE: EXTERNALIZE!
-The HugoFix debugging library can be used at runtime to monitor calls to `FindObject` by enabling the `$fi` command. footnote:[For more information on debugging using HugoFix, see _APPENDIX D: HUGOFIX AND THE HUGO DEBUGGER_.]
+The HugoFix debugging library can be used at runtime to monitor calls to `FindObject` by enabling the `$fi` command.{fn3}
 
 
 
@@ -252,9 +263,7 @@ are first directed to the `order_response` property of the character object in q
 It is subsequently up to `<character>.order_response` to analyze `verbroutine` (as well as `object` and `xobject`, if applicable) to see if the request is a valid one.
 If no response is provided, `order_response` should return false.
 
-// @XREF ADD: "APP. D: HUGOFIX AND THE HUGO DEBUGGER" (in footnote!)
-// @FOOTNOTE: EXTERNALIZE!
-The HugoFix debugging library can be used at runtime to monitor calls to `SpeakTo` by enabling the `$pm` command. footnote:[For more information on debugging using HugoFix, see _APPENDIX D: HUGOFIX AND THE HUGO DEBUGGER_.]
+The HugoFix debugging library can be used at runtime to monitor calls to `SpeakTo` by enabling the `$pm` command.{fn4}
 
 [source,hugo]
 --------------------------------------------------------------------------------
@@ -301,8 +310,7 @@ The `<queue>` is 0 unless the verbroutine is being called more than once for mul
 As a special case, `<queue>` is –1 if `object` or `xobject` is a number supplied in the input as one or more digits, in order to signal `Perform` not to do normal `before`/`after` routine calling.
 ================================================================================
 
-// @FOOTNOTE: EXTERNALIZE!
-The `<isxverb>` argument is true if the grammar for invoking `Perform` designates an xverbfootnote:[The `<isxverb>` argument is new in v3.1.].
+The `<isxverb>` argument is true if the grammar for invoking `Perform` designates an xverb.{fn5}
 
 For example, various player commands might (approximately, depending on verbroutine and object names) result in the routine calls:
 
@@ -354,12 +362,10 @@ Perform(&DoGet, banana, 0, 2)
 If no `Perform` routine exists, the engine performs a default calling of `player.before`, `location.before`, `xobject.before`, `object.before`, and finally `verbroutine` if none of those returns true.
 ================================================================================
 
-// @XREF ADD: "APPENDIX D: HUGOFIX AND THE HUGO DEBUGGER" (in footnote!)
-// @FOOTNOTE: EXTERNALIZE!
 
 [TIP]
 ================================================================================
-Using HugoFix's parser monitoring (`$pm`) at runtime will trace calls to `Perform`. footnote:[For more information on debugging using HugoFix, see _APPENDIX D: HUGOFIX AND THE HUGO DEBUGGER_.]
+Using HugoFix's parser monitoring (`$pm`) at runtime will trace calls to `Perform`.{fn6}
 ================================================================================
 
 

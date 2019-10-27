@@ -115,7 +115,7 @@ There's still a lot of work to be done in terms of enforcing consistent styles, 
 ## List of Book-Wide Task
 
 - [x] Word to AsciiDoc porting and basic formatting and styles clean-up.
-- [ ] **FOOTNOTES** — Proofread, format and fix all footnotes. (see [#21] and [milestone 4])
+- [ ] **FOOTNOTES** — Proofread, format and fix all footnotes. (see [#21], [#24] and [milestone 4])
 - [ ] **TITLE CASE** — Enforce [_Chicago_ style title capitalization]  (see [#13]):
     + [ ] All chapters and appendices titles (from all-caps).
     + [ ] All sections.
@@ -167,7 +167,7 @@ Every chapter in the list provides an [HTML Live Preview] link to quickly jump t
         *  (_No footnotes_).
     + [ ]  [8. _JUNCTION ROUTINES_][Ch8]
         * [ ]  Fix all XRefs.
-        * [ ]  Fix footnotes (**6**).
+        * [x]  Fix footnotes (**6**).
     + [ ]  [9. _THE GAME LOOP_][Ch9]
         * [ ]  Fix all XRefs.
         *  (_No footnotes_).
@@ -431,6 +431,7 @@ In order to convert _The Hugo Book_ to HTML you'll need to install the following
 
 [#13]: https://github.com/tajmone/hugo-book/issues/13
 [#21]: https://github.com/tajmone/hugo-book/issues/21
+[#24]: https://github.com/tajmone/hugo-book/issues/24
 [milestone 4]: https://github.com/tajmone/hugo-book/milestone/4
 
 <!-- EOF -->
