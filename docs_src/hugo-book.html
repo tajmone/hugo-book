@@ -535,7 +535,7 @@ div.literalblock.cmd pre .conum {
 <span id="email" class="email"><a href="mailto:general@generalcoffee.com">general@generalcoffee.com</a></span><br>
 <span id="revnumber">version 1,</span>
 <span id="revdate">2018-10-04</span>
-<br><span id="revremark">Draft 69 -- Porting to AsciiDoc</span>
+<br><span id="revremark">Draft 70 -- Porting to AsciiDoc</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -5357,7 +5357,7 @@ Arrays are defined by</p>
 <p>where <code>&lt;array size&gt;</code> must be a numerical constant.</p>
 </div>
 <div class="paragraph">
-<p>An array definition reserves a block of memory of `&lt;array size&gt;`<sup class="footnote">[<a id="_footnoteref_24" class="footnote" href="#_footnotedef_24" title="View footnote.">24</a>]</sup>, so that, for example,</p>
+<p>An array definition reserves a block of memory of <code>&lt;array size&gt;</code>,<sup class="footnote">[<a id="_footnoteref_24" class="footnote" href="#_footnotedef_24" title="View footnote.">24</a>]</sup> so that, for example,</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -5455,7 +5455,7 @@ Ned and Maria
 </div>
 <div class="paragraph">
 <p>Because array space is statically allocated by the compiler, all arrays must be declared at the global level.
-Local arrays are illegal, as are entire arrays passed as arguments<sup class="footnote">[<a id="_footnoteref_25" class="footnote" href="#_footnotedef_25" title="View footnote.">25</a>]</sup>.
+Local arrays are illegal, as are entire arrays passed as arguments.<sup class="footnote">[<a id="_footnoteref_25" class="footnote" href="#_footnotedef_25" title="View footnote.">25</a>]</sup>
 However, single elements of arrays are valid arguments.</p>
 </div>
 <div class="paragraph">
@@ -5781,7 +5781,7 @@ The general form is:</p>
 </div>
 </div>
 <div class="paragraph">
-<p>There is no limit on the number of values (separated by commas) that can appear on a line following <code>case</code><sup class="footnote">[<a id="_footnoteref_28" class="footnote" href="#_footnotedef_28" title="View footnote.">28</a>]</sup>.
+<p>There is no limit on the number of values (separated by commas) that can appear on a line following <code>case</code>.<sup class="footnote">[<a id="_footnoteref_28" class="footnote" href="#_footnotedef_28" title="View footnote.">28</a>]</sup>
 The same rules for bracing multiple-line code blocks apply as with <code>if</code> (as well as for every other type of conditional block).</p>
 </div>
 <div class="paragraph">
@@ -6174,7 +6174,7 @@ What this means is that, for example, in the following routines:</p>
 <p>The local <code>a</code> in <code>TestRoutine</code> is reassigned with the return value from the <code>Double</code> routine.</p>
 </div>
 <div class="paragraph">
-<p>An interesting side-effect of a zero (0) return value can be seen using the <code>print</code> command<sup class="footnote">[<a id="_footnoteref_31" class="footnote" href="#_footnotedef_31" title="View footnote.">31</a>]</sup>.
+<p>An interesting side-effect of a zero (0) return value can be seen using the <code>print</code> command.<sup class="footnote">[<a id="_footnoteref_31" class="footnote" href="#_footnotedef_31" title="View footnote.">31</a>]</sup>
 Consider the <code>The</code> routine in <strong>hugolib.h</strong>, which prints an object&#8217;s definite article (i.e., &#8220;the&#8221;, if appropriate), followed by the object&#8217;s <code>name</code> property.</p>
 </div>
 <div class="listingblock">
@@ -6467,7 +6467,7 @@ Most commonly, it is <code>object</code>, <code>xobject</code>, <code>location</
 The <code>&lt;verbroutine&gt;</code> is the name of a verb routine to which the usage in question applies.</p>
 </div>
 <div class="paragraph">
-<p>When the Hugo Engine goes to execute a player command, it runs a series of tests on the various elements of the command, such as the object on which the specified verb is to be enacted<sup class="footnote">[<a id="_footnoteref_32" class="footnote" href="#_footnotedef_32" title="View footnote.">32</a>]</sup>.
+<p>When the Hugo Engine goes to execute a player command, it runs a series of tests on the various elements of the command, such as the object on which the specified verb is to be enacted.<sup class="footnote">[<a id="_footnoteref_32" class="footnote" href="#_footnotedef_32" title="View footnote.">32</a>]</sup>
 Know for now that when a player command is executed, the <code>before</code> properties of the <code>object</code> (i.e., the direct object) and <code>xobject</code> (i.e., the indirect object)<sup class="footnote">[<a id="_footnoteref_33" class="footnote" href="#_footnotedef_33" title="View footnote.">33</a>]</sup> are checked, then if neither has returned non-false, the appropriate <code>&lt;verbroutine&gt;</code> is run.
 Afterward, the <code>after</code> properties are checked; if neither returns non-false, a default message is normally printed by the verbroutine.
 In other words, <code>before</code> routines typically pre-empt the execution of a verbroutine, and <code>after</code> routines typically pre-empt the default response of a verbroutine.</p>
@@ -6510,7 +6510,7 @@ You put the book into the suitcase.
 </div>
 </div>
 <div class="paragraph">
-<p>Each of these examples will return true (as property routines do by default), thereby overriding the engine&#8217;s default operation<sup class="footnote">[<a id="_footnoteref_34" class="footnote" href="#_footnotedef_34" title="View footnote.">34</a>]</sup>.
+<p>Each of these examples will return true (as property routines do by default), thereby overriding the engine&#8217;s default operation.<sup class="footnote">[<a id="_footnoteref_34" class="footnote" href="#_footnotedef_34" title="View footnote.">34</a>]</sup>
 In order to fool the engine into continuing normally, as if no <code>before</code> or <code>after</code> property has been found, return false from the property routine.</p>
 </div>
 <div class="listingblock">
@@ -6578,7 +6578,7 @@ However, the processing of a <code>before</code>/<code>after</code> property beg
 If the non-specific block comes after any other blocks, then it will run only if no other object/verbroutine combination is matched.</p>
 </div>
 <div class="paragraph">
-<p>A drawback of this non-specification is that all verbroutines are matched&#8201;&#8212;&#8201;both verbs and xverbs<sup class="footnote">[<a id="_footnoteref_35" class="footnote" href="#_footnotedef_35" title="View footnote.">35</a>]</sup>.
+<p>A drawback of this non-specification is that all verbroutines are matched&#8201;&#8212;&#8201;both verbs and xverbs.<sup class="footnote">[<a id="_footnoteref_35" class="footnote" href="#_footnotedef_35" title="View footnote.">35</a>]</sup>
 This can be particularly undesirable in the case of location <code>before</code>/<code>after</code> properties, where you may wish to be circumventing any action the player tries to perform in that location, but where the non-specific response will be triggered even for <code>save</code>, <code>restore</code>, etc.
 (i.e., xverbs).</p>
 </div>
@@ -6646,12 +6646,8 @@ Here&#8217;s the <code>Init</code> routine from <strong>shell.hug</strong>:</p>
 </div>
 </div>
 </li>
-</ul>
-</div>
-<div class="ulist">
-<ul>
 <li>
-<p><em>Set up the kind of statusline we&#8217;re going to be displaying, as well as define the default text colors</em><sup class="footnote">[<a id="_footnoteref_36" class="footnote" href="#_footnotedef_36" title="View footnote.">36</a>]</sup><em>:</em></p>
+<p><em>Set up the kind of statusline we&#8217;re going to be displaying, as well as define the default text colors:</em><sup class="footnote">[<a id="_footnoteref_36" class="footnote" href="#_footnotedef_36" title="View footnote.">36</a>]</sup></p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">&#8288;        STATUSTYPE <span class="hl opt">=</span> <span class="hl num">1</span>                  <span class="hl slc">! score/turns</span>&#x000A;        TEXTCOLOR <span class="hl opt">=</span> DEF_FOREGROUND&#x000A;        BGCOLOR <span class="hl opt">=</span> DEF_BACKGROUND&#x000A;        SL_TEXTCOLOR <span class="hl opt">=</span> DEF_SL_FOREGROUND&#x000A;        SL_BGCOLOR <span class="hl opt">=</span> DEF_SL_BACKGROUND</code></pre>
@@ -6691,12 +6687,8 @@ Also, determine the starting bulk of whatever the player is carrying at the outs
 </div>
 </div>
 </li>
-</ul>
-</div>
-<div class="ulist">
-<ul>
 <li>
-<p><em>Finally, if we&#8217;ve defined <code>USE_PLURAL_OBJECTS</code></em><sup class="footnote">[<a id="_footnoteref_37" class="footnote" href="#_footnotedef_37" title="View footnote.">37</a>]</sup><em>, call the appropriate initialization routine:</em></p>
+<p><em>Finally, if we&#8217;ve defined <code>USE_PLURAL_OBJECTS</code></em>,<sup class="footnote">[<a id="_footnoteref_37" class="footnote" href="#_footnotedef_37" title="View footnote.">37</a>]</sup> call the appropriate initialization routine:_</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl ppc">#ifset USE_PLURAL_OBJECTS</span>&#x000A;        InitPluralObjects&#x000A;<span class="hl ppc">#endif</span>&#x000A;}</code></pre>
@@ -6707,7 +6699,7 @@ Also, determine the starting bulk of whatever the player is carrying at the outs
 </div>
 <div class="paragraph">
 <p><code>Main</code> is called every turn.
-It should take care of general game management such as moving ahead the counter, as well as running events and scripts<sup class="footnote">[<a id="_footnoteref_38" class="footnote" href="#_footnotedef_38" title="View footnote.">38</a>]</sup>.
+It should take care of general game management such as moving ahead the counter, as well as running events and scripts.<sup class="footnote">[<a id="_footnoteref_38" class="footnote" href="#_footnotedef_38" title="View footnote.">38</a>]</sup>
 The <code>Main</code> routine from <strong>shell.hug</strong> is as follows:</p>
 </div>
 <div class="ulist">
@@ -6785,7 +6777,7 @@ The <code>in</code> is optional, but is recommended for legibility.
 </table>
 </div>
 <div class="paragraph">
-<p>If an event is attached to an object, it is run only when that object has the same grandparent as the player object, where &#8220;grandparent&#8221; refers to the last object before 0 (the <code>nothing</code> object as defined in <strong>hugolib.h</strong>), or can otherwise be determined to be in the player&#8217;s current location<sup class="footnote">[<a id="_footnoteref_39" class="footnote" href="#_footnotedef_39" title="View footnote.">39</a>]</sup>.</p>
+<p>If an event is attached to an object, it is run only when that object has the same grandparent as the player object, where &#8220;grandparent&#8221; refers to the last object before 0 (the <code>nothing</code> object as defined in <strong>hugolib.h</strong>), or can otherwise be determined to be in the player&#8217;s current location.<sup class="footnote">[<a id="_footnoteref_39" class="footnote" href="#_footnotedef_39" title="View footnote.">39</a>]</sup></p>
 </div>
 <div class="admonitionblock important">
 <table>
@@ -21667,16 +21659,16 @@ If there is an error, the <code>system_status</code> global variable is set.</p>
 <a href="#_footnoteref_25">25</a>. &#8220;Arguments&#8221; are simply parameters passed to a routine at calling time. See <em>V.a Routines</em>.
 </div>
 <div class="footnote" id="_footnotedef_26">
-<a href="#_footnoteref_26">26</a>. (The built-in engine variables <code>parse$</code> and <code>serial$</code> may be used in place of the dictionary entry address; see <em>VII.b The Parser</em> for a description.)
+<a href="#_footnoteref_26">26</a>. The built-in engine variables <code>parse$</code> and <code>serial$</code> may be used in place of the dictionary entry address; see <em>VII.b The Parser</em> for a description.
 </div>
 <div class="footnote" id="_footnotedef_27">
-<a href="#_footnoteref_27">27</a>. C programmers are used <span class="hl kwa">to</span> cases that <span class="hl str">&quot;`fall through`&quot;</span> <span class="hl kwa">to</span> the next `<span class="hl kwa">case</span>` unless explicitly told <span class="hl kwa">not to do</span> so; such <span class="hl kwa">is not</span> the <span class="hl kwa">case</span> with Hugo.
+<a href="#_footnoteref_27">27</a>. C programmers are used to cases that &#8220;fall through&#8221; to the next <code>case</code> unless explicitly told not to do so; such is not the case with Hugo.
 </div>
 <div class="footnote" id="_footnotedef_28">
 <a href="#_footnoteref_28">28</a>. Okay, this isn&#8217;t quite true. While there isn&#8217;t an <em>explicit</em> limit, if you create a single <code>case</code> line that runs on forever and ever, eventually you&#8217;ll reach the point where, for buffer reasons, the compiler isn&#8217;t able to compile it, and it will complain with an appropriate error.
 </div>
 <div class="footnote" id="_footnotedef_29">
-<a href="#_footnoteref_29">29</a>. The jump keyword is more or less equivalent to goto in other languages. The reason it&#8217;s different in Hugo is mainly to encourage the use of the proper alternatives (i.e., for and while or do-while loops) in keeping with proper programming practices. And, in the end, less jumps and labels make for far more readable code.
+<a href="#_footnoteref_29">29</a>. The <code>jump</code> keyword is more or less equivalent to <code>goto</code> in other languages. The reason it&#8217;s different in Hugo is mainly to encourage the use of the proper alternatives (i.e., <code>for</code> and <code>while</code> or <code>do</code>-<code>while</code> loops) in keeping with proper programming practices. And, in the end, less <code>jump</code>s and labels make for far more readable code.
 </div>
 <div class="footnote" id="_footnotedef_30">
 <a href="#_footnoteref_30">30</a>. Routines return 0 by default, with the exception of <em>property routines</em>, which we&#8217;ll discuss shortly and which return true (or 1) by default.
@@ -21685,19 +21677,19 @@ If there is an error, the <code>system_status</code> global variable is set.</p>
 <a href="#_footnoteref_31">31</a>. Remember here that both zero (0) and the empty string <code>""</code> are equal in value.
 </div>
 <div class="footnote" id="_footnotedef_32">
-<a href="#_footnoteref_32">32</a>. The actual mechanics are described in <em>VIII.g Perform</em>.
+<a href="#_footnoteref_32">32</a>. The actual mechanics are described in _VIII.g Perform_.
 </div>
 <div class="footnote" id="_footnotedef_33">
 <a href="#_footnoteref_33">33</a>. In the imperative sentence &#8220;Put the book on the shelf&#8221;, the book is the direct object, and the shelf is the indirect object.
 </div>
 <div class="footnote" id="_footnotedef_34">
-<a href="#_footnoteref_34">34</a>. See <em>IX THE GAME LOOP</em>.
+<a href="#_footnoteref_34">34</a>. See _IX THE GAME LOOP_.
 </div>
 <div class="footnote" id="_footnotedef_35">
-<a href="#_footnoteref_35">35</a>. <em>Verbs</em> are actions that the player uses to interact with the physical world of the game. <em>Xverbs</em> are &#8220;non-action&#8221; verbs that generally deal with system functions, such as getting help, saving a game, etc. but don&#8217;t otherwise affect the state of the game world See <em>VII.a Grammar Definition</em>.
+<a href="#_footnoteref_35">35</a>. <em>Verbs</em> are actions that the player uses to interact with the physical world of the game. <em>Xverbs</em> are &#8220;non-action&#8221; verbs that generally deal with system functions, such as getting help, saving a game, etc. but don&#8217;t otherwise affect the state of the game world. See <em>VII.a Grammar Definition</em>.
 </div>
 <div class="footnote" id="_footnotedef_36">
-<a href="#_footnoteref_36">36</a>. All of the capitalized CONSTANTS used here are defined in <strong>hugolib.h</strong>.
+<a href="#_footnoteref_36">36</a>. All of the capitalized <code>CONSTANTS</code> used here are defined in <strong>hugolib.h</strong>.
 </div>
 <div class="footnote" id="_footnotedef_37">
 <a href="#_footnoteref_37">37</a>. A constant that tells <strong>objlib.h</strong> that we&#8217;re implementing a special class of plural/identical objects for use in the game.

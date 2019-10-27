@@ -154,14 +154,14 @@ Every chapter in the list provides an [HTML Live Preview] link to quickly jump t
             - [ ]  1 footnote inside code.
     + [ ]  [4. _HUGO PROGRAMMING_][Ch4]
         * [ ]  Fix all XRefs.
-        * [ ]  Fix footnotes (**9**):
-            - [ ]  1 footnote inside code.
+        * [x]  Fix footnotes (**9**):
+            - [x]  1 footnote inside code.
     + [ ]  [5. _ROUTINES AND EVENTS_][Ch5]
         * [ ]  Fix all XRefs.
-        * [ ]  Fix footnotes (**10**).
+        * [x]  Fix footnotes (**10**).
     + [ ]  [6. _FUSES, DAEMONS, AND SCRIPTS_][Ch6]
         * [ ]  Fix all XRefs.
-        * [ ]  Fix footnotes (**1**).
+        * [x]  Fix footnotes (**1**).
     + [ ]  [7. _GRAMMAR AND PARSING_][Ch7]
         * [ ]  Fix all XRefs.
         *  (_No footnotes_).
