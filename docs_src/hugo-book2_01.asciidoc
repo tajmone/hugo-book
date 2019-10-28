@@ -14,9 +14,9 @@ Please note that while this document does address differences between the curren
 For example, a current-version implementation of the Hugo Engine that conforms to this specification is not guaranteed to run programs compiled with all previous versions of Hugo.
 For further elaboration on such differences, please see the Hugo source itself.
 
+
+
 == How Hugo Works
-
-
 
 The Hugo system is composed of two parts: the compiler and the engine (the interpreter).
 

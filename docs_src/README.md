@@ -122,7 +122,7 @@ There's still a lot of work to be done in terms of enforcing consistent styles, 
         * [ ] Footnotes inside tables. ([#22])
 - [ ] **TITLE CASE** — Enforce [_Chicago_ style title capitalization]  ([#13]):
     + [x] All chapters and appendices titles (from all-caps).
-    + [ ] All sections.
+    + [x] All sections.
     + [ ] All captions (tables, figures, etc.).
 - [ ] **XREFS** — Restore all XRefs and create custom anchors.
 - [ ] **CODE BLOCKS:**
@@ -236,52 +236,53 @@ Every chapter in the list provides an [HTML Live Preview] link to quickly jump t
         *  (_No footnotes_).
 - [ ]  [BOOK 2. **TECHNICAL SYSTEM SPECIFICATION**][Book II]
     + [ ]  [13. _INTRODUCTION_][Ch13]
-        * [ ]  Title capitalization of all sections.
+        * [x]  Title capitalization of all sections.
         * [ ]  Fix all XRefs.
         *  (_No footnotes_).
     + [ ]  [14. _ORGANIZATION OF THE .HEX FILE_][Ch14]
-        * [ ]  Title capitalization of all sections.
+        * [x]  Title capitalization of all sections.
         * [ ]  Fix all XRefs.
         * [x]  Fix footnotes (**6**):
             - [x]  5 footnotes inside tables.
     + [ ]  [15. _TOKENS AND DATA TYPES_][Ch15]
-        * [ ]  Title capitalization of all sections.
+        * [x]  Title capitalization of all sections.
         * [ ]  Fix all XRefs.
         * [x]  Fix footnotes (**3**):
             - [x]  2 footnotes inside CSV file populating table.
     + [ ]  [16. _ENGINE PARSING_][Ch16]
-        * [ ]  Title capitalization of all sections.
+        * Title capitalization: _no sections._
         * [ ]  Fix all XRefs.
         * [x]  Fix footnotes (**1**).
     + [ ]  [17. _GRAMMAR_][Ch17]
-        * [ ]  Title capitalization of all sections.
+        * Title capitalization: _no sections._
         * [ ]  Fix all XRefs.
         *  (_No footnotes_).
     + [ ]  [18. _EXECUTABLE CODE_][Ch18]
-        * [ ]  Title capitalization of all sections.
+        * [x]  Title capitalization of all sections.
         * [ ]  Fix all XRefs.
         *  (_No footnotes_).
     + [ ]  [19. _ENCODING TEXT_][Ch19]
-        * [ ]  Title capitalization of all sections.
+        * Title capitalization: _no sections._
         * [ ]  Fix all XRefs.
         *  (_No footnotes_).
     + [ ]  [20. _THE OBJECT TABLE_][Ch20]
-        * [ ]  Title capitalization of all sections.
+        * [x]  Title capitalization of all sections.
         * [ ]  Fix all XRefs.
         * [x]  Fix footnotes (**2**).
     + [ ]  [21. _THE PROPERTY TABLE_][Ch21]
-        * [ ]  Title capitalization of all sections.
+        * [x]  Title capitalization of all sections.
         * [ ]  Fix all XRefs.
         *  (_No footnotes_).
     + [ ]  [22. _THE EVENT TABLE_][Ch22]
-        * [ ]  Title capitalization of all sections.
+        * Title capitalization: _no sections._
         * [ ]  Fix all XRefs.
         *  (_No footnotes_).
     + [ ]  [23. _THE DICTIONARY AND SPECIAL WORDS_][Ch23]
+        * [x]  Title capitalization of all sections.
         * [ ]  Fix all XRefs.
         *  (_No footnotes_).
     + [ ]  [24. _RESOURCEFILES_][Ch24]
-        * [ ]  Title capitalization of all sections.
+        * Title capitalization: _no sections._
         * [ ]  Fix all XRefs.
         *  (_No footnotes_).
     + [ ]  [25. _THE HUGO COMPILER AND HOW IT WORKS_][Ch25]
@@ -289,17 +290,17 @@ Every chapter in the list provides an [HTML Live Preview] link to quickly jump t
         * [ ]  Fix all XRefs.
         *  (_No footnotes_).
     + [ ]  [26. _THE HUGO ENGINE AND HOW IT WORKS_][Ch26]
-        * [ ]  Title capitalization of all sections.
+        * [x]  Title capitalization of all sections.
         * [ ]  Fix all XRefs.
         * [x]  Fix footnotes (**1**):
             - [x]  1 footnote inside tables.
     + [ ]  [27. _DARK SECRETS OF THE HUGO DEBUGGER_][Ch27]
-        * [ ]  Title capitalization of all sections.
+        * [x]  Title capitalization of all sections.
         * [ ]  Fix all XRefs.
         *  (_No footnotes_).
     + [ ]  [APP. H. _CODE PATTERNS_][AppH]
         * [ ]  _needs to be proof-read once more, carefully!_
-        * [ ]  Title capitalization of all sections.
+        * Title capitalization: _no sections._
         * [ ]  Fix all XRefs.
         * [x]  Fix footnotes (**11**)
             - [x]  11 footnotes inside tables (8 identical):
