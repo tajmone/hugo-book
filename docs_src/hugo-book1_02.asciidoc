@@ -446,7 +446,7 @@ Similarly, the `\!` combination must come at the end of a line (or alone on an o
 
 
 
-== Compiler Errors And Warnings
+== Compiler Errors and Warnings
 
 The compiler is pretty good about catching you when you do something that isn't going to work.
 When it encounters something in your source code that doesn't make sense, or is illegal in terms of the Hugo language, it'll tell you.
@@ -689,7 +689,7 @@ Any limit settings in the code of a program must be done before the particular d
 
 // @CHECK: Using emphasis style in headings might interfere with XRefs!
 
-== __What Should I Be Able To Do Now?__
+== _What Should I Be Able to Do Now?_
 
 By now you should:
 

@@ -142,128 +142,164 @@ Every chapter in the list provides an [HTML Live Preview] link to quickly jump t
 
 - [ ]  [_COLOPHON_][COLOPHON]:
     + [ ]  Custom styling and adaptation to HTML5 version.
+    + Title capitalization: _no sections._
 - [ ]  [_AUTHOR'S FOREWORD_][FOREWORD]:
     + [ ]  Custom styling and adaptation to HTML5 version.
+    + Title capitalization: _no sections._
     + [ ]  Fix all XRefs.
 - [ ]  [BOOK 1. **THE HUGO PROGRAMMING MANUAL**][Book I]
     + [ ]  [1. _INTRODUCTION_][Ch1]
+        * [x]  Title capitalization of all sections.
         * [ ]  Fix all XRefs.
         * [x]  Fix footnotes (**3**).
     + [ ]  [2. _A FIRST LOOK AT HUGO_][Ch2]
+        * [x]  Title capitalization of all sections.
         * [ ]  Fix all XRefs.
         * [x]  Fix footnotes (**7**);
             - [x]  1 footnote inside code.
     + [ ]  [3. _OBJECTS_][Ch3]
+        * [x]  Title capitalization of all sections.
         * [ ]  Fix all XRefs.
         * [x]  Fix footnotes (**10**):
             - [x]  3 footnotes inside table.
             - [x]  1 footnote inside code.
     + [ ]  [4. _HUGO PROGRAMMING_][Ch4]
+        * [x]  Title capitalization of all sections.
         * [ ]  Fix all XRefs.
         * [x]  Fix footnotes (**9**):
             - [x]  1 footnote inside code.
     + [ ]  [5. _ROUTINES AND EVENTS_][Ch5]
+        * [x]  Title capitalization of all sections.
         * [ ]  Fix all XRefs.
         * [x]  Fix footnotes (**10**).
     + [ ]  [6. _FUSES, DAEMONS, AND SCRIPTS_][Ch6]
+        * [x]  Title capitalization of all sections.
         * [ ]  Fix all XRefs.
         * [x]  Fix footnotes (**1**).
     + [ ]  [7. _GRAMMAR AND PARSING_][Ch7]
+        * [x]  Title capitalization of all sections.
         * [ ]  Fix all XRefs.
         *  (_No footnotes_).
     + [ ]  [8. _JUNCTION ROUTINES_][Ch8]
+        * [x]  Title capitalization of all sections.
         * [ ]  Fix all XRefs.
         * [x]  Fix footnotes (**6**).
     + [ ]  [9. _THE GAME LOOP_][Ch9]
+        * [x]  Title capitalization of all sections.
         * [ ]  Fix all XRefs.
         *  (_No footnotes_).
     + [ ]  [10. _USING THE OBJECT LIBRARY_][Ch10]
+        * [x]  Title capitalization of all sections.
         * [ ]  Fix all XRefs.
         * [x]  Fix footnotes (**10**):
             - [x]  2 footnotes inside code.
      + [ ]  [11. _ADVANCED FEATURES_][Ch11]
+        * [x]  Title capitalization of all sections.
         * [ ]  Fix all XRefs.
         *  (_No footnotes_).
     + [ ]  [12. _RESOURCES_][Ch12]
+        * [x]  Title capitalization of all sections.
         * [ ]  Fix all XRefs.
         * [x]  Fix footnotes (**2**).
     + [ ]  [APP. A. _SUMMARY OF KEYWORDS AND COMMANDS_][AppA]
+        * Title capitalization: _no sections._
         * [ ]  _needs to be proof-read once more, carefully!_
         * [ ]  Fix all XRefs.
         *  (_No footnotes_).
     + [ ]  [APP. B. _THE HUGO LIBRARY_][AppB]
+        * [x]  Title capitalization of all sections.
         * [ ]  _needs to be proof-read once more, carefully!_
         * [ ]  Fix all XRefs.
         * [x]  Fix footnotes (**2**):
             - [x]  2 footnotes inside tables.
     + [ ]  [APP. C. _LIMIT SETTINGS_][AppC]
+        * Title capitalization: _no sections._
         * [ ]  _needs to be proof-read once more, carefully!_
         * [ ]  Fix all XRefs.
         *  (_No footnotes_).
     + [ ]  [APP. D. _HUGOFIX AND THE HUGO DEBUGGER_][AppD]
+        * [x]  Title capitalization of all sections.
         * [ ]  _needs to be proof-read once more, carefully!_
         * [ ]  Fix all XRefs.
         * [x]  Fix footnotes (**2**).
     + [ ]  [APP. E. _PRECOMPILED HEADERS_][AppE]
+        * Title capitalization: _no sections._
         * [ ]  Fix all XRefs.
         *  (_No footnotes_).
     + [ ]  [APP. F. _HUGO VERSIONS_][AppF]
+        * Title capitalization: _no sections._
         * [ ]  Fix all XRefs.
         *  (_No footnotes_).
     + [ ]  [APP. G. _ADDITIONAL RESOURCES_][AppG]
+        * Title capitalization: _no sections._
         * [ ]  Fix all XRefs.
         *  (_No footnotes_).
 - [ ]  [BOOK 2. **TECHNICAL SYSTEM SPECIFICATION**][Book II]
     + [ ]  [13. _INTRODUCTION_][Ch13]
+        * [ ]  Title capitalization of all sections.
         * [ ]  Fix all XRefs.
         *  (_No footnotes_).
     + [ ]  [14. _ORGANIZATION OF THE .HEX FILE_][Ch14]
+        * [ ]  Title capitalization of all sections.
         * [ ]  Fix all XRefs.
         * [x]  Fix footnotes (**6**):
             - [x]  5 footnotes inside tables.
     + [ ]  [15. _TOKENS AND DATA TYPES_][Ch15]
+        * [ ]  Title capitalization of all sections.
         * [ ]  Fix all XRefs.
         * [x]  Fix footnotes (**3**):
             - [x]  2 footnotes inside CSV file populating table.
     + [ ]  [16. _ENGINE PARSING_][Ch16]
+        * [ ]  Title capitalization of all sections.
         * [ ]  Fix all XRefs.
         * [x]  Fix footnotes (**1**).
     + [ ]  [17. _GRAMMAR_][Ch17]
+        * [ ]  Title capitalization of all sections.
         * [ ]  Fix all XRefs.
         *  (_No footnotes_).
     + [ ]  [18. _EXECUTABLE CODE_][Ch18]
+        * [ ]  Title capitalization of all sections.
         * [ ]  Fix all XRefs.
         *  (_No footnotes_).
     + [ ]  [19. _ENCODING TEXT_][Ch19]
+        * [ ]  Title capitalization of all sections.
         * [ ]  Fix all XRefs.
         *  (_No footnotes_).
     + [ ]  [20. _THE OBJECT TABLE_][Ch20]
+        * [ ]  Title capitalization of all sections.
         * [ ]  Fix all XRefs.
         * [x]  Fix footnotes (**2**).
     + [ ]  [21. _THE PROPERTY TABLE_][Ch21]
+        * [ ]  Title capitalization of all sections.
         * [ ]  Fix all XRefs.
         *  (_No footnotes_).
     + [ ]  [22. _THE EVENT TABLE_][Ch22]
+        * [ ]  Title capitalization of all sections.
         * [ ]  Fix all XRefs.
         *  (_No footnotes_).
     + [ ]  [23. _THE DICTIONARY AND SPECIAL WORDS_][Ch23]
         * [ ]  Fix all XRefs.
         *  (_No footnotes_).
     + [ ]  [24. _RESOURCEFILES_][Ch24]
+        * [ ]  Title capitalization of all sections.
         * [ ]  Fix all XRefs.
         *  (_No footnotes_).
     + [ ]  [25. _THE HUGO COMPILER AND HOW IT WORKS_][Ch25]
+        * [ ]  Title capitalization of all sections.
         * [ ]  Fix all XRefs.
         *  (_No footnotes_).
     + [ ]  [26. _THE HUGO ENGINE AND HOW IT WORKS_][Ch26]
+        * [ ]  Title capitalization of all sections.
         * [ ]  Fix all XRefs.
         * [x]  Fix footnotes (**1**):
             - [x]  1 footnote inside tables.
     + [ ]  [27. _DARK SECRETS OF THE HUGO DEBUGGER_][Ch27]
+        * [ ]  Title capitalization of all sections.
         * [ ]  Fix all XRefs.
         *  (_No footnotes_).
     + [ ]  [APP. H. _CODE PATTERNS_][AppH]
         * [ ]  _needs to be proof-read once more, carefully!_
+        * [ ]  Title capitalization of all sections.
         * [ ]  Fix all XRefs.
         * [x]  Fix footnotes (**11**)
             - [x]  11 footnotes inside tables (8 identical):

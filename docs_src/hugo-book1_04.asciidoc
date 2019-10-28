@@ -943,7 +943,7 @@ x = y + (++z)
 -------------
 
 
-== Arrays And Strings
+== Arrays and Strings
 
 Prior to this point, little has been said about arrays.
 Arrays are sets of values that share a common name, and where the elements are referenced by number.
@@ -1541,7 +1541,7 @@ The compiler looks after this translation for you.
 ================================================================================
 
 
-== __What Should I Be Able To Do Now?__
+== _What Should I Be Able to Do Now?_
 
 [discrete]
 === Example: Mixing Text Styles

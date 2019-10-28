@@ -13,7 +13,7 @@
 // <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
 
-== ATTRIBUTES
+== Attributes
 
 [cols="<2m,<8a",options=grid=rows,stripes=none]
 |===============================================================================
@@ -56,7 +56,7 @@ NOTE: `container` and `platform` are generally mutually exclusive
 
 
 
-== GLOBALS
+== Globals
 
 [cols="<2m,<8a",options=grid=rows,stripes=none]
 |===============================================================================
@@ -124,7 +124,7 @@ NOTE: `container` and `platform` are generally mutually exclusive
 
 
 
-== ARRAYS
+== Arrays
 
 [cols="<2m,<8a",options=grid=rows,stripes=none]
 |===============================================================================
@@ -140,7 +140,7 @@ NOTE: `container` and `platform` are generally mutually exclusive
 
 
 
-== CONSTANTS
+== Constants
 
 [cols="2*<2m,<6a",options=grid=rows,stripes=none]
 |===============================================================================
@@ -202,7 +202,7 @@ d| `HERE_WORD`       {nbsp}("`here`")   2+d| `ON_WORD` {nbsp}{nbsp}("`on`")
 | MENU_SELECTBGCOLOR   2+a| menu highlight background color
 |===============================================================================
 
-== PROPERTIES
+== Properties
 
 [cols="<2m,<8a",options=grid=rows,stripes=none]
 |===============================================================================
@@ -353,7 +353,7 @@ While `screenwidth` through `title_caption` are technically defined by *hugolib.
 ===================
 
 
-== VERB ROUTINES
+== Verb Routines
 
 The library file *verblib.h* (included by *hugolib.h*) contains a fairly extensive set of basic actions, each of which takes the form `Do<verb>`, so that the action for taking an object is `DoGet`, the action for basic player movement is `DoGo`, etc.
 Each is called by the engine when a grammar syntax line specifying the particular verb routine is matched.
@@ -474,7 +474,7 @@ To use these verbs, set the `VERBSTUBS` flag before compiling *hugolib.h*.
 
 
 
-== UTILITY ROUTINES, ETC.
+== Utility Routines, Etc.
 
 First, the junction routines:
 
@@ -1168,7 +1168,7 @@ Once a valid answer is received, it returns true (if yes) or false (if no).
 |===============================================================================
 
 
-== AUXILIARY MATH ROUTINES:
+== Auxiliary Math Routines
 
 
 [cols="<2m,<8a",options=grid=rows,stripes=none]
@@ -1229,7 +1229,7 @@ WARNING: The return value is undefined if the result is outside the boundary of 
 
 
 
-== STRING ARRAY ROUTINES:
+== String Array Routines
 
 [cols="<2m,<8a",options=grid=rows,stripes=none]
 |===============================================================================
@@ -1297,7 +1297,7 @@ Prints the string stored as `array`, beginning with `start` and ending with `end
 
 
 
-== FUSE/DAEMON ROUTINES:
+== Fuse/Daemon Routines
 
 [cols="<2m,<8a",options=grid=rows,stripes=none]
 |===============================================================================
@@ -1326,7 +1326,7 @@ Deactivates the specified `fuse` or `daemon` object.
 
 
 
-== CHARACTER SCRIPT ROUTINES:
+== Character Script Routines
 
 [cols="<2m,<8a",options=grid=rows,stripes=none]
 |===============================================================================
@@ -1404,7 +1404,7 @@ CharRoutine(character, object)
 
 
 
-== CHARACTER ACTION ROUTINES:
+== Character Action Routines
 
 As a starting point, the library also provides a limited number of routines for character scripts to use.
 They are:
@@ -1418,7 +1418,7 @@ and
 
 * `&LoopScript, 0`
 
-== CONDITIONAL COMPILATION:
+== Conditional Compilation
 
 A number of compiler flags may be set to exclude certain portions of *hugolib.h* from compilation if these functions or objects are not required.
 

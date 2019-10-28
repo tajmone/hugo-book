@@ -109,7 +109,7 @@ For this reason, it is wise to resample `display.<property>` whenever a window i
 ================================================================================
 
 
-== Reading And Writing Files
+== Reading and Writing Files
 
 There may be times when it will be useful to store data in a file for later recovery.
 The most basic way of doing this involves

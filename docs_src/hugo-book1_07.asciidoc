@@ -451,7 +451,7 @@ The library defines several such synonyms.
 ================================================================================
 
 
-== __What Should I Be Able To Do Now?__
+== _What Should I Be Able to Do Now?_
 
 It should by now be relatively straightforward how to go about adding a new verb (with appropriate grammar) -- or even modifying an existing one.
 For instance, consider a game in which disco dancing plays an absolutely vital role, and where the command "`>GET DOWN`" must at all costs be implemented as a synonym for "`>DANCE`" or "`>BOOGIE`".

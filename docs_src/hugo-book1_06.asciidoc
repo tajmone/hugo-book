@@ -12,7 +12,7 @@
 While most of the previously discussed elements of programming with Hugo (such as events) are part of the internal architecture of the Hugo Engine, the means of running fuses, daemons, and scripts are written entirely in the Hugo language itself and contained in the Hugo Library.
 
 
-== Fuses And Daemons
+== Fuses and Daemons
 
 A _daemon_ is the traditional name for a recurring activity.
 Hugo handles daemons as special events attached to objects that may be activated or deactivated (i.e., moved in and out of the scope of `runevents`).
@@ -233,7 +233,7 @@ before
 where `CharRoutine` is `CharWait`, `CharMove`, `CharGet`, `CharDrop`, etc.
 
 
-== A Note About The event_flag Global
+== A Note about the event_flag Global
 
 The library routines -- particularly the `DoWait...` verb routines (invoked whenever a player types "`wait`", "`wait for (someone)`", or "`wait for 5 turns`" -- expect the `event_flag` global variable to be set to a non-false value if something happens (i.e., in an event or script) so that the player may be notified and given the opportunity to quit waiting.
 For instance, the character script routines in *hugolib.h* set `event_flag` whenever a character does something in the same location as the player.
@@ -241,7 +241,7 @@ For instance, the character script routines in *hugolib.h* set `event_flag` when
 If *hugolib.h* is to be used, the convention of setting `event_flag` after every significant event should be adhered to.
 
 
-== __What Should I Be Able To Do Now?__
+== _What Should I Be Able to Do Now?_
 
 === Example: A Simple Daemon and a Simpler Fuse
 

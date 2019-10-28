@@ -1,7 +1,7 @@
 = The Game Loop
 
 
-== Overview Of The Game Loop
+== Overview of the Game Loop
 
 This the basic execution pattern that the Hugo Engine follows during program execution.
 
@@ -73,7 +73,7 @@ Setting the global `endflag` at any point to a non-zero value will terminate the
 ================================================================================
 
 
-== __What Should I Be Able To Do Now?__
+== _What Should I Be Able to Do Now?_
 
 By this point, you've been introduced to the basic facilities through which the Hugo Engine communicates with a running Hugo game: the junction routines `EndGame`, `FindObject`, `Parse`, `ParseError`, `Perform`, and `SpeakTo`.
 Becoming familiar with their implementation and use (and even inner workings) is an important step toward mastering an understanding of the Hugo game loop, including determining how a player input line is parsed, what objects are available or in scope, and how a command is either dispatched to a verbroutine or directed to another character.

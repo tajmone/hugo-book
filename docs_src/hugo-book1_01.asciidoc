@@ -10,7 +10,7 @@
 :fn3: footnote:[Other ports done by the author are for Windows, Linux, Macintosh, DOS, BeOS, Pocket PC, and PalmOS.]
 // <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
-== Why You're Here (or, Just What Is Hugo?)
+== Why You're Here (Or, Just What Is Hugo?)
 
 
 Chances are if you're reading this book you're already at least a little familiar with adventure games, and maybe even more specifically interactive fiction or text adventures.{fn1}
@@ -40,7 +40,7 @@ The Hugo Compiler, the Hugo Engine, the Hugo Debugger, the Hugo Library, and rel
 ================================================================================
 
 
-== Names And Acknowledgments
+== Names and Acknowledgments
 
 // @FOOTNOTE: EXTERNALIZE!
 
@@ -169,7 +169,7 @@ On Windows, this is the "`MS-DOS Prompt`" or "`Command Prompt`" under the Start 
 Other systems will have different names for their command-line environments (although on something like a pre-OS X Macintosh, there is no such thing as a terminal or console, so you needn't worry about it).
 
 
-== The Truth About Programming
+== The Truth about Programming
 
 The truth about writing interactive fiction games is that yes, it is programming, and no, there's really no way around it.
 It's impossible for a game design system to provide a cookie-cutter means of picking and choosing all the various facets of any relatively complex game so that by clicking on a few buttons a fully formed and entirely original game world and story will be produced.
@@ -194,7 +194,7 @@ To make everything even easier, Hugo is designed so that writing very basic game
 All of the complex inner workings of the game -- from the templates for standard rooms and objects and their related behaviors; to what happens when a player types >GO NORTH or >OPEN THE CARDBOARD BOX or any other command, recognized or unrecognized; to the rules of the game world for containment, edibility, bulk, switching things on or off, or any number of "`physical`" traits -- are handled by the Hugo Library, and a prospective doesn't have to worry about where these things are handled or how until he or she is ready to investigate deeper.
 
 
-== Working With Hugo
+== Working with Hugo
 
 The way Hugo works is fairly standard for a modern programming language.
 A programmer begins with a _source file_, which is a human-readable text file (created and edited in a separate text-editing application).
@@ -479,7 +479,7 @@ All of these are optional.
 ================================================================================
 
 
-== __What Should I Be Able To Do Now?__
+== _What Should I Be Able to Do Now?_
 
 By now, you should be able to:
 

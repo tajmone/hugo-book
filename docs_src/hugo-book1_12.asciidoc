@@ -12,7 +12,7 @@ See _APPENDIX F: HUGO VERSIONS_ for more information.]]
 // <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
 
-== Creating And Using Resources
+== Creating and Using Resources
 
 
 The engine allows a Hugo program to access external media data (called resources) compiled into a specially formatted file called a resourcefile.
@@ -134,7 +134,7 @@ In this case, *resource.h* will attempt to find the resource in the last used re
 Wherever possible, however, it is recommended to always specify the resourcefile name.
 
 
-== Sound And Music
+== Sound and Music
 
 Sounds and music are played as follows:
 

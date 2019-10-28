@@ -16,7 +16,7 @@
 
 // <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
-== Before We Get To The Routines
+== Before We Get to the Routines
 
 Because, the engine is unaware of such things as attributes, properties, and objects in anything but a technical sense,{fn1} there are provided a number of routines to facilitate communication between the engine and the program proper.
 Along with these junction routines are certain global variables and properties that are pre-defined by the compiler and accessed directly by the engine.

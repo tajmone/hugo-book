@@ -153,7 +153,7 @@ To change to another form, it will be necessary to redefine the PC's `pronouns` 
 
 
 
-== Character responses
+== Character Responses
 
 One thing that will likely be important for NPCs (non-player characters) is enabling them to respond to questions and otherwise interact with the player.
 This is traditionally accomplished by implementing NPC responses to the verbroutines `DoAsk`, `DoTell`, `DoShow`, and `DoGive`.
@@ -671,7 +671,7 @@ In the second case, `attach_immobile` is also responsible for printing any expla
 
 
 
-== __What Should I Be Able To Do Now?__
+== _What Should I Be Able to Do Now?_
 
 By now you should feel comfortable experimenting with the classes in the object library.
 You should be able to look at the various implementations of scenery, components, characters, doors, vehicles, identical/plural objects, and attachables in existing code (such as in *sample.hug*) and not only understand what the various properties of the objects are for, but also how to modify them to achieve a desired effect.

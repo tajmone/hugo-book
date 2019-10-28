@@ -43,7 +43,7 @@ If you absolutely must change one of the library files, make a copy first.]
 // <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
 
-== Getting To Know Your Objects
+== Getting to Know Your Objects
 
 Objects are the building blocks of any Hugo program.
 Anything that will be accessible to a player during the game -- including items, rooms, other characters, and even directions -- will most likely be defined as an object.
@@ -1044,7 +1044,7 @@ Note that this means that the replacement must come _before_{fn10} any uses of t
 
 
 
-== __What Should I Be Able To Do Now?__
+== _What Should I Be Able to Do Now?_
 
 By now you should:
 
