@@ -1,4 +1,4 @@
-= TOKENS AND DATA TYPES
+= Tokens and Data Types
 
 // >>> footnotes definitions >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 

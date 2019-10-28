@@ -4,7 +4,7 @@
 // *                                                                           *
 // *****************************************************************************
 
-= BOOK 1: THE HUGO PROGRAMMING MANUAL
+= Book 1: The Hugo Programming Manual
 // BOOK 1 +
 // THE HUGO PROGRAMMING MANUAL
 

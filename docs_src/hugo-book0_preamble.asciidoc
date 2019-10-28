@@ -6,7 +6,7 @@
 // -----------------------------------------------------------------------------
 
 
-.ABOUT THE AUTHOR
+.About the Author
 --
 =========================================================
 Kent Tessman is a filmmaker and accidental game designer.

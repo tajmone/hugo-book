@@ -1,4 +1,4 @@
-= THE GAME LOOP
+= The Game Loop
 
 
 == Overview Of The Game Loop

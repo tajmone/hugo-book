@@ -1,4 +1,4 @@
-= EXECUTABLE CODE
+= Executable Code
 
 
 == A Simple Program

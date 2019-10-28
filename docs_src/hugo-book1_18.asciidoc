@@ -1,5 +1,5 @@
 [appendix]
-= HUGO VERSIONS
+= Hugo Versions
 
 As of this writing, the latest version of Hugo is 3.1.
 Most if not all of the actively developed ports are available in v3.1 distributions.

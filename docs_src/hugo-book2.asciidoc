@@ -4,7 +4,7 @@
 // *                                                                           *
 // *****************************************************************************
 
-= BOOK 2: TECHNICAL SYSTEM SPECIFICATION
+= Book 2: Technical System Specification
 
 // BOOK 2 +
 // TECHNICAL SYSTEM SPECIFICATION

@@ -1,4 +1,4 @@
-= ENCODING TEXT
+= Encoding Text
 
 Text is written uncompressed into the *.HEX* file (since there is not really any need for nor any great memory savings from whatever minor compression might be practical).
 All text, however -- including text in `print` statements, dictionary entries, and the text bank -- is encoded by adding $14 (decimal 20) to each 8-bit ASCII value in order to prevent casual browsing of game data.

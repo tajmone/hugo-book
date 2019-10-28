@@ -1,4 +1,4 @@
-= ORGANIZATION OF THE .HEX FILE
+= Organization of the .HEX File
 
 // >>> footnotes definitions >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 

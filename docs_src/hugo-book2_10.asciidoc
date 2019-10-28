@@ -1,4 +1,4 @@
-= THE EVENT TABLE
+= The Event Table
 
 The event table begins with two bytes giving the total number of events.
 Each event requires 2 bytes:

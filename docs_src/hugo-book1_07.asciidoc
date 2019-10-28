@@ -1,4 +1,4 @@
-= GRAMMAR AND PARSING
+= Grammar and Parsing
 
 == Grammar Definition
 

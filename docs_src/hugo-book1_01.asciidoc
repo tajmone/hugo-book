@@ -1,4 +1,4 @@
-= INTRODUCTION
+= Introduction
 
 // >>> footnotes definitions >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 

@@ -1,4 +1,4 @@
-= FUSES, DAEMONS, AND SCRIPTS
+= Fuses, Daemons, and Scripts
 
 // >>> footnotes definitions >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 

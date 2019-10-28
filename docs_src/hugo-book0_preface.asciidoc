@@ -1,5 +1,5 @@
 [preface]
-= AUTHOR'S FOREWORD
+= Author's Foreword
 
 Somewhere along the way this became a real book, and a real book deserves a foreword, and maybe even a dedication.
 Looking back, the reason any of this exists at all probably has something to do with being ten years old, and me and my little brother Dean sitting in front of the family Apple II Plus computer, one chair and one stool, playing those old text adventures.

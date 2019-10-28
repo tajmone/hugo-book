@@ -1,5 +1,5 @@
 [appendix]
-= HUGOFIX AND THE HUGO DEBUGGER
+= HugoFix and the Hugo Debugger
 
 // >>> footnotes definitions >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 

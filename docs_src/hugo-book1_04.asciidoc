@@ -1,4 +1,4 @@
-= HUGO PROGRAMMING
+= Hugo Programming
 
 // >>> footnotes definitions >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 

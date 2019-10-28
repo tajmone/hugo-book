@@ -1,5 +1,5 @@
 [appendix]
-= LIMIT SETTINGS
+= Limit Settings
 
 The default settings for the complete set of limits may be obtained by invoking the compiler via:
 

@@ -1,4 +1,4 @@
-= THE OBJECT TABLE
+= The Object Table
 
 
 // >>> footnotes definitions >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>

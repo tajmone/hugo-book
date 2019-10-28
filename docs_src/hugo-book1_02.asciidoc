@@ -1,4 +1,4 @@
-= A FIRST LOOK AT HUGO
+= A First Look at Hugo
 
 // >>> footnotes definitions >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 

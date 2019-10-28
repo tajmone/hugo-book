@@ -1,4 +1,4 @@
-= THE HUGO ENGINE AND HOW IT WORKS
+= The Hugo Engine and How It Works
 
 
 // >>> footnotes definitions >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>

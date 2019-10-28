@@ -1,4 +1,4 @@
-= RESOURCEFILES
+= Resourcefiles
 
 A resourcefile is used to store multiple images, sounds, music tracks, etc. in one manageable file format.
 The format of a Hugo resourcefile is fairly straightforward.

@@ -1,4 +1,4 @@
-= GRAMMAR
+= Grammar
 
 The grammar table starts immediately following the header (at $40, or 64 bytes into the *.HEX* file).
 It is used for matching against the player's input line to determine the verbroutine to be called, and if applicable, the object(s) and xobject (i.e, the indirect object).

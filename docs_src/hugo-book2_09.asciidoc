@@ -1,4 +1,4 @@
-= THE PROPERTY TABLE
+= The Property Table
 
 
 The property table begins with two bytes giving the total number of properties.

@@ -1,5 +1,5 @@
 [colophon]
-= COLOPHON
+= Colophon
 
 The Hugo Book +
 Hugo: An Interactive Fiction Design System

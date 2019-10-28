@@ -115,15 +115,21 @@ There's still a lot of work to be done in terms of enforcing consistent styles, 
 ## List of Book-Wide Task
 
 - [x] Word to AsciiDoc porting and basic formatting and styles clean-up.
-- [ ] **FOOTNOTES** — Proofread, format and fix all footnotes. (see [#21], [#24] and [milestone 4])
-- [ ] **TITLE CASE** — Enforce [_Chicago_ style title capitalization]  (see [#13]):
-    + [ ] All chapters and appendices titles (from all-caps).
+- [ ] **FOOTNOTES:** ([milestone 4])
+    + [x] Proofread and format all footnotes. ([#21])
+    + [ ] Decide how to handle:
+        * [ ] Identical footnotes. ([#24])
+        * [ ] Footnotes inside tables. ([#22])
+- [ ] **TITLE CASE** — Enforce [_Chicago_ style title capitalization]  ([#13]):
+    + [x] All chapters and appendices titles (from all-caps).
     + [ ] All sections.
     + [ ] All captions (tables, figures, etc.).
 - [ ] **XREFS** — Restore all XRefs and create custom anchors.
 - [ ] **CODE BLOCKS:**
     + [ ] Hugo code:
-        * [ ] Enforce consistent indentation.
+        * [ ] Enforce consistent indentation:
+            - [ ] 4 spaces in book examples.
+            - [ ] original indentation (8 spaces) in hugolib and other sources.
         * [ ] Fix Hugo syntax examples (requires _ad hoc_ Highlight syntax).
 - [ ] Solve all annotated problems.
 
@@ -432,6 +438,7 @@ In order to convert _The Hugo Book_ to HTML you'll need to install the following
 
 [#13]: https://github.com/tajmone/hugo-book/issues/13
 [#21]: https://github.com/tajmone/hugo-book/issues/21
+[#22]: https://github.com/tajmone/hugo-book/issues/22
 [#24]: https://github.com/tajmone/hugo-book/issues/24
 [milestone 4]: https://github.com/tajmone/hugo-book/milestone/4
 

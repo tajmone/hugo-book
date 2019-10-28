@@ -1,5 +1,5 @@
 [appendix]
-= PRECOMPILED HEADERS
+= Precompiled Headers
 
 [NOTE]
 ================================================================================

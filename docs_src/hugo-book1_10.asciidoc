@@ -1,4 +1,4 @@
-= USING THE OBJECT LIBRARY
+= Using the Object Library
 
 // >>> footnotes definitions >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
