@@ -58,31 +58,34 @@ The reading of values from data types or expressions begins with `GetValue()` in
 // [cols=">m,<m,<a",options=autowidth,grid=none,stripes=even]
 [cols="^s,^m,<a",options=autowidth,frame=all,grid=rows,stripes=none]
 |===============================================================================
-| 01 | (  | *TOKEN*
-| 02 | )  | *TOKEN*
-| 03 | .  | *TOKEN*
-| 04 | :  | _**reserved**_ (not coded)
-| 05 | =  | *TOKEN*
-| 06 | -  | *TOKEN*
-| 07 | +  | *TOKEN*
-| 08 | *  | *TOKEN*
-| 09 | /  | *TOKEN*
-| 0A | \| | *TOKEN*
-| 0B | ;  | *TOKEN*
-| 0C | {  | *TOKEN*
-| 0D | }  | *TOKEN*
+| 01 | (      | *TOKEN*
+| 02 | )      | *TOKEN*
+| 03 | .      | *TOKEN*
+| 04 | :      | _**reserved**_ (not coded)
+| 05 | =      | *TOKEN*
+| 06 | -      | *TOKEN*
+| 07 | +      | *TOKEN*
+| 08 | *      | *TOKEN*
+| 09 | /      | *TOKEN*
+| 0A | \|     | *TOKEN*
+| 0B | ;      | *TOKEN*
+| 0C | {      | *TOKEN*
+| 0D | }      | *TOKEN*
 
 (Signifies the end of a code block)
-| 0E | [  | *TOKEN*
-| 0F | ]  | *TOKEN*
-| 10 | #  | *TOKEN*
-| 11 | ~  | *TOKEN*
-| 12 | >= | *TOKEN*
-| 13 | <= | *TOKEN*
-| 14 | ~= | *TOKEN*
-| 15 | &  | *TOKEN*
-| 16 | >  | *TOKEN*
-| 17 | <  | *TOKEN*
+| 0E | [      | *TOKEN*
+| 0F | ]      | *TOKEN*
+| 10 | #      | *TOKEN*
+| 11 | ~      | *TOKEN*
+| 12 | >{wj}= | *TOKEN*
+| 13 | <{wj}= | *TOKEN*
+| 14 | ~{wj}= | *TOKEN*
+| 15 | &      | *TOKEN*
+| 16 | >      | *TOKEN*
+| 17 | <      | *TOKEN*
+
+//-----{ 18 }-------------------------------------------------------------------
+
 .3+| 18 | if | *STATEMENT*
 
 ..................................
@@ -110,7 +113,9 @@ Note that $4C indicates end-of-line.
 
 * *hccode.c* -- `CodeIf()`
 * *herun.c*  -- `RunIf()`
-// -----------------------------------------------------------------------------
+
+//-----{ 19 }-------------------------------------------------------------------
+
 | 19 | ,    | *TOKEN*
 .3+| 1A | else | *STATEMENT*
 
@@ -136,7 +141,9 @@ If a previous condition has been met, control passes ahead to `<next statment>`,
 
 * *hccode.c* -- `CodeLine()`
 * *herun.c* -- `RunIf()`
-// -----------------------------------------------------------------------------
+
+//-----{ 1B }-------------------------------------------------------------------
+
 .3+| 1B | elseif | *STATEMENT*
 
 ..................................
@@ -161,7 +168,9 @@ See if.
 
 * *hccode.c* -- `CodeIf()`
 * *herun.c* -- `RunIf()`
-// -----------------------------------------------------------------------------
+
+//-----{ 1C }-------------------------------------------------------------------
+
 .3+| 1C | while | *STATEMENT*
 
 ..................................
@@ -191,7 +200,9 @@ Note that because the `<starting point>` is written as a two-byte indexed addres
 
 * *hccode.c* -- `CodeWhile()`
 * *herun.c* -- `RunIf()`
-// -----------------------------------------------------------------------------
+
+//-----{ 1D }-------------------------------------------------------------------
+
 .3+| 1D | do | *STATEMENT*
 
 ..............................
@@ -220,7 +231,9 @@ Instead, the distance to the next statement is given after the do token ($1D) in
 
 * *hccode.c* -- `CodeDo()`
 * *herun.c* -- `RunDo()`
-// -----------------------------------------------------------------------------
+
+//-----{ 1E }-------------------------------------------------------------------
+
 .2+| 1E | select | *STATEMENT*
 
     1E
@@ -235,7 +248,9 @@ See case.
 
 * *hccode.c* -- `CodeSelect()`
 * *herun.c* -- `RunIf()`
-// -----------------------------------------------------------------------------
+
+//-----{ 1F }-------------------------------------------------------------------
+
 .2+| 1F | case | *STATEMENT*
 
 Treated identically by the engine to `elseif` once a select `token` ($1E) has reset the conditional-statement evaluator to no previous matches.
@@ -266,7 +281,9 @@ Note that $1A is the `else` token, $05 is the `=` token, and that the two bytes 
 
 * *hccode.c* -- `CodeSelect()`
 * *herun.c* -- `RunIf()`
-// -----------------------------------------------------------------------------
+
+//-----{ 20 }-------------------------------------------------------------------
+
 .3+| 20 | for | *STATEMENT*
 
 ..................................
@@ -300,7 +317,9 @@ This, like the `<assignment>` is simply a regular executable assignment.
 
 * *hccode.c* -- `CodeFor()`
 * *herun.c* -- `RunIf()`
-// -----------------------------------------------------------------------------
+
+//-----{ 21 }-------------------------------------------------------------------
+
 .2+| 21 | return | *STATEMENT*
 
 ..................
@@ -320,16 +339,22 @@ Where `<expression>` is optional, so that a standalone return order can be coded
     21 4C
 
 {blank}
-// -----------------------------------------------------------------------------
+
+//-----{ 22 }-------------------------------------------------------------------
 
 | 22 | break | *STATEMENT*
 
     22
 
 {blank}
-// -----------------------------------------------------------------------------
+
+//-----{ 23-24 }----------------------------------------------------------------
+
 | 23 | and  | *TOKEN*
 | 24 | or   | *TOKEN*
+
+//-----{ 25 }-------------------------------------------------------------------
+
 .2+| 25 | jump | *STATEMENT*
 
 ............
@@ -346,7 +371,9 @@ jump <label>
 
 Where `<address>` is two bytes giving the indexed address of the next statement to be executed. +
 (The `<label>` is coded as `<address>`.)
-// -----------------------------------------------------------------------------
+
+//-----{ 26  }------------------------------------------------------------------
+
 | 26 | run | *STATEMENT*
 
 // @FOOTNOTE IN TABLE + CODE: EXTERNALIZE!
@@ -354,7 +381,9 @@ Where `<address>` is two bytes giving the indexed address of the next statement 
 26 <value> 4C{fn1}
 
 Where `<value>` is simply read and forgotten, as in running an `object.property` property routine and throwing away the value.
-// -----------------------------------------------------------------------------
+
+//-----{ 27 }-------------------------------------------------------------------
+
 .2+| 27 | is | *TOKEN*
 
 >s| As in:  <a|
@@ -362,41 +391,56 @@ Where `<value>` is simply read and forgotten, as in running an `object.property`
 `<object> is <attribute>` (statement form) +
 `<object> is <attribute>` (value form).
 
-// -----------------------------------------------------------------------------
+
+//-----{ 28-29  }---------------------------------------------------------------
+
 | 28 | not  | *TOKEN*
 | 29 | true | *VALUE*
 
     29
 
 Hard-coded Boolean constant meaning 1.
-// -----------------------------------------------------------------------------
+
+//-----{ 2A }-------------------------------------------------------------------
+
 | 2A | false | *VALUE*
 
     2A
 
 Hard-coded Boolean constant meaning 0.
-// -----------------------------------------------------------------------------
+
+//-----{ 2B-2C }----------------------------------------------------------------
+
 | 2B | local | _**reserved**_ (not coded)
 | 2C | verb  | *STATEMENT*
 
     2C <n> <dict_1> <dict_2>...<dict_n>
 
 Occurs in the grammar table and explicitly denotes the beginning of a new verb, where the single byte `<n>` gives the number of dictionary words coded immediately following representing synonyms for this verb.
-// -----------------------------------------------------------------------------
+
+//-----{ 2D }-------------------------------------------------------------------
+
 | 2D | xverb | *STATEMENT*
 
     2D <n> <dict_1> <dict_2>...<dict_n>
 
 Coded and handled identically to `verb`, except that it is flagged differently so the engine knows it is a "`non-action`".
-// -----------------------------------------------------------------------------
+
+//-----{ 2E-31 }----------------------------------------------------------------
+
 | 2E | held      | **GRAMMAR TOKEN**
 | 2F | multi     | **GRAMMAR TOKEN**
 | 30 | multiheld | **GRAMMAR TOKEN**
 | 31 | newline   | *PRINT TOKEN*
 
 Signals a `print` statement to issue a newline _only_ if one is needed.
-// -----------------------------------------------------------------------------
+
+//-----{ 32 }-------------------------------------------------------------------
+
 | 32 | anything  | **GRAMMAR TOKEN**
+
+//-----{ 33 }-------------------------------------------------------------------
+
 .2+| 33 | print     | *STATEMENT*
 
     33 <print data> 4C
@@ -419,17 +463,23 @@ Multiple `<print data>` sequences are separated by a semicolon (`;`) token ($0B)
 >s| Source: <a|
 
 * *herun.c* -- `RunPrint()`
-// -----------------------------------------------------------------------------
+
+//-----{ 34 }-------------------------------------------------------------------
+
 | 34 | number | **GRAMMAR TOKEN** or *PRINT TOKEN*
 
 In a `print` statement, signals that the following value should be printed as a number, not as the corresponding dictionary entry.
 
 In a grammar line, represents any integer number.
-// -----------------------------------------------------------------------------
+
+//-----{ 35 }-------------------------------------------------------------------
+
 | 35 | capital | *PRINT TOKEN*
 
 Signals that the following dictionary entry should have its first letter capitalized.
-// -----------------------------------------------------------------------------
+
+//-----{ 36 }-------------------------------------------------------------------
+
 .2+| 36 | text | *STATEMENT*
 
 // @FOOTNOTE IN TABLE + CODE: EXTERNALIZE!
@@ -444,11 +494,15 @@ text to n
 -------------
 
 Where `<value>` is either an address in the array table, or constant 0 (to restore text output to the standard display).
-// -----------------------------------------------------------------------------
+
+//-----{ 37 }-------------------------------------------------------------------
+
 | 37 | graphics | *STATEMENT*
 
 (Not implemented.)
-// -----------------------------------------------------------------------------
+
+//-----{ 38 }-------------------------------------------------------------------
+
 .2+| 38 | color | *STATEMENT*
 
 ...................................
@@ -470,7 +524,9 @@ color foreground, background, inputcolor
 Where `<value>` is a Hugo color value from 0 to 17 giving the foreground text color.
 If a second value is given, separated by a comma ($19), it represents the background color.
 If a third value is given, separated by a comma ($19), it represents the input color.
-// -----------------------------------------------------------------------------
+
+//-----{ 39 }-------------------------------------------------------------------
+
 .3+| 39 | remove | *STATEMENT*
 
 // @FOOTNOTE IN TABLE + CODE: EXTERNALIZE!
@@ -490,7 +546,9 @@ remove <object>
 >s| Source: <a|
 
 * *herun.c* -- `RunMove()`
-// -----------------------------------------------------------------------------
+
+//-----{ 3A }-------------------------------------------------------------------
+
 .3+| 3A | move | *STATEMENT*
 
 // @FOOTNOTE IN TABLE + CODE: EXTERNALIZE!
@@ -510,7 +568,9 @@ move <object1> to <object2>
 >s| Source: <a|
 
 * *herun.c* -- `RunMove()`
-// -----------------------------------------------------------------------------
+
+//-----{ 3B }-------------------------------------------------------------------
+
 | 3B | to | *TOKEN*
 
 Followed by a value, as in:
@@ -522,7 +582,9 @@ Typically found in `print to n`, `text to n`, etc., in which case the line will 
     ...3B <value> 4C
 
 {blank}
-// -----------------------------------------------------------------------------
+
+//-----{ 3C }-------------------------------------------------------------------
+
 .2+| 3C | parent | *VALUE*
 
 .....................
@@ -540,7 +602,9 @@ parent(...)
 Returns the parent object of the object resulting from `<expression>`.
 
 NOTE: Alternate usage is as a grammar token, coded simply as $3C with no following parenthetical expression.
-// -----------------------------------------------------------------------------
+
+//-----{ 3D }-------------------------------------------------------------------
+
 .2+| 3D | sibling | *VALUE*
 
 .....................
@@ -556,7 +620,9 @@ sibling(...)
 -------------
 
 Returns the sibling of the object resulting from `<expression>`.
-// -----------------------------------------------------------------------------
+
+//-----{ 3E }-------------------------------------------------------------------
+
 .2+| 3E | child | *VALUE*
 
 .....................
@@ -572,7 +638,9 @@ child(...)
 -------------
 
 Returns the child object of the object resulting from `<expression>`.
-// -----------------------------------------------------------------------------
+
+//-----{ 3F }-------------------------------------------------------------------
+
 .2+| 3F | youngest | *VALUE*
 
 .....................
@@ -588,7 +656,9 @@ youngest(...)
 -------------
 
 Returns the youngest (most recently added) child object of the object resulting from `<expression>`.
-// -----------------------------------------------------------------------------
+
+//-----{ 40 }-------------------------------------------------------------------
+
 .2+| 40 | eldest | *VALUE*
 
 .....................
@@ -604,7 +674,9 @@ eldest(...)
 ------------------
 
 Interpreted identically to `child(...)`.
-// -----------------------------------------------------------------------------
+
+//-----{ 41 }-------------------------------------------------------------------
+
 .2+| 41 | younger | *VALUE*
 
 .....................
@@ -620,7 +692,9 @@ younger(...)
 -------------
 
 Interpreted identically to `sibling(...)`.
-// -----------------------------------------------------------------------------
+
+//-----{ 42 }-------------------------------------------------------------------
+
 .2+| 42 | elder | *VALUE*
 
 .....................
@@ -636,43 +710,57 @@ elder(...)
 -------------
 
 Returns the object number of the object more recently added to the parent of the object resulting from `<expression>`.
-// -----------------------------------------------------------------------------
+
+//-----{ 43 }-------------------------------------------------------------------
+
 | 43 | prop# | *INTERNAL VALUE*
 
     43 <property>
 
 Where `<property>` is a single byte giving the property number.
-// -----------------------------------------------------------------------------
+
+//-----{ 44 }-------------------------------------------------------------------
+
 | 44 | attr# | *INTERNAL VALUE*
 
     44 <attribute>
 
 Where `<attribute>` is a single byte giving the attribute number.
-// -----------------------------------------------------------------------------
+
+//-----{ 45 }-------------------------------------------------------------------
+
 | 45 | var# | *INTERNAL VALUE*
 
     45 <variable>
 
 Where `<variable>` is a single byte giving the variable number. 0-239 are global variables, and 240-255 are local to this routine/event/etc.
-// -----------------------------------------------------------------------------
+
+//-----{ 46 }-------------------------------------------------------------------
+
 | 46 | dictentry# | *INTERNAL VALUE*
 
     46 <dictionary entry>
 
 Where `<dictionary entry>` is two bytes (in low-byte/high-byte order) giving the address of the entry in the dictionary table.
-// -----------------------------------------------------------------------------
+
+//-----{ 47 }-------------------------------------------------------------------
+
 | 47 | text# | *INTERNAL STATEMENT*
 
     47 <text address>
 
 Where `<text address>` is three bytes (in lowest-to-highest byte order) giving the address of the entry in the text bank.
-// -----------------------------------------------------------------------------
+
+//-----{ 48 }-------------------------------------------------------------------
+
 | 48 | routine# | *INTERNAL STATEMENT* or *VALUE*
 
     48 <routine address>
 
 Where `<routine address>` is two bytes giving the indexed address of the specified routine.
-// -----------------------------------------------------------------------------
+
+//-----{ 49 }-------------------------------------------------------------------
+
 | 49 | debugdata# | *INTERNAL DATA*
 
 Is followed by data that is helpful to the engine at runtime -- not visible in, for example, the debugger's code window.
@@ -683,23 +771,31 @@ E.g., local variable name:
 
 Where `<byte>` is a single byte giving the number of following `<data>` bytes, which give the name of the next local variable as an ASCII string.
 Read by the debugger; ignored by the engine.
-// -----------------------------------------------------------------------------
+
+//-----{ 4A }-------------------------------------------------------------------
+
 | 4A | object# | *INTERNAL VALUE*
 
     4A <object number>
 
 Where `<object number>` is two bytes giving the number of the specified object.
-// -----------------------------------------------------------------------------
+
+//-----{ 4B }-------------------------------------------------------------------
+
 | 4B | value# | *INTERNAL VALUE*
 
     4B <number>
 
 Where `<number>` is two bytes giving the specified constant value.
-// -----------------------------------------------------------------------------
+
+//-----{ 4C }-------------------------------------------------------------------
+
 | 4C | eol# | *INTERNAL TOKEN*
 
 End-of-line marker.
-// -----------------------------------------------------------------------------
+
+//-----{ 4D }-------------------------------------------------------------------
+
 .3+| 4D | system | *INTERNAL STATEMENT* or *VALUE*
 
 // @FOOTNOTE IN TABLE + CODE: EXTERNALIZE!
@@ -731,9 +827,14 @@ Where `<value>` is some Hugo data type giving the number of the system function 
 >s| Source: <a|
 
 * *herun.c* -- `RunSystem()`
-// -----------------------------------------------------------------------------
+
+//-----{ 4E-4F }----------------------------------------------------------------
+
 | 4E | notheld | **GRAMMAR TOKEN**
 | 4F | multinotheld | **GRAMMAR TOKEN**
+
+//-----{ 50 }-------------------------------------------------------------------
+
 .2+| 50 | window | *STATEMENT*
 
 [source,hugo]
@@ -779,7 +880,9 @@ The result was a window beginning at the top of the screen, reaching down to the
 >s| Source: <a|
 
 * *herun.c* -- `RunWindow()`
-// -----------------------------------------------------------------------------
+
+//-----{ 51 }-------------------------------------------------------------------
+
 .2+| 51 | random | *VALUE*
 
 .....................
@@ -795,7 +898,9 @@ random(...)
 -------------
 
 Returns a random value between 1 and `<expression>`.
-// -----------------------------------------------------------------------------
+
+//-----{ 52 }-------------------------------------------------------------------
+
 .2+| 52 | word | *VALUE*
 
 .....................
@@ -813,7 +918,9 @@ word[...]
 -------------
 
 Returns the dictionary address of `word[<expression>`].
-// -----------------------------------------------------------------------------
+
+//-----{ 53 }-------------------------------------------------------------------
+
 .2+| 53 | locate | *STATEMENT*
 
 ........................
@@ -832,7 +939,9 @@ locate x, y
 
 Where `<value>` is the column position to reposition the cursor to within the currently defined window.
 If a second value is given, it represents the new row position.
-// -----------------------------------------------------------------------------
+
+//-----{ 54 }-------------------------------------------------------------------
+
 .2+| 54 | parse$ | *TOKEN*
 
 Read-only engine variable representing the engine parser's internal `parse$` string.
@@ -841,7 +950,9 @@ Read-only engine variable representing the engine parser's internal `parse$` str
 
 * *herun.c* -- `RunPrint()`
 * *hemisc.c* -- `Dict()`, `GetWord()`
-// -----------------------------------------------------------------------------
+
+//-----{ 55 }-------------------------------------------------------------------
+
 .2+| 55 | children | *VALUE*
 
 .....................
@@ -857,7 +968,9 @@ children(...)
 -------------
 
 Returns the number of children owned by the object resulting from `<expression>`.
-// -----------------------------------------------------------------------------
+
+//-----{ 56 }-------------------------------------------------------------------
+
 .2+| 56 | in | *TOKEN*
 
 >s| As in:  <a|
@@ -874,20 +987,26 @@ or
 if <object> [not] in <parent>
 -----------------------------
 {blank}
-// -----------------------------------------------------------------------------
+
+//-----{ 57 }-------------------------------------------------------------------
+
 | 57 | pause | *STATEMENT*
 
     57
 
 Waits for a keypress.
 Stores the resulting key value in `word[0]`.
-// -----------------------------------------------------------------------------
+
+//-----{ 58 }-------------------------------------------------------------------
+
 | 58 | runevents | *STATEMENT*
 
     58
 
 Runs all events in scope.
-// -----------------------------------------------------------------------------
+
+//-----{ 59 }-------------------------------------------------------------------
+
 | 59 | arraydata# | *VALUE*
 
 * `array[<expression>]` -- element `<expression>` of array `<array>`
@@ -907,7 +1026,9 @@ Runs all events in scope.
 ........................
 +
 Where `<array>` is two bytes giving the address of the array in the array table.
-// -----------------------------------------------------------------------------
+
+//-----{ 5A }-------------------------------------------------------------------
+
 .2+| 5A | call | STATEMENT or VALUE
 
 // @FOOTNOTE IN TABLE + CODE: EXTERNALIZE!
@@ -924,7 +1045,9 @@ call <routine address>
 ----------------------
 
 Where `<value>` gives the indexed address of the routine to be called.
-// -----------------------------------------------------------------------------
+
+//-----{ 5B }-------------------------------------------------------------------
+
 .2+| 5B | stringdata# | *PRINT TOKEN*
 
 [literal,subs="+quotes"]
@@ -938,7 +1061,9 @@ Valid only in a `print` statement.
 >s| Source: <a|
 
 * *herun.c* -- `RunPrint()`
-// -----------------------------------------------------------------------------
+
+//-----{ 5C }-------------------------------------------------------------------
+
 .3+| 5C | save | *VALUE*
 
 >s| As in:  <a|
@@ -953,7 +1078,9 @@ Calls the engine's save-game procedure (which includes filename input); returns 
 >s| Source: <a|
 
 * *herun.c* -- `RunSave()`
-// -----------------------------------------------------------------------------
+
+//-----{ 5D }-------------------------------------------------------------------
+
 .3+| 5D | restore | *VALUE*
 
 >s| As in:  <a|
@@ -968,13 +1095,17 @@ Calls the engine's restore-game procedure (which includes filename input); retur
 >s| Source: <a|
 
 * *herun.c* -- `RunRestore()`
-// -----------------------------------------------------------------------------
+
+//-----{ 5E }-------------------------------------------------------------------
+
 | 5E | quit | *STATEMENT*
 
     5E
 
 Terminates program execution and exits the engine.
-// -----------------------------------------------------------------------------
+
+//-----{ 5F }-------------------------------------------------------------------
+
 .2+| 5F | input | *STATEMENT*
 
     5F
@@ -985,7 +1116,9 @@ Unknown (i.e., non-dictionary) words become 0, or `+""+`; the last unknown word 
 >s| Source: <a|
 
 * *herun.c* -- `RunInput()`
-// -----------------------------------------------------------------------------
+
+//-----{ 60 }-------------------------------------------------------------------
+
 .2+| 60 | serial$ | *PRINT TOKEN*
 
 Read-only engine variable representing the compiler-determined serial number.
@@ -993,13 +1126,17 @@ Read-only engine variable representing the compiler-determined serial number.
 >s| Source: <a|
 
 * *hemisc.c* -- `GetWord()`
-// -----------------------------------------------------------------------------
+
+//-----{ 61 }-------------------------------------------------------------------
+
 | 61 | cls | *STATEMENT*
 
     61
 
 Clears the currently defined text window.
-// -----------------------------------------------------------------------------
+
+//-----{ 62 }-------------------------------------------------------------------
+
 .2+| 62 | scripton | *VALUE*
 *As in:*
 
@@ -1013,7 +1150,9 @@ Calls the engine's begin-scripting procedure (which includes filename input); re
 >s| Source: <a|
 
 * *herun.c* -- `RunScript()`
-// -----------------------------------------------------------------------------
+
+//-----{ 63 }-------------------------------------------------------------------
+
 .3+| 63 | scriptoff | *VALUE*
 
 >s| As in:  <a|
@@ -1028,7 +1167,9 @@ Calls the engine's end-scripting procedure; returns a true value on success, or 
 >s| Source: <a|
 
 * *herun.c* -- `RunScript()`
-// -----------------------------------------------------------------------------
+
+//-----{ 64 }-------------------------------------------------------------------
+
 .2+| 64 | restart | *VALUE*
 
 >s| As in:  <a|
@@ -1039,19 +1180,27 @@ x = restart
 -------------
 
 Attempts to reload the dynamic game data and restart the game loop; returns a true value on success or false on failure.
-// -----------------------------------------------------------------------------
+
+//-----{ 65 }-------------------------------------------------------------------
+
 | 65 | hex | *PRINT TOKEN*
 
 Signals that the following value should be printed as a hexadecimal number, not as the corresponding dictionary entry.
-// -----------------------------------------------------------------------------
+
+//-----{ 66 }-------------------------------------------------------------------
+
 | 66 | object | *GRAMMAR TOKEN*
 
 NOTE: Removed as a token after grammar table is compiled so that `object` can refer to the object global variable.
-// -----------------------------------------------------------------------------
+
+//-----{ 67 }-------------------------------------------------------------------
+
 | 67 | xobject | *GRAMMAR TOKEN*
 
 NOTE: Removed as a token after grammar table is compiled so that `xobject` can refer to the xobject global variable.
-// -----------------------------------------------------------------------------
+
+//-----{ 68 }-------------------------------------------------------------------
+
 .3+| 68 | string | *VALUE*
 
 ......................................
@@ -1072,7 +1221,9 @@ Calls the engine string-writing function to write the dictionary entry `<expr2>`
 >s| Source: <a|
 
 * *herun.c* -- `RunString()`
-// -----------------------------------------------------------------------------
+
+//-----{ 69 }-------------------------------------------------------------------
+
 .2+| 69 | array | *VALUE*
 
     69 <value>
@@ -1082,7 +1233,9 @@ Forces `<value>` to be used as an address in the array table, so that `array <va
 >s| Source: <a|
 
 * *heexpr.c* -- `GetVal()`
-// -----------------------------------------------------------------------------
+
+//-----{ 6A }-------------------------------------------------------------------
+
 .2+| 6A | printchar | *STATEMENT*
 
 ..................................
@@ -1099,7 +1252,9 @@ printchar 'A', 'B',...
 
 Outputs a single ASCII character value at the current screen position.
 Multiple values are separated by $19; the sequence is terminated by $4C.
-// -----------------------------------------------------------------------------
+
+//-----{ 6B }-------------------------------------------------------------------
+
 .3+| 6B | undo | *VALUE*
 
 >s| As in:  <a|
@@ -1114,7 +1269,9 @@ Attempts to restore all data changes made since the last typed input; returns a 
 >s| Source: <a|
 
 * *hemisc.c* -- `SaveUndo()`, `Undo()`
-// -----------------------------------------------------------------------------
+
+//-----{ 6C }-------------------------------------------------------------------
+
 .3+| 6C | dict | *VALUE*
 
 ...........................
@@ -1137,7 +1294,9 @@ Otherwise, it is appended to the end of the table, and the new location is retur
 >s| Source: <a|
 
 * *hemisc.c* -- `Dict()`
-// -----------------------------------------------------------------------------
+
+//-----{ 6D }-------------------------------------------------------------------
+
 .3+| 6D | recordon | *VALUE*
 
 >s| As in:  <a|
@@ -1152,7 +1311,9 @@ Calls the engine's begin-command-recording procedure (which includes filename in
 >s| Source: <a|
 
 * *hemisc.c* -- `RecordCommands()`
-// -----------------------------------------------------------------------------
+
+//-----{ 6E }-------------------------------------------------------------------
+
 .3+| 6E | recordoff | *VALUE*
 
 >s| As in:  <a|
@@ -1167,7 +1328,9 @@ Calls the engine's end-command-recording procedure; returns a true value on succ
 >s| Source: <a|
 
 * *hemisc.c* -- `RecordCommands()`
-// -----------------------------------------------------------------------------
+
+//-----{ 6F }-------------------------------------------------------------------
+
 .3+| 6F | writefile | *STATEMENT*
 
 // @FOOTNOTE IN TABLE + CODE: EXTERNALIZE!
@@ -1192,7 +1355,9 @@ Upon any error, jumps to the end of the file i/o code block and closes `<file>`.
 >s| Source: <a|
 
 * *hemisc.c* -- `FileIO()`
-// -----------------------------------------------------------------------------
+
+//-----{ 70 }-------------------------------------------------------------------
+
 .2+| 70 | readfile | *STATEMENT*
 
 // @FOOTNOTE IN TABLE + CODE: EXTERNALIZE!
@@ -1212,7 +1377,9 @@ readfile <file>
 
 Opens the file named by the dictionary entry `<value>` and runs the following code block.
 Upon any error, jumps to the end of the file i/o code block and closes `<file>`.
-// -----------------------------------------------------------------------------
+
+//-----{ 71 }-------------------------------------------------------------------
+
 | 71 | writeval | *STATEMENT*
 
 // @FOOTNOTE IN TABLE + CODE: EXTERNALIZE!
@@ -1222,7 +1389,9 @@ Upon any error, jumps to the end of the file i/o code block and closes `<file>`.
 Valid only in a `writefile` block.
 Writes `<value>` as a 16-bit integer to the currently open file.
 Multiple values are separated by $19.
-// -----------------------------------------------------------------------------
+
+//-----{ 72 }-------------------------------------------------------------------
+
 .2+| 72 | readval | *VALUE*
 
 >s| As in:  <a|
@@ -1234,7 +1403,9 @@ x = readval
 
 Valid only in a `readfile` block.
 Reads a 16-bit integer from the currently open file.
-// -----------------------------------------------------------------------------
+
+//-----{ 73 }-------------------------------------------------------------------
+
 .2+| 73 | playback | *VALUE*
 
 >s| As in:  <a|
@@ -1247,11 +1418,15 @@ x = playback
 Calls the engines command-playback procedure (including filename input) and attempts to begin command playback from the requested file.
 If found, player input in `RunGame()` is overridden by commands in the file until end-of-file.
 Returns true on success, false on failure.
-// -----------------------------------------------------------------------------
+
+//-----{ 74 }-------------------------------------------------------------------
+
 | 74 | colour | *STATEMENT*
 
 Treated identically to $38: `color`.
-// -----------------------------------------------------------------------------
+
+//-----{ 75 }-------------------------------------------------------------------
+
 | 75 | picture | *STATEMENT*
 
     75 <value1> 19 <value2> 4C
@@ -1260,7 +1435,9 @@ Treated identically to $38: `color`.
 Attempts to load and display a JPEG-format picture either as resource `<value2>` in resourcefile `<value1>`, or, if `<value2>` is not given, simply as filename `<value1>`.
 (All `<values>` are dictionary entries.)
 If there is an error, the `system_status` global variable is set.
-// -----------------------------------------------------------------------------
+
+//-----{ 76-77 }----------------------------------------------------------------
+
 | 76 | label# | *INTERNAL DATA*
 | 77 | sound | *STATEMENT*
 
@@ -1272,7 +1449,9 @@ Attempts to load and play a WAV-format sample as resource `<value2>` in resource
 If `<value3>` is given, the sample output volume is set to `<value3>` (as a percentage of normal output).
 If `<value1>` is 0, the current sound is stopped.
 If there is an error, the `system_status` global variable is set.
-// -----------------------------------------------------------------------------
+
+//-----{ 78 }-------------------------------------------------------------------
+
 | 78 | music | *STATEMENT*
 
     78 [79] <value1> 19 <value2> [19 <value3>] 4C
@@ -1284,7 +1463,9 @@ Attempts to load and play a music resource{fn11} as resource `<value2>` in resou
 If `<value3>` is given, the music output volume is set to `<value3>` (as a percentage of normal output).
 If `<value1>` is 0, the current music is stopped.
 If there is an error, the `system_status` global variable is set.
-// -----------------------------------------------------------------------------
+
+//-----{ 79 }-------------------------------------------------------------------
+
 | 79 | repeat | *TOKEN*
 
 Used by `sound` and `music` statements.
