@@ -298,10 +298,10 @@ The available options are:
 [cols="<m,<d",options=autowidth,grid=none,stripes=odd]
 |===============================================================================
 | -a  | **A**bort compilation on any error
-| -d  | compile as an .HDX **D**ebuggable executable
+| -d  | compile as an *.HDX* **D**ebuggable executable
 | -e  | **E**xpanded error format
 | -f  | **F**ull object summaries
-| -h  | compile in .HLB precompiled **H**eader format
+| -h  | compile in *.HLB* precompiled **H**eader format
 | -i  | display debugging **I**nformation
 | -l  | print **L**isting to disk as *<sourcefile>.lst*
 | -o  | display **O**bject tree

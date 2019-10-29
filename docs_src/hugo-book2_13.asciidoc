@@ -36,7 +36,7 @@ By *Pass 3*, all executable code has been written to the objectfile, structures 
 First, `ResolveAddr()` (from *hcmisc.c*) patches all references that were unknown at the time they were compiled.
 `Pass3()` then writes the object table, the property table, the event table, the array table, synonyms/removals/compounds/user-defined punctuation, the dictionary, and the text bank.
 
-If a debuggable executable (called an .HDX file) is being generated, the last thing `Pass3()` does is to write the symbolic names of all objects, properties, attributes, aliases, globals, routines, events, and arrays to the end of the file.
+If a debuggable executable (called an *.HDX* file) is being generated, the last thing `Pass3()` does is to write the symbolic names of all objects, properties, attributes, aliases, globals, routines, events, and arrays to the end of the file.
 
 
 == Compile-Time Symbol Data
@@ -206,31 +206,31 @@ Only if `...++_hash[n]++` matches an expected value does a more expensive `strcm
 
 == The Linker
 
-The compiler has to be able to both create a linkable file (called an .HLB file, as it is usually a precompiled version of the library) and read it back when a `#link` directive is encountered.
+The compiler has to be able to both create a linkable file (called an *.HLB* file, as it is usually a precompiled version of the library) and read it back when a `#link` directive is encountered.
 
-In the first case, the compiler writes an .HLB file whenever the `-h` switch is set at invocation.
+In the first case, the compiler writes an *.HLB* file whenever the `-h` switch is set at invocation.
 In order to do that, it does the following things:
 
 [arabic]
 . Property routines, normally marked by a "`length`" of 255, are changed to a "`length`" of 254.
-. All addresses are appended to the end of the file instead of being resolved in `Pass3()`. (Labels, being local and therefore not visible outside the .HLB file, are an exception; they are resolved as usual.)
+. All addresses are appended to the end of the file instead of being resolved in `Pass3()`. (Labels, being local and therefore not visible outside the *.HLB* file, are an exception; they are resolved as usual.)
 . Additional data (such as symbolic names) of objects and properties are written in `Pass3()`.
 Immediately following the object table, the compiler, in `Pass3()`, writes all the relevant data for attributes, aliases, globals, constants, routines.
 . The value `$$` is written into the ID string in the header.
 
-Reading back (i.e., linking) an .HLB file is done in two steps: `LinkerPass1()` [.red]#[1.3]#, called from `Pass1()`, and `LinkerPass2()` [.red]#[2.2]#, called from `Pass2()`. (The linker routines are found in the source file *hclink.c*.)
+Reading back (i.e., linking) an *.HLB* file is done in two steps: `LinkerPass1()` [.red]#[1.3]#, called from `Pass1()`, and `LinkerPass2()` [.red]#[2.2]#, called from `Pass2()`. (The linker routines are found in the source file *hclink.c*.)
 
-`LinkerPass1()` simply skims the .HLB file for symbols and defines them accordingly, along with any relevant data.
-It also reads the .HLB file's text bank and writes it to the current file's temporary file containing the current text bank.
+`LinkerPass1()` simply skims the *.HLB* file for symbols and defines them accordingly, along with any relevant data.
+It also reads the *.HLB* file's text bank and writes it to the current file's temporary file containing the current text bank.
 Note that since linking must be done before any other definitions, there is no need to calculate offsets here for things like object numbers, addresses in the text bank, etc.
 
 `LinkerPass2()` is responsible for reading the actual executable code.
 It does this mainly with a simple read/write (in blocks of 16K or smaller).
-It then reads the resolve table appended to the end of the .HLB file and writes it to the current resolve table so that `Pass3()` can properly resolve the offset code addresses at the end of compilation.
+It then reads the resolve table appended to the end of the *.HLB* file and writes it to the current resolve table so that `Pass3()` can properly resolve the offset code addresses at the end of compilation.
 
 [NOTE]
 ================================================================================
-Since the actual start of executable code will vary depending on the length of the grammar table, it is not known at the .HLB file's compile-time what a given address may ultimately be.
+Since the actual start of executable code will vary depending on the length of the grammar table, it is not known at the *.HLB* file's compile-time what a given address may ultimately be.
 It is only known that, for example, routine _R_ is called from position _P_ in the source.
 Both _R_ and _P_ must be adjusted for the offset.
 ================================================================================

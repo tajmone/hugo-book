@@ -535,7 +535,7 @@ div.literalblock.cmd pre .conum {
 <span id="email" class="email"><a href="mailto:general@generalcoffee.com">general@generalcoffee.com</a></span><br>
 <span id="revnumber">version 1,</span>
 <span id="revdate">2018-10-04</span>
-<br><span id="revremark">Draft 81 -- Porting to AsciiDoc</span>
+<br><span id="revremark">Draft 82 -- Porting to AsciiDoc</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -1219,7 +1219,7 @@ The available options are:</p>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>-d</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">compile as an .HDX <strong>D</strong>ebuggable executable</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">compile as an <strong>.HDX</strong> <strong>D</strong>ebuggable executable</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>-e</code></p></td>
@@ -1231,7 +1231,7 @@ The available options are:</p>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>-h</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">compile in .HLB precompiled <strong>H</strong>eader format</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">compile in <strong>.HLB</strong> precompiled <strong>H</strong>eader format</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>-i</code></p></td>
@@ -15841,7 +15841,7 @@ For further elaboration on such differences, please see the Hugo source itself.<
 The compiler is also responsible for organizing and writing tables representing object data, property data, the dictionary, etc.</p>
 </div>
 <div class="paragraph">
-<p>The engine in turn reads the file produced by the compiler (called a .HEX file, after the default extension), and follows the compiled instructions to execute low-level functions such as object movement, property assignment, text output, and expression evaluation.
+<p>The engine in turn reads the file produced by the compiler (called a <strong>.HEX</strong> file, after the default extension), and follows the compiled instructions to execute low-level functions such as object movement, property assignment, text output, and expression evaluation.
 These low-level operations are, for the most part, transparent to the programmer.</p>
 </div>
 </div>
@@ -15853,7 +15853,7 @@ These low-level operations are, for the most part, transparent to the programmer
 <div class="sect2">
 <h3 id="_memory_map"><a class="anchor" href="#_memory_map"></a>14.1. Memory Map</h3>
 <div class="paragraph">
-<p>If all the separate segments of a .HEX file were stacked contiguously on top of each other, the resulting pile would look something like this:</p>
+<p>If all the separate segments of a <strong>.HEX</strong> file were stacked contiguously on top of each other, the resulting pile would look something like this:</p>
 </div>
 <table class="tableblock frame-all grid-all stripes-even fit-content center">
 <colgroup>
@@ -15868,7 +15868,7 @@ These low-level operations are, for the most part, transparent to the programmer
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">(Link data for .HLB files)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">(Link data for <strong>.HLB</strong> files)</p></td>
 <td class="tableblock halign-right valign-top"></td>
 </tr>
 <tr>
@@ -15944,11 +15944,11 @@ The following <em>n</em>*2 bytes give the property defaults.</p>
 <div class="sect2">
 <h3 id="_the_header"><a class="anchor" href="#_the_header"></a>14.2. The Header</h3>
 <div class="paragraph">
-<p>The header is reserved a total of 64 bytes at the start of the compiled .HEX file, immediately preceding the grammar table.
+<p>The header is reserved a total of 64 bytes at the start of the compiled <strong>.HEX</strong> file, immediately preceding the grammar table.
 It contains the bulk of information regarding table offsets, junction routine addresses, etc.: essentially, it is a map to where to find things in the file.</p>
 </div>
 <div class="paragraph">
-<p>Compile with the -u switch to display a map of memory usage in the .HEX file that reflects the offsets and addresses encoded in the header.</p>
+<p>Compile with the <code>-u</code> switch to display a map of memory usage in the <strong>.HEX</strong> file that reflects the offsets and addresses encoded in the header.</p>
 </div>
 <table class="tableblock frame-all grid-none stripes-even fit-content">
 <colgroup>
@@ -16082,7 +16082,7 @@ It contains the bulk of information regarding table offsets, junction routine ad
 </tbody>
 </table>
 <div class="paragraph">
-<p>In .HDX (debuggable) Hugo executables only:</p>
+<p>In <strong>.HDX</strong> (debuggable) Hugo executables only:</p>
 </div>
 <table class="tableblock frame-all grid-none stripes-even fit-content">
 <colgroup>
@@ -17841,7 +17841,7 @@ First, <code>ResolveAddr()</code> (from <strong>hcmisc.c</strong>) patches all r
 <code>Pass3()</code> then writes the object table, the property table, the event table, the array table, synonyms/removals/compounds/user-defined punctuation, the dictionary, and the text bank.</p>
 </div>
 <div class="paragraph">
-<p>If a debuggable executable (called an .HDX file) is being generated, the last thing <code>Pass3()</code> does is to write the symbolic names of all objects, properties, attributes, aliases, globals, routines, events, and arrays to the end of the file.</p>
+<p>If a debuggable executable (called an <strong>.HDX</strong> file) is being generated, the last thing <code>Pass3()</code> does is to write the symbolic names of all objects, properties, attributes, aliases, globals, routines, events, and arrays to the end of the file.</p>
 </div>
 <div class="sect2">
 <h3 id="_compile_time_symbol_data"><a class="anchor" href="#_compile_time_symbol_data"></a>25.1. Compile-Time Symbol Data</h3>
@@ -18231,10 +18231,10 @@ Only if <code>&#8230;&#8203;_hash[n]</code> matches an expected value does a mor
 <div class="sect2">
 <h3 id="_the_linker"><a class="anchor" href="#_the_linker"></a>25.2. The Linker</h3>
 <div class="paragraph">
-<p>The compiler has to be able to both create a linkable file (called an .HLB file, as it is usually a precompiled version of the library) and read it back when a <code>#link</code> directive is encountered.</p>
+<p>The compiler has to be able to both create a linkable file (called an <strong>.HLB</strong> file, as it is usually a precompiled version of the library) and read it back when a <code>#link</code> directive is encountered.</p>
 </div>
 <div class="paragraph">
-<p>In the first case, the compiler writes an .HLB file whenever the <code>-h</code> switch is set at invocation.
+<p>In the first case, the compiler writes an <strong>.HLB</strong> file whenever the <code>-h</code> switch is set at invocation.
 In order to do that, it does the following things:</p>
 </div>
 <div class="olist arabic">
@@ -18243,7 +18243,7 @@ In order to do that, it does the following things:</p>
 <p>Property routines, normally marked by a &#8220;length&#8221; of 255, are changed to a &#8220;length&#8221; of 254.</p>
 </li>
 <li>
-<p>All addresses are appended to the end of the file instead of being resolved in <code>Pass3()</code>. (Labels, being local and therefore not visible outside the .HLB file, are an exception; they are resolved as usual.)</p>
+<p>All addresses are appended to the end of the file instead of being resolved in <code>Pass3()</code>. (Labels, being local and therefore not visible outside the <strong>.HLB</strong> file, are an exception; they are resolved as usual.)</p>
 </li>
 <li>
 <p>Additional data (such as symbolic names) of objects and properties are written in <code>Pass3()</code>.
@@ -18255,17 +18255,17 @@ Immediately following the object table, the compiler, in <code>Pass3()</code>, w
 </ol>
 </div>
 <div class="paragraph">
-<p>Reading back (i.e., linking) an .HLB file is done in two steps: <code>LinkerPass1()</code> <span class="red">[1.3]</span>, called from <code>Pass1()</code>, and <code>LinkerPass2()</code> <span class="red">[2.2]</span>, called from <code>Pass2()</code>. (The linker routines are found in the source file <strong>hclink.c</strong>.)</p>
+<p>Reading back (i.e., linking) an <strong>.HLB</strong> file is done in two steps: <code>LinkerPass1()</code> <span class="red">[1.3]</span>, called from <code>Pass1()</code>, and <code>LinkerPass2()</code> <span class="red">[2.2]</span>, called from <code>Pass2()</code>. (The linker routines are found in the source file <strong>hclink.c</strong>.)</p>
 </div>
 <div class="paragraph">
-<p><code>LinkerPass1()</code> simply skims the .HLB file for symbols and defines them accordingly, along with any relevant data.
-It also reads the .HLB file&#8217;s text bank and writes it to the current file&#8217;s temporary file containing the current text bank.
+<p><code>LinkerPass1()</code> simply skims the <strong>.HLB</strong> file for symbols and defines them accordingly, along with any relevant data.
+It also reads the <strong>.HLB</strong> file&#8217;s text bank and writes it to the current file&#8217;s temporary file containing the current text bank.
 Note that since linking must be done before any other definitions, there is no need to calculate offsets here for things like object numbers, addresses in the text bank, etc.</p>
 </div>
 <div class="paragraph">
 <p><code>LinkerPass2()</code> is responsible for reading the actual executable code.
 It does this mainly with a simple read/write (in blocks of 16K or smaller).
-It then reads the resolve table appended to the end of the .HLB file and writes it to the current resolve table so that <code>Pass3()</code> can properly resolve the offset code addresses at the end of compilation.</p>
+It then reads the resolve table appended to the end of the <strong>.HLB</strong> file and writes it to the current resolve table so that <code>Pass3()</code> can properly resolve the offset code addresses at the end of compilation.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -18275,7 +18275,7 @@ It then reads the resolve table appended to the end of the .HLB file and writes 
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Since the actual start of executable code will vary depending on the length of the grammar table, it is not known at the .HLB file&#8217;s compile-time what a given address may ultimately be.
+<p>Since the actual start of executable code will vary depending on the length of the grammar table, it is not known at the <strong>.HLB</strong> file&#8217;s compile-time what a given address may ultimately be.
 It is only known that, for example, routine <em>R</em> is called from position <em>P</em> in the source.
 Both <em>R</em> and <em>P</em> must be adjusted for the offset.</p>
 </div>
@@ -18352,7 +18352,7 @@ The expression currently in <code>eval[]</code> is solved by calling <code>EvalE
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>mem[]</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">loaded .HEX file image</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">loaded <strong>.HEX</strong> file image</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>defseg</code></p></td>

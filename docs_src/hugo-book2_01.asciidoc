@@ -34,7 +34,7 @@ The debugger is actually a modified build of the engine, with an additional comm
 The compiler is responsible for reading source files and writing executable code; it does this by first tokenizing a given line of code -- breaking it down into a series of byte values representing its contents -- and then determining how the line(s) should be written (i.e., identified, optimized, and encoded) in order to fit properly into the current construct.
 The compiler is also responsible for organizing and writing tables representing object data, property data, the dictionary, etc.
 
-The engine in turn reads the file produced by the compiler (called a .HEX file, after the default extension), and follows the compiled instructions to execute low-level functions such as object movement, property assignment, text output, and expression evaluation.
+The engine in turn reads the file produced by the compiler (called a *.HEX* file, after the default extension), and follows the compiled instructions to execute low-level functions such as object movement, property assignment, text output, and expression evaluation.
 These low-level operations are, for the most part, transparent to the programmer.
 
 

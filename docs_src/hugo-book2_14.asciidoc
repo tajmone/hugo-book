@@ -49,7 +49,7 @@ The expression currently in `eval[]` is solved by calling `EvalExpr()`.
 .Code execution:
 [cols="<m,<d",options=autowidth,grid=none,stripes=even]
 |===============================================================================
-| mem[]       | loaded .HEX file image
+| mem[]       | loaded *.HEX* file image
 | defseg      | current memory segment
 | codeseg     | code segment (i.e., 0)
 | codeptr     | current code position
