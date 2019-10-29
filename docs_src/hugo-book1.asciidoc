@@ -1,12 +1,12 @@
 // *****************************************************************************
 // *                                                                           *
-// *                  BOOK 1 -- THE HUGO PROGRAMMING MANUAL                    *
+// *                Hugo Book I -- The Hugo Programming Manual                 *
 // *                                                                           *
 // *****************************************************************************
+//
+= Book I: The Hugo Programming Manual
 
-= Book 1: The Hugo Programming Manual
-// BOOK 1 +
-// THE HUGO PROGRAMMING MANUAL
+// @FIXME: Part Subtitle
 
 [.text-center.partsubtitle]
 OR +

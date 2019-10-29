@@ -1,3 +1,9 @@
+// *****************************************************************************
+// *                                                                           *
+// *                    Hugo Book II: 5/16 -- 17. Grammar                      *
+// *                                                                           *
+// *****************************************************************************
+//
 = Grammar
 
 The grammar table starts immediately following the header (at $40, or 64 bytes into the *.HEX* file).

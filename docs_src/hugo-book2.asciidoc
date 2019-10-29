@@ -1,13 +1,12 @@
 // *****************************************************************************
 // *                                                                           *
-// *                 BOOK 2 -- TECHNICAL SYSTEM SPECIFICATION                  *
+// *              Hugo Book II -- Technical System Specification               *
 // *                                                                           *
 // *****************************************************************************
+//
+= Book II: Technical System Specification
 
-= Book 2: Technical System Specification
-
-// BOOK 2 +
-// TECHNICAL SYSTEM SPECIFICATION
+// @FIXME: Part Subtitle
 
 [.text-center.partsubtitle]
 OR +

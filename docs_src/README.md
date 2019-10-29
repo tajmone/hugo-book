@@ -147,7 +147,7 @@ Every chapter in the list provides an [HTML Live Preview] link to quickly jump t
     + [ ]  Custom styling and adaptation to HTML5 version.
     + Title capitalization: _no sections._
     + [ ]  Fix all XRefs.
-- [ ]  [BOOK 1. **THE HUGO PROGRAMMING MANUAL**][Book I]
+- [ ]  [BOOK I. **THE HUGO PROGRAMMING MANUAL**][Book I]
     + [ ]  [1. _INTRODUCTION_][Ch1]
         * [x]  Title capitalization of all sections.
         * [ ]  Fix all XRefs.
@@ -234,7 +234,7 @@ Every chapter in the list provides an [HTML Live Preview] link to quickly jump t
         * Title capitalization: _no sections._
         * [ ]  Fix all XRefs.
         *  (_No footnotes_).
-- [ ]  [BOOK 2. **TECHNICAL SYSTEM SPECIFICATION**][Book II]
+- [ ]  [BOOK II. **TECHNICAL SYSTEM SPECIFICATION**][Book II]
     + [ ]  [13. _INTRODUCTION_][Ch13]
         * [x]  Title capitalization of all sections.
         * [ ]  Fix all XRefs.

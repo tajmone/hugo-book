@@ -1,3 +1,9 @@
+// *****************************************************************************
+// *                                                                           *
+// *                 Hugo Book II: 12/16 -- 24. Resourcefiles                  *
+// *                                                                           *
+// *****************************************************************************
+//
 = Resourcefiles
 
 A resourcefile is used to store multiple images, sounds, music tracks, etc. in one manageable file format.

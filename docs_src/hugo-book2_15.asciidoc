@@ -1,3 +1,9 @@
+// *****************************************************************************
+// *                                                                           *
+// *       Hugo Book II: 15/16 -- 27. Dark Secrets of the Hugo Debugger        *
+// *                                                                           *
+// *****************************************************************************
+//
 = Dark Secrets of the Hugo Debugger
 
 The Hugo Debugger is basically a modified build of the Hugo Engine; the two share the same core code for program execution, but the debugger wraps it in a calling framework that allows the user (or the debugger itself) to control -- i.e., start, stop, or step through -- execution.

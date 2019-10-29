@@ -1,3 +1,9 @@
+// *****************************************************************************
+// *                                                                           *
+// *      Hugo Book II: 13/16 -- 25. The Hugo Compiler and How It Works        *
+// *                                                                           *
+// *****************************************************************************
+//
 = The Hugo Compiler and How It Works
 
 For reference, here is a simplified map of the compiler's function calls, along with the source files in which they are located.

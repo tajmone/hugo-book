@@ -1,3 +1,9 @@
+// *****************************************************************************
+// *                                                                           *
+// *                 Hugo Book II: 7/16 -- 19. Encoding Text                   *
+// *                                                                           *
+// *****************************************************************************
+//
 = Encoding Text
 
 Text is written uncompressed into the *.HEX* file (since there is not really any need for nor any great memory savings from whatever minor compression might be practical).

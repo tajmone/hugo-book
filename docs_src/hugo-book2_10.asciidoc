@@ -1,3 +1,9 @@
+// *****************************************************************************
+// *                                                                           *
+// *                Hugo Book II: 10/16 -- 22. The Event Table                 *
+// *                                                                           *
+// *****************************************************************************
+//
 = The Event Table
 
 The event table begins with two bytes giving the total number of events.
