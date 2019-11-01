@@ -97,8 +97,8 @@ object placeholder
 
 
 creates an object called "`(placeholder)`".
-// @XREF ADD: "III.e Classes"
-Usually the latter is used for system objects or classes (see _III.e Classes_) that will never actually appear in a game.
+// @XREF: "3.5. Classes" (internal)
+Usually the latter is used for system objects or classes (see <<classes>>) that will never actually appear in a game.
 
 
 [NOTE]

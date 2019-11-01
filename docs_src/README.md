@@ -158,9 +158,9 @@ Every chapter in the list provides an [HTML Live Preview] link to quickly jump t
         * [ ]  Fix all XRefs.
         * [x]  Fix footnotes (**7**);
             - [x]  1 footnote inside code.
-    + [ ]  [3. _OBJECTS_][Ch3]
+    + [x]  [3. _OBJECTS_][Ch3]
         * [x]  Title capitalization of all sections.
-        * [ ]  Fix all XRefs.
+        *  (_no XRefs_).
         * [x]  Fix footnotes (**10**):
             - [x]  3 footnotes inside table.
             - [x]  1 footnote inside code.
@@ -343,6 +343,7 @@ This table lists all the cross references currently used in _The Hugo Book_, and
 | 1.10. Limit Settings                  |   1 | `limit_settings`                              |
 | 1.11. Directories                     |   1 | `directories`                                 |
 | 2.3. Data Types                       |   2 | `hugo-book1_02#data_types`                    |
+| 3.5. Classes                          |   1 | `classes`                                     |
 | 5.1. Routines                         |   1 | `hugo-book1_05#routines`                      |
 | 5.3. Before and After Routines        |   1 | `hugo-book1_05#before_and_after_routines`     |
 | 7.1. Grammar Definition               |   1 | `hugo-book1_07#grammar_definition`            |
@@ -355,10 +356,15 @@ This table lists all the cross references currently used in _The Hugo Book_, and
 | App. F. Hugo Versions                 |   2 | `hugo-book1_18#hugo_versions`                 |
 | App. G: Additional Resources          |   1 | `hugo-book1_19#additional_resources`          |
 | 14.2. The Header                      |   1 | `hugo-book2_02#the_header`                    |
+| 15.2. Data Types                      |   1 | `hugo-book2_03#15-2_data_types`               |
 | App. H: Code Patterns                 |   2 | `hugo-book2_16#code_patterns`                 |
 
-> __NOTE__ — Xrefs not preceded by the file name are internal cross-references to the same document.
+> __NOTE 1__ — Xrefs not preceded by the file name are internal cross-references to the same document.
 
+<!--  -->
+
+> __NOTE 2__ — To avoid conflicts with same-names sections, in some places I had to introduce a custom ID (eg. `hugo-book2_03#15-2_data_types`).
+> Probably I should customize all referenced Chapters, Sections and Appendices using a standard naming convention for IDs.
 <!--
 | XXX | 1 | `MMMMM` |
 | App. XXX | QQQ | `MMMMM` |
