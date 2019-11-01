@@ -253,9 +253,9 @@ hc <sourcefile>
 With no other parameters explicitly described, the compiler assumes an extension of *.hug*.
 The default object filename is *<sourcefile>.hex*.
 
-// @XREF ADD: "I.e. Packing List"
+// @XREF: "1.5. Packing List"
 
-Here's how to compile the sample game from the *sample.hug* source code mentioned earlier in _I.e. Packing List_.
+Here's how to compile the sample game from the *sample.hug* source code mentioned earlier in <<packing_list>>.
 Make sure the compiler executable, library files, and sample game source code are all in the current directory, then type
 
 [literal, role="cmd"]
@@ -276,10 +276,10 @@ As well, the `-l` switch wrote all compile-time output (which would have include
 
 [NOTE]
 ================================================================================
-// @XREF ADD: "I.i. Compiler Switches"
-// @XREF ADD: "I.j. Limit Settings"
-// @XREF ADD: "I.k. Directories"
-The next three sections -- _I.i. Compiler Switches_, _I.j. Limit Settings_, and _I.k. Directories_ -- may seem a little confusing to those without much compiler experience.
+// @XREF: "1.9. Compiler Switches"
+// @XREF: "1.10. Limit Settings"
+// @XREF: "1.11. Directories"
+The next three sections -- <<compiler_switches>>, <<limit_settings>>, and <<directories>> -- may seem a little confusing to those without much compiler experience.
 Do look them over, but if you're not exactly sure what it all means, don't worry about it.
 You won't need to tell the compiler to do anything particularly acrobatic at the outset, and the information is here for experimentation and for when you need it.
 ================================================================================

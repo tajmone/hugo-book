@@ -149,9 +149,9 @@ Every chapter in the list provides an [HTML Live Preview] link to quickly jump t
     + Title capitalization: _no sections._
     + [ ]  Fix all XRefs.
 - [ ]  [BOOK I. **THE HUGO PROGRAMMING MANUAL**][Book I]
-    + [ ]  [1. _INTRODUCTION_][Ch1]
+    + [x]  [1. _INTRODUCTION_][Ch1]
         * [x]  Title capitalization of all sections.
-        * [ ]  Fix all XRefs.
+        * [x]  Fix all XRefs (**9**).
         * [x]  Fix footnotes (**3**).
     + [ ]  [2. _A FIRST LOOK AT HUGO_][Ch2]
         * [x]  Title capitalization of all sections.
@@ -338,6 +338,10 @@ This table lists all the cross references currently used in _The Hugo Book_, and
 
 |                Section                | Qt. |                      xref                     |
 |---------------------------------------|-----|-----------------------------------------------|
+| 1.5. Packing List                     |   1 | `packing_list`                                |
+| 1.9. Compiler Switches                |   1 | `compiler_switches`                           |
+| 1.10. Limit Settings                  |   1 | `limit_settings`                              |
+| 1.11. Directories                     |   1 | `directories`                                 |
 | 5.1. Routines                         |   1 | `hugo-book1_05#routines`                      |
 | 5.3. Before and After Routines        |   1 | `hugo-book1_05#before_and_after_routines`     |
 | 7.1. Grammar Definition               |   1 | `hugo-book1_07#grammar_definition`            |
@@ -350,6 +354,8 @@ This table lists all the cross references currently used in _The Hugo Book_, and
 | App. F. Hugo Versions                 |   2 | `hugo-book1_18#hugo_versions`                 |
 | App. G: Additional Resources          |   1 | `hugo-book1_19#additional_resources`          |
 | App. H: Code Patterns                 |   2 | `hugo-book2_16#code_patterns`                 |
+
+> __NOTE__ — Xrefs not preceded by the file name are internal cross-references to the same document.
 
 <!--
 | XXX | 1 | `MMMMM` |
