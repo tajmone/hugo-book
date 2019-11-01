@@ -48,7 +48,6 @@ The property table position represents the offset of the beginning of the given 
 
 == Attributes
 
-// @FOOTNOTE: EXTERNALIZE!
 The 16 bytes of the attribute array contain 8 bits each, giving a total of 128 possible attributes.{fn2}
 Essentially, if the bits are thought of sequentially in that the first byte represents attributes 0 to 7, the second byte represents attributes 8 to 15, the third 16 to 23, and the fourth and final byte 24 to 31.
 

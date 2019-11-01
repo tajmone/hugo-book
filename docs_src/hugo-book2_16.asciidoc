@@ -381,7 +381,6 @@ Where `<address>` is two bytes giving the indexed address of the next statement 
 
 | 26 | run | *STATEMENT*
 
-// @FOOTNOTE IN TABLE + CODE: EXTERNALIZE!
 [literal,subs="+attributes,macros"]
 26 <value> 4C{fn1}
 
@@ -487,7 +486,6 @@ Signals that the following dictionary entry should have its first letter capital
 
 .2+| 36 | text | *STATEMENT*
 
-// @FOOTNOTE IN TABLE + CODE: EXTERNALIZE!
 [literal,subs="+attributes,macros"]
 36 3B <value> 4C{fn2}
 
@@ -534,7 +532,6 @@ If a third value is given, separated by a comma ($19), it represents the input c
 
 .3+| 39 | remove | *STATEMENT*
 
-// @FOOTNOTE IN TABLE + CODE: EXTERNALIZE!
 [literal,subs="+attributes,macros"]
 39 <value> 4C{fn3}
 
@@ -556,7 +553,6 @@ remove <object>
 
 .3+| 3A | move | *STATEMENT*
 
-// @FOOTNOTE IN TABLE + CODE: EXTERNALIZE!
 [literal,subs="+attributes,macros"]
 3A <value> 3B <value> 4C{fn4}
 
@@ -803,7 +799,6 @@ End-of-line marker.
 
 .3+| 4D | system | *INTERNAL STATEMENT* or *VALUE*
 
-// @FOOTNOTE IN TABLE + CODE: EXTERNALIZE!
 [literal,subs="+attributes,macros"]
 4D 01 <value> 02 4C{fn5}
 
@@ -822,7 +817,6 @@ Calls the system-level function designated by `<value>`.
 // @XREF ADD: "The Hugo Programming Manual"
 TIP: See _The Hugo Programming Manual_ for further elaboration on the `system` statement.
 
-// @FOOTNOTE IN TABLE: EXTERNALIZE!
 Obsolete usage:{fn6}
 
     4D <value>
@@ -1036,7 +1030,6 @@ Where `<array>` is two bytes giving the address of the array in the array table.
 
 .2+| 5A | call | STATEMENT or VALUE
 
-// @FOOTNOTE IN TABLE + CODE: EXTERNALIZE!
 [literal,subs="+attributes,macros"]
 5A <value> 4C{fn7}
 
@@ -1338,7 +1331,6 @@ Calls the engine's end-command-recording procedure; returns a true value on succ
 
 .3+| 6F | writefile | *STATEMENT*
 
-// @FOOTNOTE IN TABLE + CODE: EXTERNALIZE!
 [literal,subs="+attributes,macros"]
 6F <value> 4C{fn8}
     ...file i/o code block...
@@ -1365,7 +1357,6 @@ Upon any error, jumps to the end of the file i/o code block and closes `<file>`.
 
 .2+| 70 | readfile | *STATEMENT*
 
-// @FOOTNOTE IN TABLE + CODE: EXTERNALIZE!
 [literal,subs="+attributes,macros"]
 70 <value> 4C{fn9}
     ...file i/o code block...
@@ -1387,7 +1378,6 @@ Upon any error, jumps to the end of the file i/o code block and closes `<file>`.
 
 | 71 | writeval | *STATEMENT*
 
-// @FOOTNOTE IN TABLE + CODE: EXTERNALIZE!
 [literal,subs="+attributes,macros"]
 71 <value> 19 <value> 19 ... 4C{fn10}
 
@@ -1462,7 +1452,6 @@ If there is an error, the `system_status` global variable is set.
     78 [79] <value1> 19 <value2> [19 <value3>] 4C
     78 <value1> 4C
 
-// @FOOTNOTE IN TABLE: EXTERNALIZE!
 Attempts to load and play a music resource{fn11} as resource `<value2>` in resourcefile `<value1>`.
 (`<value1>` and `<value2>` are dictionary entries.)
 If `<value3>` is given, the music output volume is set to `<value3>` (as a percentage of normal output).
