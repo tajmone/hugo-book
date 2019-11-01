@@ -562,8 +562,8 @@ There is no limit on the number of files that a single file may include; also, a
 [TIP]
 ================================================================================
 A file or set of files can be compiled into a precompiled header using the `-h` switch, and then linked using `#link` instead of `#include`.
-// @XREF ADD: "APPENDIX E: PRECOMPILED HEADERS"
-See _APPENDIX E: PRECOMPILED HEADERS_.
+// @XREF: "Appendix E: Precompiled Headers"
+See <<hugo-book1_17#precompiled_headers>>.
 ================================================================================
 
 A useful tool for managing Hugo source code is the ability to use compiler flags for conditional compilation.

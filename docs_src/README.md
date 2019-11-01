@@ -18,6 +18,7 @@ This folder contains the AsciiDoc source files of the _The Hugo Book_.
     - [List of Book-Wide Task](#list-of-book-wide-task)
     - [Chapters Status and Previews](#chapters-status-and-previews)
 - [Annotations Convention](#annotations-convention)
+- [XRefs](#xrefs)
 - [System Requirements](#system-requirements)
 
 <!-- /MarkdownTOC -->
@@ -180,9 +181,9 @@ Every chapter in the list provides an [HTML Live Preview] link to quickly jump t
         * [x]  Title capitalization of all sections.
         * [ ]  Fix all XRefs.
         *  (_No footnotes_).
-    + [ ]  [8. _JUNCTION ROUTINES_][Ch8]
+    + [x]  [8. _JUNCTION ROUTINES_][Ch8]
         * [x]  Title capitalization of all sections.
-        * [ ]  Fix all XRefs.
+        * [x]  Fix all XRefs (**4**).
         * [x]  Fix footnotes (**6**).
     + [ ]  [9. _THE GAME LOOP_][Ch9]
         * [x]  Title capitalization of all sections.
@@ -197,9 +198,9 @@ Every chapter in the list provides an [HTML Live Preview] link to quickly jump t
         * [x]  Title capitalization of all sections.
         * [ ]  Fix all XRefs.
         *  (_No footnotes_).
-    + [ ]  [12. _RESOURCES_][Ch12]
+    + [x]  [12. _RESOURCES_][Ch12]
         * [x]  Title capitalization of all sections.
-        * [ ]  Fix all XRefs.
+        * [x]  Fix all XRefs (**1**).
         * [x]  Fix footnotes (**2**).
     + [ ]  [APP. A. _SUMMARY OF KEYWORDS AND COMMANDS_][AppA]
         * Title capitalization: _no sections._
@@ -257,9 +258,9 @@ Every chapter in the list provides an [HTML Live Preview] link to quickly jump t
         * Title capitalization: _no sections._
         * [ ]  Fix all XRefs.
         *  (_No footnotes_).
-    + [ ]  [18. _EXECUTABLE CODE_][Ch18]
+    + [x]  [18. _EXECUTABLE CODE_][Ch18]
         * [x]  Title capitalization of all sections.
-        * [ ]  Fix all XRefs.
+        * [x]  Fix all XRefs (**1**).
         *  (_No footnotes_).
     + [ ]  [19. _ENCODING TEXT_][Ch19]
         * Title capitalization: _no sections._
@@ -330,6 +331,24 @@ To simplify looking up these notes via editors S&R functionality, I've adopted a
 -->
 
 Most of these notes pertain work in progress and will be deleted on final release, while other might be left in the sources for the benefit of other contributors.
+
+# XRefs
+
+This table lists all the cross references currently used in _The Hugo Book_, and the number of times they occur (__Qt.__).
+
+|                Section                | Qt. |                      xref                     |
+|---------------------------------------|-----|-----------------------------------------------|
+| App. B: The Hugo Library              |   3 | `hugo-book1_14#the_hugo_library`              |
+| App. C: Limit Settings                |   1 | `hugo-book1_15#limit_settings_2`              |
+| App. D: HugoFix and the Hugo Debugger |   5 | `hugo-book1_16#hugofix_and_the_hugo_debugger` |
+| App. E: Precompiled Headers           |   3 | `hugo-book1_17#precompiled_headers`           |
+| App. F. Hugo Versions                 |   2 | `hugo-book1_18#hugo_versions`                 |
+| App. G: Additional Resources          |   1 | `hugo-book1_19#additional_resources`          |
+| App. H: Code Patterns                 |   1 | `hugo-book2_16#code_patterns`                 |
+
+<!--
+| App. XXX | QQQ | `MMMMM` |
+-->
 
 # System Requirements
 

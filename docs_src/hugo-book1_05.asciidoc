@@ -880,9 +880,9 @@ object woodcabinet "wooden cabinet"
 --------------------------------------------------------------------------------
 
 
-// @XREF ADD: "APPENDIX B: THE HUGO LIBRARY"
+// @XREF: "Appendix B: The Hugo Library"
 
-Now, for bonus points for those who have looked ahead to _APPENDIX B: THE HUGO LIBRARY_ to see what things like `when_open`, `contains_desc`, and `static` are for, how could the cabinet be converted into, say, a secret passage into another room?
+Now, for bonus points for those who have looked ahead to <<hugo-book1_14#the_hugo_library>> to see what things like `when_open`, `contains_desc`, and `static` are for, how could the cabinet be converted into, say, a secret passage into another room?
 
 The answer is: by adding a `door_to` property, such as:
 

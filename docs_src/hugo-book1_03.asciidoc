@@ -14,8 +14,8 @@
 It's also no coincidence that the "`nothing`" object is equal in its value to 0, which also represents the empty string `""` (see _II.c Data Types_). \
 The fact that these three are (value-wise, at least) identical will come in handy, as what it means in practice is that 0/null/empty/nothing/etc. is the same in every context.]]
 
-// @XREF ADD: "APPENDIX D: HUGOFIX AND THE HUGO DEBUGGER" (in footnote!)
-:fn2: footnote:[See _APPENDIX D: HUGOFIX AND THE HUGO DEBUGGER_.]
+// @XREF: "HugoFix and the Hugo Debugger" (in footnote!)
+:fn2: footnote:[See xref:hugo-book1_16#hugofix_and_the_hugo_debugger[].]
 
 :fn3: pass:q[footnote:[For this reason, attributes are sometimes thought of as being "`lightweight classes`" in that, as can be seen in the list of attributes, they generally categorize an object as a certain "`kind`" of object -- although other than flagging the object with that particular quality they have no other direct effect.]]
 
@@ -24,8 +24,8 @@ The `container` and `platform` attributes are mutually exclusive. \
 An object cannot have both attributes, since in the library the idea of containment is one of an object being either "`in`" _or_ "`on`" another object. \
 There are available classes that aren't part of the standard library distribution that allow an object to function as both.]]
 
-// @XREF ADD: "APPENDIX B: THE HUGO LIBRARY" (in footnote!)
-:fn5: pass:q[footnote:[`WhatsIn` is a library function used to list in formatted fashion all the objects present in a location: see _APPENDIX B: THE HUGO LIBRARY._]]
+// @XREF: "Appendix B: The Hugo Library" (in footnote!)
+:fn5: pass:q[footnote:[`WhatsIn` is a library function used to list in formatted fashion all the objects present in a location: see xref:hugo-book1_14#the_hugo_library[].]]
 
 
 :fn6: footnote:[ \
@@ -729,8 +729,8 @@ The list of properties defined in *hugolib.h* is:
 
 [TIP]
 ================================================================================
-// @XREF ADD: "APPENDIX B: THE HUGO LIBRARY"
-For a detailed description of how each property is used, see _APPENDIX B: THE HUGO LIBRARY_.
+// @XREF: "Appendix B: The Hugo Library"
+For a detailed description of how each property is used, see <<hugo-book1_14#the_hugo_library>>.
 ================================================================================
 
 The following properties are also defined and used exclusively by the display object:

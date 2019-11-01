@@ -203,8 +203,8 @@ arr      [  7        ]  )
 [source,hugo]
 if loc = glob + 11
 
-// @XREF ADD: "APPENDIX A: CODE PATTERNS"
-TIP: See _APPENDIX A: CODE PATTERNS_ for details on how if statements and other conditionals are coded.
+// @XREF: "Appendix H: Code Patterns"
+TIP: See <<hugo-book2_16#code_patterns>> for details on how `if` statements and other conditionals are coded.
 
     18 21 00 45 F0 05 45 0C 07 4B 0B 00 4C
     if       loc   =  glob  +  11
