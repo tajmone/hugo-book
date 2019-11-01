@@ -9,8 +9,8 @@
 
 // >>> footnotes definitions >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
-// @XREF ADD: "XI.b Special Words" (in footnote!)
-:fn1: footnote:[See _XI.b Special Words_.]
+// @XREF: "23.2. Special Words" (in footnote!)
+:fn1: footnote:[See xref:hugo-book2_11#special_words[].]
 
 // <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 

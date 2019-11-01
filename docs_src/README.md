@@ -250,9 +250,9 @@ Every chapter in the list provides an [HTML Live Preview] link to quickly jump t
         *  (_no XRefs_).
         * [x]  Fix footnotes (**3**):
             - [x]  2 footnotes inside CSV file populating table.
-    + [ ]  [16. _ENGINE PARSING_][Ch16]
+    + [x]  [16. _ENGINE PARSING_][Ch16]
         * Title capitalization: _no sections._
-        * [ ]  Fix all XRefs.
+        * [x]  Fix all XRefs (**1**).
         * [x]  Fix footnotes (**1**).
     + [ ]  [17. _GRAMMAR_][Ch17]
         * Title capitalization: _no sections._
@@ -349,6 +349,7 @@ This table lists all the cross references currently used in _The Hugo Book_, and
 | 5.1. Routines                                 |   1 | `hugo-book1_05#routines`                                 |
 | 5.3. Before and After Routines                |   1 | `hugo-book1_05#before_and_after_routines`                |
 | 7.1. Grammar Definition                       |   1 | `hugo-book1_07#grammar_definition`                       |
+| 7.2. The Parser                               |   1 | `hugo-book1_07#the_parser`                               |
 | 8.7. Perform                                  |   1 | `hugo-book1_08#perform`                                  |
 | 9. The Game Loop                              |   2 | `hugo-book1_09#the_game_loop`                            |
 | 11.1. The Display Object                      |   1 | `hugo-book1_11#the_display_object`                       |
@@ -360,6 +361,7 @@ This table lists all the cross references currently used in _The Hugo Book_, and
 | App. G: Additional Resources                  |   1 | `hugo-book1_19#additional_resources`                     |
 | 14.2. The Header                              |   1 | `hugo-book2_02#the_header`                               |
 | 15.2. Data Types                              |   1 | `hugo-book2_03#15-2_data_types`                          |
+| 23.2. Special Words                           |   1 | `hugo-book2_11#special_words`                            |
 | App. H: Code Patterns                         |   2 | `hugo-book2_16#code_patterns`                            |
 
 <!--
