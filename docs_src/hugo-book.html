@@ -535,7 +535,7 @@ div.literalblock.cmd pre .conum {
 <span id="email" class="email"><a href="mailto:general@generalcoffee.com">general@generalcoffee.com</a></span><br>
 <span id="revnumber">version 1,</span>
 <span id="revdate">2018-10-04</span>
-<br><span id="revremark">Draft 92 -- Porting to AsciiDoc</span>
+<br><span id="revremark">Draft 93 -- Porting to AsciiDoc</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -4054,8 +4054,8 @@ The <code>player</code> variable holds the number of the object that the player 
 <p>The <code>objects</code> variable can be set by the program, but to no useful effect.
 The engine will reset it to the &#8220;real&#8221; value whenever referenced.
 (All object numbers range from 0 to the value of <code>objects</code>.)
-The <code>system_status</code> variable may be read (after a resource operation or a <code>system</code> call; see the relevant sections for an explanation of these functions) to check for an error value.
-See the section on &#8220;<em>Resources</em>&#8221; for possible return values.</p>
+The <code>system_status</code> variable may be read (after a resource operation or a <code>system</code> call; <a href="#resources">see the relevant sections</a> for an explanation of these functions) to check for an error value.
+See the <a href="#system_status_values">section on &#8220;<em>Resources</em>&#8221;</a> for possible return values.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -10039,7 +10039,7 @@ As a result, two resources with the same name but different paths/extensions can
 <div class="paragraph">
 <p>Because of the relative non-portability of resourcefiles (plus the additional time it may take on slower machines to index and consolidate potentially hundreds of kilobytes of data), it is recommended that resources be compiled from separate source files than the rest of a Hugo game.</p>
 </div>
-<div class="paragraph">
+<div id="system_status_values" class="paragraph">
 <p>The library extension <strong>resource.h</strong> provides useful routines for managing resources in a Hugo program.
 It also defines the following potential values for the <code>system_status</code> global, which may be tested after a resource operation.
 If <code>system_status</code> is non-zero (where zero signifies normal status), it will contain one of the following values:<sup class="footnote">[<a id="_footnoteref_55" class="footnote" href="#_footnotedef_55" title="View footnote.">55</a>]</sup></p>

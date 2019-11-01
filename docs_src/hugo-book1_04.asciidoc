@@ -150,10 +150,11 @@ The `player` variable holds the number of the object that the player is controll
 The `objects` variable can be set by the program, but to no useful effect.
 The engine will reset it to the "`real`" value whenever referenced.
 (All object numbers range from 0 to the value of `objects`.)
-// @XREF ADD: (xref to section on sys calls)
-The `system_status` variable may be read (after a resource operation or a `system` call; see the relevant sections for an explanation of these functions) to check for an error value.
-// @XREF ADD: "Resources"
-See the section on "`__Resources__`" for possible return values.
+// @XREF: "12. Resources"
+The `system_status` variable may be read (after a resource operation or a `system` call; <<hugo-book1_12#resources,see the relevant sections>> for an explanation of these functions) to check for an error value.
+// @XREF: (system_status return values)
+See the <<hugo-book1_12#system_status_values,section on "`__Resources__`">> for possible return values.
+// See the section on "`__Resources__`" for possible return values.
 
 [NOTE]
 ================================================================================
@@ -496,6 +497,9 @@ The input color is also not necessary -- this refers to the color of player inpu
 
 The standard color set with corresponding values and constant labels (defined in *hugolib.h*) is:
 
+// @TODO: an xref needs to point here from "App. A". Either:
+//   * Add Table Caption, or
+//   * Add custom anchor.
 
 [.center,caption=]
 [cols="<d,>s,<m",options=autowidth,grid=none,stripes=even]

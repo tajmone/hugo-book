@@ -164,9 +164,9 @@ Every chapter in the list provides an [HTML Live Preview] link to quickly jump t
         * [x]  Fix footnotes (**10**):
             - [x]  3 footnotes inside table.
             - [x]  1 footnote inside code.
-    + [ ]  [4. _HUGO PROGRAMMING_][Ch4]
+    + [x]  [4. _HUGO PROGRAMMING_][Ch4]
         * [x]  Title capitalization of all sections.
-        * [ ]  Fix all XRefs.
+        * [x]  Fix all XRefs (**4**).
         * [x]  Fix footnotes (**9**):
             - [x]  1 footnote inside code.
     + [x]  [5. _ROUTINES AND EVENTS_][Ch5]
@@ -336,7 +336,7 @@ Most of these notes pertain work in progress and will be deleted on final releas
 
 This table lists all the cross references currently used in _The Hugo Book_, and the number of times they occur (__Qt.__).
 
-|                    Section                    | Qt. |                           xref                           |
+|                    Section                    | Qt. |                           XRef ID                           |
 |-----------------------------------------------|-----|----------------------------------------------------------|
 | _The Hugo Programming Manual_                 |   5 | `hugo-book1#book1`                                       |
 | 1.5. Packing List                             |   1 | `packing_list`                                           |
@@ -354,6 +354,7 @@ This table lists all the cross references currently used in _The Hugo Book_, and
 | 8.7. Perform                                  |   1 | `hugo-book1_08#perform`                                  |
 | 9. The Game Loop                              |   2 | `hugo-book1_09#the_game_loop`                            |
 | 11.1. The Display Object                      |   1 | `hugo-book1_11#the_display_object`                       |
+| 12. Resources                                 |   1 | `hugo-book1_12#resources`                                |
 | App. B: The Hugo Library                      |   3 | `hugo-book1_14#the_hugo_library`                         |
 | App. C: Limit Settings                        |   1 | `hugo-book1_15#limit_settings_2`                         |
 | App. D: HugoFix and the Hugo Debugger         |   5 | `hugo-book1_16#hugofix_and_the_hugo_debugger`            |
@@ -365,6 +366,12 @@ This table lists all the cross references currently used in _The Hugo Book_, and
 | 23.2. Special Words                           |   1 | `hugo-book2_11#special_words`                            |
 | 25.2. The Linker                              |   1 | `hugo-book2_13#the_linker`                               |
 | App. H: Code Patterns                         |   2 | `hugo-book2_16#code_patterns`                            |
+
+Plus some custom inline anchors pointing to specific cross-referenced points inside sections:
+
+|               XRef ID                |          Description          | Section |
+|--------------------------------------|-------------------------------|---------|
+| `hugo-book1_12#system_status_values` | `system_status` return values | §12.1.  |
 
 <!--
 | XXX | 1 | `MMMMM` |

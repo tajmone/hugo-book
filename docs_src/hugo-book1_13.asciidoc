@@ -203,7 +203,8 @@ where `<background>` is optional.
 
 s| Parameters: a|
 
-// @XREF ADD: page 64
+// @XREF ADD: page 64 (Table of Hugo Lib Colors in "§4.2. Constants")
+// (could use Table Caption here!)
 Standard color values for `<foreground>` and `<background>` with constants defined in *hugolib.h* (see page 64) are:
 
 [cols=">m,<s,<m",options=autowidth,grid=none,stripes=even]
