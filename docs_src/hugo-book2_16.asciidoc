@@ -819,7 +819,7 @@ system(<value>)
 
 Calls the system-level function designated by `<value>`.
 
-// @XREF ADD: "he Hugo Programming Manual"
+// @XREF ADD: "The Hugo Programming Manual"
 TIP: See _The Hugo Programming Manual_ for further elaboration on the `system` statement.
 
 // @FOOTNOTE IN TABLE: EXTERNALIZE!
@@ -873,7 +873,7 @@ window 0
 Where `<value>` or `<v__n__>`, if present, gives a number of lines or screen coordinate.
 All instances of the `window` statement are followed by a code block except for `window 0`.
 
-// @XREF ADD: "he Hugo Programming Manual"
+// @XREF ADD: "The Hugo Programming Manual"
 TIP: See _The Hugo Programming Manual_ for further elaboration on the `window` statement.
 
 [NOTE]

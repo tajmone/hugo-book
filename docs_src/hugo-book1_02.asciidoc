@@ -8,11 +8,11 @@
 
 // >>> footnotes definitions >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
+// @XREF: "9. The Game Loop" (in footonote!)
 :fn1: pass:q[footnote:[ \
 Normally, unless the `Main` routine explicitly returns -- as opposed to just running through to the closing brace -- the Hugo Engine continues running. \
 Those familiar with the C programming language may notice the slight difference here: whereas in C the `main()` function is the entry point for a C program, in Hugo `Init` is the entry point, and `Main` can be thought of as the "`each-turn routine`". \
-// @XREF ADD: "IX. THE GAME LOOP" (in footonote!)
-For more elaboration on the execution pattern of a Hugo program, see _IX. THE GAME LOOP_.]]
+For more elaboration on the execution pattern of a Hugo program, see xref:hugo-book1_09#the_game_loop[].]]
 
 :fn2: pass:q[footnote:[ \
 While it's a little beyond the scope of this manual to talk about what exactly a 16-bit integer is (partly because you don't need to worry about it, other than to know they involve a range of 65536, either 0 to 65535 or -32768 to 32767). \

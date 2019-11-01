@@ -20,10 +20,10 @@ Note also that (unlike in languages such as C) formatting sequences such as `\n`
 
 :fn4: footnote:[Measured in 16-bit words, or 2 bytes per element.]
 
-// @XREF ADD: "V.a Routines" (in footnote!)
+// @XREF: "5.1. Routines" (in footnote!)
 :fn5: pass:q[footnote:[ \
 "`Arguments`" are simply parameters passed to a routine at calling time. \
-See _V.a Routines_.]]
+See xref:hugo-book1_05#routines[].]]
 
 // @XREF ADD: "VII.b The Parser" (in footnote!)
 :fn6: pass:q[footnote:[The built-in engine variables `parse$` and `serial$` may be used in place of the dictionary entry address; see _VII.b The Parser_ for a description.]]

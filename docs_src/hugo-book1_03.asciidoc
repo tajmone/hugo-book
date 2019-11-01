@@ -642,8 +642,8 @@ This _complex property routine_ is defined by the compiler and handled different
 In this case, the property value representing the routine address is only returned if the global variables `object` and `verbroutine` contain the object in question and the address of the `DoGet` routine, respectively.
 If there is a match, the routine is executed before `DoGet`, which is the library routine (in *verblib.h*) that normally handles the taking of objects.
 (There is also a companion to `before` called `after`, which is checked after the verb routine has been called.)
-// @XREF ADD: "V.c Before And After Routines"
-See _V.c Before And After Routines_ for further elucidation.
+// @XREF: "5.3. Before and After Routines"
+See <<hugo-book1_05#before_and_after_routines>> for further elucidation.
 
 There will be more on property routines and complex property routines later.
 For now, think of a property as simply containing one or more values of some kind.

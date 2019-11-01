@@ -125,7 +125,7 @@ There's still a lot of work to be done in terms of enforcing consistent styles, 
     + [x] All chapters and appendices titles (from all-caps).
     + [x] All sections.
     + [ ] All captions (tables, figures, etc.).
-- [ ] **XREFS** — Restore all XRefs and create custom anchors.
+- [ ] **XREFS** — Restore all XRefs and create custom anchors ([milestone 6], [#25]).
 - [ ] **CODE BLOCKS:**
     + [ ] Hugo code:
         * [ ] Enforce consistent indentation:
@@ -169,17 +169,17 @@ Every chapter in the list provides an [HTML Live Preview] link to quickly jump t
         * [ ]  Fix all XRefs.
         * [x]  Fix footnotes (**9**):
             - [x]  1 footnote inside code.
-    + [ ]  [5. _ROUTINES AND EVENTS_][Ch5]
+    + [x]  [5. _ROUTINES AND EVENTS_][Ch5]
         * [x]  Title capitalization of all sections.
-        * [ ]  Fix all XRefs.
+        * [x]  Fix all XRefs (**5**).
         * [x]  Fix footnotes (**10**).
     + [ ]  [6. _FUSES, DAEMONS, AND SCRIPTS_][Ch6]
         * [x]  Title capitalization of all sections.
-        * [ ]  Fix all XRefs.
+        *  (_no XRefs_).
         * [x]  Fix footnotes (**1**).
     + [ ]  [7. _GRAMMAR AND PARSING_][Ch7]
         * [x]  Title capitalization of all sections.
-        * [ ]  Fix all XRefs.
+        *  (_no XRefs_).
         *  (_No footnotes_).
     + [x]  [8. _JUNCTION ROUTINES_][Ch8]
         * [x]  Title capitalization of all sections.
@@ -187,16 +187,16 @@ Every chapter in the list provides an [HTML Live Preview] link to quickly jump t
         * [x]  Fix footnotes (**6**).
     + [ ]  [9. _THE GAME LOOP_][Ch9]
         * [x]  Title capitalization of all sections.
-        * [ ]  Fix all XRefs.
+        *  (_no XRefs_).
         *  (_No footnotes_).
     + [ ]  [10. _USING THE OBJECT LIBRARY_][Ch10]
         * [x]  Title capitalization of all sections.
-        * [ ]  Fix all XRefs.
+        *  (_no XRefs_).
         * [x]  Fix footnotes (**10**):
             - [x]  2 footnotes inside code.
-     + [ ]  [11. _ADVANCED FEATURES_][Ch11]
+    + [ ]  [11. _ADVANCED FEATURES_][Ch11]
         * [x]  Title capitalization of all sections.
-        * [ ]  Fix all XRefs.
+        *  (_no XRefs_).
         *  (_No footnotes_).
     + [x]  [12. _RESOURCES_][Ch12]
         * [x]  Title capitalization of all sections.
@@ -216,38 +216,38 @@ Every chapter in the list provides an [HTML Live Preview] link to quickly jump t
     + [ ]  [APP. C. _LIMIT SETTINGS_][AppC]
         * Title capitalization: _no sections._
         * [ ]  _needs to be proof-read once more, carefully!_
-        * [ ]  Fix all XRefs.
+        *  (_no XRefs_).
         *  (_No footnotes_).
     + [ ]  [APP. D. _HUGOFIX AND THE HUGO DEBUGGER_][AppD]
         * [x]  Title capitalization of all sections.
         * [ ]  _needs to be proof-read once more, carefully!_
-        * [ ]  Fix all XRefs.
+        *  (_no XRefs_).
         * [x]  Fix footnotes (**2**).
     + [ ]  [APP. E. _PRECOMPILED HEADERS_][AppE]
         * Title capitalization: _no sections._
-        * [ ]  Fix all XRefs.
+        *  (_no XRefs_).
         *  (_No footnotes_).
     + [ ]  [APP. F. _HUGO VERSIONS_][AppF]
         * Title capitalization: _no sections._
-        * [ ]  Fix all XRefs.
+        *  (_no XRefs_).
         *  (_No footnotes_).
     + [ ]  [APP. G. _ADDITIONAL RESOURCES_][AppG]
         * Title capitalization: _no sections._
-        * [ ]  Fix all XRefs.
+        *  (_no XRefs_).
         *  (_No footnotes_).
 - [ ]  [BOOK II. **TECHNICAL SYSTEM SPECIFICATION**][Book II]
     + [ ]  [13. _INTRODUCTION_][Ch13]
         * [x]  Title capitalization of all sections.
         * [ ]  Fix all XRefs.
         *  (_No footnotes_).
-    + [ ]  [14. _ORGANIZATION OF THE .HEX FILE_][Ch14]
+    + [x]  [14. _ORGANIZATION OF THE .HEX FILE_][Ch14]
         * [x]  Title capitalization of all sections.
-        * [ ]  Fix all XRefs.
+        * [x]  Fix all XRefs (**1**)..
         * [x]  Fix footnotes (**6**):
             - [x]  5 footnotes inside tables.
     + [ ]  [15. _TOKENS AND DATA TYPES_][Ch15]
         * [x]  Title capitalization of all sections.
-        * [ ]  Fix all XRefs.
+        *  (_no XRefs_).
         * [x]  Fix footnotes (**3**):
             - [x]  2 footnotes inside CSV file populating table.
     + [ ]  [16. _ENGINE PARSING_][Ch16]
@@ -268,7 +268,7 @@ Every chapter in the list provides an [HTML Live Preview] link to quickly jump t
         *  (_No footnotes_).
     + [ ]  [20. _THE OBJECT TABLE_][Ch20]
         * [x]  Title capitalization of all sections.
-        * [ ]  Fix all XRefs.
+        *  (_No footnotes_).
         * [x]  Fix footnotes (**2**).
     + [ ]  [21. _THE PROPERTY TABLE_][Ch21]
         * [x]  Title capitalization of all sections.
@@ -276,23 +276,23 @@ Every chapter in the list provides an [HTML Live Preview] link to quickly jump t
         *  (_No footnotes_).
     + [ ]  [22. _THE EVENT TABLE_][Ch22]
         * Title capitalization: _no sections._
-        * [ ]  Fix all XRefs.
+        *  (_No footnotes_).
         *  (_No footnotes_).
     + [ ]  [23. _THE DICTIONARY AND SPECIAL WORDS_][Ch23]
         * [x]  Title capitalization of all sections.
-        * [ ]  Fix all XRefs.
+        *  (_No footnotes_).
         *  (_No footnotes_).
     + [ ]  [24. _RESOURCEFILES_][Ch24]
         * Title capitalization: _no sections._
-        * [ ]  Fix all XRefs.
+        *  (_No footnotes_).
         *  (_No footnotes_).
     + [ ]  [25. _THE HUGO COMPILER AND HOW IT WORKS_][Ch25]
         * [ ]  Title capitalization of all sections.
-        * [ ]  Fix all XRefs.
+        *  (_No footnotes_).
         *  (_No footnotes_).
     + [ ]  [26. _THE HUGO ENGINE AND HOW IT WORKS_][Ch26]
         * [x]  Title capitalization of all sections.
-        * [ ]  Fix all XRefs.
+        *  (_No footnotes_).
         * [x]  Fix footnotes (**1**):
             - [x]  1 footnote inside tables.
     + [ ]  [27. _DARK SECRETS OF THE HUGO DEBUGGER_][Ch27]
@@ -338,15 +338,21 @@ This table lists all the cross references currently used in _The Hugo Book_, and
 
 |                Section                | Qt. |                      xref                     |
 |---------------------------------------|-----|-----------------------------------------------|
+| 5.1. Routines                         |   1 | `hugo-book1_05#routines`                      |
+| 5.3. Before and After Routines        |   1 | `hugo-book1_05#before_and_after_routines`     |
+| 7.1. Grammar Definition               |   1 | `hugo-book1_07#grammar_definition`            |
+| 8.7. Perform                          |   1 | `hugo-book1_08#perform`                       |
+| 9. The Game Loop                      |   2 | `hugo-book1_09#the_game_loop`                 |
 | App. B: The Hugo Library              |   3 | `hugo-book1_14#the_hugo_library`              |
 | App. C: Limit Settings                |   1 | `hugo-book1_15#limit_settings_2`              |
 | App. D: HugoFix and the Hugo Debugger |   5 | `hugo-book1_16#hugofix_and_the_hugo_debugger` |
 | App. E: Precompiled Headers           |   3 | `hugo-book1_17#precompiled_headers`           |
 | App. F. Hugo Versions                 |   2 | `hugo-book1_18#hugo_versions`                 |
 | App. G: Additional Resources          |   1 | `hugo-book1_19#additional_resources`          |
-| App. H: Code Patterns                 |   1 | `hugo-book2_16#code_patterns`                 |
+| App. H: Code Patterns                 |   2 | `hugo-book2_16#code_patterns`                 |
 
 <!--
+| XXX | 1 | `MMMMM` |
 | App. XXX | QQQ | `MMMMM` |
 -->
 
@@ -496,6 +502,8 @@ In order to convert _The Hugo Book_ to HTML you'll need to install the following
 [#21]: https://github.com/tajmone/hugo-book/issues/21
 [#22]: https://github.com/tajmone/hugo-book/issues/22
 [#24]: https://github.com/tajmone/hugo-book/issues/24
+[#25]: https://github.com/tajmone/hugo-book/issues/25
 [milestone 4]: https://github.com/tajmone/hugo-book/milestone/4
+[milestone 6]: https://github.com/tajmone/hugo-book/milestone/6
 
 <!-- EOF -->

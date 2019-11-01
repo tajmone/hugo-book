@@ -12,19 +12,19 @@
 
 :fn2: pass:q[footnote:[Remember here that both zero (0) and the empty string `""` are equal in value.]]
 
-// @XREF ADD: "VIII.g Perform" (in footnote!)
-:fn3: footnote:[The actual mechanics are described in _VIII.g Perform_.]
+// @XREF: "8.7. Perform" (in footnote!)
+:fn3: footnote:[The actual mechanics are described in xref:hugo-book1_08#perform[].]
 
 :fn4: pass:q[footnote:[In the imperative sentence "`Put the book on the shelf`", the book is the direct object, and the shelf is the indirect object.]]
 
-// @XREF ADD: "IX THE GAME LOOP" (in footnote!)
-:fn5: footnote:[See _IX THE GAME LOOP_.]
+// @XREF: "9. The Game Loop" (in footonote!)
+:fn5: footnote:[See xref:hugo-book1_09#the_game_loop[].]
 
-// @XREF ADD: "VII.a Grammar Definition" (in footnote!)
+// @XREF: "7.1. Grammar Definition" (in footnote!)
 :fn6: pass:q[footnote:[ \
 _Verbs_ are actions that the player uses to interact with the physical world of the game. \
 _Xverbs_ are "`non-action`" verbs that generally deal with system functions, such as getting help, saving a game, etc. but don't otherwise affect the state of the game world. \
-See _VII.a Grammar Definition_.]]
+See xref:hugo-book1_07#grammar_definition[].]]
 
 :fn7: pass:q[footnote:[All of the capitalized `CONSTANTS` used here are defined in *hugolib.h*.]]
 

@@ -23,9 +23,9 @@ Precompiled headers have the ID string `$$`.]]
 
 :fn5: pass:q[footnote:[Pre-v2.5 had no `Perform` junction routine; verb routines were called directly by the engine.]]
 
-// @XREF ADD: "APP. A: CODE PATTERNS" (in footnote!)
+// @XREF: "H: Code Patterns" (in footnote!)
 :fn6: pass:q[footnote:[ \
-For another example, see _APPENDIX A: CODE PATTERNS_. \
+For another example, see xref:hugo-book2_16#code_patterns[]. \
 Several of the conditional statements -- `if`, `elseif`, etc. -- use two bytes to give the absolute skip distance to the next statement if the conditional test fails. \
 The pair is coded in low-byte/high-byte order.]]
 

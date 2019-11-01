@@ -66,7 +66,7 @@ after
 A simple explanation of the above is that `<object>.after` is called following a call to a verbroutine with which `<object>` was involved.
 If `<object>` was the object of the verbroutine (i.e., the `object` global), and the `verbroutine` global was `DoGet`, the first block runs.
 The second block will run if no previous block has run.
-// @XREF ADD: "Hugo Manual"
+// @XREF ADD: "The Hugo Programming Manual"
 For a full description of complex properties, see the Hugo Manual.
 ================================================================================
 
