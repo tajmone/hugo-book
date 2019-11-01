@@ -59,12 +59,12 @@ A program may have a routine called `DescribePlace` which, when invoked (or "`ca
 The point of routines is that you don't have to repeat the same code every time you want a particular task done: you just have to call the routine.
 Write once, use many times.
 
-// @XREF ADD: "II.c Data Types"
 
 The idea of return values from a routine is an important one and, while sometimes puzzling to novices, is actually quite uncomplicated.
 For instance, often a particular function will be described as "`returning true`" or "`returning false`" -- all this means is that when it's done it returns either a non-zero value (usually 1) or a zero value, usually to indicate whether the function was successful or not at whatever it was being asked to do.
 A program will constantly be checking the return values of the routines it calls to determine if particular operations have been successful in order to decide what to do next.
-A routine can return any kind of value (listed shortly in _II.c Data Types_).
+// @XREF: "2.3. Data Types"
+A routine can return any kind of value (listed shortly in <<data_types>>).
 A very simple example is a routine that performs a needed operation, such as adding two supplied values, _a_ and _b_.
 Let's call it `AddTwoValues`.
 When `AddTwoValues` is called with the two supplied values, it will _return_ the sum __a__+_b_.

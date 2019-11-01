@@ -295,9 +295,9 @@ Every chapter in the list provides an [HTML Live Preview] link to quickly jump t
         *  (_No footnotes_).
         * [x]  Fix footnotes (**1**):
             - [x]  1 footnote inside tables.
-    + [ ]  [27. _DARK SECRETS OF THE HUGO DEBUGGER_][Ch27]
+    + [x]  [27. _DARK SECRETS OF THE HUGO DEBUGGER_][Ch27]
         * [x]  Title capitalization of all sections.
-        * [ ]  Fix all XRefs.
+        * [x]  Fix all XRefs (**1**).
         *  (_No footnotes_).
     + [ ]  [APP. H. _CODE PATTERNS_][AppH]
         * [ ]  _needs to be proof-read once more, carefully!_
@@ -342,6 +342,7 @@ This table lists all the cross references currently used in _The Hugo Book_, and
 | 1.9. Compiler Switches                |   1 | `compiler_switches`                           |
 | 1.10. Limit Settings                  |   1 | `limit_settings`                              |
 | 1.11. Directories                     |   1 | `directories`                                 |
+| 2.3. Data Types                       |   2 | `hugo-book1_02#data_types`                    |
 | 5.1. Routines                         |   1 | `hugo-book1_05#routines`                      |
 | 5.3. Before and After Routines        |   1 | `hugo-book1_05#before_and_after_routines`     |
 | 7.1. Grammar Definition               |   1 | `hugo-book1_07#grammar_definition`            |
@@ -353,6 +354,7 @@ This table lists all the cross references currently used in _The Hugo Book_, and
 | App. E: Precompiled Headers           |   3 | `hugo-book1_17#precompiled_headers`           |
 | App. F. Hugo Versions                 |   2 | `hugo-book1_18#hugo_versions`                 |
 | App. G: Additional Resources          |   1 | `hugo-book1_19#additional_resources`          |
+| 14.2. The Header                      |   1 | `hugo-book2_02#the_header`                    |
 | App. H: Code Patterns                 |   2 | `hugo-book2_16#code_patterns`                 |
 
 > __NOTE__ — Xrefs not preceded by the file name are internal cross-references to the same document.

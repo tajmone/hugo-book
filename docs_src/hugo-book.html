@@ -535,7 +535,7 @@ div.literalblock.cmd pre .conum {
 <span id="email" class="email"><a href="mailto:general@generalcoffee.com">general@generalcoffee.com</a></span><br>
 <span id="revnumber">version 1,</span>
 <span id="revdate">2018-10-04</span>
-<br><span id="revremark">Draft 87 -- Porting to AsciiDoc</span>
+<br><span id="revremark">Draft 88 -- Porting to AsciiDoc</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -1630,7 +1630,7 @@ Write once, use many times.</p>
 <p>The idea of return values from a routine is an important one and, while sometimes puzzling to novices, is actually quite uncomplicated.
 For instance, often a particular function will be described as &#8220;returning true&#8221; or &#8220;returning false&#8221;&#8201;&#8212;&#8201;all this means is that when it&#8217;s done it returns either a non-zero value (usually 1) or a zero value, usually to indicate whether the function was successful or not at whatever it was being asked to do.
 A program will constantly be checking the return values of the routines it calls to determine if particular operations have been successful in order to decide what to do next.
-A routine can return any kind of value (listed shortly in <em>II.c Data Types</em>).
+A routine can return any kind of value (listed shortly in <a href="#data_types">Sec. 2.3, &#8220;Data Types&#8221;</a>).
 A very simple example is a routine that performs a needed operation, such as adding two supplied values, <em>a</em> and <em>b</em>.
 Let&#8217;s call it <code>AddTwoValues</code>.
 When <code>AddTwoValues</code> is called with the two supplied values, it will <em>return</em> the sum <em>a</em>+<em>b</em>.</p>
@@ -18901,7 +18901,7 @@ Remember that the address of the debug workspace&#8201;&#8212;&#8201;256 bytes a
 <div class="sect2">
 <h3 id="the_hdx_file_format"><a class="anchor" href="#the_hdx_file_format"></a>27.2. The .HDX File Format</h3>
 <div class="paragraph">
-<p>The <strong>.HDX</strong> file format for Hugo debuggable executables, as well as having some additional information in the header (see <em>II.b The Header</em>) and a 256 byte workspace reserved at the end of the array table, appends symbolic debugging data as follows:</p>
+<p>The <strong>.HDX</strong> file format for Hugo debuggable executables, as well as having some additional information in the header (see <a href="#the_header">Sec. 14.2, &#8220;The Header&#8221;</a>) and a 256 byte workspace reserved at the end of the array table, appends symbolic debugging data as follows:</p>
 </div>
 <table class="tableblock frame-all grid-none stripes-even fit-content center">
 <colgroup>
@@ -21615,7 +21615,7 @@ If there is an error, the <code>system_status</code> global variable is set.</p>
 <a href="#_footnoteref_10">10</a>. Which is why, in certain cases, the <code>-a</code> switch can be helpful.
 </div>
 <div class="footnote" id="_footnotedef_11">
-<a href="#_footnoteref_11">11</a>. It&#8217;s also no coincidence that the &#8220;nothing&#8221; object is equal in its value to 0, which also represents the empty string <code>""</code> (see <em>II.c Data Types</em>). The fact that these three are (value-wise, at least) identical will come in handy, as what it means in practice is that 0/null/empty/nothing/etc. is the same in every context.
+<a href="#_footnoteref_11">11</a>. It&#8217;s also no coincidence that the &#8220;nothing&#8221; object is equal in its value to 0, which also represents the empty string <code>""</code> (see <a href="#data_types">Sec. 2.3, &#8220;Data Types&#8221;</a>). The fact that these three are (value-wise, at least) identical will come in handy, as what it means in practice is that 0/null/empty/nothing/etc. is the same in every context.
 </div>
 <div class="footnote" id="_footnotedef_12">
 <a href="#_footnoteref_12">12</a>. See <a href="#hugofix_and_the_hugo_debugger">App. D, <em>HugoFix and the Hugo Debugger</em></a>.

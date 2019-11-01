@@ -9,9 +9,9 @@
 
 // >>> footnotes definitions >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
-// @XREF ADD: "II.c Data Types" (in footnote!)
+// @XREF: "2.3. Data Types"(in footnote!)
 :fn1: pass:q[footnote:[ \
-It's also no coincidence that the "`nothing`" object is equal in its value to 0, which also represents the empty string `""` (see _II.c Data Types_). \
+It's also no coincidence that the "`nothing`" object is equal in its value to 0, which also represents the empty string `""` (see xref:hugo-book1_02#data_types[]). \
 The fact that these three are (value-wise, at least) identical will come in handy, as what it means in practice is that 0/null/empty/nothing/etc. is the same in every context.]]
 
 // @XREF: "HugoFix and the Hugo Debugger" (in footnote!)
