@@ -236,9 +236,9 @@ Every chapter in the list provides an [HTML Live Preview] link to quickly jump t
         *  (_no XRefs_).
         *  (_No footnotes_).
 - [ ]  [BOOK II. **TECHNICAL SYSTEM SPECIFICATION**][Book II]
-    + [ ]  [13. _INTRODUCTION_][Ch13]
+    + [x]  [13. _INTRODUCTION_][Ch13]
         * [x]  Title capitalization of all sections.
-        * [ ]  Fix all XRefs.
+        * [x]  Fix all XRefs (**1**)..
         *  (_No footnotes_).
     + [x]  [14. _ORGANIZATION OF THE .HEX FILE_][Ch14]
         * [x]  Title capitalization of all sections.
@@ -254,9 +254,9 @@ Every chapter in the list provides an [HTML Live Preview] link to quickly jump t
         * Title capitalization: _no sections._
         * [x]  Fix all XRefs (**1**).
         * [x]  Fix footnotes (**1**).
-    + [ ]  [17. _GRAMMAR_][Ch17]
+    + [x]  [17. _GRAMMAR_][Ch17]
         * Title capitalization: _no sections._
-        * [ ]  Fix all XRefs.
+        * [x]  Fix all XRefs (**1**).
         *  (_No footnotes_).
     + [x]  [18. _EXECUTABLE CODE_][Ch18]
         * [x]  Title capitalization of all sections.
@@ -270,9 +270,9 @@ Every chapter in the list provides an [HTML Live Preview] link to quickly jump t
         * [x]  Title capitalization of all sections.
         *  (_No footnotes_).
         * [x]  Fix footnotes (**2**).
-    + [ ]  [21. _THE PROPERTY TABLE_][Ch21]
+    + [x]  [21. _THE PROPERTY TABLE_][Ch21]
         * [x]  Title capitalization of all sections.
-        * [ ]  Fix all XRefs.
+        * [x]  Fix all XRefs (**2**).
         *  (_No footnotes_).
     + [ ]  [22. _THE EVENT TABLE_][Ch22]
         * Title capitalization: _no sections._
@@ -338,6 +338,7 @@ This table lists all the cross references currently used in _The Hugo Book_, and
 
 |                    Section                    | Qt. |                           xref                           |
 |-----------------------------------------------|-----|----------------------------------------------------------|
+| _The Hugo Programming Manual_                 |   5 | `hugo-book1#book1`                                       |
 | 1.5. Packing List                             |   1 | `packing_list`                                           |
 | 1.9. Compiler Switches                        |   1 | `compiler_switches`                                      |
 | 1.10. Limit Settings                          |   1 | `limit_settings`                                         |
@@ -362,6 +363,7 @@ This table lists all the cross references currently used in _The Hugo Book_, and
 | 14.2. The Header                              |   1 | `hugo-book2_02#the_header`                               |
 | 15.2. Data Types                              |   1 | `hugo-book2_03#15-2_data_types`                          |
 | 23.2. Special Words                           |   1 | `hugo-book2_11#special_words`                            |
+| 25.2. The Linker                              |   1 | `hugo-book2_13#the_linker`                               |
 | App. H: Code Patterns                         |   2 | `hugo-book2_16#code_patterns`                            |
 
 <!--

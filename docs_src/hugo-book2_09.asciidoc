@@ -36,8 +36,8 @@ A propertyless object simply has the value 255 at its position in the property t
 ================================================================================
 Property data being written for an *.HLB* linkable file is slightly altered.
 For example, property routines are marked by $FE instead of $FF.
-// @XREF ADD: "XIII.b The Linker"
-See _XIII.b The Linker_.
+// @XREF: "25.2. The Linker"
+See <<hugo-book2_13#the_linker>>.
 ================================================================================
 
 
@@ -66,8 +66,8 @@ after
 A simple explanation of the above is that `<object>.after` is called following a call to a verbroutine with which `<object>` was involved.
 If `<object>` was the object of the verbroutine (i.e., the `object` global), and the `verbroutine` global was `DoGet`, the first block runs.
 The second block will run if no previous block has run.
-// @XREF ADD: "The Hugo Programming Manual"
-For a full description of complex properties, see the Hugo Manual.
+// @XREF: "The Hugo Programming Manual"
+For a full description of complex properties, see <<hugo-book1#book1>>.
 ================================================================================
 
 First of all, the entry in the property table for `<object>.after` will point to the first line of code in the property routine.

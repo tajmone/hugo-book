@@ -3,7 +3,7 @@
 // *                Hugo Book I -- The Hugo Programming Manual                 *
 // *                                                                           *
 // *****************************************************************************
-//
+[[book1,_The Hugo Programming Manual_]]
 = Book I: The Hugo Programming Manual
 
 // @FIXME: Part Subtitle
