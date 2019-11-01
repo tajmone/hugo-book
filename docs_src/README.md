@@ -153,14 +153,14 @@ Every chapter in the list provides an [HTML Live Preview] link to quickly jump t
         * [x]  Title capitalization of all sections.
         * [x]  Fix all XRefs (**9**).
         * [x]  Fix footnotes (**3**).
-    + [ ]  [2. _A FIRST LOOK AT HUGO_][Ch2]
+    + [x]  [2. _A FIRST LOOK AT HUGO_][Ch2]
         * [x]  Title capitalization of all sections.
-        * [ ]  Fix all XRefs.
+        * [x]  Fix all XRefs (**5**).
         * [x]  Fix footnotes (**7**);
             - [x]  1 footnote inside code.
     + [x]  [3. _OBJECTS_][Ch3]
         * [x]  Title capitalization of all sections.
-        *  (_no XRefs_).
+        * [x]  Fix all XRefs (**3**).
         * [x]  Fix footnotes (**10**):
             - [x]  3 footnotes inside table.
             - [x]  1 footnote inside code.
@@ -336,28 +336,36 @@ Most of these notes pertain work in progress and will be deleted on final releas
 
 This table lists all the cross references currently used in _The Hugo Book_, and the number of times they occur (__Qt.__).
 
-|                Section                | Qt. |                      xref                     |
-|---------------------------------------|-----|-----------------------------------------------|
-| 1.5. Packing List                     |   1 | `packing_list`                                |
-| 1.9. Compiler Switches                |   1 | `compiler_switches`                           |
-| 1.10. Limit Settings                  |   1 | `limit_settings`                              |
-| 1.11. Directories                     |   1 | `directories`                                 |
-| 2.3. Data Types                       |   2 | `hugo-book1_02#data_types`                    |
-| 3.5. Classes                          |   1 | `classes`                                     |
-| 5.1. Routines                         |   1 | `hugo-book1_05#routines`                      |
-| 5.3. Before and After Routines        |   1 | `hugo-book1_05#before_and_after_routines`     |
-| 7.1. Grammar Definition               |   1 | `hugo-book1_07#grammar_definition`            |
-| 8.7. Perform                          |   1 | `hugo-book1_08#perform`                       |
-| 9. The Game Loop                      |   2 | `hugo-book1_09#the_game_loop`                 |
-| App. B: The Hugo Library              |   3 | `hugo-book1_14#the_hugo_library`              |
-| App. C: Limit Settings                |   1 | `hugo-book1_15#limit_settings_2`              |
-| App. D: HugoFix and the Hugo Debugger |   5 | `hugo-book1_16#hugofix_and_the_hugo_debugger` |
-| App. E: Precompiled Headers           |   3 | `hugo-book1_17#precompiled_headers`           |
-| App. F. Hugo Versions                 |   2 | `hugo-book1_18#hugo_versions`                 |
-| App. G: Additional Resources          |   1 | `hugo-book1_19#additional_resources`          |
-| 14.2. The Header                      |   1 | `hugo-book2_02#the_header`                    |
-| 15.2. Data Types                      |   1 | `hugo-book2_03#15-2_data_types`               |
-| App. H: Code Patterns                 |   2 | `hugo-book2_16#code_patterns`                 |
+|                    Section                    | Qt. |                           xref                           |
+|-----------------------------------------------|-----|----------------------------------------------------------|
+| 1.5. Packing List                             |   1 | `packing_list`                                           |
+| 1.9. Compiler Switches                        |   1 | `compiler_switches`                                      |
+| 1.10. Limit Settings                          |   1 | `limit_settings`                                         |
+| 1.11. Directories                             |   1 | `directories`                                            |
+| 2.3. Data Types                               |   2 | `hugo-book1_02#data_types`                               |
+| 3.5. Classes                                  |   1 | `classes`                                                |
+| 4.5. Operators and Assignments                |   1 | `hugo-book1_04#operators_and_assignments`                |
+| 4.7. Conditional Expressions and Program Flow |   2 | `hugo-book1_04#conditional_expressions_and_program_flow` |
+| 5.1. Routines                                 |   1 | `hugo-book1_05#routines`                                 |
+| 5.3. Before and After Routines                |   1 | `hugo-book1_05#before_and_after_routines`                |
+| 7.1. Grammar Definition                       |   1 | `hugo-book1_07#grammar_definition`                       |
+| 8.7. Perform                                  |   1 | `hugo-book1_08#perform`                                  |
+| 9. The Game Loop                              |   2 | `hugo-book1_09#the_game_loop`                            |
+| 11.1. The Display Object                      |   1 | `hugo-book1_11#the_display_object`                       |
+| App. B: The Hugo Library                      |   3 | `hugo-book1_14#the_hugo_library`                         |
+| App. C: Limit Settings                        |   1 | `hugo-book1_15#limit_settings_2`                         |
+| App. D: HugoFix and the Hugo Debugger         |   5 | `hugo-book1_16#hugofix_and_the_hugo_debugger`            |
+| App. E: Precompiled Headers                   |   3 | `hugo-book1_17#precompiled_headers`                      |
+| App. F. Hugo Versions                         |   2 | `hugo-book1_18#hugo_versions`                            |
+| App. G: Additional Resources                  |   1 | `hugo-book1_19#additional_resources`                     |
+| 14.2. The Header                              |   1 | `hugo-book2_02#the_header`                               |
+| 15.2. Data Types                              |   1 | `hugo-book2_03#15-2_data_types`                          |
+| App. H: Code Patterns                         |   2 | `hugo-book2_16#code_patterns`                            |
+
+<!--
+| XXX | 1 | `MMMMM` |
+| App. XXX | QQQ | `MMMMM` |
+-->
 
 > __NOTE 1__ — Xrefs not preceded by the file name are internal cross-references to the same document.
 
@@ -365,11 +373,6 @@ This table lists all the cross references currently used in _The Hugo Book_, and
 
 > __NOTE 2__ — To avoid conflicts with same-names sections, in some places I had to introduce a custom ID (eg. `hugo-book2_03#15-2_data_types`).
 > Probably I should customize all referenced Chapters, Sections and Appendices using a standard naming convention for IDs.
-<!--
-| XXX | 1 | `MMMMM` |
-| App. XXX | QQQ | `MMMMM` |
--->
-
 # System Requirements
 
 In order to convert _The Hugo Book_ to HTML you'll need to install the following tools on your system:

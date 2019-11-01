@@ -105,8 +105,8 @@ Usually the latter is used for system objects or classes (see <<classes>>) that 
 ================================================================================
 The compiler automatically creates an object called `display` as the last-defined object if no other object named `display` is defined by the program (or the library).
 The display object can be used to get information about the engine's output state and capabilities.
-// @XREF ADD: "XI.a The Display Object"
-See section _XI.a The Display Object_.
+// @XREF: "11.1. The Display Object"
+See section <<hugo-book1_11#the_display_object>>.
 ================================================================================
 
 
@@ -423,11 +423,11 @@ else
 }
 --------------------------------------------------------------------------------
 
-// @XREF ADD: "IV.h Conditional Expressions and Program Flow"
 
 [NOTE]
 ================================================================================
-We'll cover the `if...else...` structure in _IV.h Conditional Expressions and Program Flow_.
+// @XREF: "4.7. Conditional Expressions and Program Flow"
+We'll cover the `if...else...` structure in <<hugo-book1_04#conditional_expressions_and_program_flow>>.
 ================================================================================
 
 
