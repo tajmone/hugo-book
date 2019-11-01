@@ -95,17 +95,17 @@ object placeholder
 {}
 --------------------------------------------------------------------------------
 
-// @XREF ADD: "III.e Classes"
 
 creates an object called "`(placeholder)`".
+// @XREF ADD: "III.e Classes"
 Usually the latter is used for system objects or classes (see _III.e Classes_) that will never actually appear in a game.
 
-// @XREF ADD: "XI.a The Display Object"
 
 [NOTE]
 ================================================================================
 The compiler automatically creates an object called `display` as the last-defined object if no other object named `display` is defined by the program (or the library).
 The display object can be used to get information about the engine's output state and capabilities.
+// @XREF ADD: "XI.a The Display Object"
 See section _XI.a The Display Object_.
 ================================================================================
 
@@ -134,7 +134,7 @@ The compiler automatically assigns each object an object number, and refers to i
 
 Here is an example of an object tree:
 
-// See p.35:
+// @NOTE: Diagram at p.35 of PDF:
 // @TODO: Add color via custom styles?
 image::hugo-book1_03_object-tree1.svg[align="center",width=40%]
 
@@ -258,7 +258,7 @@ The bookmark is in the book.
 The bowl is on the table, and the spoon is on the bowl.
 The Hugo library will assume that the player object in the example is standing; if the player were seated, the object tree might look like:
 
-// See p.36:
+// @NOTE: Diagram at p.36 of PDF:
 image::hugo-book1_03_object-tree2.svg[align="center",width=30%]
 
 and
@@ -376,7 +376,7 @@ Therefore, in the original example, the command
 
 would result in altering the object tree to this:
 
-// See p.38:
+// @NOTE: Diagram at p.38 of PDF:
 image::hugo-book1_03_object-tree3.svg[align="center",width=40%]
 
 There is also a command to remove an object from its position in the tree:
@@ -637,13 +637,12 @@ before{fn7}
 
 The `nouns` property contains four dictionary addresses; the `size` property is a single integer value; the `found_in` property holds two object numbers; and the long and short description properties are both _property routines_, which instead of just containing one or more simple values stored as a data type are actually sections of executable code attached to the object.
 
-// @XREF ADD: "V.c Before And After Routines"
-
 The `before` property is a special case.
 This _complex property routine_ is defined by the compiler and handled differently by the engine than a normal property routine.
 In this case, the property value representing the routine address is only returned if the global variables `object` and `verbroutine` contain the object in question and the address of the `DoGet` routine, respectively.
 If there is a match, the routine is executed before `DoGet`, which is the library routine (in *verblib.h*) that normally handles the taking of objects.
 (There is also a companion to `before` called `after`, which is checked after the verb routine has been called.)
+// @XREF ADD: "V.c Before And After Routines"
 See _V.c Before And After Routines_ for further elucidation.
 
 There will be more on property routines and complex property routines later.
@@ -728,10 +727,9 @@ The list of properties defined in *hugolib.h* is:
 |===============================================================================
 
 
-// @XREF ADD: "APPENDIX B: THE HUGO LIBRARY"
-
 [TIP]
 ================================================================================
+// @XREF ADD: "APPENDIX B: THE HUGO LIBRARY"
 For a detailed description of how each property is used, see _APPENDIX B: THE HUGO LIBRARY_.
 ================================================================================
 

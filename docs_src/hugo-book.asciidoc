@@ -1,6 +1,6 @@
 = The Hugo Book
 Kent Tessman <general@generalcoffee.com>
-v1, 2018-10-04: Draft 83 -- Porting to AsciiDoc
+v1, 2018-10-04: Draft 84 -- Porting to AsciiDoc
 :lang: en
 :doctype: book
 // TOC Settings:
@@ -19,8 +19,10 @@ endif::[]
 :sectnums:
 :sectnumlevels: 2
 // Cross References:
-:xrefstyle: short
-:section-refsig: Sect.
+:xrefstyle: full
+:chapter-refsig: Ch.
+:section-refsig: Sec.
+:appendix-refsig: App.
 // Misc Settings:
 :experimental: true
 :icons: font

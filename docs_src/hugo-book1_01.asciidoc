@@ -276,12 +276,11 @@ and after a few seconds (or more, or less, depending on your processor and confi
 The new file *sample.hex* will have appeared in current directory.
 As well, the `-l` switch wrote all compile-time output (which would have included errors, had there been any) to the file *sample.lst*.
 
-// @XREF ADD: Multiple missing XRefs:
-//    -- "I.i. Compiler Switches"
-//    -- "I.j. Limit Settings"
-//    -- "I.k. Directories"
 [NOTE]
 ================================================================================
+// @XREF ADD: "I.i. Compiler Switches"
+// @XREF ADD: "I.j. Limit Settings"
+// @XREF ADD: "I.k. Directories"
 The next three sections -- _I.i. Compiler Switches_, _I.j. Limit Settings_, and _I.k. Directories_ -- may seem a little confusing to those without much compiler experience.
 Do look them over, but if you're not exactly sure what it all means, don't worry about it.
 You won't need to tell the compiler to do anything particularly acrobatic at the outset, and the information is here for experimentation and for when you need it.

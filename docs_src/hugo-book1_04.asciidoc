@@ -146,12 +146,13 @@ The `self` global is undefined except when an object is being referenced (as in 
 In that case, it is set to the number of that object.
 The `player` variable holds the number of the object that the player is controlling; the `endflag` variable must be 0 unless something has occurred to end the game; and the `prompt` variable represents the dictionary word appearing at the start of an input line (which most programs set to `>` by convention).
 
-// @XREF ADD: "Resources"
 
 The `objects` variable can be set by the program, but to no useful effect.
 The engine will reset it to the "`real`" value whenever referenced.
 (All object numbers range from 0 to the value of `objects`.)
+// @XREF ADD: (xref to section on sys calls)
 The `system_status` variable may be read (after a resource operation or a `system` call; see the relevant sections for an explanation of these functions) to check for an error value.
+// @XREF ADD: "Resources"
 See the section on "`__Resources__`" for possible return values.
 
 [NOTE]

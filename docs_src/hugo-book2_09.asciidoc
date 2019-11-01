@@ -31,12 +31,12 @@ At the end of each object in the property table comes the property number 255 ($
 Each object has a place in the object table, even if it has no properties per se.
 A propertyless object simply has the value 255 at its position in the property table.
 
-// @XREF ADD: "XIII.b The Linker"
 
 [NOTE]
 ================================================================================
 Property data being written for an *.HLB* linkable file is slightly altered.
 For example, property routines are marked by $FE instead of $FF.
+// @XREF ADD: "XIII.b The Linker"
 See _XIII.b The Linker_.
 ================================================================================
 
@@ -60,13 +60,13 @@ after
 }
 --------------------------------------------------------------------------------
 
-// @XREF ADD: "Hugo Manual"
 
 [NOTE]
 ================================================================================
 A simple explanation of the above is that `<object>.after` is called following a call to a verbroutine with which `<object>` was involved.
 If `<object>` was the object of the verbroutine (i.e., the `object` global), and the `verbroutine` global was `DoGet`, the first block runs.
 The second block will run if no previous block has run.
+// @XREF ADD: "Hugo Manual"
 For a full description of complex properties, see the Hugo Manual.
 ================================================================================
 

@@ -8,10 +8,10 @@
 
 // >>> footnotes definitions >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
-// @XREF ADD: "IX. THE GAME LOOP" (in footonote!)
 :fn1: pass:q[footnote:[ \
 Normally, unless the `Main` routine explicitly returns -- as opposed to just running through to the closing brace -- the Hugo Engine continues running. \
 Those familiar with the C programming language may notice the slight difference here: whereas in C the `main()` function is the entry point for a C program, in Hugo `Init` is the entry point, and `Main` can be thought of as the "`each-turn routine`". \
+// @XREF ADD: "IX. THE GAME LOOP" (in footonote!)
 For more elaboration on the execution pattern of a Hugo program, see _IX. THE GAME LOOP_.]]
 
 :fn2: pass:q[footnote:[ \
@@ -555,8 +555,6 @@ To include the contents of another file at the specified point in the current fi
 #include "<filename>"
 --------------------------------------------------------------------------------
 
-// @XREF ADD: "APPENDIX E: PRECOMPILED HEADERS"
-
 where `<filename>` is the full path and name of the file to be read.
 When `<filename>` has been read completely, the compiler resumes with the statement immediately following the `#include` directive.
 There is no limit on the number of files that a single file may include; also, a file may include a file which includes another file which includes another file and so on.
@@ -564,6 +562,7 @@ There is no limit on the number of files that a single file may include; also, a
 [TIP]
 ================================================================================
 A file or set of files can be compiled into a precompiled header using the `-h` switch, and then linked using `#link` instead of `#include`.
+// @XREF ADD: "APPENDIX E: PRECOMPILED HEADERS"
 See _APPENDIX E: PRECOMPILED HEADERS_.
 ================================================================================
 

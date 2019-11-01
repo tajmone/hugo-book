@@ -823,6 +823,7 @@ Also calls: `ObjectIsLight`
 [source,hugo]
 Font(bitmask)
 
+// @XREF ADD: (xref to previous entry in table)
 Sets the current font attributes as specified by `bitmask`, where `bitmask` is one or more font-style constants (see library constants, above) combined with `{vbar}` or `+`.
 
 //-----{ GetInput }-------------------------------------------------------------

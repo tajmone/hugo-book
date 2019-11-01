@@ -39,7 +39,6 @@ These are typically used for delimitation, signaling the end of a structure or s
 *STATEMENTS* are those tokens that are read by the engine as some sort of operation -- typically, these are "`start of line`" tokens, with some exceptions.
 
 // @XREF ADD: "III.b Data Types"
-
 *VALUES* return an integer value to the engine within the context of an expression.
 See _III.b Data Types_, which describes all the valid types of values.
 
@@ -161,7 +160,9 @@ elseif <expression>
 {...}
 -------------------
 
-// @XREF ADD:
+
+// @TODO: Check if `if` should be inline code!
+// @XREF ADD: (xref to other entry in table)
 See if.
 
 >s| Source: <a|
@@ -192,6 +193,8 @@ while <expression>
 
 As long as `<expression>` evaluates to a non-false value, <conditional block> is run.
 Note the implicit jump ($25) coded by the compiler to maintain the loop -- `<starting point>` is only an address; only the two-byte address following $25 is written as a jump-back point.
+// @TODO: Check if `if` should be inline code!
+// @XREF ADD: (xref to other entry in table)
 See if.
 
 Note that because the `<starting point>` is written as a two-byte indexed address, it must begin on an address boundary, padded with empty ($00) values, if necessary.
@@ -241,7 +244,8 @@ Instead, the distance to the next statement is given after the do token ($1D) in
 When encountered by the engine, resets the conditional-statement evaluator, i.e., so that the next case conditional is treated as an `if` instead of an `elseif`.
 Note that the variable that follows `select` in a line of source code is not coded here (but it is needed by the compiler to construct subsequent `case` statements).
 
-// @XREF ADD:
+// @TODO: Check if `case` should be inline code!
+// @XREF ADD: (xref to other entry in table)
 See case.
 
 >s| Source: <a|
@@ -305,10 +309,11 @@ for (<assign>; <expr>; <modifying>)
 {...}
 ------------------
 
-// @XREF ADD: see `if`
 
 The `<assignment>`, if given in the source code, is coded as a regular executable assignment of some data type.
 Again, nothing is explicitly coded at `<starting point>` -- it is simply a reference point for the `jump` ($25) to return to.
+// @TODO: Check if `if` should be inline code!
+// @XREF ADD: (xref to other entry in table)
 The `for` ($20) line operates as a regular conditional test (see `if`).
 The `<modifying expression>` is appended after the conditional block is coded.
 This, like the `<assignment>` is simply a regular executable assignment.
@@ -811,10 +816,10 @@ End-of-line marker.
 system(<value>)
 ---------------
 
-// @XREF ADD: "he Hugo Programming Manual"
 
 Calls the system-level function designated by `<value>`.
 
+// @XREF ADD: "he Hugo Programming Manual"
 TIP: See _The Hugo Programming Manual_ for further elaboration on the `system` statement.
 
 // @FOOTNOTE IN TABLE: EXTERNALIZE!
