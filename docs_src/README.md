@@ -121,6 +121,7 @@ There's still a lot of work to be done in terms of enforcing consistent styles, 
 ## List of Book-Wide Task
 
 - [x] Word to AsciiDoc porting and basic formatting and styles clean-up.
+- [x] **XREFS** — Restore all XRefs and create custom anchors ([milestone 6], [#25]).
 - [ ] **FOOTNOTES:** ([milestone 4])
     + [x] Proofread and format all footnotes. ([#21])
     + [ ] Decide how to handle:
@@ -130,7 +131,6 @@ There's still a lot of work to be done in terms of enforcing consistent styles, 
     + [x] All chapters and appendices titles (from all-caps).
     + [x] All sections.
     + [ ] All captions (tables, figures, etc.).
-- [ ] **XREFS** — Restore all XRefs and create custom anchors ([milestone 6], [#25]).
 - [ ] **CODE BLOCKS:**
     + [ ] Hugo code:
         * [ ] Enforce consistent indentation:
@@ -148,169 +148,87 @@ Every chapter in the list provides an [HTML Live Preview] link to quickly jump t
 
 - [ ]  [_COLOPHON_][COLOPHON]:
     + [ ]  Custom styling and adaptation to HTML5 version.
-    + Title capitalization: _no sections._
 - [ ]  [_AUTHOR'S FOREWORD_][FOREWORD]:
     + [ ]  Custom styling and adaptation to HTML5 version.
-    + Title capitalization: _no sections._
-    + [ ]  Fix all XRefs.
 - [ ]  [BOOK I. **THE HUGO PROGRAMMING MANUAL**][Book I]
-    + [x]  [1. _INTRODUCTION_][Ch1]
-        * [x]  Title capitalization of all sections.
-        * [x]  Fix all XRefs (**9**).
-        * [x]  Fix footnotes (**3**).
-    + [x]  [2. _A FIRST LOOK AT HUGO_][Ch2]
-        * [x]  Title capitalization of all sections.
-        * [x]  Fix all XRefs (**5**).
-        * [x]  Fix footnotes (**7**);
-            - [x]  1 footnote inside code.
-    + [x]  [3. _OBJECTS_][Ch3]
-        * [x]  Title capitalization of all sections.
-        * [x]  Fix all XRefs (**3**).
-        * [x]  Fix footnotes (**10**):
-            - [x]  3 footnotes inside table.
-            - [x]  1 footnote inside code.
-    + [x]  [4. _HUGO PROGRAMMING_][Ch4]
-        * [x]  Title capitalization of all sections.
-        * [x]  Fix all XRefs (**4**).
-        * [x]  Fix footnotes (**9**):
-            - [x]  1 footnote inside code.
-    + [x]  [5. _ROUTINES AND EVENTS_][Ch5]
-        * [x]  Title capitalization of all sections.
-        * [x]  Fix all XRefs (**5**).
-        * [x]  Fix footnotes (**10**).
-    + [x]  [6. _FUSES, DAEMONS, AND SCRIPTS_][Ch6]
-        * [x]  Title capitalization of all sections.
-        *  (_no XRefs_).
-        * [x]  Fix footnotes (**1**).
-    + [x]  [7. _GRAMMAR AND PARSING_][Ch7]
-        * [x]  Title capitalization of all sections.
-        *  (_no XRefs_).
-        *  (_No footnotes_).
-    + [x]  [8. _JUNCTION ROUTINES_][Ch8]
-        * [x]  Title capitalization of all sections.
-        * [x]  Fix all XRefs (**4**).
-        * [x]  Fix footnotes (**6**).
-    + [x]  [9. _THE GAME LOOP_][Ch9]
-        * [x]  Title capitalization of all sections.
-        *  (_no XRefs_).
-        *  (_No footnotes_).
-    + [x]  [10. _USING THE OBJECT LIBRARY_][Ch10]
-        * [x]  Title capitalization of all sections.
-        *  (_no XRefs_).
-        * [x]  Fix footnotes (**10**):
-            - [x]  2 footnotes inside code.
-    + [x]  [11. _ADVANCED FEATURES_][Ch11]
-        * [x]  Title capitalization of all sections.
-        *  (_no XRefs_).
-        *  (_No footnotes_).
-    + [x]  [12. _RESOURCES_][Ch12]
-        * [x]  Title capitalization of all sections.
-        * [x]  Fix all XRefs (**1**).
-        * [x]  Fix footnotes (**2**).
+    + [ ]  [1. _INTRODUCTION_][Ch1]
+        * [ ]  Check/Fix Hugo code indentation.
+    + [ ]  [2. _A FIRST LOOK AT HUGO_][Ch2]
+        * [ ]  Check/Fix Hugo code indentation.
+    + [ ]  [3. _OBJECTS_][Ch3]
+        * [ ]  Check/Fix Hugo code indentation.
+    + [ ]  [4. _HUGO PROGRAMMING_][Ch4]
+        * [ ]  Check/Fix Hugo code indentation.
+    + [ ]  [5. _ROUTINES AND EVENTS_][Ch5]
+        * [ ]  Check/Fix Hugo code indentation.
+    + [ ]  [6. _FUSES, DAEMONS, AND SCRIPTS_][Ch6]
+        * [ ]  Check/Fix Hugo code indentation.
+    + [ ]  [7. _GRAMMAR AND PARSING_][Ch7]
+        * [ ]  Check/Fix Hugo code indentation.
+    + [ ]  [8. _JUNCTION ROUTINES_][Ch8]
+        * [ ]  Check/Fix Hugo code indentation.
+    + [ ]  [9. _THE GAME LOOP_][Ch9]
+        * [ ]  Check/Fix Hugo code indentation.
+    + [ ]  [10. _USING THE OBJECT LIBRARY_][Ch10]
+        * [ ]  Check/Fix Hugo code indentation.
+    + [ ]  [11. _ADVANCED FEATURES_][Ch11]
+        * [ ]  Check/Fix Hugo code indentation.
+    + [ ]  [12. _RESOURCES_][Ch12]
+        * [ ]  Check/Fix Hugo code indentation.
     + [ ]  [APP. A. _SUMMARY OF KEYWORDS AND COMMANDS_][AppA]
-        * Title capitalization: _no sections._
         * [ ]  _needs to be proof-read once more, carefully!_
-        * [x]  Fix all XRefs (**1**).
-        *  (_No footnotes_).
+        * [ ]  Check/Fix Hugo code indentation.
     + [ ]  [APP. B. _THE HUGO LIBRARY_][AppB]
-        * [x]  Title capitalization of all sections.
         * [ ]  _needs to be proof-read once more, carefully!_
-        * [x]  Fix all XRefs (**1**).
-        * [x]  Fix footnotes (**2**):
-            - [x]  2 footnotes inside tables.
+        * [ ]  Check/Fix Hugo code indentation.
     + [ ]  [APP. C. _LIMIT SETTINGS_][AppC]
-        * Title capitalization: _no sections._
         * [ ]  _needs to be proof-read once more, carefully!_
-        *  (_no XRefs_).
-        *  (_No footnotes_).
+        * [ ]  Check/Fix Hugo code indentation.
     + [ ]  [APP. D. _HUGOFIX AND THE HUGO DEBUGGER_][AppD]
-        * [x]  Title capitalization of all sections.
         * [ ]  _needs to be proof-read once more, carefully!_
-        *  (_no XRefs_).
-        * [x]  Fix footnotes (**2**).
+        * [ ]  Check/Fix Hugo code indentation.
     + [ ]  [APP. E. _PRECOMPILED HEADERS_][AppE]
-        * Title capitalization: _no sections._
-        *  (_no XRefs_).
-        *  (_No footnotes_).
-    + [x]  [APP. F. _HUGO VERSIONS_][AppF]
-        * Title capitalization: _no sections._
-        *  (_no XRefs_).
-        *  (_No footnotes_).
-    + [x]  [APP. G. _ADDITIONAL RESOURCES_][AppG]
-        * Title capitalization: _no sections._
-        *  (_no XRefs_).
-        *  (_No footnotes_).
+        * [ ]  Check/Fix Hugo code indentation.
+    + [ ]  [APP. F. _HUGO VERSIONS_][AppF]
+        * [ ]  Check/Fix Hugo code indentation.
+    + [ ]  [APP. G. _ADDITIONAL RESOURCES_][AppG]
+        * [ ]  Check/Fix Hugo code indentation.
 - [ ]  [BOOK II. **TECHNICAL SYSTEM SPECIFICATION**][Book II]
-    + [x]  [13. _INTRODUCTION_][Ch13]
-        * [x]  Title capitalization of all sections.
-        * [x]  Fix all XRefs (**1**)..
-        *  (_No footnotes_).
-    + [x]  [14. _ORGANIZATION OF THE .HEX FILE_][Ch14]
-        * [x]  Title capitalization of all sections.
-        * [x]  Fix all XRefs (**1**)..
-        * [x]  Fix footnotes (**6**):
-            - [x]  5 footnotes inside tables.
-    + [x]  [15. _TOKENS AND DATA TYPES_][Ch15]
-        * [x]  Title capitalization of all sections.
-        *  (_no XRefs_).
-        * [x]  Fix footnotes (**3**):
-            - [x]  2 footnotes inside CSV file populating table.
-    + [x]  [16. _ENGINE PARSING_][Ch16]
-        * Title capitalization: _no sections._
-        * [x]  Fix all XRefs (**1**).
-        * [x]  Fix footnotes (**1**).
-    + [x]  [17. _GRAMMAR_][Ch17]
-        * Title capitalization: _no sections._
-        * [x]  Fix all XRefs (**1**).
-        *  (_No footnotes_).
-    + [x]  [18. _EXECUTABLE CODE_][Ch18]
-        * [x]  Title capitalization of all sections.
-        * [x]  Fix all XRefs (**1**).
-        *  (_No footnotes_).
-    + [x]  [19. _ENCODING TEXT_][Ch19]
+    + [ ]  [13. _INTRODUCTION_][Ch13]
+        * [ ]  Check/Fix Hugo code indentation.
+    + [ ]  [14. _ORGANIZATION OF THE .HEX FILE_][Ch14]
+        * [ ]  Check/Fix Hugo code indentation.
+    + [ ]  [15. _TOKENS AND DATA TYPES_][Ch15]
+        * [ ]  Check/Fix Hugo code indentation.
+    + [ ]  [16. _ENGINE PARSING_][Ch16]
+        * [ ]  Check/Fix Hugo code indentation.
+    + [ ]  [17. _GRAMMAR_][Ch17]
+        * [ ]  Check/Fix Hugo code indentation.
+    + [ ]  [18. _EXECUTABLE CODE_][Ch18]
+        * [ ]  Check/Fix Hugo code indentation.
+    + [ ]  [19. _ENCODING TEXT_][Ch19]
+        * [ ]  Check/Fix Hugo code indentation.
+    + [ ]  [20. _THE OBJECT TABLE_][Ch20]
+        * [ ]  Check/Fix Hugo code indentation.
+    + [ ]  [21. _THE PROPERTY TABLE_][Ch21]
+        * [ ]  Check/Fix Hugo code indentation.
+    + [ ]  [22. _THE EVENT TABLE_][Ch22]
+        * [ ]  Check/Fix Hugo code indentation.
+    + [ ]  [23. _THE DICTIONARY AND SPECIAL WORDS_][Ch23]
+        * [ ]  Check/Fix Hugo code indentation.
+    + [ ]  [24. _RESOURCEFILES_][Ch24]
         * Title capitalization: _no sections._
         *  (_no XRefs_).
         *  (_No footnotes_).
-    + [x]  [20. _THE OBJECT TABLE_][Ch20]
-        * [x]  Title capitalization of all sections.
-        *  (_no XRefs_).
-        * [x]  Fix footnotes (**2**).
-    + [x]  [21. _THE PROPERTY TABLE_][Ch21]
-        * [x]  Title capitalization of all sections.
-        * [x]  Fix all XRefs (**2**).
-        *  (_No footnotes_).
-    + [x]  [22. _THE EVENT TABLE_][Ch22]
-        * Title capitalization: _no sections._
-        *  (_no XRefs_).
-        *  (_No footnotes_).
-    + [x]  [23. _THE DICTIONARY AND SPECIAL WORDS_][Ch23]
-        * [x]  Title capitalization of all sections.
-        *  (_no XRefs_).
-        *  (_No footnotes_).
-    + [x]  [24. _RESOURCEFILES_][Ch24]
-        * Title capitalization: _no sections._
-        *  (_no XRefs_).
-        *  (_No footnotes_).
-    + [x]  [25. _THE HUGO COMPILER AND HOW IT WORKS_][Ch25]
-        * [ ]  Title capitalization of all sections.
-        *  (_no XRefs_).
-        *  (_No footnotes_).
-    + [x]  [26. _THE HUGO ENGINE AND HOW IT WORKS_][Ch26]
-        * [x]  Title capitalization of all sections.
-        *  (_no XRefs_).
-        * [x]  Fix footnotes (**1**):
-            - [x]  1 footnote inside tables.
-    + [x]  [27. _DARK SECRETS OF THE HUGO DEBUGGER_][Ch27]
-        * [x]  Title capitalization of all sections.
-        * [x]  Fix all XRefs (**1**).
-        *  (_No footnotes_).
+    + [ ]  [25. _THE HUGO COMPILER AND HOW IT WORKS_][Ch25]
+        * [ ]  Check/Fix Hugo code indentation.
+    + [ ]  [26. _THE HUGO ENGINE AND HOW IT WORKS_][Ch26]
+        * [ ]  Check/Fix Hugo code indentation.
+    + [ ]  [27. _DARK SECRETS OF THE HUGO DEBUGGER_][Ch27]
+        * [ ]  Check/Fix Hugo code indentation.
     + [ ]  [APP. H. _CODE PATTERNS_][AppH]
         * [ ]  _needs to be proof-read once more, carefully!_
-        * Title capitalization: _no sections._
-        * [x]  Fix all XRefs (**7**).
-        * [x]  Fix footnotes (**11**)
-            - [x]  11 footnotes inside tables (8 identical):
-                * [x]  9 of these footnotes are inside literal-blocks.
+        * [ ]  Check/Fix Hugo code indentation.
 - [ ] _INDEX_ (supported only in PDF format)
 
 
