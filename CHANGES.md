@@ -13,6 +13,7 @@ This document lists all the contents changes that theAsciiDoc edition has underg
     - [Text Corrections](#text-corrections)
     - [Aesthetic Changes](#aesthetic-changes)
     - [Library Code Updates](#library-code-updates)
+- [List of Text Adaptations](#list-of-text-adaptations)
 - [List of Text Corrections](#list-of-text-corrections)
 
 <!-- /MarkdownTOC -->
@@ -63,11 +64,29 @@ The source files of the Hugo Library v3.1.03.2 that I've used can be found here:
 
 - https://github.com/tajmone/hugo-library
 
+# List of Text Adaptations
+
+Some text adaptations that were required to better exploit the new AsciiDoc format.
+
+----
+
+<!-- Issue #27 (pending approval) -------------------------------------------->
+
+In _App. A: Summary of Keywords and Commands_, the cross reference text to a specific page number:
+
+> Standard color values for `<foreground>` and `<background>` with constants defined in **hugolib.h** (see page 64) are:
+
+was changed to the section number instead:
+
+> Standard color values for `<foreground>` and `<background>` with constants defined in **hugolib.h** (see Sec. 4.3) are:
+
+where "Sec. 4.3" is a link pointing to relevant paragraph on the topic.
+
+This was necessary because not all output formats have page numbers (HTML documents, ePub, CHM Help files, etc., either don't have real page numbers or can't handle them well in cross references).
+
 # List of Text Corrections
 
-
-
-<!-- Issue #XX (pending approval) -------------------------------------------->
+<!-- Issue #20 (pending approval) -------------------------------------------->
 
 In _§1.10. Limit Settings_, the following admonition block:
 

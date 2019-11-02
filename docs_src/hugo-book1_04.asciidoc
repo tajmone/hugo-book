@@ -495,13 +495,12 @@ where the background color is not necessary.
 If no background color is specified, the current one is assumed).
 The input color is also not necessary -- this refers to the color of player input and, if not given, is the same as the foreground color.
 
+[[hugolib-colors]]
 The standard color set with corresponding values and constant labels (defined in *hugolib.h*) is:
 
-// @TODO: an xref needs to point here from "App. A". Either:
-//   * Add Table Caption, or
-//   * Add custom anchor.
-
-[.center,caption=]
+[[table-hugolib-colors]]
+.Standard Colors Defined by the Hugo Library
+[.center]
 [cols="<d,>s,<m",options=autowidth,grid=none,stripes=even]
 |=========================================================
 | COLOR                     | VALUE | LABEL

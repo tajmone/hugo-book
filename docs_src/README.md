@@ -19,6 +19,11 @@ This folder contains the AsciiDoc source files of the _The Hugo Book_.
     - [Chapters Status and Previews](#chapters-status-and-previews)
 - [Annotations Convention](#annotations-convention)
 - [XRefs](#xrefs)
+    - [Chapters, Appendices and Sections](#chapters-appendices-and-sections)
+    - [Custom Anchors](#custom-anchors)
+- [Custom IDs](#custom-ids)
+    - [Chapters, Appendices and Sections](#chapters-appendices-and-sections-1)
+    - [Tables, Figures, Etc.](#tables-figures-etc)
 - [System Requirements](#system-requirements)
 
 <!-- /MarkdownTOC -->
@@ -334,7 +339,11 @@ Most of these notes pertain work in progress and will be deleted on final releas
 
 # XRefs
 
-This table lists all the cross references currently used in _The Hugo Book_, and the number of times they occur (__Qt.__).
+The following tables list all the cross references currently used in _The Hugo Book_, and the number of times they occur (__Qt.__ column).
+
+## Chapters, Appendices and Sections
+
+All the cross-references to chapters, appendices and sections:
 
 |                    Section                    | Qt. |                           XRef ID                           |
 |-----------------------------------------------|-----|----------------------------------------------------------|
@@ -367,23 +376,40 @@ This table lists all the cross references currently used in _The Hugo Book_, and
 | 25.2. The Linker                              |   1 | `hugo-book2_13#the_linker`                               |
 | App. H: Code Patterns                         |   2 | `hugo-book2_16#code_patterns`                            |
 
-Plus some custom inline anchors pointing to specific cross-referenced points inside sections:
-
-|               XRef ID                |          Description          | Section |
-|--------------------------------------|-------------------------------|---------|
-| `hugo-book1_12#system_status_values` | `system_status` return values | §12.1.  |
-
-<!--
-| XXX | 1 | `MMMMM` |
-| App. XXX | QQQ | `MMMMM` |
--->
-
 > __NOTE 1__ — Xrefs not preceded by the file name are internal cross-references to the same document.
 
 <!--  -->
 
 > __NOTE 2__ — To avoid conflicts with same-names sections, in some places I had to introduce a custom ID (eg. `hugo-book2_03#15-2_data_types`).
-> Probably I should customize all referenced Chapters, Sections and Appendices using a standard naming convention for IDs.
+> Later on, I should customize all referenced Chapters, Sections and Appendices using a standard naming convention for IDs (See [#26]).
+
+
+## Custom Anchors
+
+These are the custom inline anchors pointing to specific points in the text:
+
+|               XRef ID                | Qt. |          Description           | Section |
+|--------------------------------------|-----|--------------------------------|---------|
+| `hugo-book1_12#system_status_values` |   1 | `system_status` return values  | §12.1.  |
+| `hugo-book1_04#hugolib-colors`       |   1 | Colors defined by Hugo Library | §4.3.   |
+
+# Custom IDs
+
+Here's a complete list of the custom defined IDs replacing the auto-generated IDs.
+Even if not all of them are used by actual XRefs, they provide a consistent naming convention for anchors in HTML based documents.
+
+## Chapters, Appendices and Sections
+
+> __NOTE__ — Missing table, will be added once all the section IDs are customized (see [#26]).
+
+## Tables, Figures, Etc.
+
+All custom IDs for formal tables, figures, and other captioned block-elements.
+
+|  Type |                   Caption                   |               XRef ID                |
+|-------|---------------------------------------------|--------------------------------------|
+| Table | Standard Colors Defined by the Hugo Library | `hugo-book1_04#table-hugolib-colors` |
+
 # System Requirements
 
 In order to convert _The Hugo Book_ to HTML you'll need to install the following tools on your system:
@@ -531,6 +557,7 @@ In order to convert _The Hugo Book_ to HTML you'll need to install the following
 [#22]: https://github.com/tajmone/hugo-book/issues/22
 [#24]: https://github.com/tajmone/hugo-book/issues/24
 [#25]: https://github.com/tajmone/hugo-book/issues/25
+[#26]: https://github.com/tajmone/hugo-book/issues/26
 [milestone 4]: https://github.com/tajmone/hugo-book/milestone/4
 [milestone 6]: https://github.com/tajmone/hugo-book/milestone/6
 

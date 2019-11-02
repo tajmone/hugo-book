@@ -535,7 +535,7 @@ div.literalblock.cmd pre .conum {
 <span id="email" class="email"><a href="mailto:general@generalcoffee.com">general@generalcoffee.com</a></span><br>
 <span id="revnumber">version 1,</span>
 <span id="revdate">2018-10-04</span>
-<br><span id="revremark">Draft 93 -- Porting to AsciiDoc</span>
+<br><span id="revremark">Draft 94 -- Porting to AsciiDoc</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -4485,10 +4485,11 @@ The format is</p>
 If no background color is specified, the current one is assumed).
 The input color is also not necessary&#8201;&#8212;&#8201;this refers to the color of player input and, if not given, is the same as the foreground color.</p>
 </div>
-<div class="paragraph">
+<div id="hugolib-colors" class="paragraph">
 <p>The standard color set with corresponding values and constant labels (defined in <strong>hugolib.h</strong>) is:</p>
 </div>
-<table class="tableblock frame-all grid-none stripes-even fit-content center">
+<table id="table-hugolib-colors" class="tableblock frame-all grid-none stripes-even fit-content center">
+<caption class="title">Table 1. Standard Colors Defined by the Hugo Library</caption>
 <colgroup>
 <col>
 <col>
@@ -10480,7 +10481,7 @@ In combination with the <code>repeat</code> token, this is useful for creating b
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Parameters:</strong></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Standard color values for <code>&lt;foreground&gt;</code> and <code>&lt;background&gt;</code> with constants defined in <strong>hugolib.h</strong> (see page 64) are:</p>
+<p>Standard color values for <code>&lt;foreground&gt;</code> and <code>&lt;background&gt;</code> with constants defined in <strong>hugolib.h</strong> (see <a href="#hugolib-colors">Sec. 4.3</a>) are:</p>
 </div>
 <table class="tableblock frame-all grid-none stripes-even fit-content">
 <colgroup>
