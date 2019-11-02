@@ -535,7 +535,7 @@ div.literalblock.cmd pre .conum {
 <span id="email" class="email"><a href="mailto:general@generalcoffee.com">general@generalcoffee.com</a></span><br>
 <span id="revnumber">version 1,</span>
 <span id="revdate">2018-10-04</span>
-<br><span id="revremark">Draft 94 -- Porting to AsciiDoc</span>
+<br><span id="revremark">Draft 95 -- Porting to AsciiDoc</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -14027,7 +14027,7 @@ Including a non-false long parameter will always force a location description.</
 </div>
 </div>
 <div class="paragraph">
-<p>Sets the current font attributes as specified by <code>bitmask</code>, where <code>bitmask</code> is one or more font-style constants (see library constants, above) combined with <code>|</code> or <code>+</code>.</p>
+<p>Sets the current font attributes as specified by <code>bitmask</code>, where <code>bitmask</code> is one or more font-style constants (see <a href="#constants_2">library constants</a>, above) combined with <code>|</code> or <code>+</code>.</p>
 </div></div></td>
 </tr>
 <tr>
@@ -19217,7 +19217,7 @@ The reading of values from data types or expressions begins with <code>GetValue(
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top" rowspan="3"><p class="tableblock"><strong>18</strong></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><code>if</code></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code><a id="token-if"></a>if</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><strong>STATEMENT</strong></p>
 </div>
@@ -19335,7 +19335,7 @@ If a previous condition has been met, control passes ahead to <code>&lt;next sta
 </div>
 </div>
 <div class="paragraph">
-<p>See if.</p>
+<p><a href="#token-if">See <code>if</code></a>.</p>
 </div></div></td>
 </tr>
 <tr>
@@ -19380,7 +19380,7 @@ If a previous condition has been met, control passes ahead to <code>&lt;next sta
 <div class="paragraph">
 <p>As long as <code>&lt;expression&gt;</code> evaluates to a non-false value, &lt;conditional block&gt; is run.
 Note the implicit jump ($25) coded by the compiler to maintain the loop&#8201;&#8212;&#8201;<code>&lt;starting point&gt;</code> is only an address; only the two-byte address following $25 is written as a jump-back point.
-See if.</p>
+<a href="#token-if">See <code>if</code></a>.</p>
 </div>
 <div class="paragraph">
 <p>Note that because the <code>&lt;starting point&gt;</code> is written as a two-byte indexed address, it must begin on an address boundary, padded with empty ($00) values, if necessary.</p>
@@ -19460,7 +19460,7 @@ Instead, the distance to the next statement is given after the do token ($1D) in
 Note that the variable that follows <code>select</code> in a line of source code is not coded here (but it is needed by the compiler to construct subsequent <code>case</code> statements).</p>
 </div>
 <div class="paragraph">
-<p>See case.</p>
+<p><a href="#token-case">See <code>case</code></a>.</p>
 </div></div></td>
 </tr>
 <tr>
@@ -19478,7 +19478,7 @@ Note that the variable that follows <code>select</code> in a line of source code
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top" rowspan="2"><p class="tableblock"><strong>1F</strong></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><code>case</code></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code><a id="token-case"></a>case</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><strong>STATEMENT</strong></p>
 </div>
@@ -19561,7 +19561,7 @@ Note that the variable that follows <code>select</code> in a line of source code
 <div class="paragraph">
 <p>The <code>&lt;assignment&gt;</code>, if given in the source code, is coded as a regular executable assignment of some data type.
 Again, nothing is explicitly coded at <code>&lt;starting point&gt;</code>&#8201;&#8212;&#8201;it is simply a reference point for the <code>jump</code> ($25) to return to.
-The <code>for</code> ($20) line operates as a regular conditional test (see <code>if</code>).
+The <code>for</code> ($20) line operates as a regular conditional test (<a href="#token-if">see <code>if</code></a>.).
 The <code>&lt;modifying expression&gt;</code> is appended after the conditional block is coded.
 This, like the <code>&lt;assignment&gt;</code> is simply a regular executable assignment.</p>
 </div></div></td>

@@ -178,11 +178,11 @@ Every chapter in the list provides an [HTML Live Preview] link to quickly jump t
         * [x]  Title capitalization of all sections.
         * [x]  Fix all XRefs (**5**).
         * [x]  Fix footnotes (**10**).
-    + [ ]  [6. _FUSES, DAEMONS, AND SCRIPTS_][Ch6]
+    + [x]  [6. _FUSES, DAEMONS, AND SCRIPTS_][Ch6]
         * [x]  Title capitalization of all sections.
         *  (_no XRefs_).
         * [x]  Fix footnotes (**1**).
-    + [ ]  [7. _GRAMMAR AND PARSING_][Ch7]
+    + [x]  [7. _GRAMMAR AND PARSING_][Ch7]
         * [x]  Title capitalization of all sections.
         *  (_no XRefs_).
         *  (_No footnotes_).
@@ -190,16 +190,16 @@ Every chapter in the list provides an [HTML Live Preview] link to quickly jump t
         * [x]  Title capitalization of all sections.
         * [x]  Fix all XRefs (**4**).
         * [x]  Fix footnotes (**6**).
-    + [ ]  [9. _THE GAME LOOP_][Ch9]
+    + [x]  [9. _THE GAME LOOP_][Ch9]
         * [x]  Title capitalization of all sections.
         *  (_no XRefs_).
         *  (_No footnotes_).
-    + [ ]  [10. _USING THE OBJECT LIBRARY_][Ch10]
+    + [x]  [10. _USING THE OBJECT LIBRARY_][Ch10]
         * [x]  Title capitalization of all sections.
         *  (_no XRefs_).
         * [x]  Fix footnotes (**10**):
             - [x]  2 footnotes inside code.
-    + [ ]  [11. _ADVANCED FEATURES_][Ch11]
+    + [x]  [11. _ADVANCED FEATURES_][Ch11]
         * [x]  Title capitalization of all sections.
         *  (_no XRefs_).
         *  (_No footnotes_).
@@ -210,12 +210,12 @@ Every chapter in the list provides an [HTML Live Preview] link to quickly jump t
     + [ ]  [APP. A. _SUMMARY OF KEYWORDS AND COMMANDS_][AppA]
         * Title capitalization: _no sections._
         * [ ]  _needs to be proof-read once more, carefully!_
-        * [ ]  Fix all XRefs.
+        * [x]  Fix all XRefs (**1**).
         *  (_No footnotes_).
     + [ ]  [APP. B. _THE HUGO LIBRARY_][AppB]
         * [x]  Title capitalization of all sections.
         * [ ]  _needs to be proof-read once more, carefully!_
-        * [ ]  Fix all XRefs.
+        * [x]  Fix all XRefs (**1**).
         * [x]  Fix footnotes (**2**):
             - [x]  2 footnotes inside tables.
     + [ ]  [APP. C. _LIMIT SETTINGS_][AppC]
@@ -232,11 +232,11 @@ Every chapter in the list provides an [HTML Live Preview] link to quickly jump t
         * Title capitalization: _no sections._
         *  (_no XRefs_).
         *  (_No footnotes_).
-    + [ ]  [APP. F. _HUGO VERSIONS_][AppF]
+    + [x]  [APP. F. _HUGO VERSIONS_][AppF]
         * Title capitalization: _no sections._
         *  (_no XRefs_).
         *  (_No footnotes_).
-    + [ ]  [APP. G. _ADDITIONAL RESOURCES_][AppG]
+    + [x]  [APP. G. _ADDITIONAL RESOURCES_][AppG]
         * Title capitalization: _no sections._
         *  (_no XRefs_).
         *  (_No footnotes_).
@@ -250,7 +250,7 @@ Every chapter in the list provides an [HTML Live Preview] link to quickly jump t
         * [x]  Fix all XRefs (**1**)..
         * [x]  Fix footnotes (**6**):
             - [x]  5 footnotes inside tables.
-    + [ ]  [15. _TOKENS AND DATA TYPES_][Ch15]
+    + [x]  [15. _TOKENS AND DATA TYPES_][Ch15]
         * [x]  Title capitalization of all sections.
         *  (_no XRefs_).
         * [x]  Fix footnotes (**3**):
@@ -267,37 +267,37 @@ Every chapter in the list provides an [HTML Live Preview] link to quickly jump t
         * [x]  Title capitalization of all sections.
         * [x]  Fix all XRefs (**1**).
         *  (_No footnotes_).
-    + [ ]  [19. _ENCODING TEXT_][Ch19]
+    + [x]  [19. _ENCODING TEXT_][Ch19]
         * Title capitalization: _no sections._
-        * [ ]  Fix all XRefs.
+        *  (_no XRefs_).
         *  (_No footnotes_).
-    + [ ]  [20. _THE OBJECT TABLE_][Ch20]
+    + [x]  [20. _THE OBJECT TABLE_][Ch20]
         * [x]  Title capitalization of all sections.
-        *  (_No footnotes_).
+        *  (_no XRefs_).
         * [x]  Fix footnotes (**2**).
     + [x]  [21. _THE PROPERTY TABLE_][Ch21]
         * [x]  Title capitalization of all sections.
         * [x]  Fix all XRefs (**2**).
         *  (_No footnotes_).
-    + [ ]  [22. _THE EVENT TABLE_][Ch22]
+    + [x]  [22. _THE EVENT TABLE_][Ch22]
         * Title capitalization: _no sections._
+        *  (_no XRefs_).
         *  (_No footnotes_).
-        *  (_No footnotes_).
-    + [ ]  [23. _THE DICTIONARY AND SPECIAL WORDS_][Ch23]
+    + [x]  [23. _THE DICTIONARY AND SPECIAL WORDS_][Ch23]
         * [x]  Title capitalization of all sections.
+        *  (_no XRefs_).
         *  (_No footnotes_).
-        *  (_No footnotes_).
-    + [ ]  [24. _RESOURCEFILES_][Ch24]
+    + [x]  [24. _RESOURCEFILES_][Ch24]
         * Title capitalization: _no sections._
+        *  (_no XRefs_).
         *  (_No footnotes_).
-        *  (_No footnotes_).
-    + [ ]  [25. _THE HUGO COMPILER AND HOW IT WORKS_][Ch25]
+    + [x]  [25. _THE HUGO COMPILER AND HOW IT WORKS_][Ch25]
         * [ ]  Title capitalization of all sections.
+        *  (_no XRefs_).
         *  (_No footnotes_).
-        *  (_No footnotes_).
-    + [ ]  [26. _THE HUGO ENGINE AND HOW IT WORKS_][Ch26]
+    + [x]  [26. _THE HUGO ENGINE AND HOW IT WORKS_][Ch26]
         * [x]  Title capitalization of all sections.
-        *  (_No footnotes_).
+        *  (_no XRefs_).
         * [x]  Fix footnotes (**1**):
             - [x]  1 footnote inside tables.
     + [x]  [27. _DARK SECRETS OF THE HUGO DEBUGGER_][Ch27]
@@ -307,7 +307,7 @@ Every chapter in the list provides an [HTML Live Preview] link to quickly jump t
     + [ ]  [APP. H. _CODE PATTERNS_][AppH]
         * [ ]  _needs to be proof-read once more, carefully!_
         * Title capitalization: _no sections._
-        * [ ]  Fix all XRefs.
+        * [x]  Fix all XRefs (**7**).
         * [x]  Fix footnotes (**11**)
             - [x]  11 footnotes inside tables (8 identical):
                 * [x]  9 of these footnotes are inside literal-blocks.
@@ -345,7 +345,7 @@ The following tables list all the cross references currently used in _The Hugo B
 
 All the cross-references to chapters, appendices and sections:
 
-|                    Section                    | Qt. |                           XRef ID                           |
+|                    Section                    | Qt. |                         XRef ID                          |
 |-----------------------------------------------|-----|----------------------------------------------------------|
 | _The Hugo Programming Manual_                 |   5 | `hugo-book1#book1`                                       |
 | 1.5. Packing List                             |   1 | `packing_list`                                           |
@@ -365,6 +365,7 @@ All the cross-references to chapters, appendices and sections:
 | 11.1. The Display Object                      |   1 | `hugo-book1_11#the_display_object`                       |
 | 12. Resources                                 |   1 | `hugo-book1_12#resources`                                |
 | App. B: The Hugo Library                      |   3 | `hugo-book1_14#the_hugo_library`                         |
+| App. B.4. Constants                           |   1 | `#constants_2`                                           |
 | App. C: Limit Settings                        |   1 | `hugo-book1_15#limit_settings_2`                         |
 | App. D: HugoFix and the Hugo Debugger         |   5 | `hugo-book1_16#hugofix_and_the_hugo_debugger`            |
 | App. E: Precompiled Headers                   |   3 | `hugo-book1_17#precompiled_headers`                      |
@@ -390,8 +391,10 @@ These are the custom inline anchors pointing to specific points in the text:
 
 |               XRef ID                | Qt. |          Description           | Section |
 |--------------------------------------|-----|--------------------------------|---------|
-| `hugo-book1_12#system_status_values` |   1 | `system_status` return values  | §12.1.  |
 | `hugo-book1_04#hugolib-colors`       |   1 | Colors defined by Hugo Library | §4.3.   |
+| `hugo-book1_12#system_status_values` |   1 | `system_status` return values  | §12.1.  |
+| `hugo-book1_14#token-case`           |   1 | Tokens table: `case`           | App. H  |
+| `hugo-book1_14#token-if`             |   3 | Tokens table: `if`             | App. H  |
 
 # Custom IDs
 
