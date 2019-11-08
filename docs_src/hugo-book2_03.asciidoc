@@ -11,6 +11,7 @@
 // @FOOTNOTE SAME TEXT: 66, 67 (i.e. 1, 2)
 // @FOOTNOTE: Footnote 1 is used twice in CSV file!
 :fn1: footnote:[v3.0 and later]
+:fn2: {fn1}
 :fn3: footnote:[Prior to version 3.1, this scaling factor was 4.]
 
 // <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
