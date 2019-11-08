@@ -144,13 +144,13 @@ hugofix.g   :: Debugging grammar
 verbstub.h  :: Additional verb routines
 verbstub.g  :: Additional verb grammar
 
-// @EDITED TYPO: (documented & waiting approval: Issue #28)
-//  "you'RE probably want" -> "you'LL probably want"
+// @EDITED TYPO: (documented & approved: Issue #28)
+//  "you're probably want" -> "you're going to want"
 
 [.big]#*Sources.*#
 It's probably a good idea as you delve into Hugo programming to have some existing source code to look at.
 *sample.hug* is a valuable resource to have handy since it contains examples of most aspects of Hugo programming.
-Additionally, you'll probably want to download *shell.hug*, which provides the very bare bones of a Hugo game for you to start building on:
+Additionally, you're going to want to download *shell.hug*, which provides the very bare bones of a Hugo game for you to start building on:
 
 [horizontal]
 sample.hug  :: Sample game source code
@@ -390,7 +390,7 @@ To change a non-static limit (and compile a source file), type:
 hc $<setting>=<new limit> <sourcefile>...
 ................................................................................
 
-// @EDITED TYPO: (documented & WAITING APPROVAL: Issue #20)
+// @EDITED TYPO: (documented & approved: Issue #20)
 // Fixed missing '$'in: "or `'list'`" --> "or `'$list'`" ???
 
 [IMPORTANT]

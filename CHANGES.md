@@ -86,7 +86,7 @@ This was necessary because not all output formats have page numbers (HTML docume
 
 # List of Text Corrections
 
-<!-- Issue #20 (pending approval) -------------------------------------------->
+<!-- Issue #20 (approved) ---------------------------------------------------->
 
 In _§1.10. Limit Settings_, the following admonition block:
 
@@ -98,15 +98,15 @@ was a missing the `$` symbol in `'list'`, and was fixed to:
 
 ----
 
-<!-- Issue #28 (pending approval) -------------------------------------------->
+<!-- Issue #28 (approved) ---------------------------------------------------->
 
 In _§1.5. Packing List_:
 
 > Additionally, you're probably want to download *shell.hug*,
 
-"you're" was changed to "you'll":
+was amended into:
 
-> Additionally, you'll probably want to download *shell.hug*,
+> Additionally, you're going to want to download *shell.hug*,
 
 
 <!-- Issue #17 (approved) ---------------------------------------------------->
@@ -134,7 +134,7 @@ The paragraph end was amended by Kent Tessman to:
 
 ----
 
-<!-- Issue #19 (pending approval) -------------------------------------------->
+<!-- Issue #19 (approved) ---------------------------------------------------->
 
 In _§10.5. Doors_:
 

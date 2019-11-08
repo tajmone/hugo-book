@@ -338,7 +338,7 @@ door kitchen_door "kitchen door"
 }
 --------------------------------
 
-// @EDITED TYPO: (documented & waiting approval: Issue #19)
+// @EDITED TYPO: (documented & approved: Issue #19)
 //  ROOM vs DOOR mistake:
 //   was  "making the ROOM available in both locations"
 //    ->  "making the DOOR available in both locations"
