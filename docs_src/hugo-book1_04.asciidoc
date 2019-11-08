@@ -1642,21 +1642,24 @@ routine StringTests
 
 The output will be:
 
-// @TEXT: discrepancy between source and output:
-//        "(Dictionary address:  " -> "(Dictionary address =" (":  " vs "= ")
-//        "(Array address:  "      -> "(Array address =" (":  " vs "= ")
+// @EDITED CODE (Issue #29):
+//  There were small punctuation discrepancies between source and output, so the
+//  text below was pasted from the actual transcript produced by the example
+//  code.
+//     "(Dictionary address:  " -> "(Dictionary address =" (":  " vs "= ")
+//     "(Array address:  "      -> "(Array address =" (":  " vs "= ")
 
 [example,role="gametranscript"]
-================================================================================
+======================================
 a = "This is a sample string." +
-(Dictionary address = 887) +
+(Dictionary address:  1040) +
 s1 contains "This is a sample string." +
-(Array address = 1625, length = 24) +
+(Array address:  1643, length = 24) +
 s2 is "Apple", s3 is "Tomato"
 
 StringCompare(s1, s2) = 1 +
 StringCompare(s1, s3) = -1
-================================================================================
+======================================
 
 As is evident above, a dictionary entry does not need to be a single word; any piece of text which is referred to by the program as a value gets entered into the dictionary table.
 
