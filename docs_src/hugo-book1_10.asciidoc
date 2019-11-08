@@ -409,7 +409,7 @@ vehicle mustang "wild mustang"
 }
 --------------------------------
 
-// @TEXT: Something isn't right here:
+// @TEXT: Hard to read (Issue #30):
 //  "The `preposition` property DEFAULTS in the `vehicle` class itself DEFAULTS to..."
 // maybe -> fix to:
 //  "The `preposition` property in the `vehicle` class itself DEFAULTS to..."

@@ -952,10 +952,6 @@ A direction object (i.e., `n_obj`, `d_obj`) may be specified instead of a locati
 
 If `none` is true, `before` and `after` routines are not run.
 
-// @TEXT: Verify if required dots are missing:
-//     "location MovePlayer" -> "location.MovePlayer"
-//     "object MovePlayer"   -> "object.MovePlayer"
-
 `MovePlayer` can be checked in a location's `before` or `after` property as `location MovePlayer` to catch a player's exit from or entrance to a location.
 In a `before` property, `object MovePlayer` can be used to check the target location.
 

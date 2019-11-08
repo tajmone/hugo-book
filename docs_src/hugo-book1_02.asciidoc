@@ -625,7 +625,6 @@ or
 --------------------------------------------------------------------------------
 
 Conditional compilation constructions may be nested up to 32 levels deep.
-// @TEXT: Redundant! This was just mentioned a few paragraphs before..
 (Note also that compiler flags can be specified in the invocation line as `#<flag name>`.)
 
 `#if set` and `#if clear` are the long form of `#ifset` and `#ifclear`, allowing usage of `#elseif` for code such as:
