@@ -98,6 +98,17 @@ was a missing the `$` symbol in `'list'`, and was fixed to:
 
 ----
 
+<!-- Issue #28 (pending approval) -------------------------------------------->
+
+In _§1.5. Packing List_:
+
+> Additionally, you're probably want to download *shell.hug*,
+
+"you're" was changed to "you'll":
+
+> Additionally, you'll probably want to download *shell.hug*,
+
+
 <!-- Issue #17 (approved) ---------------------------------------------------->
 
 In _§2.4. Multiple Lines_, inside the tip admonition on how to preserve a double space when splitting a string over multiple line, the original text:
@@ -123,6 +134,18 @@ The paragraph end was amended by Kent Tessman to:
 
 ----
 
+<!-- Issue #19 (pending approval) -------------------------------------------->
+
+In _§10.5. Doors_:
+
+> The `between` property takes care of making the room available in both locations
+
+"room" was changed with "door":
+
+> The `between` property takes care of making the room available in both locations
+
+----
+
 <!-- Issue #18 (approved) ---------------------------------------------------->
 
 In _§10.6. Vehicles_, the accidentally damaged sentence:
@@ -134,6 +157,17 @@ was fixed by Kent Tessman to:
 > It is also necessary to provide grammar to relate the words in the `vehicle_verb` list to the object library’s `DoMoveInVehicle` routine.
 > Grammar such as the following is recommended:
 
+----
+
+<!-- Issue #28 (pending approval) -------------------------------------------->
+
+In _Appendix A_, regarding the syntax of `print <output>`:
+
+> where `<output>` can consist of both test strings enclosed in quotation marks (`"…​"`), and values representing dictionary addresses
+
+"test strings" was changed to "text strings"
+
+> where `<output>` can consist of both text strings enclosed in quotation marks (`"…​"`), and values representing dictionary addresses
 
 <!-----------------------------------------------------------------------------
                                REFERENCE LINKS

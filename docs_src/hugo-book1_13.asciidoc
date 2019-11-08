@@ -799,8 +799,9 @@ s| Syntax: a|
 [source,hugo]
 print <output>
 
-// @TEXT TYPO: "both TEST strings" --> "both TEXT strings"?
-where `<output>` can consist of both test strings enclosed in quotation marks (`"..."`), and values representing dictionary addresses, such as object names.
+// @EDITED TYPO: (documented & waiting approval: Issue #28)
+//  "both TEST strings" --> "both TEXT strings"
+where `<output>` can consist of both text strings enclosed in quotation marks (`"..."`), and values representing dictionary addresses, such as object names.
 Separate components of `<output>` are separated by a semicolon (`;`).
 Each component may also be preceded by a modifier such as `capital`, `hex`, or `number`.
 

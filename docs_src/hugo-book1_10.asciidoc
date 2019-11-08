@@ -338,11 +338,12 @@ door kitchen_door "kitchen door"
 }
 --------------------------------
 
-// @TEXT: ROOM vs DOOR (Issue #19)
-//   Seems a mistake:  "making the ROOM available in both locations"
-//  ... change to ->  "making the DOOR available in both locations"???
+// @EDITED TYPO: (documented & waiting approval: Issue #19)
+//  ROOM vs DOOR mistake:
+//   was  "making the ROOM available in both locations"
+//    ->  "making the DOOR available in both locations"
 
-The `between` property takes care of making the room available in both locations as well as determining where the player travels to when leaving either location.
+The `between` property takes care of making the door available in both locations as well as determining where the player travels to when leaving either location.
 In order to incorporate the door into the `kitchen` and `living_room` locations, it's only necessary to change the two room objects to specify:
 
 [source,hugo]
