@@ -18,13 +18,14 @@ $HL-Number:         $base0A;
 $HL-Escape:         $base09; // Escape sequences + style escapes
 $HL-Interpolation:  $base0A; // Special character escapes
 $HL-String:         $base0B;
-$HL-Operator:       $base0D;
+$HL-Operator:       $base0C;
 $HL-PreProcessor:   $base0E; // Compiler directives
 $HL-StringPreProc:  $base0C; // Strings in compiler directives
 
 $HL-Keywords1:      $base08; // Hugo keywords
-$HL-Keywords2:      $base0A; // ASCII Chars constants
-$HL-Keywords3:      $base0E; // Limits Settings
+$HL-Keywords2:      $base0D; // Built-in global variables.
+$HL-Keywords3:      $base0A; // ASCII Chars constants
+$HL-Keywords4:      $base0E; // Limits Settings
 
 @import 'hl-adoc-template'; // Reusable template for Highlight themes.
 

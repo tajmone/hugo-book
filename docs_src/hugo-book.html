@@ -503,16 +503,16 @@ div.literalblock.cmd pre .conum {
   color: #747369;
 }
 .listingblock pre[class=highlight][lang=hugo] .hl.opt {
-  color: #6699cc;
+  color: #66cccc;
 }
 .listingblock pre[class=highlight][lang=hugo] .hl.kwa {
   color: #f2777a;
 }
 .listingblock pre[class=highlight][lang=hugo] .hl.kwb {
-  color: #ffcc66;
+  color: #6699cc;
 }
 .listingblock pre[class=highlight][lang=hugo] .hl.kwc {
-  color: #cc99cc;
+  color: #ffcc66;
 }
 .listingblock pre[class=highlight][lang=hugo] .hl.kwd {
   color: #cc99cc;
@@ -535,7 +535,7 @@ div.literalblock.cmd pre .conum {
 <span id="email" class="email"><a href="mailto:general@generalcoffee.com">general@generalcoffee.com</a></span><br>
 <span id="revnumber">version 1,</span>
 <span id="revdate">2018-10-04</span>
-<br><span id="revremark">Draft 99 -- Porting to AsciiDoc</span>
+<br><span id="revremark">Draft 100 -- Porting to AsciiDoc</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -1788,7 +1788,7 @@ Properties and attributes treated as discrete values represent the number of tha
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">parent</span>(<span class="hl kwa">object</span>)</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">parent</span>(<span class="hl kwb">object</span>)</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1876,7 +1876,7 @@ Instead, you can use the address operator <code>&amp;</code>, as in:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">x <span class="hl opt">= &amp;</span><span class="hl kwa">object</span>.<span class="hl kwa">property</span></code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">x <span class="hl opt">= &amp;</span><span class="hl kwb">object</span>.<span class="hl kwa">property</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -2485,7 +2485,7 @@ Next, let&#8217;s try adding the line:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwc">$MAXOBJECTS</span><span class="hl opt">=</span><span class="hl num">50</span></code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwd">$MAXOBJECTS</span><span class="hl opt">=</span><span class="hl num">50</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -2530,7 +2530,7 @@ The basic object definition looks like this:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">object</span> <span class="hl opt">&lt;</span>objectname<span class="hl opt">&gt;</span> <span class="hl str">&quot;object name&quot;</span>&#x000A;{&#x000A;    ...&#x000A;}</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwb">object</span> <span class="hl opt">&lt;</span>objectname<span class="hl opt">&gt;</span> <span class="hl str">&quot;object name&quot;</span>&#x000A;{&#x000A;    ...&#x000A;}</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -2538,7 +2538,7 @@ The basic object definition looks like this:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">object</span> mysuitcase <span class="hl str">&quot;suitcase&quot;</span>&#x000A;{}</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwb">object</span> mysuitcase <span class="hl str">&quot;suitcase&quot;</span>&#x000A;{}</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -2554,7 +2554,7 @@ That is, whereas</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">object</span> mysuitcase <span class="hl str">&quot;suitcase&quot;</span>&#x000A;{}</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwb">object</span> mysuitcase <span class="hl str">&quot;suitcase&quot;</span>&#x000A;{}</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -2562,7 +2562,7 @@ That is, whereas</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">object</span> placeholder&#x000A;{}</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwb">object</span> placeholder&#x000A;{}</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -2859,7 +2859,7 @@ Compiling with the <code>-d</code> switch will generate a debuggable (<strong>.H
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">nearby</span> <span class="hl opt">&lt;</span><span class="hl kwa">object</span><span class="hl opt">&gt;</span></code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">nearby</span> <span class="hl opt">&lt;</span><span class="hl kwb">object</span><span class="hl opt">&gt;</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -2880,7 +2880,7 @@ All normal room objects have 0 as their parent.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">object</span> <span class="hl opt">&lt;</span>objectname<span class="hl opt">&gt;</span> <span class="hl str">&quot;object name&quot;</span>&#x000A;{&#x000A;    <span class="hl kwa">in</span> <span class="hl opt">&lt;</span><span class="hl kwa">parent object</span><span class="hl opt">&gt;</span>&#x000A;    ...&#x000A;&#x000A;}</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwb">object</span> <span class="hl opt">&lt;</span>objectname<span class="hl opt">&gt;</span> <span class="hl str">&quot;object name&quot;</span>&#x000A;{&#x000A;    <span class="hl kwa">in</span> <span class="hl opt">&lt;</span><span class="hl kwa">parent</span> <span class="hl kwb">object</span><span class="hl opt">&gt;</span>&#x000A;    ...&#x000A;&#x000A;}</code></pre>
 </div>
 </div>
 <div class="admonitionblock important">
@@ -2896,7 +2896,7 @@ Trying to do:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">object</span> <span class="hl opt">&lt;</span>objectname<span class="hl opt">&gt;</span> <span class="hl str">&quot;object name&quot;</span> {...</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwb">object</span> <span class="hl opt">&lt;</span>objectname<span class="hl opt">&gt;</span> <span class="hl str">&quot;object name&quot;</span> {...</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -2911,7 +2911,7 @@ Trying to do:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">object</span> table <span class="hl str">&quot;Table&quot;</span>&#x000A;{&#x000A;    <span class="hl kwa">in</span> room&#x000A;    ...&#x000A;}</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwb">object</span> table <span class="hl str">&quot;Table&quot;</span>&#x000A;{&#x000A;    <span class="hl kwa">in</span> room&#x000A;    ...&#x000A;}</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -2919,7 +2919,7 @@ Trying to do:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">object</span> mysuitcase <span class="hl str">&quot;suitcase&quot;</span>&#x000A;{&#x000A;    <span class="hl kwa">in</span> emptyroom&#x000A;&#x000A;}</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwb">object</span> mysuitcase <span class="hl str">&quot;suitcase&quot;</span>&#x000A;{&#x000A;    <span class="hl kwa">in</span> emptyroom&#x000A;&#x000A;}</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -2927,7 +2927,7 @@ Trying to do:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">move</span> <span class="hl opt">&lt;</span><span class="hl kwa">object</span><span class="hl opt">&gt;</span> <span class="hl kwa">to</span> <span class="hl opt">&lt;</span>new <span class="hl kwa">parent</span><span class="hl opt">&gt;</span></code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">move</span> <span class="hl opt">&lt;</span><span class="hl kwb">object</span><span class="hl opt">&gt;</span> <span class="hl kwa">to</span> <span class="hl opt">&lt;</span>new <span class="hl kwa">parent</span><span class="hl opt">&gt;</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -2956,7 +2956,7 @@ Trying to do:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">remove</span> <span class="hl opt">&lt;</span><span class="hl kwa">object</span><span class="hl opt">&gt;</span></code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">remove</span> <span class="hl opt">&lt;</span><span class="hl kwb">object</span><span class="hl opt">&gt;</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -2964,7 +2964,7 @@ Trying to do:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">move</span> <span class="hl opt">&lt;</span><span class="hl kwa">object</span><span class="hl opt">&gt;</span> <span class="hl kwa">to</span> <span class="hl num">0</span></code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">move</span> <span class="hl opt">&lt;</span><span class="hl kwb">object</span><span class="hl opt">&gt;</span> <span class="hl kwa">to</span> <span class="hl num">0</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -2976,7 +2976,7 @@ The structure</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl opt">&lt;</span><span class="hl kwa">object</span><span class="hl opt">&gt;</span> [<span class="hl kwa">not</span>] <span class="hl kwa">in</span> <span class="hl opt">&lt;</span><span class="hl kwa">parent</span><span class="hl opt">&gt;</span></code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl opt">&lt;</span><span class="hl kwb">object</span><span class="hl opt">&gt;</span> [<span class="hl kwa">not</span>] <span class="hl kwa">in</span> <span class="hl opt">&lt;</span><span class="hl kwa">parent</span><span class="hl opt">&gt;</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -3165,7 +3165,7 @@ For the most part, you should never need to alias your own attributes, although 
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">object</span> <span class="hl opt">&lt;</span>objectname<span class="hl opt">&gt;</span> <span class="hl str">&quot;object name&quot;</span>&#x000A;{&#x000A;    <span class="hl kwa">is</span> [<span class="hl kwa">not</span>] <span class="hl opt">&lt;</span>attribute1<span class="hl opt">&gt;</span>, [<span class="hl kwa">not</span>] <span class="hl opt">&lt;</span>attribute2<span class="hl opt">&gt;</span>, ...&#x000A;    ...&#x000A;}</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwb">object</span> <span class="hl opt">&lt;</span>objectname<span class="hl opt">&gt;</span> <span class="hl str">&quot;object name&quot;</span>&#x000A;{&#x000A;    <span class="hl kwa">is</span> [<span class="hl kwa">not</span>] <span class="hl opt">&lt;</span>attribute1<span class="hl opt">&gt;</span>, [<span class="hl kwa">not</span>] <span class="hl opt">&lt;</span>attribute2<span class="hl opt">&gt;</span>, ...&#x000A;    ...&#x000A;}</code></pre>
 </div>
 </div>
 <div class="admonitionblock note">
@@ -3187,7 +3187,7 @@ For the most part, you should never need to alias your own attributes, although 
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">object</span> mysuitcase <span class="hl str">&quot;suitcase&quot;</span>&#x000A;{&#x000A;    <span class="hl kwa">in</span> emptyroom&#x000A;    <span class="hl kwa">is</span> openable, <span class="hl kwa">not</span> open&#x000A;    ...&#x000A;}</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwb">object</span> mysuitcase <span class="hl str">&quot;suitcase&quot;</span>&#x000A;{&#x000A;    <span class="hl kwa">in</span> emptyroom&#x000A;    <span class="hl kwa">is</span> openable, <span class="hl kwa">not</span> open&#x000A;    ...&#x000A;}</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -3195,7 +3195,7 @@ For the most part, you should never need to alias your own attributes, although 
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl opt">&lt;</span><span class="hl kwa">object</span><span class="hl opt">&gt;</span> <span class="hl kwa">is</span> [<span class="hl kwa">not</span>] <span class="hl opt">&lt;</span>attribute<span class="hl opt">&gt;</span></code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl opt">&lt;</span><span class="hl kwb">object</span><span class="hl opt">&gt;</span> <span class="hl kwa">is</span> [<span class="hl kwa">not</span>] <span class="hl opt">&lt;</span>attribute<span class="hl opt">&gt;</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -3222,7 +3222,7 @@ In code, the expression</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl opt">&lt;</span><span class="hl kwa">object</span><span class="hl opt">&gt;</span> <span class="hl kwa">is</span> [<span class="hl kwa">not</span>] <span class="hl opt">&lt;</span>attribute<span class="hl opt">&gt;</span></code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl opt">&lt;</span><span class="hl kwb">object</span><span class="hl opt">&gt;</span> <span class="hl kwa">is</span> [<span class="hl kwa">not</span>] <span class="hl opt">&lt;</span>attribute<span class="hl opt">&gt;</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -3232,7 +3232,7 @@ Therefore, given the suitcase object definition:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">object</span> mysuitcase <span class="hl str">&quot;suitcase&quot;</span>&#x000A;{&#x000A;    <span class="hl kwa">in</span> emptyroom&#x000A;    <span class="hl kwa">is</span> openable, <span class="hl kwa">not</span> open&#x000A;    ...&#x000A;}</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwb">object</span> mysuitcase <span class="hl str">&quot;suitcase&quot;</span>&#x000A;{&#x000A;    <span class="hl kwa">in</span> emptyroom&#x000A;    <span class="hl kwa">is</span> openable, <span class="hl kwa">not</span> open&#x000A;    ...&#x000A;}</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -3257,7 +3257,7 @@ They are sets of valid data associated with an object, where the values may repr
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">nouns</span> <span class="hl str">&quot;tree&quot;</span>, <span class="hl str">&quot;bush&quot;</span>, <span class="hl str">&quot;shrub&quot;</span>, <span class="hl str">&quot;plant&quot;</span>&#x000A;&#x000A;size <span class="hl num">20</span>&#x000A;&#x000A;found_in livingroom, entrancehall&#x000A;&#x000A;long_desc&#x000A;{&#x000A;    <span class="hl str">&quot;Exits lead north and west. A door is set</span>&#x000A;<span class="hl str">    in the southeast wall.&quot;</span>&#x000A;&#x000A;}&#x000A;&#x000A;short_desc&#x000A;{&#x000A;    <span class="hl str">&quot;There is a box here. It is &quot;</span>;&#x000A;    <span class="hl kwa">if</span> self <span class="hl kwa">is</span> open&#x000A;        <span class="hl kwa">print</span> <span class="hl str">&quot;open&quot;</span>;&#x000A;    <span class="hl kwa">else</span>&#x000A;        <span class="hl kwa">print</span> <span class="hl str">&quot;closed&quot;</span>;&#x000A;    <span class="hl kwa">print</span> <span class="hl str">&quot;.&quot;</span>&#x000A;}&#x000A;&#x000A;<span class="hl kwa">before</span><sup class="footnote">[<a id="_footnoteref_17" class="footnote" href="#_footnotedef_17" title="View footnote.">17</a>]</sup>&#x000A;{&#x000A;    <span class="hl kwa">object</span> DoGet&#x000A;    {&#x000A;        <span class="hl kwa">if</span> Acquire(player, self)&#x000A;        {&#x000A;            <span class="hl str">&quot;You pick up &quot;</span>;&#x000A;            <span class="hl kwa">print</span> Art(self); <span class="hl str">&quot;.&quot;</span>&#x000A;        }&#x000A;        <span class="hl kwa">else</span>&#x000A;            <span class="hl kwa">return false</span>&#x000A;    }&#x000A;}</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">nouns</span> <span class="hl str">&quot;tree&quot;</span>, <span class="hl str">&quot;bush&quot;</span>, <span class="hl str">&quot;shrub&quot;</span>, <span class="hl str">&quot;plant&quot;</span>&#x000A;&#x000A;size <span class="hl num">20</span>&#x000A;&#x000A;found_in livingroom, entrancehall&#x000A;&#x000A;long_desc&#x000A;{&#x000A;    <span class="hl str">&quot;Exits lead north and west. A door is set</span>&#x000A;<span class="hl str">    in the southeast wall.&quot;</span>&#x000A;&#x000A;}&#x000A;&#x000A;short_desc&#x000A;{&#x000A;    <span class="hl str">&quot;There is a box here. It is &quot;</span>;&#x000A;    <span class="hl kwa">if</span> <span class="hl kwb">self</span> <span class="hl kwa">is</span> open&#x000A;        <span class="hl kwa">print</span> <span class="hl str">&quot;open&quot;</span>;&#x000A;    <span class="hl kwa">else</span>&#x000A;        <span class="hl kwa">print</span> <span class="hl str">&quot;closed&quot;</span>;&#x000A;    <span class="hl kwa">print</span> <span class="hl str">&quot;.&quot;</span>&#x000A;}&#x000A;&#x000A;<span class="hl kwa">before</span><sup class="footnote">[<a id="_footnoteref_17" class="footnote" href="#_footnotedef_17" title="View footnote.">17</a>]</sup>&#x000A;{&#x000A;    <span class="hl kwb">object</span> DoGet&#x000A;    {&#x000A;        <span class="hl kwa">if</span> Acquire(<span class="hl kwb">player</span>, <span class="hl kwb">self</span>)&#x000A;        {&#x000A;            <span class="hl str">&quot;You pick up &quot;</span>;&#x000A;            <span class="hl kwa">print</span> Art(<span class="hl kwb">self</span>); <span class="hl str">&quot;.&quot;</span>&#x000A;        }&#x000A;        <span class="hl kwa">else</span>&#x000A;            <span class="hl kwa">return false</span>&#x000A;    }&#x000A;}</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -3567,7 +3567,7 @@ The library aliases (among others) the following:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl opt">&lt;</span><span class="hl kwa">object</span><span class="hl opt">&gt;</span>.<span class="hl opt">&lt;</span><span class="hl kwa">property</span><span class="hl opt">&gt;</span></code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl opt">&lt;</span><span class="hl kwb">object</span><span class="hl opt">&gt;</span>.<span class="hl opt">&lt;</span><span class="hl kwa">property</span><span class="hl opt">&gt;</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -3575,7 +3575,7 @@ The library aliases (among others) the following:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl opt">&lt;</span><span class="hl kwa">object</span><span class="hl opt">&gt;</span>.<span class="hl ppc">#&lt;property&gt;</span></code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl opt">&lt;</span><span class="hl kwb">object</span><span class="hl opt">&gt;</span>.<span class="hl ppc">#&lt;property&gt;</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -3583,7 +3583,7 @@ The library aliases (among others) the following:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl opt">&lt;</span><span class="hl kwa">object</span><span class="hl opt">&gt;</span>.<span class="hl opt">&lt;</span><span class="hl kwa">property</span><span class="hl opt">&gt;</span> <span class="hl ppc">#&lt;element number&gt;</span></code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl opt">&lt;</span><span class="hl kwb">object</span><span class="hl opt">&gt;</span>.<span class="hl opt">&lt;</span><span class="hl kwa">property</span><span class="hl opt">&gt;</span> <span class="hl ppc">#&lt;element number&gt;</span></code></pre>
 </div>
 </div>
 <div class="admonitionblock note">
@@ -3605,7 +3605,7 @@ The library aliases (among others) the following:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">object</span> mysuitcase <span class="hl str">&quot;big green suitcase&quot;</span>&#x000A;{&#x000A;    <span class="hl kwa">in</span> emptyroom            <span class="hl slc">! done earlier</span>&#x000A;    <span class="hl kwa">is</span> openable, <span class="hl kwa">not</span> open   <span class="hl slc">!</span>&#x000A;&#x000A;    <span class="hl kwa">nouns</span> <span class="hl str">&quot;suitcase&quot;</span>, <span class="hl str">&quot;case&quot;</span>, <span class="hl str">&quot;luggage&quot;</span>&#x000A;    <span class="hl kwa">adjective</span> <span class="hl str">&quot;big&quot;</span>, <span class="hl str">&quot;green&quot;</span>, <span class="hl str">&quot;suit&quot;</span>&#x000A;    <span class="hl kwa">article</span> <span class="hl str">&quot;a&quot;</span>&#x000A;    size <span class="hl num">25</span>&#x000A;    capacity <span class="hl num">100</span>&#x000A;}</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwb">object</span> mysuitcase <span class="hl str">&quot;big green suitcase&quot;</span>&#x000A;{&#x000A;    <span class="hl kwa">in</span> emptyroom            <span class="hl slc">! done earlier</span>&#x000A;    <span class="hl kwa">is</span> openable, <span class="hl kwa">not</span> open   <span class="hl slc">!</span>&#x000A;&#x000A;    <span class="hl kwa">nouns</span> <span class="hl str">&quot;suitcase&quot;</span>, <span class="hl str">&quot;case&quot;</span>, <span class="hl str">&quot;luggage&quot;</span>&#x000A;    <span class="hl kwa">adjective</span> <span class="hl str">&quot;big&quot;</span>, <span class="hl str">&quot;green&quot;</span>, <span class="hl str">&quot;suit&quot;</span>&#x000A;    <span class="hl kwa">article</span> <span class="hl str">&quot;a&quot;</span>&#x000A;    size <span class="hl num">25</span>&#x000A;    capacity <span class="hl num">100</span>&#x000A;}</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -3665,7 +3665,7 @@ That is, if an object is originally defined with the property</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl opt">&lt;</span><span class="hl kwa">object</span><span class="hl opt">&gt;</span>.found_in <span class="hl ppc">#2 = livingroom</span></code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl opt">&lt;</span><span class="hl kwb">object</span><span class="hl opt">&gt;</span>.found_in <span class="hl ppc">#2 = livingroom</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -3719,7 +3719,7 @@ Trying to read <code>&lt;object&gt;.found_in #2</code> will return a value of 0&
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">location.n_to.<span class="hl kwa">name</span></code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwb">location</span>.n_to.<span class="hl kwa">name</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -3727,7 +3727,7 @@ Trying to read <code>&lt;object&gt;.found_in #2</code> will return a value of 0&
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">(location.n_to).<span class="hl kwa">name</span></code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">(<span class="hl kwb">location</span>.n_to).<span class="hl kwa">name</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -3831,7 +3831,7 @@ This can be done using the <code>inherits</code> instruction.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">object</span> <span class="hl opt">&lt;</span>objectname<span class="hl opt">&gt;</span> <span class="hl str">&quot;name&quot;</span>&#x000A;{&#x000A;    inherits <span class="hl opt">&lt;</span>class1<span class="hl opt">&gt;</span>, <span class="hl opt">&lt;</span>class2<span class="hl opt">&gt;</span>[, <span class="hl opt">&lt;</span>class3<span class="hl opt">&gt;</span>,...]&#x000A;    ...&#x000A;}</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwb">object</span> <span class="hl opt">&lt;</span>objectname<span class="hl opt">&gt;</span> <span class="hl str">&quot;name&quot;</span>&#x000A;{&#x000A;    inherits <span class="hl opt">&lt;</span>class1<span class="hl opt">&gt;</span>, <span class="hl opt">&lt;</span>class2<span class="hl opt">&gt;</span>[, <span class="hl opt">&lt;</span>class3<span class="hl opt">&gt;</span>,...]&#x000A;    ...&#x000A;}</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -3847,7 +3847,7 @@ Sometimes, however, it may be desirable to use a different definition for, say, 
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">replace</span> <span class="hl opt">&lt;</span><span class="hl kwa">class</span><span class="hl opt">&gt;</span> [<span class="hl str">&quot;&lt;optional name&gt;&quot;</span>]&#x000A;{&#x000A;    (...completely new <span class="hl kwa">object</span> definition...)&#x000A;&#x000A;}</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">replace</span> <span class="hl opt">&lt;</span><span class="hl kwa">class</span><span class="hl opt">&gt;</span> [<span class="hl str">&quot;&lt;optional name&gt;&quot;</span>]&#x000A;{&#x000A;    (...completely new <span class="hl kwb">object</span> definition...)&#x000A;&#x000A;}</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -4345,7 +4345,7 @@ The command</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">print</span> <span class="hl str">&quot;The &quot;</span>; <span class="hl kwa">object</span>.<span class="hl kwa">name</span>; <span class="hl str">&quot; is closed.&quot;</span></code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">print</span> <span class="hl str">&quot;The &quot;</span>; <span class="hl kwb">object</span>.<span class="hl kwa">name</span>; <span class="hl str">&quot; is closed.&quot;</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -4363,7 +4363,7 @@ The command</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">print</span> <span class="hl str">&quot;The &quot;</span>; <span class="hl kwa">capital object</span>.<span class="hl kwa">name</span>; <span class="hl str">&quot; is closed.&quot;</span></code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">print</span> <span class="hl str">&quot;The &quot;</span>; <span class="hl kwa">capital</span> <span class="hl kwb">object</span>.<span class="hl kwa">name</span>; <span class="hl str">&quot; is closed.&quot;</span></code></pre>
 </div>
 </div>
 <div class="exampleblock gametranscript">
@@ -5223,7 +5223,7 @@ Standard mathematical rules for order of significance in evaluating an expressio
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl num">10</span> <span class="hl opt">+</span> <span class="hl kwa">object</span>.size          <span class="hl slc">! integer constant and</span>&#x000A;                          <span class="hl slc">! property</span>&#x000A;&#x000A;<span class="hl kwa">object is</span> openable <span class="hl opt">+</span> <span class="hl num">1</span>    <span class="hl slc">! attribute test and constant</span>&#x000A;&#x000A;FindLight(location) <span class="hl opt">+</span> a   <span class="hl slc">! return value and variable</span>&#x000A;&#x000A;<span class="hl num">1</span> <span class="hl kwa">and object is</span> light     <span class="hl slc">! constant, logical test,</span>&#x000A;                          <span class="hl slc">! and attribute</span></code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl num">10</span> <span class="hl opt">+</span> <span class="hl kwb">object</span>.size          <span class="hl slc">! integer constant and</span>&#x000A;                          <span class="hl slc">! property</span>&#x000A;&#x000A;<span class="hl kwb">object</span> <span class="hl kwa">is</span> openable <span class="hl opt">+</span> <span class="hl num">1</span>    <span class="hl slc">! attribute test and constant</span>&#x000A;&#x000A;FindLight(<span class="hl kwb">location</span>) <span class="hl opt">+</span> a   <span class="hl slc">! return value and variable</span>&#x000A;&#x000A;<span class="hl num">1</span> <span class="hl kwa">and</span> <span class="hl kwb">object</span> <span class="hl kwa">is</span> light     <span class="hl slc">! constant, logical test,</span>&#x000A;                          <span class="hl slc">! and attribute</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -5231,7 +5231,7 @@ Standard mathematical rules for order of significance in evaluating an expressio
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl opt">&lt;</span>variable<span class="hl opt">&gt; = &lt;</span>expression<span class="hl opt">&gt;</span>&#x000A;&#x000A;<span class="hl opt">&lt;</span><span class="hl kwa">object</span><span class="hl opt">&gt;</span>.<span class="hl opt">&lt;</span><span class="hl kwa">property</span><span class="hl opt">&gt;</span> [<span class="hl ppc">#&lt;element&gt;] = &lt;expression&gt;</span>&#x000A;&#x000A;<span class="hl opt">&lt;</span><span class="hl kwa">array</span><span class="hl opt">&gt;</span>[<span class="hl opt">&lt;</span>element<span class="hl opt">&gt;</span>] <span class="hl opt">= &lt;</span>expression<span class="hl opt">&gt;</span></code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl opt">&lt;</span>variable<span class="hl opt">&gt; = &lt;</span>expression<span class="hl opt">&gt;</span>&#x000A;&#x000A;<span class="hl opt">&lt;</span><span class="hl kwb">object</span><span class="hl opt">&gt;</span>.<span class="hl opt">&lt;</span><span class="hl kwa">property</span><span class="hl opt">&gt;</span> [<span class="hl ppc">#&lt;element&gt;] = &lt;expression&gt;</span>&#x000A;&#x000A;<span class="hl opt">&lt;</span><span class="hl kwa">array</span><span class="hl opt">&gt;</span>[<span class="hl opt">&lt;</span>element<span class="hl opt">&gt;</span>] <span class="hl opt">= &lt;</span>expression<span class="hl opt">&gt;</span></code></pre>
 </div>
 </div>
 <div class="sect3">
@@ -5410,7 +5410,7 @@ Using the above example,</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">test_array[<span class="hl num">0</span>] <span class="hl opt">=</span> (<span class="hl num">10</span><span class="hl opt">+</span><span class="hl num">5</span>), <span class="hl str">&quot;Hello!&quot;</span>, FindLight(location)</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">test_array[<span class="hl num">0</span>] <span class="hl opt">=</span> (<span class="hl num">10</span><span class="hl opt">+</span><span class="hl num">5</span>), <span class="hl str">&quot;Hello!&quot;</span>, FindLight(<span class="hl kwb">location</span>)</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -5514,7 +5514,7 @@ A string array is an array containing a series of character values, terminated b
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">apple_array[<span class="hl num">0</span>] <span class="hl opt">=</span> <span class="hl kwb">&#39;a&#39;</span>&#x000A;apple_array[<span class="hl num">1</span>] <span class="hl opt">=</span> <span class="hl kwb">&#39;p&#39;</span>&#x000A;apple_array[<span class="hl num">2</span>] <span class="hl opt">=</span> <span class="hl kwb">&#39;p&#39;</span>&#x000A;apple_array[<span class="hl num">3</span>] <span class="hl opt">=</span> <span class="hl kwb">&#39;l&#39;</span>&#x000A;apple_array[<span class="hl num">4</span>] <span class="hl opt">=</span> <span class="hl kwb">&#39;e&#39;</span>&#x000A;apple_array[<span class="hl num">5</span>] <span class="hl opt">=</span> <span class="hl num">0</span></code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">apple_array[<span class="hl num">0</span>] <span class="hl opt">=</span> <span class="hl kwc">&#39;a&#39;</span>&#x000A;apple_array[<span class="hl num">1</span>] <span class="hl opt">=</span> <span class="hl kwc">&#39;p&#39;</span>&#x000A;apple_array[<span class="hl num">2</span>] <span class="hl opt">=</span> <span class="hl kwc">&#39;p&#39;</span>&#x000A;apple_array[<span class="hl num">3</span>] <span class="hl opt">=</span> <span class="hl kwc">&#39;l&#39;</span>&#x000A;apple_array[<span class="hl num">4</span>] <span class="hl opt">=</span> <span class="hl kwc">&#39;e&#39;</span>&#x000A;apple_array[<span class="hl num">5</span>] <span class="hl opt">=</span> <span class="hl num">0</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -5694,7 +5694,7 @@ Inserting</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwc">$MAXDICTEXTEND</span><span class="hl opt">=&lt;</span><span class="hl kwa">number</span><span class="hl opt">&gt;</span></code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwd">$MAXDICTEXTEND</span><span class="hl opt">=&lt;</span><span class="hl kwa">number</span><span class="hl opt">&gt;</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -5872,7 +5872,7 @@ It may be a routine that modifies a global variable, for example, which is then 
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">for</span> <span class="hl opt">&lt;</span>var<span class="hl opt">&gt;</span> <span class="hl kwa">in</span> <span class="hl opt">&lt;</span><span class="hl kwa">object</span><span class="hl opt">&gt;</span>&#x000A;  ...conditional code block...</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">for</span> <span class="hl opt">&lt;</span>var<span class="hl opt">&gt;</span> <span class="hl kwa">in</span> <span class="hl opt">&lt;</span><span class="hl kwb">object</span><span class="hl opt">&gt;</span>&#x000A;  ...conditional code block...</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -5918,7 +5918,7 @@ As a result,</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">if word</span>[<span class="hl num">1</span>] <span class="hl opt">=</span> <span class="hl str">&quot;one&quot;</span>, <span class="hl str">&quot;two&quot;</span>, <span class="hl str">&quot;three&quot;</span>&#x000A;&#x000A;<span class="hl kwa">while object is</span> open, <span class="hl kwa">not</span> locked&#x000A;&#x000A;<span class="hl kwa">if</span> box <span class="hl kwa">not in</span> livingroom, garage&#x000A;&#x000A;<span class="hl kwa">if</span> a <span class="hl opt">~=</span> <span class="hl num">1</span>, <span class="hl num">2</span>, <span class="hl num">3</span></code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">if word</span>[<span class="hl num">1</span>] <span class="hl opt">=</span> <span class="hl str">&quot;one&quot;</span>, <span class="hl str">&quot;two&quot;</span>, <span class="hl str">&quot;three&quot;</span>&#x000A;&#x000A;<span class="hl kwa">while</span> <span class="hl kwb">object</span> <span class="hl kwa">is</span> open, <span class="hl kwa">not</span> locked&#x000A;&#x000A;<span class="hl kwa">if</span> box <span class="hl kwa">not in</span> livingroom, garage&#x000A;&#x000A;<span class="hl kwa">if</span> a <span class="hl opt">~=</span> <span class="hl num">1</span>, <span class="hl num">2</span>, <span class="hl num">3</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -5926,7 +5926,7 @@ As a result,</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">if word</span>[<span class="hl num">1</span>]<span class="hl opt">=</span><span class="hl str">&quot;one&quot;</span> <span class="hl kwa">or word</span>[<span class="hl num">1</span>]<span class="hl opt">=</span><span class="hl str">&quot;two&quot;</span> <span class="hl kwa">or word</span>[<span class="hl num">1</span>]<span class="hl opt">=</span><span class="hl str">&quot;three&quot;</span>&#x000A;&#x000A;<span class="hl kwa">while object is</span> open <span class="hl kwa">and object is not</span> locked&#x000A;&#x000A;<span class="hl kwa">if</span> box <span class="hl kwa">not in</span> livingroom <span class="hl kwa">and</span> box <span class="hl kwa">not in</span> garage&#x000A;&#x000A;<span class="hl kwa">if</span> a <span class="hl opt">~=</span> <span class="hl num">1</span> <span class="hl kwa">and</span> a <span class="hl opt">~=</span> <span class="hl num">1</span> <span class="hl kwa">and</span> a <span class="hl opt">~=</span> <span class="hl num">3</span></code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">if word</span>[<span class="hl num">1</span>]<span class="hl opt">=</span><span class="hl str">&quot;one&quot;</span> <span class="hl kwa">or word</span>[<span class="hl num">1</span>]<span class="hl opt">=</span><span class="hl str">&quot;two&quot;</span> <span class="hl kwa">or word</span>[<span class="hl num">1</span>]<span class="hl opt">=</span><span class="hl str">&quot;three&quot;</span>&#x000A;&#x000A;<span class="hl kwa">while</span> <span class="hl kwb">object</span> <span class="hl kwa">is</span> open <span class="hl kwa">and</span> <span class="hl kwb">object</span> <span class="hl kwa">is not</span> locked&#x000A;&#x000A;<span class="hl kwa">if</span> box <span class="hl kwa">not in</span> livingroom <span class="hl kwa">and</span> box <span class="hl kwa">not in</span> garage&#x000A;&#x000A;<span class="hl kwa">if</span> a <span class="hl opt">~=</span> <span class="hl num">1</span> <span class="hl kwa">and</span> a <span class="hl opt">~=</span> <span class="hl num">1</span> <span class="hl kwa">and</span> a <span class="hl opt">~=</span> <span class="hl num">3</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -6180,7 +6180,7 @@ Consider the <code>The</code> routine in <strong>hugolib.h</strong>, which print
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">print</span> <span class="hl str">&quot;You open &quot;</span>; The(<span class="hl kwa">object</span>); <span class="hl str">&quot;.&quot;</span></code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">print</span> <span class="hl str">&quot;You open &quot;</span>; The(<span class="hl kwb">object</span>); <span class="hl str">&quot;.&quot;</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -6325,7 +6325,7 @@ You can&#8217;t go that way.
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">run</span> <span class="hl opt">&lt;</span><span class="hl kwa">object</span><span class="hl opt">&gt;</span>.<span class="hl opt">&lt;</span><span class="hl kwa">property</span><span class="hl opt">&gt;</span></code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">run</span> <span class="hl opt">&lt;</span><span class="hl kwb">object</span><span class="hl opt">&gt;</span>.<span class="hl opt">&lt;</span><span class="hl kwa">property</span><span class="hl opt">&gt;</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -6338,7 +6338,7 @@ Property routines do not take arguments.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl opt">&lt;</span><span class="hl kwa">object</span><span class="hl opt">&gt;</span>.<span class="hl opt">&lt;</span><span class="hl kwa">property</span><span class="hl opt">&gt; = &lt;</span>value<span class="hl opt">&gt;</span></code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl opt">&lt;</span><span class="hl kwb">object</span><span class="hl opt">&gt;</span>.<span class="hl opt">&lt;</span><span class="hl kwa">property</span><span class="hl opt">&gt; = &lt;</span>value<span class="hl opt">&gt;</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -6346,7 +6346,7 @@ Property routines do not take arguments.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl opt">&lt;</span><span class="hl kwa">object</span><span class="hl opt">&gt;</span>.<span class="hl opt">&lt;</span><span class="hl kwa">property</span><span class="hl opt">&gt; =</span>&#x000A;{&#x000A;    ...the new code <span class="hl kwa">for</span> this <span class="hl kwa">property routine</span>...&#x000A;}</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl opt">&lt;</span><span class="hl kwb">object</span><span class="hl opt">&gt;</span>.<span class="hl opt">&lt;</span><span class="hl kwa">property</span><span class="hl opt">&gt; =</span>&#x000A;{&#x000A;    ...the new code <span class="hl kwa">for</span> this <span class="hl kwa">property routine</span>...&#x000A;}</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -6411,7 +6411,7 @@ To avoid this, such as when &#8220;borrowing&#8221; a property from another obje
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl opt">&lt;</span><span class="hl kwa">object</span><span class="hl opt">&gt;</span>..<span class="hl opt">&lt;</span><span class="hl kwa">property</span><span class="hl opt">&gt;</span></code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl opt">&lt;</span><span class="hl kwb">object</span><span class="hl opt">&gt;</span>..<span class="hl opt">&lt;</span><span class="hl kwa">property</span><span class="hl opt">&gt;</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -6482,7 +6482,7 @@ If no match is found, <code>&lt;object&gt;.before</code> returns false.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">before</span>&#x000A;{&#x000A;    <span class="hl kwa">object</span> DoEat&#x000A;    {&#x000A;        <span class="hl str">&quot;You can&#39;t eat the suitcase!&quot;</span>&#x000A;    }&#x000A;}&#x000A;&#x000A;<span class="hl kwa">after</span>&#x000A;{&#x000A;    <span class="hl kwa">object</span> DoGet&#x000A;    {&#x000A;        <span class="hl str">&quot;With a vigorous effort, you pick up</span>&#x000A;<span class="hl str">        the suitcase.&quot;</span>&#x000A;    }&#x000A;    <span class="hl kwa">xobject</span> DoPutIn&#x000A;    {&#x000A;        <span class="hl str">&quot;You put &quot;</span>;&#x000A;        The(<span class="hl kwa">object</span>)&#x000A;        <span class="hl str">&quot; into the suitcase.&quot;</span>&#x000A;    }&#x000A;}</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">before</span>&#x000A;{&#x000A;    <span class="hl kwb">object</span> DoEat&#x000A;    {&#x000A;        <span class="hl str">&quot;You can&#39;t eat the suitcase!&quot;</span>&#x000A;    }&#x000A;}&#x000A;&#x000A;<span class="hl kwa">after</span>&#x000A;{&#x000A;    <span class="hl kwb">object</span> DoGet&#x000A;    {&#x000A;        <span class="hl str">&quot;With a vigorous effort, you pick up</span>&#x000A;<span class="hl str">        the suitcase.&quot;</span>&#x000A;    }&#x000A;    <span class="hl kwb">xobject</span> DoPutIn&#x000A;    {&#x000A;        <span class="hl str">&quot;You put &quot;</span>;&#x000A;        The(<span class="hl kwb">object</span>)&#x000A;        <span class="hl str">&quot; into the suitcase.&quot;</span>&#x000A;    }&#x000A;}</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -6516,7 +6516,7 @@ In order to fool the engine into continuing normally, as if no <code>before</cod
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">after</span>&#x000A;{&#x000A;    <span class="hl kwa">object</span> DoGet&#x000A;    {&#x000A;        <span class="hl str">&quot;Fine. &quot;</span>;&#x000A;        <span class="hl kwa">return false</span>&#x000A;    }&#x000A;}</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">after</span>&#x000A;{&#x000A;    <span class="hl kwb">object</span> DoGet&#x000A;    {&#x000A;        <span class="hl str">&quot;Fine. &quot;</span>;&#x000A;        <span class="hl kwa">return false</span>&#x000A;    }&#x000A;}</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -6564,7 +6564,7 @@ However, the processing of a <code>before</code>/<code>after</code> property beg
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">before</span>&#x000A;{&#x000A;    <span class="hl kwa">xobject</span>&#x000A;    {&#x000A;        ...<span class="hl kwa">property routine</span>...&#x000A;    }&#x000A;}</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">before</span>&#x000A;{&#x000A;    <span class="hl kwb">xobject</span>&#x000A;    {&#x000A;        ...<span class="hl kwa">property routine</span>...&#x000A;    }&#x000A;}</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -6589,7 +6589,7 @@ Therefore, it can be used via:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">before</span>&#x000A;{&#x000A;    AnyVerb(location)&#x000A;    {&#x000A;        ...&#x000A;    }&#x000A;}</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">before</span>&#x000A;{&#x000A;    AnyVerb(<span class="hl kwb">location</span>)&#x000A;    {&#x000A;        ...&#x000A;    }&#x000A;}</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -6597,7 +6597,7 @@ Therefore, it can be used via:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">before</span>&#x000A;{&#x000A;    location&#x000A;    {&#x000A;        ...&#x000A;    }&#x000A;}</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">before</span>&#x000A;{&#x000A;    <span class="hl kwb">location</span>&#x000A;    {&#x000A;        ...&#x000A;    }&#x000A;}</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -6659,7 +6659,7 @@ Here&#8217;s the <code>Init</code> routine from <strong>shell.hug</strong>:</p>
 <p><em>Set the player prompt to the default <code>&gt;</code>, and set the starting foreground and background colors:</em></p>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">&#8288;        prompt <span class="hl opt">=</span> <span class="hl str">&quot;&gt;&quot;</span>&#x000A;        <span class="hl kwa">color</span> TEXTCOLOR, BGCOLOR</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">&#8288;        <span class="hl kwb">prompt</span> <span class="hl opt">=</span> <span class="hl str">&quot;&gt;&quot;</span>&#x000A;        <span class="hl kwa">color</span> TEXTCOLOR, BGCOLOR</code></pre>
 </div>
 </div>
 </li>
@@ -6675,7 +6675,7 @@ Here&#8217;s the <code>Init</code> routine from <strong>shell.hug</strong>:</p>
 <p><em>Set the player to the <code>you</code> object (from <strong>objlib.h</strong>), and set up the starting location:</em></p>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">&#8288;        player <span class="hl opt">=</span> you                    <span class="hl slc">! player initialization</span>&#x000A;        location <span class="hl opt">=</span> emptyroom&#x000A;        old_location <span class="hl opt">=</span> location</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">&#8288;        <span class="hl kwb">player</span> <span class="hl opt">=</span> you                    <span class="hl slc">! player initialization</span>&#x000A;        <span class="hl kwb">location</span> <span class="hl opt">=</span> emptyroom&#x000A;        old_location <span class="hl opt">=</span> <span class="hl kwb">location</span></code></pre>
 </div>
 </div>
 </li>
@@ -6684,7 +6684,7 @@ Here&#8217;s the <code>Init</code> routine from <strong>shell.hug</strong>:</p>
 Also, determine the starting bulk of whatever the player is carrying at the outset (if anything):</em></p>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">&#8288;        <span class="hl kwa">move</span> player <span class="hl kwa">to</span> location&#x000A;        FindLight(location)&#x000A;        DescribePlace(location)&#x000A;        location <span class="hl kwa">is</span> visited&#x000A;        CalculateHolding(player)</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">&#8288;        <span class="hl kwa">move</span> <span class="hl kwb">player</span> <span class="hl kwa">to</span> <span class="hl kwb">location</span>&#x000A;        FindLight(<span class="hl kwb">location</span>)&#x000A;        DescribePlace(<span class="hl kwb">location</span>)&#x000A;        <span class="hl kwb">location</span> <span class="hl kwa">is</span> visited&#x000A;        CalculateHolding(<span class="hl kwb">player</span>)</code></pre>
 </div>
 </div>
 </li>
@@ -6727,7 +6727,7 @@ The <code>runevents</code> statement runs all valid events.
 The <code>RunScripts</code> library routine runs any active scripts:</em></p>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">&#8288;        <span class="hl kwa">run</span> location.each_turn&#x000A;        <span class="hl kwa">runevents</span>&#x000A;        RunScripts</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">&#8288;        <span class="hl kwa">run</span> <span class="hl kwb">location</span>.each_turn&#x000A;        <span class="hl kwa">runevents</span>&#x000A;        RunScripts</code></pre>
 </div>
 </div>
 </li>
@@ -6735,7 +6735,7 @@ The <code>RunScripts</code> library routine runs any active scripts:</em></p>
 <p><em>Finally, we check to see if the player is currently engaged in conversation with a character (if the <code>speaking</code> global is set) and, if so, if the character in question has left the current location:</em></p>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">&#8288;        <span class="hl kwa">if parent</span>(speaking)<span class="hl opt">~=</span>location&#x000A;                speaking <span class="hl opt">=</span> <span class="hl num">0</span>&#x000A;}</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">&#8288;        <span class="hl kwa">if parent</span>(speaking)<span class="hl opt">~=</span><span class="hl kwb">location</span>&#x000A;                speaking <span class="hl opt">=</span> <span class="hl num">0</span>&#x000A;}</code></pre>
 </div>
 </div>
 </li>
@@ -6759,7 +6759,7 @@ Events are defined as:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">event</span> [<span class="hl kwa">in</span>] <span class="hl opt">&lt;</span><span class="hl kwa">object</span><span class="hl opt">&gt;</span>&#x000A;{&#x000A;    ...<span class="hl kwa">Event routine</span>...&#x000A;}</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">event</span> [<span class="hl kwa">in</span>] <span class="hl opt">&lt;</span><span class="hl kwb">object</span><span class="hl opt">&gt;</span>&#x000A;{&#x000A;    ...<span class="hl kwa">Event routine</span>...&#x000A;}</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -6806,7 +6806,7 @@ But there may arise a situation where one of those objects must have a variation
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">class</span> food&#x000A;{&#x000A;    bites_left <span class="hl num">5</span>&#x000A;    eating&#x000A;    {&#x000A;        self.bites_left <span class="hl opt">=</span> self.bites_left <span class="hl opt">-</span> <span class="hl num">1</span>&#x000A;        <span class="hl kwa">if</span> self.bites_left <span class="hl opt">=</span> <span class="hl num">0</span>&#x000A;        <span class="hl kwa">remove</span> self              <span class="hl slc">! all gone</span>&#x000A;    }&#x000A;}&#x000A;&#x000A;food health_food&#x000A;{&#x000A;    eating&#x000A;    {&#x000A;        actor.health <span class="hl opt">=</span> actor.health <span class="hl opt">+</span> <span class="hl num">1</span>&#x000A;        <span class="hl kwa">run</span> food..eating&#x000A;    }&#x000A;}</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">class</span> food&#x000A;{&#x000A;    bites_left <span class="hl num">5</span>&#x000A;    eating&#x000A;    {&#x000A;        <span class="hl kwb">self</span>.bites_left <span class="hl opt">=</span> <span class="hl kwb">self</span>.bites_left <span class="hl opt">-</span> <span class="hl num">1</span>&#x000A;        <span class="hl kwa">if</span> <span class="hl kwb">self</span>.bites_left <span class="hl opt">=</span> <span class="hl num">0</span>&#x000A;        <span class="hl kwa">remove</span> <span class="hl kwb">self</span>              <span class="hl slc">! all gone</span>&#x000A;    }&#x000A;}&#x000A;&#x000A;food health_food&#x000A;{&#x000A;    eating&#x000A;    {&#x000A;        <span class="hl kwb">actor</span>.health <span class="hl opt">=</span> <span class="hl kwb">actor</span>.health <span class="hl opt">+</span> <span class="hl num">1</span>&#x000A;        <span class="hl kwa">run</span> food..eating&#x000A;    }&#x000A;}</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -6825,7 +6825,7 @@ This also allows changes to be made to any property, attribute, or property rout
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">object</span> woodcabinet <span class="hl str">&quot;wooden cabinet&quot;</span>&#x000A;{&#x000A;    <span class="hl kwa">in</span> emptyroom&#x000A;    <span class="hl kwa">article</span> <span class="hl str">&quot;a&quot;</span>&#x000A;    <span class="hl kwa">nouns</span> <span class="hl str">&quot;cabinet&quot;</span>, <span class="hl str">&quot;shelf&quot;</span>, <span class="hl str">&quot;shelves&quot;</span>, \&#x000A;        <span class="hl str">&quot;furniture&quot;</span>, <span class="hl str">&quot;doors&quot;</span>, <span class="hl str">&quot;door&quot;</span>&#x000A;    <span class="hl kwa">adjectives</span> <span class="hl str">&quot;wooden&quot;</span>, <span class="hl str">&quot;wood&quot;</span>, <span class="hl str">&quot;fine&quot;</span>, <span class="hl str">&quot;mahogany&quot;</span>&#x000A;&#x000A;    short_desc&#x000A;        <span class="hl str">&quot;A wooden cabinet sits along one wall.&quot;</span>&#x000A;    when_open&#x000A;        <span class="hl str">&quot;An open wooden cabinet sits along</span>&#x000A;<span class="hl str">        one wall.&quot;</span>&#x000A;    long_desc&#x000A;    {&#x000A;        <span class="hl str">&quot;The cabinet is made of fine mahogany wood,</span>&#x000A;<span class="hl str">        hand-crafted by a master cabinetmaker. In</span>&#x000A;<span class="hl str">        front are two doors (presently &quot;</span>;&#x000A;        <span class="hl kwa">if</span> self <span class="hl kwa">is</span> open&#x000A;            <span class="hl kwa">print</span> <span class="hl str">&quot;open&quot;</span>;&#x000A;        <span class="hl kwa">else</span>: <span class="hl kwa">print</span> <span class="hl str">&quot;closed&quot;</span>;&#x000A;        <span class="hl kwa">print</span> <span class="hl str">&quot;).&quot;</span>&#x000A;    }&#x000A;    contains_desc&#x000A;        <span class="hl str">&quot;Behind the open doors of the cabinet you</span>&#x000A;<span class="hl str">        can see&quot;</span>;           <span class="hl slc">! note semicolon--</span>&#x000A;                            <span class="hl slc">! no line feed</span>&#x000A;    key_object cabinetkey   <span class="hl slc">! a cabinetkey object</span>&#x000A;                            <span class="hl slc">! must also be created</span>&#x000A;&#x000A;    holding <span class="hl num">0</span>               <span class="hl slc">! starts off empty</span>&#x000A;    capacity <span class="hl num">100</span>&#x000A;&#x000A;    <span class="hl kwa">before</span>&#x000A;    {&#x000A;        <span class="hl kwa">object</span> DoLookUnder&#x000A;            {<span class="hl str">&quot;Nothing there but dust.&quot;</span>}&#x000A;        <span class="hl kwa">object</span> DoGet&#x000A;            {<span class="hl str">&quot;The cabinet is far too heavy</span>&#x000A;<span class="hl str">            to lift!&quot;</span>}&#x000A;    }&#x000A;    <span class="hl kwa">after</span>&#x000A;    {&#x000A;        <span class="hl kwa">object</span> DoLock&#x000A;            {<span class="hl str">&quot;With a twist of the key, you lock the</span>&#x000A;<span class="hl str">            cabinet up tight.&quot;</span>}&#x000A;    }&#x000A;&#x000A;    <span class="hl kwa">is</span> container, openable, <span class="hl kwa">not</span> open&#x000A;    <span class="hl kwa">is</span> lockable, static&#x000A;}</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwb">object</span> woodcabinet <span class="hl str">&quot;wooden cabinet&quot;</span>&#x000A;{&#x000A;    <span class="hl kwa">in</span> emptyroom&#x000A;    <span class="hl kwa">article</span> <span class="hl str">&quot;a&quot;</span>&#x000A;    <span class="hl kwa">nouns</span> <span class="hl str">&quot;cabinet&quot;</span>, <span class="hl str">&quot;shelf&quot;</span>, <span class="hl str">&quot;shelves&quot;</span>, \&#x000A;        <span class="hl str">&quot;furniture&quot;</span>, <span class="hl str">&quot;doors&quot;</span>, <span class="hl str">&quot;door&quot;</span>&#x000A;    <span class="hl kwa">adjectives</span> <span class="hl str">&quot;wooden&quot;</span>, <span class="hl str">&quot;wood&quot;</span>, <span class="hl str">&quot;fine&quot;</span>, <span class="hl str">&quot;mahogany&quot;</span>&#x000A;&#x000A;    short_desc&#x000A;        <span class="hl str">&quot;A wooden cabinet sits along one wall.&quot;</span>&#x000A;    when_open&#x000A;        <span class="hl str">&quot;An open wooden cabinet sits along</span>&#x000A;<span class="hl str">        one wall.&quot;</span>&#x000A;    long_desc&#x000A;    {&#x000A;        <span class="hl str">&quot;The cabinet is made of fine mahogany wood,</span>&#x000A;<span class="hl str">        hand-crafted by a master cabinetmaker. In</span>&#x000A;<span class="hl str">        front are two doors (presently &quot;</span>;&#x000A;        <span class="hl kwa">if</span> <span class="hl kwb">self</span> <span class="hl kwa">is</span> open&#x000A;            <span class="hl kwa">print</span> <span class="hl str">&quot;open&quot;</span>;&#x000A;        <span class="hl kwa">else</span>: <span class="hl kwa">print</span> <span class="hl str">&quot;closed&quot;</span>;&#x000A;        <span class="hl kwa">print</span> <span class="hl str">&quot;).&quot;</span>&#x000A;    }&#x000A;    contains_desc&#x000A;        <span class="hl str">&quot;Behind the open doors of the cabinet you</span>&#x000A;<span class="hl str">        can see&quot;</span>;           <span class="hl slc">! note semicolon--</span>&#x000A;                            <span class="hl slc">! no line feed</span>&#x000A;    key_object cabinetkey   <span class="hl slc">! a cabinetkey object</span>&#x000A;                            <span class="hl slc">! must also be created</span>&#x000A;&#x000A;    holding <span class="hl num">0</span>               <span class="hl slc">! starts off empty</span>&#x000A;    capacity <span class="hl num">100</span>&#x000A;&#x000A;    <span class="hl kwa">before</span>&#x000A;    {&#x000A;        <span class="hl kwb">object</span> DoLookUnder&#x000A;            {<span class="hl str">&quot;Nothing there but dust.&quot;</span>}&#x000A;        <span class="hl kwb">object</span> DoGet&#x000A;            {<span class="hl str">&quot;The cabinet is far too heavy</span>&#x000A;<span class="hl str">            to lift!&quot;</span>}&#x000A;    }&#x000A;    <span class="hl kwa">after</span>&#x000A;    {&#x000A;        <span class="hl kwb">object</span> DoLock&#x000A;            {<span class="hl str">&quot;With a twist of the key, you lock the</span>&#x000A;<span class="hl str">            cabinet up tight.&quot;</span>}&#x000A;    }&#x000A;&#x000A;    <span class="hl kwa">is</span> container, openable, <span class="hl kwa">not</span> open&#x000A;    <span class="hl kwa">is</span> lockable, static&#x000A;}</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -6979,7 +6979,7 @@ The fuse itself is a slightly more complex version of a daemon object, containin
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">fuse <span class="hl opt">&lt;</span><span class="hl kwa">name</span><span class="hl opt">&gt;</span>&#x000A;{}&#x000A;&#x000A;<span class="hl kwa">event</span> [<span class="hl kwa">in</span>] <span class="hl opt">&lt;</span><span class="hl kwa">name</span><span class="hl opt">&gt;</span>&#x000A;{&#x000A;    ...&#x000A;    <span class="hl kwa">if not</span> self.tick&#x000A;    {&#x000A;        ...&#x000A;    }&#x000A;}</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">fuse <span class="hl opt">&lt;</span><span class="hl kwa">name</span><span class="hl opt">&gt;</span>&#x000A;{}&#x000A;&#x000A;<span class="hl kwa">event</span> [<span class="hl kwa">in</span>] <span class="hl opt">&lt;</span><span class="hl kwa">name</span><span class="hl opt">&gt;</span>&#x000A;{&#x000A;    ...&#x000A;    <span class="hl kwa">if not</span> <span class="hl kwb">self</span>.tick&#x000A;    {&#x000A;        ...&#x000A;    }&#x000A;}</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -7014,7 +7014,7 @@ The line</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">if not</span> self.tick</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">if not</span> <span class="hl kwb">self</span>.tick</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -7229,7 +7229,7 @@ It continues with the default action&#8201;&#8212;&#8201;i.e., the character act
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">before</span>&#x000A;{&#x000A;    actor CharRoutine&#x000A;    {&#x000A;        ...&#x000A;    }&#x000A;}</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">before</span>&#x000A;{&#x000A;    <span class="hl kwb">actor</span> CharRoutine&#x000A;    {&#x000A;        ...&#x000A;    }&#x000A;}</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -7256,7 +7256,7 @@ Assume that the player&#8217;s amount of rest is kept in a property called <code
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">daemon gettired&#x000A;{}&#x000A;&#x000A;<span class="hl kwa">event in</span> gettired&#x000A;{&#x000A;    player.rest <span class="hl opt">=</span> player.rest <span class="hl opt">-</span> <span class="hl num">2</span>&#x000A;    <span class="hl kwa">if</span> player.rest <span class="hl opt">&lt;</span> <span class="hl num">0</span>&#x000A;        player.rest <span class="hl opt">=</span> <span class="hl num">0</span>&#x000A;    <span class="hl kwa">select</span> player.rest&#x000A;        <span class="hl kwa">case</span> <span class="hl num">20</span>&#x000A;            <span class="hl str">&quot;You&#39;re getting quite tired.&quot;</span>&#x000A;        <span class="hl kwa">case</span> <span class="hl num">10</span>&#x000A;            <span class="hl str">&quot;You&#39;re getting</span> <span class="hl esc">\I</span><span class="hl str">very</span><span class="hl esc">\i</span> <span class="hl str">tired.&quot;</span>&#x000A;        <span class="hl kwa">case</span> <span class="hl num">0</span>&#x000A;            <span class="hl str">&quot;You fall asleep!&quot;</span>&#x000A;}</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">daemon gettired&#x000A;{}&#x000A;&#x000A;<span class="hl kwa">event in</span> gettired&#x000A;{&#x000A;    <span class="hl kwb">player</span>.rest <span class="hl opt">=</span> <span class="hl kwb">player</span>.rest <span class="hl opt">-</span> <span class="hl num">2</span>&#x000A;    <span class="hl kwa">if</span> <span class="hl kwb">player</span>.rest <span class="hl opt">&lt;</span> <span class="hl num">0</span>&#x000A;        <span class="hl kwb">player</span>.rest <span class="hl opt">=</span> <span class="hl num">0</span>&#x000A;    <span class="hl kwa">select</span> <span class="hl kwb">player</span>.rest&#x000A;        <span class="hl kwa">case</span> <span class="hl num">20</span>&#x000A;            <span class="hl str">&quot;You&#39;re getting quite tired.&quot;</span>&#x000A;        <span class="hl kwa">case</span> <span class="hl num">10</span>&#x000A;            <span class="hl str">&quot;You&#39;re getting</span> <span class="hl esc">\I</span><span class="hl str">very</span><span class="hl esc">\i</span> <span class="hl str">tired.&quot;</span>&#x000A;        <span class="hl kwa">case</span> <span class="hl num">0</span>&#x000A;            <span class="hl str">&quot;You fall asleep!&quot;</span>&#x000A;}</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -7268,7 +7268,7 @@ Assume that the player&#8217;s amount of rest is kept in a property called <code
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">fuse tickingbomb&#x000A;{}&#x000A;&#x000A;<span class="hl kwa">event in</span> tickingbomb&#x000A;{&#x000A;    <span class="hl kwa">if not</span> self.tick&#x000A;    {&#x000A;        <span class="hl kwa">if</span> Contains(location, bomb)&#x000A;            <span class="hl str">&quot;You vanish in a nifty KABOOM!&quot;</span>&#x000A;        <span class="hl kwa">else</span>&#x000A;            <span class="hl str">&quot;You hear a distant KABOOM!&quot;</span>&#x000A;        <span class="hl kwa">remove</span> bomb&#x000A;    }&#x000A;}</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">fuse tickingbomb&#x000A;{}&#x000A;&#x000A;<span class="hl kwa">event in</span> tickingbomb&#x000A;{&#x000A;    <span class="hl kwa">if not</span> <span class="hl kwb">self</span>.tick&#x000A;    {&#x000A;        <span class="hl kwa">if</span> Contains(<span class="hl kwb">location</span>, bomb)&#x000A;            <span class="hl str">&quot;You vanish in a nifty KABOOM!&quot;</span>&#x000A;        <span class="hl kwa">else</span>&#x000A;            <span class="hl str">&quot;You hear a distant KABOOM!&quot;</span>&#x000A;        <span class="hl kwa">remove</span> bomb&#x000A;    }&#x000A;}</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -7316,7 +7316,7 @@ Here are some examples from the library grammar file <strong>verblib.g</strong>:
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">verb</span> <span class="hl str">&quot;get&quot;</span>, <span class="hl str">&quot;step&quot;</span>&#x000A;        <span class="hl opt">*</span>                                                       DoVague&#x000A;        <span class="hl opt">*</span> <span class="hl str">&quot;up&quot;</span><span class="hl opt">/</span><span class="hl str">&quot;out&quot;</span><span class="hl opt">/</span><span class="hl str">&quot;off&quot;</span><span class="hl opt">/</span><span class="hl str">&quot;down&quot;</span>                               DoStand&#x000A;        <span class="hl opt">*</span> <span class="hl str">&quot;outof&quot;</span><span class="hl opt">/</span><span class="hl str">&quot;offof&quot;</span><span class="hl opt">/</span><span class="hl str">&quot;off&quot;</span> <span class="hl kwa">object</span>                          DoExit&#x000A;        <span class="hl opt">*</span> <span class="hl str">&quot;in&quot;</span><span class="hl opt">/</span><span class="hl str">&quot;inside&quot;</span><span class="hl opt">/</span><span class="hl str">&quot;on&quot;</span>                                    DoEnter&#x000A;        <span class="hl opt">*</span> <span class="hl str">&quot;in&quot;</span><span class="hl opt">/</span><span class="hl str">&quot;into&quot;</span><span class="hl opt">/</span><span class="hl str">&quot;inside&quot;</span><span class="hl opt">/</span><span class="hl str">&quot;on&quot;</span><span class="hl opt">/</span><span class="hl str">&quot;onto&quot;</span> <span class="hl kwa">object</span>               DoEnter&#x000A;&#x000A;<span class="hl kwa">verb</span> <span class="hl str">&quot;take&quot;</span>&#x000A;        <span class="hl opt">*</span>                                                       DoVague&#x000A;        <span class="hl opt">*</span> <span class="hl str">&quot;inventory&quot;</span>                                           DoInventory&#x000A;        <span class="hl opt">*</span> <span class="hl str">&quot;off&quot;</span> <span class="hl kwa">multiheld</span>                                       DoTakeOff&#x000A;        <span class="hl opt">*</span> <span class="hl kwa">multiheld</span> <span class="hl str">&quot;off&quot;</span>                                       DoTakeOff&#x000A;&#x000A;<span class="hl kwa">xverb</span> <span class="hl str">&quot;save&quot;</span>, <span class="hl str">&quot;suspend&quot;</span>&#x000A;        <span class="hl opt">*</span>                                                       DoSave&#x000A;        <span class="hl opt">*</span> <span class="hl str">&quot;game&quot;</span><span class="hl opt">/</span><span class="hl str">&quot;story&quot;</span>                                        DoSave&#x000A;&#x000A;<span class="hl kwa">verb</span> <span class="hl str">&quot;read&quot;</span>, <span class="hl str">&quot;peruse&quot;</span>&#x000A;        <span class="hl opt">*</span>                                                       DoVague&#x000A;        <span class="hl opt">*</span> readable                                              DoLook&#x000A;&#x000A;<span class="hl kwa">verb</span> <span class="hl str">&quot;unlock&quot;</span>&#x000A;        <span class="hl opt">*</span>                                                       DoVague&#x000A;        <span class="hl opt">*</span> lockable <span class="hl str">&quot;with&quot;</span><span class="hl opt">/</span><span class="hl str">&quot;using&quot;</span> <span class="hl kwa">held</span>                          DoUnlock&#x000A;        <span class="hl opt">*</span> lockable                                              DoUnlock</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">verb</span> <span class="hl str">&quot;get&quot;</span>, <span class="hl str">&quot;step&quot;</span>&#x000A;        <span class="hl opt">*</span>                                                       DoVague&#x000A;        <span class="hl opt">*</span> <span class="hl str">&quot;up&quot;</span><span class="hl opt">/</span><span class="hl str">&quot;out&quot;</span><span class="hl opt">/</span><span class="hl str">&quot;off&quot;</span><span class="hl opt">/</span><span class="hl str">&quot;down&quot;</span>                               DoStand&#x000A;        <span class="hl opt">*</span> <span class="hl str">&quot;outof&quot;</span><span class="hl opt">/</span><span class="hl str">&quot;offof&quot;</span><span class="hl opt">/</span><span class="hl str">&quot;off&quot;</span> <span class="hl kwb">object</span>                          DoExit&#x000A;        <span class="hl opt">*</span> <span class="hl str">&quot;in&quot;</span><span class="hl opt">/</span><span class="hl str">&quot;inside&quot;</span><span class="hl opt">/</span><span class="hl str">&quot;on&quot;</span>                                    DoEnter&#x000A;        <span class="hl opt">*</span> <span class="hl str">&quot;in&quot;</span><span class="hl opt">/</span><span class="hl str">&quot;into&quot;</span><span class="hl opt">/</span><span class="hl str">&quot;inside&quot;</span><span class="hl opt">/</span><span class="hl str">&quot;on&quot;</span><span class="hl opt">/</span><span class="hl str">&quot;onto&quot;</span> <span class="hl kwb">object</span>               DoEnter&#x000A;&#x000A;<span class="hl kwa">verb</span> <span class="hl str">&quot;take&quot;</span>&#x000A;        <span class="hl opt">*</span>                                                       DoVague&#x000A;        <span class="hl opt">*</span> <span class="hl str">&quot;inventory&quot;</span>                                           DoInventory&#x000A;        <span class="hl opt">*</span> <span class="hl str">&quot;off&quot;</span> <span class="hl kwa">multiheld</span>                                       DoTakeOff&#x000A;        <span class="hl opt">*</span> <span class="hl kwa">multiheld</span> <span class="hl str">&quot;off&quot;</span>                                       DoTakeOff&#x000A;&#x000A;<span class="hl kwa">xverb</span> <span class="hl str">&quot;save&quot;</span>, <span class="hl str">&quot;suspend&quot;</span>&#x000A;        <span class="hl opt">*</span>                                                       DoSave&#x000A;        <span class="hl opt">*</span> <span class="hl str">&quot;game&quot;</span><span class="hl opt">/</span><span class="hl str">&quot;story&quot;</span>                                        DoSave&#x000A;&#x000A;<span class="hl kwa">verb</span> <span class="hl str">&quot;read&quot;</span>, <span class="hl str">&quot;peruse&quot;</span>&#x000A;        <span class="hl opt">*</span>                                                       DoVague&#x000A;        <span class="hl opt">*</span> readable                                              DoLook&#x000A;&#x000A;<span class="hl kwa">verb</span> <span class="hl str">&quot;unlock&quot;</span>&#x000A;        <span class="hl opt">*</span>                                                       DoVague&#x000A;        <span class="hl opt">*</span> lockable <span class="hl str">&quot;with&quot;</span><span class="hl opt">/</span><span class="hl str">&quot;using&quot;</span> <span class="hl kwa">held</span>                          DoUnlock&#x000A;        <span class="hl opt">*</span> lockable                                              DoUnlock</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -7329,7 +7329,7 @@ An <code>xverb</code> is a special signifier that indicates that the engine shou
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">verb</span> some_object&#x000A;    <span class="hl opt">*</span> <span class="hl kwa">object</span>        DoVerb</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">verb</span> some_object&#x000A;    <span class="hl opt">*</span> <span class="hl kwb">object</span>        DoVerb</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -7571,7 +7571,7 @@ That is, in the input line:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl opt">*</span> <span class="hl kwa">object</span> <span class="hl str">&quot;out&quot;</span> <span class="hl str">&quot;of&quot;</span> container</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl opt">*</span> <span class="hl kwb">object</span> <span class="hl str">&quot;out&quot;</span> <span class="hl str">&quot;of&quot;</span> container</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -7579,7 +7579,7 @@ That is, in the input line:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl opt">*</span> <span class="hl kwa">object</span> <span class="hl str">&quot;out of&quot;</span> container</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl opt">*</span> <span class="hl kwb">object</span> <span class="hl str">&quot;out of&quot;</span> container</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -7608,7 +7608,7 @@ That is, in the example immediately above, a valid object in the input line with
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">verb</span> <span class="hl str">&quot;pick&quot;</span>&#x000A;        <span class="hl opt">*</span> <span class="hl kwa">object</span>            DoGet&#x000A;        <span class="hl opt">*</span> <span class="hl str">&quot;up&quot;</span> <span class="hl kwa">object</span>       DoGet</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">verb</span> <span class="hl str">&quot;pick&quot;</span>&#x000A;        <span class="hl opt">*</span> <span class="hl kwb">object</span>            DoGet&#x000A;        <span class="hl opt">*</span> <span class="hl str">&quot;up&quot;</span> <span class="hl kwb">object</span>       DoGet</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -7629,7 +7629,7 @@ That is, in the example immediately above, a valid object in the input line with
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">&#8288;        <span class="hl opt">*</span> <span class="hl kwa">object</span></code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">&#8288;        <span class="hl opt">*</span> <span class="hl kwb">object</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -7637,7 +7637,7 @@ That is, in the example immediately above, a valid object in the input line with
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">&#8288;        <span class="hl opt">*</span> <span class="hl str">&quot;up&quot;</span> <span class="hl kwa">object</span></code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">&#8288;        <span class="hl opt">*</span> <span class="hl str">&quot;up&quot;</span> <span class="hl kwb">object</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -7645,7 +7645,7 @@ That is, in the example immediately above, a valid object in the input line with
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">verb</span> <span class="hl str">&quot;pick&quot;</span>&#x000A;        <span class="hl opt">*</span> <span class="hl str">&quot;up&quot;</span> <span class="hl kwa">object</span>       DoGet&#x000A;        <span class="hl opt">*</span> <span class="hl kwa">object</span>            DoGet</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">verb</span> <span class="hl str">&quot;pick&quot;</span>&#x000A;        <span class="hl opt">*</span> <span class="hl str">&quot;up&quot;</span> <span class="hl kwb">object</span>       DoGet&#x000A;        <span class="hl opt">*</span> <span class="hl kwb">object</span>            DoGet</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -7840,7 +7840,7 @@ Therefore, in</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">word</span>[<span class="hl num">1</span>] <span class="hl opt">=</span> <span class="hl str">&quot;get&quot;</span>&#x000A;<span class="hl kwa">word</span>[<span class="hl num">2</span>] <span class="hl opt">=</span> <span class="hl str">&quot;hat&quot;</span>&#x000A;<span class="hl kwa">word</span>[<span class="hl num">3</span>] <span class="hl opt">=</span> <span class="hl str">&quot;from&quot;</span>&#x000A;<span class="hl kwa">word</span>[<span class="hl num">4</span>] <span class="hl opt">=</span> <span class="hl str">&quot;table&quot;</span>&#x000A;&#x000A;words <span class="hl opt">=</span> <span class="hl num">4</span></code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">word</span>[<span class="hl num">1</span>] <span class="hl opt">=</span> <span class="hl str">&quot;get&quot;</span>&#x000A;<span class="hl kwa">word</span>[<span class="hl num">2</span>] <span class="hl opt">=</span> <span class="hl str">&quot;hat&quot;</span>&#x000A;<span class="hl kwa">word</span>[<span class="hl num">3</span>] <span class="hl opt">=</span> <span class="hl str">&quot;from&quot;</span>&#x000A;<span class="hl kwa">word</span>[<span class="hl num">4</span>] <span class="hl opt">=</span> <span class="hl str">&quot;table&quot;</span>&#x000A;&#x000A;<span class="hl kwb">words</span> <span class="hl opt">=</span> <span class="hl num">4</span></code></pre>
 </div>
 </div>
 <div class="admonitionblock note">
@@ -7867,7 +7867,7 @@ Therefore, in</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">word</span>[<span class="hl num">1</span>] <span class="hl opt">=</span> <span class="hl str">&quot;get&quot;</span>&#x000A;<span class="hl kwa">word</span>[<span class="hl num">2</span>] <span class="hl opt">=</span> <span class="hl str">&quot;hat&quot;</span>&#x000A;<span class="hl kwa">word</span>[<span class="hl num">3</span>] <span class="hl opt">=</span> <span class="hl str">&quot;&quot;</span>&#x000A;<span class="hl kwa">word</span>[<span class="hl num">4</span>] <span class="hl opt">=</span> <span class="hl str">&quot;go&quot;</span>&#x000A;<span class="hl kwa">word</span>[<span class="hl num">5</span>] <span class="hl opt">=</span> <span class="hl str">&quot;n&quot;</span>&#x000A;<span class="hl kwa">word</span>[<span class="hl num">6</span>] <span class="hl opt">=</span> <span class="hl str">&quot;&quot;</span>&#x000A;<span class="hl kwa">word</span>[<span class="hl num">7</span>] <span class="hl opt">=</span> <span class="hl str">&quot;go&quot;</span>&#x000A;<span class="hl kwa">word</span>[<span class="hl num">8</span>] <span class="hl opt">=</span> <span class="hl str">&quot;e&quot;</span>&#x000A;<span class="hl kwa">word</span>[<span class="hl num">9</span>] <span class="hl opt">=</span> <span class="hl str">&quot;&quot;</span>&#x000A;&#x000A;words <span class="hl opt">=</span> <span class="hl num">9</span></code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">word</span>[<span class="hl num">1</span>] <span class="hl opt">=</span> <span class="hl str">&quot;get&quot;</span>&#x000A;<span class="hl kwa">word</span>[<span class="hl num">2</span>] <span class="hl opt">=</span> <span class="hl str">&quot;hat&quot;</span>&#x000A;<span class="hl kwa">word</span>[<span class="hl num">3</span>] <span class="hl opt">=</span> <span class="hl str">&quot;&quot;</span>&#x000A;<span class="hl kwa">word</span>[<span class="hl num">4</span>] <span class="hl opt">=</span> <span class="hl str">&quot;go&quot;</span>&#x000A;<span class="hl kwa">word</span>[<span class="hl num">5</span>] <span class="hl opt">=</span> <span class="hl str">&quot;n&quot;</span>&#x000A;<span class="hl kwa">word</span>[<span class="hl num">6</span>] <span class="hl opt">=</span> <span class="hl str">&quot;&quot;</span>&#x000A;<span class="hl kwa">word</span>[<span class="hl num">7</span>] <span class="hl opt">=</span> <span class="hl str">&quot;go&quot;</span>&#x000A;<span class="hl kwa">word</span>[<span class="hl num">8</span>] <span class="hl opt">=</span> <span class="hl str">&quot;e&quot;</span>&#x000A;<span class="hl kwa">word</span>[<span class="hl num">9</span>] <span class="hl opt">=</span> <span class="hl str">&quot;&quot;</span>&#x000A;&#x000A;<span class="hl kwb">words</span> <span class="hl opt">=</span> <span class="hl num">9</span></code></pre>
 </div>
 </div>
 <div class="admonitionblock tip">
@@ -8012,7 +8012,7 @@ Otherwise, the regular grammar for</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">&#8288;        <span class="hl opt">*</span> <span class="hl kwa">object</span>            DoGet</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">&#8288;        <span class="hl opt">*</span> <span class="hl kwb">object</span>            DoGet</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -8194,7 +8194,7 @@ This is useful in case the <code>Parse</code> routine has changed the input line
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">ParseError(<span class="hl opt">&lt;</span>errornumber<span class="hl opt">&gt;</span>, <span class="hl opt">&lt;</span><span class="hl kwa">object</span><span class="hl opt">&gt;</span>)</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">ParseError(<span class="hl opt">&lt;</span>errornumber<span class="hl opt">&gt;</span>, <span class="hl opt">&lt;</span><span class="hl kwb">object</span><span class="hl opt">&gt;</span>)</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -8396,7 +8396,7 @@ For example, the child of a parent object may be available if the parent is a pl
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">FindObject(<span class="hl opt">&lt;</span><span class="hl kwa">object</span><span class="hl opt">&gt;</span>, <span class="hl opt">&lt;</span>location<span class="hl opt">&gt;</span>)</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">FindObject(<span class="hl opt">&lt;</span><span class="hl kwb">object</span><span class="hl opt">&gt;</span>, <span class="hl opt">&lt;</span><span class="hl kwb">location</span><span class="hl opt">&gt;</span>)</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -8539,7 +8539,7 @@ If no response is provided, <code>order_response</code> should return false.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">order_response&#x000A;{&#x000A;    <span class="hl kwa">if</span> verbroutine <span class="hl opt">= &amp;</span>DoGet&#x000A;        <span class="hl str">&quot;I would, but my back is too sore.&quot;</span>&#x000A;    <span class="hl kwa">else</span>&#x000A;        <span class="hl kwa">return false</span>&#x000A;}</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">order_response&#x000A;{&#x000A;    <span class="hl kwa">if</span> <span class="hl kwb">verbroutine</span> <span class="hl opt">= &amp;</span>DoGet&#x000A;        <span class="hl str">&quot;I would, but my back is too sore.&quot;</span>&#x000A;    <span class="hl kwa">else</span>&#x000A;        <span class="hl kwa">return false</span>&#x000A;}</code></pre>
 </div>
 </div>
 <div class="admonitionblock warning">
@@ -8577,7 +8577,7 @@ It is the responsibility of <code>Perform</code> to do the appropriate checking 
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">Perform(<span class="hl opt">&lt;</span>verbroutine<span class="hl opt">&gt;</span>, <span class="hl opt">&lt;</span><span class="hl kwa">object</span><span class="hl opt">&gt;</span>, <span class="hl opt">&lt;</span><span class="hl kwa">xobject</span><span class="hl opt">&gt;</span>, <span class="hl opt">&lt;</span>queue<span class="hl opt">&gt;</span>, <span class="hl opt">&lt;</span>isxverb<span class="hl opt">&gt;</span>)</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">Perform(<span class="hl opt">&lt;</span><span class="hl kwb">verbroutine</span><span class="hl opt">&gt;</span>, <span class="hl opt">&lt;</span><span class="hl kwb">object</span><span class="hl opt">&gt;</span>, <span class="hl opt">&lt;</span><span class="hl kwb">xobject</span><span class="hl opt">&gt;</span>, <span class="hl opt">&lt;</span>queue<span class="hl opt">&gt;</span>, <span class="hl opt">&lt;</span>isxverb<span class="hl opt">&gt;</span>)</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -8954,7 +8954,7 @@ You don&#8217;t need to use the word "&lt;unknown word&gt;".
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">case</span> <span class="hl num">1</span>&#x000A;    <span class="hl kwa">print</span> CThe(player); \&#x000A;        MatchPlural(player, <span class="hl str">&quot;doesn&#39;t, &quot;</span>don&#39;t<span class="hl str">&quot;); \</span>&#x000A;<span class="hl str">        need to use the word</span> <span class="hl esc">\&quot;</span><span class="hl str">&quot;</span>; \&#x000A;        <span class="hl kwa">parse$</span>; <span class="hl str">&quot;</span><span class="hl esc">\&quot;</span><span class="hl str">.&quot;</span></code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">case</span> <span class="hl num">1</span>&#x000A;    <span class="hl kwa">print</span> CThe(<span class="hl kwb">player</span>); \&#x000A;        MatchPlural(<span class="hl kwb">player</span>, <span class="hl str">&quot;doesn&#39;t, &quot;</span>don&#39;t<span class="hl str">&quot;); \</span>&#x000A;<span class="hl str">        need to use the word</span> <span class="hl esc">\&quot;</span><span class="hl str">&quot;</span>; \&#x000A;        <span class="hl kwa">parse$</span>; <span class="hl str">&quot;</span><span class="hl esc">\&quot;</span><span class="hl str">.&quot;</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -8981,7 +8981,7 @@ You would simply interrupt the <code>DoGet</code> routine before it even execute
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">before</span>&#x000A;{&#x000A;    <span class="hl kwa">object</span> DoGet&#x000A;    {&#x000A;        <span class="hl str">&quot;The boulder is far too heavy to lift!&quot;</span>&#x000A;    }&#x000A;}</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">before</span>&#x000A;{&#x000A;    <span class="hl kwb">object</span> DoGet&#x000A;    {&#x000A;        <span class="hl str">&quot;The boulder is far too heavy to lift!&quot;</span>&#x000A;    }&#x000A;}</code></pre>
 </div>
 </div>
 </div>
@@ -9080,7 +9080,7 @@ Also importantly, the <code>character</code> class defines its <code>pronouns</c
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">print capital object</span>.pronoun; <span class="hl str">&quot; is in the room.&quot;</span></code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">print capital</span> <span class="hl kwb">object</span>.pronoun; <span class="hl str">&quot; is in the room.&quot;</span></code></pre>
 </div>
 </div>
 <div class="exampleblock gametranscript">
@@ -9090,7 +9090,7 @@ He is in the room.
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">print</span> <span class="hl str">&quot;Bob gave &quot;</span>; <span class="hl kwa">object</span>.pronoun <span class="hl ppc">#2;</span> <span class="hl pps">&quot; the box. &quot;</span><span class="hl ppc"></span></code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">print</span> <span class="hl str">&quot;Bob gave &quot;</span>; <span class="hl kwb">object</span>.pronoun <span class="hl ppc">#2;</span> <span class="hl pps">&quot; the box. &quot;</span><span class="hl ppc"></span></code></pre>
 </div>
 </div>
 <div class="exampleblock gametranscript">
@@ -9100,7 +9100,7 @@ Bob gave him the box.
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">print capital object</span>.pronoun; <span class="hl str">&quot; opened &quot;</span>; <span class="hl kwa">object</span>.pronoun <span class="hl ppc">#3;</span> <span class="hl pps">&quot; box. &quot;</span><span class="hl ppc"></span></code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">print capital</span> <span class="hl kwb">object</span>.pronoun; <span class="hl str">&quot; opened &quot;</span>; <span class="hl kwb">object</span>.pronoun <span class="hl ppc">#3;</span> <span class="hl pps">&quot; box. &quot;</span><span class="hl ppc"></span></code></pre>
 </div>
 </div>
 <div class="exampleblock gametranscript">
@@ -9110,7 +9110,7 @@ He opened his box.
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">print capital object</span>.pronoun; <span class="hl str">&quot; looked at &quot;</span>; <span class="hl kwa">object</span>.pronoun <span class="hl ppc">#4;</span> <span class="hl pps">&quot; in the mirror. &quot;</span><span class="hl ppc"></span></code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">print capital</span> <span class="hl kwb">object</span>.pronoun; <span class="hl str">&quot; looked at &quot;</span>; <span class="hl kwb">object</span>.pronoun <span class="hl ppc">#4;</span> <span class="hl pps">&quot; in the mirror. &quot;</span><span class="hl ppc"></span></code></pre>
 </div>
 </div>
 <div class="exampleblock gametranscript">
@@ -9155,7 +9155,7 @@ This is traditionally accomplished by implementing NPC responses to the verbrout
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">verb</span> <span class="hl str">&quot;ask&quot;</span>&#x000A;        <span class="hl opt">*</span> living about <span class="hl kwa">xobject</span>      DoAsk</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">verb</span> <span class="hl str">&quot;ask&quot;</span>&#x000A;        <span class="hl opt">*</span> living about <span class="hl kwb">xobject</span>      DoAsk</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -9164,7 +9164,7 @@ The response is handled in the NPC&#8217;s <code>after</code> property routine:<
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">after</span>&#x000A;{&#x000A;    <span class="hl kwa">object</span> DoAsk&#x000A;    {&#x000A;        <span class="hl kwa">select xobject</span>&#x000A;        <span class="hl kwa">case</span> apple&#x000A;            <span class="hl str">&quot;</span><span class="hl esc">\&quot;</span><span class="hl str">I must admit I rather prefer them to</span>&#x000A;<span class="hl str">            bananas,</span><span class="hl esc">\&quot;</span> <span class="hl str">Gustav tells you.&quot;</span>&#x000A;        <span class="hl kwa">case else</span>&#x000A;            <span class="hl kwa">return false</span>    <span class="hl slc">! important</span>&#x000A;    }&#x000A;}</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">after</span>&#x000A;{&#x000A;    <span class="hl kwb">object</span> DoAsk&#x000A;    {&#x000A;        <span class="hl kwa">select</span> <span class="hl kwb">xobject</span>&#x000A;        <span class="hl kwa">case</span> apple&#x000A;            <span class="hl str">&quot;</span><span class="hl esc">\&quot;</span><span class="hl str">I must admit I rather prefer them to</span>&#x000A;<span class="hl str">            bananas,</span><span class="hl esc">\&quot;</span> <span class="hl str">Gustav tells you.&quot;</span>&#x000A;        <span class="hl kwa">case else</span>&#x000A;            <span class="hl kwa">return false</span>    <span class="hl slc">! important</span>&#x000A;    }&#x000A;}</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -9175,7 +9175,7 @@ The response is handled in the NPC&#8217;s <code>after</code> property routine:<
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">verb</span> <span class="hl str">&quot;tell&quot;</span>&#x000A;        <span class="hl opt">*</span> living about <span class="hl kwa">xobject</span>      DoTell</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">verb</span> <span class="hl str">&quot;tell&quot;</span>&#x000A;        <span class="hl opt">*</span> living about <span class="hl kwb">xobject</span>      DoTell</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -9183,7 +9183,7 @@ The response is handled in the NPC&#8217;s <code>after</code> property routine:<
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">verb</span> <span class="hl str">&quot;give&quot;</span>&#x000A;        <span class="hl opt">*</span> <span class="hl kwa">object to</span> living          DoGive&#x000A;&#x000A;<span class="hl kwa">verb</span> <span class="hl str">&quot;show&quot;</span>&#x000A;        <span class="hl opt">*</span> <span class="hl kwa">object to</span> living          DoShow</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">verb</span> <span class="hl str">&quot;give&quot;</span>&#x000A;        <span class="hl opt">*</span> <span class="hl kwb">object</span> <span class="hl kwa">to</span> living          DoGive&#x000A;&#x000A;<span class="hl kwa">verb</span> <span class="hl str">&quot;show&quot;</span>&#x000A;        <span class="hl opt">*</span> <span class="hl kwb">object</span> <span class="hl kwa">to</span> living          DoShow</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -9191,7 +9191,7 @@ The response is handled in the NPC&#8217;s <code>after</code> property routine:<
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">after</span>&#x000A;{&#x000A;    <span class="hl kwa">object</span> DoAsk&#x000A;    {&#x000A;        ...&#x000A;    }&#x000A;    <span class="hl kwa">xobject</span> DoGive&#x000A;    {&#x000A;        <span class="hl kwa">select object</span>&#x000A;        <span class="hl kwa">case</span> banana&#x000A;            <span class="hl str">&quot;</span><span class="hl esc">\&quot;</span><span class="hl str">No thank you,</span><span class="hl esc">\&quot;</span> <span class="hl str">Gustav says.</span> <span class="hl esc">\&quot;</span><span class="hl str">I</span>&#x000A;<span class="hl str">            would rather have an apple.</span><span class="hl esc">\&quot;</span><span class="hl str">&quot;</span>&#x000A;        <span class="hl kwa">case else</span>&#x000A;            <span class="hl kwa">return false</span>&#x000A;    }&#x000A;    <span class="hl kwa">xobject</span> DoShow&#x000A;    {&#x000A;        <span class="hl kwa">select object</span>&#x000A;        ...&#x000A;        <span class="hl kwa">case else</span>&#x000A;            <span class="hl kwa">return false</span>&#x000A;    }&#x000A;}</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">after</span>&#x000A;{&#x000A;    <span class="hl kwb">object</span> DoAsk&#x000A;    {&#x000A;        ...&#x000A;    }&#x000A;    <span class="hl kwb">xobject</span> DoGive&#x000A;    {&#x000A;        <span class="hl kwa">select</span> <span class="hl kwb">object</span>&#x000A;        <span class="hl kwa">case</span> banana&#x000A;            <span class="hl str">&quot;</span><span class="hl esc">\&quot;</span><span class="hl str">No thank you,</span><span class="hl esc">\&quot;</span> <span class="hl str">Gustav says.</span> <span class="hl esc">\&quot;</span><span class="hl str">I</span>&#x000A;<span class="hl str">            would rather have an apple.</span><span class="hl esc">\&quot;</span><span class="hl str">&quot;</span>&#x000A;        <span class="hl kwa">case else</span>&#x000A;            <span class="hl kwa">return false</span>&#x000A;    }&#x000A;    <span class="hl kwb">xobject</span> DoShow&#x000A;    {&#x000A;        <span class="hl kwa">select</span> <span class="hl kwb">object</span>&#x000A;        ...&#x000A;        <span class="hl kwa">case else</span>&#x000A;            <span class="hl kwa">return false</span>&#x000A;    }&#x000A;}</code></pre>
 </div>
 </div>
 </div>
@@ -9355,7 +9355,7 @@ Grammar such as the following is recommended:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">verb</span> <span class="hl str">&quot;&lt;verb1&gt;&quot;</span>[, <span class="hl str">&quot;&lt;verb2&gt;&quot;</span>,...]&#x000A;        <span class="hl opt">*</span>                   DoMoveinVehicle&#x000A;        <span class="hl opt">*</span> <span class="hl kwa">object</span>            DoMoveinVehicle</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">verb</span> <span class="hl str">&quot;&lt;verb1&gt;&quot;</span>[, <span class="hl str">&quot;&lt;verb2&gt;&quot;</span>,...]&#x000A;        <span class="hl opt">*</span>                   DoMoveinVehicle&#x000A;        <span class="hl opt">*</span> <span class="hl kwb">object</span>            DoMoveinVehicle</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -9375,7 +9375,7 @@ This property, which is true by default, can return false (after printing an app
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">vehicle_move&#x000A;{&#x000A;    <span class="hl kwa">if</span> self <span class="hl kwa">is not</span> fed <span class="hl slc">! assuming a &#39;fed&#39; attribute</span>&#x000A;    {&#x000A;        <span class="hl str">&quot;This horse isn&#39;t going anywhere until you</span>&#x000A;<span class="hl str">        feed it.&quot;</span>&#x000A;        <span class="hl kwa">return false</span>&#x000A;    }&#x000A;    <span class="hl kwa">else</span>&#x000A;        <span class="hl kwa">return true</span>&#x000A;}</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">vehicle_move&#x000A;{&#x000A;    <span class="hl kwa">if</span> <span class="hl kwb">self</span> <span class="hl kwa">is not</span> fed <span class="hl slc">! assuming a &#39;fed&#39; attribute</span>&#x000A;    {&#x000A;        <span class="hl str">&quot;This horse isn&#39;t going anywhere until you</span>&#x000A;<span class="hl str">        feed it.&quot;</span>&#x000A;        <span class="hl kwa">return false</span>&#x000A;    }&#x000A;    <span class="hl kwa">else</span>&#x000A;        <span class="hl kwa">return true</span>&#x000A;}</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -9558,7 +9558,7 @@ The <code>DoAttachObject</code> and <code>DoDetachObject</code> verbroutines can
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">verb</span> <span class="hl str">&quot;&lt;verb1&gt;&quot;</span>[, <span class="hl str">&quot;&lt;verb2&gt;&quot;</span>,...]&#x000A;        <span class="hl opt">*</span>                           DoVague&#x000A;        <span class="hl opt">*</span> <span class="hl kwa">object</span>                    DoAttachObject&#x000A;        <span class="hl opt">*</span> <span class="hl kwa">object</span> <span class="hl str">&quot;to&quot;</span> <span class="hl kwa">xobject</span>       DoAttachObject&#x000A;        ...</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">verb</span> <span class="hl str">&quot;&lt;verb1&gt;&quot;</span>[, <span class="hl str">&quot;&lt;verb2&gt;&quot;</span>,...]&#x000A;        <span class="hl opt">*</span>                           DoVague&#x000A;        <span class="hl opt">*</span> <span class="hl kwb">object</span>                    DoAttachObject&#x000A;        <span class="hl opt">*</span> <span class="hl kwb">object</span> <span class="hl str">&quot;to&quot;</span> <span class="hl kwb">xobject</span>       DoAttachObject&#x000A;        ...</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -9566,7 +9566,7 @@ The <code>DoAttachObject</code> and <code>DoDetachObject</code> verbroutines can
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">verb</span> <span class="hl str">&quot;tie&quot;</span>, <span class="hl str">&quot;fasten&quot;</span>&#x000A;        <span class="hl opt">*</span>                           DoVague&#x000A;        <span class="hl opt">*</span> <span class="hl kwa">object</span>                    DoAttachObject&#x000A;        <span class="hl opt">*</span> <span class="hl kwa">object</span> <span class="hl str">&quot;to&quot;</span> <span class="hl kwa">xobject</span>       DoAttachObject</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">verb</span> <span class="hl str">&quot;tie&quot;</span>, <span class="hl str">&quot;fasten&quot;</span>&#x000A;        <span class="hl opt">*</span>                           DoVague&#x000A;        <span class="hl opt">*</span> <span class="hl kwb">object</span>                    DoAttachObject&#x000A;        <span class="hl opt">*</span> <span class="hl kwb">object</span> <span class="hl str">&quot;to&quot;</span> <span class="hl kwb">xobject</span>       DoAttachObject</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -9786,7 +9786,7 @@ Depending on the mode of the engine, this may refer to the full-screen (as for t
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">object</span> display&#x000A;{&#x000A;    ...&#x000A;}</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwb">object</span> display&#x000A;{&#x000A;    ...&#x000A;}</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -16768,7 +16768,7 @@ Following that are the dictionary addresses of the individual words.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">verb</span> <span class="hl str">&quot;get&quot;</span>, <span class="hl str">&quot;take&quot;</span>&#x000A;    <span class="hl opt">*</span> <span class="hl kwa">object</span> DoGet</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">verb</span> <span class="hl str">&quot;get&quot;</span>, <span class="hl str">&quot;take&quot;</span>&#x000A;    <span class="hl opt">*</span> <span class="hl kwb">object</span> DoGet</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -16827,7 +16827,7 @@ This extension is provided so that grammar may be dynamically coded and changed 
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">verb</span> <span class="hl str">&quot;get&quot;</span>, <span class="hl str">&quot;take&quot;</span>&#x000A;    <span class="hl opt">*</span> <span class="hl kwa">object</span> DoGet</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">verb</span> <span class="hl str">&quot;get&quot;</span>, <span class="hl str">&quot;take&quot;</span>&#x000A;    <span class="hl opt">*</span> <span class="hl kwb">object</span> DoGet</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -17423,7 +17423,7 @@ See <a href="#the_linker">Sec. 25.2, &#8220;The Linker&#8221;</a>.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">after</span>&#x000A;{&#x000A;    <span class="hl kwa">object</span> DoGet&#x000A;    {&#x000A;        <span class="hl str">&quot;You pick up the object.&quot;</span>&#x000A;    }&#x000A;    <span class="hl kwa">object</span>&#x000A;    {&#x000A;        <span class="hl str">&quot;You can&#39;t do that with the object.&quot;</span>&#x000A;    }&#x000A;}</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">after</span>&#x000A;{&#x000A;    <span class="hl kwb">object</span> DoGet&#x000A;    {&#x000A;        <span class="hl str">&quot;You pick up the object.&quot;</span>&#x000A;    }&#x000A;    <span class="hl kwb">object</span>&#x000A;    {&#x000A;        <span class="hl str">&quot;You can&#39;t do that with the object.&quot;</span>&#x000A;    }&#x000A;}</code></pre>
 </div>
 </div>
 <div class="admonitionblock note">

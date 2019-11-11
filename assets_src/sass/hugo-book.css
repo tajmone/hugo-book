@@ -63,16 +63,16 @@ div.literalblock.cmd pre .conum {
   color: #747369;
 }
 .listingblock pre[class=highlight][lang=hugo] .hl.opt {
-  color: #6699cc;
+  color: #66cccc;
 }
 .listingblock pre[class=highlight][lang=hugo] .hl.kwa {
   color: #f2777a;
 }
 .listingblock pre[class=highlight][lang=hugo] .hl.kwb {
-  color: #ffcc66;
+  color: #6699cc;
 }
 .listingblock pre[class=highlight][lang=hugo] .hl.kwc {
-  color: #cc99cc;
+  color: #ffcc66;
 }
 .listingblock pre[class=highlight][lang=hugo] .hl.kwd {
   color: #cc99cc;
