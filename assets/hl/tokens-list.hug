@@ -19,6 +19,16 @@
 ! Bitwise operators:
 &  |  ~
 
+! ------------------------------------------------------------------------------
+!                                 Special Tokens
+! ------------------------------------------------------------------------------
+! Hash (#) for properties count, and ampersand  (&) for addresses:
+#  &
+
+if obj.#adjectives
+
+x = &object.property
+
 ! ==============================================================================
 ! [std]                            Punctuation
 ! ==============================================================================
@@ -223,20 +233,33 @@ $MAXSPECIALWORDS
 !                              Compiler Directives
 ! ==============================================================================
 #if
-#ifclear
-#ifdefined
-#ifset
-#ifundefined
+#ifclear SOME_FLAG
+#if clear SOME_FLAG
+
+#ifdefined SOME_FLAG
+#if defined SOME_FLAG
+
+#ifset SOME_FLAG
+#if set SOME_FLAG
+
+#ifundefined SOME_FLAG
+#if undefined SOME_FLAG
+
 #else
 #elseif
 #endif
 
-#clear
-#set
+#clear SOME_FLAG
+#set SOME_FLAG
 
-#include
-#link
+#include "filename"
+#link"filename"
 
-#message
-#switches
-#version
+#message "Hello world!"
+
+#message warning "Be careful!"
+
+#message error "Thigs went down the drain!"
+
+#switches -ls
+#version 2.5

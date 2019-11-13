@@ -3580,7 +3580,7 @@ The library aliases (among others) the following:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl opt">&lt;</span><span class="hl kwb">object</span><span class="hl opt">&gt;</span>.<span class="hl ppc">#&lt;property&gt;</span></code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl opt">&lt;</span><span class="hl kwb">object</span><span class="hl opt">&gt;</span>.<span class="hl opt">#&lt;</span><span class="hl kwa">property</span><span class="hl opt">&gt;</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -3588,7 +3588,7 @@ The library aliases (among others) the following:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl opt">&lt;</span><span class="hl kwb">object</span><span class="hl opt">&gt;</span>.<span class="hl opt">&lt;</span><span class="hl kwa">property</span><span class="hl opt">&gt;</span> <span class="hl ppc">#&lt;element number&gt;</span></code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl opt">&lt;</span><span class="hl kwb">object</span><span class="hl opt">&gt;</span>.<span class="hl opt">&lt;</span><span class="hl kwa">property</span><span class="hl opt">&gt; #&lt;</span>element <span class="hl kwa">number</span><span class="hl opt">&gt;</span></code></pre>
 </div>
 </div>
 <div class="admonitionblock note">
@@ -3670,7 +3670,7 @@ That is, if an object is originally defined with the property</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl opt">&lt;</span><span class="hl kwb">object</span><span class="hl opt">&gt;</span>.found_in <span class="hl ppc">#2 = livingroom</span></code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl opt">&lt;</span><span class="hl kwb">object</span><span class="hl opt">&gt;</span>.found_in <span class="hl opt">#</span><span class="hl num">2</span> <span class="hl opt">=</span> livingroom</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -3701,7 +3701,7 @@ Trying to read <code>&lt;object&gt;.found_in #2</code> will return a value of 0&
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">found_in <span class="hl ppc">#4</span></code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">found_in <span class="hl opt">#</span><span class="hl num">4</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -5236,7 +5236,7 @@ Standard mathematical rules for order of significance in evaluating an expressio
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl opt">&lt;</span>variable<span class="hl opt">&gt; = &lt;</span>expression<span class="hl opt">&gt;</span>&#x000A;&#x000A;<span class="hl opt">&lt;</span><span class="hl kwb">object</span><span class="hl opt">&gt;</span>.<span class="hl opt">&lt;</span><span class="hl kwa">property</span><span class="hl opt">&gt;</span> [<span class="hl ppc">#&lt;element&gt;] = &lt;expression&gt;</span>&#x000A;&#x000A;<span class="hl opt">&lt;</span><span class="hl kwa">array</span><span class="hl opt">&gt;</span>[<span class="hl opt">&lt;</span>element<span class="hl opt">&gt;</span>] <span class="hl opt">= &lt;</span>expression<span class="hl opt">&gt;</span></code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl opt">&lt;</span>variable<span class="hl opt">&gt; = &lt;</span>expression<span class="hl opt">&gt;</span>&#x000A;&#x000A;<span class="hl opt">&lt;</span><span class="hl kwb">object</span><span class="hl opt">&gt;</span>.<span class="hl opt">&lt;</span><span class="hl kwa">property</span><span class="hl opt">&gt;</span> [<span class="hl opt">#&lt;</span>element<span class="hl opt">&gt;</span>] <span class="hl opt">= &lt;</span>expression<span class="hl opt">&gt;</span>&#x000A;&#x000A;<span class="hl opt">&lt;</span><span class="hl kwa">array</span><span class="hl opt">&gt;</span>[<span class="hl opt">&lt;</span>element<span class="hl opt">&gt;</span>] <span class="hl opt">= &lt;</span>expression<span class="hl opt">&gt;</span></code></pre>
 </div>
 </div>
 <div class="sect3">
@@ -6404,7 +6404,7 @@ When assigning a value or set of values to a property routine, the engine behave
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">found_in <span class="hl ppc">#3 = attic</span></code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">found_in <span class="hl opt">#</span><span class="hl num">3</span> <span class="hl opt">=</span> attic</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -9095,7 +9095,7 @@ He is in the room.
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">print</span> <span class="hl str">&quot;Bob gave &quot;</span>; <span class="hl kwb">object</span>.pronoun <span class="hl ppc">#2;</span> <span class="hl pps">&quot; the box. &quot;</span><span class="hl ppc"></span></code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">print</span> <span class="hl str">&quot;Bob gave &quot;</span>; <span class="hl kwb">object</span>.pronoun <span class="hl opt">#</span><span class="hl num">2</span>; <span class="hl str">&quot; the box. &quot;</span></code></pre>
 </div>
 </div>
 <div class="exampleblock gametranscript">
@@ -9105,7 +9105,7 @@ Bob gave him the box.
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">print capital</span> <span class="hl kwb">object</span>.pronoun; <span class="hl str">&quot; opened &quot;</span>; <span class="hl kwb">object</span>.pronoun <span class="hl ppc">#3;</span> <span class="hl pps">&quot; box. &quot;</span><span class="hl ppc"></span></code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">print capital</span> <span class="hl kwb">object</span>.pronoun; <span class="hl str">&quot; opened &quot;</span>; <span class="hl kwb">object</span>.pronoun <span class="hl opt">#</span><span class="hl num">3</span>; <span class="hl str">&quot; box. &quot;</span></code></pre>
 </div>
 </div>
 <div class="exampleblock gametranscript">
@@ -9115,7 +9115,7 @@ He opened his box.
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">print capital</span> <span class="hl kwb">object</span>.pronoun; <span class="hl str">&quot; looked at &quot;</span>; <span class="hl kwb">object</span>.pronoun <span class="hl ppc">#4;</span> <span class="hl pps">&quot; in the mirror. &quot;</span><span class="hl ppc"></span></code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">print capital</span> <span class="hl kwb">object</span>.pronoun; <span class="hl str">&quot; looked at &quot;</span>; <span class="hl kwb">object</span>.pronoun <span class="hl opt">#</span><span class="hl num">4</span>; <span class="hl str">&quot; in the mirror. &quot;</span></code></pre>
 </div>
 </div>
 <div class="exampleblock gametranscript">
@@ -17153,7 +17153,7 @@ Note that <code>word[<em>n</em>]</code> is not handled the same as <code>array[<
 <div class="content">
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">array</span>[<span class="hl num">1</span>] <span class="hl opt">=</span> <span class="hl kwa">random</span>(obj.prop <span class="hl ppc">#2)</span></code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">array</span>[<span class="hl num">1</span>] <span class="hl opt">=</span> <span class="hl kwa">random</span>(obj.prop <span class="hl opt">#</span><span class="hl num">2</span>)</code></pre>
 </div>
 </div>
 <div class="paragraph">

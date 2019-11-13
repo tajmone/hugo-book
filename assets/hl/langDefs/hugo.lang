@@ -1,5 +1,5 @@
 -- ********************************
--- *  Hugo Interactive Fiction    *  v1.1.0-rc9    || by Tristano Ajmone:
+-- *  Hugo Interactive Fiction    *  v1.1.0-rc10   || by Tristano Ajmone:
 -- *  www.generalcoffee.com/hugo  *  2019/11/13    || https://github.com/tajmone
 -- ********************************  public domain || http://unlicense.org
 --------------------------------------------------------------------------------
@@ -113,9 +113,9 @@ NOTE: The RegEx below defines twice the acute accent (´) char because depending
     [cLY]               # Currencies: ¢ £ ¥.
     )) ]=] }
 PreProcessor = {
-  Prefix = [[ # ]],
+  Prefix = [=[ \A(?!x)x ]=], -- never matching RegEx!
   Continuation = "\\" }
-Operators = [[ \&|<|>|\||\=|\/|\*|\+|\-|~ ]]
+Operators = [[ \&|\#|<|>|\||\=|\/|\*|\+|\-|~ ]]
 Digits = [[ \d+ ]]
 Keywords = {{
   ------------------------------------------------------------------------------
@@ -289,6 +289,19 @@ Keywords = {{
         DIRECTORIES | EVENTS | FLAGS | GLOBALS | LABELS | LOCALS | OBJECTS |
         PROPERTIES | ROUTINES | SPECIALWORDS )) ]=],
     Group = 0
+  },{
+  ------------------------------------------------------------------------------
+  Id = 5,                                                       -- PreProcessor
+  ------------------------------------------------------------------------------
+  -- These tokens are captured as keywords but then thrown back as PreProcessor
+  -- via OnStateChange(). This is needed because setting '#' as PreProcessor
+  -- delimiter would prevent capturing the '#' token for counting properties.
+
+    Regex = [=[ (?x-i)
+      (\#(?: if(clear | set | defined | undefined) | if | elseif | else | endif |
+             clear | set | include | link | message | switches | version
+      )\b) ]=],
+    Group = 0
   }}
 
 function OnStateChange(oldState, newState, token, kwgroup)
@@ -307,6 +320,13 @@ function OnStateChange(oldState, newState, token, kwgroup)
       newState == HL_INTERPOLATION and
       oldState == HL_PREPROC_STRING then
         return HL_REJECT
+  --============================================================================
+  -- #03 -- Throw Back Kwd Group 5 as PreProcessor
+  --============================================================================
+  elseif
+      newState == HL_KEYWORD and
+      kwgroup == 5 then
+        return HL_PREPROC
   end
   return newState
 end
@@ -330,5 +350,7 @@ v1.1.0 (2019/11/13) | Highlight v3.54
   - FIXES:
     - Identifiers patterns tweaked to include tokens starting with tilde.
     - Ignore interpolations inside preprocessor strings.
+    - PreProcessor: prevent matching the '#' for proprierties count as the
+      beginning of a preprocessor directive.
 v1.0.0 (2019/05/24) | Highlight v3.51
   - First release. --]]

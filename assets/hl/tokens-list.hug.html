@@ -27,6 +27,16 @@
 <span class="hl slc">! Bitwise operators:</span>
 <span class="hl opt">&amp;</span>  <span class="hl opt">|</span>  <span class="hl opt">~</span>
 
+<span class="hl slc">! ------------------------------------------------------------------------------</span>
+<span class="hl slc">!                                 Special Tokens</span>
+<span class="hl slc">! ------------------------------------------------------------------------------</span>
+<span class="hl slc">! Hash (#) for properties count, and ampersand  (&amp;) for addresses:</span>
+<span class="hl opt">#</span>  <span class="hl opt">&amp;</span>
+
+<span class="hl kwa">if</span> obj.<span class="hl opt">#</span>adjectives
+
+x <span class="hl opt">=</span> <span class="hl opt">&amp;</span><span class="hl kwb">object</span>.<span class="hl kwa">property</span>
+
 <span class="hl slc">! ==============================================================================</span>
 <span class="hl slc">! [std]                            Punctuation</span>
 <span class="hl slc">! ==============================================================================</span>
@@ -231,23 +241,36 @@
 <span class="hl slc">!                              Compiler Directives</span>
 <span class="hl slc">! ==============================================================================</span>
 <span class="hl ppc">#if</span>
-<span class="hl ppc">#ifclear</span>
-<span class="hl ppc">#ifdefined</span>
-<span class="hl ppc">#ifset</span>
-<span class="hl ppc">#ifundefined</span>
+<span class="hl ppc">#ifclear SOME_FLAG</span>
+<span class="hl ppc">#if clear SOME_FLAG</span>
+
+<span class="hl ppc">#ifdefined SOME_FLAG</span>
+<span class="hl ppc">#if defined SOME_FLAG</span>
+
+<span class="hl ppc">#ifset SOME_FLAG</span>
+<span class="hl ppc">#if set SOME_FLAG</span>
+
+<span class="hl ppc">#ifundefined SOME_FLAG</span>
+<span class="hl ppc">#if undefined SOME_FLAG</span>
+
 <span class="hl ppc">#else</span>
 <span class="hl ppc">#elseif</span>
 <span class="hl ppc">#endif</span>
 
-<span class="hl ppc">#clear</span>
-<span class="hl ppc">#set</span>
+<span class="hl ppc">#clear SOME_FLAG</span>
+<span class="hl ppc">#set SOME_FLAG</span>
 
-<span class="hl ppc">#include</span>
-<span class="hl ppc">#link</span>
+<span class="hl ppc">#include</span> <span class="hl pps">&quot;filename&quot;</span><span class="hl ppc"></span>
+<span class="hl ppc">#link</span><span class="hl pps">&quot;filename&quot;</span><span class="hl ppc"></span>
 
-<span class="hl ppc">#message</span>
-<span class="hl ppc">#switches</span>
-<span class="hl ppc">#version</span>
+<span class="hl ppc">#message</span> <span class="hl pps">&quot;Hello world!&quot;</span><span class="hl ppc"></span>
+
+<span class="hl ppc">#message warning</span> <span class="hl pps">&quot;Be careful!&quot;</span><span class="hl ppc"></span>
+
+<span class="hl ppc">#message error</span> <span class="hl pps">&quot;Thigs went down the drain!&quot;</span><span class="hl ppc"></span>
+
+<span class="hl ppc">#switches -ls</span>
+<span class="hl ppc">#version 2.5</span>
 </pre>
 </body>
 </html>

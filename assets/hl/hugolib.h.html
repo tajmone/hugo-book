@@ -836,28 +836,28 @@ it_object them_object <span class="hl str">&quot;them&quot;</span>
 {
         <span class="hl kwa">local</span> i, n
 
-        <span class="hl kwa">if</span> obj.<span class="hl ppc">#adjectives</span>              <span class="hl slc">! Allowing multiple adjectives...</span>
-<span class="hl ppc"></span>        {
-                <span class="hl kwa">for</span> (i<span class="hl opt">=</span><span class="hl num">1</span>; i<span class="hl opt">&lt;=</span>obj.<span class="hl ppc">#adjectives; i++)</span>
+        <span class="hl kwa">if</span> obj.<span class="hl opt">#</span>adjectives              <span class="hl slc">! Allowing multiple adjectives...</span>
+        {
+                <span class="hl kwa">for</span> (i<span class="hl opt">=</span><span class="hl num">1</span>; i<span class="hl opt">&lt;=</span>obj.<span class="hl opt">#</span>adjectives; i<span class="hl opt">++</span>)
                 {
-                        <span class="hl kwa">if</span> obj.<span class="hl kwb">adjective</span> <span class="hl ppc">#i</span>
+                        <span class="hl kwa">if</span> obj.<span class="hl kwb">adjective</span> <span class="hl opt">#</span>i
                         {
                                 <span class="hl kwa">if</span> <span class="hl opt">++</span>n <span class="hl opt">&gt;</span> <span class="hl num">1</span>:  InsertWord(a)
-                                <span class="hl kwa">word</span>[a] <span class="hl opt">=</span> obj.<span class="hl kwb">adjective</span> <span class="hl ppc">#i</span>
+                                <span class="hl kwa">word</span>[a] <span class="hl opt">=</span> obj.<span class="hl kwb">adjective</span> <span class="hl opt">#</span>i
                                 a<span class="hl opt">++</span>
                         }
                         <span class="hl kwa">if</span> i <span class="hl opt">=</span> <span class="hl num">15</span>: <span class="hl kwa">break</span>        <span class="hl slc">! match MAX_MOBJ in heparse.c</span>
                 }
         }
 
-        <span class="hl kwa">if</span> obj.<span class="hl ppc">#nouns</span>                    <span class="hl slc">! ...and 1 noun (obj.noun #1)</span>
-<span class="hl ppc"></span>        {
-                <span class="hl kwa">for</span> (i<span class="hl opt">=</span><span class="hl num">1</span>; i<span class="hl opt">&lt;=</span>obj.<span class="hl ppc">#nouns; i++)</span>
+        <span class="hl kwa">if</span> obj.<span class="hl opt">#</span>nouns                    <span class="hl slc">! ...and 1 noun (obj.noun #1)</span>
+        {
+                <span class="hl kwa">for</span> (i<span class="hl opt">=</span><span class="hl num">1</span>; i<span class="hl opt">&lt;=</span>obj.<span class="hl opt">#</span>nouns; i<span class="hl opt">++</span>)
                 {
-                        <span class="hl kwa">if</span> obj.<span class="hl kwb">noun</span> <span class="hl ppc">#i</span>
+                        <span class="hl kwa">if</span> obj.<span class="hl kwb">noun</span> <span class="hl opt">#</span>i
                         {
                                 <span class="hl kwa">if</span> n:  InsertWord(a)
-                                <span class="hl kwa">word</span>[a] <span class="hl opt">=</span> obj.<span class="hl kwb">noun</span> <span class="hl ppc">#i</span>
+                                <span class="hl kwa">word</span>[a] <span class="hl opt">=</span> obj.<span class="hl kwb">noun</span> <span class="hl opt">#</span>i
                                 <span class="hl kwa">break</span>
                                 <span class="hl slc">! Never executed:</span>
                                 <span class="hl slc">!a++ : n++</span>
@@ -1809,9 +1809,9 @@ it_object them_object <span class="hl str">&quot;them&quot;</span>
 {
         <span class="hl kwa">local</span> i
 
-        <span class="hl kwa">for</span> (i<span class="hl opt">=</span><span class="hl num">1</span>; i<span class="hl opt">&lt;=</span>obj.<span class="hl ppc">#prop; i++)</span>
+        <span class="hl kwa">for</span> (i<span class="hl opt">=</span><span class="hl num">1</span>; i<span class="hl opt">&lt;=</span>obj.<span class="hl opt">#</span>prop; i<span class="hl opt">++</span>)
         {
-                <span class="hl kwa">if</span> obj.prop <span class="hl ppc">#i = val:  return i</span>
+                <span class="hl kwa">if</span> obj.prop <span class="hl opt">#</span>i <span class="hl opt">=</span> val:  <span class="hl kwa">return</span> i
         }
 }
 
@@ -1880,7 +1880,7 @@ it_object them_object <span class="hl str">&quot;them&quot;</span>
         <span class="hl kwa">if</span> obj.type <span class="hl opt">=</span> fuse <span class="hl kwa">or</span> obj.type <span class="hl opt">=</span> daemon
         {
                 <span class="hl slc">! Optimize checking of simple fuses and daemons:</span>
-                <span class="hl kwa">if</span> obj.<span class="hl ppc">#in_scope = 1 and not &amp;obj.in_scope and not obj.#found_in and not &amp;obj.found_in</span>
+                <span class="hl kwa">if</span> obj.<span class="hl opt">#</span>in_scope <span class="hl opt">=</span> <span class="hl num">1</span> <span class="hl kwa">and</span> <span class="hl kwa">not</span> <span class="hl opt">&amp;</span>obj.in_scope <span class="hl kwa">and</span> <span class="hl kwa">not</span> obj.<span class="hl opt">#</span>found_in <span class="hl kwa">and</span> <span class="hl kwa">not</span> <span class="hl opt">&amp;</span>obj.found_in
                 {
                         <span class="hl kwa">if</span> obj <span class="hl kwa">is</span> active <span class="hl kwa">and</span> obj.in_scope <span class="hl opt">=</span> <span class="hl kwb">player</span>
                                 <span class="hl kwa">return</span> <span class="hl kwc">true</span>
@@ -2138,12 +2138,12 @@ it_object them_object <span class="hl str">&quot;them&quot;</span>
                 }
         }
 
-        <span class="hl kwa">if</span> obj.<span class="hl ppc">#found_in</span>
+        <span class="hl kwa">if</span> obj.<span class="hl opt">#</span>found_in
         {
-                <span class="hl kwa">for</span> (a<span class="hl opt">=</span><span class="hl num">1</span>; a<span class="hl opt">&lt;=</span>obj.<span class="hl ppc">#found_in; a++)</span>
+                <span class="hl kwa">for</span> (a<span class="hl opt">=</span><span class="hl num">1</span>; a<span class="hl opt">&lt;=</span>obj.<span class="hl opt">#</span>found_in; a<span class="hl opt">++</span>)
                 {
-                        <span class="hl kwa">if</span> obj.found_in <span class="hl ppc">#a and (obj.found_in #a = objloc or</span>
-                                FindObject(obj.found_in <span class="hl ppc">#a, objloc, true))</span>
+                        <span class="hl kwa">if</span> obj.found_in <span class="hl opt">#</span>a <span class="hl kwa">and</span> (obj.found_in <span class="hl opt">#</span>a <span class="hl opt">=</span> objloc <span class="hl kwa">or</span>
+                                FindObject(obj.found_in <span class="hl opt">#</span>a, objloc, <span class="hl kwc">true</span>))
                         {
                                 obj <span class="hl kwa">is</span> known
                                 <span class="hl kwa">jump</span> FindObjectFound
@@ -2151,18 +2151,18 @@ it_object them_object <span class="hl str">&quot;them&quot;</span>
                 }
         }
 
-        <span class="hl kwa">if</span> obj.<span class="hl ppc">#in_scope</span>
+        <span class="hl kwa">if</span> obj.<span class="hl opt">#</span>in_scope
         {
-                <span class="hl kwa">for</span> (a<span class="hl opt">=</span><span class="hl num">1</span>; a<span class="hl opt">&lt;=</span>obj.<span class="hl ppc">#in_scope; a++)</span>
+                <span class="hl kwa">for</span> (a<span class="hl opt">=</span><span class="hl num">1</span>; a<span class="hl opt">&lt;=</span>obj.<span class="hl opt">#</span>in_scope; a<span class="hl opt">++</span>)
                 {
-                        <span class="hl kwa">if</span> obj.in_scope <span class="hl ppc">#a</span>
+                        <span class="hl kwa">if</span> obj.in_scope <span class="hl opt">#</span>a
                         {
-                                <span class="hl kwa">if</span> obj.in_scope <span class="hl ppc">#a=objloc or obj.in_scope #a=actor</span>
+                                <span class="hl kwa">if</span> obj.in_scope <span class="hl opt">#</span>a<span class="hl opt">=</span>objloc <span class="hl kwa">or</span> obj.in_scope <span class="hl opt">#</span>a<span class="hl opt">=</span><span class="hl kwb">actor</span>
                                 {
                                         obj <span class="hl kwa">is</span> known
                                         <span class="hl kwa">jump</span> FindObjectFound
                                 }
-                                <span class="hl kwa">if</span> FindObject(obj.in_scope <span class="hl ppc">#a, objloc, true)</span>
+                                <span class="hl kwa">if</span> FindObject(obj.in_scope <span class="hl opt">#</span>a, objloc, <span class="hl kwc">true</span>)
                                 {
                                         obj <span class="hl kwa">is</span> known
                                         <span class="hl kwa">jump</span> FindObjectFound
@@ -2260,11 +2260,11 @@ it_object them_object <span class="hl str">&quot;them&quot;</span>
         <span class="hl kwa">local</span> a
 
         <span class="hl kwa">if</span> act <span class="hl opt">=</span> <span class="hl num">0</span>:  act <span class="hl opt">=</span> <span class="hl kwb">player</span>
-        <span class="hl kwa">for</span> (a<span class="hl opt">=</span><span class="hl num">1</span>; a<span class="hl opt">&lt;=</span>obj.<span class="hl ppc">#in_scope; a++)</span>
+        <span class="hl kwa">for</span> (a<span class="hl opt">=</span><span class="hl num">1</span>; a<span class="hl opt">&lt;=</span>obj.<span class="hl opt">#</span>in_scope; a<span class="hl opt">++</span>)
         {
-                <span class="hl kwa">if</span> obj.in_scope <span class="hl ppc">#a = 0</span>
+                <span class="hl kwa">if</span> obj.in_scope <span class="hl opt">#</span>a <span class="hl opt">=</span> <span class="hl num">0</span>
                 {
-                        obj.in_scope <span class="hl ppc">#a = act</span>
+                        obj.in_scope <span class="hl opt">#</span>a <span class="hl opt">=</span> act
                         <span class="hl kwa">return</span> <span class="hl kwc">true</span>
                 }
         }
@@ -2274,11 +2274,11 @@ it_object them_object <span class="hl str">&quot;them&quot;</span>
 {
         <span class="hl kwa">local</span> a
 
-        <span class="hl kwa">for</span> (a<span class="hl opt">=</span><span class="hl num">1</span>; a<span class="hl opt">&lt;=</span>obj.<span class="hl ppc">#in_scope; a++)</span>
+        <span class="hl kwa">for</span> (a<span class="hl opt">=</span><span class="hl num">1</span>; a<span class="hl opt">&lt;=</span>obj.<span class="hl opt">#</span>in_scope; a<span class="hl opt">++</span>)
         {
-                <span class="hl kwa">if</span> obj.in_scope <span class="hl ppc">#a = act or act = 0</span>
+                <span class="hl kwa">if</span> obj.in_scope <span class="hl opt">#</span>a <span class="hl opt">=</span> act <span class="hl kwa">or</span> act <span class="hl opt">=</span> <span class="hl num">0</span>
                 {
-                        obj.in_scope <span class="hl ppc">#a = 0</span>
+                        obj.in_scope <span class="hl opt">#</span>a <span class="hl opt">=</span> <span class="hl num">0</span>
                         <span class="hl kwa">return</span> <span class="hl kwc">true</span>
                 }
         }
@@ -2298,7 +2298,7 @@ it_object them_object <span class="hl str">&quot;them&quot;</span>
         <span class="hl kwa">if</span> obj <span class="hl opt">=</span> <span class="hl kwb">player</span>:  <span class="hl kwa">return</span>
 
         <span class="hl slc">! No use if you can&#39;t refer to it</span>
-        <span class="hl kwa">if</span> <span class="hl kwa">not</span> obj.<span class="hl ppc">#noun and not obj.#adjective</span>
+        <span class="hl kwa">if</span> <span class="hl kwa">not</span> obj.<span class="hl opt">#</span><span class="hl kwb">noun</span> <span class="hl kwa">and</span> <span class="hl kwa">not</span> obj.<span class="hl opt">#</span><span class="hl kwb">adjective</span>
                 <span class="hl kwa">return</span>
 
         <span class="hl kwa">if</span> obj <span class="hl kwa">is</span> <span class="hl kwa">not</span> living
@@ -2408,7 +2408,7 @@ it_object them_object <span class="hl str">&quot;them&quot;</span>
 
         <span class="hl kwa">if</span> obj <span class="hl opt">=</span> <span class="hl kwb">player</span> <span class="hl kwa">and</span> player_person <span class="hl opt">=</span> <span class="hl num">1</span> <span class="hl kwa">and</span> a
         {
-                <span class="hl kwa">print</span> <span class="hl kwb">player</span>.pronoun <span class="hl ppc">#2;</span>
+                <span class="hl kwa">print</span> <span class="hl kwb">player</span>.pronoun <span class="hl opt">#</span><span class="hl num">2</span>;
                 <span class="hl kwa">return</span>
         }
 
@@ -2439,7 +2439,7 @@ it_object them_object <span class="hl str">&quot;them&quot;</span>
 
         <span class="hl kwa">if</span> obj <span class="hl opt">=</span> <span class="hl kwb">player</span> <span class="hl kwa">and</span> player_person <span class="hl opt">=</span> <span class="hl num">1</span> <span class="hl kwa">and</span> a
         {
-                <span class="hl kwa">print</span> <span class="hl kwb">player</span>.pronoun <span class="hl ppc">#2;</span>
+                <span class="hl kwa">print</span> <span class="hl kwb">player</span>.pronoun <span class="hl opt">#</span><span class="hl num">2</span>;
                 <span class="hl kwa">return</span>
         }
 
@@ -3216,9 +3216,9 @@ it_object them_object <span class="hl str">&quot;them&quot;</span>
                                 FORMAT <span class="hl opt">&amp;</span> GROUPPLURALS_F
                         {
                                 id_count <span class="hl opt">=</span> <span class="hl num">1</span>
-                                <span class="hl kwa">for</span> (i<span class="hl opt">=</span><span class="hl num">1</span>; i<span class="hl opt">&lt;=</span>this_class.<span class="hl ppc">#plural_of; i++)</span>
+                                <span class="hl kwa">for</span> (i<span class="hl opt">=</span><span class="hl num">1</span>; i<span class="hl opt">&lt;=</span>this_class.<span class="hl opt">#</span>plural_of; i<span class="hl opt">++</span>)
                                 {
-                                        j <span class="hl opt">=</span> this_class.plural_of <span class="hl ppc">#i</span>
+                                        j <span class="hl opt">=</span> this_class.plural_of <span class="hl opt">#</span>i
                                         <span class="hl kwa">if</span> j <span class="hl kwa">in</span> thisobj <span class="hl kwa">and</span> j<span class="hl opt">~=</span>obj <span class="hl kwa">and</span> j <span class="hl kwa">is</span> <span class="hl kwa">not</span> hidden
                                         {
                                                 id_count<span class="hl opt">++</span>
@@ -3305,9 +3305,9 @@ it_object them_object <span class="hl str">&quot;them&quot;</span>
                                                         <span class="hl kwa">print</span> <span class="hl str">&quot; (&quot;</span>;
 
                                                 k <span class="hl opt">=</span> <span class="hl num">0</span>
-                                                <span class="hl kwa">for</span> (i<span class="hl opt">=</span><span class="hl num">1</span>; i<span class="hl opt">&lt;=</span>this_class.<span class="hl ppc">#plural_of; i++)</span>
+                                                <span class="hl kwa">for</span> (i<span class="hl opt">=</span><span class="hl num">1</span>; i<span class="hl opt">&lt;=</span>this_class.<span class="hl opt">#</span>plural_of; i<span class="hl opt">++</span>)
                                                 {
-                                                        j <span class="hl opt">=</span> this_class.plural_of <span class="hl ppc">#i</span>
+                                                        j <span class="hl opt">=</span> this_class.plural_of <span class="hl opt">#</span>i
                                                         <span class="hl kwa">if</span> <span class="hl kwa">parent</span>(j) <span class="hl opt">=</span> thisobj
                                                         {
                                                                 <span class="hl kwa">if</span> <span class="hl kwa">not</span> (FORMAT <span class="hl opt">&amp;</span> LIST_F)
@@ -3440,14 +3440,14 @@ it_object them_object <span class="hl str">&quot;them&quot;</span>
 {
         <span class="hl kwa">local</span> a, b, n, total
 
-        <span class="hl kwa">for</span> (a<span class="hl opt">=</span><span class="hl num">1</span>; a<span class="hl opt">&lt;=</span>obj.<span class="hl ppc">#prop; a++)</span>
+        <span class="hl kwa">for</span> (a<span class="hl opt">=</span><span class="hl num">1</span>; a<span class="hl opt">&lt;=</span>obj.<span class="hl opt">#</span>prop; a<span class="hl opt">++</span>)
         {
-                <span class="hl kwa">if</span> obj.prop <span class="hl ppc">#a:  total++</span>
+                <span class="hl kwa">if</span> obj.prop <span class="hl opt">#</span>a:  total<span class="hl opt">++</span>
         }
 
-        <span class="hl kwa">for</span> (a<span class="hl opt">=</span><span class="hl num">1</span>; a<span class="hl opt">&lt;=</span>obj.<span class="hl ppc">#prop; a++)</span>
+        <span class="hl kwa">for</span> (a<span class="hl opt">=</span><span class="hl num">1</span>; a<span class="hl opt">&lt;=</span>obj.<span class="hl opt">#</span>prop; a<span class="hl opt">++</span>)
         {
-                b <span class="hl opt">=</span> obj.prop <span class="hl ppc">#a</span>
+                b <span class="hl opt">=</span> obj.prop <span class="hl opt">#</span>a
                 <span class="hl kwa">if</span> b
                 {
                         <span class="hl kwa">if</span> artic
@@ -3747,10 +3747,10 @@ it_object them_object <span class="hl str">&quot;them&quot;</span>
         }
 <span class="hl ppc">#endif</span>
 
-        <span class="hl kwa">for</span> (i<span class="hl opt">=</span><span class="hl num">1</span>; i<span class="hl opt">&lt;=</span><span class="hl kwa">parent</span>(<span class="hl kwb">player</span>).<span class="hl ppc">#reach; i++)</span>
+        <span class="hl kwa">for</span> (i<span class="hl opt">=</span><span class="hl num">1</span>; i<span class="hl opt">&lt;=</span><span class="hl kwa">parent</span>(<span class="hl kwb">player</span>).<span class="hl opt">#</span>reach; i<span class="hl opt">++</span>)
         {
-                <span class="hl kwa">if</span> Contains(<span class="hl kwa">parent</span>(<span class="hl kwb">player</span>).reach <span class="hl ppc">#i, obj) or</span>
-                        obj <span class="hl opt">=</span> <span class="hl kwa">parent</span>(<span class="hl kwb">player</span>).reach <span class="hl ppc">#i</span>
+                <span class="hl kwa">if</span> Contains(<span class="hl kwa">parent</span>(<span class="hl kwb">player</span>).reach <span class="hl opt">#</span>i, obj) <span class="hl kwa">or</span>
+                        obj <span class="hl opt">=</span> <span class="hl kwa">parent</span>(<span class="hl kwb">player</span>).reach <span class="hl opt">#</span>i
                 {
                         <span class="hl kwa">return</span> <span class="hl kwc">true</span>
                 }
@@ -4214,7 +4214,7 @@ it_object them_object <span class="hl str">&quot;them&quot;</span>
         }
         <span class="hl kwa">elseif</span> a.type <span class="hl opt">=</span> daemon
         {
-                <span class="hl kwa">if</span> set <span class="hl kwa">and</span> <span class="hl kwa">not</span> a.<span class="hl ppc">#timer</span>
+                <span class="hl kwa">if</span> set <span class="hl kwa">and</span> <span class="hl kwa">not</span> a.<span class="hl opt">#</span>timer
                 {
                         <span class="hl kwa">print</span> <span class="hl str">&quot;[WARNING:  Attempt to set nonexistent timer</span>
 <span class="hl str">                                property on daemon (object &quot;</span>; <span class="hl kwa">number</span> a; <span class="hl str">&quot;)]&quot;</span>
@@ -4722,7 +4722,7 @@ it_object them_object <span class="hl str">&quot;them&quot;</span>
                                         <span class="hl slc">! co-opted by verb routines</span>
                 <span class="hl kwa">select</span> num
                 <span class="hl kwa">case</span> <span class="hl num">1</span>:  <span class="hl kwa">print</span> CThe(<span class="hl kwb">player</span>); <span class="hl str">&quot; probably ought not to waste</span>
-<span class="hl str">                                time talking to &quot;</span>; <span class="hl kwb">player</span>.pronoun <span class="hl ppc">#4;</span> <span class="hl pps">&quot;.&quot;</span><span class="hl ppc"></span>
+<span class="hl str">                                time talking to &quot;</span>; <span class="hl kwb">player</span>.pronoun <span class="hl opt">#</span><span class="hl num">4</span>; <span class="hl str">&quot;.&quot;</span>
                 <span class="hl kwa">case</span> <span class="hl num">2</span>:  <span class="hl kwa">print</span> CThe(a); IsorAre(a, <span class="hl kwc">true</span>); <span class="hl str">&quot; listening.&quot;</span>
                 <span class="hl kwa">case</span> <span class="hl num">3</span>:  <span class="hl kwa">print</span> CThe(a); <span class="hl str">&quot; nod&quot;</span>; MatchSubject(a); \
                                 <span class="hl str">&quot; hello to &quot;</span>; The(<span class="hl kwb">player</span>, <span class="hl kwc">true</span>); <span class="hl str">&quot;.&quot;</span>

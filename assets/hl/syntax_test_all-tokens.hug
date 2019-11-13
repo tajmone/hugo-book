@@ -22,6 +22,22 @@
 &  |  ~
 !< ^  ^ opt
 
+! ------------------------------------------------------------------------------
+!                                 Special Tokens
+! ------------------------------------------------------------------------------
+! Hash (#) for properties count, and ampersand  (&) for addresses:
+#  &
+!< ^ opt
+
+if obj.#adjectives
+!      ^ opt
+!       ^^^^^^^^^^ std
+
+x = &object.property
+!   ^ opt
+!    ^^^^^^ kwb
+!           ^^^^^^^^ kwa
+
 ! ==============================================================================
 ! [std]                            Punctuation
 ! ==============================================================================
@@ -372,14 +388,26 @@ $MAXSPECIALWORDS
 ! ==============================================================================
 #if
 !<^ ppc
-#ifclear
-!<^^^^^^ ppc
-#ifdefined
-!<^^^^^^^^ ppc
-#ifset
-!<^^^^ ppc
-#ifundefined
-!<^^^^^^^^^^ ppc
+#ifclear SOME_FLAG
+!<^^^^^^ ^^^^^^^^^ ppc
+#if clear SOME_FLAG
+!<^^^^^^^ ^^^^^^^^^ ppc
+
+#ifdefined SOME_FLAG
+!<^^^^^^^^ ^^^^^^^^^ ppc
+#if defined SOME_FLAG
+!<^^^^^^^^^ ^^^^^^^^^ ppc
+
+#ifset SOME_FLAG
+!<^^^^ ^^^^^^^^^ ppc
+#if set SOME_FLAG
+!<^^^^^ ^^^^^^^^^ ppc
+
+#ifundefined SOME_FLAG
+!<^^^^^^^^^^ ^^^^^^^^^ ppc
+#if undefined SOME_FLAG
+!<^^^^^^^^^^^ ^^^^^^^^^ ppc
+
 #else
 !<^^^ ppc
 #elseif
@@ -387,19 +415,31 @@ $MAXSPECIALWORDS
 #endif
 !<^^^^ ppc
 
-#clear
-!<^^^^ ppc
-#set
-!<^^ ppc
+#clear SOME_FLAG
+!<^^^^ ^^^^^^^^^ ppc
+#set SOME_FLAG
+!<^^ ^^^^^^^^^ ppc
 
-#include
+#include "filename"
 !<^^^^^^ ppc
-#link
+!         ^^^^^^^^^ pps
+#link"filename"
 !<^^^ ppc
+!     ^^^^^^^^^ pps
 
-#message
+#message "Hello world!"
 !<^^^^^^ ppc
-#switches
-!<^^^^^^^ ppc
-#version
-!<^^^^^^ ppc
+!         ^^^^^^^^^^^^^ pps
+
+#message warning "Be careful!"
+!<^^^^^^ ^^^^^^^ ppc
+!                ^^^^^^^^^^^^^ pps
+
+#message error "Thigs went down the drain!"
+!<^^^^^^ ^^^^^ ppc
+!              ^^^^^^^^^^^^^^^^^^^^^^^^^^^ pps
+
+#switches -ls
+!<^^^^^^^ ^^^ ppc
+#version 2.5
+!<^^^^^^ ^^^ ppc
