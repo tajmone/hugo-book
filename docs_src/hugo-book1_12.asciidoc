@@ -45,7 +45,7 @@ Currently Hugo supports as resources: JPEG graphic files, RIFF/WAV audio samples
 
 For example, here is an imaginary example resourcefile compiled on a Windows platform:
 
-[source,hugo]
+[source,hugo,role="noescapes"]
 ---------------------------------
 resource "GAMERES1"
 {

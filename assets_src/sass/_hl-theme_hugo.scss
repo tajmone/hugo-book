@@ -29,4 +29,21 @@ $HL-Keywords4:      $base0E; // Limits Settings
 
 @import 'hl-adoc-template'; // Reusable template for Highlight themes.
 
+
+// =============================================
+/* Escapes in File Paths Temp Fix (Issue #33) */
+// =============================================
+// To prevent escape sequences and interpolations from showing up inside
+// file-path strings we'll use the `.noescapes` class to color them the same
+// as strings, so they don't show up. This is a temporary fix until the problem
+// is solved in the Hugo syntax for Highlight.
+
+.listingblock.noescapes pre[class="highlight"][lang=hugo] {
+  .hl {
+    &.esc, &.ipl {
+      // Escape sequences
+      color: $HL-String;
+    }
+  }
+}
 // EOF //

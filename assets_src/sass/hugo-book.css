@@ -84,4 +84,9 @@ div.literalblock.cmd pre .conum {
   color: #d27b53;
 }
 
+/* Escapes in File Paths Temp Fix (Issue #33) */
+.listingblock.noescapes pre[class=highlight][lang=hugo] .hl.esc, .listingblock.noescapes pre[class=highlight][lang=hugo] .hl.ipl {
+  color: #99cc99;
+}
+
 /*# sourceMappingURL=hugo-book.css.map */

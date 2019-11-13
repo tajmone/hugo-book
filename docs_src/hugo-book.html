@@ -524,6 +524,11 @@ div.literalblock.cmd pre .conum {
   color: #d27b53;
 }
 
+/* Escapes in File Paths Temp Fix (Issue #33) */
+.listingblock.noescapes pre[class=highlight][lang=hugo] .hl.esc, .listingblock.noescapes pre[class=highlight][lang=hugo] .hl.ipl {
+  color: #99cc99;
+}
+
 /*# sourceMappingURL=hugo-book.css.map */
 </style>
 </head>
@@ -535,7 +540,7 @@ div.literalblock.cmd pre .conum {
 <span id="email" class="email"><a href="mailto:general@generalcoffee.com">general@generalcoffee.com</a></span><br>
 <span id="revnumber">version 1,</span>
 <span id="revdate">2018-10-04</span>
-<br><span id="revremark">Draft 101 -- Porting to AsciiDoc</span>
+<br><span id="revremark">Draft 102 -- Porting to AsciiDoc</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -10013,7 +10018,7 @@ The reason for this is to maximize portability across different platforms and fi
 <div class="paragraph">
 <p>For example, here is an imaginary example resourcefile compiled on a Windows platform:</p>
 </div>
-<div class="listingblock">
+<div class="listingblock noescapes">
 <div class="content">
 <pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">resource</span> <span class="hl str">&quot;GAMERES1&quot;</span>&#x000A;{&#x000A;    <span class="hl str">&quot;c:\hugo\graphics\logo.jpg&quot;</span>&#x000A;    <span class="hl str">&quot;h:\data\scenic panorama.jpg&quot;</span>&#x000A;    <span class="hl str">&quot;h:\data</span><span class="hl esc">\b</span><span class="hl str">ackground.jpg&quot;</span>&#x000A;    <span class="hl str">&quot;c:\music</span><span class="hl esc">\i</span><span class="hl str">ntro_theme.s3m&quot;</span>&#x000A;    <span class="hl str">&quot;c:\music\theme2.xm&quot;</span>&#x000A;    <span class="hl str">&quot;c:\sounds\sample1.wav&quot;</span>&#x000A;    <span class="hl str">&quot;c:\sounds\sample2.wav&quot;</span>&#x000A;}</code></pre>
 </div>
