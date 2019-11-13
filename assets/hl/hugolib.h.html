@@ -90,40 +90,40 @@
 <span class="hl slc">! RESERVED ATTRIBUTES:</span>
 <span class="hl slc">!----------------------------------------------------------------------------</span>
 
-attribute known                         <span class="hl slc">! set once an object is known about</span>
-attribute moved                         <span class="hl slc">!  &quot;  once an object is moved</span>
-attribute visited <span class="hl kwa">alias</span> moved           <span class="hl slc">!  &quot;  once a room is visited</span>
-attribute static                        <span class="hl slc">!  &quot;  when object cannot be taken</span>
-attribute plural                        <span class="hl slc">!  &quot;  for plural objects</span>
-attribute living                        <span class="hl slc">!  &quot;  if object is a character</span>
-attribute female                        <span class="hl slc">!  &quot;  if character is female</span>
-attribute openable                      <span class="hl slc">!  &quot;  if object can be opened</span>
-attribute open                          <span class="hl slc">!  &quot;  if object is open</span>
-attribute lockable                      <span class="hl slc">!  &quot;  if object can be locked</span>
-attribute locked                        <span class="hl slc">!  &quot;  if object is locked</span>
-attribute unfriendly                    <span class="hl slc">! for characters</span>
-attribute light                         <span class="hl slc">! set if an object is/provides light</span>
-attribute readable                      <span class="hl slc">!  &quot;  if object can be read</span>
-attribute switchable                    <span class="hl slc">!  &quot;  if object can be turned on/off</span>
-attribute switchedon                    <span class="hl slc">!  &quot;  if object is on</span>
-attribute active <span class="hl kwa">alias</span> switchedon       <span class="hl slc">! generally for fuses/daemons</span>
-attribute clothing                      <span class="hl slc">! set if object can be worn</span>
-attribute worn                          <span class="hl slc">!  &quot;  if object is being worn</span>
-attribute mobile <span class="hl kwa">alias</span> worn             <span class="hl slc">!  &quot;  if object may be moved around</span>
-attribute enterable                     <span class="hl slc">!  &quot;  if object may be entered</span>
-attribute container                     <span class="hl slc">!  &quot;  if things can be placed IN obj.</span>
-attribute platform                      <span class="hl slc">!  &quot;  if things can be placed ON obj.</span>
+<span class="hl kwa">attribute</span> known                         <span class="hl slc">! set once an object is known about</span>
+<span class="hl kwa">attribute</span> moved                         <span class="hl slc">!  &quot;  once an object is moved</span>
+<span class="hl kwa">attribute</span> visited <span class="hl kwa">alias</span> moved           <span class="hl slc">!  &quot;  once a room is visited</span>
+<span class="hl kwa">attribute</span> static                        <span class="hl slc">!  &quot;  when object cannot be taken</span>
+<span class="hl kwa">attribute</span> plural                        <span class="hl slc">!  &quot;  for plural objects</span>
+<span class="hl kwa">attribute</span> living                        <span class="hl slc">!  &quot;  if object is a character</span>
+<span class="hl kwa">attribute</span> female                        <span class="hl slc">!  &quot;  if character is female</span>
+<span class="hl kwa">attribute</span> openable                      <span class="hl slc">!  &quot;  if object can be opened</span>
+<span class="hl kwa">attribute</span> open                          <span class="hl slc">!  &quot;  if object is open</span>
+<span class="hl kwa">attribute</span> lockable                      <span class="hl slc">!  &quot;  if object can be locked</span>
+<span class="hl kwa">attribute</span> locked                        <span class="hl slc">!  &quot;  if object is locked</span>
+<span class="hl kwa">attribute</span> unfriendly                    <span class="hl slc">! for characters</span>
+<span class="hl kwa">attribute</span> light                         <span class="hl slc">! set if an object is/provides light</span>
+<span class="hl kwa">attribute</span> readable                      <span class="hl slc">!  &quot;  if object can be read</span>
+<span class="hl kwa">attribute</span> switchable                    <span class="hl slc">!  &quot;  if object can be turned on/off</span>
+<span class="hl kwa">attribute</span> switchedon                    <span class="hl slc">!  &quot;  if object is on</span>
+<span class="hl kwa">attribute</span> active <span class="hl kwa">alias</span> switchedon       <span class="hl slc">! generally for fuses/daemons</span>
+<span class="hl kwa">attribute</span> clothing                      <span class="hl slc">! set if object can be worn</span>
+<span class="hl kwa">attribute</span> worn                          <span class="hl slc">!  &quot;  if object is being worn</span>
+<span class="hl kwa">attribute</span> mobile <span class="hl kwa">alias</span> worn             <span class="hl slc">!  &quot;  if object may be moved around</span>
+<span class="hl kwa">attribute</span> enterable                     <span class="hl slc">!  &quot;  if object may be entered</span>
+<span class="hl kwa">attribute</span> container                     <span class="hl slc">!  &quot;  if things can be placed IN obj.</span>
+<span class="hl kwa">attribute</span> platform                      <span class="hl slc">!  &quot;  if things can be placed ON obj.</span>
                                         <span class="hl slc">!     (&quot;container&quot; and &quot;platform&quot; are</span>
                                         <span class="hl slc">!      mutually exclusive)</span>
-attribute hidden                        <span class="hl slc">!  &quot;  if object isn&#39;t listed</span>
-attribute quiet                         <span class="hl slc">!  &quot;  if container/platform is quiet</span>
+<span class="hl kwa">attribute</span> hidden                        <span class="hl slc">!  &quot;  if object isn&#39;t listed</span>
+<span class="hl kwa">attribute</span> quiet                         <span class="hl slc">!  &quot;  if container/platform is quiet</span>
                                         <span class="hl slc">!     (contents not initially listed)</span>
-attribute transparent                   <span class="hl slc">!  &quot;  if object is not opaque</span>
+<span class="hl kwa">attribute</span> transparent                   <span class="hl slc">!  &quot;  if object is not opaque</span>
 
-attribute workflag                      <span class="hl slc">! for library use</span>
-attribute already_listed <span class="hl kwa">alias</span> workflag
+<span class="hl kwa">attribute</span> workflag                      <span class="hl slc">! for library use</span>
+<span class="hl kwa">attribute</span> already_listed <span class="hl kwa">alias</span> workflag
 
-attribute special                       <span class="hl slc">! for miscellaneous use</span>
+<span class="hl kwa">attribute</span> special                       <span class="hl slc">! for miscellaneous use</span>
 
 
 <span class="hl slc">!----------------------------------------------------------------------------</span>
@@ -394,7 +394,7 @@ attribute special                       <span class="hl slc">! for miscellaneous
 
         r <span class="hl opt">=</span> <span class="hl opt">-</span><span class="hl num">1</span>
 
-        <span class="hl kwa">while</span> <span class="hl kwa">true</span>
+        <span class="hl kwa">while</span> <span class="hl kwc">true</span>
         {
                 GetInput
                 <span class="hl kwa">select</span> <span class="hl kwa">word</span>[<span class="hl num">1</span>]
@@ -402,7 +402,7 @@ attribute special                       <span class="hl slc">! for miscellaneous
                         {
                                 <span class="hl kwa">if</span> <span class="hl kwa">restart</span>
                                 {
-                                        r <span class="hl opt">=</span> <span class="hl kwa">true</span>
+                                        r <span class="hl opt">=</span> <span class="hl kwc">true</span>
                                         PrintStatusline
                                 }
 <span class="hl ppc">#ifclear NO_XVERBS</span>
@@ -418,7 +418,7 @@ attribute special                       <span class="hl slc">! for miscellaneous
 <span class="hl ppc">#else</span>
                                 <span class="hl kwa">if</span> <span class="hl kwa">restore</span>
                                 {
-                                        r <span class="hl opt">=</span> <span class="hl kwa">true</span>
+                                        r <span class="hl opt">=</span> <span class="hl kwc">true</span>
                                         PrintStatusline
                                         DescribePlace(<span class="hl kwb">location</span>)
                                 }
@@ -432,7 +432,7 @@ attribute special                       <span class="hl slc">! for miscellaneous
                                 {
                                         <span class="hl kwa">if</span> <span class="hl kwa">undo</span>
                                         {
-                                                r <span class="hl opt">=</span> <span class="hl kwa">true</span>
+                                                r <span class="hl opt">=</span> <span class="hl kwc">true</span>
                                                 PrintStatusLine
                                                 DescribePlace(<span class="hl kwb">location</span>)
                                         }
@@ -483,7 +483,7 @@ attribute special                       <span class="hl slc">! for miscellaneous
                 }
 
         Font(BOLD_OFF)
-        PrintScore(<span class="hl kwa">true</span>)
+        PrintScore(<span class="hl kwc">true</span>)
 }
 
 <span class="hl slc">!----------------------------------------------------------------------------</span>
@@ -551,7 +551,7 @@ attribute special                       <span class="hl slc">! for miscellaneous
                 <span class="hl kwa">if</span> FindObject(obj, <span class="hl kwb">location</span>)
                         <span class="hl kwa">return</span> <span class="hl kwa">parent</span>(obj)
                 <span class="hl kwa">else</span>
-                        <span class="hl kwa">return</span> <span class="hl kwa">false</span>
+                        <span class="hl kwa">return</span> <span class="hl kwc">false</span>
         }
 }
 
@@ -628,7 +628,7 @@ it_object them_object <span class="hl str">&quot;them&quot;</span>
                 <span class="hl kwb">xobject</span> <span class="hl opt">=</span> temp_xobj
                 parser_data[PARSER_STATUS] <span class="hl opt">=</span> <span class="hl num">0</span>
                 parser_data[LAST_PARSER_STATUS] <span class="hl opt">=</span> <span class="hl num">0</span>
-                <span class="hl kwa">return</span> <span class="hl kwa">false</span>
+                <span class="hl kwa">return</span> <span class="hl kwc">false</span>
         }
         <span class="hl kwb">verbroutine</span> <span class="hl opt">=</span> temp_verb
         <span class="hl kwb">object</span> <span class="hl opt">=</span> temp_obj
@@ -645,12 +645,12 @@ it_object them_object <span class="hl str">&quot;them&quot;</span>
                         Message(<span class="hl opt">&amp;</span>Parse, <span class="hl num">1</span>)
                         <span class="hl kwa">word</span>[<span class="hl num">1</span>] <span class="hl opt">=</span> <span class="hl str">&quot;&quot;</span>            <span class="hl slc">! force ParseError(0)</span>
                         <span class="hl kwb">words</span> <span class="hl opt">=</span> <span class="hl num">0</span>
-                        customerror_flag <span class="hl opt">=</span> <span class="hl kwa">true</span>
-                        <span class="hl kwa">return</span> <span class="hl kwa">true</span>
+                        customerror_flag <span class="hl opt">=</span> <span class="hl kwc">true</span>
+                        <span class="hl kwa">return</span> <span class="hl kwc">true</span>
                 }
         }
 
-        <span class="hl kwa">if</span> PreParse:  reparse <span class="hl opt">=</span> <span class="hl kwa">true</span>            <span class="hl slc">! easily replaceable routine</span>
+        <span class="hl kwa">if</span> PreParse:  reparse <span class="hl opt">=</span> <span class="hl kwc">true</span>            <span class="hl slc">! easily replaceable routine</span>
 
         <span class="hl slc">! Last player-specified object</span>
         <span class="hl kwa">if</span> <span class="hl kwb">object</span> <span class="hl opt">&gt;</span> <span class="hl num">0</span> <span class="hl kwa">and</span> <span class="hl kwb">object</span> <span class="hl opt">&lt;</span> <span class="hl kwb">objects</span> <span class="hl kwa">and</span> last_object <span class="hl opt">~=</span> <span class="hl opt">-</span><span class="hl num">1</span>
@@ -674,7 +674,7 @@ it_object them_object <span class="hl str">&quot;them&quot;</span>
                 <span class="hl kwa">for</span> (a<span class="hl opt">=</span><span class="hl num">1</span>; a<span class="hl opt">&lt;=</span>oldword[<span class="hl num">0</span>]; a<span class="hl opt">++</span>)
                         <span class="hl kwa">word</span>[a] <span class="hl opt">=</span> oldword[a]
                 <span class="hl kwb">words</span> <span class="hl opt">=</span> oldword[<span class="hl num">0</span>]
-                reparse <span class="hl opt">=</span> <span class="hl kwa">true</span>
+                reparse <span class="hl opt">=</span> <span class="hl kwc">true</span>
                 <span class="hl kwa">jump</span> LeaveParse
         }
 
@@ -702,7 +702,7 @@ it_object them_object <span class="hl str">&quot;them&quot;</span>
                                         <span class="hl slc">! &quot;...be a little more specific&quot;</span>
                                         ParseError(<span class="hl num">13</span>)
                                         <span class="hl kwb">words</span> <span class="hl opt">=</span> <span class="hl num">0</span>
-                                        customerror_flag <span class="hl opt">=</span> <span class="hl kwa">true</span>
+                                        customerror_flag <span class="hl opt">=</span> <span class="hl kwc">true</span>
                                         <span class="hl kwa">return</span>
                                 }
                                 <span class="hl slc">! Avoid, e.g., &quot;put it it something&quot;</span>
@@ -720,7 +720,7 @@ it_object them_object <span class="hl str">&quot;them&quot;</span>
                                                 <span class="hl kwa">if</span> n <span class="hl opt">&gt;</span> <span class="hl num">1</span>
                                                         count <span class="hl opt">=</span> count <span class="hl opt">+</span> (n <span class="hl opt">-</span> <span class="hl num">1</span>)
                                                 parser_data[PARSER_STATUS] <span class="hl opt">|=</span> PRONOUNS_SET
-                                                reparse <span class="hl opt">=</span> <span class="hl kwa">true</span>
+                                                reparse <span class="hl opt">=</span> <span class="hl kwc">true</span>
                                         }
                                 }
                         }
@@ -733,7 +733,7 @@ it_object them_object <span class="hl str">&quot;them&quot;</span>
                                 <span class="hl kwa">word</span>[count] <span class="hl opt">=</span> <span class="hl str">&quot;.&quot;</span>
                                 <span class="hl kwa">if</span> <span class="hl kwa">word</span>[count<span class="hl opt">-</span><span class="hl num">1</span>] <span class="hl opt">=</span> <span class="hl str">&quot;~and&quot;</span>
                                         DeleteWord(count<span class="hl opt">-</span><span class="hl num">1</span>)
-                                reparse <span class="hl opt">=</span> <span class="hl kwa">true</span>
+                                reparse <span class="hl opt">=</span> <span class="hl kwc">true</span>
                                 <span class="hl kwa">break</span>
                         }
         }
@@ -760,14 +760,14 @@ it_object them_object <span class="hl str">&quot;them&quot;</span>
                                 <span class="hl slc">!DeleteWord(a)   ! &quot;to&quot;</span>
                                 <span class="hl kwa">word</span>[a] <span class="hl opt">=</span> <span class="hl str">&quot;~and&quot;</span>
                                 DeleteWord(<span class="hl num">1</span>)   <span class="hl slc">! &quot;tell&quot;, &quot;order&quot;, etc.</span>
-                                reparse <span class="hl opt">=</span> <span class="hl kwa">true</span>
+                                reparse <span class="hl opt">=</span> <span class="hl kwc">true</span>
                                 <span class="hl kwa">break</span>
                         }
                 }
         }
 
 <span class="hl ppc">#ifset USE_PLURAL_OBJECTS</span>
-        <span class="hl kwa">if</span> ParsePluralObjects:  reparse <span class="hl opt">=</span> <span class="hl kwa">true</span>
+        <span class="hl kwa">if</span> ParsePluralObjects:  reparse <span class="hl opt">=</span> <span class="hl kwc">true</span>
 <span class="hl ppc">#endif</span>
 
 <span class="hl ppc">#ifset USE_CHECKHELD</span>
@@ -809,7 +809,7 @@ it_object them_object <span class="hl str">&quot;them&quot;</span>
 
 <span class="hl kwa">routine</span> ResetParse
 {
-        customerror_flag <span class="hl opt">=</span> <span class="hl kwa">false</span>
+        customerror_flag <span class="hl opt">=</span> <span class="hl kwc">false</span>
         parser_data[BEST_PARSE_RANK] <span class="hl opt">=</span> <span class="hl num">0</span>  <span class="hl slc">! reset each parser cycle</span>
         parser_data[PARSE_RANK_TESTS] <span class="hl opt">=</span> <span class="hl num">0</span>
         parser_data[VERB_IS_XVERB] <span class="hl opt">=</span> <span class="hl num">0</span>
@@ -919,7 +919,7 @@ it_object them_object <span class="hl str">&quot;them&quot;</span>
         <span class="hl kwa">if</span> InList(obj, <span class="hl kwb">adjective</span>, wd)
                 <span class="hl kwa">return</span> <span class="hl kwb">adjective</span>
 
-        <span class="hl kwa">return</span> <span class="hl kwa">false</span>                    <span class="hl slc">! didn&#39;t match either</span>
+        <span class="hl kwa">return</span> <span class="hl kwc">false</span>                    <span class="hl slc">! didn&#39;t match either</span>
 }
 
 <span class="hl kwa">routine</span> PrintReplacedPronouns(number_pronouns)
@@ -974,15 +974,15 @@ it_object them_object <span class="hl str">&quot;them&quot;</span>
                 CustomError(errornumber, obj)
                 <span class="hl kwa">word</span>[<span class="hl num">1</span>] <span class="hl opt">=</span> <span class="hl str">&quot;&quot;</span>            <span class="hl slc">! force ParseError(0)</span>
                 <span class="hl kwb">words</span> <span class="hl opt">=</span> <span class="hl num">0</span>
-                customerror_flag <span class="hl opt">=</span> <span class="hl kwa">true</span>
+                customerror_flag <span class="hl opt">=</span> <span class="hl kwc">true</span>
                 parser_data[PARSER_STATUS] <span class="hl opt">=</span> PARSER_RESET
-                <span class="hl kwa">return</span> <span class="hl kwa">true</span>
+                <span class="hl kwa">return</span> <span class="hl kwc">true</span>
         }
         <span class="hl kwa">if</span> customerror_flag
         {
                 customerror_flag <span class="hl opt">=</span> <span class="hl num">0</span>    <span class="hl slc">! CustomError already printed error</span>
                 parser_data[PARSER_STATUS] <span class="hl opt">=</span> PARSER_RESET
-                <span class="hl kwa">return</span> <span class="hl kwa">true</span>
+                <span class="hl kwa">return</span> <span class="hl kwc">true</span>
         }
 
 <span class="hl ppc">#ifset DEBUG</span>
@@ -1184,20 +1184,20 @@ it_object them_object <span class="hl str">&quot;them&quot;</span>
                 <span class="hl kwa">case</span> <span class="hl kwa">else</span>
                 {
                         parser_data[PARSER_STATUS] <span class="hl opt">=</span> PARSER_RESET
-                        <span class="hl kwa">return</span> <span class="hl kwa">false</span>            <span class="hl slc">! print the default message</span>
+                        <span class="hl kwa">return</span> <span class="hl kwc">false</span>            <span class="hl slc">! print the default message</span>
                 }
 
         parser_data[PARSER_STATUS] <span class="hl opt">=</span> PARSER_RESET
-        <span class="hl kwa">return</span> <span class="hl kwa">true</span>                             <span class="hl slc">! message already printed</span>
+        <span class="hl kwa">return</span> <span class="hl kwc">true</span>                             <span class="hl slc">! message already printed</span>
 }
 
 <span class="hl kwa">routine</span> ParseError_ObjectIsKnown(obj)
 {
         <span class="hl kwa">if</span> ObjectIsKnown(obj)
-                <span class="hl kwa">return</span> <span class="hl kwa">true</span>
+                <span class="hl kwa">return</span> <span class="hl kwc">true</span>
         <span class="hl kwa">if</span> parser_data[PARSER_STATUS] <span class="hl opt">&amp;</span> FINDOBJECT_KNOWN  <span class="hl slc">! and not xobject</span>
-                <span class="hl kwa">return</span> <span class="hl kwa">true</span>
-        <span class="hl kwa">return</span> <span class="hl kwa">false</span>
+                <span class="hl kwa">return</span> <span class="hl kwc">true</span>
+        <span class="hl kwa">return</span> <span class="hl kwc">false</span>
 }
 
 <span class="hl kwa">routine</span> TheOrThat(obj)
@@ -1302,7 +1302,7 @@ it_object them_object <span class="hl str">&quot;them&quot;</span>
         <span class="hl kwa">if</span> <span class="hl kwa">not</span> FindObject(char, <span class="hl kwb">location</span>)
         {
                 <span class="hl kwa">run</span> char.order_response
-                <span class="hl kwa">return</span> <span class="hl kwa">true</span>
+                <span class="hl kwa">return</span> <span class="hl kwc">true</span>
         }
 
         <span class="hl kwa">select</span> <span class="hl kwb">verbroutine</span>
@@ -1359,15 +1359,15 @@ it_object them_object <span class="hl str">&quot;them&quot;</span>
 
                         <span class="hl kwa">if</span> <span class="hl kwa">not</span> char.order_response
                                 <span class="hl kwa">jump</span> IgnorePlayer
-                        <span class="hl kwa">return</span> <span class="hl kwa">true</span>
+                        <span class="hl kwa">return</span> <span class="hl kwc">true</span>
                 }
-        <span class="hl kwa">return</span> <span class="hl kwa">false</span>
+        <span class="hl kwa">return</span> <span class="hl kwc">false</span>
 
 :IgnorePlayer
 
         <span class="hl kwa">if</span> <span class="hl kwa">not</span> char.ignore_response
                 Message(<span class="hl opt">&amp;</span>Speakto, <span class="hl num">4</span>, char)      <span class="hl slc">! &quot;X ignores you.&quot;</span>
-        <span class="hl kwa">return</span> <span class="hl kwa">false</span>
+        <span class="hl kwa">return</span> <span class="hl kwc">false</span>
 }
 
 <span class="hl slc">!----------------------------------------------------------------------------</span>
@@ -1390,7 +1390,7 @@ it_object them_object <span class="hl str">&quot;them&quot;</span>
         <span class="hl kwa">local</span> objtemp, xobjtemp, verbtemp, actortemp
 <span class="hl ppc">#ifclear NO_XVERBS</span>
         <span class="hl kwa">local</span> restoring
-        <span class="hl kwa">if</span> <span class="hl kwb">verbroutine</span> <span class="hl opt">=</span> <span class="hl opt">&amp;</span>DoRestore:  restoring <span class="hl opt">=</span> <span class="hl kwa">true</span>
+        <span class="hl kwa">if</span> <span class="hl kwb">verbroutine</span> <span class="hl opt">=</span> <span class="hl opt">&amp;</span>DoRestore:  restoring <span class="hl opt">=</span> <span class="hl kwc">true</span>
 <span class="hl ppc">#endif</span>
 
 <span class="hl ppc">#ifset DEBUG</span>
@@ -1770,12 +1770,12 @@ it_object them_object <span class="hl str">&quot;them&quot;</span>
 {
 <span class="hl ppc">#ifclear NO_XVERBS</span>
         <span class="hl kwa">if</span> parser_data[VERB_IS_XVERB]
-                <span class="hl kwa">return</span> <span class="hl kwa">false</span>
+                <span class="hl kwa">return</span> <span class="hl kwc">false</span>
 <span class="hl ppc">#endif</span>
         <span class="hl kwa">if</span> obj
                 <span class="hl kwa">return</span> obj
         <span class="hl kwa">else</span>
-                <span class="hl kwa">return</span> <span class="hl kwa">true</span>
+                <span class="hl kwa">return</span> <span class="hl kwc">true</span>
 }
 
 
@@ -1831,7 +1831,7 @@ it_object them_object <span class="hl str">&quot;them&quot;</span>
                 }
         }
         <span class="hl kwa">if</span> ObjWord(<span class="hl kwa">word</span>[i], obj)
-                <span class="hl kwa">return</span> <span class="hl kwa">true</span>
+                <span class="hl kwa">return</span> <span class="hl kwc">true</span>
 }
 
 <span class="hl slc">!----------------------------------------------------------------------------</span>
@@ -1843,7 +1843,7 @@ it_object them_object <span class="hl str">&quot;them&quot;</span>
 {
         <span class="hl kwa">local</span> a, p
         <span class="hl kwa">local</span> this_parse_rank
-        <span class="hl kwa">local</span> found_result <span class="hl opt">=</span> <span class="hl kwa">true</span>
+        <span class="hl kwa">local</span> found_result <span class="hl opt">=</span> <span class="hl kwc">true</span>
 
         <span class="hl kwa">if</span> obj <span class="hl opt">=</span> nothing <span class="hl kwa">or</span> obj <span class="hl opt">=</span> <span class="hl kwb">player</span>
         {
@@ -1873,7 +1873,7 @@ it_object them_object <span class="hl str">&quot;them&quot;</span>
 
                 <span class="hl slc">! nothing and player are always available</span>
                 obj <span class="hl kwa">is</span> known
-                <span class="hl kwa">return</span> <span class="hl kwa">true</span>
+                <span class="hl kwa">return</span> <span class="hl kwc">true</span>
         }
 
 <span class="hl ppc">#ifclear NO_FUSES</span>
@@ -1883,9 +1883,9 @@ it_object them_object <span class="hl str">&quot;them&quot;</span>
                 <span class="hl kwa">if</span> obj.<span class="hl ppc">#in_scope = 1 and not &amp;obj.in_scope and not obj.#found_in and not &amp;obj.found_in</span>
                 {
                         <span class="hl kwa">if</span> obj <span class="hl kwa">is</span> active <span class="hl kwa">and</span> obj.in_scope <span class="hl opt">=</span> <span class="hl kwb">player</span>
-                                <span class="hl kwa">return</span> <span class="hl kwa">true</span>
+                                <span class="hl kwa">return</span> <span class="hl kwc">true</span>
                         <span class="hl kwa">else</span>
-                                <span class="hl kwa">return</span> <span class="hl kwa">false</span>
+                                <span class="hl kwa">return</span> <span class="hl kwc">false</span>
                 }
         }
 <span class="hl ppc">#endif</span>
@@ -1952,7 +1952,7 @@ it_object them_object <span class="hl str">&quot;them&quot;</span>
                                                         <span class="hl str">&quot;false (not checkheld_flag)]&quot;</span>
                                         }
 <span class="hl ppc">#endif</span>
-                                        <span class="hl kwa">return</span> <span class="hl kwa">false</span>
+                                        <span class="hl kwa">return</span> <span class="hl kwc">false</span>
                                 }
                         }
                 }
@@ -1987,13 +1987,13 @@ it_object them_object <span class="hl str">&quot;them&quot;</span>
                                                 <span class="hl str">&quot;false (object in player)]&quot;</span>
                                 }
 <span class="hl ppc">#endif</span>
-                                <span class="hl kwa">return</span> <span class="hl kwa">false</span>
+                                <span class="hl kwa">return</span> <span class="hl kwc">false</span>
                         }
                 }
 <span class="hl ppc">#endif</span>
                 <span class="hl kwa">if</span> <span class="hl kwb">location</span>
                 {
-                        <span class="hl kwa">if</span> FindObject(obj, <span class="hl kwb">location</span>, <span class="hl kwa">true</span>)
+                        <span class="hl kwa">if</span> FindObject(obj, <span class="hl kwb">location</span>, <span class="hl kwc">true</span>)
                                 <span class="hl kwb">object</span> <span class="hl kwa">is</span> known
                 }
 
@@ -2007,7 +2007,7 @@ it_object them_object <span class="hl str">&quot;them&quot;</span>
                                         <span class="hl str">&quot;false (object not &#39;known&#39;)]&quot;</span>
                         }
 <span class="hl ppc">#endif</span>
-                        <span class="hl kwa">return</span> <span class="hl kwa">false</span>
+                        <span class="hl kwa">return</span> <span class="hl kwc">false</span>
                 }
 
                 <span class="hl kwa">if</span> <span class="hl kwa">not</span> recurse
@@ -2027,7 +2027,7 @@ it_object them_object <span class="hl str">&quot;them&quot;</span>
                                 }
 <span class="hl ppc">#endif</span>
                                 parser_data[BEST_PARSE_RANK] <span class="hl opt">=</span> this_parse_rank
-                                <span class="hl kwa">return</span> <span class="hl kwa">true</span>
+                                <span class="hl kwa">return</span> <span class="hl kwc">true</span>
                         }
 
                         <span class="hl kwa">if</span> this_parse_rank <span class="hl opt">&lt;</span> parser_data[BEST_PARSE_RANK]
@@ -2041,7 +2041,7 @@ it_object them_object <span class="hl str">&quot;them&quot;</span>
                                                 <span class="hl str">&quot; &lt; parser_data[BEST_PARSE_RANK] = &quot;</span>; <span class="hl kwa">number</span> parser_data[BEST_PARSE_RANK]; <span class="hl str">&quot;)]&quot;</span>
                                 }
 <span class="hl ppc">#endif</span>
-                                <span class="hl kwa">return</span> <span class="hl kwa">false</span>
+                                <span class="hl kwa">return</span> <span class="hl kwc">false</span>
                         }
                         <span class="hl kwa">else</span>
                         {
@@ -2063,7 +2063,7 @@ it_object them_object <span class="hl str">&quot;them&quot;</span>
                                 <span class="hl str">&quot;true]&quot;</span>
                 }
 <span class="hl ppc">#endif</span>
-                <span class="hl kwa">return</span> <span class="hl kwa">true</span>
+                <span class="hl kwa">return</span> <span class="hl kwc">true</span>
         }
 
         <span class="hl kwa">if</span> <span class="hl kwa">word</span>[<span class="hl num">2</span>] <span class="hl opt">=</span> <span class="hl str">&quot;~all&quot;</span> <span class="hl kwa">or</span> <span class="hl kwa">word</span>[<span class="hl num">3</span>] <span class="hl opt">=</span> <span class="hl str">&quot;~all&quot;</span> <span class="hl kwa">and</span> <span class="hl kwa">not</span> recurse
@@ -2073,7 +2073,7 @@ it_object them_object <span class="hl str">&quot;them&quot;</span>
                         a <span class="hl opt">=</span> obj.exclude_from_all
                         <span class="hl kwa">if</span> a <span class="hl opt">&lt;</span> <span class="hl num">2</span>
                         {
-                                <span class="hl kwa">if</span> a <span class="hl kwa">or</span> ExcludeFromAll(obj) <span class="hl opt">=</span> <span class="hl kwa">true</span>
+                                <span class="hl kwa">if</span> a <span class="hl kwa">or</span> ExcludeFromAll(obj) <span class="hl opt">=</span> <span class="hl kwc">true</span>
                                 {
 <span class="hl ppc">#ifset DEBUG</span>
                                         <span class="hl kwa">if</span> debug_flags <span class="hl opt">&amp;</span> D_FINDOBJECT <span class="hl kwa">and</span> <span class="hl kwa">not</span> recurse
@@ -2083,7 +2083,7 @@ it_object them_object <span class="hl str">&quot;them&quot;</span>
                                                         <span class="hl str">&quot;false (excluded from</span> <span class="hl esc">\&quot;</span><span class="hl str">all</span><span class="hl esc">\&quot;</span><span class="hl str">)]&quot;</span>
                                         }
 <span class="hl ppc">#endif</span>
-                                        <span class="hl kwa">return</span> <span class="hl kwa">false</span>
+                                        <span class="hl kwa">return</span> <span class="hl kwc">false</span>
                                 }
                         }
                 }
@@ -2112,7 +2112,7 @@ it_object them_object <span class="hl str">&quot;them&quot;</span>
         <span class="hl kwa">elseif</span> (p <span class="hl kwa">is</span> <span class="hl kwa">not</span> openable <span class="hl kwa">or</span> p <span class="hl kwa">is</span> platform) <span class="hl kwa">and</span> p <span class="hl kwa">is</span> <span class="hl kwa">not</span> quiet <span class="hl kwa">and</span>
                 p <span class="hl opt">~=</span> nothing
         {
-                <span class="hl kwa">if</span> FindObject(p, objloc, <span class="hl kwa">true</span>) <span class="hl kwa">and</span> ObjectisKnown(p)
+                <span class="hl kwa">if</span> FindObject(p, objloc, <span class="hl kwc">true</span>) <span class="hl kwa">and</span> ObjectisKnown(p)
                 {
                         obj <span class="hl kwa">is</span> known
                         <span class="hl kwa">jump</span> FindObjectFound
@@ -2121,7 +2121,7 @@ it_object them_object <span class="hl str">&quot;them&quot;</span>
         <span class="hl kwa">elseif</span> p <span class="hl kwa">is</span> openable <span class="hl kwa">and</span> p <span class="hl kwa">is</span> open <span class="hl kwa">and</span> p <span class="hl kwa">is</span> <span class="hl kwa">not</span> quiet <span class="hl kwa">and</span>
                 p <span class="hl opt">~=</span> nothing
         {
-                <span class="hl kwa">if</span> FindObject(p, objloc, <span class="hl kwa">true</span>) <span class="hl kwa">and</span> ObjectisKnown(p)
+                <span class="hl kwa">if</span> FindObject(p, objloc, <span class="hl kwc">true</span>) <span class="hl kwa">and</span> ObjectisKnown(p)
                 {
                         obj <span class="hl kwa">is</span> known
                         <span class="hl kwa">jump</span> FindObjectFound
@@ -2130,7 +2130,7 @@ it_object them_object <span class="hl str">&quot;them&quot;</span>
         <span class="hl kwa">elseif</span> (p <span class="hl kwa">is</span> openable, <span class="hl kwa">not</span> open, transparent, <span class="hl kwa">not</span> quiet) <span class="hl kwa">and</span>
                 p <span class="hl opt">~=</span> nothing
         {
-                <span class="hl kwa">if</span> FindObject(p, objloc, <span class="hl kwa">true</span>) <span class="hl kwa">and</span> ObjectisKnown(p)
+                <span class="hl kwa">if</span> FindObject(p, objloc, <span class="hl kwc">true</span>) <span class="hl kwa">and</span> ObjectisKnown(p)
                 {
                         obj <span class="hl kwa">is</span> known
                         found_result <span class="hl opt">=</span> <span class="hl num">2</span>
@@ -2182,7 +2182,7 @@ it_object them_object <span class="hl str">&quot;them&quot;</span>
                 }
         }
 <span class="hl ppc">#endif</span>
-        <span class="hl kwa">return</span> <span class="hl kwa">false</span>
+        <span class="hl kwa">return</span> <span class="hl kwc">false</span>
 
 :FindObjectFound
         <span class="hl kwa">if</span> <span class="hl kwa">not</span> recurse
@@ -2228,8 +2228,8 @@ it_object them_object <span class="hl str">&quot;them&quot;</span>
 <span class="hl kwa">routine</span> ObjectIsKnown(obj)
 {
         <span class="hl kwa">if</span> obj <span class="hl kwa">is</span> known
-                <span class="hl kwa">return</span> <span class="hl kwa">true</span>
-        <span class="hl kwa">return</span> <span class="hl kwa">false</span>
+                <span class="hl kwa">return</span> <span class="hl kwc">true</span>
+        <span class="hl kwa">return</span> <span class="hl kwc">false</span>
 }
 
 <span class="hl slc">!----------------------------------------------------------------------------</span>
@@ -2241,8 +2241,8 @@ it_object them_object <span class="hl str">&quot;them&quot;</span>
 <span class="hl kwa">routine</span> ExcludeFromAll(obj)
 {
         <span class="hl kwa">if</span> obj <span class="hl kwa">is</span> hidden
-                <span class="hl kwa">return</span> <span class="hl kwa">true</span>
-        <span class="hl kwa">return</span> <span class="hl kwa">false</span>
+                <span class="hl kwa">return</span> <span class="hl kwc">true</span>
+        <span class="hl kwa">return</span> <span class="hl kwc">false</span>
 }
 
 <span class="hl slc">!----------------------------------------------------------------------------</span>
@@ -2265,7 +2265,7 @@ it_object them_object <span class="hl str">&quot;them&quot;</span>
                 <span class="hl kwa">if</span> obj.in_scope <span class="hl ppc">#a = 0</span>
                 {
                         obj.in_scope <span class="hl ppc">#a = act</span>
-                        <span class="hl kwa">return</span> <span class="hl kwa">true</span>
+                        <span class="hl kwa">return</span> <span class="hl kwc">true</span>
                 }
         }
 }
@@ -2279,7 +2279,7 @@ it_object them_object <span class="hl str">&quot;them&quot;</span>
                 <span class="hl kwa">if</span> obj.in_scope <span class="hl ppc">#a = act or act = 0</span>
                 {
                         obj.in_scope <span class="hl ppc">#a = 0</span>
-                        <span class="hl kwa">return</span> <span class="hl kwa">true</span>
+                        <span class="hl kwa">return</span> <span class="hl kwc">true</span>
                 }
         }
 }
@@ -2480,7 +2480,7 @@ it_object them_object <span class="hl str">&quot;them&quot;</span>
                 }
                 <span class="hl kwa">else</span>
                 {
-                        <span class="hl kwa">if</span> player_person <span class="hl opt">=</span> <span class="hl num">3</span>:  a <span class="hl opt">=</span> <span class="hl kwa">true</span>
+                        <span class="hl kwa">if</span> player_person <span class="hl opt">=</span> <span class="hl num">3</span>:  a <span class="hl opt">=</span> <span class="hl kwc">true</span>
                         <span class="hl kwa">if</span> a:  <span class="hl kwa">print</span> <span class="hl str">&quot; are&quot;</span>;
                         <span class="hl kwa">else</span>:  <span class="hl kwa">print</span> <span class="hl str">&quot;&#39;re&quot;</span>;
                 }
@@ -2564,7 +2564,7 @@ it_object them_object <span class="hl str">&quot;them&quot;</span>
 
                         <span class="hl kwa">if</span> place <span class="hl opt">&gt;=</span> <span class="hl num">100</span>
                         {
-                                <span class="hl kwa">if</span> cap:  NumberWord(n<span class="hl opt">/</span>place, <span class="hl kwa">true</span>)
+                                <span class="hl kwa">if</span> cap:  NumberWord(n<span class="hl opt">/</span>place, <span class="hl kwc">true</span>)
                                 <span class="hl kwa">else</span>:  NumberWord(n<span class="hl opt">/</span>place)
                                 <span class="hl kwa">print</span> <span class="hl str">&quot; &quot;</span>; DigitWord(place);
                                 n <span class="hl opt">=</span> n<span class="hl opt">-</span>n<span class="hl opt">/</span>place<span class="hl opt">*</span>place
@@ -2574,7 +2574,7 @@ it_object them_object <span class="hl str">&quot;them&quot;</span>
                                 <span class="hl kwa">if</span> cap:  <span class="hl kwa">print</span> <span class="hl kwa">capital</span> DigitWord(n<span class="hl opt">/</span><span class="hl num">10</span><span class="hl opt">*</span><span class="hl num">10</span>);
                                 <span class="hl kwa">else</span>:  <span class="hl kwa">print</span> DigitWord(n<span class="hl opt">/</span><span class="hl num">10</span><span class="hl opt">*</span><span class="hl num">10</span>);
                                 n <span class="hl opt">=</span> n<span class="hl opt">-</span>n<span class="hl opt">/</span>place<span class="hl opt">*</span>place
-                                printed_tens <span class="hl opt">=</span> <span class="hl kwa">true</span>
+                                printed_tens <span class="hl opt">=</span> <span class="hl kwc">true</span>
                         }
                         <span class="hl kwa">else</span>
                         {
@@ -2583,7 +2583,7 @@ it_object them_object <span class="hl str">&quot;them&quot;</span>
                                 n <span class="hl opt">=</span> <span class="hl num">0</span>
                         }
                         cap <span class="hl opt">=</span> <span class="hl num">0</span>
-                        remaining <span class="hl opt">=</span> <span class="hl kwa">true</span>
+                        remaining <span class="hl opt">=</span> <span class="hl kwc">true</span>
                 }
                 place <span class="hl opt">=</span> place<span class="hl opt">/</span><span class="hl num">10</span>
         }
@@ -2680,7 +2680,7 @@ it_object them_object <span class="hl str">&quot;them&quot;</span>
                 <span class="hl kwa">for</span> (i<span class="hl opt">=</span><span class="hl num">2</span>; i<span class="hl opt">&lt;=</span>INDENT_SIZE; i<span class="hl opt">++</span>)
                         <span class="hl kwa">print</span> <span class="hl str">&quot; &quot;</span>;
         }
-        override_indent <span class="hl opt">=</span> <span class="hl kwa">false</span>
+        override_indent <span class="hl opt">=</span> <span class="hl kwc">false</span>
 }
 
 <span class="hl slc">!----------------------------------------------------------------------------</span>
@@ -2706,7 +2706,7 @@ it_object them_object <span class="hl str">&quot;them&quot;</span>
         {
                 <span class="hl kwa">if</span> place <span class="hl kwa">is</span> <span class="hl kwa">not</span> visited <span class="hl kwa">and</span> verbosity <span class="hl opt">~=</span> <span class="hl num">1</span>
                         <span class="hl kwa">return</span> Perform(<span class="hl opt">&amp;</span>DoLookAround)
-                <span class="hl kwa">elseif</span> long <span class="hl opt">=</span> <span class="hl kwa">true</span> <span class="hl kwa">or</span> verbosity <span class="hl opt">=</span> <span class="hl num">2</span>
+                <span class="hl kwa">elseif</span> long <span class="hl opt">=</span> <span class="hl kwc">true</span> <span class="hl kwa">or</span> verbosity <span class="hl opt">=</span> <span class="hl num">2</span>
                         <span class="hl kwa">return</span> Perform(<span class="hl opt">&amp;</span>DoLookAround)
         }
 <span class="hl ppc">#endif</span>
@@ -2737,7 +2737,7 @@ it_object them_object <span class="hl str">&quot;them&quot;</span>
         <span class="hl kwa">print</span> <span class="hl kwa">newline</span>
 
         Font(BOLD_OFF)
-        override_indent <span class="hl opt">=</span> <span class="hl kwa">false</span>
+        override_indent <span class="hl opt">=</span> <span class="hl kwc">false</span>
 
         <span class="hl kwa">if</span> place <span class="hl kwa">is</span> <span class="hl kwa">not</span> visited <span class="hl kwa">and</span> verbosity <span class="hl opt">~=</span> <span class="hl num">1</span>
         {
@@ -2746,7 +2746,7 @@ it_object them_object <span class="hl str">&quot;them&quot;</span>
                 <span class="hl kwa">if</span> <span class="hl kwa">not</span> place.initial_desc
                         <span class="hl kwa">run</span> place.long_desc
         }
-        <span class="hl kwa">elseif</span> long <span class="hl opt">=</span> <span class="hl kwa">true</span> <span class="hl kwa">or</span> verbosity <span class="hl opt">=</span> <span class="hl num">2</span>
+        <span class="hl kwa">elseif</span> long <span class="hl opt">=</span> <span class="hl kwc">true</span> <span class="hl kwa">or</span> verbosity <span class="hl opt">=</span> <span class="hl num">2</span>
         {
                 <span class="hl kwa">if</span> <span class="hl opt">&amp;</span>place.long_desc
                         Indent
@@ -2899,7 +2899,7 @@ it_object them_object <span class="hl str">&quot;them&quot;</span>
 <span class="hl ppc">#endif</span>
 
                 <span class="hl kwa">print</span> <span class="hl kwa">newline</span>
-                override_indent <span class="hl opt">=</span> <span class="hl kwa">false</span>
+                override_indent <span class="hl opt">=</span> <span class="hl kwc">false</span>
 
                 <span class="hl slc">! Finally, list contents of scenery objects (unless we&#39;ve</span>
                 <span class="hl slc">! already done so as the parent of the player)</span>
@@ -2924,7 +2924,7 @@ it_object them_object <span class="hl str">&quot;them&quot;</span>
 <span class="hl ppc">#endif</span>  <span class="hl slc">! ifclear NO_OBJLIB</span>
 <span class="hl ppc"></span>
                 <span class="hl kwa">print</span> <span class="hl kwa">newline</span>
-                need_newline <span class="hl opt">=</span> <span class="hl kwa">false</span>
+                need_newline <span class="hl opt">=</span> <span class="hl kwc">false</span>
 
         }
 }
@@ -2994,7 +2994,7 @@ it_object them_object <span class="hl str">&quot;them&quot;</span>
 
         <span class="hl slc">! If INDENT_SIZE is 0, formatting may be thrown off when listing</span>
         <span class="hl slc">! the contents of an object:</span>
-        <span class="hl kwa">if</span> INDENT_SIZE <span class="hl opt">=</span> <span class="hl num">0</span>:  need_newline <span class="hl opt">=</span> <span class="hl kwa">true</span>
+        <span class="hl kwa">if</span> INDENT_SIZE <span class="hl opt">=</span> <span class="hl num">0</span>:  need_newline <span class="hl opt">=</span> <span class="hl kwc">true</span>
 
         <span class="hl kwa">if</span> need_newline:  <span class="hl kwa">print</span> <span class="hl kwa">newline</span>
 }
@@ -3134,10 +3134,10 @@ it_object them_object <span class="hl str">&quot;them&quot;</span>
                 <span class="hl kwa">if</span> a <span class="hl kwa">is</span> <span class="hl kwa">not</span> hidden
                 {
                         c<span class="hl opt">++</span>
-                        flag <span class="hl opt">=</span> <span class="hl kwa">true</span>
+                        flag <span class="hl opt">=</span> <span class="hl kwc">true</span>
                 }
                 <span class="hl kwa">else</span>
-                        flag <span class="hl opt">=</span> <span class="hl kwa">false</span>
+                        flag <span class="hl opt">=</span> <span class="hl kwc">false</span>
 
                 <span class="hl kwa">if</span> FORMAT <span class="hl opt">&amp;</span> INVENTORY_F <span class="hl kwa">and</span> obj <span class="hl opt">=</span> <span class="hl kwb">player</span> <span class="hl kwa">and</span> flag
                 {
@@ -3155,10 +3155,10 @@ it_object them_object <span class="hl str">&quot;them&quot;</span>
                         <span class="hl kwa">if</span> <span class="hl opt">&amp;</span>a.initial_desc
                         {
                                 <span class="hl kwa">print</span> <span class="hl kwa">newline</span>
-                                override_indent <span class="hl opt">=</span> <span class="hl kwa">false</span>
+                                override_indent <span class="hl opt">=</span> <span class="hl kwc">false</span>
                                 <span class="hl kwa">if</span> FORMAT <span class="hl opt">&amp;</span> INVENTORY_F <span class="hl kwa">and</span> FORMAT <span class="hl opt">&amp;</span> NOINDENT_F <span class="hl kwa">and</span> <span class="hl kwa">not</span> printed_blankline
                                         <span class="hl kwa">print</span> <span class="hl str">&quot;&quot;</span>
-                                printed_blankline <span class="hl opt">=</span> <span class="hl kwa">true</span>
+                                printed_blankline <span class="hl opt">=</span> <span class="hl kwc">true</span>
                                 Indent
                         }
                         <span class="hl kwa">if</span> a.initial_desc
@@ -3251,7 +3251,7 @@ it_object them_object <span class="hl str">&quot;them&quot;</span>
                                 FORMAT <span class="hl opt">=</span> FORMAT <span class="hl opt">&amp;</span> ~ISORARE_F    <span class="hl slc">! clear it</span>
                         }
 
-                        need_newline <span class="hl opt">=</span> <span class="hl kwa">false</span>
+                        need_newline <span class="hl opt">=</span> <span class="hl kwc">false</span>
                         <span class="hl kwa">if</span> obj <span class="hl kwa">is</span> plural
                                 pluralcount<span class="hl opt">++</span>
 
@@ -3290,7 +3290,7 @@ it_object them_object <span class="hl str">&quot;them&quot;</span>
                                 <span class="hl kwa">else</span>
                                 {
                                         <span class="hl kwa">if</span> FORMAT <span class="hl opt">&amp;</span> FIRSTCAPITAL_F
-                                                <span class="hl kwa">print</span> NumberWord(id_count, <span class="hl kwa">true</span>);
+                                                <span class="hl kwa">print</span> NumberWord(id_count, <span class="hl kwc">true</span>);
                                         <span class="hl kwa">else</span>
                                                 <span class="hl kwa">print</span> NumberWord(id_count);
                                         <span class="hl kwa">print</span> <span class="hl str">&quot; &quot;</span>; this_class.<span class="hl kwb">name</span>;
@@ -3390,7 +3390,7 @@ it_object them_object <span class="hl str">&quot;them&quot;</span>
                                 FORMAT <span class="hl opt">=</span> FORMAT <span class="hl opt">&amp;</span> ~ISORAREHERE_F  <span class="hl slc">! clear it</span>
 
                                 <span class="hl kwa">if</span> <span class="hl kwa">not</span> (FORMAT<span class="hl opt">&amp;</span>LIST_F <span class="hl kwa">or</span> FORMAT<span class="hl opt">&amp;</span>TEMPLIST_F)
-                                        override_indent <span class="hl opt">=</span> <span class="hl kwa">true</span>
+                                        override_indent <span class="hl opt">=</span> <span class="hl kwc">true</span>
                         }
 
                         <span class="hl kwa">if</span> <span class="hl kwa">not</span> (FORMAT <span class="hl opt">&amp;</span> NORECURSE_F)
@@ -3408,7 +3408,7 @@ it_object them_object <span class="hl str">&quot;them&quot;</span>
                                 <span class="hl kwa">if</span> FORMAT <span class="hl opt">&amp;</span> TEMPLIST_F
                                 {
                                         FORMAT <span class="hl opt">=</span> FORMAT <span class="hl opt">|</span> LIST_F <span class="hl opt">&amp;</span> ~TEMPLIST_F
-                                        i <span class="hl opt">=</span> <span class="hl kwa">true</span>
+                                        i <span class="hl opt">=</span> <span class="hl kwc">true</span>
                                         <span class="hl kwa">print</span> <span class="hl kwa">newline</span>
                                 }
 
@@ -3424,8 +3424,8 @@ it_object them_object <span class="hl str">&quot;them&quot;</span>
                 <span class="hl kwa">if</span> <span class="hl kwa">not</span> (FORMAT <span class="hl opt">&amp;</span> LIST_F) <span class="hl kwa">and</span> <span class="hl kwa">not</span> (FORMAT <span class="hl opt">&amp;</span> NORECURSE_F)
                 {
                         <span class="hl kwa">print</span> <span class="hl kwa">newline</span>
-                        override_indent <span class="hl opt">=</span> <span class="hl kwa">false</span>
-                        need_newline <span class="hl opt">=</span> <span class="hl kwa">false</span>
+                        override_indent <span class="hl opt">=</span> <span class="hl kwc">false</span>
+                        need_newline <span class="hl opt">=</span> <span class="hl kwc">false</span>
                 }
         }
 }
@@ -3548,7 +3548,7 @@ it_object them_object <span class="hl str">&quot;them&quot;</span>
                 <span class="hl kwa">elseif</span> <span class="hl kwa">not</span> silent
                 {
                         DescribePlace(<span class="hl kwb">location</span>)
-                        event_flag <span class="hl opt">=</span> <span class="hl kwa">true</span>
+                        event_flag <span class="hl opt">=</span> <span class="hl kwc">true</span>
                         <span class="hl kwb">location</span> <span class="hl kwa">is</span> visited
                 }
 
@@ -3661,7 +3661,7 @@ it_object them_object <span class="hl str">&quot;them&quot;</span>
         CalculateHolding(newparent)
 
         <span class="hl kwa">if</span> newparent.holding <span class="hl opt">+</span> newchild.size <span class="hl opt">&gt;</span> newparent.capacity
-                <span class="hl kwa">return</span> <span class="hl kwa">false</span>
+                <span class="hl kwa">return</span> <span class="hl kwc">false</span>
         <span class="hl kwa">else</span>
         {
                 p <span class="hl opt">=</span> <span class="hl kwa">parent</span>(newchild)
@@ -3670,7 +3670,7 @@ it_object them_object <span class="hl str">&quot;them&quot;</span>
                 newchild <span class="hl kwa">is</span> moved
                 newchild <span class="hl kwa">is</span> <span class="hl kwa">not</span> hidden
                 newparent.holding <span class="hl opt">=</span> newparent.holding <span class="hl opt">+</span> newchild.size
-                <span class="hl kwa">return</span> <span class="hl kwa">true</span>
+                <span class="hl kwa">return</span> <span class="hl kwc">true</span>
         }
 }
 
@@ -3716,7 +3716,7 @@ it_object them_object <span class="hl str">&quot;them&quot;</span>
         <span class="hl kwa">local</span> i
 
         <span class="hl kwa">if</span> <span class="hl kwa">not</span> obj <span class="hl kwa">or</span> obj <span class="hl opt">=</span> <span class="hl kwa">parent</span>(<span class="hl kwb">player</span>)
-                <span class="hl kwa">return</span> <span class="hl kwa">true</span>
+                <span class="hl kwa">return</span> <span class="hl kwc">true</span>
 
 <span class="hl ppc">#ifclear NO_VERBS</span>
         <span class="hl kwa">if</span> (<span class="hl kwb">verbroutine</span> <span class="hl opt">~=</span> <span class="hl opt">&amp;</span>DoLook, <span class="hl opt">&amp;</span>DoLookIn) <span class="hl kwa">and</span> <span class="hl kwa">parent</span>(<span class="hl kwb">object</span>) <span class="hl kwa">and</span>
@@ -3725,12 +3725,12 @@ it_object them_object <span class="hl str">&quot;them&quot;</span>
                 <span class="hl kwa">parent</span>(<span class="hl kwb">object</span>) <span class="hl kwa">is</span> <span class="hl kwa">not</span> living
         {
                 VMessage(<span class="hl opt">&amp;</span>DoGet, <span class="hl num">5</span>)     <span class="hl slc">! &quot;X is closed.&quot;</span>
-                <span class="hl kwa">return</span> <span class="hl kwa">false</span>
+                <span class="hl kwa">return</span> <span class="hl kwc">false</span>
         }
 <span class="hl ppc">#endif</span>
 
         <span class="hl kwa">if</span> <span class="hl kwa">not</span> <span class="hl kwa">parent</span>(<span class="hl kwb">player</span>).reach <span class="hl kwa">or</span> Contains(<span class="hl kwa">parent</span>(<span class="hl kwb">player</span>), obj)
-                <span class="hl kwa">return</span> <span class="hl kwa">true</span>
+                <span class="hl kwa">return</span> <span class="hl kwc">true</span>
 
 <span class="hl ppc">#ifclear NO_VERBS</span>
         <span class="hl kwa">if</span> <span class="hl kwa">parent</span>(obj) <span class="hl kwa">is</span> living
@@ -3752,7 +3752,7 @@ it_object them_object <span class="hl str">&quot;them&quot;</span>
                 <span class="hl kwa">if</span> Contains(<span class="hl kwa">parent</span>(<span class="hl kwb">player</span>).reach <span class="hl ppc">#i, obj) or</span>
                         obj <span class="hl opt">=</span> <span class="hl kwa">parent</span>(<span class="hl kwb">player</span>).reach <span class="hl ppc">#i</span>
                 {
-                        <span class="hl kwa">return</span> <span class="hl kwa">true</span>
+                        <span class="hl kwa">return</span> <span class="hl kwc">true</span>
                 }
         }
 
@@ -3760,12 +3760,12 @@ it_object them_object <span class="hl str">&quot;them&quot;</span>
         <span class="hl kwa">if</span> <span class="hl kwa">parent</span>(<span class="hl kwb">player</span>).type <span class="hl opt">=</span> attachable
         {
                 <span class="hl kwa">if</span> InList(<span class="hl kwa">parent</span>(<span class="hl kwb">player</span>), attached_to, obj)
-                        <span class="hl kwa">return</span> <span class="hl kwa">true</span>
+                        <span class="hl kwa">return</span> <span class="hl kwc">true</span>
         }
         <span class="hl kwa">if</span> obj.type <span class="hl opt">=</span> attachable
         {
                 <span class="hl kwa">if</span> InList(obj, attached_to, <span class="hl kwa">parent</span>(<span class="hl kwb">player</span>))
-                        <span class="hl kwa">return</span> <span class="hl kwa">true</span>
+                        <span class="hl kwa">return</span> <span class="hl kwc">true</span>
         }
 <span class="hl ppc">#endif</span>
 
@@ -3798,12 +3798,12 @@ it_object them_object <span class="hl str">&quot;them&quot;</span>
 {
         <span class="hl kwa">local</span> w, count
         w <span class="hl opt">=</span> <span class="hl kwa">word</span>[<span class="hl num">1</span>]
-        <span class="hl kwa">while</span> <span class="hl kwa">true</span>
+        <span class="hl kwa">while</span> <span class="hl kwc">true</span>
         {
                 <span class="hl kwa">if</span> w <span class="hl opt">=</span> <span class="hl str">&quot;yes&quot;</span>, <span class="hl str">&quot;y&quot;</span>
-                        <span class="hl kwa">return</span> <span class="hl kwa">true</span>
+                        <span class="hl kwa">return</span> <span class="hl kwc">true</span>
                 <span class="hl kwa">elseif</span> w <span class="hl opt">=</span> <span class="hl str">&quot;no&quot;</span>, <span class="hl str">&quot;n&quot;</span>
-                        <span class="hl kwa">return</span> <span class="hl kwa">false</span>
+                        <span class="hl kwa">return</span> <span class="hl kwc">false</span>
 
                 <span class="hl kwa">if</span> <span class="hl opt">++</span>count <span class="hl opt">&lt;</span> <span class="hl num">10</span>
                         Message(<span class="hl opt">&amp;</span>YesorNo, <span class="hl num">1</span>)    <span class="hl slc">! ask &quot;yes&quot; or &quot;no&quot;</span>
@@ -4058,7 +4058,7 @@ it_object them_object <span class="hl str">&quot;them&quot;</span>
         }
         <span class="hl kwa">color</span> TEXTCOLOR, BGCOLOR
 
-        <span class="hl kwa">while</span> <span class="hl kwa">true</span>                      <span class="hl slc">! continuous loop</span>
+        <span class="hl kwa">while</span> <span class="hl kwc">true</span>                      <span class="hl slc">! continuous loop</span>
         {
                 <span class="hl kwa">if</span> selection <span class="hl opt">~=</span> oldselection
                 {
@@ -4218,7 +4218,7 @@ it_object them_object <span class="hl str">&quot;them&quot;</span>
                 {
                         <span class="hl kwa">print</span> <span class="hl str">&quot;[WARNING:  Attempt to set nonexistent timer</span>
 <span class="hl str">                                property on daemon (object &quot;</span>; <span class="hl kwa">number</span> a; <span class="hl str">&quot;)]&quot;</span>
-                        err <span class="hl opt">=</span> <span class="hl kwa">true</span>
+                        err <span class="hl opt">=</span> <span class="hl kwc">true</span>
                 }
                 <span class="hl kwa">else</span>
                         a.timer <span class="hl opt">=</span> set
@@ -4229,7 +4229,7 @@ it_object them_object <span class="hl str">&quot;them&quot;</span>
         {
                 <span class="hl kwa">print</span> <span class="hl str">&quot;[WARNING:  Attempt to activate non-fuse/\</span>
 <span class="hl str">                daemon (object &quot;</span>; <span class="hl kwa">number</span> a; <span class="hl str">&quot;)]&quot;</span>
-                err <span class="hl opt">=</span> <span class="hl kwa">true</span>
+                err <span class="hl opt">=</span> <span class="hl kwc">true</span>
         }
 
 <span class="hl ppc">#ifset DEBUG</span>
@@ -4256,7 +4256,7 @@ it_object them_object <span class="hl str">&quot;them&quot;</span>
         {
                 <span class="hl kwa">print</span> <span class="hl str">&quot;[WARNING:  Attempt to deactivate non-fuse/\</span>
 <span class="hl str">                        daemon (object &quot;</span>; <span class="hl kwa">number</span> a; <span class="hl str">&quot;)]&quot;</span>
-                err <span class="hl opt">=</span> <span class="hl kwa">true</span>
+                err <span class="hl opt">=</span> <span class="hl kwc">true</span>
         }
         <span class="hl kwa">else</span>
         {
@@ -4438,7 +4438,7 @@ it_object them_object <span class="hl str">&quot;them&quot;</span>
                 }
 <span class="hl ppc">#endif</span>
 
-        <span class="hl kwa">return</span> <span class="hl kwa">true</span>
+        <span class="hl kwa">return</span> <span class="hl kwc">true</span>
 }
 
 <span class="hl kwa">routine</span> PauseScript(obj)
@@ -4461,7 +4461,7 @@ it_object them_object <span class="hl str">&quot;them&quot;</span>
                 }
 <span class="hl ppc">#endif</span>
 
-                <span class="hl kwa">return</span> <span class="hl kwa">true</span>
+                <span class="hl kwa">return</span> <span class="hl kwc">true</span>
         }
 }
 
@@ -4485,7 +4485,7 @@ it_object them_object <span class="hl str">&quot;them&quot;</span>
                 }
 <span class="hl ppc">#endif</span>
 
-                <span class="hl kwa">return</span> <span class="hl kwa">true</span>
+                <span class="hl kwa">return</span> <span class="hl kwc">true</span>
         }
 }
 
@@ -4508,7 +4508,7 @@ it_object them_object <span class="hl str">&quot;them&quot;</span>
                 }
 <span class="hl ppc">#endif</span>
 
-                <span class="hl kwa">return</span> <span class="hl kwa">true</span>
+                <span class="hl kwa">return</span> <span class="hl kwc">true</span>
         }
 }
 
@@ -4549,12 +4549,12 @@ it_object them_object <span class="hl str">&quot;them&quot;</span>
 <span class="hl ppc">#ifset DEBUG</span>
         <span class="hl kwa">if</span> debug_flags <span class="hl opt">&amp;</span> D_SCRIPTS
         {
-                <span class="hl kwa">print</span> <span class="hl str">&quot;[&quot;</span>; CThe(char); IsorAre(char, <span class="hl kwa">true</span>); <span class="hl str">&quot; waiting in:  &quot;</span>;
+                <span class="hl kwa">print</span> <span class="hl str">&quot;[&quot;</span>; CThe(char); IsorAre(char, <span class="hl kwc">true</span>); <span class="hl str">&quot; waiting in:  &quot;</span>;
                 <span class="hl kwa">print</span> <span class="hl kwa">capital</span> <span class="hl kwa">parent</span>(char).<span class="hl kwb">name</span>; <span class="hl str">&quot;.]&quot;</span>
         }
 <span class="hl ppc">#endif</span>
 
-        <span class="hl kwa">return</span> <span class="hl kwa">true</span>
+        <span class="hl kwa">return</span> <span class="hl kwc">true</span>
 }
 
 <span class="hl slc">!----------------------------------------------------------------------------</span>
@@ -4576,17 +4576,17 @@ it_object them_object <span class="hl str">&quot;them&quot;</span>
                                                 <span class="hl slc">! to 2 if it prints a message</span>
         {
                 Message(<span class="hl opt">&amp;</span>CharMove, <span class="hl num">1</span>, char, dir)
-                event_flag <span class="hl opt">=</span> <span class="hl kwa">true</span>
+                event_flag <span class="hl opt">=</span> <span class="hl kwc">true</span>
         }
         <span class="hl kwa">elseif</span> char <span class="hl kwa">in</span> <span class="hl kwb">location</span>
-                event_flag <span class="hl opt">=</span> <span class="hl kwa">true</span>
+                event_flag <span class="hl opt">=</span> <span class="hl kwc">true</span>
 
         <span class="hl kwa">move</span> char <span class="hl kwa">to</span> newroom
 
 <span class="hl ppc">#ifset DEBUG</span>
         <span class="hl kwa">if</span> debug_flags <span class="hl opt">&amp;</span> D_SCRIPTS
         {
-                <span class="hl kwa">print</span> <span class="hl str">&quot;[&quot;</span>; CThe(char); IsorAre(char, <span class="hl kwa">true</span>); <span class="hl str">&quot; now in:  &quot;</span>;
+                <span class="hl kwa">print</span> <span class="hl str">&quot;[&quot;</span>; CThe(char); IsorAre(char, <span class="hl kwc">true</span>); <span class="hl str">&quot; now in:  &quot;</span>;
                 <span class="hl kwa">print</span> <span class="hl kwa">capital</span> <span class="hl kwa">parent</span>(char).<span class="hl kwb">name</span>; <span class="hl str">&quot;.]&quot;</span>
         }
 <span class="hl ppc">#endif</span>
@@ -4594,10 +4594,10 @@ it_object them_object <span class="hl str">&quot;them&quot;</span>
         <span class="hl kwa">if</span> char <span class="hl kwa">in</span> <span class="hl kwb">location</span> <span class="hl kwa">and</span> general <span class="hl opt">=</span> <span class="hl num">1</span>
         {
                 Message(<span class="hl opt">&amp;</span>CharMove, <span class="hl num">2</span>, char, dir)
-                event_flag <span class="hl opt">=</span> <span class="hl kwa">true</span>
+                event_flag <span class="hl opt">=</span> <span class="hl kwc">true</span>
         }
         <span class="hl kwa">elseif</span> char <span class="hl kwa">in</span> <span class="hl kwb">location</span>
-                event_flag <span class="hl opt">=</span> <span class="hl kwa">true</span>
+                event_flag <span class="hl opt">=</span> <span class="hl kwc">true</span>
 
         general <span class="hl opt">=</span> <span class="hl num">0</span>                     <span class="hl slc">! always reset it</span>
 
@@ -4605,7 +4605,7 @@ it_object them_object <span class="hl str">&quot;them&quot;</span>
 <span class="hl ppc"></span>
         <span class="hl kwa">run</span> <span class="hl kwa">parent</span>(char).<span class="hl kwb">after</span>
 
-        <span class="hl kwa">return</span> <span class="hl kwa">true</span>
+        <span class="hl kwa">return</span> <span class="hl kwc">true</span>
 }
 
 <span class="hl slc">!----------------------------------------------------------------------------</span>
@@ -4621,10 +4621,10 @@ it_object them_object <span class="hl str">&quot;them&quot;</span>
                         <span class="hl kwa">if</span> char <span class="hl kwa">in</span> <span class="hl kwb">location</span>
                         {
                                 Message(<span class="hl opt">&amp;</span>CharGet, <span class="hl num">1</span>, char, obj)
-                                event_flag <span class="hl opt">=</span> <span class="hl kwa">true</span>
+                                event_flag <span class="hl opt">=</span> <span class="hl kwc">true</span>
                         }
                 }
-                <span class="hl kwa">return</span> <span class="hl kwa">true</span>
+                <span class="hl kwa">return</span> <span class="hl kwc">true</span>
         }
 }
 
@@ -4639,9 +4639,9 @@ it_object them_object <span class="hl str">&quot;them&quot;</span>
         <span class="hl kwa">if</span> char <span class="hl kwa">in</span> <span class="hl kwb">location</span>
         {
                 Message(<span class="hl opt">&amp;</span>CharDrop, <span class="hl num">1</span>, char, obj)
-                event_flag <span class="hl opt">=</span> <span class="hl kwa">true</span>
+                event_flag <span class="hl opt">=</span> <span class="hl kwc">true</span>
         }
-        <span class="hl kwa">return</span> <span class="hl kwa">true</span>
+        <span class="hl kwa">return</span> <span class="hl kwc">true</span>
 }
 
 <span class="hl ppc">#endif</span>  <span class="hl slc">! ifclear NO_SCRIPTS</span>
@@ -4723,18 +4723,18 @@ it_object them_object <span class="hl str">&quot;them&quot;</span>
                 <span class="hl kwa">select</span> num
                 <span class="hl kwa">case</span> <span class="hl num">1</span>:  <span class="hl kwa">print</span> CThe(<span class="hl kwb">player</span>); <span class="hl str">&quot; probably ought not to waste</span>
 <span class="hl str">                                time talking to &quot;</span>; <span class="hl kwb">player</span>.pronoun <span class="hl ppc">#4;</span> <span class="hl pps">&quot;.&quot;</span><span class="hl ppc"></span>
-                <span class="hl kwa">case</span> <span class="hl num">2</span>:  <span class="hl kwa">print</span> CThe(a); IsorAre(a, <span class="hl kwa">true</span>); <span class="hl str">&quot; listening.&quot;</span>
+                <span class="hl kwa">case</span> <span class="hl num">2</span>:  <span class="hl kwa">print</span> CThe(a); IsorAre(a, <span class="hl kwc">true</span>); <span class="hl str">&quot; listening.&quot;</span>
                 <span class="hl kwa">case</span> <span class="hl num">3</span>:  <span class="hl kwa">print</span> CThe(a); <span class="hl str">&quot; nod&quot;</span>; MatchSubject(a); \
-                                <span class="hl str">&quot; hello to &quot;</span>; The(<span class="hl kwb">player</span>, <span class="hl kwa">true</span>); <span class="hl str">&quot;.&quot;</span>
+                                <span class="hl str">&quot; hello to &quot;</span>; The(<span class="hl kwb">player</span>, <span class="hl kwc">true</span>); <span class="hl str">&quot;.&quot;</span>
                 <span class="hl kwa">case</span> <span class="hl num">4</span>:  <span class="hl kwa">print</span> CThe(a); <span class="hl str">&quot; ignore&quot;</span>; MatchSubject(a); <span class="hl str">&quot; &quot;</span>; \
-                                The(<span class="hl kwb">player</span>, <span class="hl kwa">true</span>); <span class="hl str">&quot;.&quot;</span>
+                                The(<span class="hl kwb">player</span>, <span class="hl kwc">true</span>); <span class="hl str">&quot;.&quot;</span>
         }
 
         <span class="hl kwa">case</span> <span class="hl opt">&amp;</span>DescribePlace
         {
                 <span class="hl kwa">select</span> num
                 <span class="hl kwa">case</span> <span class="hl num">1</span>:  <span class="hl kwa">print</span> <span class="hl str">&quot;It&#39;s too dark to see anything.&quot;</span>
-                <span class="hl kwa">case</span> <span class="hl num">2</span>:  <span class="hl kwa">print</span> <span class="hl str">&quot;There&quot;</span>; IsorAre(a, <span class="hl kwa">true</span>); <span class="hl str">&quot; &quot;</span>; Art(a); \
+                <span class="hl kwa">case</span> <span class="hl num">2</span>:  <span class="hl kwa">print</span> <span class="hl str">&quot;There&quot;</span>; IsorAre(a, <span class="hl kwc">true</span>); <span class="hl str">&quot; &quot;</span>; Art(a); \
                                 <span class="hl str">&quot; here.&quot;</span>
         }
 
@@ -4743,7 +4743,7 @@ it_object them_object <span class="hl str">&quot;them&quot;</span>
                 <span class="hl kwa">select</span> num
                 <span class="hl kwa">case</span> <span class="hl num">1</span>
                 {
-                        <span class="hl kwa">print</span> CThe(<span class="hl kwb">player</span>); IsorAre(<span class="hl kwb">player</span>, <span class="hl kwa">true</span>); <span class="hl str">&quot; &quot;</span>;
+                        <span class="hl kwa">print</span> CThe(<span class="hl kwb">player</span>); IsorAre(<span class="hl kwb">player</span>, <span class="hl kwc">true</span>); <span class="hl str">&quot; &quot;</span>;
                         <span class="hl kwa">if</span> list_count <span class="hl opt">&lt;</span> a
                                 <span class="hl kwa">print</span> <span class="hl str">&quot;also &quot;</span>;
                         <span class="hl kwa">print</span> <span class="hl str">&quot;carrying&quot;</span>;
@@ -4792,7 +4792,7 @@ it_object them_object <span class="hl str">&quot;them&quot;</span>
                 {
                         <span class="hl kwa">print</span> <span class="hl str">&quot;Except that &quot;</span>; The(<span class="hl kwa">parent</span>(a)); \
                                 MatchPlural(<span class="hl kwa">parent</span>(a), <span class="hl str">&quot;doesn&#39;t&quot;</span>, <span class="hl str">&quot;don&#39;t&quot;</span>); \
-                                <span class="hl str">&quot; want to give &quot;</span>; The(<span class="hl kwb">player</span>, <span class="hl kwa">true</span>); \
+                                <span class="hl str">&quot; want to give &quot;</span>; The(<span class="hl kwb">player</span>, <span class="hl kwc">true</span>); \
                                 <span class="hl str">&quot; &quot;</span>; The(a); <span class="hl str">&quot;.&quot;</span>
                 }
                 <span class="hl kwa">case</span> <span class="hl num">3</span>:  <span class="hl kwa">print</span> CThe(<span class="hl kwb">player</span>); <span class="hl str">&quot; can&#39;t reach &quot;</span>; The(a); \
@@ -4858,7 +4858,7 @@ it_object them_object <span class="hl str">&quot;them&quot;</span>
 
 <span class="hl kwa">routine</span> NewMessages(r, num, a, b)       <span class="hl slc">! The NewMessages routine may be</span>
 {                                       <span class="hl slc">! replaced, and should return true</span>
-        <span class="hl kwa">return</span> <span class="hl kwa">false</span>                    <span class="hl slc">! if a replacement message &lt;num&gt;</span>
+        <span class="hl kwa">return</span> <span class="hl kwc">false</span>                    <span class="hl slc">! if a replacement message &lt;num&gt;</span>
 }                                       <span class="hl slc">! exists for routine &lt;r&gt;</span>
 
 

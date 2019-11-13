@@ -7,37 +7,33 @@
 ! that they are all captured as expected.
 
 ! ==============================================================================
+! [opt]                             Operators
+! ==============================================================================
+
+! Comparison operators
+< <= == ~= >= >
+!<^^ ^^ ^^ ^^ ^ opt
+
+! Mathematical operators:
+*  /  -  +
+!<^   ^  ^ opt
+
+! Bitwise operators:
+&  |  ~
+!< ^  ^ opt
+
+! ==============================================================================
+! [std]                            Punctuation
+! ==============================================================================
+
+{ } [ ] ( ) ; .
+!<^ ^ ^ ^ ^ ^ ^ std
+
+! ==============================================================================
 ! [kwa]                           Hugo keywords
 ! ==============================================================================
 ! The full list of Hugo keywords, currently all captured as Keywords Group 1.
 
-arraydata#
-!<^^^^^^^^ kwa
-attr#
-!<^^^ kwa
-debugdata#
-!<^^^^^^^^ kwa
-dictentry#
-!<^^^^^^^^ kwa
-eol#
-!<^^ kwa
-label#
-!<^^^^ kwa
-objectnum#
-!<^^^^^^^^ kwa
-prop#
-!<^^^ kwa
-routine#
-!<^^^^^^ kwa
-stringdata#
-!<^^^^^^^^^ kwa
-textdata#
-!<^^^^^^^ kwa
-value#
-!<^^^^ kwa
-var#
-!<^^ kwa
-!-------------------------------------------------------------------------------
 addcontext
 !<^^^^^^^^ kwa
 alias
@@ -48,6 +44,8 @@ anything
 !<^^^^^^ kwa
 array
 !<^^^ kwa
+attribute
+!<^^^^^^^ kwa
 break
 !<^^^ kwa
 call
@@ -87,8 +85,6 @@ elseif
 enumerate
 !<^^^^^^^ kwa
 event
-!<^^^ kwa
-false
 !<^^^ kwa
 for
 !<^ kwa
@@ -212,8 +208,6 @@ text
 !<^^ kwa
 to
 !<^ kwa
-true
-!<^^ kwa
 undo
 !<^^ kwa
 verb
@@ -237,13 +231,13 @@ younger
 youngest
 !<^^^^^^ kwa
 ! ==============================================================================
-! [kwb]                  Predefined Engine Stored Values                        
+! [kwb]                  Predefined Engine Stored Values
 ! ==============================================================================
-! Keywords Group 2 gathers various predefined engines values in globally visible
-! variables and constants.
+! Keywords Group 2 gathers various predefined global engines values, variables
+! and constants.
 
 ! ------------------------------------------------------------------------------
-!                            Builtin Global Variables                           
+!                            Builtin Global Variables
 ! ------------------------------------------------------------------------------
 actor
 !<^^^ kwb
@@ -270,7 +264,7 @@ words
 xobject
 !<^^^^^ kwb
 ! ------------------------------------------------------------------------------
-!                               Builtin Properties                              
+!                               Builtin Properties
 ! ------------------------------------------------------------------------------
 ! NOTE: "adjectives" and "nouns" are aliases defined by hugo library, and not
 ! 		 tokens defined in the Hugo engine and compiler.
@@ -288,17 +282,29 @@ name
 noun
 !<^^ kwb
 ! ------------------------------------------------------------------------------
-!                           Built-in Engine Variables                           
+!                           Built-in Engine Variables
 ! ------------------------------------------------------------------------------
 parse$
 !<^^^ kwb
 serial$
 !<^^^^ kwb
 ! ==============================================================================
-! [kwc]                          Special System Words                             
+! [kwc]                          Special System Words
 ! ==============================================================================
 ! Keywords Group 3, includes Char constants and other special system- defined
 ! tokens that didn't fit elsewhere.
+! ------------------------------------------------------------------------------
+!                           ASCII Characters Constants
+! ------------------------------------------------------------------------------
+printchar 'A', 'B'
+!         ^^^  ^^^ kwc
+! ------------------------------------------------------------------------------
+!                          Hardcoded Boolean Constants
+! ------------------------------------------------------------------------------
+true
+!<^^ kwc
+false
+!<^^^ kwc
 ! ------------------------------------------------------------------------------
 !                                  System Words
 ! ------------------------------------------------------------------------------
@@ -313,7 +319,7 @@ serial$
 ~oops
 !<^^^ kwc
 ! ------------------------------------------------------------------------------
-!                             Properties Qualifiers                             
+!                             Properties Qualifiers
 ! ------------------------------------------------------------------------------
 $additive
 !<^^^^^^^ kwc

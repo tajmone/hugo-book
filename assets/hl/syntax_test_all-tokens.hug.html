@@ -15,37 +15,33 @@
 <span class="hl slc">! that they are all captured as expected.</span>
 
 <span class="hl slc">! ==============================================================================</span>
+<span class="hl slc">! [opt]                             Operators</span>
+<span class="hl slc">! ==============================================================================</span>
+
+<span class="hl slc">! Comparison operators</span>
+<span class="hl opt">&lt;</span> <span class="hl opt">&lt;=</span> <span class="hl opt">==</span> <span class="hl opt">~=</span> <span class="hl opt">&gt;=</span> <span class="hl opt">&gt;</span>
+<span class="hl slc">!&lt;^^ ^^ ^^ ^^ ^ opt</span>
+
+<span class="hl slc">! Mathematical operators:</span>
+<span class="hl opt">*</span>  <span class="hl opt">/</span>  <span class="hl opt">-</span>  <span class="hl opt">+</span>
+<span class="hl slc">!&lt;^   ^  ^ opt</span>
+
+<span class="hl slc">! Bitwise operators:</span>
+<span class="hl opt">&amp;</span>  <span class="hl opt">|</span>  <span class="hl opt">~</span>
+<span class="hl slc">!&lt; ^  ^ opt</span>
+
+<span class="hl slc">! ==============================================================================</span>
+<span class="hl slc">! [std]                            Punctuation</span>
+<span class="hl slc">! ==============================================================================</span>
+
+{ } [ ] ( ) ; .
+<span class="hl slc">!&lt;^ ^ ^ ^ ^ ^ ^ std</span>
+
+<span class="hl slc">! ==============================================================================</span>
 <span class="hl slc">! [kwa]                           Hugo keywords</span>
 <span class="hl slc">! ==============================================================================</span>
 <span class="hl slc">! The full list of Hugo keywords, currently all captured as Keywords Group 1.</span>
 
-<span class="hl kwa">arraydata#</span>
-<span class="hl slc">!&lt;^^^^^^^^ kwa</span>
-<span class="hl kwa">attr#</span>
-<span class="hl slc">!&lt;^^^ kwa</span>
-<span class="hl kwa">debugdata#</span>
-<span class="hl slc">!&lt;^^^^^^^^ kwa</span>
-<span class="hl kwa">dictentry#</span>
-<span class="hl slc">!&lt;^^^^^^^^ kwa</span>
-<span class="hl kwa">eol#</span>
-<span class="hl slc">!&lt;^^ kwa</span>
-<span class="hl kwa">label#</span>
-<span class="hl slc">!&lt;^^^^ kwa</span>
-<span class="hl kwa">objectnum#</span>
-<span class="hl slc">!&lt;^^^^^^^^ kwa</span>
-<span class="hl kwa">prop#</span>
-<span class="hl slc">!&lt;^^^ kwa</span>
-<span class="hl kwa">routine#</span>
-<span class="hl slc">!&lt;^^^^^^ kwa</span>
-<span class="hl kwa">stringdata#</span>
-<span class="hl slc">!&lt;^^^^^^^^^ kwa</span>
-<span class="hl kwa">textdata#</span>
-<span class="hl slc">!&lt;^^^^^^^ kwa</span>
-<span class="hl kwa">value#</span>
-<span class="hl slc">!&lt;^^^^ kwa</span>
-<span class="hl kwa">var#</span>
-<span class="hl slc">!&lt;^^ kwa</span>
-<span class="hl slc">!-------------------------------------------------------------------------------</span>
 <span class="hl kwa">addcontext</span>
 <span class="hl slc">!&lt;^^^^^^^^ kwa</span>
 <span class="hl kwa">alias</span>
@@ -56,6 +52,8 @@
 <span class="hl slc">!&lt;^^^^^^ kwa</span>
 <span class="hl kwa">array</span>
 <span class="hl slc">!&lt;^^^ kwa</span>
+<span class="hl kwa">attribute</span>
+<span class="hl slc">!&lt;^^^^^^^ kwa</span>
 <span class="hl kwa">break</span>
 <span class="hl slc">!&lt;^^^ kwa</span>
 <span class="hl kwa">call</span>
@@ -95,8 +93,6 @@
 <span class="hl kwa">enumerate</span>
 <span class="hl slc">!&lt;^^^^^^^ kwa</span>
 <span class="hl kwa">event</span>
-<span class="hl slc">!&lt;^^^ kwa</span>
-<span class="hl kwa">false</span>
 <span class="hl slc">!&lt;^^^ kwa</span>
 <span class="hl kwa">for</span>
 <span class="hl slc">!&lt;^ kwa</span>
@@ -220,8 +216,6 @@
 <span class="hl slc">!&lt;^^ kwa</span>
 <span class="hl kwa">to</span>
 <span class="hl slc">!&lt;^ kwa</span>
-<span class="hl kwa">true</span>
-<span class="hl slc">!&lt;^^ kwa</span>
 <span class="hl kwa">undo</span>
 <span class="hl slc">!&lt;^^ kwa</span>
 <span class="hl kwa">verb</span>
@@ -245,13 +239,13 @@
 <span class="hl kwa">youngest</span>
 <span class="hl slc">!&lt;^^^^^^ kwa</span>
 <span class="hl slc">! ==============================================================================</span>
-<span class="hl slc">! [kwb]                  Predefined Engine Stored Values                        </span>
+<span class="hl slc">! [kwb]                  Predefined Engine Stored Values</span>
 <span class="hl slc">! ==============================================================================</span>
-<span class="hl slc">! Keywords Group 2 gathers various predefined engines values in globally visible</span>
-<span class="hl slc">! variables and constants.</span>
+<span class="hl slc">! Keywords Group 2 gathers various predefined global engines values, variables</span>
+<span class="hl slc">! and constants.</span>
 
 <span class="hl slc">! ------------------------------------------------------------------------------</span>
-<span class="hl slc">!                            Builtin Global Variables                           </span>
+<span class="hl slc">!                            Builtin Global Variables</span>
 <span class="hl slc">! ------------------------------------------------------------------------------</span>
 <span class="hl kwb">actor</span>
 <span class="hl slc">!&lt;^^^ kwb</span>
@@ -278,7 +272,7 @@
 <span class="hl kwb">xobject</span>
 <span class="hl slc">!&lt;^^^^^ kwb</span>
 <span class="hl slc">! ------------------------------------------------------------------------------</span>
-<span class="hl slc">!                               Builtin Properties                              </span>
+<span class="hl slc">!                               Builtin Properties</span>
 <span class="hl slc">! ------------------------------------------------------------------------------</span>
 <span class="hl slc">! NOTE: &quot;adjectives&quot; and &quot;nouns&quot; are aliases defined by hugo library, and not</span>
 <span class="hl slc">! 		 tokens defined in the Hugo engine and compiler.</span>
@@ -296,17 +290,29 @@
 <span class="hl kwb">noun</span>
 <span class="hl slc">!&lt;^^ kwb</span>
 <span class="hl slc">! ------------------------------------------------------------------------------</span>
-<span class="hl slc">!                           Built-in Engine Variables                           </span>
+<span class="hl slc">!                           Built-in Engine Variables</span>
 <span class="hl slc">! ------------------------------------------------------------------------------</span>
 <span class="hl kwb">parse$</span>
 <span class="hl slc">!&lt;^^^ kwb</span>
 <span class="hl kwb">serial$</span>
 <span class="hl slc">!&lt;^^^^ kwb</span>
 <span class="hl slc">! ==============================================================================</span>
-<span class="hl slc">! [kwc]                          Special System Words                             </span>
+<span class="hl slc">! [kwc]                          Special System Words</span>
 <span class="hl slc">! ==============================================================================</span>
 <span class="hl slc">! Keywords Group 3, includes Char constants and other special system- defined</span>
 <span class="hl slc">! tokens that didn&#39;t fit elsewhere.</span>
+<span class="hl slc">! ------------------------------------------------------------------------------</span>
+<span class="hl slc">!                           ASCII Characters Constants</span>
+<span class="hl slc">! ------------------------------------------------------------------------------</span>
+<span class="hl kwa">printchar</span> <span class="hl kwc">&#39;A&#39;</span>, <span class="hl kwc">&#39;B&#39;</span>
+<span class="hl slc">!         ^^^  ^^^ kwc</span>
+<span class="hl slc">! ------------------------------------------------------------------------------</span>
+<span class="hl slc">!                          Hardcoded Boolean Constants</span>
+<span class="hl slc">! ------------------------------------------------------------------------------</span>
+<span class="hl kwc">true</span>
+<span class="hl slc">!&lt;^^ kwc</span>
+<span class="hl kwc">false</span>
+<span class="hl slc">!&lt;^^^ kwc</span>
 <span class="hl slc">! ------------------------------------------------------------------------------</span>
 <span class="hl slc">!                                  System Words</span>
 <span class="hl slc">! ------------------------------------------------------------------------------</span>
@@ -321,7 +327,7 @@
 <span class="hl kwc">~oops</span>
 <span class="hl slc">!&lt;^^^ kwc</span>
 <span class="hl slc">! ------------------------------------------------------------------------------</span>
-<span class="hl slc">!                             Properties Qualifiers                             </span>
+<span class="hl slc">!                             Properties Qualifiers</span>
 <span class="hl slc">! ------------------------------------------------------------------------------</span>
 <span class="hl kwc">$additive</span>
 <span class="hl slc">!&lt;^^^^^^^ kwc</span>

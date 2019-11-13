@@ -7,29 +7,35 @@
 ! that they are all captured as expected.
 
 ! ==============================================================================
+! [opt]                             Operators
+! ==============================================================================
+
+! Comparison operators
+< <= == ~= >= >
+
+! Mathematical operators:
+*  /  -  +
+
+! Bitwise operators:
+&  |  ~
+
+! ==============================================================================
+! [std]                            Punctuation
+! ==============================================================================
+
+{ } [ ] ( ) ; .
+
+! ==============================================================================
 ! [kwa]                           Hugo keywords
 ! ==============================================================================
 ! The full list of Hugo keywords, currently all captured as Keywords Group 1.
 
-arraydata#
-attr#
-debugdata#
-dictentry#
-eol#
-label#
-objectnum#
-prop#
-routine#
-stringdata#
-textdata#
-value#
-var#
-!-------------------------------------------------------------------------------
 addcontext
 alias
 and
 anything
 array
+attribute
 break
 call
 capital
@@ -50,7 +56,6 @@ else
 elseif
 enumerate
 event
-false
 for
 global
 graphics
@@ -112,7 +117,6 @@ synonym
 system
 text
 to
-true
 undo
 verb
 video
@@ -125,13 +129,13 @@ xverb
 younger
 youngest
 ! ==============================================================================
-! [kwb]                  Predefined Engine Stored Values                        
+! [kwb]                  Predefined Engine Stored Values
 ! ==============================================================================
-! Keywords Group 2 gathers various predefined engines values in globally visible
-! variables and constants.
+! Keywords Group 2 gathers various predefined global engines values, variables
+! and constants.
 
 ! ------------------------------------------------------------------------------
-!                            Builtin Global Variables                           
+!                            Builtin Global Variables
 ! ------------------------------------------------------------------------------
 actor
 endflag
@@ -146,7 +150,7 @@ verbroutine
 words
 xobject
 ! ------------------------------------------------------------------------------
-!                               Builtin Properties                              
+!                               Builtin Properties
 ! ------------------------------------------------------------------------------
 ! NOTE: "adjectives" and "nouns" are aliases defined by hugo library, and not
 ! 		 tokens defined in the Hugo engine and compiler.
@@ -158,15 +162,24 @@ before
 name
 noun
 ! ------------------------------------------------------------------------------
-!                           Built-in Engine Variables                           
+!                           Built-in Engine Variables
 ! ------------------------------------------------------------------------------
 parse$
 serial$
 ! ==============================================================================
-! [kwc]                          Special System Words                             
+! [kwc]                          Special System Words
 ! ==============================================================================
 ! Keywords Group 3, includes Char constants and other special system- defined
 ! tokens that didn't fit elsewhere.
+! ------------------------------------------------------------------------------
+!                           ASCII Characters Constants
+! ------------------------------------------------------------------------------
+printchar 'A', 'B'
+! ------------------------------------------------------------------------------
+!                          Hardcoded Boolean Constants
+! ------------------------------------------------------------------------------
+true
+false
 ! ------------------------------------------------------------------------------
 !                                  System Words
 ! ------------------------------------------------------------------------------
@@ -176,7 +189,7 @@ serial$
 ~except
 ~oops
 ! ------------------------------------------------------------------------------
-!                             Properties Qualifiers                             
+!                             Properties Qualifiers
 ! ------------------------------------------------------------------------------
 $additive
 $complex

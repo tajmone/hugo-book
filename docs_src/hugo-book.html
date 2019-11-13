@@ -540,7 +540,7 @@ div.literalblock.cmd pre .conum {
 <span id="email" class="email"><a href="mailto:general@generalcoffee.com">general@generalcoffee.com</a></span><br>
 <span id="revnumber">version 1,</span>
 <span id="revdate">2018-10-04</span>
-<br><span id="revremark">Draft 102 -- Porting to AsciiDoc</span>
+<br><span id="revremark">Draft 103 -- Porting to AsciiDoc</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -2459,7 +2459,7 @@ Pick a line in the new file <strong>test.hug</strong> like:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">asdf#set DEBUG</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">asdf<span class="hl ppc">#set DEBUG</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -3016,7 +3016,7 @@ An attribute is defined as</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">attribute <span class="hl opt">&lt;</span>attribute <span class="hl kwb">name</span><span class="hl opt">&gt;</span></code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">attribute</span> <span class="hl opt">&lt;</span><span class="hl kwa">attribute</span> <span class="hl kwb">name</span><span class="hl opt">&gt;</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -3149,7 +3149,7 @@ This is primarily just to save on the absolute number of attributes defined and 
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">attribute <span class="hl opt">&lt;</span>attribute2<span class="hl opt">&gt;</span> <span class="hl kwa">alias</span> <span class="hl opt">&lt;</span>attribute1<span class="hl opt">&gt;</span></code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">attribute</span> <span class="hl opt">&lt;</span>attribute2<span class="hl opt">&gt;</span> <span class="hl kwa">alias</span> <span class="hl opt">&lt;</span>attribute1<span class="hl opt">&gt;</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -3158,7 +3158,7 @@ For example, the library equates <code>visited</code> with <code>moved</code> (s
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">attribute visited <span class="hl kwa">alias</span> moved</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">attribute</span> visited <span class="hl kwa">alias</span> moved</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -3200,7 +3200,7 @@ For the most part, you should never need to alias your own attributes, although 
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl opt">&lt;</span><span class="hl kwb">object</span><span class="hl opt">&gt;</span> <span class="hl kwa">is</span> [<span class="hl kwa">not</span>] <span class="hl opt">&lt;</span>attribute<span class="hl opt">&gt;</span></code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl opt">&lt;</span><span class="hl kwb">object</span><span class="hl opt">&gt;</span> <span class="hl kwa">is</span> [<span class="hl kwa">not</span>] <span class="hl opt">&lt;</span><span class="hl kwa">attribute</span><span class="hl opt">&gt;</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -3227,7 +3227,7 @@ In code, the expression</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl opt">&lt;</span><span class="hl kwb">object</span><span class="hl opt">&gt;</span> <span class="hl kwa">is</span> [<span class="hl kwa">not</span>] <span class="hl opt">&lt;</span>attribute<span class="hl opt">&gt;</span></code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl opt">&lt;</span><span class="hl kwb">object</span><span class="hl opt">&gt;</span> <span class="hl kwa">is</span> [<span class="hl kwa">not</span>] <span class="hl opt">&lt;</span><span class="hl kwa">attribute</span><span class="hl opt">&gt;</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -3262,7 +3262,7 @@ They are sets of valid data associated with an object, where the values may repr
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">nouns <span class="hl str">&quot;tree&quot;</span>, <span class="hl str">&quot;bush&quot;</span>, <span class="hl str">&quot;shrub&quot;</span>, <span class="hl str">&quot;plant&quot;</span>&#x000A;&#x000A;size <span class="hl num">20</span>&#x000A;&#x000A;found_in livingroom, entrancehall&#x000A;&#x000A;long_desc&#x000A;{&#x000A;    <span class="hl str">&quot;Exits lead north and west. A door is set</span>&#x000A;<span class="hl str">    in the southeast wall.&quot;</span>&#x000A;&#x000A;}&#x000A;&#x000A;short_desc&#x000A;{&#x000A;    <span class="hl str">&quot;There is a box here. It is &quot;</span>;&#x000A;    <span class="hl kwa">if</span> <span class="hl kwb">self</span> <span class="hl kwa">is</span> open&#x000A;        <span class="hl kwa">print</span> <span class="hl str">&quot;open&quot;</span>;&#x000A;    <span class="hl kwa">else</span>&#x000A;        <span class="hl kwa">print</span> <span class="hl str">&quot;closed&quot;</span>;&#x000A;    <span class="hl kwa">print</span> <span class="hl str">&quot;.&quot;</span>&#x000A;}&#x000A;&#x000A;<span class="hl kwb">before</span><sup class="footnote">[<a id="_footnoteref_17" class="footnote" href="#_footnotedef_17" title="View footnote.">17</a>]</sup>&#x000A;{&#x000A;    <span class="hl kwb">object</span> DoGet&#x000A;    {&#x000A;        <span class="hl kwa">if</span> Acquire(<span class="hl kwb">player</span>, <span class="hl kwb">self</span>)&#x000A;        {&#x000A;            <span class="hl str">&quot;You pick up &quot;</span>;&#x000A;            <span class="hl kwa">print</span> Art(<span class="hl kwb">self</span>); <span class="hl str">&quot;.&quot;</span>&#x000A;        }&#x000A;        <span class="hl kwa">else</span>&#x000A;            <span class="hl kwa">return false</span>&#x000A;    }&#x000A;}</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">nouns <span class="hl str">&quot;tree&quot;</span>, <span class="hl str">&quot;bush&quot;</span>, <span class="hl str">&quot;shrub&quot;</span>, <span class="hl str">&quot;plant&quot;</span>&#x000A;&#x000A;size <span class="hl num">20</span>&#x000A;&#x000A;found_in livingroom, entrancehall&#x000A;&#x000A;long_desc&#x000A;{&#x000A;    <span class="hl str">&quot;Exits lead north and west. A door is set</span>&#x000A;<span class="hl str">    in the southeast wall.&quot;</span>&#x000A;&#x000A;}&#x000A;&#x000A;short_desc&#x000A;{&#x000A;    <span class="hl str">&quot;There is a box here. It is &quot;</span>;&#x000A;    <span class="hl kwa">if</span> <span class="hl kwb">self</span> <span class="hl kwa">is</span> open&#x000A;        <span class="hl kwa">print</span> <span class="hl str">&quot;open&quot;</span>;&#x000A;    <span class="hl kwa">else</span>&#x000A;        <span class="hl kwa">print</span> <span class="hl str">&quot;closed&quot;</span>;&#x000A;    <span class="hl kwa">print</span> <span class="hl str">&quot;.&quot;</span>&#x000A;}&#x000A;&#x000A;<span class="hl kwb">before</span><sup class="footnote">[<a id="_footnoteref_17" class="footnote" href="#_footnotedef_17" title="View footnote.">17</a>]</sup>&#x000A;{&#x000A;    <span class="hl kwb">object</span> DoGet&#x000A;    {&#x000A;        <span class="hl kwa">if</span> Acquire(<span class="hl kwb">player</span>, <span class="hl kwb">self</span>)&#x000A;        {&#x000A;            <span class="hl str">&quot;You pick up &quot;</span>;&#x000A;            <span class="hl kwa">print</span> Art(<span class="hl kwb">self</span>); <span class="hl str">&quot;.&quot;</span>&#x000A;        }&#x000A;        <span class="hl kwa">else</span>&#x000A;            <span class="hl kwa">return</span> <span class="hl kwc">false</span>&#x000A;    }&#x000A;}</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -6297,7 +6297,7 @@ The library checks <code>&lt;object&gt;.n_to</code> to see if a value exists for
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">n_to&#x000A;{&#x000A;    <span class="hl str">&quot;The office door is locked. &quot;</span>;&#x000A;    <span class="hl kwa">return false</span>&#x000A;}</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">n_to&#x000A;{&#x000A;    <span class="hl str">&quot;The office door is locked. &quot;</span>;&#x000A;    <span class="hl kwa">return</span> <span class="hl kwc">false</span>&#x000A;}</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -6372,7 +6372,7 @@ A simple</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl opt">&lt;</span><span class="hl kwa">property</span><span class="hl opt">&gt;</span> {<span class="hl kwa">return false</span>}</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl opt">&lt;</span><span class="hl kwa">property</span><span class="hl opt">&gt;</span> {<span class="hl kwa">return</span> <span class="hl kwc">false</span>}</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -6521,7 +6521,7 @@ In order to fool the engine into continuing normally, as if no <code>before</cod
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwb">after</span>&#x000A;{&#x000A;    <span class="hl kwb">object</span> DoGet&#x000A;    {&#x000A;        <span class="hl str">&quot;Fine. &quot;</span>;&#x000A;        <span class="hl kwa">return false</span>&#x000A;    }&#x000A;}</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwb">after</span>&#x000A;{&#x000A;    <span class="hl kwb">object</span> DoGet&#x000A;    {&#x000A;        <span class="hl str">&quot;Fine. &quot;</span>;&#x000A;        <span class="hl kwa">return</span> <span class="hl kwc">false</span>&#x000A;    }&#x000A;}</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -8544,7 +8544,7 @@ If no response is provided, <code>order_response</code> should return false.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">order_response&#x000A;{&#x000A;    <span class="hl kwa">if</span> <span class="hl kwb">verbroutine</span> <span class="hl opt">= &amp;</span>DoGet&#x000A;        <span class="hl str">&quot;I would, but my back is too sore.&quot;</span>&#x000A;    <span class="hl kwa">else</span>&#x000A;        <span class="hl kwa">return false</span>&#x000A;}</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">order_response&#x000A;{&#x000A;    <span class="hl kwa">if</span> <span class="hl kwb">verbroutine</span> <span class="hl opt">= &amp;</span>DoGet&#x000A;        <span class="hl str">&quot;I would, but my back is too sore.&quot;</span>&#x000A;    <span class="hl kwa">else</span>&#x000A;        <span class="hl kwa">return</span> <span class="hl kwc">false</span>&#x000A;}</code></pre>
 </div>
 </div>
 <div class="admonitionblock warning">
@@ -9169,7 +9169,7 @@ The response is handled in the NPC&#8217;s <code>after</code> property routine:<
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwb">after</span>&#x000A;{&#x000A;    <span class="hl kwb">object</span> DoAsk&#x000A;    {&#x000A;        <span class="hl kwa">select</span> <span class="hl kwb">xobject</span>&#x000A;        <span class="hl kwa">case</span> apple&#x000A;            <span class="hl str">&quot;</span><span class="hl esc">\&quot;</span><span class="hl str">I must admit I rather prefer them to</span>&#x000A;<span class="hl str">            bananas,</span><span class="hl esc">\&quot;</span> <span class="hl str">Gustav tells you.&quot;</span>&#x000A;        <span class="hl kwa">case else</span>&#x000A;            <span class="hl kwa">return false</span>    <span class="hl slc">! important</span>&#x000A;    }&#x000A;}</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwb">after</span>&#x000A;{&#x000A;    <span class="hl kwb">object</span> DoAsk&#x000A;    {&#x000A;        <span class="hl kwa">select</span> <span class="hl kwb">xobject</span>&#x000A;        <span class="hl kwa">case</span> apple&#x000A;            <span class="hl str">&quot;</span><span class="hl esc">\&quot;</span><span class="hl str">I must admit I rather prefer them to</span>&#x000A;<span class="hl str">            bananas,</span><span class="hl esc">\&quot;</span> <span class="hl str">Gustav tells you.&quot;</span>&#x000A;        <span class="hl kwa">case else</span>&#x000A;            <span class="hl kwa">return</span> <span class="hl kwc">false</span>    <span class="hl slc">! important</span>&#x000A;    }&#x000A;}</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -9196,7 +9196,7 @@ The response is handled in the NPC&#8217;s <code>after</code> property routine:<
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwb">after</span>&#x000A;{&#x000A;    <span class="hl kwb">object</span> DoAsk&#x000A;    {&#x000A;        ...&#x000A;    }&#x000A;    <span class="hl kwb">xobject</span> DoGive&#x000A;    {&#x000A;        <span class="hl kwa">select</span> <span class="hl kwb">object</span>&#x000A;        <span class="hl kwa">case</span> banana&#x000A;            <span class="hl str">&quot;</span><span class="hl esc">\&quot;</span><span class="hl str">No thank you,</span><span class="hl esc">\&quot;</span> <span class="hl str">Gustav says.</span> <span class="hl esc">\&quot;</span><span class="hl str">I</span>&#x000A;<span class="hl str">            would rather have an apple.</span><span class="hl esc">\&quot;</span><span class="hl str">&quot;</span>&#x000A;        <span class="hl kwa">case else</span>&#x000A;            <span class="hl kwa">return false</span>&#x000A;    }&#x000A;    <span class="hl kwb">xobject</span> DoShow&#x000A;    {&#x000A;        <span class="hl kwa">select</span> <span class="hl kwb">object</span>&#x000A;        ...&#x000A;        <span class="hl kwa">case else</span>&#x000A;            <span class="hl kwa">return false</span>&#x000A;    }&#x000A;}</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwb">after</span>&#x000A;{&#x000A;    <span class="hl kwb">object</span> DoAsk&#x000A;    {&#x000A;        ...&#x000A;    }&#x000A;    <span class="hl kwb">xobject</span> DoGive&#x000A;    {&#x000A;        <span class="hl kwa">select</span> <span class="hl kwb">object</span>&#x000A;        <span class="hl kwa">case</span> banana&#x000A;            <span class="hl str">&quot;</span><span class="hl esc">\&quot;</span><span class="hl str">No thank you,</span><span class="hl esc">\&quot;</span> <span class="hl str">Gustav says.</span> <span class="hl esc">\&quot;</span><span class="hl str">I</span>&#x000A;<span class="hl str">            would rather have an apple.</span><span class="hl esc">\&quot;</span><span class="hl str">&quot;</span>&#x000A;        <span class="hl kwa">case else</span>&#x000A;            <span class="hl kwa">return</span> <span class="hl kwc">false</span>&#x000A;    }&#x000A;    <span class="hl kwb">xobject</span> DoShow&#x000A;    {&#x000A;        <span class="hl kwa">select</span> <span class="hl kwb">object</span>&#x000A;        ...&#x000A;        <span class="hl kwa">case else</span>&#x000A;            <span class="hl kwa">return</span> <span class="hl kwc">false</span>&#x000A;    }&#x000A;}</code></pre>
 </div>
 </div>
 </div>
@@ -9380,7 +9380,7 @@ This property, which is true by default, can return false (after printing an app
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">vehicle_move&#x000A;{&#x000A;    <span class="hl kwa">if</span> <span class="hl kwb">self</span> <span class="hl kwa">is not</span> fed <span class="hl slc">! assuming a &#39;fed&#39; attribute</span>&#x000A;    {&#x000A;        <span class="hl str">&quot;This horse isn&#39;t going anywhere until you</span>&#x000A;<span class="hl str">        feed it.&quot;</span>&#x000A;        <span class="hl kwa">return false</span>&#x000A;    }&#x000A;    <span class="hl kwa">else</span>&#x000A;        <span class="hl kwa">return true</span>&#x000A;}</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">vehicle_move&#x000A;{&#x000A;    <span class="hl kwa">if</span> <span class="hl kwb">self</span> <span class="hl kwa">is not</span> fed <span class="hl slc">! assuming a &#39;fed&#39; attribute</span>&#x000A;    {&#x000A;        <span class="hl str">&quot;This horse isn&#39;t going anywhere until you</span>&#x000A;<span class="hl str">        feed it.&quot;</span>&#x000A;        <span class="hl kwa">return</span> <span class="hl kwc">false</span>&#x000A;    }&#x000A;    <span class="hl kwa">else</span>&#x000A;        <span class="hl kwa">return</span> <span class="hl kwc">true</span>&#x000A;}</code></pre>
 </div>
 </div>
 <div class="paragraph">

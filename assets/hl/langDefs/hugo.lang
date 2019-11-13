@@ -1,6 +1,6 @@
 -- ********************************
--- *  Hugo Interactive Fiction    *  v1.1.0-rc8    || by Tristano Ajmone:
--- *  www.generalcoffee.com/hugo  *  2019/11/12    || https://github.com/tajmone
+-- *  Hugo Interactive Fiction    *  v1.1.0-rc9    || by Tristano Ajmone:
+-- *  www.generalcoffee.com/hugo  *  2019/11/13    || https://github.com/tajmone
 -- ********************************  public domain || http://unlicense.org
 --------------------------------------------------------------------------------
 Description = "Hugo"  Categories = {"source", "interactive fiction"}
@@ -35,10 +35,11 @@ Description = "Hugo"  Categories = {"source", "interactive fiction"}
 --                         * Chars constants.
 --                         * System Words.
 --                         * Properties Qualifiers.
+--                         * Boolean Constants (true/false).
 --   * Keywords 4     -- Limit Settings.
 --------------------------------------------------------------------------------
 IgnoreCase  = true    EnableIndentation = false
-Identifiers = [[ [\$\~]?[a-zA-Z_]\w*[#\$]? ]]
+Identifiers = [[ [\$\~]?[a-zA-Z_]\w*\$? ]]
 Comments = {{
   Block  = true,
   Nested = false,
@@ -120,25 +121,12 @@ Keywords = {{
   ------------------------------------------------------------------------------
   Id = 1, List = {                                          -- Hugo keywords # 1
   ------------------------------------------------------------------------------
-    "arraydata#",
-    "attr#",
-    "debugdata#",
-    "dictentry#",
-    "eol#",
-    "label#",
-    "objectnum#",
-    "prop#",
-    "routine#",
-    "stringdata#",
-    "textdata#",
-    "value#",
-    "var#",
-    ----------------------------------------------------------------------------
     "addcontext",
     "alias",
     "and",
     "anything",
     "array",
+    "attribute",
     "break",
     "call",
     "capital",
@@ -159,7 +147,6 @@ Keywords = {{
     "elseif",
     "enumerate",
     "event",
-    "false",
     "for",
     "global",
     "graphics",
@@ -221,7 +208,6 @@ Keywords = {{
     "system",
     "text",
     "to",
-    "true",
     "undo",
     "verb",
     "video",
@@ -289,6 +275,11 @@ Keywords = {{
     ----------------------------------------------------------------------------
       "$additive",
       "$complex",
+    ----------------------------------------------------------------------------
+    --| Boolean Constants |-----------------------------------------------------
+    ----------------------------------------------------------------------------
+      "true",
+      "false",
   }},{
   ------------------------------------------------------------------------------
   Id = 4,                                                  -- Limit Settings # 4
@@ -322,7 +313,7 @@ end
 --[[============================================================================
                                   CHANGELOG
 ================================================================================
-v1.1.0 (2019/11/12) | Highlight v3.54
+v1.1.0 (2019/11/13) | Highlight v3.54
   - Polish source.
   - List keywords one kwd per line to simplfy WIP and tracking changes.
   - NEW:
@@ -332,8 +323,10 @@ v1.1.0 (2019/11/12) | Highlight v3.54
       - Built-in Global Variables. (moved here from Group 1)
       - Built-in Properties.       (moved here from Group 1)
     - Kwd Groups 3 and 4 are shifted and become 4 and 5.
-    - Kwd Group 3 (was 2) now hosts also System Words and Properties Qualifiers
-      along with Char Constants.
+    - Kwd Group 3: (was 2) added also, along with Char Constants:
+      - System Words.
+      - Properties Qualifiers.
+      - Boolean Constants (true/false: moved from  Group 1).
   - FIXES:
     - Identifiers patterns tweaked to include tokens starting with tilde.
     - Ignore interpolations inside preprocessor strings.
