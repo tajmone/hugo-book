@@ -61,6 +61,13 @@ trim_trailing_whitespace = true
 insert_final_newline = true
 
 
+## Hugo Sources
+###############
+[.{hug,h,g}]
+indent_size = 8
+charset = latin1
+
+
 ## Markdown GFM
 ###############
 [*.md]

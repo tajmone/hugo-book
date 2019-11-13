@@ -21,6 +21,25 @@
 *.lang    gitlab-language=Lua
 *.theme   gitlab-language=Lua
 
+## =================
+## Hugo source files
+## =================
+*.hug     text
+*.h       text
+*.g       text
+## -------------------------
+## GitHub Linguist Settings:
+## -------------------------
+*.hug     linguist-language=Hugo
+*.h       linguist-language=Hugo
+*.g       linguist-language=Hugo
+## -------------------------
+## GitLab Linguist Settings:
+## -------------------------
+*.hug     gitlab-language=Hugo
+*.h       gitlab-language=Hugo
+*.g       gitlab-language=Hugo
+
 ## =============
 ## Shell Scripts
 ## =============
