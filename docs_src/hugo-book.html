@@ -535,7 +535,7 @@ div.literalblock.cmd pre .conum {
 <span id="email" class="email"><a href="mailto:general@generalcoffee.com">general@generalcoffee.com</a></span><br>
 <span id="revnumber">version 1,</span>
 <span id="revdate">2018-10-04</span>
-<br><span id="revremark">Draft 100 -- Porting to AsciiDoc</span>
+<br><span id="revremark">Draft 101 -- Porting to AsciiDoc</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -2024,7 +2024,7 @@ In other words:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">nouns</span> <span class="hl str">&quot;plant&quot;</span>, <span class="hl str">&quot;flower&quot;</span>, <span class="hl str">&quot;marigold&quot;</span>, \&#x000A;    <span class="hl str">&quot;fauna&quot;</span>, <span class="hl str">&quot;greenery&quot;</span></code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">nouns <span class="hl str">&quot;plant&quot;</span>, <span class="hl str">&quot;flower&quot;</span>, <span class="hl str">&quot;marigold&quot;</span>, \&#x000A;    <span class="hl str">&quot;fauna&quot;</span>, <span class="hl str">&quot;greenery&quot;</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -3011,7 +3011,7 @@ An attribute is defined as</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">attribute <span class="hl opt">&lt;</span>attribute <span class="hl kwa">name</span><span class="hl opt">&gt;</span></code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">attribute <span class="hl opt">&lt;</span>attribute <span class="hl kwb">name</span><span class="hl opt">&gt;</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -3257,7 +3257,7 @@ They are sets of valid data associated with an object, where the values may repr
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">nouns</span> <span class="hl str">&quot;tree&quot;</span>, <span class="hl str">&quot;bush&quot;</span>, <span class="hl str">&quot;shrub&quot;</span>, <span class="hl str">&quot;plant&quot;</span>&#x000A;&#x000A;size <span class="hl num">20</span>&#x000A;&#x000A;found_in livingroom, entrancehall&#x000A;&#x000A;long_desc&#x000A;{&#x000A;    <span class="hl str">&quot;Exits lead north and west. A door is set</span>&#x000A;<span class="hl str">    in the southeast wall.&quot;</span>&#x000A;&#x000A;}&#x000A;&#x000A;short_desc&#x000A;{&#x000A;    <span class="hl str">&quot;There is a box here. It is &quot;</span>;&#x000A;    <span class="hl kwa">if</span> <span class="hl kwb">self</span> <span class="hl kwa">is</span> open&#x000A;        <span class="hl kwa">print</span> <span class="hl str">&quot;open&quot;</span>;&#x000A;    <span class="hl kwa">else</span>&#x000A;        <span class="hl kwa">print</span> <span class="hl str">&quot;closed&quot;</span>;&#x000A;    <span class="hl kwa">print</span> <span class="hl str">&quot;.&quot;</span>&#x000A;}&#x000A;&#x000A;<span class="hl kwa">before</span><sup class="footnote">[<a id="_footnoteref_17" class="footnote" href="#_footnotedef_17" title="View footnote.">17</a>]</sup>&#x000A;{&#x000A;    <span class="hl kwb">object</span> DoGet&#x000A;    {&#x000A;        <span class="hl kwa">if</span> Acquire(<span class="hl kwb">player</span>, <span class="hl kwb">self</span>)&#x000A;        {&#x000A;            <span class="hl str">&quot;You pick up &quot;</span>;&#x000A;            <span class="hl kwa">print</span> Art(<span class="hl kwb">self</span>); <span class="hl str">&quot;.&quot;</span>&#x000A;        }&#x000A;        <span class="hl kwa">else</span>&#x000A;            <span class="hl kwa">return false</span>&#x000A;    }&#x000A;}</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">nouns <span class="hl str">&quot;tree&quot;</span>, <span class="hl str">&quot;bush&quot;</span>, <span class="hl str">&quot;shrub&quot;</span>, <span class="hl str">&quot;plant&quot;</span>&#x000A;&#x000A;size <span class="hl num">20</span>&#x000A;&#x000A;found_in livingroom, entrancehall&#x000A;&#x000A;long_desc&#x000A;{&#x000A;    <span class="hl str">&quot;Exits lead north and west. A door is set</span>&#x000A;<span class="hl str">    in the southeast wall.&quot;</span>&#x000A;&#x000A;}&#x000A;&#x000A;short_desc&#x000A;{&#x000A;    <span class="hl str">&quot;There is a box here. It is &quot;</span>;&#x000A;    <span class="hl kwa">if</span> <span class="hl kwb">self</span> <span class="hl kwa">is</span> open&#x000A;        <span class="hl kwa">print</span> <span class="hl str">&quot;open&quot;</span>;&#x000A;    <span class="hl kwa">else</span>&#x000A;        <span class="hl kwa">print</span> <span class="hl str">&quot;closed&quot;</span>;&#x000A;    <span class="hl kwa">print</span> <span class="hl str">&quot;.&quot;</span>&#x000A;}&#x000A;&#x000A;<span class="hl kwb">before</span><sup class="footnote">[<a id="_footnoteref_17" class="footnote" href="#_footnotedef_17" title="View footnote.">17</a>]</sup>&#x000A;{&#x000A;    <span class="hl kwb">object</span> DoGet&#x000A;    {&#x000A;        <span class="hl kwa">if</span> Acquire(<span class="hl kwb">player</span>, <span class="hl kwb">self</span>)&#x000A;        {&#x000A;            <span class="hl str">&quot;You pick up &quot;</span>;&#x000A;            <span class="hl kwa">print</span> Art(<span class="hl kwb">self</span>); <span class="hl str">&quot;.&quot;</span>&#x000A;        }&#x000A;        <span class="hl kwa">else</span>&#x000A;            <span class="hl kwa">return false</span>&#x000A;    }&#x000A;}</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -3280,7 +3280,7 @@ For now, think of a property as simply containing one or more values of some kin
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">property</span> <span class="hl opt">&lt;</span><span class="hl kwa">property name</span><span class="hl opt">&gt;</span></code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">property</span> <span class="hl opt">&lt;</span><span class="hl kwa">property</span> <span class="hl kwb">name</span><span class="hl opt">&gt;</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -3288,7 +3288,7 @@ For now, think of a property as simply containing one or more values of some kin
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">property</span> <span class="hl opt">&lt;</span><span class="hl kwa">property name</span><span class="hl opt">&gt; &lt;</span>default value<span class="hl opt">&gt;</span></code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">property</span> <span class="hl opt">&lt;</span><span class="hl kwa">property</span> <span class="hl kwb">name</span><span class="hl opt">&gt; &lt;</span>default value<span class="hl opt">&gt;</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -3559,7 +3559,7 @@ The library aliases (among others) the following:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">nouns alias noun</span>&#x000A;<span class="hl kwa">adjectives alias adjective</span>&#x000A;prep <span class="hl kwa">alias</span> preposition&#x000A;pronouns <span class="hl kwa">alias</span> pronoun</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">nouns <span class="hl kwa">alias</span> <span class="hl kwb">noun</span>&#x000A;adjectives <span class="hl kwa">alias</span> <span class="hl kwb">adjective</span>&#x000A;prep <span class="hl kwa">alias</span> preposition&#x000A;pronouns <span class="hl kwa">alias</span> pronoun</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -3605,7 +3605,7 @@ The library aliases (among others) the following:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwb">object</span> mysuitcase <span class="hl str">&quot;big green suitcase&quot;</span>&#x000A;{&#x000A;    <span class="hl kwa">in</span> emptyroom            <span class="hl slc">! done earlier</span>&#x000A;    <span class="hl kwa">is</span> openable, <span class="hl kwa">not</span> open   <span class="hl slc">!</span>&#x000A;&#x000A;    <span class="hl kwa">nouns</span> <span class="hl str">&quot;suitcase&quot;</span>, <span class="hl str">&quot;case&quot;</span>, <span class="hl str">&quot;luggage&quot;</span>&#x000A;    <span class="hl kwa">adjective</span> <span class="hl str">&quot;big&quot;</span>, <span class="hl str">&quot;green&quot;</span>, <span class="hl str">&quot;suit&quot;</span>&#x000A;    <span class="hl kwa">article</span> <span class="hl str">&quot;a&quot;</span>&#x000A;    size <span class="hl num">25</span>&#x000A;    capacity <span class="hl num">100</span>&#x000A;}</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwb">object</span> mysuitcase <span class="hl str">&quot;big green suitcase&quot;</span>&#x000A;{&#x000A;    <span class="hl kwa">in</span> emptyroom            <span class="hl slc">! done earlier</span>&#x000A;    <span class="hl kwa">is</span> openable, <span class="hl kwa">not</span> open   <span class="hl slc">!</span>&#x000A;&#x000A;    nouns <span class="hl str">&quot;suitcase&quot;</span>, <span class="hl str">&quot;case&quot;</span>, <span class="hl str">&quot;luggage&quot;</span>&#x000A;    <span class="hl kwb">adjective</span> <span class="hl str">&quot;big&quot;</span>, <span class="hl str">&quot;green&quot;</span>, <span class="hl str">&quot;suit&quot;</span>&#x000A;    <span class="hl kwb">article</span> <span class="hl str">&quot;a&quot;</span>&#x000A;    size <span class="hl num">25</span>&#x000A;    capacity <span class="hl num">100</span>&#x000A;}</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -3624,7 +3624,7 @@ Even &#8220;big green&#8221; and &#8220;suit&#8221; may be valid, provided that 
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl opt">&lt;</span><span class="hl kwa">adjective</span> <span class="hl num">1</span><span class="hl opt">&gt; &lt;</span>adj. <span class="hl num">2</span><span class="hl opt">&gt; &lt;</span>adj. <span class="hl num">3</span><span class="hl opt">&gt;</span>...<span class="hl opt">&lt;</span>adj. n<span class="hl opt">&gt; &lt;</span><span class="hl kwa">noun</span><span class="hl opt">&gt;</span></code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl opt">&lt;</span><span class="hl kwb">adjective</span> <span class="hl num">1</span><span class="hl opt">&gt; &lt;</span>adj. <span class="hl num">2</span><span class="hl opt">&gt; &lt;</span>adj. <span class="hl num">3</span><span class="hl opt">&gt;</span>...<span class="hl opt">&lt;</span>adj. n<span class="hl opt">&gt; &lt;</span><span class="hl kwb">noun</span><span class="hl opt">&gt;</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -3633,7 +3633,7 @@ However, the noun must come last, and only one noun is recognized, so that</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl opt">&lt;</span><span class="hl kwa">noun</span><span class="hl opt">&gt; &lt;</span><span class="hl kwa">noun</span><span class="hl opt">&gt;</span></code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl opt">&lt;</span><span class="hl kwb">noun</span><span class="hl opt">&gt; &lt;</span><span class="hl kwb">noun</span><span class="hl opt">&gt;</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -3641,7 +3641,7 @@ However, the noun must come last, and only one noun is recognized, so that</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl opt">&lt;</span><span class="hl kwa">noun</span><span class="hl opt">&gt; &lt;</span><span class="hl kwa">adjective</span><span class="hl opt">&gt;</span></code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl opt">&lt;</span><span class="hl kwb">noun</span><span class="hl opt">&gt; &lt;</span><span class="hl kwb">adjective</span><span class="hl opt">&gt;</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -3719,7 +3719,7 @@ Trying to read <code>&lt;object&gt;.found_in #2</code> will return a value of 0&
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwb">location</span>.n_to.<span class="hl kwa">name</span></code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwb">location</span>.n_to.<span class="hl kwb">name</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -3727,7 +3727,7 @@ Trying to read <code>&lt;object&gt;.found_in #2</code> will return a value of 0&
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">(<span class="hl kwb">location</span>.n_to).<span class="hl kwa">name</span></code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">(<span class="hl kwb">location</span>.n_to).<span class="hl kwb">name</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -3754,7 +3754,7 @@ Here is how a class is defined:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">class</span> box&#x000A;{&#x000A;    <span class="hl kwa">noun</span> <span class="hl str">&quot;box&quot;</span>&#x000A;    long_desc&#x000A;        <span class="hl str">&quot;It looks like a regular old box.&quot;</span>&#x000A;    <span class="hl kwa">is</span> openable, <span class="hl kwa">not</span> open&#x000A;}&#x000A;&#x000A;box largebox <span class="hl str">&quot;large box&quot;</span>&#x000A;{&#x000A;    <span class="hl kwa">article</span> <span class="hl str">&quot;a&quot;</span>&#x000A;    <span class="hl kwa">adjectives</span> <span class="hl str">&quot;big&quot;</span>, <span class="hl str">&quot;large&quot;</span>&#x000A;    <span class="hl kwa">is</span> open&#x000A;}&#x000A;&#x000A;box greenbox <span class="hl str">&quot;green box&quot;</span>&#x000A;{&#x000A;    <span class="hl kwa">article</span> <span class="hl str">&quot;a&quot;</span>&#x000A;    <span class="hl kwa">adjective</span> <span class="hl str">&quot;green&quot;</span>&#x000A;    long_desc&#x000A;        <span class="hl str">&quot;It looks like a regular old box,</span>&#x000A;<span class="hl str">        only green.&quot;</span>&#x000A;}</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">class</span> box&#x000A;{&#x000A;    <span class="hl kwb">noun</span> <span class="hl str">&quot;box&quot;</span>&#x000A;    long_desc&#x000A;        <span class="hl str">&quot;It looks like a regular old box.&quot;</span>&#x000A;    <span class="hl kwa">is</span> openable, <span class="hl kwa">not</span> open&#x000A;}&#x000A;&#x000A;box largebox <span class="hl str">&quot;large box&quot;</span>&#x000A;{&#x000A;    <span class="hl kwb">article</span> <span class="hl str">&quot;a&quot;</span>&#x000A;    adjectives <span class="hl str">&quot;big&quot;</span>, <span class="hl str">&quot;large&quot;</span>&#x000A;    <span class="hl kwa">is</span> open&#x000A;}&#x000A;&#x000A;box greenbox <span class="hl str">&quot;green box&quot;</span>&#x000A;{&#x000A;    <span class="hl kwb">article</span> <span class="hl str">&quot;a&quot;</span>&#x000A;    <span class="hl kwb">adjective</span> <span class="hl str">&quot;green&quot;</span>&#x000A;    long_desc&#x000A;        <span class="hl str">&quot;It looks like a regular old box,</span>&#x000A;<span class="hl str">        only green.&quot;</span>&#x000A;}</code></pre>
 </div>
 </div>
 <div class="admonitionblock note">
@@ -3810,7 +3810,7 @@ Therefore,</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">largebox largeredbox <span class="hl str">&quot;large red box&quot;</span>&#x000A;{&#x000A;    <span class="hl kwa">adjectives</span> <span class="hl str">&quot;big&quot;</span>, <span class="hl str">&quot;large&quot;</span>, <span class="hl str">&quot;red&quot;</span>&#x000A;}</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">largebox largeredbox <span class="hl str">&quot;large red box&quot;</span>&#x000A;{&#x000A;    adjectives <span class="hl str">&quot;big&quot;</span>, <span class="hl str">&quot;large&quot;</span>, <span class="hl str">&quot;red&quot;</span>&#x000A;}</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -3948,7 +3948,7 @@ They must be defined similarly to properties and attributes as</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">global</span> <span class="hl opt">&lt;</span><span class="hl kwa">global</span> variable <span class="hl kwa">name</span><span class="hl opt">&gt;</span>[ <span class="hl opt">= &lt;</span>initial value<span class="hl opt">&gt;</span>]</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">global</span> <span class="hl opt">&lt;</span><span class="hl kwa">global</span> variable <span class="hl kwb">name</span><span class="hl opt">&gt;</span>[ <span class="hl opt">= &lt;</span>initial value<span class="hl opt">&gt;</span>]</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -3957,7 +3957,7 @@ They are defined using</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">local</span> <span class="hl opt">&lt;</span><span class="hl kwa">local</span> variable <span class="hl kwa">name</span><span class="hl opt">&gt;</span>[ <span class="hl opt">= &lt;</span>initial value<span class="hl opt">&gt;</span>]</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">local</span> <span class="hl opt">&lt;</span><span class="hl kwa">local</span> variable <span class="hl kwb">name</span><span class="hl opt">&gt;</span>[ <span class="hl opt">= &lt;</span>initial value<span class="hl opt">&gt;</span>]</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -4345,7 +4345,7 @@ The command</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">print</span> <span class="hl str">&quot;The &quot;</span>; <span class="hl kwb">object</span>.<span class="hl kwa">name</span>; <span class="hl str">&quot; is closed.&quot;</span></code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">print</span> <span class="hl str">&quot;The &quot;</span>; <span class="hl kwb">object</span>.<span class="hl kwb">name</span>; <span class="hl str">&quot; is closed.&quot;</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -4363,7 +4363,7 @@ The command</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">print</span> <span class="hl str">&quot;The &quot;</span>; <span class="hl kwa">capital</span> <span class="hl kwb">object</span>.<span class="hl kwa">name</span>; <span class="hl str">&quot; is closed.&quot;</span></code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">print</span> <span class="hl str">&quot;The &quot;</span>; <span class="hl kwa">capital</span> <span class="hl kwb">object</span>.<span class="hl kwb">name</span>; <span class="hl str">&quot; is closed.&quot;</span></code></pre>
 </div>
 </div>
 <div class="exampleblock gametranscript">
@@ -5682,7 +5682,7 @@ Its syntax is:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">x <span class="hl opt">=</span> <span class="hl kwa">dict</span>(<span class="hl opt">&lt;</span><span class="hl kwa">array</span><span class="hl opt">&gt;</span>, <span class="hl opt">&lt;</span>maxlen<span class="hl opt">&gt;</span>)&#x000A;x <span class="hl opt">=</span> <span class="hl kwa">dict</span>(<span class="hl kwa">parse$</span>, <span class="hl opt">&lt;</span>maxlen<span class="hl opt">&gt;</span>)</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">x <span class="hl opt">=</span> <span class="hl kwa">dict</span>(<span class="hl opt">&lt;</span><span class="hl kwa">array</span><span class="hl opt">&gt;</span>, <span class="hl opt">&lt;</span>maxlen<span class="hl opt">&gt;</span>)&#x000A;x <span class="hl opt">=</span> <span class="hl kwa">dict</span>(<span class="hl kwb">parse$</span>, <span class="hl opt">&lt;</span>maxlen<span class="hl opt">&gt;</span>)</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -5880,7 +5880,7 @@ It may be a routine that modifies a global variable, for example, which is then 
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">for</span> i <span class="hl kwa">in</span> mysuitcase&#x000A;  <span class="hl kwa">print</span> i.<span class="hl kwa">name</span></code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">for</span> i <span class="hl kwa">in</span> mysuitcase&#x000A;  <span class="hl kwa">print</span> i.<span class="hl kwb">name</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -6072,7 +6072,7 @@ A routine may or may not return a value, and it may or may not require a list of
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">routine</span> TestRoutine(obj)&#x000A;{&#x000A;    <span class="hl kwa">print</span> <span class="hl str">&quot;The &quot;</span>; obj.<span class="hl kwa">name</span>; <span class="hl str">&quot; has a size of &quot;</span>;&#x000A;    <span class="hl kwa">print</span> obj.size; <span class="hl str">&quot;.&quot;</span>&#x000A;    <span class="hl kwa">return</span> obj.size&#x000A;}</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">routine</span> TestRoutine(obj)&#x000A;{&#x000A;    <span class="hl kwa">print</span> <span class="hl str">&quot;The &quot;</span>; obj.<span class="hl kwb">name</span>; <span class="hl str">&quot; has a size of &quot;</span>;&#x000A;    <span class="hl kwa">print</span> obj.size; <span class="hl str">&quot;.&quot;</span>&#x000A;    <span class="hl kwa">return</span> obj.size&#x000A;}</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -6429,7 +6429,7 @@ They are unique in that not only are they always routines, but they are much mor
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">property</span> <span class="hl opt">&lt;</span><span class="hl kwa">property name</span><span class="hl opt">&gt;</span> <span class="hl kwa">$complex</span></code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">property</span> <span class="hl opt">&lt;</span><span class="hl kwa">property</span> <span class="hl kwb">name</span><span class="hl opt">&gt;</span> <span class="hl kwc">$complex</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -6437,7 +6437,7 @@ They are unique in that not only are they always routines, but they are much mor
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">property before $complex</span>&#x000A;<span class="hl kwa">property after $complex</span></code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">property</span> <span class="hl kwb">before</span> <span class="hl kwc">$complex</span>&#x000A;<span class="hl kwa">property</span> <span class="hl kwb">after</span> <span class="hl kwc">$complex</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -6445,7 +6445,7 @@ They are unique in that not only are they always routines, but they are much mor
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">before</span>&#x000A;{&#x000A;    <span class="hl opt">&lt;</span>usage1<span class="hl opt">&gt; &lt;</span>verbroutine1<span class="hl opt">&gt;</span>[, <span class="hl opt">&lt;</span>verbroutine2<span class="hl opt">&gt;</span>,...]&#x000A;    {&#x000A;        ...&#x000A;    }&#x000A;    <span class="hl opt">&lt;</span>usage2<span class="hl opt">&gt; &lt;</span>verbroutine3<span class="hl opt">&gt;</span>[, <span class="hl opt">&lt;</span>verbroutine4<span class="hl opt">&gt;</span>,...]&#x000A;    {&#x000A;        ...&#x000A;    }&#x000A;    ...&#x000A;}</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwb">before</span>&#x000A;{&#x000A;    <span class="hl opt">&lt;</span>usage1<span class="hl opt">&gt; &lt;</span>verbroutine1<span class="hl opt">&gt;</span>[, <span class="hl opt">&lt;</span>verbroutine2<span class="hl opt">&gt;</span>,...]&#x000A;    {&#x000A;        ...&#x000A;    }&#x000A;    <span class="hl opt">&lt;</span>usage2<span class="hl opt">&gt; &lt;</span>verbroutine3<span class="hl opt">&gt;</span>[, <span class="hl opt">&lt;</span>verbroutine4<span class="hl opt">&gt;</span>,...]&#x000A;    {&#x000A;        ...&#x000A;    }&#x000A;    ...&#x000A;}</code></pre>
 </div>
 </div>
 <div class="admonitionblock important">
@@ -6482,7 +6482,7 @@ If no match is found, <code>&lt;object&gt;.before</code> returns false.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">before</span>&#x000A;{&#x000A;    <span class="hl kwb">object</span> DoEat&#x000A;    {&#x000A;        <span class="hl str">&quot;You can&#39;t eat the suitcase!&quot;</span>&#x000A;    }&#x000A;}&#x000A;&#x000A;<span class="hl kwa">after</span>&#x000A;{&#x000A;    <span class="hl kwb">object</span> DoGet&#x000A;    {&#x000A;        <span class="hl str">&quot;With a vigorous effort, you pick up</span>&#x000A;<span class="hl str">        the suitcase.&quot;</span>&#x000A;    }&#x000A;    <span class="hl kwb">xobject</span> DoPutIn&#x000A;    {&#x000A;        <span class="hl str">&quot;You put &quot;</span>;&#x000A;        The(<span class="hl kwb">object</span>)&#x000A;        <span class="hl str">&quot; into the suitcase.&quot;</span>&#x000A;    }&#x000A;}</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwb">before</span>&#x000A;{&#x000A;    <span class="hl kwb">object</span> DoEat&#x000A;    {&#x000A;        <span class="hl str">&quot;You can&#39;t eat the suitcase!&quot;</span>&#x000A;    }&#x000A;}&#x000A;&#x000A;<span class="hl kwb">after</span>&#x000A;{&#x000A;    <span class="hl kwb">object</span> DoGet&#x000A;    {&#x000A;        <span class="hl str">&quot;With a vigorous effort, you pick up</span>&#x000A;<span class="hl str">        the suitcase.&quot;</span>&#x000A;    }&#x000A;    <span class="hl kwb">xobject</span> DoPutIn&#x000A;    {&#x000A;        <span class="hl str">&quot;You put &quot;</span>;&#x000A;        The(<span class="hl kwb">object</span>)&#x000A;        <span class="hl str">&quot; into the suitcase.&quot;</span>&#x000A;    }&#x000A;}</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -6516,7 +6516,7 @@ In order to fool the engine into continuing normally, as if no <code>before</cod
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">after</span>&#x000A;{&#x000A;    <span class="hl kwb">object</span> DoGet&#x000A;    {&#x000A;        <span class="hl str">&quot;Fine. &quot;</span>;&#x000A;        <span class="hl kwa">return false</span>&#x000A;    }&#x000A;}</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwb">after</span>&#x000A;{&#x000A;    <span class="hl kwb">object</span> DoGet&#x000A;    {&#x000A;        <span class="hl str">&quot;Fine. &quot;</span>;&#x000A;        <span class="hl kwa">return false</span>&#x000A;    }&#x000A;}</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -6542,7 +6542,7 @@ An additive property is defined using the <code>$additive</code> qualifier, as i
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">property</span> <span class="hl opt">&lt;</span><span class="hl kwa">property name</span><span class="hl opt">&gt;</span> <span class="hl kwa">$additive</span> <span class="hl opt">&lt;</span>default value<span class="hl opt">&gt;</span></code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">property</span> <span class="hl opt">&lt;</span><span class="hl kwa">property</span> <span class="hl kwb">name</span><span class="hl opt">&gt;</span> <span class="hl kwc">$additive</span> <span class="hl opt">&lt;</span>default value<span class="hl opt">&gt;</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -6564,7 +6564,7 @@ However, the processing of a <code>before</code>/<code>after</code> property beg
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">before</span>&#x000A;{&#x000A;    <span class="hl kwb">xobject</span>&#x000A;    {&#x000A;        ...<span class="hl kwa">property routine</span>...&#x000A;    }&#x000A;}</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwb">before</span>&#x000A;{&#x000A;    <span class="hl kwb">xobject</span>&#x000A;    {&#x000A;        ...<span class="hl kwa">property routine</span>...&#x000A;    }&#x000A;}</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -6589,7 +6589,7 @@ Therefore, it can be used via:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">before</span>&#x000A;{&#x000A;    AnyVerb(<span class="hl kwb">location</span>)&#x000A;    {&#x000A;        ...&#x000A;    }&#x000A;}</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwb">before</span>&#x000A;{&#x000A;    AnyVerb(<span class="hl kwb">location</span>)&#x000A;    {&#x000A;        ...&#x000A;    }&#x000A;}</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -6597,7 +6597,7 @@ Therefore, it can be used via:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">before</span>&#x000A;{&#x000A;    <span class="hl kwb">location</span>&#x000A;    {&#x000A;        ...&#x000A;    }&#x000A;}</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwb">before</span>&#x000A;{&#x000A;    <span class="hl kwb">location</span>&#x000A;    {&#x000A;        ...&#x000A;    }&#x000A;}</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -6825,7 +6825,7 @@ This also allows changes to be made to any property, attribute, or property rout
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwb">object</span> woodcabinet <span class="hl str">&quot;wooden cabinet&quot;</span>&#x000A;{&#x000A;    <span class="hl kwa">in</span> emptyroom&#x000A;    <span class="hl kwa">article</span> <span class="hl str">&quot;a&quot;</span>&#x000A;    <span class="hl kwa">nouns</span> <span class="hl str">&quot;cabinet&quot;</span>, <span class="hl str">&quot;shelf&quot;</span>, <span class="hl str">&quot;shelves&quot;</span>, \&#x000A;        <span class="hl str">&quot;furniture&quot;</span>, <span class="hl str">&quot;doors&quot;</span>, <span class="hl str">&quot;door&quot;</span>&#x000A;    <span class="hl kwa">adjectives</span> <span class="hl str">&quot;wooden&quot;</span>, <span class="hl str">&quot;wood&quot;</span>, <span class="hl str">&quot;fine&quot;</span>, <span class="hl str">&quot;mahogany&quot;</span>&#x000A;&#x000A;    short_desc&#x000A;        <span class="hl str">&quot;A wooden cabinet sits along one wall.&quot;</span>&#x000A;    when_open&#x000A;        <span class="hl str">&quot;An open wooden cabinet sits along</span>&#x000A;<span class="hl str">        one wall.&quot;</span>&#x000A;    long_desc&#x000A;    {&#x000A;        <span class="hl str">&quot;The cabinet is made of fine mahogany wood,</span>&#x000A;<span class="hl str">        hand-crafted by a master cabinetmaker. In</span>&#x000A;<span class="hl str">        front are two doors (presently &quot;</span>;&#x000A;        <span class="hl kwa">if</span> <span class="hl kwb">self</span> <span class="hl kwa">is</span> open&#x000A;            <span class="hl kwa">print</span> <span class="hl str">&quot;open&quot;</span>;&#x000A;        <span class="hl kwa">else</span>: <span class="hl kwa">print</span> <span class="hl str">&quot;closed&quot;</span>;&#x000A;        <span class="hl kwa">print</span> <span class="hl str">&quot;).&quot;</span>&#x000A;    }&#x000A;    contains_desc&#x000A;        <span class="hl str">&quot;Behind the open doors of the cabinet you</span>&#x000A;<span class="hl str">        can see&quot;</span>;           <span class="hl slc">! note semicolon--</span>&#x000A;                            <span class="hl slc">! no line feed</span>&#x000A;    key_object cabinetkey   <span class="hl slc">! a cabinetkey object</span>&#x000A;                            <span class="hl slc">! must also be created</span>&#x000A;&#x000A;    holding <span class="hl num">0</span>               <span class="hl slc">! starts off empty</span>&#x000A;    capacity <span class="hl num">100</span>&#x000A;&#x000A;    <span class="hl kwa">before</span>&#x000A;    {&#x000A;        <span class="hl kwb">object</span> DoLookUnder&#x000A;            {<span class="hl str">&quot;Nothing there but dust.&quot;</span>}&#x000A;        <span class="hl kwb">object</span> DoGet&#x000A;            {<span class="hl str">&quot;The cabinet is far too heavy</span>&#x000A;<span class="hl str">            to lift!&quot;</span>}&#x000A;    }&#x000A;    <span class="hl kwa">after</span>&#x000A;    {&#x000A;        <span class="hl kwb">object</span> DoLock&#x000A;            {<span class="hl str">&quot;With a twist of the key, you lock the</span>&#x000A;<span class="hl str">            cabinet up tight.&quot;</span>}&#x000A;    }&#x000A;&#x000A;    <span class="hl kwa">is</span> container, openable, <span class="hl kwa">not</span> open&#x000A;    <span class="hl kwa">is</span> lockable, static&#x000A;}</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwb">object</span> woodcabinet <span class="hl str">&quot;wooden cabinet&quot;</span>&#x000A;{&#x000A;    <span class="hl kwa">in</span> emptyroom&#x000A;    <span class="hl kwb">article</span> <span class="hl str">&quot;a&quot;</span>&#x000A;    nouns <span class="hl str">&quot;cabinet&quot;</span>, <span class="hl str">&quot;shelf&quot;</span>, <span class="hl str">&quot;shelves&quot;</span>, \&#x000A;        <span class="hl str">&quot;furniture&quot;</span>, <span class="hl str">&quot;doors&quot;</span>, <span class="hl str">&quot;door&quot;</span>&#x000A;    adjectives <span class="hl str">&quot;wooden&quot;</span>, <span class="hl str">&quot;wood&quot;</span>, <span class="hl str">&quot;fine&quot;</span>, <span class="hl str">&quot;mahogany&quot;</span>&#x000A;&#x000A;    short_desc&#x000A;        <span class="hl str">&quot;A wooden cabinet sits along one wall.&quot;</span>&#x000A;    when_open&#x000A;        <span class="hl str">&quot;An open wooden cabinet sits along</span>&#x000A;<span class="hl str">        one wall.&quot;</span>&#x000A;    long_desc&#x000A;    {&#x000A;        <span class="hl str">&quot;The cabinet is made of fine mahogany wood,</span>&#x000A;<span class="hl str">        hand-crafted by a master cabinetmaker. In</span>&#x000A;<span class="hl str">        front are two doors (presently &quot;</span>;&#x000A;        <span class="hl kwa">if</span> <span class="hl kwb">self</span> <span class="hl kwa">is</span> open&#x000A;            <span class="hl kwa">print</span> <span class="hl str">&quot;open&quot;</span>;&#x000A;        <span class="hl kwa">else</span>: <span class="hl kwa">print</span> <span class="hl str">&quot;closed&quot;</span>;&#x000A;        <span class="hl kwa">print</span> <span class="hl str">&quot;).&quot;</span>&#x000A;    }&#x000A;    contains_desc&#x000A;        <span class="hl str">&quot;Behind the open doors of the cabinet you</span>&#x000A;<span class="hl str">        can see&quot;</span>;           <span class="hl slc">! note semicolon--</span>&#x000A;                            <span class="hl slc">! no line feed</span>&#x000A;    key_object cabinetkey   <span class="hl slc">! a cabinetkey object</span>&#x000A;                            <span class="hl slc">! must also be created</span>&#x000A;&#x000A;    holding <span class="hl num">0</span>               <span class="hl slc">! starts off empty</span>&#x000A;    capacity <span class="hl num">100</span>&#x000A;&#x000A;    <span class="hl kwb">before</span>&#x000A;    {&#x000A;        <span class="hl kwb">object</span> DoLookUnder&#x000A;            {<span class="hl str">&quot;Nothing there but dust.&quot;</span>}&#x000A;        <span class="hl kwb">object</span> DoGet&#x000A;            {<span class="hl str">&quot;The cabinet is far too heavy</span>&#x000A;<span class="hl str">            to lift!&quot;</span>}&#x000A;    }&#x000A;    <span class="hl kwb">after</span>&#x000A;    {&#x000A;        <span class="hl kwb">object</span> DoLock&#x000A;            {<span class="hl str">&quot;With a twist of the key, you lock the</span>&#x000A;<span class="hl str">            cabinet up tight.&quot;</span>}&#x000A;    }&#x000A;&#x000A;    <span class="hl kwa">is</span> container, openable, <span class="hl kwa">not</span> open&#x000A;    <span class="hl kwa">is</span> lockable, static&#x000A;}</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -6901,7 +6901,7 @@ Since the daemon class is defined in the library, define a daemon itself using:<
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">daemon <span class="hl opt">&lt;</span><span class="hl kwa">name</span><span class="hl opt">&gt;</span>&#x000A;{}</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">daemon <span class="hl opt">&lt;</span><span class="hl kwb">name</span><span class="hl opt">&gt;</span>&#x000A;{}</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -6910,7 +6910,7 @@ The daemon object is only needed to attach the daemon event to, so the daemon de
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">event</span> [<span class="hl kwa">in</span>] <span class="hl opt">&lt;</span><span class="hl kwa">name</span><span class="hl opt">&gt;</span>&#x000A;{&#x000A;    ...&#x000A;}</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">event</span> [<span class="hl kwa">in</span>] <span class="hl opt">&lt;</span><span class="hl kwb">name</span><span class="hl opt">&gt;</span>&#x000A;{&#x000A;    ...&#x000A;}</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -6918,7 +6918,7 @@ The daemon object is only needed to attach the daemon event to, so the daemon de
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">Activate(<span class="hl opt">&lt;</span><span class="hl kwa">name</span><span class="hl opt">&gt;</span>)</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">Activate(<span class="hl opt">&lt;</span><span class="hl kwb">name</span><span class="hl opt">&gt;</span>)</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -6930,7 +6930,7 @@ This way, whenever a <code>runevents</code> command is given (as it should be in
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">Deactivate(<span class="hl opt">&lt;</span><span class="hl kwa">name</span><span class="hl opt">&gt;</span>)</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">Deactivate(<span class="hl opt">&lt;</span><span class="hl kwb">name</span><span class="hl opt">&gt;</span>)</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -6979,7 +6979,7 @@ The fuse itself is a slightly more complex version of a daemon object, containin
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">fuse <span class="hl opt">&lt;</span><span class="hl kwa">name</span><span class="hl opt">&gt;</span>&#x000A;{}&#x000A;&#x000A;<span class="hl kwa">event</span> [<span class="hl kwa">in</span>] <span class="hl opt">&lt;</span><span class="hl kwa">name</span><span class="hl opt">&gt;</span>&#x000A;{&#x000A;    ...&#x000A;    <span class="hl kwa">if not</span> <span class="hl kwb">self</span>.tick&#x000A;    {&#x000A;        ...&#x000A;    }&#x000A;}</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">fuse <span class="hl opt">&lt;</span><span class="hl kwb">name</span><span class="hl opt">&gt;</span>&#x000A;{}&#x000A;&#x000A;<span class="hl kwa">event</span> [<span class="hl kwa">in</span>] <span class="hl opt">&lt;</span><span class="hl kwb">name</span><span class="hl opt">&gt;</span>&#x000A;{&#x000A;    ...&#x000A;    <span class="hl kwa">if not</span> <span class="hl kwb">self</span>.tick&#x000A;    {&#x000A;        ...&#x000A;    }&#x000A;}</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -6987,7 +6987,7 @@ The fuse itself is a slightly more complex version of a daemon object, containin
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">Activate(<span class="hl opt">&lt;</span><span class="hl kwa">name</span><span class="hl opt">&gt;</span>, <span class="hl opt">&lt;</span>setting<span class="hl opt">&gt;</span>)</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">Activate(<span class="hl opt">&lt;</span><span class="hl kwb">name</span><span class="hl opt">&gt;</span>, <span class="hl opt">&lt;</span>setting<span class="hl opt">&gt;</span>)</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -6995,7 +6995,7 @@ The fuse itself is a slightly more complex version of a daemon object, containin
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">Deactivate(<span class="hl opt">&lt;</span><span class="hl kwa">name</span><span class="hl opt">&gt;</span>)</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">Deactivate(<span class="hl opt">&lt;</span><span class="hl kwb">name</span><span class="hl opt">&gt;</span>)</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -7229,7 +7229,7 @@ It continues with the default action&#8201;&#8212;&#8201;i.e., the character act
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">before</span>&#x000A;{&#x000A;    <span class="hl kwb">actor</span> CharRoutine&#x000A;    {&#x000A;        ...&#x000A;    }&#x000A;}</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwb">before</span>&#x000A;{&#x000A;    <span class="hl kwb">actor</span> CharRoutine&#x000A;    {&#x000A;        ...&#x000A;    }&#x000A;}</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -8215,7 +8215,7 @@ This is useful in case the <code>Parse</code> routine has changed the input line
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">print</span> <span class="hl str">&quot;The illegal word was: &quot;</span>; <span class="hl kwa">parse$</span>; <span class="hl str">&quot;.&quot;</span></code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">print</span> <span class="hl str">&quot;The illegal word was: &quot;</span>; <span class="hl kwb">parse$</span>; <span class="hl str">&quot;.&quot;</span></code></pre>
 </div>
 </div>
 </td>
@@ -8954,7 +8954,7 @@ You don&#8217;t need to use the word "&lt;unknown word&gt;".
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">case</span> <span class="hl num">1</span>&#x000A;    <span class="hl kwa">print</span> CThe(<span class="hl kwb">player</span>); \&#x000A;        MatchPlural(<span class="hl kwb">player</span>, <span class="hl str">&quot;doesn&#39;t, &quot;</span>don&#39;t<span class="hl str">&quot;); \</span>&#x000A;<span class="hl str">        need to use the word</span> <span class="hl esc">\&quot;</span><span class="hl str">&quot;</span>; \&#x000A;        <span class="hl kwa">parse$</span>; <span class="hl str">&quot;</span><span class="hl esc">\&quot;</span><span class="hl str">.&quot;</span></code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">case</span> <span class="hl num">1</span>&#x000A;    <span class="hl kwa">print</span> CThe(<span class="hl kwb">player</span>); \&#x000A;        MatchPlural(<span class="hl kwb">player</span>, <span class="hl str">&quot;doesn&#39;t, &quot;</span>don&#39;t<span class="hl str">&quot;); \</span>&#x000A;<span class="hl str">        need to use the word</span> <span class="hl esc">\&quot;</span><span class="hl str">&quot;</span>; \&#x000A;        <span class="hl kwb">parse$</span>; <span class="hl str">&quot;</span><span class="hl esc">\&quot;</span><span class="hl str">.&quot;</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -8962,7 +8962,7 @@ You don&#8217;t need to use the word "&lt;unknown word&gt;".
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">case</span> <span class="hl num">1</span>&#x000A;    <span class="hl kwa">print</span> <span class="hl str">&quot;[This game does not recognize</span> <span class="hl esc">\&quot;</span><span class="hl str">&quot;</span>; \&#x000A;        <span class="hl kwa">parse$</span>; <span class="hl str">&quot;</span><span class="hl esc">\&quot;</span><span class="hl str">.]&quot;</span></code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">case</span> <span class="hl num">1</span>&#x000A;    <span class="hl kwa">print</span> <span class="hl str">&quot;[This game does not recognize</span> <span class="hl esc">\&quot;</span><span class="hl str">&quot;</span>; \&#x000A;        <span class="hl kwb">parse$</span>; <span class="hl str">&quot;</span><span class="hl esc">\&quot;</span><span class="hl str">.]&quot;</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -8981,7 +8981,7 @@ You would simply interrupt the <code>DoGet</code> routine before it even execute
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">before</span>&#x000A;{&#x000A;    <span class="hl kwb">object</span> DoGet&#x000A;    {&#x000A;        <span class="hl str">&quot;The boulder is far too heavy to lift!&quot;</span>&#x000A;    }&#x000A;}</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwb">before</span>&#x000A;{&#x000A;    <span class="hl kwb">object</span> DoGet&#x000A;    {&#x000A;        <span class="hl str">&quot;The boulder is far too heavy to lift!&quot;</span>&#x000A;    }&#x000A;}</code></pre>
 </div>
 </div>
 </div>
@@ -9164,7 +9164,7 @@ The response is handled in the NPC&#8217;s <code>after</code> property routine:<
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">after</span>&#x000A;{&#x000A;    <span class="hl kwb">object</span> DoAsk&#x000A;    {&#x000A;        <span class="hl kwa">select</span> <span class="hl kwb">xobject</span>&#x000A;        <span class="hl kwa">case</span> apple&#x000A;            <span class="hl str">&quot;</span><span class="hl esc">\&quot;</span><span class="hl str">I must admit I rather prefer them to</span>&#x000A;<span class="hl str">            bananas,</span><span class="hl esc">\&quot;</span> <span class="hl str">Gustav tells you.&quot;</span>&#x000A;        <span class="hl kwa">case else</span>&#x000A;            <span class="hl kwa">return false</span>    <span class="hl slc">! important</span>&#x000A;    }&#x000A;}</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwb">after</span>&#x000A;{&#x000A;    <span class="hl kwb">object</span> DoAsk&#x000A;    {&#x000A;        <span class="hl kwa">select</span> <span class="hl kwb">xobject</span>&#x000A;        <span class="hl kwa">case</span> apple&#x000A;            <span class="hl str">&quot;</span><span class="hl esc">\&quot;</span><span class="hl str">I must admit I rather prefer them to</span>&#x000A;<span class="hl str">            bananas,</span><span class="hl esc">\&quot;</span> <span class="hl str">Gustav tells you.&quot;</span>&#x000A;        <span class="hl kwa">case else</span>&#x000A;            <span class="hl kwa">return false</span>    <span class="hl slc">! important</span>&#x000A;    }&#x000A;}</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -9191,7 +9191,7 @@ The response is handled in the NPC&#8217;s <code>after</code> property routine:<
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">after</span>&#x000A;{&#x000A;    <span class="hl kwb">object</span> DoAsk&#x000A;    {&#x000A;        ...&#x000A;    }&#x000A;    <span class="hl kwb">xobject</span> DoGive&#x000A;    {&#x000A;        <span class="hl kwa">select</span> <span class="hl kwb">object</span>&#x000A;        <span class="hl kwa">case</span> banana&#x000A;            <span class="hl str">&quot;</span><span class="hl esc">\&quot;</span><span class="hl str">No thank you,</span><span class="hl esc">\&quot;</span> <span class="hl str">Gustav says.</span> <span class="hl esc">\&quot;</span><span class="hl str">I</span>&#x000A;<span class="hl str">            would rather have an apple.</span><span class="hl esc">\&quot;</span><span class="hl str">&quot;</span>&#x000A;        <span class="hl kwa">case else</span>&#x000A;            <span class="hl kwa">return false</span>&#x000A;    }&#x000A;    <span class="hl kwb">xobject</span> DoShow&#x000A;    {&#x000A;        <span class="hl kwa">select</span> <span class="hl kwb">object</span>&#x000A;        ...&#x000A;        <span class="hl kwa">case else</span>&#x000A;            <span class="hl kwa">return false</span>&#x000A;    }&#x000A;}</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwb">after</span>&#x000A;{&#x000A;    <span class="hl kwb">object</span> DoAsk&#x000A;    {&#x000A;        ...&#x000A;    }&#x000A;    <span class="hl kwb">xobject</span> DoGive&#x000A;    {&#x000A;        <span class="hl kwa">select</span> <span class="hl kwb">object</span>&#x000A;        <span class="hl kwa">case</span> banana&#x000A;            <span class="hl str">&quot;</span><span class="hl esc">\&quot;</span><span class="hl str">No thank you,</span><span class="hl esc">\&quot;</span> <span class="hl str">Gustav says.</span> <span class="hl esc">\&quot;</span><span class="hl str">I</span>&#x000A;<span class="hl str">            would rather have an apple.</span><span class="hl esc">\&quot;</span><span class="hl str">&quot;</span>&#x000A;        <span class="hl kwa">case else</span>&#x000A;            <span class="hl kwa">return false</span>&#x000A;    }&#x000A;    <span class="hl kwb">xobject</span> DoShow&#x000A;    {&#x000A;        <span class="hl kwa">select</span> <span class="hl kwb">object</span>&#x000A;        ...&#x000A;        <span class="hl kwa">case else</span>&#x000A;            <span class="hl kwa">return false</span>&#x000A;    }&#x000A;}</code></pre>
 </div>
 </div>
 </div>
@@ -9222,7 +9222,7 @@ It may be gotten around by adding an embellishment like this:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">scenery prison_window <span class="hl str">&quot;prison window&quot;</span>&#x000A;{&#x000A;    <span class="hl kwa">in</span> prison_cell&#x000A;    <span class="hl kwa">article</span> <span class="hl str">&quot;a&quot;</span>&#x000A;    <span class="hl kwa">adjectives</span> <span class="hl str">&quot;single&quot;</span>, <span class="hl str">&quot;small&quot;</span>, <span class="hl str">&quot;prison&quot;</span>, <span class="hl str">&quot;cell&quot;</span>&#x000A;    <span class="hl kwa">noun</span> <span class="hl str">&quot;window&quot;</span>&#x000A;}</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">scenery prison_window <span class="hl str">&quot;prison window&quot;</span>&#x000A;{&#x000A;    <span class="hl kwa">in</span> prison_cell&#x000A;    <span class="hl kwb">article</span> <span class="hl str">&quot;a&quot;</span>&#x000A;    adjectives <span class="hl str">&quot;single&quot;</span>, <span class="hl str">&quot;small&quot;</span>, <span class="hl str">&quot;prison&quot;</span>, <span class="hl str">&quot;cell&quot;</span>&#x000A;    <span class="hl kwb">noun</span> <span class="hl str">&quot;window&quot;</span>&#x000A;}</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -9250,7 +9250,7 @@ The <code>component</code> class provides for this.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">component lever <span class="hl str">&quot;lever&quot;</span>&#x000A;{&#x000A;    part_of nefarious_machine&#x000A;    <span class="hl kwa">article</span> <span class="hl str">&quot;a&quot;</span>&#x000A;    <span class="hl kwa">noun</span> <span class="hl str">&quot;lever&quot;</span>&#x000A;}</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">component lever <span class="hl str">&quot;lever&quot;</span>&#x000A;{&#x000A;    part_of nefarious_machine&#x000A;    <span class="hl kwb">article</span> <span class="hl str">&quot;a&quot;</span>&#x000A;    <span class="hl kwb">noun</span> <span class="hl str">&quot;lever&quot;</span>&#x000A;}</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -9270,7 +9270,7 @@ The object library&#8217;s <code>door</code> class provides a simple implementat
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">door kitchen_door <span class="hl str">&quot;kitchen door&quot;</span>&#x000A;{&#x000A;    between kitchen, living_room&#x000A;    <span class="hl kwa">article</span> <span class="hl str">&quot;the&quot;</span>&#x000A;    <span class="hl kwa">adjective</span> <span class="hl str">&quot;kitchen&quot;</span>&#x000A;    <span class="hl kwa">noun</span> <span class="hl str">&quot;door&quot;</span>&#x000A;}</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">door kitchen_door <span class="hl str">&quot;kitchen door&quot;</span>&#x000A;{&#x000A;    between kitchen, living_room&#x000A;    <span class="hl kwb">article</span> <span class="hl str">&quot;the&quot;</span>&#x000A;    <span class="hl kwb">adjective</span> <span class="hl str">&quot;kitchen&quot;</span>&#x000A;    <span class="hl kwb">noun</span> <span class="hl str">&quot;door&quot;</span>&#x000A;}</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -9341,7 +9341,7 @@ You get on the wild mustang.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">vehicle mustang <span class="hl str">&quot;wild mustang&quot;</span>&#x000A;{&#x000A;    <span class="hl kwa">article</span> <span class="hl str">&quot;a&quot;</span>&#x000A;    <span class="hl kwa">adjectives</span> <span class="hl str">&quot;wild&quot;</span>, <span class="hl str">&quot;untamed&quot;</span>&#x000A;    <span class="hl kwa">nouns</span> <span class="hl str">&quot;mustang&quot;</span>, <span class="hl str">&quot;horse&quot;</span>&#x000A;    vehicle_verb <span class="hl str">&quot;ride&quot;</span>&#x000A;    preposition <span class="hl str">&quot;on&quot;</span>, <span class="hl str">&quot;off&quot;</span>&#x000A;}</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">vehicle mustang <span class="hl str">&quot;wild mustang&quot;</span>&#x000A;{&#x000A;    <span class="hl kwb">article</span> <span class="hl str">&quot;a&quot;</span>&#x000A;    adjectives <span class="hl str">&quot;wild&quot;</span>, <span class="hl str">&quot;untamed&quot;</span>&#x000A;    nouns <span class="hl str">&quot;mustang&quot;</span>, <span class="hl str">&quot;horse&quot;</span>&#x000A;    vehicle_verb <span class="hl str">&quot;ride&quot;</span>&#x000A;    preposition <span class="hl str">&quot;on&quot;</span>, <span class="hl str">&quot;off&quot;</span>&#x000A;}</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -9840,7 +9840,7 @@ To clear the record of any window and restore the main text window to the full-s
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">window_class <span class="hl opt">&lt;</span><span class="hl kwa">window name</span><span class="hl opt">&gt;</span> <span class="hl str">&quot;title&quot;</span>&#x000A;{&#x000A;    win_position <span class="hl opt">&lt;</span>screen column<span class="hl opt">&gt;</span>, <span class="hl opt">&lt;</span>screen row<span class="hl opt">&gt;</span>&#x000A;    win_size <span class="hl opt">&lt;</span>columns<span class="hl opt">&gt;</span>, <span class="hl opt">&lt;</span>rows<span class="hl opt">&gt;</span>&#x000A;&#x000A;    win_textcolor <span class="hl opt">&lt;</span><span class="hl kwa">text color</span><span class="hl opt">&gt;</span>&#x000A;    win_backcolor <span class="hl opt">&lt;</span>background <span class="hl kwa">color</span><span class="hl opt">&gt;</span>&#x000A;    win_titlecolor <span class="hl opt">&lt;</span>title <span class="hl kwa">text</span><span class="hl opt">&gt;</span>&#x000A;    win_titleback <span class="hl opt">&lt;</span>title background<span class="hl opt">&gt;</span>&#x000A;}</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">window_class <span class="hl opt">&lt;</span><span class="hl kwa">window</span> <span class="hl kwb">name</span><span class="hl opt">&gt;</span> <span class="hl str">&quot;title&quot;</span>&#x000A;{&#x000A;    win_position <span class="hl opt">&lt;</span>screen column<span class="hl opt">&gt;</span>, <span class="hl opt">&lt;</span>screen row<span class="hl opt">&gt;</span>&#x000A;    win_size <span class="hl opt">&lt;</span>columns<span class="hl opt">&gt;</span>, <span class="hl opt">&lt;</span>rows<span class="hl opt">&gt;</span>&#x000A;&#x000A;    win_textcolor <span class="hl opt">&lt;</span><span class="hl kwa">text color</span><span class="hl opt">&gt;</span>&#x000A;    win_backcolor <span class="hl opt">&lt;</span>background <span class="hl kwa">color</span><span class="hl opt">&gt;</span>&#x000A;    win_titlecolor <span class="hl opt">&lt;</span>title <span class="hl kwa">text</span><span class="hl opt">&gt;</span>&#x000A;    win_titleback <span class="hl opt">&lt;</span>title background<span class="hl opt">&gt;</span>&#x000A;}</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -9989,7 +9989,7 @@ A resourcefile is created using:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">resource <span class="hl str">&quot;&lt;resourcefile&gt;&quot;</span>&#x000A;{&#x000A;    <span class="hl str">&quot;&lt;resource1&gt;&quot;</span>&#x000A;    <span class="hl str">&quot;&lt;resource2&gt;&quot;</span>&#x000A;    ...&#x000A;}</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">resource</span> <span class="hl str">&quot;&lt;resourcefile&gt;&quot;</span>&#x000A;{&#x000A;    <span class="hl str">&quot;&lt;resource1&gt;&quot;</span>&#x000A;    <span class="hl str">&quot;&lt;resource2&gt;&quot;</span>&#x000A;    ...&#x000A;}</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -10015,7 +10015,7 @@ The reason for this is to maximize portability across different platforms and fi
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">resource <span class="hl str">&quot;GAMERES1&quot;</span>&#x000A;{&#x000A;    <span class="hl str">&quot;c:\hugo\graphics\logo.jpg&quot;</span>&#x000A;    <span class="hl str">&quot;h:\data\scenic panorama.jpg&quot;</span>&#x000A;    <span class="hl str">&quot;h:\data</span><span class="hl esc">\b</span><span class="hl str">ackground.jpg&quot;</span>&#x000A;    <span class="hl str">&quot;c:\music</span><span class="hl esc">\i</span><span class="hl str">ntro_theme.s3m&quot;</span>&#x000A;    <span class="hl str">&quot;c:\music\theme2.xm&quot;</span>&#x000A;    <span class="hl str">&quot;c:\sounds\sample1.wav&quot;</span>&#x000A;    <span class="hl str">&quot;c:\sounds\sample2.wav&quot;</span>&#x000A;}</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">resource</span> <span class="hl str">&quot;GAMERES1&quot;</span>&#x000A;{&#x000A;    <span class="hl str">&quot;c:\hugo\graphics\logo.jpg&quot;</span>&#x000A;    <span class="hl str">&quot;h:\data\scenic panorama.jpg&quot;</span>&#x000A;    <span class="hl str">&quot;h:\data</span><span class="hl esc">\b</span><span class="hl str">ackground.jpg&quot;</span>&#x000A;    <span class="hl str">&quot;c:\music</span><span class="hl esc">\i</span><span class="hl str">ntro_theme.s3m&quot;</span>&#x000A;    <span class="hl str">&quot;c:\music\theme2.xm&quot;</span>&#x000A;    <span class="hl str">&quot;c:\sounds\sample1.wav&quot;</span>&#x000A;    <span class="hl str">&quot;c:\sounds\sample2.wav&quot;</span>&#x000A;}</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -10171,7 +10171,7 @@ Wherever possible, however, it is recommended to always specify the resourcefile
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">sound</span> [<span class="hl kwa">repeat</span>] <span class="hl opt">&lt;</span>resourcefile<span class="hl opt">&gt;</span>, <span class="hl opt">&lt;</span>resource<span class="hl opt">&gt;</span>[, <span class="hl opt">&lt;</span>vol<span class="hl opt">&gt;</span>]&#x000A;<span class="hl kwa">music</span> [<span class="hl kwa">repeat</span>] <span class="hl opt">&lt;</span>resourcefile<span class="hl opt">&gt;</span>, <span class="hl opt">&lt;</span>resource<span class="hl opt">&gt;</span>[, <span class="hl opt">&lt;</span>vol<span class="hl opt">&gt;</span>]</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">sound</span> [<span class="hl kwa">repeat</span>] <span class="hl opt">&lt;</span>resourcefile<span class="hl opt">&gt;</span>, <span class="hl opt">&lt;</span><span class="hl kwa">resource</span><span class="hl opt">&gt;</span>[, <span class="hl opt">&lt;</span>vol<span class="hl opt">&gt;</span>]&#x000A;<span class="hl kwa">music</span> [<span class="hl kwa">repeat</span>] <span class="hl opt">&lt;</span>resourcefile<span class="hl opt">&gt;</span>, <span class="hl opt">&lt;</span><span class="hl kwa">resource</span><span class="hl opt">&gt;</span>[, <span class="hl opt">&lt;</span>vol<span class="hl opt">&gt;</span>]</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -17423,7 +17423,7 @@ See <a href="#the_linker">Sec. 25.2, &#8220;The Linker&#8221;</a>.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">after</span>&#x000A;{&#x000A;    <span class="hl kwb">object</span> DoGet&#x000A;    {&#x000A;        <span class="hl str">&quot;You pick up the object.&quot;</span>&#x000A;    }&#x000A;    <span class="hl kwb">object</span>&#x000A;    {&#x000A;        <span class="hl str">&quot;You can&#39;t do that with the object.&quot;</span>&#x000A;    }&#x000A;}</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwb">after</span>&#x000A;{&#x000A;    <span class="hl kwb">object</span> DoGet&#x000A;    {&#x000A;        <span class="hl str">&quot;You pick up the object.&quot;</span>&#x000A;    }&#x000A;    <span class="hl kwb">object</span>&#x000A;    {&#x000A;        <span class="hl str">&quot;You can&#39;t do that with the object.&quot;</span>&#x000A;    }&#x000A;}</code></pre>
 </div>
 </div>
 <div class="admonitionblock note">
