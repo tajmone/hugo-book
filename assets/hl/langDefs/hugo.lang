@@ -1,6 +1,6 @@
 -- ********************************
--- *  Hugo Interactive Fiction    *  v1.1.0-rc10   || by Tristano Ajmone:
--- *  www.generalcoffee.com/hugo  *  2019/11/13    || https://github.com/tajmone
+-- *  Hugo Interactive Fiction    *  v1.1.0        || by Tristano Ajmone:
+-- *  www.generalcoffee.com/hugo  *  2019/11/14    || https://github.com/tajmone
 -- ********************************  public domain || http://unlicense.org
 --------------------------------------------------------------------------------
 Description = "Hugo"  Categories = {"source", "interactive fiction"}
@@ -101,7 +101,7 @@ Special characters formatting sequences (ISO-8859-1):
   \Y  Japanese Yen (¥)
 
 NOTE: The RegEx below defines twice the acute accent (´) char because depending
-      on wether the source is in ASCII/ISO-8859-1 or UTF-8 its encoding will
+      on whether the source is in ASCII/ISO-8859-1 or UTF-8 its encoding will
       differ (the former is the expected encoding for Hugo sourceS, but the
       latter might be encountered in documentation projects).               --]]
   Interpolation = [=[ (?x)(\\(?:
@@ -121,139 +121,39 @@ Keywords = {{
   ------------------------------------------------------------------------------
   Id = 1, List = {                                          -- Hugo keywords # 1
   ------------------------------------------------------------------------------
-    "addcontext",
-    "alias",
-    "and",
-    "anything",
-    "array",
-    "attribute",
-    "break",
-    "call",
-    "capital",
-    "case",
-    "child",
-    "children",
-    "class",
-    "cls",
-    "color",
-    "colour",
-    "compound",
-    "constant",
-    "dict",
-    "do",
-    "elder",
-    "eldest",
-    "else",
-    "elseif",
-    "enumerate",
-    "event",
-    "for",
-    "global",
-    "graphics",
-    "held",
-    "hex",
-    "if",
-    "in",
-    "input",
-    "is",
-    "jump",
-    "local",
-    "locate",
-    "move",
-    "multi",
-    "multiheld",
-    "multinotheld",
-    "music",
-    "nearby",
-    "newline",
-    "not",
-    "notheld",
-    "number",
-    "or",
-    "parent",
-    "pause",
-    "picture",
-    "playback",
-    "print",
-    "printchar",
-    "property",
-    "punctuation",
-    "quit",
-    "random",
-    "readfile",
-    "readval",
-    "recordoff",
-    "recordon",
-    "removal",
-    "remove",
-    "repeat",
-    "replace",
-    "resource",
-    "restart",
-    "restore",
-    "return",
-    "routine",
-    "run",
-    "runevents",
-    "save",
-    "scriptoff",
-    "scripton",
-    "select",
-    "sibling",
-    "sound",
-    "start",
-    "step",
-    "string",
-    "synonym",
-    "system",
-    "text",
-    "to",
-    "undo",
-    "verb",
-    "video",
-    "while",
-    "window",
-    "word",
-    "writefile",
-    "writeval",
-    "xverb",
-    "younger",
-    "youngest",
+    "addcontext", "alias", "and", "anything", "array", "attribute", "break",
+    "call", "capital", "case", "child", "children", "class", "cls", "color",
+    "colour", "compound", "constant", "dict", "do", "elder", "eldest", "else",
+    "elseif", "enumerate", "event", "for", "global", "graphics", "held", "hex",
+    "if", "in", "input", "is", "jump", "local", "locate", "move", "multi",
+    "multiheld", "multinotheld", "music", "nearby", "newline", "not", "notheld",
+    "number", "or", "parent", "pause", "picture", "playback", "print",
+    "printchar", "property", "punctuation", "quit", "random", "readfile",
+    "readval", "recordoff", "recordon", "removal", "remove", "repeat",
+    "replace", "resource", "restart", "restore", "return", "routine", "run",
+    "runevents", "save", "scriptoff", "scripton", "select", "sibling", "sound",
+    "start", "step", "string", "synonym", "system", "text", "to", "undo",
+    "verb", "video", "while", "window", "word", "writefile", "writeval",
+    "xverb", "younger", "youngest",
   }},{
   ------------------------------------------------------------------------------
   Id = 2, List = {                        -- Predefined Engine Stored Values # 2
   ------------------------------------------------------------------------------
     --| Built-in Global Variables |---------------------------------------------
     ----------------------------------------------------------------------------
-    "actor",
-    "endflag",
-    "location",
-    "object",
-    "objects",
-    "player",
-    "prompt",
-    "self",
-    "system_status",
-    "verbroutine",
-    "words",
-    "xobject",
+    "actor", "endflag", "location", "object", "objects", "player", "prompt",
+    "self", "system_status", "verbroutine", "words", "xobject",
     ----------------------------------------------------------------------------
     --| Built-in Properties |---------------------------------------------------
     ----------------------------------------------------------------------------
-    -- NOTE: "adjectives" and "nouns" are aliases defined by hugo library, and
+    -- NOTE: "adjectives" and "nouns" are aliases defined by Hugo library, and
     --       not tokens defined in the Hugo engine and compiler.
     ----------------------------------------------------------------------------
-    "adjective",
-    "after",
-    "article",
-    "before",
-    "name",
-    "noun",
+    "adjective", "after", "article", "before", "name", "noun",
     ----------------------------------------------------------------------------
     --| Built-in Engine Variables |---------------------------------------------
     ----------------------------------------------------------------------------
-    "parse$",
-    "serial$",
+    "parse$", "serial$",
   }},{
   ------------------------------------------------------------------------------
   Id = 3,          -- Chars Constants + System Words + Properties Qualifiers # 3
@@ -265,21 +165,15 @@ Keywords = {{
     --| System Words |----------------------------------------------------------
     ----------------------------------------------------------------------------
     Id = 3, List = {
-      "~all",
-      "~and",
-      "~any",
-      "~except",
-      "~oops",
+      "~all", "~and", "~any", "~except", "~oops",
     ----------------------------------------------------------------------------
     --| Properties Qualifiers |-------------------------------------------------
     ----------------------------------------------------------------------------
-      "$additive",
-      "$complex",
+      "$additive", "$complex",
     ----------------------------------------------------------------------------
     --| Boolean Constants |-----------------------------------------------------
     ----------------------------------------------------------------------------
-      "true",
-      "false",
+      "true", "false",
   }},{
   ------------------------------------------------------------------------------
   Id = 4,                                                  -- Limit Settings # 4
@@ -298,8 +192,9 @@ Keywords = {{
   -- delimiter would prevent capturing the '#' token for counting properties.
 
     Regex = [=[ (?x-i)
-      (\#(?: if(clear | set | defined | undefined) | if | elseif | else | endif |
-             clear | set | include | link | message | switches | version
+      (\#(?:
+        if(clear | set | defined | undefined) | if | elseif | else | endif |
+        clear | set | include | link | message | switches | version
       )\b) ]=],
     Group = 0
   }}
@@ -321,7 +216,7 @@ function OnStateChange(oldState, newState, token, kwgroup)
       oldState == HL_PREPROC_STRING then
         return HL_REJECT
   --============================================================================
-  -- #03 -- Throw Back Kwd Group 5 as PreProcessor
+  -- #03 -- Throw Back Keywords from Group 5 as PreProcessor
   --============================================================================
   elseif
       newState == HL_KEYWORD and
@@ -331,11 +226,22 @@ function OnStateChange(oldState, newState, token, kwgroup)
   return newState
 end
 --[[============================================================================
+                                  KNOWN ISSUES
+================================================================================
+FilePath Strings:
+
+  Escape sequences and interpolations shouldn't show up inside file path strings
+  following keywords like `resource`, `picture` and other similar keywords which
+  expect a file string after them. The syntax should track strings immediately
+  following these keywords and discard escapes/interpolations accordingly. The
+  `resource` keyword is going to be trickier because it allows multiple strings
+  inside a `{..}` block (and strings might be followed by comments).
+================================================================================
                                   CHANGELOG
 ================================================================================
-v1.1.0 (2019/11/13) | Highlight v3.54
+v1.1.0 (2019/11/14) | Highlight v3.54
   - Polish source.
-  - List keywords one kwd per line to simplfy WIP and tracking changes.
+  - List keywords one kwd per line to simplify WIP and tracking changes.
   - NEW:
     - Added missing keyword tokens.
     - Removed keyword "adjectives" and "nouns" (library defined aliases).
@@ -350,7 +256,7 @@ v1.1.0 (2019/11/13) | Highlight v3.54
   - FIXES:
     - Identifiers patterns tweaked to include tokens starting with tilde.
     - Ignore interpolations inside preprocessor strings.
-    - PreProcessor: prevent matching the '#' for proprierties count as the
+    - PreProcessor: prevent matching the '#' for proprieties count as the
       beginning of a preprocessor directive.
 v1.0.0 (2019/05/24) | Highlight v3.51
   - First release. --]]

@@ -25,7 +25,7 @@ This directory tree contains assets for customizing usage of [André Simon]’s 
 # Folder Contents
 
 - [`/langDefs/`][langDefs] — overrides Highlight default langDefs folder:
-    + [`hugo.lang`][hugo.lang] v1.0.0 — Hugo syntax definition by Tristano Ajmone.
+    + [`hugo.lang`][hugo.lang] v1.1.0 — Hugo syntax definition by Tristano Ajmone.
 - [`base16_eighties.theme`][b16_80s] — Highlight theme: "Base16 Eighties".
 - [`highlight.css`][HL.css] — Generated CSS theme from "Base16 Eighties".
 - [`hugolib.h`][hugolib.h] — Sample Hugo file.
