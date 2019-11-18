@@ -5,155 +5,97 @@
 
 * text=auto
 
-## ===========================
-## Highlight langDefs & themes
-## ===========================
-*.lang    text
-*.theme   text
-## -------------------------
-## GitHub Linguist Settings:
-## -------------------------
-*.lang    linguist-language=Lua
-*.theme   linguist-language=Lua
-## -------------------------
-## GitLab Linguist Settings:
-## -------------------------
-*.lang    gitlab-language=Lua
-*.theme   gitlab-language=Lua
 
-## =================
-## Hugo source files
-## =================
-*.hug     text
-*.h       text
-*.g       text
-## -------------------------
-## GitHub Linguist Settings:
-## -------------------------
-*.hug     linguist-language=Hugo
-*.h       linguist-language=Hugo
-*.g       linguist-language=Hugo
-## -------------------------
-## GitLab Linguist Settings:
-## -------------------------
-*.hug     gitlab-language=Hugo
-*.h       gitlab-language=Hugo
-*.g       gitlab-language=Hugo
+## Repository Configuration
+###########################
+.editorconfig    text eol=lf
+.gitattributes   text eol=lf
+.gitconfig       text eol=lf
+.gitignore       text eol=lf
+.gitlab-ci.yml   text eol=lf
+.gitmodules      text eol=lf
+.travis.yml      text eol=lf
 
-## =============
+
+## AsciiDoc Sources & Assets
+############################
+*.ad         text
+*.adoc       text
+*.asciidoc   text
+*.csv        text
+*.haml       text
+*.rb         text eol=lf
+
+
+## Highlight LangDefs & Themes
+##############################
+[attr]Hihglight text linguist-language=Lua gitlab-language=Lua
+*.lang    Hihglight
+*.theme   Hihglight
+
+
+## Hugo Source Files
+####################
+[attr]Hugo text linguist-language=Hugo gitlab-language=Hugo
+*.hug   Hugo
+*.h     Hugo
+*.g     Hugo
+
+
 ## Shell Scripts
-## =============
-*.bat      text eol=crlf
-*.sh       text eol=lf
-*.ps1      text eol=crlf
+################
+*.bat   text eol=crlf
+*.sh    text eol=lf
+*.ps1   text eol=crlf
 
-## ===============
-## AsciiDoc Assets
-## ===============
-*.css.map  text
-*.haml     text
-*.rb       text eol=lf
 
-## ============
-## SASS/SCSS
-## ============
-*.sass     text
-*.scss     text
+## Sass/SCSS
+############
+*.sass   text
+*.scss   text
 
-## =================
+
 ## Web-Related Files
-## =================
-*.htm      text
-*.html     text
-*.css      text
-*.js       text
-highlight.min.js  eol=lf
+####################
+*.htm       text
+*.html      text
+*.css       text
+*.css.map   text
+*.js        text
 
-## ===================
+
 ## Documentation Files
-## ===================
-*.adoc         text
-*.asciidoc     text
-*.docx         binary
-*.markdown     text
-*.md           text
-*.odt          binary
-*.pdf          binary
-*.txt          text
-*COPYRIGHT*    text
-*README*       text
-AUTHORS        text
-CHANGELOG      text
-CHANGES        text
-CONTRIBUTING   text
-COPYING        text
-copyright      text
-INSTALL        text
-license        text
-LICENSE        text
-NEWS           text
-readme         text
+######################
+*.docx    binary
+*.md      text
+*.odt     binary
+*.pdf     binary
+*.txt     text
+LICENSE   text
 
-## ======================
+
 ## Image & Graphics Files
-## ======================
-*.ai         binary
-*.bmp        binary
-*.eps        binary
-*.gif        binary
-*.ico        binary
-*.jng        binary
-*.jp2        binary
-*.jpeg       binary
-*.jpg        binary
-*.jpx        binary
-*.jxr        binary
-*.pdf        binary
-*.png        binary
-*.psb        binary
-*.psd        binary
-*.svg        binary
-*.svgz       binary
-*.tif        binary
-*.tiff       binary
-*.wbmp       binary
-*.webp       binary
+#########################
+*.bmp    binary
+*.gif    binary
+*.ico    binary
+*.jpeg   binary
+*.jpg    binary
+*.png    binary
+*.psd    binary
+*.svg    binary
+*.svgz   binary
+*.tif    binary
+*.tiff   binary
+*.wbmp   binary
+*.webp   binary
 
-## ==================
-## Misc. Data Formats
-## ==================
-*.csv      text
-*.json     text
-*.xhtml    text
-*.xml      text
-*.xsl      text
-*.yaml     text
-*.yml      text
 
-## ==============================
 ## Third Party Tools File Formats
-## ==============================
+#################################
 # Dia Diagram Editor: http://dia-installer.de/
-*.dia   binary
+*.dia    binary
 # ColorImpact 4 palettes: http://www.tigercolor.com
-*.cifc  binary
-
-## ===================
-## Configuration files
-## ===================
-*.cnf          text
-*.conf         text
-*.config       text
-*.ini          text
-*.prefs        text
-.editorconfig  text eol=lf
-.travis.yml    text eol=lf
-## -------------
-## Git settings:
-## -------------
-.gitattributes text eol=lf
-.gitconfig     text eol=lf
-.gitignore     text eol=lf
-.gitmodules    text eol=lf
+*.cifc   binary
 
 # EOF #
