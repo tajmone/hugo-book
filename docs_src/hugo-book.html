@@ -560,7 +560,7 @@ div.literalblock.hugosyntax div.content pre > sup.footnote a {
 <span id="email" class="email"><a href="mailto:general@generalcoffee.com">general@generalcoffee.com</a></span><br>
 <span id="revnumber">version 1,</span>
 <span id="revdate">2018-10-04</span>
-<br><span id="revremark">Draft 110 -- Porting to AsciiDoc</span>
+<br><span id="revremark">Draft 111 -- Porting to AsciiDoc</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -10060,9 +10060,18 @@ To clear the record of any window and restore the main text window to the full-s
 <div class="paragraph">
 <p>A windowing library file exists called <strong>window.h</strong> which defines a <code>window_class</code> and the associated properties so a window object can be created via:</p>
 </div>
-<div class="listingblock">
+<div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">window_class <span class="hl opt">&lt;</span><span class="hl kwa">window</span> <span class="hl kwb">name</span><span class="hl opt">&gt;</span> <span class="hl str">&quot;title&quot;</span>&#x000A;{&#x000A;    win_position <span class="hl opt">&lt;</span>screen column<span class="hl opt">&gt;</span>, <span class="hl opt">&lt;</span>screen row<span class="hl opt">&gt;</span>&#x000A;    win_size <span class="hl opt">&lt;</span>columns<span class="hl opt">&gt;</span>, <span class="hl opt">&lt;</span>rows<span class="hl opt">&gt;</span>&#x000A;&#x000A;    win_textcolor <span class="hl opt">&lt;</span><span class="hl kwa">text color</span><span class="hl opt">&gt;</span>&#x000A;    win_backcolor <span class="hl opt">&lt;</span>background <span class="hl kwa">color</span><span class="hl opt">&gt;</span>&#x000A;    win_titlecolor <span class="hl opt">&lt;</span>title <span class="hl kwa">text</span><span class="hl opt">&gt;</span>&#x000A;    win_titleback <span class="hl opt">&lt;</span>title background<span class="hl opt">&gt;</span>&#x000A;}</code></pre>
+<pre>window_class &lt;window name&gt; "title"
+{
+    win_position &lt;screen column&gt;, &lt;screen row&gt;
+    win_size &lt;columns&gt;, &lt;rows&gt;
+
+    win_textcolor &lt;text color&gt;
+    win_backcolor &lt;background color&gt;
+    win_titlecolor &lt;title text&gt;
+    win_titleback &lt;title background&gt;
+}</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -10115,9 +10124,12 @@ To accomplish this, use the <code>writefile</code> and <code>readfile</code> ope
 <div class="paragraph">
 <p>The structure</p>
 </div>
-<div class="listingblock">
+<div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">writefile</span> <span class="hl opt">&lt;</span>filename<span class="hl opt">&gt;</span>&#x000A;{&#x000A;    ...&#x000A;}</code></pre>
+<pre>writefile &lt;filename&gt;
+{
+    ...
+}</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -10127,9 +10139,9 @@ To accomplish this, use the <code>writefile</code> and <code>readfile</code> ope
 <div class="paragraph">
 <p>Within a <code>writefile</code> block, write individual values using</p>
 </div>
-<div class="listingblock">
+<div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">writeval</span> <span class="hl opt">&lt;</span>value1<span class="hl opt">&gt;</span>[, <span class="hl opt">&lt;</span>value2<span class="hl opt">&gt;</span>, ...]</code></pre>
+<pre>writeval &lt;value1&gt;[, &lt;value2&gt;, ...]</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -10138,9 +10150,12 @@ To accomplish this, use the <code>writefile</code> and <code>readfile</code> ope
 <div class="paragraph">
 <p>To read the file, use the structure</p>
 </div>
-<div class="listingblock">
+<div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">readfile</span> <span class="hl opt">&lt;</span>filename<span class="hl opt">&gt;</span>&#x000A;{&#x000A;    ...&#x000A;}</code></pre>
+<pre>readfile &lt;filename&gt;
+{
+    ...
+}</pre>
 </div>
 </div>
 <div class="paragraph">

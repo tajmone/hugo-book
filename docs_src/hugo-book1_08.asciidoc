@@ -111,7 +111,6 @@ The engine also sets up the special variable `parse$`, which represents the ille
 
 For example:
 
-// @HUGO SYNTAX MOCKUP!
 [source,hugo]
 -------------------------------------------
 print "The illegal word was: "; parse$; "."

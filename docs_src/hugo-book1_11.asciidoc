@@ -43,14 +43,13 @@ The Hugo Library also defines the normal read/writable:
 
 In order for the engine to properly identify the display object, it selects the object (if any) with the textual name `(display)`, i.e., an object that is defined as
 
-// @HUGO SYNTAX MOCKUP!
 [source,hugo]
---------------------------------------------------------------------------------
+--------------
 object display
 {
     ...
 }
---------------------------------------------------------------------------------
+--------------
 
 with no explicit textual name.
 This is how the Hugo Library defines the display object, so that the various display object properties are readable as `display.screenheight`, `display.cursor_column`, etc.
@@ -91,9 +90,9 @@ To clear the record of any window and restore the main text window to the full-s
 
 A windowing library file exists called *window.h* which defines a `window_class` and the associated properties so a window object can be created via:
 
-// @HUGO SYNTAX MOCKUP!
-[source,hugo]
---------------------------------------------------------------------------------
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+..............................................
 window_class <window name> "title"
 {
     win_position <screen column>, <screen row>
@@ -104,7 +103,7 @@ window_class <window name> "title"
     win_titlecolor <title text>
     win_titleback <title background>
 }
---------------------------------------------------------------------------------
+..............................................
 
 The `window_class` also incorporates the property routines `win_init`, `win_clear`, and `win_end`.
 
@@ -137,38 +136,38 @@ To accomplish this, use the `writefile` and `readfile` operations.
 
 The structure
 
-// @HUGO SYNTAX MOCKUP!
-[source,hugo]
---------------------------------------------------------------------------------
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+............................
 writefile <filename>
 {
     ...
 }
---------------------------------------------------------------------------------
+............................
 
 will, at the start of the `writefile` block, open `<filename>` for writing and position `<filename>` to the start of the (empty) file.
 (If the file exists, it will be cleared/erased.) At the conclusion of the block, the file will be closed again.
 
 Within a `writefile` block, write individual values using
 
-// @HUGO SYNTAX MOCKUP!
-[source,hugo]
---------------------------------------------------------------------------------
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+..................................
 writeval <value1>[, <value2>, ...]
---------------------------------------------------------------------------------
+..................................
 
 where one or more values can be specified.
 
 To read the file, use the structure
 
-// @HUGO SYNTAX MOCKUP!
-[source,hugo]
---------------------------------------------------------------------------------
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+............................
 readfile <filename>
 {
     ...
 }
---------------------------------------------------------------------------------
+............................
 
 which will contain the assignment
 
@@ -180,7 +179,7 @@ for each value to be read, where `x` can be any storage type such as a variable,
 For example:
 
 [source,hugo]
---------------------------------------------------------------------------------
+-----------------------------------------------
 local count, test
 
 count = 10
@@ -194,13 +193,14 @@ if test ~= FILE_CHECK   ! an error has occurred
 {
     print "An error has occurred."
 }
---------------------------------------------------------------------------------
+-----------------------------------------------
 
 will write the variable `count`, the dictionary entry "`telephone`", and the value 10 to "`*testfile*`".
 Then,
 
 [source,hugo]
---------------------------------------------------------------------------------
+-----------------------------------------------
+
 local a, b, c, test
 
 readfile "testfile"
@@ -214,7 +214,7 @@ if test ~= FILE_CHECK   ! an error has occurred
 {
     print "Error reading file."
 }
---------------------------------------------------------------------------------
+-----------------------------------------------
 
 If the `readfile` block executes successfully, `a` will be equal to the former value `count`, `b` will be "`telephone`", and `c` will be 10.
 
