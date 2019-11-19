@@ -560,7 +560,7 @@ div.literalblock.hugosyntax div.content pre > sup.footnote a {
 <span id="email" class="email"><a href="mailto:general@generalcoffee.com">general@generalcoffee.com</a></span><br>
 <span id="revnumber">version 1,</span>
 <span id="revdate">2018-10-04</span>
-<br><span id="revremark">Draft 107 -- Porting to AsciiDoc</span>
+<br><span id="revremark">Draft 108 -- Porting to AsciiDoc</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -7089,26 +7089,30 @@ Simply changing the event definition to:</p>
 Hugo handles daemons as special events attached to objects that may be activated or deactivated (i.e., moved in and out of the scope of <code>runevents</code>).
 Since the daemon class is defined in the library, define a daemon itself using:</p>
 </div>
-<div class="listingblock">
+<div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">daemon <span class="hl opt">&lt;</span><span class="hl kwb">name</span><span class="hl opt">&gt;</span>&#x000A;{}</code></pre>
+<pre>daemon &lt;name&gt;
+{}</pre>
 </div>
 </div>
 <div class="paragraph">
 <p>The body of the daemon definition is empty.
 The daemon object is only needed to attach the daemon event to, so the daemon definition must be followed by:</p>
 </div>
-<div class="listingblock">
+<div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">event</span> [<span class="hl kwa">in</span>] <span class="hl opt">&lt;</span><span class="hl kwb">name</span><span class="hl opt">&gt;</span>&#x000A;{&#x000A;    ...&#x000A;}</code></pre>
+<pre>event [in] &lt;name&gt;
+{
+    ...
+}</pre>
 </div>
 </div>
 <div class="paragraph">
 <p>Activate it by:</p>
 </div>
-<div class="listingblock">
+<div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">Activate(<span class="hl opt">&lt;</span><span class="hl kwb">name</span><span class="hl opt">&gt;</span>)</code></pre>
+<pre>Activate(&lt;name&gt;)</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -7118,9 +7122,9 @@ This way, whenever a <code>runevents</code> command is given (as it should be in
 <div class="paragraph">
 <p>Deactivate the daemon using:</p>
 </div>
-<div class="listingblock">
+<div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">Deactivate(<span class="hl opt">&lt;</span><span class="hl kwb">name</span><span class="hl opt">&gt;</span>)</code></pre>
+<pre>Deactivate(&lt;name&gt;)</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -7167,25 +7171,35 @@ The fuse itself is a slightly more complex version of a daemon object, containin
 <div class="paragraph">
 <p>Similarly to a daemon, define a fuse in two steps:</p>
 </div>
-<div class="listingblock">
+<div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">fuse <span class="hl opt">&lt;</span><span class="hl kwb">name</span><span class="hl opt">&gt;</span>&#x000A;{}&#x000A;&#x000A;<span class="hl kwa">event</span> [<span class="hl kwa">in</span>] <span class="hl opt">&lt;</span><span class="hl kwb">name</span><span class="hl opt">&gt;</span>&#x000A;{&#x000A;    ...&#x000A;    <span class="hl kwa">if not</span> <span class="hl kwb">self</span>.tick&#x000A;    {&#x000A;        ...&#x000A;    }&#x000A;}</code></pre>
+<pre>fuse &lt;name&gt;
+{}
+
+event [in] &lt;name&gt;
+{
+    ...
+    if not self.tick
+    {
+        ...
+    }
+}</pre>
 </div>
 </div>
 <div class="paragraph">
 <p>and turn it on or off by:</p>
 </div>
-<div class="listingblock">
+<div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">Activate(<span class="hl opt">&lt;</span><span class="hl kwb">name</span><span class="hl opt">&gt;</span>, <span class="hl opt">&lt;</span>setting<span class="hl opt">&gt;</span>)</code></pre>
+<pre>Activate(&lt;name&gt;, &lt;setting&gt;)</pre>
 </div>
 </div>
 <div class="paragraph">
 <p>and</p>
 </div>
-<div class="listingblock">
+<div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">Deactivate(<span class="hl opt">&lt;</span><span class="hl kwb">name</span><span class="hl opt">&gt;</span>)</code></pre>
+<pre>Deactivate(&lt;name&gt;)</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -7202,9 +7216,9 @@ The fuse itself is a slightly more complex version of a daemon object, containin
 <p>Note that it is up to the event itself to run the <code>timer</code> and check for its expiration.
 The line</p>
 </div>
-<div class="listingblock">
+<div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">if not</span> <span class="hl kwb">self</span>.tick</code></pre>
+<pre>if not self.tick</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -7230,9 +7244,11 @@ Here&#8217;s why:</p>
 <div class="paragraph">
 <p>To define a script, use the following notation:</p>
 </div>
-<div class="listingblock">
+<div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">setscript[Script(<span class="hl opt">&lt;</span>char<span class="hl opt">&gt;</span>, <span class="hl opt">&lt;</span>num<span class="hl opt">&gt;</span>)] <span class="hl opt">=  &amp;</span>CharRoutine, obj,&#x000A;                                    <span class="hl opt">&amp;</span>CharRoutine, obj,&#x000A;                                    ...</code></pre>
+<pre>setscript[Script(&lt;char&gt;, &lt;num&gt;)] =  &amp;CharRoutine, obj,
+                                    &amp;CharRoutine, obj,
+                                    ...</pre>
 </div>
 </div>
 <div class="admonitionblock tip">
@@ -7417,9 +7433,15 @@ It continues with the default action&#8201;&#8212;&#8201;i.e., the character act
 <div class="paragraph">
 <p>To override a default character action routine, include a <code>before</code> property for the character object using the following form:</p>
 </div>
-<div class="listingblock">
+<div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwb">before</span>&#x000A;{&#x000A;    <span class="hl kwb">actor</span> CharRoutine&#x000A;    {&#x000A;        ...&#x000A;    }&#x000A;}</code></pre>
+<pre>before
+{
+    actor CharRoutine
+    {
+        ...
+    }
+}</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -7446,7 +7468,7 @@ Assume that the player&#8217;s amount of rest is kept in a property called <code
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">daemon gettired&#x000A;{}&#x000A;&#x000A;<span class="hl kwa">event in</span> gettired&#x000A;{&#x000A;    <span class="hl kwb">player</span>.rest <span class="hl opt">=</span> <span class="hl kwb">player</span>.rest <span class="hl opt">-</span> <span class="hl num">2</span>&#x000A;    <span class="hl kwa">if</span> <span class="hl kwb">player</span>.rest <span class="hl opt">&lt;</span> <span class="hl num">0</span>&#x000A;        <span class="hl kwb">player</span>.rest <span class="hl opt">=</span> <span class="hl num">0</span>&#x000A;    <span class="hl kwa">select</span> <span class="hl kwb">player</span>.rest&#x000A;        <span class="hl kwa">case</span> <span class="hl num">20</span>&#x000A;            <span class="hl str">&quot;You&#39;re getting quite tired.&quot;</span>&#x000A;        <span class="hl kwa">case</span> <span class="hl num">10</span>&#x000A;            <span class="hl str">&quot;You&#39;re getting</span> <span class="hl esc">\I</span><span class="hl str">very</span><span class="hl esc">\i</span> <span class="hl str">tired.&quot;</span>&#x000A;        <span class="hl kwa">case</span> <span class="hl num">0</span>&#x000A;            <span class="hl str">&quot;You fall asleep!&quot;</span>&#x000A;}</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">daemon gettired&#x000A;{}&#x000A;&#x000A;<span class="hl kwa">event in</span> gettired&#x000A;{&#x000A;    <span class="hl kwb">player</span>.rest <span class="hl opt">=</span> <span class="hl kwb">player</span>.rest <span class="hl opt">-</span> <span class="hl num">2</span>&#x000A;    <span class="hl kwa">if</span>  <span class="hl kwb">player</span>.rest <span class="hl opt">&lt;</span> <span class="hl num">0</span>&#x000A;        <span class="hl kwb">player</span>.rest <span class="hl opt">=</span> <span class="hl num">0</span>&#x000A;    <span class="hl kwa">select</span> <span class="hl kwb">player</span>.rest&#x000A;        <span class="hl kwa">case</span> <span class="hl num">20</span>&#x000A;            <span class="hl str">&quot;You&#39;re getting quite tired.&quot;</span>&#x000A;        <span class="hl kwa">case</span> <span class="hl num">10</span>&#x000A;            <span class="hl str">&quot;You&#39;re getting</span> <span class="hl esc">\I</span><span class="hl str">very</span><span class="hl esc">\i</span> <span class="hl str">tired.&quot;</span>&#x000A;        <span class="hl kwa">case</span> <span class="hl num">0</span>&#x000A;            <span class="hl str">&quot;You fall asleep!&quot;</span>&#x000A;}</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -7495,9 +7517,12 @@ That is, if several additional grammar files are to be included, or new grammar 
 <div class="paragraph">
 <p>The syntax used for grammar definition is:</p>
 </div>
-<div class="listingblock">
+<div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">[x]<span class="hl kwa">verb</span> <span class="hl str">&quot;&lt;verb1&gt;&quot;</span> [, <span class="hl str">&quot;&lt;verb2&gt;&quot;</span>, <span class="hl str">&quot;&lt;verb3&gt;&quot;</span>,...]&#x000A;<span class="hl opt">* &lt;</span>syntax specification <span class="hl num">1</span><span class="hl opt">&gt;      &lt;</span>VerbRoutine1<span class="hl opt">&gt;</span>&#x000A;<span class="hl opt">* &lt;</span>syntax specification <span class="hl num">2</span><span class="hl opt">&gt;      &lt;</span>VerbRoutine2<span class="hl opt">&gt;</span>&#x000A;...</code></pre>
+<pre>[x]verb "&lt;verb1&gt;" [, "&lt;verb2&gt;", "&lt;verb3&gt;",...]
+    * &lt;syntax specification 1&gt;      &lt;VerbRoutine1&gt;
+    * &lt;syntax specification 2&gt;      &lt;VerbRoutine2&gt;
+    ...</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -7517,9 +7542,10 @@ An <code>xverb</code> is a special signifier that indicates that the engine shou
 <div class="paragraph">
 <p>Another thing that can be done is to specify:</p>
 </div>
-<div class="listingblock">
+<div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">verb</span> some_object&#x000A;    <span class="hl opt">*</span> <span class="hl kwb">object</span>        DoVerb</code></pre>
+<pre>verb some_object
+    * object        DoVerb</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -7761,7 +7787,7 @@ That is, in the input line:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl opt">*</span> <span class="hl kwb">object</span> <span class="hl str">&quot;out&quot;</span> <span class="hl str">&quot;of&quot;</span> container</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">&#8288;    <span class="hl opt">*</span> <span class="hl kwb">object</span> <span class="hl str">&quot;out&quot;</span> <span class="hl str">&quot;of&quot;</span> container</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -7769,7 +7795,7 @@ That is, in the input line:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl opt">*</span> <span class="hl kwb">object</span> <span class="hl str">&quot;out of&quot;</span> container</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">&#8288;    <span class="hl opt">*</span> <span class="hl kwb">object</span> <span class="hl str">&quot;out of&quot;</span> container</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -7798,7 +7824,7 @@ That is, in the example immediately above, a valid object in the input line with
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">verb</span> <span class="hl str">&quot;pick&quot;</span>&#x000A;        <span class="hl opt">*</span> <span class="hl kwb">object</span>            DoGet&#x000A;        <span class="hl opt">*</span> <span class="hl str">&quot;up&quot;</span> <span class="hl kwb">object</span>       DoGet</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">verb</span> <span class="hl str">&quot;pick&quot;</span>&#x000A;    <span class="hl opt">*</span> <span class="hl kwb">object</span>            DoGet&#x000A;    <span class="hl opt">*</span> <span class="hl str">&quot;up&quot;</span> <span class="hl kwb">object</span>       DoGet</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -7819,7 +7845,7 @@ That is, in the example immediately above, a valid object in the input line with
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">&#8288;        <span class="hl opt">*</span> <span class="hl kwb">object</span></code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">&#8288;    <span class="hl opt">*</span> <span class="hl kwb">object</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -7827,7 +7853,7 @@ That is, in the example immediately above, a valid object in the input line with
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">&#8288;        <span class="hl opt">*</span> <span class="hl str">&quot;up&quot;</span> <span class="hl kwb">object</span></code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">&#8288;    <span class="hl opt">*</span> <span class="hl str">&quot;up&quot;</span> <span class="hl kwb">object</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -7835,7 +7861,7 @@ That is, in the example immediately above, a valid object in the input line with
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">verb</span> <span class="hl str">&quot;pick&quot;</span>&#x000A;        <span class="hl opt">*</span> <span class="hl str">&quot;up&quot;</span> <span class="hl kwb">object</span>       DoGet&#x000A;        <span class="hl opt">*</span> <span class="hl kwb">object</span>            DoGet</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">verb</span> <span class="hl str">&quot;pick&quot;</span>&#x000A;    <span class="hl opt">*</span> <span class="hl str">&quot;up&quot;</span> <span class="hl kwb">object</span>       DoGet&#x000A;    <span class="hl opt">*</span> <span class="hl kwb">object</span>            DoGet</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -7865,7 +7891,7 @@ It&#8217;s generally good practice to make sure that more specific grammar prece
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">verb</span> <span class="hl str">&quot;rub&quot;</span>&#x000A;        <span class="hl opt">*</span> (magic_lamp)      DoRubMagicLamp</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">verb</span> <span class="hl str">&quot;rub&quot;</span>&#x000A;    <span class="hl opt">*</span> (magic_lamp)      DoRubMagicLamp</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -7877,7 +7903,7 @@ If two routine names are used in a particular syntax, such as</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">&#8288;        <span class="hl opt">*</span> (FirstRoutine) <span class="hl str">&quot;with&quot;</span> (SecondRoutine)</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">&#8288;    <span class="hl opt">*</span> (FirstRoutine) <span class="hl str">&quot;with&quot;</span> (SecondRoutine)</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -7918,9 +7944,9 @@ All characters in an input line are converted to lowercase (except those inside 
 These are simply words that are to be automatically removed from any input line, and are generally limited to words such as &#8220;a&#8221; and &#8220;the&#8221; which would, generally speaking, only make grammar matching more complicated and difficult.
 The syntax for defining a removal is:</p>
 </div>
-<div class="listingblock">
+<div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">removal</span> <span class="hl str">&quot;&lt;word1&gt;&quot;</span>[, <span class="hl str">&quot;&lt;word2&gt;&quot;</span>, <span class="hl str">&quot;word&lt;3&gt;&quot;</span>,...]</code></pre>
+<pre>removal "&lt;word1&gt;"[, "&lt;word2&gt;", "word&lt;3&gt;",...]</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -7934,9 +7960,9 @@ The syntax for defining a removal is:</p>
 <div class="paragraph">
 <p><span class="big red"><em>Punctuation</em></span> is similar to a removal, except it specifies the removal of individual characters instead of whole words:</p>
 </div>
-<div class="listingblock">
+<div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">punctuation</span> <span class="hl str">&quot;&lt;character1&gt;[&lt;character2&gt;...]</span></code></pre>
+<pre>punctuation "&lt;character1&gt;[&lt;character2&gt;...]</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -7951,9 +7977,9 @@ The syntax for defining a removal is:</p>
 <p><span class="big red"><em>Synonyms</em></span> are slightly more complex.
 These are words that will never be found in the parsed input line; they are replaced by the specified word for which they are a synonym.</p>
 </div>
-<div class="listingblock">
+<div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">synonym</span> <span class="hl str">&quot;&lt;synonym&gt;&quot;</span> <span class="hl kwa">for</span> <span class="hl str">&quot;&lt;word&gt;&quot;</span></code></pre>
+<pre>synonym "&lt;synonym&gt;" for "&lt;word&gt;"</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -7971,9 +7997,9 @@ Usage of synonyms will likely not be extensive, since of course it is possible t
 <div class="paragraph">
 <p><span class="big red"><em>Compounds</em></span> are the final type of special word, specified as:</p>
 </div>
-<div class="listingblock">
+<div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">compound</span> <span class="hl str">&quot;&lt;word1&gt;&quot;</span>, <span class="hl str">&quot;&lt;word2&gt;&quot;</span></code></pre>
+<pre>compound "&lt;word1&gt;", "&lt;word2&gt;"</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -8005,7 +8031,7 @@ Usage of synonyms will likely not be extensive, since of course it is possible t
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">verb</span> <span class="hl str">&quot;get&quot;</span>&#x000A;        <span class="hl opt">*</span> <span class="hl kwa">multinotheld</span> <span class="hl str">&quot;outof&quot;</span><span class="hl opt">/</span><span class="hl str">&quot;offof&quot;</span><span class="hl opt">/</span><span class="hl str">&quot;from&quot;</span> <span class="hl kwa">parent</span></code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">verb</span> <span class="hl str">&quot;get&quot;</span>&#x000A;    <span class="hl opt">*</span> <span class="hl kwa">multinotheld</span> <span class="hl str">&quot;outof&quot;</span><span class="hl opt">/</span><span class="hl str">&quot;offof&quot;</span><span class="hl opt">/</span><span class="hl str">&quot;from&quot;</span> <span class="hl kwa">parent</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -8013,7 +8039,7 @@ Usage of synonyms will likely not be extensive, since of course it is possible t
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">verb</span> <span class="hl str">&quot;get&quot;</span>&#x000A;        <span class="hl opt">*</span> <span class="hl kwa">multinotheld</span> <span class="hl str">&quot;out&quot;</span><span class="hl opt">/</span><span class="hl str">&quot;off&quot;</span> <span class="hl str">&quot;of&quot;</span> <span class="hl kwa">parent</span>&#x000A;        <span class="hl opt">*</span> <span class="hl kwa">multinotheld</span> <span class="hl str">&quot;from&quot;</span> <span class="hl kwa">parent</span></code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">verb</span> <span class="hl str">&quot;get&quot;</span>&#x000A;    <span class="hl opt">*</span> <span class="hl kwa">multinotheld</span> <span class="hl str">&quot;out&quot;</span><span class="hl opt">/</span><span class="hl str">&quot;off&quot;</span> <span class="hl str">&quot;of&quot;</span> <span class="hl kwa">parent</span>&#x000A;    <span class="hl opt">*</span> <span class="hl kwa">multinotheld</span> <span class="hl str">&quot;from&quot;</span> <span class="hl kwa">parent</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -8176,7 +8202,7 @@ For instance, consider a game in which disco dancing plays an absolutely vital r
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">verb</span> <span class="hl str">&quot;dance&quot;</span>, <span class="hl str">&quot;boogie&quot;</span>&#x000A;        <span class="hl opt">*</span>                   DoDance</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">verb</span> <span class="hl str">&quot;dance&quot;</span>, <span class="hl str">&quot;boogie&quot;</span>&#x000A;    <span class="hl opt">*</span>                   DoDance</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -8193,7 +8219,7 @@ Now, you&#8217;ll have to add the &#8220;&gt;GET DOWN&#8221; grammar:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">verb</span> <span class="hl str">&quot;get&quot;</span>&#x000A;        <span class="hl opt">*</span> <span class="hl str">&quot;down&quot;</span>            DoDance</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">verb</span> <span class="hl str">&quot;get&quot;</span>&#x000A;    <span class="hl opt">*</span> <span class="hl str">&quot;down&quot;</span>            DoDance</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -8202,7 +8228,7 @@ Otherwise, the regular grammar for</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">&#8288;        <span class="hl opt">*</span> <span class="hl kwb">object</span>            DoGet</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">&#8288;    <span class="hl opt">*</span> <span class="hl kwb">object</span>            DoGet</code></pre>
 </div>
 </div>
 <div class="paragraph">

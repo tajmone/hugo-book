@@ -15,14 +15,14 @@ That is, if several additional grammar files are to be included, or new grammar 
 
 The syntax used for grammar definition is:
 
-// @HUGO SYNTAX MOCKUP!
-[source,hugo]
-----------------------------------------------
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+..................................................
 [x]verb "<verb1>" [, "<verb2>", "<verb3>",...]
-* <syntax specification 1>      <VerbRoutine1>
-* <syntax specification 2>      <VerbRoutine2>
-...
-----------------------------------------------
+    * <syntax specification 1>      <VerbRoutine1>
+    * <syntax specification 2>      <VerbRoutine2>
+    ...
+..................................................
 
 Now, what does that mean?
 Here are some examples from the library grammar file *verblib.g*:
@@ -63,12 +63,12 @@ An `xverb` is a special signifier that indicates that the engine should not call
 
 Another thing that can be done is to specify:
 
-// @HUGO SYNTAX MOCKUP!
-[source,hugo]
---------------------------
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+............................
 verb some_object
     * object        DoVerb
---------------------------
+............................
 
 which will have the effect of, instead of defining the verb with a dictionary word, checking at runtime `some_object.noun` as the verb word to be matched.
 What this allows is for the `some_object.noun` property to be a routine that can return varying values at runtime in order to provide for dynamic grammar, if required.
@@ -156,16 +156,16 @@ That is, in the input line:
 
 the syntax line
 
-[source,hugo]
+[source,hugo, subs="+attributes"]
 -----------------------------
-* object "out" "of" container
+{wj}    * object "out" "of" container
 -----------------------------
 
 will be matched, while
 
-[source,hugo]
+[source,hugo, subs="+attributes"]
 ---------------------------
-* object "out of" container
+{wj}    * object "out of" container
 ---------------------------
 
 would never be recognized, since the engine will automatically parse "`out`" and "`of`" as two separate words; the parser will never find a match for "`out of`".
@@ -181,11 +181,11 @@ An important point to remember when mixing dictionary words and objects within a
 Consider the following:
 
 [source,hugo]
----------------------------------
+-----------------------------
 verb "pick"
-        * object            DoGet
-        * "up" object       DoGet
----------------------------------
+    * object            DoGet
+    * "up" object       DoGet
+-----------------------------
 
 This definition will result in something like
 
@@ -200,14 +200,14 @@ You haven't seen any "up box", nor are you likely to in the near future even if 
 
 [source,hugo, subs="+attributes"]
 ---------------------------------
-{wj}        * object
+{wj}    * object
 ---------------------------------
 
 and determines that an invalid object name is being used; it never gets to
 
 [source,hugo, subs="+attributes"]
 ---------------------------------
-{wj}        * "up" object
+{wj}    * "up" object
 ---------------------------------
 
 The proper verb definition would be ordered like
@@ -215,8 +215,8 @@ The proper verb definition would be ordered like
 [source,hugo]
 ---------------------------------
 verb "pick"
-        * "up" object       DoGet
-        * object            DoGet
+    * "up" object       DoGet
+    * object            DoGet
 ---------------------------------
 
 so that both "`pick <object>`" and "`pick up <object>`" are valid player commands.
@@ -235,7 +235,7 @@ A single object may be specified as the only valid object for a particular synta
 [source,hugo]
 ------------------------------------------
 verb "rub"
-        * (magic_lamp)      DoRubMagicLamp
+    * (magic_lamp)      DoRubMagicLamp
 ------------------------------------------
 
 will produce a "`You can't do that with...`" error for any object other than the `magic_lamp` object.
@@ -245,7 +245,7 @@ If two routine names are used in a particular syntax, such as
 
 [source,hugo, subs="+attributes"]
 ---------------------------------------------------
-{wj}        * (FirstRoutine) "with" (SecondRoutine)
+{wj}    * (FirstRoutine) "with" (SecondRoutine)
 ---------------------------------------------------
 
 then `FirstRoutine` validates the object and `SecondRoutine` validates the xobject.
@@ -276,11 +276,11 @@ The next step is to process the four types of special "`words`" which may be def
 These are simply words that are to be automatically removed from any input line, and are generally limited to words such as "`a`" and "`the`" which would, generally speaking, only make grammar matching more complicated and difficult.
 The syntax for defining a removal is:
 
-// @HUGO SYNTAX MOCKUP!
-[source,hugo]
----------------------------------------------
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+.............................................
 removal "<word1>"[, "<word2>", "word<3>",...]
----------------------------------------------
+.............................................
 
 as in
 
@@ -291,34 +291,34 @@ removal "a", "an", "the"
 
 [.big.red]#_Punctuation_# is similar to a removal, except it specifies the removal of individual characters instead of whole words:
 
-// @HUGO SYNTAX MOCKUP!
-[source,hugo]
---------------------------------------------------------------------------------
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+..........................................
 punctuation "<character1>[<character2>...]
---------------------------------------------------------------------------------
+..........................................
 
 as in
 
 [source,hugo]
---------------------------------------------------------------------------------
+----------------
 punctuation "$%"
---------------------------------------------------------------------------------
+----------------
 
 [.big.red]#_Synonyms_# are slightly more complex.
 These are words that will never be found in the parsed input line; they are replaced by the specified word for which they are a synonym.
 
-// @HUGO SYNTAX MOCKUP!
-[source,hugo]
---------------------------------------------------------------------------------
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+................................
 synonym "<synonym>" for "<word>"
---------------------------------------------------------------------------------
+................................
 
 as in
 
 [source,hugo]
---------------------------------------------------------------------------------
+-------------------------
 synonym "myself" for "me"
---------------------------------------------------------------------------------
+-------------------------
 
 // @TEXT:  The sentence "is possible to, particularly [..] and adjectives specify"
 //         might need a comma (-> "adjectives, specify") to reduce ambiguity and
@@ -329,18 +329,18 @@ Usage of synonyms will likely not be extensive, since of course it is possible t
 
 [.big.red]#_Compounds_# are the final type of special word, specified as:
 
-// @HUGO SYNTAX MOCKUP!
-[source,hugo]
---------------------------------------------------------------------------------
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+.............................
 compound "<word1>", "<word2>"
---------------------------------------------------------------------------------
+.............................
 
 as in
 
 [source,hugo]
---------------------------------------------------------------------------------
+--------------------
 compound "out", "of"
---------------------------------------------------------------------------------
+--------------------
 
 so that the input line
 
@@ -355,19 +355,19 @@ would be parsed to
 Depending on the design of grammar tables for certain syntaxes, the use of compounds may make grammar definition more straightforward, so that by using the above compound,
 
 [source,hugo]
---------------------------------------------------------------------------------
+------------------------------------------------
 verb "get"
-        * multinotheld "outof"/"offof"/"from" parent
---------------------------------------------------------------------------------
+    * multinotheld "outof"/"offof"/"from" parent
+------------------------------------------------
 
 is possible, and likely more desirable to
 
 [source,hugo]
---------------------------------------------------------------------------------
+------------------------------------------
 verb "get"
-        * multinotheld "out"/"off" "of" parent
-        * multinotheld "from" parent
---------------------------------------------------------------------------------
+    * multinotheld "out"/"off" "of" parent
+    * multinotheld "from" parent
+------------------------------------------
 
 When the parser has finished processing the input line, the result is a specially defined (by the Hugo Engine) array called `word[]`, where the number of valid elements is held in the global variable `words`.
 Therefore, in
@@ -422,13 +422,13 @@ See *hugolib.h* for an example of how
 is translated into:
 
 [source,hugo]
---------------------------------------------------------------------------------
+---------------
 word[1] = "get"
 word[2] = "hat"
 word[3] = ""
 word[4] = "go"
 word[5] = "n"
---------------------------------------------------------------------------------
+---------------
 
 in the `Parse` routine.
 ================================================================================
@@ -465,10 +465,10 @@ For instance, consider a game in which disco dancing plays an absolutely vital r
 For starters, you'll need to add the initial grammar and verbroutine:
 
 [source,hugo]
------------------------------------
+-------------------------------
 verb "dance", "boogie"
-        *                   DoDance
------------------------------------
+    *                   DoDance
+-------------------------------
 
 and
 
@@ -484,18 +484,18 @@ Keep in mind that the verb definition, as with all grammar, must come before any
 Now, you'll have to add the "`>GET DOWN`" grammar:
 
 [source,hugo]
------------------------------------
+-------------------------------
 verb "get"
-        * "down"            DoDance
------------------------------------
+    * "down"            DoDance
+-------------------------------
 
 Now, this must come both before any other code or definitions as well as the _existing_ grammar for "`>GET <object>`" (from *VERBLIB.G*).
 Otherwise, the regular grammar for
 
 [source,hugo, subs="+attributes"]
--------------------------------------
-{wj}        * object            DoGet
--------------------------------------
+---------------------------------
+{wj}    * object            DoGet
+---------------------------------
 
 will take precedence.
 By superseding it, however, we ensure that any grammar matching the desired pattern will result in `DoDance` being called instead.

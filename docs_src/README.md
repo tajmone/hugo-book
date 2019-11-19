@@ -168,12 +168,12 @@ Every chapter in the list provides an [HTML Live Preview] link to quickly jump t
     + [x]  [5. _ROUTINES AND EVENTS_][Ch5]
         * [x]  Check/Fix Hugo code indentation.
         * [x]  Convert Hugo syntax definitions to `literal, role="hugosyntax"` blocks.
-    + [ ]  [6. _FUSES, DAEMONS, AND SCRIPTS_][Ch6]
-        * [ ]  Check/Fix Hugo code indentation.
-        * [ ]  Convert Hugo syntax definitions to `literal, role="hugosyntax"` blocks.
-    + [ ]  [7. _GRAMMAR AND PARSING_][Ch7]
-        * [ ]  Check/Fix Hugo code indentation.
-        * [ ]  Convert Hugo syntax definitions to `literal, role="hugosyntax"` blocks.
+    + [x]  [6. _FUSES, DAEMONS, AND SCRIPTS_][Ch6]
+        * [x]  Check/Fix Hugo code indentation.
+        * [x]  Convert Hugo syntax definitions to `literal, role="hugosyntax"` blocks.
+    + [x]  [7. _GRAMMAR AND PARSING_][Ch7]
+        * [x]  Check/Fix Hugo code indentation.
+        * [x]  Convert Hugo syntax definitions to `literal, role="hugosyntax"` blocks.
     + [ ]  [8. _JUNCTION ROUTINES_][Ch8]
         * [ ]  Check/Fix Hugo code indentation.
         * [ ]  Convert Hugo syntax definitions to `literal, role="hugosyntax"` blocks.
