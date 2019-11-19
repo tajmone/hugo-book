@@ -132,14 +132,14 @@ There's still a lot of work to be done in terms of enforcing consistent styles, 
     + [x] All sections.
     + [ ] All captions (tables, figures, etc.).
 - [ ] **CODE BLOCKS:**
-    + [ ] __Hugo code__:
-        * [ ] Enforce consistent indentation:
-            - [ ] 4 spaces in book examples.
-            - [ ] original indentation (8 spaces) in hugolib and other sources.
-        * [ ] Fix Hugo syntax examples (requires _ad hoc_ Highlight syntax).
+    + [x] __Hugo code__:
+        * [x] Enforce consistent indentation:
+            - [x] 4 spaces in book examples.
+            - [x] original indentation (8 spaces) in hugolib and other sources.
     + [ ] __Hugo syntax__ definitions ([#35]):
-        * [ ] Covert from `source` to `literal, role="hugosyntax"` blocks.
-        * [ ] Customize CSS.
+        * [x] Covert from `source` to `literal, role="hugosyntax"` blocks.
+        * [x] Customize CSS.
+            - [ ] Choose better color scheme.
 - [ ] Solve all annotated problems.
 
 
@@ -205,48 +205,67 @@ Every chapter in the list provides an [HTML Live Preview] link to quickly jump t
         * [ ]  _needs to be proof-read once more, carefully!_
         * No Hugo code to check.
         * [x]  Convert Hugo syntax definitions to `literal, role="hugosyntax"` blocks.
-    + [ ]  [APP. E. _PRECOMPILED HEADERS_][AppE]
-        * [ ]  Check/Fix Hugo code indentation.
-    + [ ]  [APP. F. _HUGO VERSIONS_][AppF]
-        * [ ]  Check/Fix Hugo code indentation.
-    + [ ]  [APP. G. _ADDITIONAL RESOURCES_][AppG]
-        * [ ]  Check/Fix Hugo code indentation.
+    + [x]  [APP. E. _PRECOMPILED HEADERS_][AppE]
+        * [x]  Check/Fix Hugo code indentation.
+    + [x]  [APP. F. _HUGO VERSIONS_][AppF]
+        * No Hugo code to check.
+        * No Hugo syntax definitions.
+    + [x]  [APP. G. _ADDITIONAL RESOURCES_][AppG]
+        * No Hugo code to check.
+        * No Hugo syntax definitions.
 - [ ]  [BOOK II. **TECHNICAL SYSTEM SPECIFICATION**][Book II]
-    + [ ]  [13. _INTRODUCTION_][Ch13]
-        * [ ]  Check/Fix Hugo code indentation.
-    + [ ]  [14. _ORGANIZATION OF THE .HEX FILE_][Ch14]
-        * [ ]  Check/Fix Hugo code indentation.
-    + [ ]  [15. _TOKENS AND DATA TYPES_][Ch15]
-        * [ ]  Check/Fix Hugo code indentation.
-    + [ ]  [16. _ENGINE PARSING_][Ch16]
-        * [ ]  Check/Fix Hugo code indentation.
-    + [ ]  [17. _GRAMMAR_][Ch17]
-        * [ ]  Check/Fix Hugo code indentation.
-    + [ ]  [18. _EXECUTABLE CODE_][Ch18]
-        * [ ]  Check/Fix Hugo code indentation.
-    + [ ]  [19. _ENCODING TEXT_][Ch19]
-        * [ ]  Check/Fix Hugo code indentation.
-    + [ ]  [20. _THE OBJECT TABLE_][Ch20]
-        * [ ]  Check/Fix Hugo code indentation.
-    + [ ]  [21. _THE PROPERTY TABLE_][Ch21]
-        * [ ]  Check/Fix Hugo code indentation.
-    + [ ]  [22. _THE EVENT TABLE_][Ch22]
-        * [ ]  Check/Fix Hugo code indentation.
-    + [ ]  [23. _THE DICTIONARY AND SPECIAL WORDS_][Ch23]
-        * [ ]  Check/Fix Hugo code indentation.
-    + [ ]  [24. _RESOURCEFILES_][Ch24]
+    + [x]  [13. _INTRODUCTION_][Ch13]
+        * No Hugo code to check.
+        * No Hugo syntax definitions.
+    + [x]  [14. _ORGANIZATION OF THE .HEX FILE_][Ch14]
+        * No Hugo code to check.
+        * No Hugo syntax definitions.
+    + [x]  [15. _TOKENS AND DATA TYPES_][Ch15]
+        * No Hugo code to check.
+        * No Hugo syntax definitions.
+    + [x]  [16. _ENGINE PARSING_][Ch16]
+        * No Hugo code to check.
+        * No Hugo syntax definitions.
+    + [x]  [17. _GRAMMAR_][Ch17]
+        * [x]  Check/Fix Hugo code indentation.
+        * No Hugo syntax definitions.
+    + [x]  [18. _EXECUTABLE CODE_][Ch18]
+        * [x]  Check/Fix Hugo code indentation.
+        * No Hugo syntax definitions.
+    + [x]  [19. _ENCODING TEXT_][Ch19]
+        * No Hugo code to check.
+        * No Hugo syntax definitions.
+    + [x]  [20. _THE OBJECT TABLE_][Ch20]
+        * No Hugo code to check.
+        * No Hugo syntax definitions.
+    + [x]  [21. _THE PROPERTY TABLE_][Ch21]
+        * [x]  Check/Fix Hugo code indentation.
+        * No Hugo syntax definitions.
+    + [x]  [22. _THE EVENT TABLE_][Ch22]
+        * No Hugo code to check.
+        * No Hugo syntax definitions.
+    + [x]  [23. _THE DICTIONARY AND SPECIAL WORDS_][Ch23]
+        * No Hugo code to check.
+        * No Hugo syntax definitions.
+    + [x]  [24. _RESOURCEFILES_][Ch24]
         * Title capitalization: _no sections._
         *  (_no XRefs_).
         *  (_No footnotes_).
-    + [ ]  [25. _THE HUGO COMPILER AND HOW IT WORKS_][Ch25]
-        * [ ]  Check/Fix Hugo code indentation.
-    + [ ]  [26. _THE HUGO ENGINE AND HOW IT WORKS_][Ch26]
-        * [ ]  Check/Fix Hugo code indentation.
-    + [ ]  [27. _DARK SECRETS OF THE HUGO DEBUGGER_][Ch27]
-        * [ ]  Check/Fix Hugo code indentation.
+        * No Hugo code to check.
+        * No Hugo syntax definitions.
+    + [x]  [25. _THE HUGO COMPILER AND HOW IT WORKS_][Ch25]
+        * No Hugo code to check.
+        * No Hugo syntax definitions.
+    + [x]  [26. _THE HUGO ENGINE AND HOW IT WORKS_][Ch26]
+        * No Hugo code to check.
+        * No Hugo syntax definitions.
+    + [x]  [27. _DARK SECRETS OF THE HUGO DEBUGGER_][Ch27]
+        * No Hugo code to check.
+        * No Hugo syntax definitions.
     + [ ]  [APP. H. _CODE PATTERNS_][AppH]
         * [ ]  _needs to be proof-read once more, carefully!_
-        * [ ]  Check/Fix Hugo code indentation.
+        * No Hugo code to check.
+        * [x]  Convert Hugo syntax definitions to `literal, role="hugosyntax"` blocks.
 - [ ] _INDEX_ (supported only in PDF format)
 
 
