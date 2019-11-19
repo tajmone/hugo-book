@@ -86,11 +86,11 @@ TIP: It's useful to have generated debugging information by passing the `–i` s
 
 Essentially the same as the Hugo statement:
 
-// @HUGO SYNTAX MOCKUP!
-[source,hugo]
---------------------------
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+............................
 move <object> to <parent>.
---------------------------
+............................
 
 The object will become the youngest child of the parent object.
 
@@ -98,11 +98,11 @@ The object will become the youngest child of the parent object.
 
 Essentially the same as the Hugo Library function call:
 
-// @HUGO SYNTAX MOCKUP!
-[source,hugo]
--------------------
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+............................
 MovePlayer(<obj.>).
--------------------
+............................
 
 The function may fail (and print an appropriate error message) if the specified parent object is not a valid location (i.e., room or room-equivalent object).
 

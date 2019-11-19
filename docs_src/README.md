@@ -203,8 +203,8 @@ Every chapter in the list provides an [HTML Live Preview] link to quickly jump t
         * No Hugo syntax definitions.
     + [ ]  [APP. D. _HUGOFIX AND THE HUGO DEBUGGER_][AppD]
         * [ ]  _needs to be proof-read once more, carefully!_
-        * [ ]  Check/Fix Hugo code indentation.
-        * [ ]  Convert Hugo syntax definitions to `literal, role="hugosyntax"` blocks.
+        * No Hugo code to check.
+        * [x]  Convert Hugo syntax definitions to `literal, role="hugosyntax"` blocks.
     + [ ]  [APP. E. _PRECOMPILED HEADERS_][AppE]
         * [ ]  Check/Fix Hugo code indentation.
     + [ ]  [APP. F. _HUGO VERSIONS_][AppF]
