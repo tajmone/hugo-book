@@ -53,9 +53,9 @@ In other words, we may want to use a value that we won't know at the time we wri
 Here's a piece of code that, as we'll see shortly, prints a single line of output with a number in the middle:
 
 [source,hugo]
---------------------------------------------------------------------------------
+-----------------------------------------------------
 print "The temperature is "; number temp; " degrees."
---------------------------------------------------------------------------------
+-----------------------------------------------------
 
 That statement may print
 
@@ -77,29 +77,29 @@ Hugo supports two kinds of variables: _global_ and _local_.
 Either type simply holds an integer value, so a variable can hold a simple value, an object number, a dictionary address, a routine address, or any other standard Hugo data type through an assignment such as:
 
 [source,hugo]
---------------------------------------------------------------------------------
+---------------------
 a = 1
 nextobj = parent(obj)
 temp_word = "the"
---------------------------------------------------------------------------------
+---------------------
 
 _Global_ variables are visible throughout the program.
 They must be defined similarly to properties and attributes as
 
-// @HUGO SYNTAX MOCKUP!
-[source,hugo]
--------------------------------------------------
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+.................................................
 global <global variable name>[ = <initial value>]
--------------------------------------------------
+.................................................
 
 _Local_ variables, on the other hand, are recognized only within the routine in which they are defined.
 They are defined using
 
-// @HUGO SYNTAX MOCKUP!
-[source,hugo]
---------------------------------------------------------------------------------
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+...............................................
 local <local variable name>[ = <initial value>]
---------------------------------------------------------------------------------
+...............................................
 
 Global variables must of course have a unique name, different from that of any other data object; local variables, on the other hand, may share the names of local variables in other routines.
 
@@ -107,17 +107,17 @@ In either case, global or local, the default initial value is 0 if no other valu
 For example,
 
 [source,hugo]
---------------------------------------------------------------------------------
+-------------------------
 global time_of_day = 1100
---------------------------------------------------------------------------------
+-------------------------
 
 is equal to 1100 when the program is run, and is visible at any point in the program, by any object or routine.
 On the other hand, the variables
 
 [source,hugo]
---------------------------------------------------------------------------------
+---------------------
 local a, max = 100, t
---------------------------------------------------------------------------------
+---------------------
 
 are visible only within the block of code where they are defined, and are initialized to 0, 100, and 0, respectively, each time that section of code (be it a routine, property routine, event, etc.) is run.
 
@@ -191,10 +191,10 @@ It is not absolutely necessary that a constant be given a definite value if the 
 Therefore,
 
 [source,hugo]
---------------------------------------------------------------------------------
+--------------------
 constant THIS_RESULT
 constant THAT_RESULT
---------------------------------------------------------------------------------
+--------------------
 
 will have unique values from each other, as well as from any other constant defined without a specific value.
 
@@ -202,68 +202,68 @@ Sometimes it may be useful to enumerate a series of constants in sequence.
 Instead of defining them all individually, it is possible to use:
 
 [source,hugo]
---------------------------------------------------------------------------------
+------------------------------------------------
 enumerate start = 1
 {
     MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY
 }
---------------------------------------------------------------------------------
+------------------------------------------------
 
 giving:
 
 [source,hugo]
---------------------------------------------------------------------------------
+---------------------------------------
 MONDAY = 1, TUESDAY = 2, WEDNESDAY = 3,
 THURSDAY = 4, FRIDAY = 5
---------------------------------------------------------------------------------
+---------------------------------------
 
 The start value is optional.
 If omitted, it is 0.
 Also, it is possible to change the current value at any point (therefore also affecting all following values).
 
 [source,hugo]
---------------------------------------------------------------------------------
+---------------------
 enumerate
 {
     A, B, C = 5, D, E
 }
---------------------------------------------------------------------------------
+---------------------
 
 giving:
 
 [source,hugo]
---------------------------------------------------------------------------------
+----------------------------------
 A = 0, B = 1, C = 5, D = 6, E = 7.
---------------------------------------------------------------------------------
+----------------------------------
 
 Finally, it is possible to alter the step value of the enumeration using the `step` keyword followed by `+n`, `-n`, `*n`, or `/n`, where `n` is a constant integer value.
 To start with 1 and count by multiples of two:
 
 [source,hugo]
---------------------------------------------------------------------------------
+------------------
 enumerate step *2
 {
     A = 1, B, C, D
 }
---------------------------------------------------------------------------------
+------------------
 
 giving:
 
 [source,hugo]
---------------------------------------------------------------------------------
+---------------------------
 A = 1, B = 2, C = 4, D = 8.
---------------------------------------------------------------------------------
+---------------------------
 
 Enumeration of global variables is also possible, using the `globals` specifier, as in:
 
-// @HUGO SYNTAX MOCKUP!
-[source,hugo]
---------------------------------------------------------------------------------
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+............................
 enumerate globals
 {
     <global1>, <global2>,...
 }
---------------------------------------------------------------------------------
+............................
 
 Otherwise the specifier `constants` (as opposed to `globals`) is implied as the default.
 
@@ -273,10 +273,11 @@ Otherwise the specifier `constants` (as opposed to `globals`) is implied as the 
 Text can be printed -- that is, output to the screen during running of a Hugo program -- using two different methods.
 The first is the basic `print` command, the simplest form of which is
 
-[source,hugo]
---------------------------------------------------------------------------------
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+............................
 print "<string>"
---------------------------------------------------------------------------------
+............................
 
 where `<string>` consists of a series of alphanumeric characters and punctuation.
 
@@ -325,10 +326,10 @@ One\two\three
 ===============================
 
 [source,hugo]
------------------------------
-print " Left-justified"
-print "\_ Not left-justified"
------------------------------
+--------------------------------
+print "      Left-justified"
+print "\_    Not left-justified"
+--------------------------------
 
 [example,role="gametranscript"]
 ==========================================
@@ -340,7 +341,7 @@ Not left-justified
 [source,hugo]
 ------------------
 print "This is a \
-single line."
+    single line."
 ------------------
 
 [example,role="gametranscript"]
@@ -353,10 +354,10 @@ This is a single line.
 Although
 
 [source,hugo]
-----------------
+-----------------
 print "This is a
-single line."
-----------------
+    single line."
+-----------------
 
 will produce the same result, since the line break occurs within quotation marks.
 ================================================================================
@@ -462,9 +463,9 @@ The in-string formatting combinations are still usable with these print statemen
 Because of that,
 
 [source,hugo]
-----------------------
-"\"Hello,\"" he said."
-----------------------
+---------------------
+"\"Hello,\" he said."
+---------------------
 
 will write
 
@@ -485,11 +486,11 @@ is illegal.
 The color of text may be changed using the `color` command (also valid with the U.K. spelling `colour`).
 The format is
 
-// @HUGO SYNTAX MOCKUP!
-[source,hugo]
----------------------------------------------------
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+...................................................
 color <foreground>[, <background>[, <input color>]]
----------------------------------------------------
+...................................................
 
 where the background color is not necessary.
 If no background color is specified, the current one is assumed).
@@ -575,11 +576,11 @@ Date:
 
 Text can be specifically located using the `locate` command via
 
-// @HUGO SYNTAX MOCKUP!
-[source,hugo]
-----------------------
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+............................
 locate <column>, <row>
-----------------------
+............................
 
 where
 
@@ -631,11 +632,11 @@ A **bold string with some _italics_ and [.underline]#underline#** [.underline]#t
 
 Print style can also be changed using the `Font` routine in *hugolib.h*, so that in
 
-// @HUGO SYNTAX MOCKUP!
-[source,hugo]
-------------------------
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+............................
 Font(<font change code>)
-------------------------
+............................
 
 the `<font change code>` can be one or more of:
 
@@ -757,6 +758,10 @@ Comparisons are also valid as operators, returning Boolean true or false (1 or 0
 [source,hugo]
 -------------
 2 + (n = 1)
+-------------
+
+[source,hugo]
+-------------
 5 - (n > 1)
 -------------
 
@@ -774,8 +779,12 @@ Valid relational operators are
 Logical operators (`and`, `or`, and `not`) are also allowed.
 
 [source,hugo]
---------------------------------
+----------------------
 (x and y) or (a and b)
+----------------------
+
+[source,hugo]
+--------------------------------
 (j + 5) and not ObjectisLight(k)
 --------------------------------
 
@@ -826,29 +835,27 @@ Standard mathematical rules for order of significance in evaluating an expressio
 Some sample combinations are:
 
 [source,hugo]
--------------------------------------------------------
-10 + object.size          ! integer constant and
-                          ! property
+-----------------------------------------------------------------
+10 + object.size          ! integer constant and property
 
 object is openable + 1    ! attribute test and constant
 
 FindLight(location) + a   ! return value and variable
 
-1 and object is light     ! constant, logical test,
-                          ! and attribute
--------------------------------------------------------
+1 and object is light     ! constant, logical test, and attribute
+-----------------------------------------------------------------
 
 Expressions can be evaluated and assigned to either a variable, a property, or an array element.
 
-// @HUGO SYNTAX MOCKUP!
-[source,hugo]
------------------------------------------------
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+...............................................
 <variable> = <expression>
 
 <object>.<property> [#<element>] = <expression>
 
 <array>[<element>] = <expression>
------------------------------------------------
+...............................................
 
 
 === Efficient Operators
@@ -860,19 +867,19 @@ Something like
 number_of_items = number_of_items + 1
 if number_of_items > 10
 {
-  print "Too many items!"
+    print "Too many items!"
 }
 -------------------------------------
 
 can be coded more simply as
 
 [source,hugo]
--------------------------
+---------------------------
 if ++number_of_items > 10
 {
-  print "Too many items!"
+    print "Too many items!"
 }
--------------------------
+---------------------------
 
 The `++` operator increases the following variable by one before returning the value of the variable.
 Similarly, `--` can precede a variable to decrease the value by one before returning it.
@@ -887,7 +894,7 @@ For example,
 -----------------------------
 while ++i < 5 ! pre-increment
 {
-  print number i; " ";
+    print number i; " ";
 }
 -----------------------------
 
@@ -902,7 +909,7 @@ But
 ------------------------------
 while i++ < 5 ! post-increment
 {
-  print number i; " ";
+    print number i; " ";
 }
 ------------------------------
 
@@ -959,11 +966,11 @@ Prior to this point, little has been said about arrays.
 Arrays are sets of values that share a common name, and where the elements are referenced by number.
 Arrays are defined by
 
-// @HUGO SYNTAX MOCKUP!
-[source,hugo]
---------------------------------
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+................................
 array <arrayname> [<array size>]
---------------------------------
+................................
 
 where `<array size>` must be a numerical constant.
 
@@ -1000,11 +1007,11 @@ would result in `10`.
 
 Array elements can be assigned more than one at a time, as in
 
-// @HUGO SYNTAX MOCKUP!
-[source,hugo]
------------------------------------------
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+.........................................
 <arrayname> = <element1>, <element2>, ...
------------------------------------------
+.........................................
 
 where `<element1>` and `<element2>` can be expressions or single values.
 
@@ -1114,11 +1121,11 @@ apple_array[5] = 0
 
 Hugo provides a handy way to store a dictionary entry in an array as a series of characters using the `string` built-in function:
 
-// @HUGO SYNTAX MOCKUP!
-[source,hugo]
------------------------------------------------------
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+.....................................................
 string(<array address>, <dict. entry>, <max. length>)
------------------------------------------------------
+.....................................................
 
 For example,
 
@@ -1149,11 +1156,11 @@ The Hugo Library defines the functions `StringCopy`, `StringEqual`, `StringLengt
 
 `StringCopy` copies one string array to another array.
 
-// @HUGO SYNTAX MOCKUP!
-[source,hugo]
-------------------------------------------------
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+................................................
 StringCopy(<new array>, <old array>[, <length>])
-------------------------------------------------
+................................................
 
 For example,
 
@@ -1171,12 +1178,12 @@ StringCopy(a, b, 5)
 
 copies only up to 5 characters of `b` to `a`.
 
-// @HUGO SYNTAX MOCKUP!
-[source,hugo]
----------------------------------------
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+.......................................
 x = StringEqual(<string1>, <string2>)
 x = StringCompare(<string1>, <string2>)
----------------------------------------
+.......................................
 
 `StringEqual` returns true only if the two specified string arrays are identical.
 `StringCompare` returns 1 if `<string1>` is lexically greater than `<string2>`, -1 if `<string1>` is lexically less than `<string2>`, and 0 if the two strings are identical.
@@ -1190,11 +1197,11 @@ len = StringLength(a)
 
 and `StringPrint` prints a string array (or part of it).
 
-// @HUGO SYNTAX MOCKUP!
-[source,hugo]
-----------------------------------------------
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+..............................................
 StringPrint(<array address>[, <start>, <end>])
-----------------------------------------------
+..............................................
 
 For example, if the array `a` contains "`presto`",
 
@@ -1231,34 +1238,34 @@ That is, while a dictionary entry is a simple value representing an address, a s
 
 The library provides the following to overcome this:
 
-// @HUGO SYNTAX MOCKUP!
-[source,hugo]
------------------------------------------
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+.........................................
 StringDictCompare(<array>, <dict. entry>)
------------------------------------------
+.........................................
 
 which returns the same values (1, -1, 0) as `StringCompare`, depending on whether the string array is lexically greater than, less than, or equal to the dictionary entry.
 
 There is also a complement to `string`: the `dict` built-in function, that dynamically creates a new dictionary entry at runtime.
 Its syntax is:
 
-// @HUGO SYNTAX MOCKUP!
-[source,hugo]
----------------------------
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+............................
 x = dict(<array>, <maxlen>)
 x = dict(parse$, <maxlen>)
----------------------------
+............................
 
 where the contents of `<``array>` or `parse$` are written into the dictionary, to a maximum of `<maxlen>` characters, and the address of the new word is returned.
 
 However, since this requires extending the actual length of the dictionary table in the game file, it is necessary to provide for this during compilation.
 Inserting
 
-// @HUGO SYNTAX MOCKUP!
-[source,hugo]
------------------------
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+............................
 $MAXDICTEXTEND=<number>
------------------------
+............................
 
 at the start of the source file will write a buffer of `<number>` empty bytes at the end of the dictionary.
 (`MAXDICTEXTEND` is, by default, 0.)
@@ -1274,64 +1281,64 @@ Program flow can be controlled using a variety of constructions, each of which i
 
 The most basic of these is the `if` statement.
 
-// @HUGO SYNTAX MOCKUP!
-[source,hugo]
---------------------------------
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+..................................
 if <expression>
-  {...conditional code block...}
---------------------------------
+    {...conditional code block...}
+..................................
 
 The enclosing braces are not necessary if the code block is a single line.
 Note also that the conditional block may begin (and even end) on the same line as the `if` statement provided that braces are used.
 
-// @HUGO SYNTAX MOCKUP!
-[source,hugo]
---------------------------------------------------------------------------------
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+..............................................
 if <expression>
-  ...single line...
+    ...single line...
 
 if <expression> {...conditional code block...}
---------------------------------------------------------------------------------
+..............................................
 
 If braces are not used for a single line, the compiler automatically inserts them, although special care must be taken when constructing a block of code nesting several single-line conditionals.
 While
 
-// @HUGO SYNTAX MOCKUP!
-[source,hugo]
---------------------------------------------------------------------------------
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+....................................
 if <expression1>
-  if <expression2>
-    ...conditional code block...
---------------------------------------------------------------------------------
+    if <expression2>
+        ...conditional code block...
+....................................
 
 may be properly interpreted, other constructions (particularly those involving some of the more complex program-flow concepts we're about to get into) may not be.
 Therefore, it's always best to be as clear as possible about your intent, more along the lines of:
 
-// @HUGO SYNTAX MOCKUP!
-[source,hugo]
---------------------------------------------------------------------------------
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+....................................
 if <expression1>
 {
-  if <expression2>
-    ...conditional code block...
+    if <expression2>
+        ...conditional code block...
 }
---------------------------------------------------------------------------------
+....................................
 
 More elaborate uses of `if` involve the use of `elseif` and `else`.
 
-// @HUGO SYNTAX MOCKUP!
-[source,hugo]
---------------------------------------------------------------------------------
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+.......................................
 if <expression1>
-  ...first conditional code block...
+    ...first conditional code block...
 elseif <expression2>
-  ...second conditional code block...
+    ...second conditional code block...
 elseif <expression3>
-  ...third conditional code block...
+    ...third conditional code block...
 ...
 else
-  ...default code block...
---------------------------------------------------------------------------------
+    ...default code block...
+.......................................
 
 In this case, the engine evaluates each expression until it finds one that is true, and then executes it.
 Control then passes to the next non-`if`/`elseif`/`else` statement following the conditional construction.
@@ -1343,68 +1350,68 @@ Of course, all three (`if`, `elseif`, and `else`) need not be used every time, a
 In certain cases, the `if` statement may not lend itself perfectly to clarity, and the `select`-`case` construction may be more appropriate.
 The general form is:
 
-// @HUGO SYNTAX MOCKUP!
-[source,hugo, subs="+attributes,macros"]
---------------------------------------------------------------------------------
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax", subs="+attributes,macros"]
+.......................................................
 select <var>
-  case <value1>[, <value2>, ...]
-    ...first conditional code block...
-  case <value3>[, <value4>, ...]
-    ...second conditional code block...
-  ...
-  case else
-    ...default code block...{fn7}
---------------------------------------------------------------------------------
+    case <value1>[, <value2>, ...]
+        ...first conditional code block...
+    case <value3>[, <value4>, ...]
+        ...second conditional code block...
+    ...
+    case else
+        ...default code block...{fn7}
+.......................................................
 
 In this case, the evaluation is essentially
 
-// @HUGO SYNTAX MOCKUP!
-[source,hugo]
----------------------------------------------
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+.............................................
 if <var> = <value1> [or <var> = <value2> ...]
----------------------------------------------
+.............................................
 
 There is no limit on the number of values (separated by commas) that can appear on a line following ``case``.{fn8}
 The same rules for bracing multiple-line code blocks apply as with `if` (as well as for every other type of conditional block).
 
 Basic loops may be coded using `while` and `do`-`while`.
 
-// @HUGO SYNTAX MOCKUP!
-[source,hugo]
-------------------------------
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+................................
 while <expression>
-  ...conditional code block...
-------------------------------
+    ...conditional code block...
+................................
 
-// @HUGO SYNTAX MOCKUP!
-[source,hugo]
-------------------------------
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+...............................
 do
-  ...conditional code block...
+    ..conditional code block...
 while <expression>
-------------------------------
+...............................
 
 Each of these executes the conditional code block as long as `<expression>` holds true.
 It is assumed that the code block somehow alters `<expression>` so that at some point it will become false; otherwise the loop will execute endlessly.
 
 [source,hugo]
--------------------------
+---------------------------
 while x <= 10
 {
-  x = x + 1
-  print "x is "; number x
+    x = x + 1
+    print "x is "; number x
 }
--------------------------
+---------------------------
 
 [source,hugo]
--------------------------
+---------------------------
 do
 {
-  x = x + 1
-  print "x is "; number x
+    x = x + 1
+    print "x is "; number x
 }
 while x <= 10
--------------------------
+---------------------------
 
 The only difference between the two is that if `<expression>` is false at the outset, the `while` code block will never run.
 The `do`-`while` code block will run at least once even if `<expression>` is false at the outset.
@@ -1414,20 +1421,20 @@ The most important side effect of this is that if you're doing something in the 
 
 The most complex loop construction uses the `for` statement:
 
-// @HUGO SYNTAX MOCKUP!
-[source,hugo]
---------------------------------------------
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+............................................
 for (<assignment>; <expression>; <modifier>)
-  ...conditional code block...
---------------------------------------------
+    ...conditional code block...
+............................................
 
 For example:
 
 [source,hugo]
----------------------------------
+-------------------------------------
 for (i=1; i<=15; i=i+1)
-print "i is equal to: "; number i
----------------------------------
+    print "i is equal to: "; number i
+-------------------------------------
 
 First, the engine executes the assignment setting `i = 1`.
 Next, it checks to see if the expression holds true (if `i` is less than or equal to 15).
@@ -1457,19 +1464,19 @@ It may be a routine that modifies a global variable, for example, which is then 
 
 A second form of a `for` loop is:
 
-// @HUGO SYNTAX MOCKUP!
-[source,hugo]
-------------------------------
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+................................
 for <var> in <object>
-  ...conditional code block...
-------------------------------
+    ...conditional code block...
+................................
 
 which loops through all the children of `<object>` (if any), setting the variable `<var>` to the object number of each child in sequence, so that
 
 [source,hugo]
 -------------------
 for i in mysuitcase
-  print i.name
+    print i.name
 -------------------
 
 will print the names of each object in the `mysuitcase` object.
@@ -1493,22 +1500,22 @@ At any point during a loop, it may be necessary to exit immediately (and probabl
 The `break` statement passes control to the statement immediately following the current loop.
 In the example:
 
-// @HUGO SYNTAX MOCKUP!
-[source,hugo]
---------------------------------------------------------------------------------
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+............................
 do
 {
-  while <expression2>
-  {
+    while <expression2>
+    {
+        ...
+        if <expression3>
+            break
+        ...
+    }
     ...
-    if <expression3>
-      break
-    ...
-  }
-  ...
 }
 while <expression1>
---------------------------------------------------------------------------------
+............................
 
 the `break` causes the immediately running `while <expression2>` loop to terminate, even if `<expression2>` is true.
 However, the external `do`-`while <expression1>` loop continues to run.
@@ -1518,28 +1525,46 @@ A second useful provision is the ability to use a comma to separate options with
 As a result,
 
 [source,hugo]
---------------------------------------------------------------------------------
+----------------------------------
 if word[1] = "one", "two", "three"
+----------------------------------
 
+[source,hugo]
+--------------------------------
 while object is open, not locked
+--------------------------------
 
+[source,hugo]
+--------------------------------
 if box not in livingroom, garage
+--------------------------------
 
+[source,hugo]
+---------------
 if a ~= 1, 2, 3
---------------------------------------------------------------------------------
+---------------
 
 are interpreted as:
 
 [source,hugo]
---------------------------------------------------------------------------------
+----------------------------------------------------
 if word[1]="one" or word[1]="two" or word[1]="three"
+----------------------------------------------------
 
+[source,hugo]
+---------------------------------------------
 while object is open and object is not locked
+---------------------------------------------
 
+[source,hugo]
+----------------------------------------------
 if box not in livingroom and box not in garage
+----------------------------------------------
 
+[source,hugo]
+-------------------------------
 if a ~= 1 and a ~= 1 and a ~= 3
---------------------------------------------------------------------------------
+-------------------------------
 
 respectively.
 
@@ -1557,24 +1582,24 @@ The compiler looks after this translation for you.
 === Example: Mixing Text Styles
 
 [source,hugo]
---------------------------------------------------------------------------------
+-----------------------------------------------
 ! Sample to print various typefaces/colors:
 
 #include "hugolib.h"
 
 routine main
 {
-  print "Text may be printed in \Bboldface\b,
-    \Iitalics\i, \Uunderlined\u, or
-    \Pproportional\p typefaces."
-  color RED               ! or color 4
-  print "\nGet ready. ";
-  color YELLOW            ! color 14
-  print "Get set. ";
-  color GREEN             ! color 2
-  print "Go!"
+    print "Text may be printed in \Bboldface\b,
+        \Iitalics\i, \Uunderlined\u, or
+        \Pproportional\p typefaces."
+    color RED               ! or color 4
+    print "\nGet ready. ";
+    color YELLOW            ! color 14
+    print "Get set. ";
+    color GREEN             ! color 2
+    print "Go!"
 }
---------------------------------------------------------------------------------
+-----------------------------------------------
 
 The output will be:
 
@@ -1608,8 +1633,8 @@ The basic Unix and MS-DOS ports, for example, use color changes instead of actua
 
 routine main
 {
-  StringTests
-  return
+    StringTests
+    return
 }
 
 array s1[32]
@@ -1618,25 +1643,25 @@ array s3[10]
 
 routine StringTests
 {
-  local a, len
+    local a, len
 
-  a = "This is a sample string."
-  len = string(s1, a, 31)
-  string(s2, "Apple", 9)
-  string(s3, "Tomato", 9)
+    a = "This is a sample string."
+    len = string(s1, a, 31)
+    string(s2, "Apple", 9)
+    string(s3, "Tomato", 9)
 
-  print "a = \""; a; "\""
-  print "(Dictionary address:  "; number a; ")"
-  print "s1 contains \""; StringPrint(s1); "\""
-  print "(Array address:  "; number s1;
-  print ", length = "; number len; ")"
-  print "s2 is \""; StringPrint(s2);
-  print "\", s3 is \""; StringPrint(s3); "\""
+    print "a = \""; a; "\""
+    print "(Dictionary address:  "; number a; ")"
+    print "s1 contains \""; StringPrint(s1); "\""
+    print "(Array address:  "; number s1;
+    print ", length = "; number len; ")"
+    print "s2 is \""; StringPrint(s2);
+    print "\", s3 is \""; StringPrint(s3); "\""
 
- "\nStringCompare(s1, s2) = ";
-  print number StringCompare(s1, s2)
-  "StringCompare(s1, s3) = ";
-  print number StringCompare(s1, s3)
+    "\nStringCompare(s1, s2) = ";
+    print number StringCompare(s1, s2)
+    "StringCompare(s1, s3) = ";
+    print number StringCompare(s1, s3)
 }
 --------------------------------------------------------------------------------
 

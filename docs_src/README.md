@@ -162,9 +162,9 @@ Every chapter in the list provides an [HTML Live Preview] link to quickly jump t
     + [x]  [3. _OBJECTS_][Ch3]
         * [x]  Check/Fix Hugo code indentation.
         * [x]  Convert Hugo syntax definitions to `literal, role="hugosyntax"` blocks.
-    + [ ]  [4. _HUGO PROGRAMMING_][Ch4]
-        * [ ]  Check/Fix Hugo code indentation.
-        * [ ]  Convert Hugo syntax definitions to `literal, role="hugosyntax"` blocks.
+    + [x]  [4. _HUGO PROGRAMMING_][Ch4]
+        * [x]  Check/Fix Hugo code indentation.
+        * [x]  Convert Hugo syntax definitions to `literal, role="hugosyntax"` blocks.
     + [ ]  [5. _ROUTINES AND EVENTS_][Ch5]
         * [ ]  Check/Fix Hugo code indentation.
         * [ ]  Convert Hugo syntax definitions to `literal, role="hugosyntax"` blocks.
