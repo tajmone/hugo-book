@@ -34,6 +34,8 @@ See xref:hugo-book1_07#grammar_definition[].]]
 
 :fn10: pass:q[footnote:[That is, by the `FindObject` routine in *hugolib.h*, as called by the engine.]]
 
+:fn11: pass:q[footnote:[You can actually use the `NumberWord` routine from *hugolib.h* to do this a lot more efficiently.]]
+
 // <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
 
@@ -45,14 +47,14 @@ A routine may or may not return a value, and it may or may not require a list of
 
 A routine is defined as:
 
-// @HUGO SYNTAX MOCKUP!
-[source,hugo]
---------------------------------------------------------------------------------
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+.............................................
 routine <routinename> [(<arg1>, <arg2>, ...)]
 {
     ...
 }
---------------------------------------------------------------------------------
+.............................................
 
 once again ensuring that the opening brace (`{`) comes on a new line following the `routine` specifier.
 
@@ -60,22 +62,24 @@ once again ensuring that the opening brace (`{`) comes on a new line following t
 ================================================================================
 To substitute a new routine for an existing one with the same name (such as in a library file), define the new one using `replace` instead of `routine`.
 
-// @HUGO SYNTAX MOCKUP!
-[source,hugo]
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+.............................................
 replace <routinename> [(<arg1>, <arg2>, ...)]
+.............................................
 ================================================================================
 
 An example of a simple routine definition is:
 
 [source,hugo]
---------------------------------------------------------------------------------
+----------------------------------------------
 routine TestRoutine(obj)
 {
     print "The "; obj.name; " has a size of ";
     print obj.size; "."
     return obj.size
 }
---------------------------------------------------------------------------------
+----------------------------------------------
 
 Where `TestRoutine` takes a single value as an argument, assigns it to a local variable `obj`, executes a simple printing sequence, and returns the property value: `obj.size`.
 
@@ -83,17 +87,17 @@ The `return` keyword exits the current routine, and returns a value if specified
 Both
 
 [source,hugo]
---------------------------------------------------------------------------------
+-------------
 return
---------------------------------------------------------------------------------
+-------------
 
 and
 
-// @HUGO SYNTAX MOCKUP!
-[source,hugo]
---------------------------------------------------------------------------------
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+............................
 return <expression>
---------------------------------------------------------------------------------
+............................
 
 are valid.
 If no expression is given, the routine returns 0.
@@ -102,9 +106,9 @@ If no `return` statement at all is encountered, the routine continues until the 
 Once defined, `TestRoutine` can be called several ways:
 
 [source,hugo]
---------------------------------------------------------------------------------
+-----------------------
 TestRoutine(mysuitcase)
---------------------------------------------------------------------------------
+-----------------------
 
 will (assuming the `mysuitcase` object as been defined as previously illustrated) print
 
@@ -117,9 +121,9 @@ The return value will be ignored.
 On the other hand,
 
 [source,hugo]
---------------------------------------------------------------------------------
+---------------------------
 x = TestRoutine(mysuitcase)
---------------------------------------------------------------------------------
+---------------------------
 
 will print the same output, but will assign the return value of `TestRoutine` to the variable `x`.
 
@@ -127,16 +131,16 @@ Now, unlike C and similar languages, Hugo does not require that routines follow 
 Therefore, both
 
 [source,hugo]
---------------------------------------------------------------------------------
+-------------
 TestRoutine
---------------------------------------------------------------------------------
+-------------
 
 and
 
 [source,hugo]
---------------------------------------------------------------------------------
+--------------------------
 TestRoutine(mysuitcase, 5)
---------------------------------------------------------------------------------
+--------------------------
 
 are valid calls for the above routine.
 In the first case, the argument `obj` defaults to 0, since no value is passed.
@@ -147,7 +151,7 @@ A local variable in one routine can never be altered by another routine.
 What this means is that, for example, in the following routines:
 
 [source,hugo]
---------------------------------------------------------------------------------
+-------------------
 routine TestRoutine
 {
     local a
@@ -161,14 +165,14 @@ routine Double(a)
 {
     a = a * 2
 }
---------------------------------------------------------------------------------
+-------------------
 
 calling `TestRoutine` would print "`5`" and not "`10`" because the local variable `a` in `Double` is only a copy of the variable passed to it as an argument.
 
 These two routines would, on the other hand, print "`10`":
 
 [source,hugo]
---------------------------------------------------------------------------------
+-------------------
 routine TestRoutine
 {
     local a
@@ -182,7 +186,7 @@ routine Double(a)
 {
     return a * 2
 }
---------------------------------------------------------------------------------
+-------------------
 
 The local `a` in `TestRoutine` is reassigned with the return value from the `Double` routine.
 
@@ -190,9 +194,9 @@ An interesting side-effect of a zero (0) return value can be seen using the `pri
 Consider the `The` routine in *hugolib.h*, which prints an object's definite article (i.e., "`the`", if appropriate), followed by the object's `name` property.
 
 [source,hugo]
---------------------------------------------------------------------------------
+-----------------------------------
 print "You open "; The(object); "."
---------------------------------------------------------------------------------
+-----------------------------------
 
 might result in
 
@@ -201,18 +205,16 @@ You open the suitcase.
 
 Note that the above `print` command itself really only prints
 
-[source,hugo]
--------------
+...........
 "You open "
--------------
+...........
 
 
 and
 
-[source,hugo]
--------------
+......
 "."
--------------
+......
 
 
 It is the `The` routine that prints
@@ -222,11 +224,9 @@ the suitcase
 
 Since `The` returns 0 (the empty string, or `+""+`), the `print` command is actually displaying
 
-// @HUGO SYNTAX MOCKUP!
-[source,hugo]
---------------------------------------------------------------------------------
+........................
 "You open ", "", and "."
---------------------------------------------------------------------------------
+........................
 
 where the empty string (`+""+`) is preceded on the output line by The's printing of `"++the ++"` (notice the trailing space) and the object name.
 
@@ -239,19 +239,19 @@ Normally, a property routine runs when the program attempts to get the value of 
 That is, instead of having the property value:
 
 [source,hugo]
---------------------------------------------------------------------------------
+-------------
 size 10
---------------------------------------------------------------------------------
+-------------
 
 an object may contain the property:
 
 [source,hugo]
---------------------------------------------------------------------------------
+-------------------------
 size
 {
     return some_value + 5
 }
---------------------------------------------------------------------------------
+-------------------------
 
 Trying to read `object.size` in either case will return an integer value, although in the second case it is calculated by a routine.
 
@@ -284,13 +284,13 @@ n_to
 or
 
 [source,hugo]
---------------------------------------------------------------------------------
+----------------------------------
 n_to
 {
     "The office door is locked. ";
     return false
 }
---------------------------------------------------------------------------------
+----------------------------------
 
 In the first case, an attempt on the part of the player to move north would result in `parent(player)` being changed to the `office` object.
 In the second case, a custom invalid-move message would be displayed.
@@ -309,11 +309,11 @@ For those wondering why the true (i.e., equal to 1) return value in the second c
 
 Property routines may be run directly using the `run` command:
 
-// @HUGO SYNTAX MOCKUP!
-[source,hugo]
------------------------
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+............................
 run <object>.<property>
------------------------
+............................
 
 If `<object>` does not have `<property>`, or if `<object>.<property>` is not a routine, nothing happens.
 Otherwise, the property routine executes.
@@ -321,22 +321,22 @@ Property routines do not take arguments.
 
 Remember that at any point in a program, an existing property may be changed using
 
-// @HUGO SYNTAX MOCKUP!
-[source,hugo]
---------------------------------------------------------------------------------
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+.............................
 <object>.<property> = <value>
---------------------------------------------------------------------------------
+.............................
 
 A property routine may be changed using
 
-// @HUGO SYNTAX MOCKUP!
-[source,hugo]
---------------------------------------------------------------------------------
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+................................................
 <object>.<property> =
 {
     ...the new code for this property routine...
 }
---------------------------------------------------------------------------------
+................................................
 
 where the new routine must be enclosed in braces.
 
@@ -344,19 +344,19 @@ It is entirely possible to change what was once a property routine into a simple
 Even if a property routine is to be assigned later in the program, the property itself must still be defined at the outset in the original object definition.
 A simple
 
-// @HUGO SYNTAX MOCKUP!
-[source,hugo]
---------------------------------------------------------------------------------
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+............................
 <property> 0
---------------------------------------------------------------------------------
+............................
 
 or
 
-// @HUGO SYNTAX MOCKUP!
-[source,hugo]
---------------------------------------------------------------------------------
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+............................
 <property> {return false}
---------------------------------------------------------------------------------
+............................
 
 will suffice.
 
@@ -380,7 +380,6 @@ found_in = { return basement }
 
 then the following would not subsequently work:
 
-// @HUGO SYNTAX MOCKUP!
 [source,hugo]
 -------------------
 found_in #3 = attic
@@ -391,11 +390,11 @@ because the engine now believes `<object>.found_in` to have only one element -- 
 Finally, keep in mind that whenever calling a property routine, the global variable `self` is normally set to the object number.
 To avoid this, such as when "`borrowing`" a property from another object from within a different object, reference the property via
 
-// @HUGO SYNTAX MOCKUP!
-[source,hugo]
---------------------
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+............................
 <object>..<property>
---------------------
+............................
 
 using `..` instead of the normal property operator.
 
@@ -410,11 +409,11 @@ They are unique in that not only are they always routines, but they are much mor
 
 _Complex_ properties like `before` and `after` are defined with
 
-// @HUGO SYNTAX MOCKUP!
-[source,hugo]
----------------------------------
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+.................................
 property <property name> $complex
----------------------------------
+.................................
 
 as in:
 
@@ -426,9 +425,9 @@ property after $complex
 
 Here is the syntax for the `before` property:
 
-// @HUGO SYNTAX MOCKUP!
-[source,hugo]
---------------------------------------------------------------------------------
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+.................................................
 before
 {
     <usage1> <verbroutine1>[, <verbroutine2>,...]
@@ -441,7 +440,7 @@ before
     }
     ...
 }
---------------------------------------------------------------------------------
+.................................................
 
 [IMPORTANT]
 ====================================================================
@@ -463,7 +462,7 @@ If no match is found, `<object>.before` returns false.
 Here is an example applied to the `mysuitcase` object created previously:
 
 [source,hugo]
---------------------------------------------------------------------------------
+--------------------------------------------
 before
 {
     object DoEat
@@ -486,7 +485,7 @@ after
         " into the suitcase."
     }
 }
---------------------------------------------------------------------------------
+--------------------------------------------
 
 When the player tries the command "`eat suitcase`", the response printed will be:
 
@@ -508,7 +507,7 @@ Each of these examples will return true (as property routines do by default), th
 In order to fool the engine into continuing normally, as if no `before` or `after` property has been found, return false from the property routine.
 
 [source,hugo]
---------------------------------------------------------------------------------
+--------------------
 after
 {
     object DoGet
@@ -517,7 +516,7 @@ after
         return false
     }
 }
---------------------------------------------------------------------------------
+--------------------
 
 will result in:
 
@@ -534,11 +533,11 @@ It is important to remember that, unlike other property routines, `before` and `
 Instead, the definition for the routine is -- in essence -- added onto.
 An additive property is defined using the `$additive` qualifier, as in:
 
-// @HUGO SYNTAX MOCKUP!
-[source,hugo]
---------------------------------------------------
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+..................................................
 property <property name> $additive <default value>
---------------------------------------------------
+..................................................
 
 All previously inherited `before`/`after` subroutines are carried over.
 However, the processing of a `before`/`after` property begins with the present object, progressing backward through the object's ancestry until a usage/verbroutine match is found; once a match is made, no further preceding class inheritances are processed (unless the property routine in question returns false).
@@ -549,9 +548,9 @@ To force a `before` or `after` property routine to apply to _any_ verbroutine, d
 
 For example:
 
-// @HUGO SYNTAX MOCKUP!
-[source,hugo]
---------------------------------------------------------------------------------
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+..............................
 before
 {
     xobject
@@ -559,7 +558,7 @@ before
         ...property routine...
     }
 }
---------------------------------------------------------------------------------
+..............................
 
 The specified routine will be run whenever the object in question is the `xobject` of any valid input.
 ================================================================================
@@ -575,9 +574,9 @@ This can be particularly undesirable in the case of location `before`/`after` pr
 To get around this, the library provides a function `AnyVerb`, which takes an object as its argument and returns that object number if the current verbroutine is not within the group of xverbs; otherwise it returns false.
 Therefore, it can be used via:
 
-// @HUGO SYNTAX MOCKUP!
-[source,hugo]
---------------------------------------------------------------------------------
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+............................
 before
 {
     AnyVerb(location)
@@ -585,13 +584,15 @@ before
         ...
     }
 }
---------------------------------------------------------------------------------
+............................
+
 
 instead of
 
-// @HUGO SYNTAX MOCKUP!
-[source,hugo]
---------------------------------------------------------------------------------
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+............................
+
 before
 {
     location
@@ -599,7 +600,8 @@ before
         ...
     }
 }
---------------------------------------------------------------------------------
+............................
+
 
 The former will execute the conditional block of code whenever the `location` global matches the current object and the current verbroutine is not an xverb.
 The latter (without using `AnyVerb`), will run for verbs and xverbs.
@@ -620,84 +622,85 @@ If it exists, is called once at the start of the program (as well as during a `r
 The routine should configure all variables, objects, and arrays needed to set up the game state and begin the game.
 Here's the `Init` routine from *shell.hug*:
 
-// @NOTE: Source code taken from the actula "shell.hug" file!
-// @HUGO SYNTAX: The highlighted block ignores indentation on the first line!
+// @NOTE: Source code taken from the actual "shell.hug" file!
 * {blank}
 +
 [source,hugo]
---------------------------------------------------------------------------------
+-------------
+
 routine init
 {
---------------------------------------------------------------------------------
+-------------
+
 
 * _Start the counter at one turn before 0 turns, since `Main` will increment it to begin the game:_
 +
 [source,hugo, subs="+attributes"]
---------------------------------------------------------------------------------
+---------------------------------
 {wj}        counter = -1
---------------------------------------------------------------------------------
+---------------------------------
 
 * _Set up the kind of statusline we're going to be displaying, as well as define the default text colors:_{fn7}
 +
 [source,hugo, subs="+attributes"]
---------------------------------------------------------------------------------
+---------------------------------------------------------
 {wj}        STATUSTYPE = 1                  ! score/turns
         TEXTCOLOR = DEF_FOREGROUND
         BGCOLOR = DEF_BACKGROUND
         SL_TEXTCOLOR = DEF_SL_FOREGROUND
         SL_BGCOLOR = DEF_SL_BACKGROUND
---------------------------------------------------------------------------------
+---------------------------------------------------------
 
 * _Set the player prompt to the default `>`, and set the starting foreground and background colors:_
 +
 [source,hugo, subs="+attributes"]
---------------------------------------------------------------------------------
+---------------------------------
 {wj}        prompt = ">"
         color TEXTCOLOR, BGCOLOR
---------------------------------------------------------------------------------
+---------------------------------
 
 * _Clear the screen before starting the game, set the font to the default font, and print the game title ("`SHELL`", in this case) and a subtitle, followed by the `BANNER` constant:_
 +
 [source,hugo, subs="+attributes"]
---------------------------------------------------------------------------------
+-----------------------------------------
 {wj}        cls
         Font(BOLD_ON | DEFAULT_FONT)
         "SHELL"
         Font(BOLD_OFF)
         "An Interactive Starting Point\n"
         print BANNER
---------------------------------------------------------------------------------
+-----------------------------------------
 
 * _Set the player to the `you` object (from **objlib.h**), and set up the starting location:_
 +
 [source,hugo, subs="+attributes"]
---------------------------------------------------------------------------------
+-------------------------------------------------------------------
 {wj}        player = you                    ! player initialization
         location = emptyroom
         old_location = location
---------------------------------------------------------------------------------
+-------------------------------------------------------------------
 
 * _Move the player to the starting location, run the library rules to see if there's light in the location, then describe the starting location and flag it as visited.
 Also, determine the starting bulk of whatever the player is carrying at the outset (if anything):_
 +
 [source,hugo, subs="+attributes"]
---------------------------------------------------------------------------------
+-----------------------------------
 {wj}        move player to location
         FindLight(location)
         DescribePlace(location)
         location is visited
         CalculateHolding(player)
---------------------------------------------------------------------------------
+-----------------------------------
 
 * __Finally, if we've defined ``USE_PLURAL_OBJECTS``__,{fn8} call the appropriate initialization routine:_
 +
 [source,hugo]
---------------------------------------------------------------------------------
+-------------------------
 #ifset USE_PLURAL_OBJECTS
         InitPluralObjects
 #endif
 }
---------------------------------------------------------------------------------
+-------------------------
 
 
 `Main` is called every turn.
@@ -707,38 +710,38 @@ The `Main` routine from *shell.hug* is as follows:
 * {blank}
 +
 [source,hugo]
---------------------------------------------------------------------------------
+-------------
 routine main
 {
---------------------------------------------------------------------------------
+-------------
 
 * _The `counter` global gets incremented each turn, and the statusline gets updated:_
 +
 [source,hugo, subs="+attributes"]
---------------------------------------------------------------------------------
+---------------------------------
 {wj}        counter = counter + 1
         PrintStatusLine
---------------------------------------------------------------------------------
+---------------------------------
 
 * _The `each_turn` property of the current `location` object gets run.
 The `runevents` statement runs all valid events.
 The `RunScripts` library routine runs any active scripts:_
 +
 [source,hugo, subs="+attributes"]
---------------------------------------------------------------------------------
+---------------------------------
 {wj}        run location.each_turn
         runevents
         RunScripts
---------------------------------------------------------------------------------
+---------------------------------
 
 * _Finally, we check to see if the player is currently engaged in conversation with a character (if the `speaking` global is set) and, if so, if the character in question has left the current location:_
 +
 [source,hugo, subs="+attributes"]
---------------------------------------------------------------------------------
+-----------------------------------------
 {wj}        if parent(speaking)~=location
                 speaking = 0
 }
---------------------------------------------------------------------------------
+-----------------------------------------
 
 
 
@@ -748,25 +751,25 @@ Events are useful for bringing a game to life, so that little quirks, behaviors,
 Events are also routines, but their special characteristic is that they may be attached to a particular object, and they are run as a group by the `runevents` command.
 Events are defined as:
 
-// @HUGO SYNTAX MOCKUP!
-[source,hugo]
---------------------------------------------------------------------------------
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+............................
 event
 {
     ...Event routine...
 }
---------------------------------------------------------------------------------
+............................
 
 for global events, and
 
-// @HUGO SYNTAX MOCKUP!
-[source,hugo]
---------------------------------------------------------------------------------
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+............................
 event [in] <object>
 {
     ...Event routine...
 }
---------------------------------------------------------------------------------
+............................
 
 
 for events attached to a particular object.
@@ -791,7 +794,7 @@ Normally, that routine is inherited by all objects defined using that class.
 But there may arise a situation where one of those objects must have a variation or expansion on the original routine.
 
 [source,hugo]
---------------------------------------------------------------------------------
+---------------------------------------------
 class food
 {
     bites_left 5
@@ -811,7 +814,7 @@ food health_food
         run food..eating
     }
 }
---------------------------------------------------------------------------------
+---------------------------------------------
 
 (Assuming that `bites_left`, `eating`, and `health` are defined as properties, with `eating` being called whenever a `food` object is eaten.)
 
@@ -825,7 +828,7 @@ This also allows changes to be made to any property, attribute, or property rout
 At this point, enough material has been covered to develop a comprehensive example of a functional object that will serve as a summary of concepts introduced so far, as well as providing instances of a number of common properties from *hugolib.h*.
 
 [source,hugo]
---------------------------------------------------------------------------------
+---------------------------------------------------
 object woodcabinet "wooden cabinet"
 {
     in emptyroom
@@ -877,7 +880,8 @@ object woodcabinet "wooden cabinet"
     is container, openable, not open
     is lockable, static
 }
---------------------------------------------------------------------------------
+---------------------------------------------------
+
 
 
 // @XREF: "Appendix B: The Hugo Library"
@@ -903,9 +907,8 @@ The cabinet can now be entered via: "`go cabinet`", "`get into cabinet`", "`ente
 Suppose that there is a clock object in a room.
 Here is a possible event:
 
-// @HUGO SYNTAX MOCKUP!
-[source,hugo]
---------------------------------------------------------------------------------
+[source,hugo, subs="+attributes,macros"]
+------------------------------------------
 event in clock
 {
     local minutes, hours
@@ -923,11 +926,11 @@ event in clock
             .
             .
             .
-            case 12: print "twelve";40
+            case 12: print "twelve";{fn11}
         print " o'clock."
     }
 }
---------------------------------------------------------------------------------
+------------------------------------------
 
 Whenever the player and the clock are in the same room (when a `runevents` command is given), the event will run.
 
@@ -935,14 +938,14 @@ Now, suppose the clock should be audible throughout the entire game -- i.e., in 
 Simply changing the event definition to:
 
 
-// @HUGO SYNTAX MOCKUP!
-[source,hugo]
---------------------------------------------------------------------------------
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+................................
 event       ! no object is given
 {
     ...
 }
---------------------------------------------------------------------------------
+................................
 
 
 will make the event a global one.
