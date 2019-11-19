@@ -155,13 +155,13 @@ Every chapter in the list provides an [HTML Live Preview] link to quickly jump t
     + [ ]  Custom styling and adaptation to HTML5 version.
 - [ ]  [BOOK I. **THE HUGO PROGRAMMING MANUAL**][Book I]
     + [ ]  [1. _INTRODUCTION_][Ch1]
-        * [ ]  Check/Fix Hugo code indentation.
+        * No Hugo code to check.
     + [x]  [2. _A FIRST LOOK AT HUGO_][Ch2]
         * [x]  Check/Fix Hugo code indentation.
         * [x]  Convert Hugo syntax definitions to `literal, role="hugosyntax"` blocks.
-    + [ ]  [3. _OBJECTS_][Ch3]
-        * [ ]  Check/Fix Hugo code indentation.
-        * [ ]  Convert Hugo syntax definitions to `literal, role="hugosyntax"` blocks.
+    + [x]  [3. _OBJECTS_][Ch3]
+        * [x]  Check/Fix Hugo code indentation.
+        * [x]  Convert Hugo syntax definitions to `literal, role="hugosyntax"` blocks.
     + [ ]  [4. _HUGO PROGRAMMING_][Ch4]
         * [ ]  Check/Fix Hugo code indentation.
         * [ ]  Convert Hugo syntax definitions to `literal, role="hugosyntax"` blocks.

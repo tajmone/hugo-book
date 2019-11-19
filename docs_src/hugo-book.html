@@ -524,6 +524,14 @@ div.literalblock.cmd pre .conum {
   color: #d27b53;
 }
 
+/* Footnotes in Hugo Code Blocks (Issue #23) */
+div.listingblock div.content pre[class=highlight][lang=hugo] code sup.footnote,
+div.listingblock div.content pre[class=highlight][lang=hugo] code sup.footnote a {
+  color: #fff;
+  font-weight: normal;
+  font-style: normal;
+}
+
 /* Hugo Syntax Definitions (Issue #35) */
 div.literalblock.hugosyntax pre {
   background-color: #f2f0ec;
@@ -552,7 +560,7 @@ div.literalblock.hugosyntax div.content pre > sup.footnote a {
 <span id="email" class="email"><a href="mailto:general@generalcoffee.com">general@generalcoffee.com</a></span><br>
 <span id="revnumber">version 1,</span>
 <span id="revdate">2018-10-04</span>
-<br><span id="revremark">Draft 104 -- Porting to AsciiDoc</span>
+<br><span id="revremark">Draft 105 -- Porting to AsciiDoc</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -2549,9 +2557,12 @@ Most importantly are the first couple, which look something like:</p>
 Anything that will be accessible to a player during the game&#8201;&#8212;&#8201;including items, rooms, other characters, and even directions&#8201;&#8212;&#8201;will most likely be defined as an object.
 The basic object definition looks like this:</p>
 </div>
-<div class="listingblock">
+<div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwb">object</span> <span class="hl opt">&lt;</span>objectname<span class="hl opt">&gt;</span> <span class="hl str">&quot;object name&quot;</span>&#x000A;{&#x000A;    ...&#x000A;}</code></pre>
+<pre>object &lt;objectname&gt; "object name"
+{
+    ...
+}</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -2870,25 +2881,25 @@ Compiling with the <code>-d</code> switch will generate a debuggable (<strong>.H
 <div class="paragraph">
 <p>To initially place an object in the object tree, use</p>
 </div>
-<div class="listingblock">
+<div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">in</span> <span class="hl opt">&lt;</span><span class="hl kwa">parent</span><span class="hl opt">&gt;</span></code></pre>
+<pre>in &lt;parent&gt;</pre>
 </div>
 </div>
 <div class="paragraph">
 <p>in the object definition, or, alternatively</p>
 </div>
-<div class="listingblock">
+<div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">nearby</span> <span class="hl opt">&lt;</span><span class="hl kwb">object</span><span class="hl opt">&gt;</span></code></pre>
+<pre>nearby &lt;object&gt;</pre>
 </div>
 </div>
 <div class="paragraph">
 <p>or simply</p>
 </div>
-<div class="listingblock">
+<div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">nearby</span></code></pre>
+<pre>nearby</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -2899,9 +2910,14 @@ All normal room objects have 0 as their parent.</p>
 <div class="paragraph">
 <p>Therefore, the expanded basic case of an object definition is</p>
 </div>
-<div class="listingblock">
+<div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwb">object</span> <span class="hl opt">&lt;</span>objectname<span class="hl opt">&gt;</span> <span class="hl str">&quot;object name&quot;</span>&#x000A;{&#x000A;    <span class="hl kwa">in</span> <span class="hl opt">&lt;</span><span class="hl kwa">parent</span> <span class="hl kwb">object</span><span class="hl opt">&gt;</span>&#x000A;    ...&#x000A;&#x000A;}</code></pre>
+<pre>object &lt;objectname&gt; "object name"
+{
+    in &lt;parent object&gt;
+    ...
+
+}</pre>
 </div>
 </div>
 <div class="admonitionblock important">
@@ -2915,9 +2931,9 @@ All normal room objects have 0 as their parent.</p>
 <p>Ensure that the opening brace <code>{</code> does not come on the same line as the <code>object</code> definition.
 Trying to do:</p>
 </div>
-<div class="listingblock">
+<div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwb">object</span> <span class="hl opt">&lt;</span>objectname<span class="hl opt">&gt;</span> <span class="hl str">&quot;object name&quot;</span> {...</code></pre>
+<pre>object &lt;objectname&gt; "object name" {...</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -2940,15 +2956,15 @@ Trying to do:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwb">object</span> mysuitcase <span class="hl str">&quot;suitcase&quot;</span>&#x000A;{&#x000A;    <span class="hl kwa">in</span> emptyroom&#x000A;&#x000A;}</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwb">object</span> mysuitcase <span class="hl str">&quot;suitcase&quot;</span>&#x000A;{&#x000A;    <span class="hl kwa">in</span> emptyroom&#x000A;}</code></pre>
 </div>
 </div>
 <div class="paragraph">
 <p>Objects can later be moved around the object tree using the <code>move</code> command as in:</p>
 </div>
-<div class="listingblock">
+<div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">move</span> <span class="hl opt">&lt;</span><span class="hl kwb">object</span><span class="hl opt">&gt;</span> <span class="hl kwa">to</span> <span class="hl opt">&lt;</span>new <span class="hl kwa">parent</span><span class="hl opt">&gt;</span></code></pre>
+<pre>move &lt;object&gt; to &lt;new parent&gt;</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -2975,17 +2991,17 @@ Trying to do:</p>
 <div class="paragraph">
 <p>There is also a command to remove an object from its position in the tree:</p>
 </div>
-<div class="listingblock">
+<div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">remove</span> <span class="hl opt">&lt;</span><span class="hl kwb">object</span><span class="hl opt">&gt;</span></code></pre>
+<pre>remove &lt;object&gt;</pre>
 </div>
 </div>
 <div class="paragraph">
 <p>which is the same as</p>
 </div>
-<div class="listingblock">
+<div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">move</span> <span class="hl opt">&lt;</span><span class="hl kwb">object</span><span class="hl opt">&gt;</span> <span class="hl kwa">to</span> <span class="hl num">0</span></code></pre>
+<pre>move &lt;object&gt; to 0</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -2995,9 +3011,9 @@ Trying to do:</p>
 <p>Logical tests can also be evaluated with regard to objects and children.
 The structure</p>
 </div>
-<div class="listingblock">
+<div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl opt">&lt;</span><span class="hl kwb">object</span><span class="hl opt">&gt;</span> [<span class="hl kwa">not</span>] <span class="hl kwa">in</span> <span class="hl opt">&lt;</span><span class="hl kwa">parent</span><span class="hl opt">&gt;</span></code></pre>
+<pre>&lt;object&gt; [not] in &lt;parent&gt;</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -3030,9 +3046,9 @@ In this way, you can write a piece of code that looks something like:</p>
 <p>Attributes are essentially qualities that every object either does or doesn&#8217;t have.<sup class="footnote">[<a id="_footnoteref_13" class="footnote" href="#_footnotedef_13" title="View footnote.">13</a>]</sup>
 An attribute is defined as</p>
 </div>
-<div class="listingblock">
+<div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">attribute</span> <span class="hl opt">&lt;</span><span class="hl kwa">attribute</span> <span class="hl kwb">name</span><span class="hl opt">&gt;</span></code></pre>
+<pre>attribute &lt;attribute name&gt;</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -3163,9 +3179,9 @@ Those defined in <strong>hugolib.h</strong> include:</p>
 <p>Some of these attributes are actually the same attribute with different names.
 This is primarily just to save on the absolute number of attributes defined and is accomplished via</p>
 </div>
-<div class="listingblock">
+<div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">attribute</span> <span class="hl opt">&lt;</span>attribute2<span class="hl opt">&gt;</span> <span class="hl kwa">alias</span> <span class="hl opt">&lt;</span>attribute1<span class="hl opt">&gt;</span></code></pre>
+<pre>attribute &lt;attribute2&gt; alias &lt;attribute1&gt;</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -3184,9 +3200,13 @@ For the most part, you should never need to alias your own attributes, although 
 <div class="paragraph">
 <p>Attributes are given to an object during its definition as follows:</p>
 </div>
-<div class="listingblock">
+<div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwb">object</span> <span class="hl opt">&lt;</span>objectname<span class="hl opt">&gt;</span> <span class="hl str">&quot;object name&quot;</span>&#x000A;{&#x000A;    <span class="hl kwa">is</span> [<span class="hl kwa">not</span>] <span class="hl opt">&lt;</span>attribute1<span class="hl opt">&gt;</span>, [<span class="hl kwa">not</span>] <span class="hl opt">&lt;</span>attribute2<span class="hl opt">&gt;</span>, ...&#x000A;    ...&#x000A;}</code></pre>
+<pre>object &lt;objectname&gt; "object name"
+{
+    is [not] &lt;attribute1&gt;, [not] &lt;attribute2&gt;, ...
+    ...
+}</pre>
 </div>
 </div>
 <div class="admonitionblock note">
@@ -3214,9 +3234,9 @@ For the most part, you should never need to alias your own attributes, although 
 <div class="paragraph">
 <p>Even if an object was not given a particular attribute in its object definition, it may be given that attribute at any later point in the program with the command</p>
 </div>
-<div class="listingblock">
+<div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl opt">&lt;</span><span class="hl kwb">object</span><span class="hl opt">&gt;</span> <span class="hl kwa">is</span> [<span class="hl kwa">not</span>] <span class="hl opt">&lt;</span><span class="hl kwa">attribute</span><span class="hl opt">&gt;</span></code></pre>
+<pre>&lt;object&gt; is [not] &lt;attribute&gt;</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -3241,9 +3261,9 @@ When the suitcase is closed, the command will be:</p>
 <p>Attributes can also be read using the <code>is</code> and <code>is not</code> structures and evaluate to either true or false.
 In code, the expression</p>
 </div>
-<div class="listingblock">
+<div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl opt">&lt;</span><span class="hl kwb">object</span><span class="hl opt">&gt;</span> <span class="hl kwa">is</span> [<span class="hl kwa">not</span>] <span class="hl opt">&lt;</span><span class="hl kwa">attribute</span><span class="hl opt">&gt;</span></code></pre>
+<pre>&lt;object&gt; is [not] &lt;attribute&gt;</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -3278,7 +3298,7 @@ They are sets of valid data associated with an object, where the values may repr
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">nouns <span class="hl str">&quot;tree&quot;</span>, <span class="hl str">&quot;bush&quot;</span>, <span class="hl str">&quot;shrub&quot;</span>, <span class="hl str">&quot;plant&quot;</span>&#x000A;&#x000A;size <span class="hl num">20</span>&#x000A;&#x000A;found_in livingroom, entrancehall&#x000A;&#x000A;long_desc&#x000A;{&#x000A;    <span class="hl str">&quot;Exits lead north and west. A door is set</span>&#x000A;<span class="hl str">    in the southeast wall.&quot;</span>&#x000A;&#x000A;}&#x000A;&#x000A;short_desc&#x000A;{&#x000A;    <span class="hl str">&quot;There is a box here. It is &quot;</span>;&#x000A;    <span class="hl kwa">if</span> <span class="hl kwb">self</span> <span class="hl kwa">is</span> open&#x000A;        <span class="hl kwa">print</span> <span class="hl str">&quot;open&quot;</span>;&#x000A;    <span class="hl kwa">else</span>&#x000A;        <span class="hl kwa">print</span> <span class="hl str">&quot;closed&quot;</span>;&#x000A;    <span class="hl kwa">print</span> <span class="hl str">&quot;.&quot;</span>&#x000A;}&#x000A;&#x000A;<span class="hl kwb">before</span><sup class="footnote">[<a id="_footnoteref_17" class="footnote" href="#_footnotedef_17" title="View footnote.">17</a>]</sup>&#x000A;{&#x000A;    <span class="hl kwb">object</span> DoGet&#x000A;    {&#x000A;        <span class="hl kwa">if</span> Acquire(<span class="hl kwb">player</span>, <span class="hl kwb">self</span>)&#x000A;        {&#x000A;            <span class="hl str">&quot;You pick up &quot;</span>;&#x000A;            <span class="hl kwa">print</span> Art(<span class="hl kwb">self</span>); <span class="hl str">&quot;.&quot;</span>&#x000A;        }&#x000A;        <span class="hl kwa">else</span>&#x000A;            <span class="hl kwa">return</span> <span class="hl kwc">false</span>&#x000A;    }&#x000A;}</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">nouns <span class="hl str">&quot;tree&quot;</span>, <span class="hl str">&quot;bush&quot;</span>, <span class="hl str">&quot;shrub&quot;</span>, <span class="hl str">&quot;plant&quot;</span>&#x000A;&#x000A;size <span class="hl num">20</span>&#x000A;&#x000A;found_in livingroom, entrancehall&#x000A;&#x000A;long_desc&#x000A;{&#x000A;    <span class="hl str">&quot;Exits lead north and west. A door is set</span>&#x000A;<span class="hl str">    in the southeast wall.&quot;</span>&#x000A;}&#x000A;&#x000A;short_desc&#x000A;{&#x000A;    <span class="hl str">&quot;There is a box here. It is &quot;</span>;&#x000A;    <span class="hl kwa">if</span> <span class="hl kwb">self</span> <span class="hl kwa">is</span> open&#x000A;        <span class="hl kwa">print</span> <span class="hl str">&quot;open&quot;</span>;&#x000A;    <span class="hl kwa">else</span>&#x000A;        <span class="hl kwa">print</span> <span class="hl str">&quot;closed&quot;</span>;&#x000A;    <span class="hl kwa">print</span> <span class="hl str">&quot;.&quot;</span>&#x000A;}&#x000A;&#x000A;<span class="hl kwb">before</span><sup class="footnote">[<a id="_footnoteref_17" class="footnote" href="#_footnotedef_17" title="View footnote.">17</a>]</sup>&#x000A;{&#x000A;    <span class="hl kwb">object</span> DoGet&#x000A;    {&#x000A;        <span class="hl kwa">if</span> Acquire(<span class="hl kwb">player</span>, <span class="hl kwb">self</span>)&#x000A;        {&#x000A;            <span class="hl str">&quot;You pick up &quot;</span>;&#x000A;            <span class="hl kwa">print</span> Art(<span class="hl kwb">self</span>); <span class="hl str">&quot;.&quot;</span>&#x000A;        }&#x000A;        <span class="hl kwa">else</span>&#x000A;            <span class="hl kwa">return</span> <span class="hl kwc">false</span>&#x000A;    }&#x000A;}</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -3299,17 +3319,17 @@ For now, think of a property as simply containing one or more values of some kin
 <div class="paragraph">
 <p>A property is defined similiarly to an attribute as</p>
 </div>
-<div class="listingblock">
+<div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">property</span> <span class="hl opt">&lt;</span><span class="hl kwa">property</span> <span class="hl kwb">name</span><span class="hl opt">&gt;</span></code></pre>
+<pre>property &lt;property name&gt;</pre>
 </div>
 </div>
 <div class="paragraph">
 <p>A default value may be defined for the property using</p>
 </div>
-<div class="listingblock">
+<div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">property</span> <span class="hl opt">&lt;</span><span class="hl kwa">property</span> <span class="hl kwb">name</span><span class="hl opt">&gt; &lt;</span>default value<span class="hl opt">&gt;</span></code></pre>
+<pre>property &lt;property name&gt; &lt;default value&gt;</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -3569,9 +3589,9 @@ If no default is explicitly declared, it is 0 (or <code>""</code> or the <code>n
 <div class="paragraph">
 <p>Property names may be aliased similarly to attributes using:</p>
 </div>
-<div class="listingblock">
+<div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">property</span> <span class="hl opt">&lt;</span>property2<span class="hl opt">&gt;</span> <span class="hl kwa">alias</span> <span class="hl opt">&lt;</span>property1<span class="hl opt">&gt;</span></code></pre>
+<pre>property &lt;property2&gt; alias &lt;property1&gt;</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -3580,31 +3600,31 @@ The library aliases (among others) the following:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">nouns <span class="hl kwa">alias</span> <span class="hl kwb">noun</span>&#x000A;adjectives <span class="hl kwa">alias</span> <span class="hl kwb">adjective</span>&#x000A;prep <span class="hl kwa">alias</span> preposition&#x000A;pronouns <span class="hl kwa">alias</span> pronoun</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">nouns <span class="hl kwa">alias</span> <span class="hl kwb">noun</span>&#x000A;adjectives <span class="hl kwa">alias</span>&#x000A;prep <span class="hl kwa">alias</span> prepo&#x000A;pronouns <span class="hl kwa">alias</span> p</code></pre>
 </div>
 </div>
 <div class="paragraph">
 <p>Whereas a simple property is expressed as</p>
 </div>
-<div class="listingblock">
+<div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl opt">&lt;</span><span class="hl kwb">object</span><span class="hl opt">&gt;</span>.<span class="hl opt">&lt;</span><span class="hl kwa">property</span><span class="hl opt">&gt;</span></code></pre>
+<pre>&lt;object&gt;.&lt;property&gt;</pre>
 </div>
 </div>
 <div class="paragraph">
 <p>The number of elements to a property with more than a single value can be found via</p>
 </div>
-<div class="listingblock">
+<div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl opt">&lt;</span><span class="hl kwb">object</span><span class="hl opt">&gt;</span>.<span class="hl opt">#&lt;</span><span class="hl kwa">property</span><span class="hl opt">&gt;</span></code></pre>
+<pre>&lt;object&gt;.#&lt;property&gt;</pre>
 </div>
 </div>
 <div class="paragraph">
 <p>and a single element is expressed as</p>
 </div>
-<div class="listingblock">
+<div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl opt">&lt;</span><span class="hl kwb">object</span><span class="hl opt">&gt;</span>.<span class="hl opt">&lt;</span><span class="hl kwa">property</span><span class="hl opt">&gt; #&lt;</span>element <span class="hl kwa">number</span><span class="hl opt">&gt;</span></code></pre>
+<pre>&lt;object&gt;.&lt;property&gt; #&lt;element number&gt;</pre>
 </div>
 </div>
 <div class="admonitionblock note">
@@ -3643,26 +3663,26 @@ Even &#8220;big green&#8221; and &#8220;suit&#8221; may be valid, provided that 
 <div class="paragraph">
 <p>The basic form for identification by the parser is</p>
 </div>
-<div class="listingblock">
+<div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl opt">&lt;</span><span class="hl kwb">adjective</span> <span class="hl num">1</span><span class="hl opt">&gt; &lt;</span>adj. <span class="hl num">2</span><span class="hl opt">&gt; &lt;</span>adj. <span class="hl num">3</span><span class="hl opt">&gt;</span>...<span class="hl opt">&lt;</span>adj. n<span class="hl opt">&gt; &lt;</span><span class="hl kwb">noun</span><span class="hl opt">&gt;</span></code></pre>
+<pre>&lt;adjective 1&gt; &lt;adj. 2&gt; &lt;adj. 3&gt;...&lt;adj. n&gt; &lt;noun&gt;</pre>
 </div>
 </div>
 <div class="paragraph">
 <p>where any subset of these elements is allowable.
 However, the noun must come last, and only one noun is recognized, so that</p>
 </div>
-<div class="listingblock">
+<div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl opt">&lt;</span><span class="hl kwb">noun</span><span class="hl opt">&gt; &lt;</span><span class="hl kwb">noun</span><span class="hl opt">&gt;</span></code></pre>
+<pre>&lt;noun&gt; &lt;noun&gt;</pre>
 </div>
 </div>
 <div class="paragraph">
 <p>and</p>
 </div>
-<div class="listingblock">
+<div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl opt">&lt;</span><span class="hl kwb">noun</span><span class="hl opt">&gt; &lt;</span><span class="hl kwb">adjective</span><span class="hl opt">&gt;</span></code></pre>
+<pre>&lt;noun&gt; &lt;adjective&gt;</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -3684,9 +3704,9 @@ That is, if an object is originally defined with the property</p>
 <div class="paragraph">
 <p>and later, the program tries to set</p>
 </div>
-<div class="listingblock">
+<div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl opt">&lt;</span><span class="hl kwb">object</span><span class="hl opt">&gt;</span>.found_in <span class="hl opt">#</span><span class="hl num">2</span> <span class="hl opt">=</span> livingroom</code></pre>
+<pre>&lt;object&gt;.found_in #2 = livingroom</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -3697,9 +3717,9 @@ Trying to read <code>&lt;object&gt;.found_in #2</code> will return a value of 0&
 <div class="paragraph">
 <p>To overcome this, if it is known that eventually a second (or third, or fourth, or ninth) value is going to be set&#8201;&#8212;&#8201;even if only one value is defined at the outset&#8201;&#8212;&#8201;use</p>
 </div>
-<div class="listingblock">
+<div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">found_in kitchen, <span class="hl num">0</span>[, <span class="hl num">0</span>, <span class="hl num">0</span>,...]</code></pre>
+<pre>found_in kitchen, 0[, 0, 0,...]</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -3762,9 +3782,12 @@ Trying to read <code>&lt;object&gt;.found_in #2</code> will return a value of 0&
 They&#8217;re extremely useful for when you want to create a number of objects that will all share certain basic characteristics.
 Here is how a class is defined:</p>
 </div>
-<div class="listingblock">
+<div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">class</span> <span class="hl opt">&lt;</span>classname<span class="hl opt">&gt;</span> [<span class="hl str">&quot;&lt;optional name&gt;&quot;</span>]&#x000A;{&#x000A;    ...&#x000A;}</code></pre>
+<pre>class &lt;classname&gt; ["&lt;optional name&gt;"]
+{
+    ...
+}</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -3842,17 +3865,25 @@ We created what amounts to a &#8220;copy&#8221; of <code>largebox</code>, with a
 <p>Occasionally, it may be necessary to have an object or class inherit from more than one previously defined class.
 This can be done using the <code>inherits</code> instruction.</p>
 </div>
-<div class="listingblock">
+<div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl opt">&lt;</span>class1<span class="hl opt">&gt; &lt;</span>objectname<span class="hl opt">&gt;</span> <span class="hl str">&quot;name&quot;</span>&#x000A;{&#x000A;    inherits <span class="hl opt">&lt;</span>class2<span class="hl opt">&gt;</span>[, <span class="hl opt">&lt;</span>class3<span class="hl opt">&gt;</span>,...]&#x000A;    ...&#x000A;}</code></pre>
+<pre>&lt;class1&gt; &lt;objectname&gt; "name"
+{
+    inherits &lt;class2&gt;[, &lt;class3&gt;,...]
+    ...
+}</pre>
 </div>
 </div>
 <div class="paragraph">
 <p>or even</p>
 </div>
-<div class="listingblock">
+<div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwb">object</span> <span class="hl opt">&lt;</span>objectname<span class="hl opt">&gt;</span> <span class="hl str">&quot;name&quot;</span>&#x000A;{&#x000A;    inherits <span class="hl opt">&lt;</span>class1<span class="hl opt">&gt;</span>, <span class="hl opt">&lt;</span>class2<span class="hl opt">&gt;</span>[, <span class="hl opt">&lt;</span>class3<span class="hl opt">&gt;</span>,...]&#x000A;    ...&#x000A;}</code></pre>
+<pre>object &lt;objectname&gt; "name"
+{
+    inherits &lt;class1&gt;, &lt;class2&gt;[, &lt;class3&gt;,...]
+    ...
+}</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -3866,9 +3897,13 @@ Sometimes, however, it may be desirable to use a different definition for, say, 
 <div class="paragraph">
 <p>Instead of actually editing <strong>objlib.h</strong>,<sup class="footnote">[<a id="_footnoteref_19" class="footnote" href="#_footnotedef_19" title="View footnote.">19</a>]</sup> use:</p>
 </div>
-<div class="listingblock">
+<div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">replace</span> <span class="hl opt">&lt;</span><span class="hl kwa">class</span><span class="hl opt">&gt;</span> [<span class="hl str">&quot;&lt;optional name&gt;&quot;</span>]&#x000A;{&#x000A;    (...completely new <span class="hl kwb">object</span> definition...)&#x000A;&#x000A;}</code></pre>
+<pre>replace &lt;class&gt; ["&lt;optional name&gt;"]
+{
+    (...completely new object definition...)
+
+}</pre>
 </div>
 </div>
 <div class="paragraph">

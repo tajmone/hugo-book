@@ -55,22 +55,22 @@ Objects are the building blocks of any Hugo program.
 Anything that will be accessible to a player during the game -- including items, rooms, other characters, and even directions -- will most likely be defined as an object.
 The basic object definition looks like this:
 
-// @HUGO SYNTAX MOCKUP!
-[source,hugo]
---------------------------------------------------------------------------------
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+.................................
 object <objectname> "object name"
 {
     ...
 }
---------------------------------------------------------------------------------
+.................................
 
 For example, a suitcase object might be defined as:
 
 [source,hugo]
---------------------------------------------------------------------------------
+----------------------------
 object mysuitcase "suitcase"
 {}
---------------------------------------------------------------------------------
+----------------------------
 
 The enclosing braces are needed even if the object definition has no content (yet).
 The only data attached to the suitcase object are -- from right to left -- a name ("`suitcase`"), an internal identifier (`mysuitcase`), and membership in the basic object class.
@@ -82,18 +82,18 @@ If no explicit "`object name`" (or `name` property) is provided, the compiler au
 That is, whereas
 
 [source,hugo]
---------------------------------------------------------------------------------
+----------------------------
 object mysuitcase "suitcase"
 {}
---------------------------------------------------------------------------------
+----------------------------
 
 creates an object called "`suitcase`",
 
 [source,hugo]
---------------------------------------------------------------------------------
+------------------
 object placeholder
 {}
---------------------------------------------------------------------------------
+------------------
 
 
 creates an object called "`(placeholder)`".
@@ -283,26 +283,27 @@ Compiling with the `-d` switch will generate a debuggable (*.HDX*) version of th
 
 To initially place an object in the object tree, use
 
-// @HUGO SYNTAX MOCKUP!
-[source,hugo]
---------------------------------------------------------------------------------
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+............................
 in <parent>
---------------------------------------------------------------------------------
+............................
 
 in the object definition, or, alternatively
 
-// @HUGO SYNTAX MOCKUP!
-[source,hugo]
---------------------------------------------------------------------------------
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+............................
 nearby <object>
---------------------------------------------------------------------------------
+............................
 
 or simply
 
-[source,hugo]
---------------------------------------------------------------------------------
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+............................
 nearby
---------------------------------------------------------------------------------
+............................
 
 to give the object the same parent as `<object>` or, if `<object>` is not specified, the same parent as the last-defined object.
 If no such specification is given (i.e., if you don't tell the compiler explicitly where to place the new object), the parent object defaults to 0 -- the `nothing` object as defined in the library.
@@ -310,27 +311,27 @@ All normal room objects have 0 as their parent.
 
 Therefore, the expanded basic case of an object definition is
 
-// @HUGO SYNTAX MOCKUP!
-[source,hugo]
---------------------------------------------------------------------------------
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+.................................
 object <objectname> "object name"
 {
     in <parent object>
     ...
 
 }
---------------------------------------------------------------------------------
+.................................
 
 [IMPORTANT]
 ================================================================================
 Ensure that the opening brace `{` does not come on the same line as the `object` definition.
 Trying to do:
 
-// @HUGO SYNTAX MOCKUP!
-[source,hugo]
---------------------------------------
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+......................................
 object <objectname> "object name" {...
---------------------------------------
+......................................
 
 is not permitted.
 ================================================================================
@@ -338,32 +339,31 @@ is not permitted.
 The table in the example presumably had a definition like
 
 [source,hugo]
---------------------------------------------------------------------------------
+--------------------
 object table "Table"
 {
     in room
     ...
 }
---------------------------------------------------------------------------------
+--------------------
 
 To put the suitcase object defined earlier into the empty room in *shell.hug*:
 
 [source,hugo]
---------------------------------------------------------------------------------
+----------------------------
 object mysuitcase "suitcase"
 {
     in emptyroom
-
 }
---------------------------------------------------------------------------------
+----------------------------
 
 Objects can later be moved around the object tree using the `move` command as in:
 
-// @HUGO SYNTAX MOCKUP!
-[source,hugo]
---------------------------------------------------------------------------------
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+.............................
 move <object> to <new parent>
---------------------------------------------------------------------------------
+.............................
 
 which, essentially, disengages `<object>` from its old parent, makes the sibling of `<object>` the sibling of `<object>`{blank}`'s elder, and moves `<object>` (along with all its possessions) to the new parent.
 
@@ -381,36 +381,36 @@ image::hugo-book1_03_object-tree3.svg[align="center",width=40%]
 
 There is also a command to remove an object from its position in the tree:
 
-// @HUGO SYNTAX MOCKUP!
-[source,hugo]
----------------
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+............................
 remove <object>
----------------
+............................
 
 which is the same as
 
-// @HUGO SYNTAX MOCKUP!
-[source,hugo]
-------------------
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+............................
 move <object> to 0
-------------------
+............................
 
 The object may of course be moved to any position later.
 
 Logical tests can also be evaluated with regard to objects and children.
 The structure
 
-// @HUGO SYNTAX MOCKUP!
-[source,hugo]
---------------------------------------------------------------------------------
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+............................
 <object> [not] in <parent>
---------------------------------------------------------------------------------
+............................
 
 will be true if `<object>` is in `<parent>` (or false if `not` is used).
 In this way, you can write a piece of code that looks something like:
 
 [source,hugo]
---------------------------------------------------------------------------------
+-----------------------------------------------
 if mysuitcase in bedroom
 {
     "The suitcase is in the bedroom."
@@ -421,7 +421,7 @@ else
     print "The suitcase is not in the bedroom."
 
 }
---------------------------------------------------------------------------------
+-----------------------------------------------
 
 
 [NOTE]
@@ -436,11 +436,11 @@ We'll cover the `if...else...` structure in <<hugo-book1_04#conditional_expressi
 Attributes are essentially qualities that every object either does or doesn't have.{fn3}
 An attribute is defined as
 
-// @HUGO SYNTAX MOCKUP!
-[source,hugo]
---------------------------------------------------------------------------------
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+............................
 attribute <attribute name>
---------------------------------------------------------------------------------
+............................
 
 Up to 128 attributes may be defined.
 Those defined in *hugolib.h* include:
@@ -482,34 +482,34 @@ Those defined in *hugolib.h* include:
 Some of these attributes are actually the same attribute with different names.
 This is primarily just to save on the absolute number of attributes defined and is accomplished via
 
-// @HUGO SYNTAX MOCKUP!
-[source,hugo]
---------------------------------------------------------------------------------
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+.........................................
 attribute <attribute2> alias <attribute1>
---------------------------------------------------------------------------------
+.........................................
 
 where `<attribute1>` has already been defined.
 For example, the library equates `visited` with `moved` (since, presumably, they will never apply to the same object -- rooms are never moved and objects are never visited), so:
 
 [source,hugo]
---------------------------------------------------------------------------------
+-----------------------------
 attribute visited alias moved
---------------------------------------------------------------------------------
+-----------------------------
 
 In this case, an object which is visited is also, by default, moved, so it is expected that attributes which are aliased will never both need to be checked under the same circumstances.
 For the most part, you should never need to alias your own attributes, although it's helpful to know what it means since the library does it, and you may run across it in other places.
 
 Attributes are given to an object during its definition as follows:
 
-// @HUGO SYNTAX MOCKUP!
-[source,hugo]
---------------------------------------------------------------------------------
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+..................................................
 object <objectname> "object name"
 {
     is [not] <attribute1>, [not] <attribute2>, ...
     ...
 }
---------------------------------------------------------------------------------
+..................................................
 
 [NOTE]
 ================================================================================
@@ -520,70 +520,70 @@ The `not` keyword in the object definition is important when using a class inste
 To give the suitcase object some appropriate attributes at compile-time, expand the object definition to include
 
 [source,hugo]
---------------------------------------------------------------------------------
+----------------------------
 object mysuitcase "suitcase"
 {
     in emptyroom
     is openable, not open
     ...
 }
---------------------------------------------------------------------------------
+----------------------------
 
 Even if an object was not given a particular attribute in its object definition, it may be given that attribute at any later point in the program with the command
 
-// @HUGO SYNTAX MOCKUP!
-[source,hugo]
---------------------------------------------------------------------------------
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+.............................
 <object> is [not] <attribute>
---------------------------------------------------------------------------------
+.............................
 
 where the `not` keyword clears the attribute instead of setting it.
 For example, when the suitcase is opened, somewhere (likely in the library), the command
 
 [source,hugo]
---------------------------------------------------------------------------------
+------------------
 mysuitcase is open
---------------------------------------------------------------------------------
+------------------
 
 will be executed.
 When the suitcase is closed, the command will be:
 
 [source,hugo]
---------------------------------------------------------------------------------
+----------------------
 mysuitcase is not open
---------------------------------------------------------------------------------
+----------------------
 
 Attributes can also be read using the `is` and `is not` structures and evaluate to either true or false.
 In code, the expression
 
-// @HUGO SYNTAX MOCKUP!
-[source,hugo]
---------------------------------------------------------------------------------
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+.............................
 <object> is [not] <attribute>
---------------------------------------------------------------------------------
+.............................
 
 returns true (1) if `<object>` is (or is not, if `not` is specified) `<attribute>`.
 Otherwise, it returns false (0).
 Therefore, given the suitcase object definition:
 
 [source,hugo]
---------------------------------------------------------------------------------
+----------------------------
 object mysuitcase "suitcase"
 {
     in emptyroom
     is openable, not open
     ...
 }
---------------------------------------------------------------------------------
+----------------------------
 
 the following equations hold true:
 
 [source,hugo]
---------------------------------------------------------------------------------
+--------------------------------------
 mysuitcase is openable = 1  ! or true
 mysuitcase is open = 0      ! or false
 mysuitcase is locked = 0    ! or false
---------------------------------------------------------------------------------
+--------------------------------------
 
 
 == Properties
@@ -596,7 +596,7 @@ They are sets of valid data associated with an object, where the values may repr
 These are some valid properties as they would appear in an object definition (using property names defined in *hugolib.h*):{wj}{fn6}
 
 [source,hugo, subs="+attributes,macros"]
---------------------------------------------------------------------------------
+---------------------------------------------
 nouns "tree", "bush", "shrub", "plant"
 
 size 20
@@ -607,7 +607,6 @@ long_desc
 {
     "Exits lead north and west. A door is set
     in the southeast wall."
-
 }
 
 short_desc
@@ -633,7 +632,7 @@ before{fn7}
             return false
     }
 }
---------------------------------------------------------------------------------
+---------------------------------------------
 
 The `nouns` property contains four dictionary addresses; the `size` property is a single integer value; the `found_in` property holds two object numbers; and the long and short description properties are both _property routines_, which instead of just containing one or more simple values stored as a data type are actually sections of executable code attached to the object.
 
@@ -650,20 +649,20 @@ For now, think of a property as simply containing one or more values of some kin
 
 A property is defined similiarly to an attribute as
 
-// @HUGO SYNTAX MOCKUP!
-[source,hugo]
---------------------------------------------------------------------------------
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+............................
 property <property name>
---------------------------------------------------------------------------------
+............................
 
 A default value may be defined for the property using
 
 
-// @HUGO SYNTAX MOCKUP!
-[source,hugo]
---------------------------------------------------------------------------------
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+........................................
 property <property name> <default value>
---------------------------------------------------------------------------------
+........................................
 
 where `<default value>` is a constant or dictionary word.
 For objects without a given property, attempting to find that property will result in the default value.
@@ -750,47 +749,47 @@ The following properties are also defined and used exclusively by the display ob
 
 Property names may be aliased similarly to attributes using:
 
-// @HUGO SYNTAX MOCKUP!
-[source,hugo]
---------------------------------------
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+......................................
 property <property2> alias <property1>
---------------------------------------
+......................................
 
 where `<property1>` has already been defined.
 The library aliases (among others) the following:
 
 [source,hugo]
---------------------------------------------------------------------------------
+--------------------------
 nouns alias noun
-adjectives alias adjective
-prep alias preposition
-pronouns alias pronoun
---------------------------------------------------------------------------------
+adjectives alias
+prep alias prepo
+pronouns alias p
+--------------------------
 
 Whereas a simple property is expressed as
 
-// @HUGO SYNTAX MOCKUP!
-[source,hugo]
--------------------
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+............................
 <object>.<property>
--------------------
+............................
 
 The number of elements to a property with more than a single value can be found via
 
 
-// @HUGO SYNTAX MOCKUP!
-[source,hugo]
---------------------
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+............................
 <object>.#<property>
---------------------
+............................
 
 and a single element is expressed as
 
-// @HUGO SYNTAX MOCKUP!
-[source,hugo]
--------------------------------------
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+.....................................
 <object>.<property> #<element number>
--------------------------------------
+.....................................
 
 [NOTE]
 ================================================================================
@@ -800,7 +799,7 @@ and a single element is expressed as
 To add some properties to the suitcase object, expand the object definition to:
 
 [source,hugo]
---------------------------------------------------------------------------------
+------------------------------------------
 object mysuitcase "big green suitcase"
 {
     in emptyroom            ! done earlier
@@ -812,7 +811,7 @@ object mysuitcase "big green suitcase"
     size 25
     capacity 100
 }
---------------------------------------------------------------------------------
+------------------------------------------
 
 Based on the parser's rules for object identification, the suitcase object may now be referred to by the player as "`big green suitcase`", "`big case`", or "`green suitcase`" among other combinations.
 Even "`big green`" and "`suit`" may be valid, provided that these don't also refer to other objects within valid scope such as "`a big green apple`" or "`your suit jacket`".
@@ -823,25 +822,28 @@ Even "`big green`" and "`suit`" may be valid, provided that these don't also ref
 ================================================================================
 The basic form for identification by the parser is
 
-[source,hugo]
---------------------------------------------------------------------------------
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+.................................................
 <adjective 1> <adj. 2> <adj. 3>...<adj. n> <noun>
---------------------------------------------------------------------------------
+.................................................
 
 where any subset of these elements is allowable.
 However, the noun must come last, and only one noun is recognized, so that
 
-[source,hugo]
---------------------------------------------------------------------------------
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+............................
 <noun> <noun>
---------------------------------------------------------------------------------
+............................
 
 and
 
-[source,hugo]
---------------------------------------------------------------------------------
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+............................
 <noun> <adjective>
---------------------------------------------------------------------------------
+............................
 
 as in "`luggage case`" and "`suitcase green`" are not recognized.
 ================================================================================
@@ -850,29 +852,28 @@ One occasional source of befuddling code that doesn't behave the way the program
 That is, if an object is originally defined with the property
 
 [source,hugo]
---------------------------------------------------------------------------------
+----------------
 found_in kitchen
---------------------------------------------------------------------------------
+----------------
 
 and later, the program tries to set
 
-// @HUGO SYNTAX MOCKUP!
-[source,hugo]
---------------------------------------------------------------------------------
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+.................................
 <object>.found_in #2 = livingroom
---------------------------------------------------------------------------------
+.................................
 
 in order to make the object available in both the kitchen _and_ the living room, it will have no substantial effect.
 That is, there will be no space initialized in `<object>`{wj}`'s property table for a second value under `found_in`.
 Trying to read `<object>.found_in #2` will return a value of 0 -- a non-existent property -- not the number of the `livingroom` object.
 
 To overcome this, if it is known that eventually a second (or third, or fourth, or ninth) value is going to be set -- even if only one value is defined at the outset -- use
-
-// @HUGO SYNTAX MOCKUP!
-[source,hugo]
--------------------------------
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+...............................
 found_in kitchen, 0[, 0, 0,...]
--------------------------------
+...............................
 
 in the object definition.
 
@@ -882,12 +883,16 @@ in the object definition.
 A useful shortcut for initializing multiple zero values is to use
 
 [source,hugo]
+-------------
 found_in #4
+-------------
 
 instead of
 
 [source,hugo]
+-------------------
 found_in 0, 0, 0, 0
+-------------------
 
 where `#_n_` initializes _n_ zero values in the object definition.
 ================================================================================
@@ -895,12 +900,16 @@ where `#_n_` initializes _n_ zero values in the object definition.
 As might be expected, combinations of properties are read left-to-right, so that
 
 [source,hugo]
+------------------
 location.n_to.name
+------------------
 
 is understood as
 
 [source,hugo]
+--------------------
 (location.n_to).name
+--------------------
 
 which is, in other words, the `name` property of the object stored in `location.n_to`.
 
@@ -911,21 +920,21 @@ Classes are objects that are specifically intended to be used as prototypes for 
 They're extremely useful for when you want to create a number of objects that will all share certain basic characteristics.
 Here is how a class is defined:
 
-// @HUGO SYNTAX MOCKUP!
-[source,hugo]
---------------------------------------------------------------------------------
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+.....................................
 class <classname> ["<optional name>"]
 {
     ...
 }
---------------------------------------------------------------------------------
+.....................................
 
 with the body of the definition being the same as that for an object definition, where the properties and attributes defined are to be the same for all members of the class.
 
 For example:
 
 [source,hugo]
---------------------------------------------------------------------------------
+------------------------------------------
 class box
 {
     noun "box"
@@ -949,21 +958,21 @@ box greenbox "green box"
         "It looks like a regular old box,
         only green."
 }
---------------------------------------------------------------------------------
+------------------------------------------
 
 [NOTE]
 ================================================================================
 Beginning the `long_desc` property routine on the line below the property name is understood by the compiler as:
 
 [source,hugo]
---------------------------------------------------------------------------------
+-------------------------------------
 long_desc
 {
     "It looks like a regular old box,
     only green."
 
 }
---------------------------------------------------------------------------------
+-------------------------------------
 
 Since the property is only one line -- a single line of text to print -- the braces are unnecessary.
 ================================================================================
@@ -985,12 +994,12 @@ It is also possible to define an object using a previous object as a class even 
 Therefore,
 
 [source,hugo]
---------------------------------------------------------------------------------
+------------------------------------
 largebox largeredbox "large red box"
 {
     adjectives "big", "large", "red"
 }
---------------------------------------------------------------------------------
+------------------------------------
 
 is perfectly valid.
 We created what amounts to a "`copy`" of `largebox`, with a different name ("`large red box`" this time) and a different set of adjectives to refer to it.
@@ -998,27 +1007,27 @@ We created what amounts to a "`copy`" of `largebox`, with a different name ("`la
 Occasionally, it may be necessary to have an object or class inherit from more than one previously defined class.
 This can be done using the `inherits` instruction.
 
-// @HUGO SYNTAX MOCKUP!
-[source,hugo]
---------------------------------------------------------------------------------
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+.....................................
 <class1> <objectname> "name"
 {
     inherits <class2>[, <class3>,...]
     ...
 }
---------------------------------------------------------------------------------
+.....................................
 
 or even
 
-// @HUGO SYNTAX MOCKUP!
-[source,hugo]
---------------------------------------------------------------------------------
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+...............................................
 object <objectname> "name"
 {
     inherits <class1>, <class2>[, <class3>,...]
     ...
 }
---------------------------------------------------------------------------------
+...............................................
 
 The precedence of inheritance is in the order of occurrence.
 In either example, the object inherits its properties and attributes first from `<class1>`, then from `<class2>`, and so on.
@@ -1028,15 +1037,15 @@ Sometimes, however, it may be desirable to use a different definition for, say, 
 
 Instead of actually editing *objlib.h*,{fn9} use:
 
-// @HUGO SYNTAX MOCKUP!
-[source,hugo]
---------------------------------------------------------------------------------
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+............................................
 replace <class> ["<optional name>"]
 {
     (...completely new object definition...)
 
 }
---------------------------------------------------------------------------------
+............................................
 
 where `<class>` is the name of a previously defined object or class, such as `room`.
 All subsequent references to `<class>` will use this object instead of the previously defined one.

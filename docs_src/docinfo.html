@@ -85,6 +85,14 @@ div.literalblock.cmd pre .conum {
   color: #d27b53;
 }
 
+/* Footnotes in Hugo Code Blocks (Issue #23) */
+div.listingblock div.content pre[class=highlight][lang=hugo] code sup.footnote,
+div.listingblock div.content pre[class=highlight][lang=hugo] code sup.footnote a {
+  color: #fff;
+  font-weight: normal;
+  font-style: normal;
+}
+
 /* Hugo Syntax Definitions (Issue #35) */
 div.literalblock.hugosyntax pre {
   background-color: #f2f0ec;

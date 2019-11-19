@@ -29,7 +29,19 @@ $HL-Keywords4:      $base0E; // Limits Settings
 
 @import 'hl-adoc-template'; // Reusable template for Highlight themes.
 
-
+// ============================================
+/* Footnotes in Hugo Code Blocks (Issue #23) */
+// ============================================
+div.listingblock div.content pre[class="highlight"][lang="hugo"] {
+  code {
+    sup.footnote,
+    sup.footnote a {
+      color: #fff;
+      font-weight: normal;
+      font-style: normal;
+    }
+  }
+}
 // ======================================
 /* Hugo Syntax Definitions (Issue #35) */
 // ======================================
@@ -41,7 +53,7 @@ div.literalblock.hugosyntax {
     background-color: $base07;
     color: $base0D;
   }
-  // Footnote inline links colors:
+  // Inline footnote links colors (Issue #23):
   div.content pre>sup.footnote,
   div.content pre>sup.footnote a {
     color: $base00;
