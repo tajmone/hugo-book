@@ -195,11 +195,12 @@ Every chapter in the list provides an [HTML Live Preview] link to quickly jump t
         * [x]  Convert Hugo syntax definitions to `literal, role="hugosyntax"` blocks.
     + [ ]  [APP. B. _THE HUGO LIBRARY_][AppB]
         * [ ]  _needs to be proof-read once more, carefully!_
-        * [ ]  Check/Fix Hugo code indentation.
-        * [ ]  Convert Hugo syntax definitions to `literal, role="hugosyntax"` blocks.
+        * [x]  Check/Fix Hugo code indentation.
+        * [x]  Convert Hugo syntax definitions to `literal, role="hugosyntax"` blocks.
     + [ ]  [APP. C. _LIMIT SETTINGS_][AppC]
         * [ ]  _needs to be proof-read once more, carefully!_
-        * [ ]  Check/Fix Hugo code indentation.
+        * No Hugo code to check.
+        * No Hugo syntax definitions.
     + [ ]  [APP. D. _HUGOFIX AND THE HUGO DEBUGGER_][AppD]
         * [ ]  _needs to be proof-read once more, carefully!_
         * [ ]  Check/Fix Hugo code indentation.

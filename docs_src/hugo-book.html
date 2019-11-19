@@ -560,7 +560,7 @@ div.literalblock.hugosyntax div.content pre > sup.footnote a {
 <span id="email" class="email"><a href="mailto:general@generalcoffee.com">general@generalcoffee.com</a></span><br>
 <span id="revnumber">version 1,</span>
 <span id="revdate">2018-10-04</span>
-<br><span id="revremark">Draft 113 -- Porting to AsciiDoc</span>
+<br><span id="revremark">Draft 114 -- Porting to AsciiDoc</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -13822,9 +13822,9 @@ To use these verbs, set the <code>VERBSTUBS</code> flag before compiling <strong
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>called by the engine via:</p>
 </div>
-<div class="listingblock">
+<div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">EndGame(end_type)</code></pre>
+<pre>EndGame(end_type)</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -13855,9 +13855,9 @@ Returning false from <code>EndGame</code> terminates the Hugo Engine.</p>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>called by the engine via:</p>
 </div>
-<div class="listingblock">
+<div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">FindObject(object, location)</code></pre>
+<pre>FindObject(object, location)</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -13876,9 +13876,9 @@ Returns 2 if the object is visible but not physically accessible.</p>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>called by the engine via:</p>
 </div>
-<div class="listingblock">
+<div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">Parse()</code></pre>
+<pre>Parse()</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -13894,9 +13894,9 @@ Returning true forces the engine to reparse the modified input line.</p>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>called by the engine via:</p>
 </div>
-<div class="listingblock">
+<div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">ParseError(errornumber, object)</code></pre>
+<pre>ParseError(errornumber, object)</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -13913,9 +13913,9 @@ Return 2 to force the existing line to be reparsed as is.</p>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>called by the engine via:</p>
 </div>
-<div class="listingblock">
+<div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">Perform(verbroutine, object, xobject, queue, isxverb)</code></pre>
+<pre>Perform(verbroutine, object, xobject, queue, isxverb)</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -13928,9 +13928,9 @@ The <code>queue</code> argument is true if more than one call to <code>Perform</
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>called by the engine via:</p>
 </div>
-<div class="listingblock">
+<div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">SpeakTo(character)</code></pre>
+<pre>SpeakTo(character)</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -13957,9 +13957,9 @@ Globals <code>object</code>, <code>xobject</code>, and <code>verbroutine</code> 
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>calling form:</p>
 </div>
-<div class="listingblock">
+<div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">Art(object)</code></pre>
+<pre>Art(object)</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -13971,9 +13971,9 @@ Globals <code>object</code>, <code>xobject</code>, and <code>verbroutine</code> 
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>calling form:</p>
 </div>
-<div class="listingblock">
+<div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">The(object)</code></pre>
+<pre>The(object)</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -13985,9 +13985,9 @@ Globals <code>object</code>, <code>xobject</code>, and <code>verbroutine</code> 
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>calling form:</p>
 </div>
-<div class="listingblock">
+<div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">CArt(object)</code></pre>
+<pre>CArt(object)</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -13999,9 +13999,9 @@ Globals <code>object</code>, <code>xobject</code>, and <code>verbroutine</code> 
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>calling form:</p>
 </div>
-<div class="listingblock">
+<div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">CThe(object)</code></pre>
+<pre>CThe(object)</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -14013,9 +14013,9 @@ Globals <code>object</code>, <code>xobject</code>, and <code>verbroutine</code> 
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>calling form:</p>
 </div>
-<div class="listingblock">
+<div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">IsorAre(object[, formal]) +</code></pre>
+<pre>IsorAre(object[, formal])</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -14030,9 +14030,9 @@ Globals <code>object</code>, <code>xobject</code>, and <code>verbroutine</code> 
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>calling form:</p>
 </div>
-<div class="listingblock">
+<div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">MatchPlural(object, w1, w2)</code></pre>
+<pre>MatchPlural(object, w1, w2)</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -14044,9 +14044,9 @@ Globals <code>object</code>, <code>xobject</code>, and <code>verbroutine</code> 
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>calling form:</p>
 </div>
-<div class="listingblock">
+<div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">MatchSubject(object)</code></pre>
+<pre>MatchSubject(object)</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -14098,9 +14098,9 @@ Therefore, either of the following uses are valid:</p>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>calling form:</p>
 </div>
-<div class="listingblock">
+<div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">Acquire(parent, object)</code></pre>
+<pre>Acquire(parent, object)</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -14117,9 +14117,9 @@ If the object cannot be moved, <code>Acquire</code> returns false.</p>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>calling form:</p>
 </div>
-<div class="listingblock">
+<div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">AnyVerb(value)</code></pre>
+<pre>AnyVerb(value)</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -14131,9 +14131,9 @@ If the object cannot be moved, <code>Acquire</code> returns false.</p>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>calling form:</p>
 </div>
-<div class="listingblock">
+<div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">AssignPronoun(object)</code></pre>
+<pre>AssignPronoun(object)</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -14145,9 +14145,9 @@ If the object cannot be moved, <code>Acquire</code> returns false.</p>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>calling form:</p>
 </div>
-<div class="listingblock">
+<div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">CalculateHolding(object)</code></pre>
+<pre>CalculateHolding(object)</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -14159,9 +14159,9 @@ If the object cannot be moved, <code>Acquire</code> returns false.</p>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>calling form:</p>
 </div>
-<div class="listingblock">
+<div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">CenterTitle(text[, lines])</code></pre>
+<pre>CenterTitle(text[, lines])</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -14174,9 +14174,9 @@ The default height of the title (i.e., one line) can be overridden with a second
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>calling form:</p>
 </div>
-<div class="listingblock">
+<div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">CheckReach(object)</code></pre>
+<pre>CheckReach(object)</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -14189,9 +14189,9 @@ Returns true if accessible; returns false and prints an appropriate message if n
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>calling form:</p>
 </div>
-<div class="listingblock">
+<div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">Contains(parent, object)</code></pre>
+<pre>Contains(parent, object)</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -14209,9 +14209,9 @@ Returns true if accessible; returns false and prints an appropriate message if n
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>calling form:</p>
 </div>
-<div class="listingblock">
+<div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">CustomError(errornumber, object)</code></pre>
+<pre>CustomError(errornumber, object)</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -14225,9 +14225,9 @@ Should return false if no user message is found.</p>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>calling form:</p>
 </div>
-<div class="listingblock">
+<div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">DarkWarning</code></pre>
+<pre>DarkWarning</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -14240,9 +14240,9 @@ The default library routine simply prints a message; for a more sinister respons
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>calling form:</p>
 </div>
-<div class="listingblock">
+<div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">DeleteWord(wordnumber[, number])</code></pre>
+<pre>DeleteWord(wordnumber[, number])</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -14255,9 +14255,9 @@ Returns the number of words deleted.</p>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>calling form:</p>
 </div>
-<div class="listingblock">
+<div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">DescribePlace(location[, long])</code></pre>
+<pre>DescribePlace(location[, long])</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -14270,9 +14270,9 @@ Including a non-false long parameter will always force a location description.</
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>calling form:</p>
 </div>
-<div class="listingblock">
+<div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">ExcludeFromAll(object)</code></pre>
+<pre>ExcludeFromAll(object)</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -14284,9 +14284,9 @@ Including a non-false long parameter will always force a location description.</
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>calling form:</p>
 </div>
-<div class="listingblock">
+<div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">FindLight(location)</code></pre>
+<pre>FindLight(location)</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -14301,9 +14301,9 @@ Including a non-false long parameter will always force a location description.</
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>calling form:</p>
 </div>
-<div class="listingblock">
+<div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">Font(bitmask)</code></pre>
+<pre>Font(bitmask)</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -14315,9 +14315,9 @@ Including a non-false long parameter will always force a location description.</
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>calling form:</p>
 </div>
-<div class="listingblock">
+<div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">GetInput([prompt string])</code></pre>
+<pre>GetInput([prompt string])</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -14331,9 +14331,9 @@ If no argument is passed, no prompt is printed.</p>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>calling form:</p>
 </div>
-<div class="listingblock">
+<div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">HoursMinutes(counter[, military])</code></pre>
+<pre>HoursMinutes(counter[, military])</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -14346,9 +14346,9 @@ If the optional <code>military</code> value is given as a true value, the time i
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>calling form:</p>
 </div>
-<div class="listingblock">
+<div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">Indent</code></pre>
+<pre>Indent</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -14360,9 +14360,9 @@ If the optional <code>military</code> value is given as a true value, the time i
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>calling form:</p>
 </div>
-<div class="listingblock">
+<div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">InList(object, property, value)</code></pre>
+<pre>InList(object, property, value)</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -14374,9 +14374,9 @@ If the optional <code>military</code> value is given as a true value, the time i
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>calling form:</p>
 </div>
-<div class="listingblock">
+<div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">InsertWord(wordnumber[, number])</code></pre>
+<pre>InsertWord(wordnumber[, number])</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -14389,9 +14389,9 @@ Returns the number of words inserted.</p>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>calling form:</p>
 </div>
-<div class="listingblock">
+<div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">IsPossibleXobject(object)</code></pre>
+<pre>IsPossibleXobject(object)</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -14404,9 +14404,9 @@ Does not, however, guarantee that the object <em>is</em> an xobject, but is inst
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>calling form:</p>
 </div>
-<div class="listingblock">
+<div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">ListObjects(object)</code></pre>
+<pre>ListObjects(object)</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -14414,9 +14414,9 @@ Does not, however, guarantee that the object <em>is</em> an xobject, but is inst
 Possessions of possessions are listed recursively if <code>FORMAT</code> does not contain the <code>NORECURSE_F</code> bit.
 Format masks are combined, as in:</p>
 </div>
-<div class="listingblock">
+<div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">FORMAT = LIST_F | NORECURSE_F | ...</code></pre>
+<pre>FORMAT = LIST_F | NORECURSE_F | ...</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -14428,9 +14428,9 @@ Format masks are combined, as in:</p>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>calling form:</p>
 </div>
-<div class="listingblock">
+<div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">Menu(number, [width[, selection]])</code></pre>
+<pre>Menu(number, [width[, selection]])</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -14447,9 +14447,9 @@ Returns the number of the item selected, or 0 if none is chosen.</p>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>calling form:</p>
 </div>
-<div class="listingblock">
+<div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">Message(&amp;routine, num, a, b)</code></pre>
+<pre>Message(&amp;routine, num, a, b)</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -14474,9 +14474,10 @@ Similar routines are provided in <code>VMessage</code> in <strong>verblib.h</str
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>calling form:</p>
 </div>
-<div class="listingblock">
+<div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">MovePlayer(loc[, silent[, none]])&#x000A;MovePlayer(dir[, silent[, none]])</code></pre>
+<pre>MovePlayer(loc[, silent[, none]])
+MovePlayer(dir[, silent[, none]])</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -14508,9 +14509,9 @@ In a <code>before</code> property, <code>object MovePlayer</code> can be used to
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>calling form:</p>
 </div>
-<div class="listingblock">
+<div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">NumberWord(number[, true])</code></pre>
+<pre>NumberWord(number[, true])</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -14524,9 +14525,9 @@ If a second true argument is supplied, the word is capitalized.</p>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>calling form:</p>
 </div>
-<div class="listingblock">
+<div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">ObjectIs(object)</code></pre>
+<pre>ObjectIs(object)</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -14538,9 +14539,9 @@ If a second true argument is supplied, the word is capitalized.</p>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>calling form:</p>
 </div>
-<div class="listingblock">
+<div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">ObjectisKnown(object)</code></pre>
+<pre>ObjectisKnown(object)</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -14552,9 +14553,9 @@ If a second true argument is supplied, the word is capitalized.</p>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>calling form:</p>
 </div>
-<div class="listingblock">
+<div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">ObjectisLight(object)</code></pre>
+<pre>ObjectisLight(object)</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -14567,9 +14568,9 @@ If so, it also sets the global <code>light_source</code> the object number of th
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>calling form:</p>
 </div>
-<div class="listingblock">
+<div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">ObjWord(word, object)</code></pre>
+<pre>ObjWord(word, object)</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -14591,9 +14592,9 @@ The default <code>PreParse</code> routine defined in the library is empty.</p>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>calling form:</p>
 </div>
-<div class="listingblock">
+<div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">PrintEndGame(end_type)</code></pre>
+<pre>PrintEndGame(end_type)</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -14621,9 +14622,9 @@ The default <code>PreParse</code> routine defined in the library is empty.</p>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>calling form:</p>
 </div>
-<div class="listingblock">
+<div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">PrintScore(end_of_game)</code></pre>
+<pre>PrintScore(end_of_game)</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -14635,9 +14636,9 @@ The default <code>PreParse</code> routine defined in the library is empty.</p>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>calling form:</p>
 </div>
-<div class="listingblock">
+<div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">PrintStatusLine</code></pre>
+<pre>PrintStatusLine</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -14649,9 +14650,9 @@ The default <code>PreParse</code> routine defined in the library is empty.</p>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>calling form:</p>
 </div>
-<div class="listingblock">
+<div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">PropertyList(object, property)</code></pre>
+<pre>PropertyList(object, property)</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -14663,9 +14664,9 @@ The default <code>PreParse</code> routine defined in the library is empty.</p>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>calling form:</p>
 </div>
-<div class="listingblock">
+<div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">PutInScope(object, actor)</code></pre>
+<pre>PutInScope(object, actor)</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -14678,9 +14679,9 @@ Returns true if successful.</p>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>calling form:</p>
 </div>
-<div class="listingblock">
+<div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">RemoveFromScope(object, actor)</code></pre>
+<pre>RemoveFromScope(object, actor)</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -14693,17 +14694,17 @@ Returns true if successful, or false if the object was never in scope of the act
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>calling form:</p>
 </div>
-<div class="listingblock">
+<div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">SetObjWord(position, object)</code></pre>
+<pre>SetObjWord(position, object)</pre>
 </div>
 </div>
 <div class="paragraph">
 <p>Inserts the specified object in the <code>word</code> array in the format:</p>
 </div>
-<div class="listingblock">
+<div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">"adjective1 adjective2 ... noun"</code></pre>
+<pre>"adjective1 adjective2 ... noun"</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -14715,9 +14716,9 @@ Returns true if successful, or false if the object was never in scope of the act
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>calling form:</p>
 </div>
-<div class="listingblock">
+<div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">ShortDescribe(object)</code></pre>
+<pre>ShortDescribe(object)</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -14733,9 +14734,9 @@ Then, if no <code>short_desc</code> property exists, it prints a default &#8220;
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>calling form:</p>
 </div>
-<div class="listingblock">
+<div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">SpecialDesc(object)</code></pre>
+<pre>SpecialDesc(object)</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -14748,9 +14749,9 @@ Sets the global variable <code>list_count</code> to the number of remaining (i.e
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>calling form:</p>
 </div>
-<div class="listingblock">
+<div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">VerbWord</code></pre>
+<pre>VerbWord</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -14762,9 +14763,9 @@ Sets the global variable <code>list_count</code> to the number of remaining (i.e
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>calling form:</p>
 </div>
-<div class="listingblock">
+<div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">WhatsIn(parent)</code></pre>
+<pre>WhatsIn(parent)</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -14780,9 +14781,9 @@ Returns the number of objects listed.</p>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>calling form:</p>
 </div>
-<div class="listingblock">
+<div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">YesorNo</code></pre>
+<pre>YesorNo</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -14807,9 +14808,9 @@ Once a valid answer is received, it returns true (if yes) or false (if no).</p>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>calling form:</p>
 </div>
-<div class="listingblock">
+<div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">abs(a)</code></pre>
+<pre>abs(a)</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -14821,9 +14822,9 @@ Once a valid answer is received, it returns true (if yes) or false (if no).</p>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>calling form:</p>
 </div>
-<div class="listingblock">
+<div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">higher(a, b)</code></pre>
+<pre>higher(a, b)</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -14835,9 +14836,9 @@ Once a valid answer is received, it returns true (if yes) or false (if no).</p>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>calling form:</p>
 </div>
-<div class="listingblock">
+<div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">lower(a, b)</code></pre>
+<pre>lower(a, b)</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -14849,9 +14850,9 @@ Once a valid answer is received, it returns true (if yes) or false (if no).</p>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>calling form:</p>
 </div>
-<div class="listingblock">
+<div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">mod(a, b)</code></pre>
+<pre>mod(a, b)</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -14863,9 +14864,9 @@ Once a valid answer is received, it returns true (if yes) or false (if no).</p>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>calling form:</p>
 </div>
-<div class="listingblock">
+<div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">pow(a, b)</code></pre>
+<pre>pow(a, b)</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -14900,9 +14901,9 @@ The return value is undefined if the result is outside the boundary of -32768 to
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>calling form:</p>
 </div>
-<div class="listingblock">
+<div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">StringCompare(array1, array2)</code></pre>
+<pre>StringCompare(array1, array2)</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -14914,9 +14915,9 @@ The return value is undefined if the result is outside the boundary of -32768 to
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>calling form:</p>
 </div>
-<div class="listingblock">
+<div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">StringCopy(new, old[, len])</code></pre>
+<pre>StringCopy(new, old[, len])</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -14928,9 +14929,9 @@ The return value is undefined if the result is outside the boundary of -32768 to
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>calling form:</p>
 </div>
-<div class="listingblock">
+<div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">StringDictCompare(array, dictentry)</code></pre>
+<pre>StringDictCompare(array, dictentry)</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -14942,9 +14943,9 @@ The return value is undefined if the result is outside the boundary of -32768 to
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>calling form:</p>
 </div>
-<div class="listingblock">
+<div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">StringEqual(array1, array2)</code></pre>
+<pre>StringEqual(array1, array2)</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -14956,9 +14957,9 @@ The return value is undefined if the result is outside the boundary of -32768 to
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>calling form:</p>
 </div>
-<div class="listingblock">
+<div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">StringLength(array)</code></pre>
+<pre>StringLength(array)</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -14970,9 +14971,9 @@ The return value is undefined if the result is outside the boundary of -32768 to
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>calling form:</p>
 </div>
-<div class="listingblock">
+<div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">StringPrint(array[, start, end])</code></pre>
+<pre>StringPrint(array[, start, end])</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -14995,9 +14996,9 @@ The return value is undefined if the result is outside the boundary of -32768 to
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>calling form:</p>
 </div>
-<div class="listingblock">
+<div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">Activate(object[, setting])</code></pre>
+<pre>Activate(object[, setting])</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -15010,9 +15011,9 @@ The setting value is only specified for fuses, where it represents the initial v
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>calling form:</p>
 </div>
-<div class="listingblock">
+<div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">Deactivate(object)</code></pre>
+<pre>Deactivate(object)</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -15035,9 +15036,9 @@ The setting value is only specified for fuses, where it represents the initial v
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>calling form:</p>
 </div>
-<div class="listingblock">
+<div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">CancelScript(character)</code></pre>
+<pre>CancelScript(character)</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -15050,9 +15051,9 @@ Returns true if successful, i.e., if a script for <code>character</code> is foun
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>calling form:</p>
 </div>
-<div class="listingblock">
+<div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">PauseScript(character)</code></pre>
+<pre>PauseScript(character)</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -15065,9 +15066,9 @@ Returns true if successful.</p>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>calling form:</p>
 </div>
-<div class="listingblock">
+<div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">ResumeScript(character)</code></pre>
+<pre>ResumeScript(character)</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -15080,9 +15081,9 @@ Returns true if successful.</p>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>calling form:</p>
 </div>
-<div class="listingblock">
+<div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">SkipScript(character)</code></pre>
+<pre>SkipScript(character)</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -15094,9 +15095,9 @@ Returns true if successful.</p>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>calling form:</p>
 </div>
-<div class="listingblock">
+<div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">Script(character, steps)</code></pre>
+<pre>Script(character, steps)</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -15109,17 +15110,17 @@ Returns -1 if <code>MAX_SCRIPTS</code> is exceeded.</p>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>calling form:</p>
 </div>
-<div class="listingblock">
+<div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">RunScripts</code></pre>
+<pre>RunScripts</pre>
 </div>
 </div>
 <div class="paragraph">
 <p>Runs all active scripts, calling them in the form:</p>
 </div>
-<div class="listingblock">
+<div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">CharRoutine(character, object)</code></pre>
+<pre>CharRoutine(character, object)</pre>
 </div>
 </div>
 <div class="paragraph">
