@@ -560,7 +560,7 @@ div.literalblock.hugosyntax div.content pre > sup.footnote a {
 <span id="email" class="email"><a href="mailto:general@generalcoffee.com">general@generalcoffee.com</a></span><br>
 <span id="revnumber">version 1,</span>
 <span id="revdate">2018-10-04</span>
-<br><span id="revremark">Draft 111 -- Porting to AsciiDoc</span>
+<br><span id="revremark">Draft 112 -- Porting to AsciiDoc</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -10224,9 +10224,14 @@ The running Hugo program cannot itself monitor mouse input during typed input.</
 Resourcefiles contain sounds, music, images, and video files used by the program.
 A resourcefile is created using:</p>
 </div>
-<div class="listingblock">
+<div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">resource</span> <span class="hl str">&quot;&lt;resourcefile&gt;&quot;</span>&#x000A;{&#x000A;    <span class="hl str">&quot;&lt;resource1&gt;&quot;</span>&#x000A;    <span class="hl str">&quot;&lt;resource2&gt;&quot;</span>&#x000A;    ...&#x000A;}</code></pre>
+<pre>resource "&lt;resourcefile&gt;"
+{
+    "&lt;resource1&gt;"
+    "&lt;resource2&gt;"
+    ...
+}</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -10312,9 +10317,9 @@ If <code>system_status</code> is non-zero (where zero signifies normal status), 
 <div class="paragraph">
 <p>A picture is displayed as a resource in a resourcefile using:</p>
 </div>
-<div class="listingblock">
+<div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">picture</span> <span class="hl str">&quot;&lt;resourcefile&gt;&quot;</span>, <span class="hl str">&quot;&lt;picture&gt;&quot;</span></code></pre>
+<pre>picture "&lt;resourcefile&gt;", "&lt;picture&gt;"</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -10358,9 +10363,13 @@ If the picture is not found or a recoverable error occurs during loading, normal
 <div class="paragraph">
 <p><strong>resource.h</strong> provides a couple of useful routines for managing graphics:</p>
 </div>
-<div class="listingblock">
+<div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">LoadPicture(<span class="hl str">&quot;resourcefile&quot;</span>, <span class="hl str">&quot;picture&quot;</span>)&#x000A;LoadPicture(<span class="hl str">&quot;picture&quot;</span>)&#x000A;&#x000A;PictureinText(<span class="hl str">&quot;file&quot;</span>, <span class="hl str">&quot;pic&quot;</span>, width, height, preserve)&#x000A;PictureinText(<span class="hl str">&quot;picture&quot;</span>, width, height, preserve)</code></pre>
+<pre>LoadPicture("&lt;resourcefile&gt;", "&lt;picture&gt;")
+LoadPicture("&lt;picture&gt;")
+
+PictureinText("&lt;file&gt;", "&lt;pic&gt;", &lt;width&gt;, &lt;height&gt;[, &lt;preserve&gt;])
+PictureinText("&lt;picture&gt;", &lt;width&gt;, &lt;height&gt;[, &lt;preserve&gt;])</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -10406,9 +10415,10 @@ Wherever possible, however, it is recommended to always specify the resourcefile
 <div class="paragraph">
 <p>Sounds and music are played as follows:</p>
 </div>
-<div class="listingblock">
+<div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">sound</span> [<span class="hl kwa">repeat</span>] <span class="hl opt">&lt;</span>resourcefile<span class="hl opt">&gt;</span>, <span class="hl opt">&lt;</span><span class="hl kwa">resource</span><span class="hl opt">&gt;</span>[, <span class="hl opt">&lt;</span>vol<span class="hl opt">&gt;</span>]&#x000A;<span class="hl kwa">music</span> [<span class="hl kwa">repeat</span>] <span class="hl opt">&lt;</span>resourcefile<span class="hl opt">&gt;</span>, <span class="hl opt">&lt;</span><span class="hl kwa">resource</span><span class="hl opt">&gt;</span>[, <span class="hl opt">&lt;</span>vol<span class="hl opt">&gt;</span>]</code></pre>
+<pre>sound [repeat] &lt;resourcefile&gt;, &lt;resource&gt;[, &lt;vol&gt;]
+music [repeat] &lt;resourcefile&gt;, &lt;resource&gt;[, &lt;vol&gt;]</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -10425,9 +10435,10 @@ Currently playing sound or music can be stopped using:</p>
 <div class="paragraph">
 <p><strong>resource.h</strong> provides a pair of wrapper functions to manage playing of audio resources:</p>
 </div>
-<div class="listingblock">
+<div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">PlaySound(resourcefile, sample, loop, force)&#x000A;PlayMusic(resourcefile, song, loop, force)</code></pre>
+<pre>PlaySound(&lt;resourcefile&gt;, &lt;sample&gt;, &lt;loop&gt;, &lt;force&gt;)
+PlayMusic(&lt;resourcefile&gt;, &lt;song&gt;, &lt;loop&gt;, &lt;force&gt;)</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -10450,9 +10461,9 @@ To stop a sample or song from playing via the library interface, use:</p>
 <p>Video is displayed similarly to static graphic images (that is, it is displayed in the currently window) and controlled similarly to music and sound.
 The syntax for playing video looks like:</p>
 </div>
-<div class="listingblock">
+<div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">video</span> [<span class="hl kwa">repeat</span>] <span class="hl opt">&lt;</span>resfile<span class="hl opt">&gt;</span>, <span class="hl opt">&lt;</span>res<span class="hl opt">&gt;</span>[, <span class="hl opt">&lt;</span>vol<span class="hl opt">&gt;</span>, <span class="hl opt">&lt;</span>bkground<span class="hl opt">&gt;</span>]</code></pre>
+<pre>video [repeat] &lt;resfile&gt;, &lt;res&gt;[, &lt;vol&gt;, &lt;bkground&gt;]</pre>
 </div>
 </div>
 <div class="paragraph">

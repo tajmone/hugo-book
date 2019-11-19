@@ -186,9 +186,9 @@ Every chapter in the list provides an [HTML Live Preview] link to quickly jump t
     + [x]  [11. _ADVANCED FEATURES_][Ch11]
         * [x]  Check/Fix Hugo code indentation.
         * [x]  Convert Hugo syntax definitions to `literal, role="hugosyntax"` blocks.
-    + [ ]  [12. _RESOURCES_][Ch12]
-        * [ ]  Check/Fix Hugo code indentation.
-        * [ ]  Convert Hugo syntax definitions to `literal, role="hugosyntax"` blocks.
+    + [x]  [12. _RESOURCES_][Ch12]
+        * [x]  Check/Fix Hugo code indentation.
+        * [x]  Convert Hugo syntax definitions to `literal, role="hugosyntax"` blocks.
     + [ ]  [APP. A. _SUMMARY OF KEYWORDS AND COMMANDS_][AppA]
         * [ ]  _needs to be proof-read once more, carefully!_
         * [ ]  Check/Fix Hugo code indentation.

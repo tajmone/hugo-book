@@ -84,6 +84,48 @@ where "Sec. 4.3" is a link pointing to relevant paragraph on the topic.
 
 This was necessary because not all output formats have page numbers (HTML documents, ePub, CHM Help files, etc., either don't have real page numbers or can't handle them well in cross references).
 
+----
+
+<!-- Issue #36 (pending approval) -------------------------------------------->
+
+In _§12.2. Pictures_, the the syntax definition:
+
+```hugo
+LoadPicture("resourcefile", "picture")
+LoadPicture("picture")
+PictureinText("file", "pic", width, height, preserve)
+PictureinText("picture", width, height, preserve)
+```
+
+was edited to make it consistent with the other syntax definitions:
+
+```hugo
+LoadPicture("<resourcefile>", "<picture>")
+LoadPicture("<picture>")
+
+PictureinText("<file>", "<pic>", <width>, <height>[, <preserve>])
+PictureinText("<picture>", <width>, <height>[, <preserve>])
+```
+
+----
+
+<!-- Issue #36 (pending approval) -------------------------------------------->
+
+In _§12.3. Sound and Music_, the the syntax definition:
+
+```hugo
+PlaySound(resourcefile, sample, loop, force)
+PlayMusic(resourcefile, song, loop, force)
+```
+
+was edited to make it consistent with the other syntax definitions:
+
+```hugo
+PlaySound(<resourcefile>, <sample>, <loop>, <force>)
+PlayMusic(<resourcefile>, <song>, <loop>, <force>)
+```
+
+
 # List of Text Corrections
 
 <!-- Issue #20 (approved) ---------------------------------------------------->

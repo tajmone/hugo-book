@@ -25,16 +25,17 @@ The engine allows a Hugo program to access external media data (called resources
 Resourcefiles contain sounds, music, images, and video files used by the program.
 A resourcefile is created using:
 
-// @HUGO SYNTAX MOCKUP!
-[source,hugo]
--------------------------
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+............................
 resource "<resourcefile>"
 {
     "<resource1>"
     "<resource2>"
     ...
 }
--------------------------
+............................
+
 
 
 The `<resourcefile>` name must be 8 or fewer alphanumeric characters which will automatically be converted to all-uppercase.
@@ -44,6 +45,11 @@ NOTE: The reason for this is to maximize portability across different platforms 
 Currently Hugo supports as resources: JPEG graphic files, RIFF/WAV audio samples, MOD/S3M/XM music modules, MIDI and MP3 songs, and MPEG and AVI movies.{fn1}
 
 For example, here is an imaginary example resourcefile compiled on a Windows platform:
+
+// @HUGO SYNTAX WORKAROUND: role="noescapes"
+//  The "noescapes" role was added to hide escape sequences being matched inside
+//  file path strings by coloring them the same as strings. This is a temporary
+//  solution until the Highlight syntax for Hugo is fixed.
 
 [source,hugo,role="noescapes"]
 ---------------------------------
@@ -77,26 +83,30 @@ If `system_status` is non-zero (where zero signifies normal status), it will con
 
 [.center]
 [cols=">m,<m",options=autowidth,grid=none,stripes=even]
-|===============================================================================
+|======================================================
 | -1  | STAT_UNAVAILABLE
 | 101 | STAT_NOFILE
 | 102 | STAT_NORESOURCE
 | 103 | STAT_LOADERROR
-|===============================================================================
+|======================================================
 
 
 == Pictures
 
 A picture is displayed as a resource in a resourcefile using:
 
-// @HUGO SYNTAX MOCKUP!
-[source,hugo]
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+.....................................
 picture "<resourcefile>", "<picture>"
+.....................................
 
 For example,
 
 [source,hugo]
+--------------------------
 picture "gameres1", "logo"
+--------------------------
 
 [TIP]
 ================================================================================
@@ -117,14 +127,19 @@ If the picture is not found or a recoverable error occurs during loading, normal
 
 *resource.h* provides a couple of useful routines for managing graphics:
 
-[source,hugo]
---------------------------------------------------------------------------------
-LoadPicture("resourcefile", "picture")
-LoadPicture("picture")
+// @EDITED CODE: (documented & waiting approval: Issue #36)
+//  Parameters enclosed within angular brackets for code consistency.
 
-PictureinText("file", "pic", width, height, preserve)
-PictureinText("picture", width, height, preserve)
---------------------------------------------------------------------------------
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+.................................................................
+LoadPicture("<resourcefile>", "<picture>")
+LoadPicture("<picture>")
+
+PictureinText("<file>", "<pic>", <width>, <height>[, <preserve>])
+PictureinText("<picture>", <width>, <height>[, <preserve>])
+.................................................................
+
 
 `LoadPicture` is essentially a simple wrapper for the `picture` statement, providing the additional service of checking `display.hasgraphics` to ensure that graphics display is available.
 
@@ -145,12 +160,12 @@ Wherever possible, however, it is recommended to always specify the resourcefile
 
 Sounds and music are played as follows:
 
-// @HUGO SYNTAX MOCKUP!
-[source,hugo]
---------------------------------------------------
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+..................................................
 sound [repeat] <resourcefile>, <resource>[, <vol>]
 music [repeat] <resourcefile>, <resource>[, <vol>]
---------------------------------------------------
+..................................................
 
 The `repeat` keyword is optional; if supplied, it forces the engine to repeatedly play the sound/music resource until further notice (i.e., until it is stopped or a new sound/music resource is played).
 The `<vol>` argument is optional.
@@ -163,9 +178,15 @@ music 0
 
 *resource.h* provides a pair of wrapper functions to manage playing of audio resources:
 
-[source,hugo]
-PlaySound(resourcefile, sample, loop, force)
-PlayMusic(resourcefile, song, loop, force)
+// @EDITED CODE: (documented & waiting approval: Issue #36)
+//  Parameters enclosed within angular brackets for code consistency.
+
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+....................................................
+PlaySound(<resourcefile>, <sample>, <loop>, <force>)
+PlayMusic(<resourcefile>, <song>, <loop>, <force>)
+....................................................
 
 In either case, if `<loop>` is true, it has the same effect as using the `repeat` token after `sound` or `music`.
 If `<force>` is true, the sample or song is restarted even if that same sample or song is already playing (otherwise the `PlaySound` or `PlayMusic` call will have essentially no effect).
@@ -183,9 +204,11 @@ PlayMusic(MUSIC_STOP)
 Video is displayed similarly to static graphic images (that is, it is displayed in the currently window) and controlled similarly to music and sound.
 The syntax for playing video looks like:
 
-// @HUGO SYNTAX MOCKUP!
-[source,hugo]
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+....................................................
 video [repeat] <resfile>, <res>[, <vol>, <bkground>]
+....................................................
 
 The video resource `<res>` is played from resourcefile `<resfile>`, at the volume `<vol>`.
 If the optional `repeat` keyword is used, the video plays in a loop, starting over at the beginning when it hits the end.
