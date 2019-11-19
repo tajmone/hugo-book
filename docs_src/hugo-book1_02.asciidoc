@@ -184,12 +184,11 @@ A variable that holds the count of a number of objects _could_ be called `n`, bu
 
 At this point it's probably helpful to know that you can assign a value to a variable using the form:
 
-
-// @HUGO SYNTAX MOCKUP!
-[source,hugo, subs="+attributes,macros"]
---------------------------------------------------------------------------------
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax", subs="+attributes,macros"]
+.......................................................
 <some variable> = <some value>{fn5}
---------------------------------------------------------------------------------
+.......................................................
 
 For instance, to set the variable `x` equal to 5, you would use:
 
@@ -290,9 +289,9 @@ String constants, such as in the below `print` statement, are an exception in th
 [source,hugo]
 --------------------------------------------------------------------------------
 print "The engine will properly
-      print this text, assuming a
-      single space at the end of each
-      line."
+       print this text, assuming a
+       single space at the end of each
+       line."
 --------------------------------------------------------------------------------
 
 will result in:
@@ -321,7 +320,7 @@ giving:
 
 [example,role="gametranscript"]
 ===============================
-Here, we'll end a sentence on one line.{nbsp}
+Here, we'll end a sentence on one line.{nbsp}{nbsp}
 However, we'd like to make sure there are two spaces before the second sentence.
 ===============================
 
@@ -406,7 +405,7 @@ and
 [source,hugo]
 --------------------------------------------------------------------------------
 if i = 1
-  {print "Less than three."}
+    {print "Less than three."}
 --------------------------------------------------------------------------------
 
 
@@ -441,7 +440,7 @@ Multiple-line comments are begun with `!\` and ended with `\!`.
 ! A comment on a single line
 
 !\ A multiple-line
-   comment \!
+    comment \!
 --------------------------------------------------------------------------------
 
 [NOTE]
@@ -513,11 +512,11 @@ These special commands or instructions are called _compiler directives_, and are
 
 To set switches within the source code so that they do not have to be specified each time the compiler is invoked for that particular program, the line
 
-// @HUGO SYNTAX MOCKUP!
-[source,hugo]
---------------------------------------------------------------------------------
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+............................
 #switches -<sequence>
---------------------------------------------------------------------------------
+............................
 
 will set the switches specified by `<sequence>`, where `<sequence>` is a string of characters representing valid switches, without any separators between characters.
 Many programmers may find it useful to make
@@ -531,11 +530,11 @@ the first line in every new program, which will automatically print a statistica
 
 Using
 
-// @HUGO SYNTAX MOCKUP!
-[source,hugo]
---------------------------------------------------------------------------------
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+...............................
 #version <version>[.<revision>]
---------------------------------------------------------------------------------
+...............................
 
 specifies that the file is to be used with version `<version>.<revision>` of the compiler.
 If the file and compiler version are mismatched, a warning will be issued.
@@ -549,11 +548,11 @@ Its general usage is largely deprecated.
 
 To include the contents of another file at the specified point in the current file, use
 
-// @HUGO SYNTAX MOCKUP!
-[source,hugo]
---------------------------------------------------------------------------------
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+............................
 #include "<filename>"
---------------------------------------------------------------------------------
+............................
 
 where `<filename>` is the full path and name of the file to be read.
 When `<filename>` has been read completely, the compiler resumes with the statement immediately following the `#include` directive.
@@ -575,19 +574,19 @@ Only if it has do they include the *hugofix.h* and *hugofix.g* files, which in t
 
 To set and clear flags, use
 
-// @HUGO SYNTAX MOCKUP!
-[source,hugo]
---------------------------------------------------------------------------------
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+............................
 #set <flagname>
---------------------------------------------------------------------------------
+............................
 
 and
 
-// @HUGO SYNTAX MOCKUP!
-[source,hugo]
---------------------------------------------------------------------------------
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+............................
 #clear <flagname>
---------------------------------------------------------------------------------
+............................
 
 respectively.
 
@@ -606,23 +605,23 @@ similarly to compiler limit settings and directories, with the same caveat that 
 
 Then, check to see if a flag is set or not (and include or exclude the specified block of source code) by using
 
-// @HUGO SYNTAX MOCKUP!
-[source,hugo, subs="+quotes"]
---------------------------------------------------------------------------------
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax", subs="+quotes"]
+............................................
 #ifset <flagname>
     _...conditional block of code..._
 #endif
---------------------------------------------------------------------------------
+............................................
 
 or
 
-// @HUGO SYNTAX MOCKUP!
-[source,hugo, subs="+quotes"]
---------------------------------------------------------------------------------
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax", subs="+quotes"]
+............................................
 #ifclear <flagname>
     _...conditional block of code..._
 #endif
---------------------------------------------------------------------------------
+............................................
 
 Conditional compilation constructions may be nested up to 32 levels deep.
 (Note also that compiler flags can be specified in the invocation line as `#<flag name>`.)
@@ -647,29 +646,29 @@ Use `#if defined <symbol>` and `#if undefined <symbol>` to test if objects, prop
 
 As seen above, the `#message` directive can be used as
 
-// @HUGO SYNTAX MOCKUP!
-[source,hugo]
---------------------------------------------------------------------------------
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+............................
 #message "<text>"
---------------------------------------------------------------------------------
+............................
 
 to output `<text>` when (or if) that statement is processed during the first compilation pass.
 
 Including `error` or `warning` before `<text>` as in
 
-// @HUGO SYNTAX MOCKUP!
-[source,hugo]
---------------------------------------------------------------------------------
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+............................
 #message error "<text>"
---------------------------------------------------------------------------------
+............................
 
 or
 
-// @HUGO SYNTAX MOCKUP!
-[source,hugo]
---------------------------------------------------------------------------------
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+............................
 #message warning "<text>"
---------------------------------------------------------------------------------
+............................
 
 will force the compiler to issue an error or warning, respectively, as it prints `<text>`.
 
@@ -681,11 +680,11 @@ That is, it's printed only when the compiler initially compiles the source code,
 
 It is also possible to include inline limit settings, such as
 
-// @HUGO SYNTAX MOCKUP!
-[source,hugo]
---------------------------------------------------------------------------------
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+............................
 $<setting>=<limit>
---------------------------------------------------------------------------------
+............................
 
 in the same way as in the invocation line.
 However, an error will be issued if, for example, an attempt is made to reset `MAXOBJECTS` if one or more objects have already been defined.

@@ -84,6 +84,18 @@ div.literalblock.cmd pre .conum {
   color: #d27b53;
 }
 
+/* Hugo Syntax Definitions (Issue #35) */
+div.literalblock.hugosyntax pre {
+  background-color: #f2f0ec;
+  color: #6699cc;
+}
+div.literalblock.hugosyntax div.content pre > sup.footnote,
+div.literalblock.hugosyntax div.content pre > sup.footnote a {
+  color: #2d2d2d;
+  font-weight: normal;
+  font-style: normal;
+}
+
 /* Escapes in File Paths Temp Fix (Issue #33) */
 .listingblock.noescapes pre[class=highlight][lang=hugo] .hl.esc, .listingblock.noescapes pre[class=highlight][lang=hugo] .hl.ipl {
   color: #99cc99;

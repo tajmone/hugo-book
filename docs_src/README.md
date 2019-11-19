@@ -124,19 +124,22 @@ There's still a lot of work to be done in terms of enforcing consistent styles, 
 - [x] **XREFS** — Restore all XRefs and create custom anchors ([milestone 6], [#25]).
 - [ ] **FOOTNOTES:** ([milestone 4])
     + [x] Proofread and format all footnotes. ([#21])
-    + [ ] Decide how to handle:
-        * [ ] Identical footnotes. ([#24])
-        * [ ] Footnotes inside tables. ([#22])
+    + [x] Decide how to handle:
+        * [x] Identical footnotes. ([#24])
+        * [x] Footnotes inside tables. ([#22])
 - [ ] **TITLE CASE** — Enforce [_Chicago_ style title capitalization]  ([#13]):
     + [x] All chapters and appendices titles (from all-caps).
     + [x] All sections.
     + [ ] All captions (tables, figures, etc.).
 - [ ] **CODE BLOCKS:**
-    + [ ] Hugo code:
+    + [ ] __Hugo code__:
         * [ ] Enforce consistent indentation:
             - [ ] 4 spaces in book examples.
             - [ ] original indentation (8 spaces) in hugolib and other sources.
         * [ ] Fix Hugo syntax examples (requires _ad hoc_ Highlight syntax).
+    + [ ] __Hugo syntax__ definitions ([#35]):
+        * [ ] Covert from `source` to `literal, role="hugosyntax"` blocks.
+        * [ ] Customize CSS.
 - [ ] Solve all annotated problems.
 
 
@@ -153,40 +156,54 @@ Every chapter in the list provides an [HTML Live Preview] link to quickly jump t
 - [ ]  [BOOK I. **THE HUGO PROGRAMMING MANUAL**][Book I]
     + [ ]  [1. _INTRODUCTION_][Ch1]
         * [ ]  Check/Fix Hugo code indentation.
-    + [ ]  [2. _A FIRST LOOK AT HUGO_][Ch2]
-        * [ ]  Check/Fix Hugo code indentation.
+    + [x]  [2. _A FIRST LOOK AT HUGO_][Ch2]
+        * [x]  Check/Fix Hugo code indentation.
+        * [x]  Convert Hugo syntax definitions to `literal, role="hugosyntax"` blocks.
     + [ ]  [3. _OBJECTS_][Ch3]
         * [ ]  Check/Fix Hugo code indentation.
+        * [ ]  Convert Hugo syntax definitions to `literal, role="hugosyntax"` blocks.
     + [ ]  [4. _HUGO PROGRAMMING_][Ch4]
         * [ ]  Check/Fix Hugo code indentation.
+        * [ ]  Convert Hugo syntax definitions to `literal, role="hugosyntax"` blocks.
     + [ ]  [5. _ROUTINES AND EVENTS_][Ch5]
         * [ ]  Check/Fix Hugo code indentation.
+        * [ ]  Convert Hugo syntax definitions to `literal, role="hugosyntax"` blocks.
     + [ ]  [6. _FUSES, DAEMONS, AND SCRIPTS_][Ch6]
         * [ ]  Check/Fix Hugo code indentation.
+        * [ ]  Convert Hugo syntax definitions to `literal, role="hugosyntax"` blocks.
     + [ ]  [7. _GRAMMAR AND PARSING_][Ch7]
         * [ ]  Check/Fix Hugo code indentation.
+        * [ ]  Convert Hugo syntax definitions to `literal, role="hugosyntax"` blocks.
     + [ ]  [8. _JUNCTION ROUTINES_][Ch8]
         * [ ]  Check/Fix Hugo code indentation.
+        * [ ]  Convert Hugo syntax definitions to `literal, role="hugosyntax"` blocks.
     + [ ]  [9. _THE GAME LOOP_][Ch9]
         * [ ]  Check/Fix Hugo code indentation.
+        * [ ]  Convert Hugo syntax definitions to `literal, role="hugosyntax"` blocks.
     + [ ]  [10. _USING THE OBJECT LIBRARY_][Ch10]
         * [ ]  Check/Fix Hugo code indentation.
+        * [ ]  Convert Hugo syntax definitions to `literal, role="hugosyntax"` blocks.
     + [ ]  [11. _ADVANCED FEATURES_][Ch11]
         * [ ]  Check/Fix Hugo code indentation.
+        * [ ]  Convert Hugo syntax definitions to `literal, role="hugosyntax"` blocks.
     + [ ]  [12. _RESOURCES_][Ch12]
         * [ ]  Check/Fix Hugo code indentation.
+        * [ ]  Convert Hugo syntax definitions to `literal, role="hugosyntax"` blocks.
     + [ ]  [APP. A. _SUMMARY OF KEYWORDS AND COMMANDS_][AppA]
         * [ ]  _needs to be proof-read once more, carefully!_
         * [ ]  Check/Fix Hugo code indentation.
+        * [ ]  Convert Hugo syntax definitions to `literal, role="hugosyntax"` blocks.
     + [ ]  [APP. B. _THE HUGO LIBRARY_][AppB]
         * [ ]  _needs to be proof-read once more, carefully!_
         * [ ]  Check/Fix Hugo code indentation.
+        * [ ]  Convert Hugo syntax definitions to `literal, role="hugosyntax"` blocks.
     + [ ]  [APP. C. _LIMIT SETTINGS_][AppC]
         * [ ]  _needs to be proof-read once more, carefully!_
         * [ ]  Check/Fix Hugo code indentation.
     + [ ]  [APP. D. _HUGOFIX AND THE HUGO DEBUGGER_][AppD]
         * [ ]  _needs to be proof-read once more, carefully!_
         * [ ]  Check/Fix Hugo code indentation.
+        * [ ]  Convert Hugo syntax definitions to `literal, role="hugosyntax"` blocks.
     + [ ]  [APP. E. _PRECOMPILED HEADERS_][AppE]
         * [ ]  Check/Fix Hugo code indentation.
     + [ ]  [APP. F. _HUGO VERSIONS_][AppF]
@@ -479,6 +496,7 @@ In order to convert _The Hugo Book_ to HTML you'll need to install the following
 [#24]: https://github.com/tajmone/hugo-book/issues/24
 [#25]: https://github.com/tajmone/hugo-book/issues/25
 [#26]: https://github.com/tajmone/hugo-book/issues/26
+[#35]: https://github.com/tajmone/hugo-book/issues/35
 [milestone 4]: https://github.com/tajmone/hugo-book/milestone/4
 [milestone 6]: https://github.com/tajmone/hugo-book/milestone/6
 

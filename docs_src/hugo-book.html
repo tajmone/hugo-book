@@ -524,6 +524,18 @@ div.literalblock.cmd pre .conum {
   color: #d27b53;
 }
 
+/* Hugo Syntax Definitions (Issue #35) */
+div.literalblock.hugosyntax pre {
+  background-color: #f2f0ec;
+  color: #6699cc;
+}
+div.literalblock.hugosyntax div.content pre > sup.footnote,
+div.literalblock.hugosyntax div.content pre > sup.footnote a {
+  color: #2d2d2d;
+  font-weight: normal;
+  font-style: normal;
+}
+
 /* Escapes in File Paths Temp Fix (Issue #33) */
 .listingblock.noescapes pre[class=highlight][lang=hugo] .hl.esc, .listingblock.noescapes pre[class=highlight][lang=hugo] .hl.ipl {
   color: #99cc99;
@@ -540,7 +552,7 @@ div.literalblock.cmd pre .conum {
 <span id="email" class="email"><a href="mailto:general@generalcoffee.com">general@generalcoffee.com</a></span><br>
 <span id="revnumber">version 1,</span>
 <span id="revdate">2018-10-04</span>
-<br><span id="revremark">Draft 103 -- Porting to AsciiDoc</span>
+<br><span id="revremark">Draft 104 -- Porting to AsciiDoc</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -1806,9 +1818,9 @@ A variable that holds the count of a number of objects <em>could</em> be called 
 <div class="paragraph">
 <p>At this point it&#8217;s probably helpful to know that you can assign a value to a variable using the form:</p>
 </div>
-<div class="listingblock">
+<div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl opt">&lt;</span>some variable<span class="hl opt">&gt; = &lt;</span>some value<span class="hl opt">&gt;</span><sup class="footnote">[<a id="_footnoteref_8" class="footnote" href="#_footnotedef_8" title="View footnote.">8</a>]</sup></code></pre>
+<pre>&lt;some variable&gt; = &lt;some value&gt;<sup class="footnote">[<a id="_footnoteref_8" class="footnote" href="#_footnotedef_8" title="View footnote.">8</a>]</sup></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1931,7 +1943,7 @@ Instead, you can use the address operator <code>&amp;</code>, as in:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">print</span> <span class="hl str">&quot;The engine will properly</span>&#x000A;<span class="hl str">      print this text, assuming a</span>&#x000A;<span class="hl str">      single space at the end of each</span>&#x000A;<span class="hl str">      line.&quot;</span></code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">print</span> <span class="hl str">&quot;The engine will properly</span>&#x000A;<span class="hl str">       print this text, assuming a</span>&#x000A;<span class="hl str">       single space at the end of each</span>&#x000A;<span class="hl str">       line.&quot;</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1969,7 +1981,7 @@ Failing that, the compiler will likely generate a &#8220;Closing brace missing&#
 <div class="exampleblock gametranscript">
 <div class="content">
 <div class="paragraph">
-<p>Here, we&#8217;ll end a sentence on one line.&#160;
+<p>Here, we&#8217;ll end a sentence on one line.&#160;&#160;
 However, we&#8217;d like to make sure there are two spaces before the second sentence.</p>
 </div>
 </div>
@@ -2068,7 +2080,7 @@ In other words:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">if</span> i <span class="hl opt">=</span> <span class="hl num">1</span>&#x000A;  {<span class="hl kwa">print</span> <span class="hl str">&quot;Less than three.&quot;</span>}</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">if</span> i <span class="hl opt">=</span> <span class="hl num">1</span>&#x000A;    {<span class="hl kwa">print</span> <span class="hl str">&quot;Less than three.&quot;</span>}</code></pre>
 </div>
 </div>
 <div class="admonitionblock note">
@@ -2110,7 +2122,7 @@ Multiple-line comments are begun with <code>!\</code> and ended with <code>\!</c
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl slc">! A comment on a single line</span>&#x000A;&#x000A;<span class="hl com">!\ A multiple-line</span>&#x000A;<span class="hl com">   comment \!</span></code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl slc">! A comment on a single line</span>&#x000A;&#x000A;<span class="hl com">!\ A multiple-line</span>&#x000A;<span class="hl com">    comment \!</span></code></pre>
 </div>
 </div>
 <div class="admonitionblock note">
@@ -2210,9 +2222,9 @@ These special commands or instructions are called <em>compiler directives</em>, 
 <div class="paragraph">
 <p>To set switches within the source code so that they do not have to be specified each time the compiler is invoked for that particular program, the line</p>
 </div>
-<div class="listingblock">
+<div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl ppc">#switches -&lt;sequence&gt;</span></code></pre>
+<pre>#switches -&lt;sequence&gt;</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -2230,9 +2242,9 @@ Many programmers may find it useful to make</p>
 <div class="paragraph">
 <p>Using</p>
 </div>
-<div class="listingblock">
+<div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl ppc">#version &lt;version&gt;[.&lt;revision&gt;]</span></code></pre>
+<pre>#version &lt;version&gt;[.&lt;revision&gt;]</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -2257,9 +2269,9 @@ Its general usage is largely deprecated.</p>
 <div class="paragraph">
 <p>To include the contents of another file at the specified point in the current file, use</p>
 </div>
-<div class="listingblock">
+<div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl ppc">#include</span> <span class="hl pps">&quot;&lt;filename&gt;&quot;</span><span class="hl ppc"></span></code></pre>
+<pre>#include "&lt;filename&gt;"</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -2293,17 +2305,17 @@ Only if it has do they include the <strong>hugofix.h</strong> and <strong>hugofi
 <div class="paragraph">
 <p>To set and clear flags, use</p>
 </div>
-<div class="listingblock">
+<div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl ppc">#set &lt;flagname&gt;</span></code></pre>
+<pre>#set &lt;flagname&gt;</pre>
 </div>
 </div>
 <div class="paragraph">
 <p>and</p>
 </div>
-<div class="listingblock">
+<div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl ppc">#clear &lt;flagname&gt;</span></code></pre>
+<pre>#clear &lt;flagname&gt;</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -2334,17 +2346,21 @@ Only if it has do they include the <strong>hugofix.h</strong> and <strong>hugofi
 <div class="paragraph">
 <p>Then, check to see if a flag is set or not (and include or exclude the specified block of source code) by using</p>
 </div>
-<div class="listingblock">
+<div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl ppc">#ifset &lt;flagname&gt;</span>&#x000A;    <em>...conditional block of code...</em>&#x000A;<span class="hl ppc">#endif</span></code></pre>
+<pre>#ifset &lt;flagname&gt;
+    <em>...conditional block of code...</em>
+#endif</pre>
 </div>
 </div>
 <div class="paragraph">
 <p>or</p>
 </div>
-<div class="listingblock">
+<div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl ppc">#ifclear &lt;flagname&gt;</span>&#x000A;    <em>...conditional block of code...</em>&#x000A;<span class="hl ppc">#endif</span></code></pre>
+<pre>#ifclear &lt;flagname&gt;
+    <em>...conditional block of code...</em>
+#endif</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -2365,9 +2381,9 @@ Only if it has do they include the <strong>hugofix.h</strong> and <strong>hugofi
 <div class="paragraph">
 <p>As seen above, the <code>#message</code> directive can be used as</p>
 </div>
-<div class="listingblock">
+<div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl ppc">#message</span> <span class="hl pps">&quot;&lt;text&gt;&quot;</span><span class="hl ppc"></span></code></pre>
+<pre>#message "&lt;text&gt;"</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -2376,17 +2392,17 @@ Only if it has do they include the <strong>hugofix.h</strong> and <strong>hugofi
 <div class="paragraph">
 <p>Including <code>error</code> or <code>warning</code> before <code>&lt;text&gt;</code> as in</p>
 </div>
-<div class="listingblock">
+<div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl ppc">#message error</span> <span class="hl pps">&quot;&lt;text&gt;&quot;</span><span class="hl ppc"></span></code></pre>
+<pre>#message error "&lt;text&gt;"</pre>
 </div>
 </div>
 <div class="paragraph">
 <p>or</p>
 </div>
-<div class="listingblock">
+<div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl ppc">#message warning</span> <span class="hl pps">&quot;&lt;text&gt;&quot;</span><span class="hl ppc"></span></code></pre>
+<pre>#message warning "&lt;text&gt;"</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -2410,9 +2426,9 @@ That is, it&#8217;s printed only when the compiler initially compiles the source
 <div class="paragraph">
 <p>It is also possible to include inline limit settings, such as</p>
 </div>
-<div class="listingblock">
+<div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">$<span class="hl opt">&lt;</span>setting<span class="hl opt">&gt;=&lt;</span>limit<span class="hl opt">&gt;</span></code></pre>
+<pre>$&lt;setting&gt;=&lt;limit&gt;</pre>
 </div>
 </div>
 <div class="paragraph">
