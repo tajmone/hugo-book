@@ -174,12 +174,12 @@ Every chapter in the list provides an [HTML Live Preview] link to quickly jump t
     + [x]  [7. _GRAMMAR AND PARSING_][Ch7]
         * [x]  Check/Fix Hugo code indentation.
         * [x]  Convert Hugo syntax definitions to `literal, role="hugosyntax"` blocks.
-    + [ ]  [8. _JUNCTION ROUTINES_][Ch8]
-        * [ ]  Check/Fix Hugo code indentation.
-        * [ ]  Convert Hugo syntax definitions to `literal, role="hugosyntax"` blocks.
-    + [ ]  [9. _THE GAME LOOP_][Ch9]
-        * [ ]  Check/Fix Hugo code indentation.
-        * [ ]  Convert Hugo syntax definitions to `literal, role="hugosyntax"` blocks.
+    + [x]  [8. _JUNCTION ROUTINES_][Ch8]
+        * [x]  Check/Fix Hugo code indentation.
+        * [x]  Convert Hugo syntax definitions to `literal, role="hugosyntax"` blocks.
+    + [x]  [9. _THE GAME LOOP_][Ch9]
+        * [x]  Check/Fix Hugo code indentation.
+        * [x]  Convert Hugo syntax definitions to `literal, role="hugosyntax"` blocks.
     + [ ]  [10. _USING THE OBJECT LIBRARY_][Ch10]
         * [ ]  Check/Fix Hugo code indentation.
         * [ ]  Convert Hugo syntax definitions to `literal, role="hugosyntax"` blocks.

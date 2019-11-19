@@ -560,7 +560,7 @@ div.literalblock.hugosyntax div.content pre > sup.footnote a {
 <span id="email" class="email"><a href="mailto:general@generalcoffee.com">general@generalcoffee.com</a></span><br>
 <span id="revnumber">version 1,</span>
 <span id="revdate">2018-10-04</span>
-<br><span id="revremark">Draft 108 -- Porting to AsciiDoc</span>
+<br><span id="revremark">Draft 109 -- Porting to AsciiDoc</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -8408,9 +8408,9 @@ This is useful in case the <code>Parse</code> routine has changed the input line
 <p>The <code>ParseError</code> routine is called whenever a command is invalid.
 <code>ParseError</code> is called in the form:</p>
 </div>
-<div class="listingblock">
+<div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">ParseError(<span class="hl opt">&lt;</span>errornumber<span class="hl opt">&gt;</span>, <span class="hl opt">&lt;</span><span class="hl kwb">object</span><span class="hl opt">&gt;</span>)</code></pre>
+<pre>ParseError(&lt;errornumber&gt;, &lt;object&gt;)</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -8610,9 +8610,9 @@ Other than being non-false, the various values of <code>endflag</code> are insig
 For example, the child of a parent object may be available if the parent is a platform, but unavailable if the parent is a container (and closed)&#8201;&#8212;&#8201;although internally, the object hierarchy is the same.
 <code>FindObject</code> is called via:</p>
 </div>
-<div class="listingblock">
+<div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">FindObject(<span class="hl opt">&lt;</span><span class="hl kwb">object</span><span class="hl opt">&gt;</span>, <span class="hl opt">&lt;</span><span class="hl kwb">location</span><span class="hl opt">&gt;</span>)</code></pre>
+<pre>FindObject(&lt;object&gt;, &lt;location&gt;)</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -8680,9 +8680,9 @@ For example:</p>
 <p>It is up to the <code>SpeakTo</code> routine to properly interpret the instruction.
 <code>SpeakTo</code> is called via:</p>
 </div>
-<div class="listingblock">
+<div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">SpeakTo(<span class="hl opt">&lt;</span>character<span class="hl opt">&gt;</span>)</code></pre>
+<pre>SpeakTo(&lt;character&gt;)</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -8791,9 +8791,9 @@ If no response is provided, <code>order_response</code> should return false.</p>
 It is the responsibility of <code>Perform</code> to do the appropriate checking of <code>before</code> routines to determine if execution actually gets to the verbroutine.
 <code>Perform</code> is called as:</p>
 </div>
-<div class="listingblock">
+<div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">Perform(<span class="hl opt">&lt;</span><span class="hl kwb">verbroutine</span><span class="hl opt">&gt;</span>, <span class="hl opt">&lt;</span><span class="hl kwb">object</span><span class="hl opt">&gt;</span>, <span class="hl opt">&lt;</span><span class="hl kwb">xobject</span><span class="hl opt">&gt;</span>, <span class="hl opt">&lt;</span>queue<span class="hl opt">&gt;</span>, <span class="hl opt">&lt;</span>isxverb<span class="hl opt">&gt;</span>)</code></pre>
+<pre>Perform(&lt;verbroutine&gt;, &lt;object&gt;, &lt;xobject&gt;, &lt;queue&gt;, &lt;isxverb&gt;)</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -9117,17 +9117,17 @@ You should now understand how to create an <code>order_response</code> property 
 <p>It should be apparent how a game can implement custom versions of things like end-of-game behavior, parser messages, etc. without editing the library itself by using the compiler&#8217;s <code>replace</code> directive with library routines such as <code>EndGame</code> and <code>ParseError</code>.
 Most often, a programmer will copy the selected routine out of <strong>hugolib.h</strong> (or wherever it comes from) and paste it into the game&#8217;s source, changing (for instance):</p>
 </div>
-<div class="listingblock">
+<div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">routine</span> EndGame ...</code></pre>
+<pre>routine EndGame ...</pre>
 </div>
 </div>
 <div class="paragraph">
 <p>to</p>
 </div>
-<div class="listingblock">
+<div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">replace</span> EndGame ...</code></pre>
+<pre>replace EndGame ...</pre>
 </div>
 </div>
 <div class="paragraph">
