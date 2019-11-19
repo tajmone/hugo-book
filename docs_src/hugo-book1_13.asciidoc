@@ -18,11 +18,11 @@
 s| Description: a| Logical AND.
 
 s| Syntax: a|
-// @HUGO SYNTAX MOCKUP!
-[source,hugo]
--------------------------
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+............................
 x = <value1> and <value2>
--------------------------
+............................
 {blank}
 
 s| Result: a|
@@ -45,11 +45,11 @@ s| Description: a|
 When used as a data type modifier, specifies that the following value is to be treated as an array address.
 
 s| Example: a|
-// @HUGO SYNTAX MOCKUP!
-[source,hugo]
---------------------------
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+............................
 <var1> = array <var2>[<n>]
---------------------------
+............................
 
 The variable `<var2>` will be treated as an array address.
 
@@ -61,9 +61,9 @@ The variable `<var2>` will be treated as an array address.
 s| Description: a| Terminates the immediate enclosing loop.
 
 s| Example: a|
-// @HUGO SYNTAX MOCKUP!
-[source,hugo]
---------------------------
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+............................
 while <expression1>
 {
     while <expression2>
@@ -74,7 +74,7 @@ while <expression1>
     }
     ...
 }
---------------------------
+............................
 
 The `break` statement, if encountered, will terminate the innermost loop.
 
@@ -87,15 +87,19 @@ s| Description: a|
 Calls a routine indirectly, i.e., when the routine address has been stored in a variable, object property, etc.
 
 s| Syntax: a|
-// @HUGO SYNTAX MOCKUP!
-[source,hugo]
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+..................................
 call <value>[(<arg1>, <arg2>,...)]
+..................................
 
 or
 
-// @HUGO SYNTAX MOCKUP!
-[source,hugo]
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+............................
 x = call <value>(...)
+............................
 
 where `<value>` is a valid data type holding the routine address.
 
@@ -111,9 +115,11 @@ s| Description: a|
 Print statement modifier, indicating that the next word should be printed with the first letter capitalized.
 
 s| Syntax: a|
-// @HUGO SYNTAX MOCKUP!
-[source,hugo]
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+............................
 print capital <address>
+............................
 
 where `<address>` is any dictionary word, such as, for example, an `object.name` property.
 
@@ -126,15 +132,15 @@ where `<address>` is any dictionary word, such as, for example, an `object.name`
 s| Description: a| Specifies a conditional case in a select structure.
 
 s| Syntax: a|
-// @HUGO SYNTAX MOCKUP!
-[source,hugo]
--------------------------------
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+...............................
 select <val>
     case <case1>[, <case2>,...]
         ...
     case <case3>[, <case4>,...]
         ...
--------------------------------
+...............................
 
 where `<val>` is value such as a variable, routine return value, object property, array element, etc., and each `<case>` is a single value for comparison (not an expression).
 
@@ -144,11 +150,11 @@ where `<val>` is value such as a variable, routine return value, object property
 .2+| {blank}
 
 s| Syntax: a|
-// @HUGO SYNTAX MOCKUP!
-[source,hugo]
--------------------
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+............................
 x = child(<parent>)
--------------------
+............................
 {blank}
 
 s| Return{nbsp}value: a|
@@ -160,11 +166,11 @@ The object number of the immediate child object of `<parent>`, or 0 if `<parent>
 .2+| {blank}
 
 s| Syntax: a|
-// @HUGO SYNTAX MOCKUP!
-[source,hugo]
-----------------------
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+............................
 x = children(<parent>)
-----------------------
+............................
 {blank}
 
 s| Return{nbsp}value: a| The number of child objects possessed by `<parent>`.
@@ -178,11 +184,11 @@ s| Description: a|
 Clears the current text window repositions the output coordinates at the bottom left of the text window.
 
 s| Syntax: a|
-// @HUGO SYNTAX MOCKUP!
-[source,hugo]
-----------------------
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+............................
 cls
-----------------------
+............................
 {blank}
 
 // ****//   color   //****
@@ -193,11 +199,11 @@ cls
 s| Description: a| Sets the display colors for text output.
 
 s| Syntax: a|
-// @HUGO SYNTAX MOCKUP!
-[source,hugo]
-----------------------------------
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+..................................
 color <foreground>[, <background>]
-----------------------------------
+..................................
 
 where `<background>` is optional.
 
@@ -237,13 +243,13 @@ Standard color values for `<foreground>` and `<background>` with constants defin
 s| Description: a| Dynamically creates a new dictionary entry at runtime.
 
 s| Syntax: a|
-// @HUGO SYNTAX MOCKUP!
-[source,hugo]
-------------------------------
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+............................
 x = dict(<array>, <maxlen>)
 
 x = dict(parse$, <maxlen>)
-------------------------------
+............................
 
 where `<array>` or `parse$` holds the string to be written into the dictionary, and `<maxlen>` represents the maximum number of characters to be written. Returns the new dictionary address.
 
@@ -260,15 +266,15 @@ Space should be reserved for any dictionary entries to be created at runtime usi
 s| Description: a| Marks the starting point of a do-while loop.
 
 s| Syntax: a|
-// @HUGO SYNTAX MOCKUP!
-[source,hugo]
--------------
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+............................
 do
 {
     ...
 }
 while <expr>
--------------
+............................
 
 The loop will continue to run as long as `<expr>` holds true.
 
@@ -278,11 +284,11 @@ The loop will continue to run as long as `<expr>` holds true.
 .2+| {blank}
 
 s| Syntax: a|
-// @HUGO SYNTAX MOCKUP!
-[source,hugo]
-------------------------------
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+............................
 x = elder(<object>)
-------------------------------
+............................
 {blank}
 
 s| Return{nbsp}value: a|
@@ -305,14 +311,14 @@ s| Description: a|
 In an `if`-`elseif`-`else` conditional block, indicates the default operation if no previous condition has been met.
 
 s| Syntax: a|
-// @HUGO SYNTAX MOCKUP!
-[source,hugo]
-------------------------------
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+............................
 if <condition>
     ...
 else
     ...
-------------------------------
+............................
 {blank}
 
 // ****//   elseif   //****
@@ -324,16 +330,16 @@ s| Description: a|
 In an `if`-`elseif`-`else` conditional block, indicates a condition that will be checked only if no preceding condition has been met.
 
 s| Syntax: a|
-// @HUGO SYNTAX MOCKUP!
-[source,hugo]
--------------------
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+............................
 if <condition1>
     ...
 elseif <condition2>
     ...
 elseif <condition3>
     ...
--------------------
+............................
 {blank}
 
 // ****//   false   //****
@@ -351,23 +357,23 @@ s| Description: a| A predefined constant value: 0.
 s| Description: a| Loop construction.
 
 s| Syntax: a|
-// @HUGO SYNTAX MOCKUP!
-[source,hugo]
-------------------------------
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+..............................
 for (<initial>; <test>; <mod>)
 {
     ...
 }
-------------------------------
+..............................
 
-// @HUGO SYNTAX MOCKUP!
-[source,hugo]
-------------------------------
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+............................
 for <var> in <object>
 {
     ...
 }
-------------------------------
+............................
 
 For the first form, where `<initial>` is the initial assignment expression (e.g. `a = 1`), `<test>` is the test expression (e.g. `a < 10`), and `<mod>` is the modifying expression (e.g. `a = a + 1`).
 The loop will execute as long as `<test>` holds true.
@@ -391,11 +397,11 @@ s| Description: a|
 Print statement modifier signifying that the following value is not a dictionary address, but should be printed as a hexadecimal number.
 
 s| Syntax: a|
-// @HUGO SYNTAX MOCKUP!
-[source,hugo]
----------------
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+............................
 print hex <var>
----------------
+............................
 
 where, for example, `<var>` is equal to 26, will print "`1A`".
 
@@ -407,12 +413,12 @@ where, for example, `<var>` is equal to 26, will print "`1A`".
 s| Description: a| A conditional expression.
 
 s| Syntax: a|
-// @HUGO SYNTAX MOCKUP!
-[source,hugo]
-------------------------------
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+............................
 if <condition>
     ...
-------------------------------
+............................
 
 where `<condition>` is an expression or value, will run the following statement block only if `<condition>` is true.
 
@@ -426,22 +432,22 @@ When used in an object definition, places the object in the object tree as a pos
 When used in an expression, returns true if the object is in the specified parent.
 
 s| Syntax: a|
-// @HUGO SYNTAX MOCKUP!
-[source,hugo]
-------------------------------
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+............................
 in <parent>
-------------------------------
+............................
 
 or, for example:
 
-// @HUGO SYNTAX MOCKUP!
-[source,hugo]
-------------------------------
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+............................
 if <object> [not] in <parent>
 {
     ...
 }
-------------------------------
+............................
 {blank}
 
 // ****//   input   //****
@@ -454,9 +460,11 @@ Receive input from keyboard, storing the dictionary addresses of the individual 
 Unrecognized words are given a value of 0.
 
 s| Syntax: a|
-[source,hugo]
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+............................
 input
-
+............................
 {blank}
 
 // ****//   is   //****
@@ -467,10 +475,11 @@ input
 s| Description: a| Attribute assignment/testing.
 
 s| Syntax: a|
-// @HUGO SYNTAX MOCKUP!
-[source,hugo]
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+.............................
 <object> is [not] <attribute>
-
+.............................
 {blank}
 
 s| Usage: a|
@@ -489,16 +498,19 @@ Otherwise, it returns false.
 s| Description: a| Jumps to a specified label.
 
 s| Syntax: a|
-// @HUGO SYNTAX MOCKUP!
-[source,hugo]
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+............................
 jump <label>
+............................
 
 where a unique `<label>` exists on a separate line somewhere in the program, in the form:
 
-// @HUGO SYNTAX MOCKUP!
-[source,hugo]
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+............................
 :<label>
-
+............................
 {blank}
 
 // ****//   local   //****
@@ -509,10 +521,11 @@ where a unique `<label>` exists on a separate line somewhere in the program, in 
 s| Description: a| Defines one or more variables local to the current routine.
 
 s| Syntax: a|
-// @HUGO SYNTAX MOCKUP!
-[source,hugo]
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+..................................
 local <var1>[, <var2>, <var3>,...]
-
+..................................
 {blank}
 
 // ****//   locate   //****
@@ -523,11 +536,11 @@ local <var1>[, <var2>, <var3>,...]
 s| Description: a| Sets the cursor position within the current text window.
 
 s| Syntax: a|
-// @HUGO SYNTAX MOCKUP!
-[source,hugo]
------------------------
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+............................
 locate(<row>, <column>)
------------------------
+............................
 {blank}
 
 s| Note: a|
@@ -542,11 +555,11 @@ The cursor position is calculated in fixed-width character coordinates.
 s| Description: a| Moves an object with all its possessions to a new parent.
 
 s| Syntax: a|
-// @HUGO SYNTAX MOCKUP!
-[source,hugo]
-------------------------------
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+.............................
 move <object> to <new parent>
-------------------------------
+.............................
 {blank}
 
 // ****//   multi   //****
@@ -581,12 +594,12 @@ Object specifier in grammar syntax line, indicating that multiple objects explic
 s| Description: a| Load and play a music resource (if audio output is available).
 
 s| Syntax: a|
-// @HUGO SYNTAX MOCKUP!
-[source,hugo]
-------------------------------
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+....................................
 music [repeat] "file", "song"[, vol]
 music 0
-------------------------------
+....................................
 
 where `<file>` is a compiled Hugo resourcefile, and `<song>` is a music module in MOD, S3M, or XM format.
 The optional `<vol>` argument, if given, ranges from 0 to 100 and gives a percentage of volume for playback.
@@ -601,18 +614,19 @@ s| Description: a|
 Used in an object definition to place the object in the specified position in the object tree.
 
 s| Syntax: a|
-// @HUGO SYNTAX MOCKUP!
-[source,hugo]
-------------------------------
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+............................
 nearby <object>
-------------------------------
+............................
 
 Gives the current object the same parent as `<object>`.
 
-[source,hugo]
-------------------------------
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+............................
 nearby
-------------------------------
+............................
 
 Gives the current object the same parent as the last-defined object.
 
@@ -625,10 +639,11 @@ s| Description: a|
 Print statement modifier, indicating that a line feed and carriage return should be issued if the current output position is not already at the start of a blank line.
 
 s| Syntax: a|
-[source,hugo]
-------------------------------
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+............................
 print newline
-------------------------------
+............................
 {blank}
 
 // ****//   not   //****
@@ -639,17 +654,17 @@ print newline
 s| Description: a| Logical not.
 
 s| Syntax: a|
-// @HUGO SYNTAX MOCKUP!
-[source,hugo]
-------------------------------
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+............................
 x = not <value>
-------------------------------
+............................
 
-// @HUGO SYNTAX MOCKUP!
-[source,hugo]
-------------------------------
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+............................
 <object> is not <attribute>
-------------------------------
+............................
 {blank}
 
 s| Result: a|
@@ -679,11 +694,11 @@ When used as a `print` statement modifier, indicates that the following value is
 s| Syntax: a|
 (for usage as a `print` statement modifier)
 
-// @HUGO SYNTAX MOCKUP!
-[source,hugo]
-------------------
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+............................
 print number <val>
-------------------
+............................
 
 where, for example, `<val>` is equal to 100, will print "`100`" instead of the word beginning at the address 100 in the dictionary table.
 
@@ -705,11 +720,11 @@ When used in a grammar syntax line, indicates that a single available object is 
 s| Description: a| Logical OR.
 
 s| Syntax: a|
-// @HUGO SYNTAX MOCKUP!
-[source,hugo]
-------------------------------
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+............................
 x = <value1> or <value2>
-------------------------------
+............................
 {blank}
 
 s| Result: a|
@@ -722,11 +737,11 @@ s| Result: a|
 
 2+d| (Usage 1)
 s| Syntax: a|
-// @HUGO SYNTAX MOCKUP!
-[source,hugo]
-------------------------------
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+............................
 x = parent(<object>)
-------------------------------
+............................
 {blank}
 
 s| Return{nbsp}value: a|
@@ -762,12 +777,12 @@ s| Description: a|
 Load and display an image resource in the currently defined window (if graphics are available).
 
 s| Syntax: a|
-// @HUGO SYNTAX MOCKUP!
-[source,hugo]
--------------------------------------
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+.....................................
 picture "<resourcefile>", "<picture>"
 picture "<picturefile>"
--------------------------------------
+.....................................
 
 where, while `<resourcefile>` is optional, it is very highly recommended (otherwise, `<picturefile>` will likely not be named in a cross-platform portable format).
 
@@ -780,9 +795,11 @@ s| Description: a|
 Plays back recorded commands from a file in place of keyboard input (by prompting the user).
 
 s| Syntax: a|
-[source,hugo]
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+............................
 x = playback
-
+............................
 {blank}
 
 s| Return{nbsp}value: a| True if successful, false if not.
@@ -795,9 +812,11 @@ s| Return{nbsp}value: a| True if successful, false if not.
 s| Description: a| Print text output.
 
 s| Syntax: a|
-// @HUGO SYNTAX MOCKUP!
-[source,hugo]
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+............................
 print <output>
+............................
 
 // @EDITED TYPO: (documented & waiting approval: Issue #28)
 //  "both TEST strings" --> "both TEXT strings"
@@ -815,10 +834,11 @@ Prints a character or series of characters at the current cursor position.
 No newline is printed.
 
 s| Syntax: a|
-// @HUGO SYNTAX MOCKUP!
-[source,hugo]
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+..............................
 printchar <val1>[, <val2>,...]
-
+..............................
 {blank}
 
 // ****//   quit   //****
@@ -829,9 +849,11 @@ printchar <val1>[, <val2>,...]
 s| Description: a| Terminates the game loop.
 
 s| Syntax: a|
-[source,hugo]
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+............................
 quit
-
+............................
 {blank}
 
 // ****//   random   //****
@@ -842,10 +864,11 @@ quit
 s| Description: a| Engine function which generates a random number.
 
 s| Syntax: a|
-// @HUGO SYNTAX MOCKUP!
-[source,hugo]
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+............................
 x = random(<val>)
-
+............................
 {blank}
 
 s| Return{nbsp}value: a|
@@ -860,14 +883,14 @@ s| Description: a|
 A structure that allows values to be read from a file written using `writefile`.
 
 s| Syntax: a|
-// @HUGO SYNTAX MOCKUP!
-[source,hugo]
-------------------------------
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+............................
 readfile <filename>
 {
     ...
 }
-------------------------------
+............................
 
 The file is opened and positioned to the start at the beginning of the `readfile` block, and closed at the end.
 
@@ -879,9 +902,11 @@ The file is opened and positioned to the start at the beginning of the `readfile
 s| Description: a| Reads a value in a `readfile` block.
 
 s| Syntax: a|
-[source,hugo]
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+............................
 x = readval
-
+............................
 {blank}
 
 s| Value: a|
@@ -897,9 +922,11 @@ Use the `FILE_CHECK` constant defined in *hugolib.h* to determine if a `readfile
 s| Description: a| Ends recording commands to a file.
 
 s| Syntax: a|
-[source,hugo]
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+............................
 x = recordoff
-
+............................
 {blank}
 
 s| Value: a| True if successful, false if not.
@@ -913,9 +940,11 @@ s| Description: a|
 Begins recording commands to a file (by prompting the user).
 
 s| Syntax: a|
-[source,hugo]
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+............................
 x = recordon
-
+............................
 {blank}
 
 s| Value: a| True if successful, false if not.
@@ -928,8 +957,11 @@ s| Value: a| True if successful, false if not.
 s| Description: a| Removes an object from the object tree.
 
 s| Syntax: a|
-[source,hugo]
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+............................
 remove <object>
+............................
 
 (The same as: `move <object> to 0`)
 
@@ -942,9 +974,11 @@ s| Description: a|
 Reloads the initial game data from the *.HEX* file and calls the `Init` routine.
 
 s| Syntax: a|
-[source,hugo]
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+............................
 x = restart
-
+............................
 {blank}
 
 s| Note: a|
@@ -961,9 +995,11 @@ s| Description: a|
 Restores a saved game's state data from a previously saved file (by prompting the user).
 
 s| Syntax: a|
-[source,hugo]
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+............................
 x = restore
-
+............................
 {blank}
 
 s| Value: a| True if successful, false if not.
@@ -976,9 +1012,11 @@ s| Value: a| True if successful, false if not.
 s| Description: a| Returns from a called routine.
 
 s| Syntax: a|
-// @HUGO SYNTAX MOCKUP!
-[source,hugo]
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+............................
 return [<expression>]
+............................
 
 {blank}
 
@@ -993,10 +1031,11 @@ Returns `<expression>` if provided, otherwise returns false.
 s| Description: a| Runs an object property routine if one exists.
 
 s| Syntax: a|
-// @HUGO SYNTAX MOCKUP!
-[source,hugo]
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+............................
 run <object>.<property>
-
+............................
 {blank}
 
 s| Return{nbsp}value: a|
@@ -1011,9 +1050,11 @@ s| Description: a|
 Calls all events which are either global or currently within the event scope of the player object.
 
 s| Syntax: a|
-[source,hugo]
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+............................
 runevents
-
+............................
 {blank}
 
 // ****//   save   //****
@@ -1024,9 +1065,11 @@ runevents
 s| Description: a| Saves the current game state to a file (by prompting the user).
 
 s| Syntax: a|
-[source,hugo]
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+............................
 x = save
-
+............................
 {blank}
 
 s| Value: a| True if successful, false if not.
@@ -1039,8 +1082,11 @@ s| Value: a| True if successful, false if not.
 s| Description: a| Turns transcription off.
 
 s| Syntax: a|
-[source,hugo]
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+............................
 x = scriptoff
+............................
 
 {blank}
 
@@ -1055,9 +1101,11 @@ s| Description: a|
 Turns transcription (i.e., recording output to a file or to a printer) on.
 
 s| Syntax: a|
-[source,hugo]
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+............................
 x = scripton
-
+............................
 {blank}
 
 s| Value: a| True if successful, false if not.
@@ -1070,16 +1118,15 @@ s| Value: a| True if successful, false if not.
 s| Description: a|
 Specifies the value for comparison in a `select`-`case` conditional structure.
 
-s| Syntax: a|
-// @HUGO SYNTAX MOCKUP!
-[source,hugo]
-------------------------------
+s| Syntax: a|// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+...............................
 select <val>
     case <case1>[, <case2>,...]
         ...
     case <case3>[, <case4>,...]
         ...
-------------------------------
+...............................
 
 where `<val>` is value such as a variable, routine return value, object property, array element, etc., and each `<case>` is a single value for comparison (not an expression).
 
@@ -1097,9 +1144,11 @@ Read-only engine variable that contains the serial number as written by the comp
 .2+| {blank}
 
 s| Syntax: a|
-// @HUGO SYNTAX MOCKUP!
-[source,hugo]
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+............................
 x = sibling(<object>)
+............................
 
 {blank}
 
@@ -1115,10 +1164,12 @@ s| Description: a|
 Load and play an audio sample resource (if waveform audio output is available).
 
 s| Syntax: a|
-// @HUGO SYNTAX MOCKUP!
-[source,hugo]
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+......................................
 sound [repeat] "file", "sample"[, vol]
 sound 0
+......................................
 
 where `<file>` is a compiled Hugo resourcefile, and `<sample>` is a waveform sample in RIFF/WAV format.
 The optional `<vol>` argument, if given, ranges from 0 to 100 and gives a percentage of volume for playback.
@@ -1135,10 +1186,12 @@ When used in a grammar syntax line, indicates that a string array enclosed in qu
 When used as a function, stores a dictionary entry in a string array.
 
 s| Syntax: a|
-// @HUGO SYNTAX MOCKUP!
-[source,hugo]
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+.....................................
 x = string(<array>, <dict>, <maxlen>)
 x = string(<array>, parse$, <maxlen>)
+.....................................
 
 where `<array>` is an array address, stores the either the dictionary entry given by `<dict>` or the contents of `parse$` as a series of characters, to a maximum of `<maxlen>` characters.
 Returns the length of the string stored in `<array>`.
@@ -1151,9 +1204,11 @@ Returns the length of the string stored in `<array>`.
 s| Description: a| Built-in function to call low-level system functions.
 
 s| Syntax: a|
-// @HUGO SYNTAX MOCKUP!
-[source,hugo]
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+............................
 system(<function>)
+............................
 
 [cols=">m,<m,<a",options=autowidth,grid=none,stripes=even]
 !=====================================
@@ -1193,9 +1248,11 @@ s| Description: a|
 In a `print` statement, prints blank spaces in the current background color to the specified position.
 
 s| Syntax: a|
-// @HUGO SYNTAX MOCKUP!
-[source,hugo]
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+............................
 print to <val>
+............................
 
 where `<val>` is a positive integer less than or equal to the maximum column position
 
@@ -1215,9 +1272,11 @@ s| Description: a|
 Attempts to recover the state of the game data before the last player command.
 
 s| Syntax: a|
-[source,hugo]
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+............................
 x = undo
-
+............................
 {blank}
 
 s| Value: a| True if successful, false if not.
@@ -1232,9 +1291,11 @@ Begins definition of a regular verb.
 Upon returning true from the verb routine, `Main` is called.
 
 s| Syntax: a|
-[source,hugo]
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+............................
 verb "<word1>"[, "<word2>",...]
-
+............................
 {blank}
 
 // ****//   while   //****
@@ -1244,27 +1305,26 @@ verb "<word1>"[, "<word2>",...]
 
 s| Description: a| Component of `while` or `do`-`while` loop construct.
 
-s| Syntax: a|
-// @HUGO SYNTAX MOCKUP!
-[source,hugo]
-------------------------------
+s| Syntax: a|// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+............................
 while <expr>
 {
     ...
 }
-------------------------------
+............................
 
 or
 
-// @HUGO SYNTAX MOCKUP!
-[source,hugo]
-------------------------------
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+............................
 do
 {
     ...
 }
 while <expr>
-------------------------------
+............................
 
 where the loop will run as long as `<expr>` holds true.
 
@@ -1276,52 +1336,32 @@ where the loop will run as long as `<expr>` holds true.
 s| Description: a| Switches output to the status window.
 
 s| Syntax: a|
-// @HUGO SYNTAX MOCKUP!
-[source,hugo]
-------------------------------
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+............................
 window a[, b, c, d]
     {...}
-------------------------------
+............................
 
 or
 
-// @HUGO SYNTAX MOCKUP!
-[source,hugo]
-------------------------------
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+............................
 window
     {...}
-------------------------------
+............................
 
 or
-// @HUGO SYNTAX MOCKUP!
-[source,hugo]
-window 0
 
-If only a single value `<a>` is given, a window of `<a>` lines from the top of the screen is created.
-If more values are given, a window from top-left (`a`, `b`) to bottom-right (`c`, `d`) is created.
-If no values are given, the last-defined window is recreated.
-The new boundaries apply for the length of the following `{...}` code block.
-
-`window 0` restores full-screen display.
-There is no following code block.
-
-// ****//   writefile   //****
-
-3+<.^| [.big]#writefile#
-.2+| {blank}
-
-s| Description: a|
-A structure that writes values to a file that may be read using `readfile`.
-
-s| Syntax: a|
-// @HUGO SYNTAX MOCKUP!
-[source,hugo]
-------------------------------
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+............................
 writefile <filename>
 {
     ...
 }
-------------------------------
+............................
 
 The file is opened and positioned to the start at the beginning of the `writefile` block, and closed at the end.
 
@@ -1333,10 +1373,11 @@ The file is opened and positioned to the start at the beginning of the `writefil
 s| Description: a| Writes one or more values in a `writefile` block.
 
 s| Syntax: a|
-// @HUGO SYNTAX MOCKUP!
-[source,hugo]
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+...............................
 writefile value1[, value2, ...]
-
+...............................
 {blank}
 
 // ****//   xobject   //****
@@ -1359,10 +1400,11 @@ Begins definition of non-action verb.
 Upon returning from the verb routine, `Main` is not called.
 
 s| Syntax: a|
-// @HUGO SYNTAX MOCKUP!
-[source,hugo]
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+.................................
 xverb "<word1>"[, "<word2>", ...]
-
+.................................
 {blank}
 
 // ****//   younger   //****
@@ -1378,10 +1420,11 @@ xverb "<word1>"[, "<word2>", ...]
 .2+| {blank}
 
 s| Syntax: a|
-// @HUGO SYNTAX MOCKUP!
-[source,hugo]
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+............................
 x = youngest(<parent>)
-
+............................
 {blank}
 
 s| Return{nbsp}value: a|

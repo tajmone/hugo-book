@@ -560,7 +560,7 @@ div.literalblock.hugosyntax div.content pre > sup.footnote a {
 <span id="email" class="email"><a href="mailto:general@generalcoffee.com">general@generalcoffee.com</a></span><br>
 <span id="revnumber">version 1,</span>
 <span id="revdate">2018-10-04</span>
-<br><span id="revremark">Draft 112 -- Porting to AsciiDoc</span>
+<br><span id="revremark">Draft 113 -- Porting to AsciiDoc</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -10498,9 +10498,9 @@ In combination with the <code>repeat</code> token, this is useful for creating b
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Syntax:</strong></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<td class="tableblock halign-left valign-top"><div class="content"><div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">x = &lt;value1&gt; and &lt;value2&gt;</code></pre>
+<pre>x = &lt;value1&gt; and &lt;value2&gt;</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -10535,9 +10535,9 @@ In combination with the <code>repeat</code> token, this is useful for creating b
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Example:</strong></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<td class="tableblock halign-left valign-top"><div class="content"><div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">&lt;var1&gt; = array &lt;var2&gt;[&lt;n&gt;]</code></pre>
+<pre>&lt;var1&gt; = array &lt;var2&gt;[&lt;n&gt;]</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -10556,9 +10556,18 @@ In combination with the <code>repeat</code> token, this is useful for creating b
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Example:</strong></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<td class="tableblock halign-left valign-top"><div class="content"><div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">while &lt;expression1&gt;&#x000A;{&#x000A;    while &lt;expression2&gt;&#x000A;    {&#x000A;        if &lt;expression3&gt;&#x000A;        break&#x000A;        ...&#x000A;    }&#x000A;    ...&#x000A;}</code></pre>
+<pre>while &lt;expression1&gt;
+{
+    while &lt;expression2&gt;
+    {
+        if &lt;expression3&gt;
+        break
+        ...
+    }
+    ...
+}</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -10577,17 +10586,17 @@ In combination with the <code>repeat</code> token, this is useful for creating b
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Syntax:</strong></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<td class="tableblock halign-left valign-top"><div class="content"><div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">call &lt;value&gt;[(&lt;arg1&gt;, &lt;arg2&gt;,...)]</code></pre>
+<pre>call &lt;value&gt;[(&lt;arg1&gt;, &lt;arg2&gt;,...)]</pre>
 </div>
 </div>
 <div class="paragraph">
 <p>or</p>
 </div>
-<div class="listingblock">
+<div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">x = call &lt;value&gt;(...)</code></pre>
+<pre>x = call &lt;value&gt;(...)</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -10612,9 +10621,9 @@ In combination with the <code>repeat</code> token, this is useful for creating b
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Syntax:</strong></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<td class="tableblock halign-left valign-top"><div class="content"><div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">print capital &lt;address&gt;</code></pre>
+<pre>print capital &lt;address&gt;</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -10633,9 +10642,13 @@ In combination with the <code>repeat</code> token, this is useful for creating b
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Syntax:</strong></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<td class="tableblock halign-left valign-top"><div class="content"><div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">select &lt;val&gt;&#x000A;    case &lt;case1&gt;[, &lt;case2&gt;,...]&#x000A;        ...&#x000A;    case &lt;case3&gt;[, &lt;case4&gt;,...]&#x000A;        ...</code></pre>
+<pre>select &lt;val&gt;
+    case &lt;case1&gt;[, &lt;case2&gt;,...]
+        ...
+    case &lt;case3&gt;[, &lt;case4&gt;,...]
+        ...</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -10648,9 +10661,9 @@ In combination with the <code>repeat</code> token, this is useful for creating b
 <tr>
 <td class="tableblock halign-left valign-top" rowspan="2"></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Syntax:</strong></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<td class="tableblock halign-left valign-top"><div class="content"><div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">x = child(&lt;parent&gt;)</code></pre>
+<pre>x = child(&lt;parent&gt;)</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -10669,9 +10682,9 @@ In combination with the <code>repeat</code> token, this is useful for creating b
 <tr>
 <td class="tableblock halign-left valign-top" rowspan="2"></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Syntax:</strong></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<td class="tableblock halign-left valign-top"><div class="content"><div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">x = children(&lt;parent&gt;)</code></pre>
+<pre>x = children(&lt;parent&gt;)</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -10696,9 +10709,9 @@ In combination with the <code>repeat</code> token, this is useful for creating b
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Syntax:</strong></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<td class="tableblock halign-left valign-top"><div class="content"><div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">cls</code></pre>
+<pre>cls</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -10717,9 +10730,9 @@ In combination with the <code>repeat</code> token, this is useful for creating b
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Syntax:</strong></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<td class="tableblock halign-left valign-top"><div class="content"><div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">color &lt;foreground&gt;[, &lt;background&gt;]</code></pre>
+<pre>color &lt;foreground&gt;[, &lt;background&gt;]</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -10836,9 +10849,11 @@ In combination with the <code>repeat</code> token, this is useful for creating b
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Syntax:</strong></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<td class="tableblock halign-left valign-top"><div class="content"><div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">x = dict(&lt;array&gt;, &lt;maxlen&gt;)&#x000A;&#x000A;x = dict(parse$, &lt;maxlen&gt;)</code></pre>
+<pre>x = dict(&lt;array&gt;, &lt;maxlen&gt;)
+
+x = dict(parse$, &lt;maxlen&gt;)</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -10871,9 +10886,13 @@ In combination with the <code>repeat</code> token, this is useful for creating b
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Syntax:</strong></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<td class="tableblock halign-left valign-top"><div class="content"><div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">do&#x000A;{&#x000A;    ...&#x000A;}&#x000A;while &lt;expr&gt;</code></pre>
+<pre>do
+{
+    ...
+}
+while &lt;expr&gt;</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -10886,9 +10905,9 @@ In combination with the <code>repeat</code> token, this is useful for creating b
 <tr>
 <td class="tableblock halign-left valign-top" rowspan="2"></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Syntax:</strong></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<td class="tableblock halign-left valign-top"><div class="content"><div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">x = elder(&lt;object&gt;)</code></pre>
+<pre>x = elder(&lt;object&gt;)</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -10921,9 +10940,12 @@ The reverse of <code>sibling</code>.</p>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Syntax:</strong></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<td class="tableblock halign-left valign-top"><div class="content"><div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">if &lt;condition&gt;&#x000A;    ...&#x000A;else&#x000A;    ...</code></pre>
+<pre>if &lt;condition&gt;
+    ...
+else
+    ...</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -10942,9 +10964,14 @@ The reverse of <code>sibling</code>.</p>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Syntax:</strong></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<td class="tableblock halign-left valign-top"><div class="content"><div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">if &lt;condition1&gt;&#x000A;    ...&#x000A;elseif &lt;condition2&gt;&#x000A;    ...&#x000A;elseif &lt;condition3&gt;&#x000A;    ...</code></pre>
+<pre>if &lt;condition1&gt;
+    ...
+elseif &lt;condition2&gt;
+    ...
+elseif &lt;condition3&gt;
+    ...</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -10973,14 +11000,20 @@ The reverse of <code>sibling</code>.</p>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Syntax:</strong></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<td class="tableblock halign-left valign-top"><div class="content"><div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">for (&lt;initial&gt;; &lt;test&gt;; &lt;mod&gt;)&#x000A;{&#x000A;    ...&#x000A;}</code></pre>
+<pre>for (&lt;initial&gt;; &lt;test&gt;; &lt;mod&gt;)
+{
+    ...
+}</pre>
 </div>
 </div>
-<div class="listingblock">
+<div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">for &lt;var&gt; in &lt;object&gt;&#x000A;{&#x000A;    ...&#x000A;}</code></pre>
+<pre>for &lt;var&gt; in &lt;object&gt;
+{
+    ...
+}</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -11013,9 +11046,9 @@ The loop will execute as long as <code>&lt;test&gt;</code> holds true.</p>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Syntax:</strong></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<td class="tableblock halign-left valign-top"><div class="content"><div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">print hex &lt;var&gt;</code></pre>
+<pre>print hex &lt;var&gt;</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -11034,9 +11067,10 @@ The loop will execute as long as <code>&lt;test&gt;</code> holds true.</p>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Syntax:</strong></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<td class="tableblock halign-left valign-top"><div class="content"><div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">if &lt;condition&gt;&#x000A;    ...</code></pre>
+<pre>if &lt;condition&gt;
+    ...</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -11056,17 +11090,20 @@ When used in an expression, returns true if the object is in the specified paren
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Syntax:</strong></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<td class="tableblock halign-left valign-top"><div class="content"><div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">in &lt;parent&gt;</code></pre>
+<pre>in &lt;parent&gt;</pre>
 </div>
 </div>
 <div class="paragraph">
 <p>or, for example:</p>
 </div>
-<div class="listingblock">
+<div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">if &lt;object&gt; [not] in &lt;parent&gt;&#x000A;{&#x000A;    ...&#x000A;}</code></pre>
+<pre>if &lt;object&gt; [not] in &lt;parent&gt;
+{
+    ...
+}</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -11086,9 +11123,9 @@ Unrecognized words are given a value of 0.</p>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Syntax:</strong></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<td class="tableblock halign-left valign-top"><div class="content"><div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">input</code></pre>
+<pre>input</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -11107,9 +11144,9 @@ Unrecognized words are given a value of 0.</p>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Syntax:</strong></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<td class="tableblock halign-left valign-top"><div class="content"><div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">&lt;object&gt; is [not] &lt;attribute&gt;</code></pre>
+<pre>&lt;object&gt; is [not] &lt;attribute&gt;</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -11142,17 +11179,17 @@ Otherwise, it returns false.</p>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Syntax:</strong></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<td class="tableblock halign-left valign-top"><div class="content"><div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">jump &lt;label&gt;</code></pre>
+<pre>jump &lt;label&gt;</pre>
 </div>
 </div>
 <div class="paragraph">
 <p>where a unique <code>&lt;label&gt;</code> exists on a separate line somewhere in the program, in the form:</p>
 </div>
-<div class="listingblock">
+<div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">:&lt;label&gt;</code></pre>
+<pre>:&lt;label&gt;</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -11171,9 +11208,9 @@ Otherwise, it returns false.</p>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Syntax:</strong></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<td class="tableblock halign-left valign-top"><div class="content"><div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">local &lt;var1&gt;[, &lt;var2&gt;, &lt;var3&gt;,...]</code></pre>
+<pre>local &lt;var1&gt;[, &lt;var2&gt;, &lt;var3&gt;,...]</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -11192,9 +11229,9 @@ Otherwise, it returns false.</p>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Syntax:</strong></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<td class="tableblock halign-left valign-top"><div class="content"><div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">locate(&lt;row&gt;, &lt;column&gt;)</code></pre>
+<pre>locate(&lt;row&gt;, &lt;column&gt;)</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -11220,9 +11257,9 @@ The cursor position is calculated in fixed-width character coordinates.</p>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Syntax:</strong></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<td class="tableblock halign-left valign-top"><div class="content"><div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">move &lt;object&gt; to &lt;new parent&gt;</code></pre>
+<pre>move &lt;object&gt; to &lt;new parent&gt;</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -11271,9 +11308,10 @@ The cursor position is calculated in fixed-width character coordinates.</p>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Syntax:</strong></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<td class="tableblock halign-left valign-top"><div class="content"><div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">music [repeat] "file", "song"[, vol]&#x000A;music 0</code></pre>
+<pre>music [repeat] "file", "song"[, vol]
+music 0</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -11294,17 +11332,17 @@ If the <code>repeat</code> token is used, the song continues to loop until eithe
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Syntax:</strong></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<td class="tableblock halign-left valign-top"><div class="content"><div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">nearby &lt;object&gt;</code></pre>
+<pre>nearby &lt;object&gt;</pre>
 </div>
 </div>
 <div class="paragraph">
 <p>Gives the current object the same parent as <code>&lt;object&gt;</code>.</p>
 </div>
-<div class="listingblock">
+<div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">nearby</code></pre>
+<pre>nearby</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -11323,9 +11361,9 @@ If the <code>repeat</code> token is used, the song continues to loop until eithe
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Syntax:</strong></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<td class="tableblock halign-left valign-top"><div class="content"><div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">print newline</code></pre>
+<pre>print newline</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -11344,14 +11382,14 @@ If the <code>repeat</code> token is used, the song continues to loop until eithe
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Syntax:</strong></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<td class="tableblock halign-left valign-top"><div class="content"><div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">x = not &lt;value&gt;</code></pre>
+<pre>x = not &lt;value&gt;</pre>
 </div>
 </div>
-<div class="listingblock">
+<div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">&lt;object&gt; is not &lt;attribute&gt;</code></pre>
+<pre>&lt;object&gt; is not &lt;attribute&gt;</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -11396,9 +11434,9 @@ As part of an expression, it will return true only if <code>&lt;object&gt;</code
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>(for usage as a <code>print</code> statement modifier)</p>
 </div>
-<div class="listingblock">
+<div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">print number &lt;val&gt;</code></pre>
+<pre>print number &lt;val&gt;</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -11430,9 +11468,9 @@ As part of an expression, it will return true only if <code>&lt;object&gt;</code
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Syntax:</strong></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<td class="tableblock halign-left valign-top"><div class="content"><div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">x = &lt;value1&gt; or &lt;value2&gt;</code></pre>
+<pre>x = &lt;value1&gt; or &lt;value2&gt;</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -11454,9 +11492,9 @@ As part of an expression, it will return true only if <code>&lt;object&gt;</code
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Syntax:</strong></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<td class="tableblock halign-left valign-top"><div class="content"><div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">x = parent(&lt;object&gt;)</code></pre>
+<pre>x = parent(&lt;object&gt;)</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -11511,9 +11549,10 @@ The value of the key is stored in <code>word[0]</code>.</p>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Syntax:</strong></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<td class="tableblock halign-left valign-top"><div class="content"><div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">picture "&lt;resourcefile&gt;", "&lt;picture&gt;"&#x000A;picture "&lt;picturefile&gt;"</code></pre>
+<pre>picture "&lt;resourcefile&gt;", "&lt;picture&gt;"
+picture "&lt;picturefile&gt;"</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -11532,9 +11571,9 @@ The value of the key is stored in <code>word[0]</code>.</p>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Syntax:</strong></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<td class="tableblock halign-left valign-top"><div class="content"><div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">x = playback</code></pre>
+<pre>x = playback</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -11559,9 +11598,9 @@ The value of the key is stored in <code>word[0]</code>.</p>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Syntax:</strong></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<td class="tableblock halign-left valign-top"><div class="content"><div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">print &lt;output&gt;</code></pre>
+<pre>print &lt;output&gt;</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -11583,9 +11622,9 @@ No newline is printed.</p>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Syntax:</strong></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<td class="tableblock halign-left valign-top"><div class="content"><div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">printchar &lt;val1&gt;[, &lt;val2&gt;,...]</code></pre>
+<pre>printchar &lt;val1&gt;[, &lt;val2&gt;,...]</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -11604,9 +11643,9 @@ No newline is printed.</p>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Syntax:</strong></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<td class="tableblock halign-left valign-top"><div class="content"><div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">quit</code></pre>
+<pre>quit</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -11625,9 +11664,9 @@ No newline is printed.</p>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Syntax:</strong></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<td class="tableblock halign-left valign-top"><div class="content"><div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">x = random(&lt;val&gt;)</code></pre>
+<pre>x = random(&lt;val&gt;)</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -11652,9 +11691,12 @@ No newline is printed.</p>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Syntax:</strong></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<td class="tableblock halign-left valign-top"><div class="content"><div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">readfile &lt;filename&gt;&#x000A;{&#x000A;    ...&#x000A;}</code></pre>
+<pre>readfile &lt;filename&gt;
+{
+    ...
+}</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -11673,9 +11715,9 @@ No newline is printed.</p>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Syntax:</strong></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<td class="tableblock halign-left valign-top"><div class="content"><div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">x = readval</code></pre>
+<pre>x = readval</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -11701,9 +11743,9 @@ Use the <code>FILE_CHECK</code> constant defined in <strong>hugolib.h</strong> t
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Syntax:</strong></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<td class="tableblock halign-left valign-top"><div class="content"><div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">x = recordoff</code></pre>
+<pre>x = recordoff</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -11728,9 +11770,9 @@ Use the <code>FILE_CHECK</code> constant defined in <strong>hugolib.h</strong> t
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Syntax:</strong></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<td class="tableblock halign-left valign-top"><div class="content"><div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">x = recordon</code></pre>
+<pre>x = recordon</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -11755,9 +11797,9 @@ Use the <code>FILE_CHECK</code> constant defined in <strong>hugolib.h</strong> t
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Syntax:</strong></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<td class="tableblock halign-left valign-top"><div class="content"><div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">remove &lt;object&gt;</code></pre>
+<pre>remove &lt;object&gt;</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -11776,9 +11818,9 @@ Use the <code>FILE_CHECK</code> constant defined in <strong>hugolib.h</strong> t
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Syntax:</strong></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<td class="tableblock halign-left valign-top"><div class="content"><div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">x = restart</code></pre>
+<pre>x = restart</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -11809,9 +11851,9 @@ Use the <code>FILE_CHECK</code> constant defined in <strong>hugolib.h</strong> t
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Syntax:</strong></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<td class="tableblock halign-left valign-top"><div class="content"><div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">x = restore</code></pre>
+<pre>x = restore</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -11836,9 +11878,9 @@ Use the <code>FILE_CHECK</code> constant defined in <strong>hugolib.h</strong> t
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Syntax:</strong></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<td class="tableblock halign-left valign-top"><div class="content"><div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">return [&lt;expression&gt;]</code></pre>
+<pre>return [&lt;expression&gt;]</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -11863,9 +11905,9 @@ Use the <code>FILE_CHECK</code> constant defined in <strong>hugolib.h</strong> t
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Syntax:</strong></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<td class="tableblock halign-left valign-top"><div class="content"><div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">run &lt;object&gt;.&lt;property&gt;</code></pre>
+<pre>run &lt;object&gt;.&lt;property&gt;</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -11890,9 +11932,9 @@ Use the <code>FILE_CHECK</code> constant defined in <strong>hugolib.h</strong> t
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Syntax:</strong></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<td class="tableblock halign-left valign-top"><div class="content"><div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">runevents</code></pre>
+<pre>runevents</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -11911,9 +11953,9 @@ Use the <code>FILE_CHECK</code> constant defined in <strong>hugolib.h</strong> t
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Syntax:</strong></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<td class="tableblock halign-left valign-top"><div class="content"><div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">x = save</code></pre>
+<pre>x = save</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -11938,9 +11980,9 @@ Use the <code>FILE_CHECK</code> constant defined in <strong>hugolib.h</strong> t
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Syntax:</strong></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<td class="tableblock halign-left valign-top"><div class="content"><div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">x = scriptoff</code></pre>
+<pre>x = scriptoff</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -11965,9 +12007,9 @@ Use the <code>FILE_CHECK</code> constant defined in <strong>hugolib.h</strong> t
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Syntax:</strong></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<td class="tableblock halign-left valign-top"><div class="content"><div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">x = scripton</code></pre>
+<pre>x = scripton</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -11992,9 +12034,13 @@ Use the <code>FILE_CHECK</code> constant defined in <strong>hugolib.h</strong> t
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Syntax:</strong></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<td class="tableblock halign-left valign-top"><div class="content"><div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">select &lt;val&gt;&#x000A;    case &lt;case1&gt;[, &lt;case2&gt;,...]&#x000A;        ...&#x000A;    case &lt;case3&gt;[, &lt;case4&gt;,...]&#x000A;        ...</code></pre>
+<pre>select &lt;val&gt;
+    case &lt;case1&gt;[, &lt;case2&gt;,...]
+        ...
+    case &lt;case3&gt;[, &lt;case4&gt;,...]
+        ...</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -12017,9 +12063,9 @@ Use the <code>FILE_CHECK</code> constant defined in <strong>hugolib.h</strong> t
 <tr>
 <td class="tableblock halign-left valign-top" rowspan="2"></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Syntax:</strong></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<td class="tableblock halign-left valign-top"><div class="content"><div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">x = sibling(&lt;object&gt;)</code></pre>
+<pre>x = sibling(&lt;object&gt;)</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -12044,9 +12090,10 @@ Use the <code>FILE_CHECK</code> constant defined in <strong>hugolib.h</strong> t
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Syntax:</strong></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<td class="tableblock halign-left valign-top"><div class="content"><div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">sound [repeat] "file", "sample"[, vol]&#x000A;sound 0</code></pre>
+<pre>sound [repeat] "file", "sample"[, vol]
+sound 0</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -12070,9 +12117,10 @@ If the <code>repeat</code> token is used, the sample continues to loop until eit
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Syntax:</strong></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<td class="tableblock halign-left valign-top"><div class="content"><div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">x = string(&lt;array&gt;, &lt;dict&gt;, &lt;maxlen&gt;)&#x000A;x = string(&lt;array&gt;, parse$, &lt;maxlen&gt;)</code></pre>
+<pre>x = string(&lt;array&gt;, &lt;dict&gt;, &lt;maxlen&gt;)
+x = string(&lt;array&gt;, parse$, &lt;maxlen&gt;)</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -12092,9 +12140,9 @@ Returns the length of the string stored in <code>&lt;array&gt;</code>.</p>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Syntax:</strong></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<td class="tableblock halign-left valign-top"><div class="content"><div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">system(&lt;function&gt;)</code></pre>
+<pre>system(&lt;function&gt;)</pre>
 </div>
 </div>
 <table class="tableblock frame-all grid-none stripes-even fit-content">
@@ -12214,9 +12262,9 @@ Labels are defined as a constants in <strong>system.h</strong>.
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Syntax:</strong></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<td class="tableblock halign-left valign-top"><div class="content"><div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">print to &lt;val&gt;</code></pre>
+<pre>print to &lt;val&gt;</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -12245,9 +12293,9 @@ Labels are defined as a constants in <strong>system.h</strong>.
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Syntax:</strong></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<td class="tableblock halign-left valign-top"><div class="content"><div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">x = undo</code></pre>
+<pre>x = undo</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -12273,9 +12321,9 @@ Upon returning true from the verb routine, <code>Main</code> is called.</p>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Syntax:</strong></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<td class="tableblock halign-left valign-top"><div class="content"><div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">verb "&lt;word1&gt;"[, "&lt;word2&gt;",...]</code></pre>
+<pre>verb "&lt;word1&gt;"[, "&lt;word2&gt;",...]</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -12294,17 +12342,24 @@ Upon returning true from the verb routine, <code>Main</code> is called.</p>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Syntax:</strong></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<td class="tableblock halign-left valign-top"><div class="content"><div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">while &lt;expr&gt;&#x000A;{&#x000A;    ...&#x000A;}</code></pre>
+<pre>while &lt;expr&gt;
+{
+    ...
+}</pre>
 </div>
 </div>
 <div class="paragraph">
 <p>or</p>
 </div>
-<div class="listingblock">
+<div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">do&#x000A;{&#x000A;    ...&#x000A;}&#x000A;while &lt;expr&gt;</code></pre>
+<pre>do
+{
+    ...
+}
+while &lt;expr&gt;</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -12323,53 +12378,30 @@ Upon returning true from the verb routine, <code>Main</code> is called.</p>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Syntax:</strong></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<td class="tableblock halign-left valign-top"><div class="content"><div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">window a[, b, c, d]&#x000A;    {...}</code></pre>
+<pre>window a[, b, c, d]
+    {...}</pre>
 </div>
 </div>
 <div class="paragraph">
 <p>or</p>
 </div>
-<div class="listingblock">
+<div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">window&#x000A;    {...}</code></pre>
+<pre>window
+    {...}</pre>
 </div>
 </div>
 <div class="paragraph">
 <p>or</p>
 </div>
-<div class="listingblock">
+<div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">window 0</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>If only a single value <code>&lt;a&gt;</code> is given, a window of <code>&lt;a&gt;</code> lines from the top of the screen is created.
-If more values are given, a window from top-left (<code>a</code>, <code>b</code>) to bottom-right (<code>c</code>, <code>d</code>) is created.
-If no values are given, the last-defined window is recreated.
-The new boundaries apply for the length of the following <code>{&#8230;&#8203;}</code> code block.</p>
-</div>
-<div class="paragraph">
-<p><code>window 0</code> restores full-screen display.
-There is no following code block.</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big">writefile</span></code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" rowspan="2"></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Description:</strong></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>A structure that writes values to a file that may be read using <code>readfile</code>.</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Syntax:</strong></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
-<div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">writefile &lt;filename&gt;&#x000A;{&#x000A;    ...&#x000A;}</code></pre>
+<pre>writefile &lt;filename&gt;
+{
+    ...
+}</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -12388,9 +12420,9 @@ There is no following code block.</p>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Syntax:</strong></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<td class="tableblock halign-left valign-top"><div class="content"><div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">writefile value1[, value2, ...]</code></pre>
+<pre>writefile value1[, value2, ...]</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -12423,9 +12455,9 @@ Upon returning from the verb routine, <code>Main</code> is not called.</p>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Syntax:</strong></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<td class="tableblock halign-left valign-top"><div class="content"><div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">xverb "&lt;word1&gt;"[, "&lt;word2&gt;", ...]</code></pre>
+<pre>xverb "&lt;word1&gt;"[, "&lt;word2&gt;", ...]</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -12447,9 +12479,9 @@ Upon returning from the verb routine, <code>Main</code> is not called.</p>
 <tr>
 <td class="tableblock halign-left valign-top" rowspan="2"></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Syntax:</strong></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<td class="tableblock halign-left valign-top"><div class="content"><div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">x = youngest(&lt;parent&gt;)</code></pre>
+<pre>x = youngest(&lt;parent&gt;)</pre>
 </div>
 </div>
 <div class="paragraph">

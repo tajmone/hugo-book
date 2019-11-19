@@ -191,8 +191,8 @@ Every chapter in the list provides an [HTML Live Preview] link to quickly jump t
         * [x]  Convert Hugo syntax definitions to `literal, role="hugosyntax"` blocks.
     + [ ]  [APP. A. _SUMMARY OF KEYWORDS AND COMMANDS_][AppA]
         * [ ]  _needs to be proof-read once more, carefully!_
-        * [ ]  Check/Fix Hugo code indentation.
-        * [ ]  Convert Hugo syntax definitions to `literal, role="hugosyntax"` blocks.
+        * No Hugo code to check.
+        * [x]  Convert Hugo syntax definitions to `literal, role="hugosyntax"` blocks.
     + [ ]  [APP. B. _THE HUGO LIBRARY_][AppB]
         * [ ]  _needs to be proof-read once more, carefully!_
         * [ ]  Check/Fix Hugo code indentation.
