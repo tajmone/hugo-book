@@ -560,7 +560,7 @@ div.literalblock.hugosyntax div.content pre > sup.footnote a {
 <span id="email" class="email"><a href="mailto:general@generalcoffee.com">general@generalcoffee.com</a></span><br>
 <span id="revnumber">version 1,</span>
 <span id="revdate">2018-10-04</span>
-<br><span id="revremark">Draft 109 -- Porting to AsciiDoc</span>
+<br><span id="revremark">Draft 110 -- Porting to AsciiDoc</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -9371,7 +9371,7 @@ This is traditionally accomplished by implementing NPC responses to the verbrout
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">verb</span> <span class="hl str">&quot;ask&quot;</span>&#x000A;        <span class="hl opt">*</span> living about <span class="hl kwb">xobject</span>      DoAsk</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">verb</span> <span class="hl str">&quot;ask&quot;</span>&#x000A;    <span class="hl opt">*</span> living about <span class="hl kwb">xobject</span>      DoAsk</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -9391,7 +9391,7 @@ The response is handled in the NPC&#8217;s <code>after</code> property routine:<
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">verb</span> <span class="hl str">&quot;tell&quot;</span>&#x000A;        <span class="hl opt">*</span> living about <span class="hl kwb">xobject</span>      DoTell</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">verb</span> <span class="hl str">&quot;tell&quot;</span>&#x000A;    <span class="hl opt">*</span> living about <span class="hl kwb">xobject</span>      DoTell</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -9399,7 +9399,7 @@ The response is handled in the NPC&#8217;s <code>after</code> property routine:<
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">verb</span> <span class="hl str">&quot;give&quot;</span>&#x000A;        <span class="hl opt">*</span> <span class="hl kwb">object</span> <span class="hl kwa">to</span> living          DoGive&#x000A;&#x000A;<span class="hl kwa">verb</span> <span class="hl str">&quot;show&quot;</span>&#x000A;        <span class="hl opt">*</span> <span class="hl kwb">object</span> <span class="hl kwa">to</span> living          DoShow</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">verb</span> <span class="hl str">&quot;give&quot;</span>&#x000A;    <span class="hl opt">*</span> <span class="hl kwb">object</span> <span class="hl kwa">to</span> living          DoGive&#x000A;&#x000A;<span class="hl kwa">verb</span> <span class="hl str">&quot;show&quot;</span>&#x000A;    <span class="hl opt">*</span> <span class="hl kwb">object</span> <span class="hl kwa">to</span> living          DoShow</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -9569,9 +9569,11 @@ The <code>preposition</code> property defaults in the <code>vehicle</code> class
 <p>It is also necessary to provide grammar to relate the words in the <code>vehicle_verb</code> list to the object library&#8217;s <code>DoMoveInVehicle</code> routine.
 Grammar such as the following is recommended:</p>
 </div>
-<div class="listingblock">
+<div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">verb</span> <span class="hl str">&quot;&lt;verb1&gt;&quot;</span>[, <span class="hl str">&quot;&lt;verb2&gt;&quot;</span>,...]&#x000A;        <span class="hl opt">*</span>                   DoMoveinVehicle&#x000A;        <span class="hl opt">*</span> <span class="hl kwb">object</span>            DoMoveinVehicle</code></pre>
+<pre>verb "&lt;verb1&gt;"[, "&lt;verb2&gt;",...]
+    *                   DoMoveinVehicle
+    * object            DoMoveinVehicle</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -9579,7 +9581,7 @@ Grammar such as the following is recommended:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">verb</span> <span class="hl str">&quot;ride</span>&#x000A;<span class="hl str">        *                   DoMoveinVehicle</span>&#x000A;<span class="hl str">        * object            DoMoveinVehicle</span></code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">verb</span> <span class="hl str">&quot;ride</span>&#x000A;<span class="hl str">    *                   DoMoveinVehicle</span>&#x000A;<span class="hl str">    * object            DoMoveinVehicle</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -9662,7 +9664,7 @@ butterscotch sundae: Taken.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>plural_class sundaes "sundaes"&#x000A;{&#x000A;    plural_of fudge_sundae, butterscotch_sundae&#x000A;    noun "sundaes"&#x000A;    single_noun "sundae"&#x000A;}&#x000A;&#x000A;object fudge_sundae "fudge sundae"&#x000A;{&#x000A;    article "a"&#x000A;    adjective "fudge"&#x000A;    noun "sundae"&#x000A;    plural_is sundaes&#x000A;}&#x000A;&#x000A;object butterscotch_sundae "butterscotch_sundae"&#x000A;{&#x000A;    article "a"&#x000A;    adjective "butterscotch"&#x000A;    noun "sundae"&#x000A;    plural_is sundaes&#x000A;}<sup class="footnote">[<a id="_footnoteref_51" class="footnote" href="#_footnotedef_51" title="View footnote.">51</a>]</sup></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">plural_class sundaes <span class="hl str">&quot;sundaes&quot;</span>&#x000A;{&#x000A;    plural_of fudge_sundae, butterscotch_sundae&#x000A;    <span class="hl kwb">noun</span> <span class="hl str">&quot;sundaes&quot;</span>&#x000A;    single_noun <span class="hl str">&quot;sundae&quot;</span>&#x000A;}&#x000A;&#x000A;<span class="hl kwb">object</span> fudge_sundae <span class="hl str">&quot;fudge sundae&quot;</span>&#x000A;{&#x000A;    <span class="hl kwb">article</span> <span class="hl str">&quot;a&quot;</span>&#x000A;    <span class="hl kwb">adjective</span> <span class="hl str">&quot;fudge&quot;</span>&#x000A;    <span class="hl kwb">noun</span> <span class="hl str">&quot;sundae&quot;</span>&#x000A;    plural_is sundaes&#x000A;}&#x000A;&#x000A;<span class="hl kwb">object</span> butterscotch_sundae <span class="hl str">&quot;butterscotch_sundae&quot;</span>&#x000A;{&#x000A;    <span class="hl kwb">article</span> <span class="hl str">&quot;a&quot;</span>&#x000A;    <span class="hl kwb">adjective</span> <span class="hl str">&quot;butterscotch&quot;</span>&#x000A;    <span class="hl kwb">noun</span> <span class="hl str">&quot;sundae&quot;</span>&#x000A;    plural_is sundaes&#x000A;}<sup class="footnote">[<a id="_footnoteref_51" class="footnote" href="#_footnotedef_51" title="View footnote.">51</a>]</sup></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -9703,7 +9705,7 @@ The <code>identical_class</code> is similar to the <code>plural_class</code> exc
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>identical_class bananas "bananas"&#x000A;{&#x000A;    plural_of banana1, banana2, banana3,&#x000A;        banana4, banana5&#x000A;    noun "bananas"&#x000A;    single_noun "banana"&#x000A;}&#x000A;&#x000A;object banana1 "banana"&#x000A;{&#x000A;    noun "banana"&#x000A;    identical_to bananas&#x000A;}&#x000A;&#x000A;banana1 banana2 "banana"<sup class="footnote">[<a id="_footnoteref_52" class="footnote" href="#_footnotedef_52" title="View footnote.">52</a>]</sup>&#x000A;{}&#x000A;&#x000A;banana1 banana3 "banana"&#x000A;{}&#x000A;...</pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">identical_class bananas <span class="hl str">&quot;bananas&quot;</span>&#x000A;{&#x000A;    plural_of banana1, banana2, banana3,&#x000A;        banana4, banana5&#x000A;    <span class="hl kwb">noun</span> <span class="hl str">&quot;bananas&quot;</span>&#x000A;    single_noun <span class="hl str">&quot;banana&quot;</span>&#x000A;}&#x000A;&#x000A;<span class="hl kwb">object</span> banana1 <span class="hl str">&quot;banana&quot;</span>&#x000A;{&#x000A;    <span class="hl kwb">noun</span> <span class="hl str">&quot;banana&quot;</span>&#x000A;    identical_to bananas&#x000A;}&#x000A;&#x000A;banana1 banana2 <span class="hl str">&quot;banana&quot;</span><sup class="footnote">[<a id="_footnoteref_52" class="footnote" href="#_footnotedef_52" title="View footnote.">52</a>]</sup>&#x000A;{}&#x000A;&#x000A;banana1 banana3 <span class="hl str">&quot;banana&quot;</span>&#x000A;{}&#x000A;...</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -9772,9 +9774,13 @@ If <code>attach_drop</code> is true, the object is automatically dropped after i
 <p>The <code>attach_verbs</code> and <code>detach_verbs</code> properties contain lists of all valid verbs to attach or detach the object.
 The <code>DoAttachObject</code> and <code>DoDetachObject</code> verbroutines can be used by all basic attachables, with new grammar specified for the object (corresponding exactly to the verb lists in <code>attach_verbs</code> and <code>detach_verbs</code>) as in:</p>
 </div>
-<div class="listingblock">
+<div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">verb</span> <span class="hl str">&quot;&lt;verb1&gt;&quot;</span>[, <span class="hl str">&quot;&lt;verb2&gt;&quot;</span>,...]&#x000A;        <span class="hl opt">*</span>                           DoVague&#x000A;        <span class="hl opt">*</span> <span class="hl kwb">object</span>                    DoAttachObject&#x000A;        <span class="hl opt">*</span> <span class="hl kwb">object</span> <span class="hl str">&quot;to&quot;</span> <span class="hl kwb">xobject</span>       DoAttachObject&#x000A;        ...</code></pre>
+<pre>verb "&lt;verb1&gt;"[, "&lt;verb2&gt;",...]
+    *                           DoVague
+    * object                    DoAttachObject
+    * object "to" xobject       DoAttachObject
+    ...</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -9782,7 +9788,7 @@ The <code>DoAttachObject</code> and <code>DoDetachObject</code> verbroutines can
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">verb</span> <span class="hl str">&quot;tie&quot;</span>, <span class="hl str">&quot;fasten&quot;</span>&#x000A;        <span class="hl opt">*</span>                           DoVague&#x000A;        <span class="hl opt">*</span> <span class="hl kwb">object</span>                    DoAttachObject&#x000A;        <span class="hl opt">*</span> <span class="hl kwb">object</span> <span class="hl str">&quot;to&quot;</span> <span class="hl kwb">xobject</span>       DoAttachObject</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">verb</span> <span class="hl str">&quot;tie&quot;</span>, <span class="hl str">&quot;fasten&quot;</span>&#x000A;    <span class="hl opt">*</span>                           DoVague&#x000A;    <span class="hl opt">*</span> <span class="hl kwb">object</span>                    DoAttachObject&#x000A;    <span class="hl opt">*</span> <span class="hl kwb">object</span> <span class="hl str">&quot;to&quot;</span> <span class="hl kwb">xobject</span>       DoAttachObject</code></pre>
 </div>
 </div>
 <div class="paragraph">

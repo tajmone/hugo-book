@@ -72,7 +72,7 @@ It is the `dir_to` property of a direction that is used to map out travel from o
 The `living_room` object's description claims that the kitchen is to the south and the back hallway is to the east, but neither connection is known to the game until those directional links are added to the object definition (and, of course, assuming that the `kitchen` and `back_hallway` objects also exist).
 
 [source,hugo]
---------------------------------------------------------------------------------
+-------------------------------------------------
 room living_room "living room"
 {
     long_desc
@@ -84,7 +84,7 @@ room living_room "living room"
     s_to kitchen
     e_to back_hallway
 }
---------------------------------------------------------------------------------
+-------------------------------------------------
 
 
 The player will now be able to go either south or east from the kitchen.
@@ -149,10 +149,10 @@ A `player_character` class is also provided that will usually be the basis for t
 A game's PC can be defined easily as:
 
 [source,hugo]
---------------------------------------------------------------------------------
+--------------------------
 player_character you "you"
 {}
---------------------------------------------------------------------------------
+--------------------------
 
 The PC is by default named in the second person (as opposed to the first-person "`I`" or the third-person "`he`", "`she`", "`it`", or "`them`").
 To change to another form, it will be necessary to redefine the PC's `pronouns` property accordingly, as well as to change the global variable `player_person`{fn2} (which defaults to 2) to 1 or 3, as appropriate, and optionally to give a plural PC the `plural` attribute (in the rare case where that may be desired).
@@ -176,10 +176,10 @@ This is traditionally accomplished by implementing NPC responses to the verbrout
 The grammar for asking an NPC about something looks something like this:
 
 [source,hugo]
--------------------------------------------
+-------------------------------------
 verb "ask"
-        * living about xobject      DoAsk
--------------------------------------------
+    * living about xobject      DoAsk
+-------------------------------------
 
 
 The object is the NPC being asked, the xobject is whatever is being asked about, and the verbroutine is `DoAsk`.
@@ -208,28 +208,28 @@ Note that it's necessary to return false if the routine fails to find an appropr
 `DoTell` responses are handled similarly to `DoAsk`, since the NPC is the object and whatever is being told about is the xobject:
 
 [source,hugo]
--------------------------------------------
+--------------------------------------
 verb "tell"
-        * living about xobject      DoTell
--------------------------------------------
+    * living about xobject      DoTell
+--------------------------------------
 
 
 `DoGive` and `DoShow`, however, are handled differently, since the word ordering is different:
 
 [source,hugo]
--------------------------------------------
+--------------------------------------
 verb "give"
-        * object to living          DoGive
+    * object to living          DoGive
 
 verb "show"
-        * object to living          DoShow
--------------------------------------------
+    * object to living          DoShow
+--------------------------------------
 
 
 For these, the `after` property routine will look something like:
 
 [source,hugo]
--------------------------------------------
+-----------------------------------------------
 after
 {
     object DoAsk
@@ -253,7 +253,7 @@ after
             return false
     }
 }
--------------------------------------------
+-----------------------------------------------
 
 
 
@@ -426,22 +426,22 @@ The `preposition` property defaults in the `vehicle` class itself defaults to "`
 It is also necessary to provide grammar to relate the words in the `vehicle_verb` list to the object library's `DoMoveInVehicle` routine.
 Grammar such as the following is recommended:
 
-// @HUGO SYNTAX MOCKUP!
-[source,hugo]
--------------------------------------------
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+.......................................
 verb "<verb1>"[, "<verb2>",...]
-        *                   DoMoveinVehicle
-        * object            DoMoveinVehicle
--------------------------------------------
+    *                   DoMoveinVehicle
+    * object            DoMoveinVehicle
+.......................................
 
 So, for our horse "`vehicle`", something like the following might suffice:
 
 [source,hugo]
--------------------------------------------
+---------------------------------------
 verb "ride
-        *                   DoMoveinVehicle
-        * object            DoMoveinVehicle
--------------------------------------------
+    *                   DoMoveinVehicle
+    * object            DoMoveinVehicle
+---------------------------------------
 
 It is possible to easily maintain some control over whether a vehicle is currently capable of moving via the `vehicle_move` property.
 This property, which is true by default, can return false (after printing an appropriate failure message) if the vehicle is currently not capable of being driven (or ridden or sailed or whatever the appropriate action may be).
@@ -510,8 +510,8 @@ butterscotch sundae: Taken.
 
 That's where the `plural_class` comes in.
 
-[listing, subs="+attributes,macros"]
---------------------------------------------------------------------------------
+[source,hugo, subs="+attributes,macros"]
+------------------------------------------------
 plural_class sundaes "sundaes"
 {
     plural_of fudge_sundae, butterscotch_sundae
@@ -534,7 +534,7 @@ object butterscotch_sundae "butterscotch_sundae"
     noun "sundae"
     plural_is sundaes
 }{fn4}
---------------------------------------------------------------------------------
+------------------------------------------------
 
 The `plural_of` property on the `plural` class enumerates the objects which it encompasses; each object encompassed by the `plural` class then points back to the `plural` class in its `plural_is` property.
 
@@ -563,7 +563,7 @@ There are three bananas here.
 Something like that can be done easily by creating an identical object from the `identical_class` in the object library.
 The `identical_class` is similar to the `plural_class` except for a couple details of implementation and behavior.
 
-[listing, subs="+attributes,macros"]
+[source,hugo, subs="+attributes,macros"]
 ----------------------------------------
 identical_class bananas "bananas"
 {
@@ -632,27 +632,27 @@ If `attach_drop` is true, the object is automatically dropped after it is attach
 The `attach_verbs` and `detach_verbs` properties contain lists of all valid verbs to attach or detach the object.
 The `DoAttachObject` and `DoDetachObject` verbroutines can be used by all basic attachables, with new grammar specified for the object (corresponding exactly to the verb lists in `attach_verbs` and `detach_verbs`) as in:
 
-// @HUGO SYNTAX MOCKUP!
-[source,hugo]
---------------------------------------------------
+// @HUGO SYNTAX DEFINITION
+[literal, role="hugosyntax"]
+..............................................
 
 verb "<verb1>"[, "<verb2>",...]
-        *                           DoVague
-        * object                    DoAttachObject
-        * object "to" xobject       DoAttachObject
-        ...
---------------------------------------------------
+    *                           DoVague
+    * object                    DoAttachObject
+    * object "to" xobject       DoAttachObject
+    ...
+..............................................
 
 For instance:
 
 [source,hugo]
---------------------------------------------------
+----------------------------------------------
 
 verb "tie", "fasten"
-        *                           DoVague
-        * object                    DoAttachObject
-        * object "to" xobject       DoAttachObject
---------------------------------------------------
+    *                           DoVague
+    * object                    DoAttachObject
+    * object "to" xobject       DoAttachObject
+----------------------------------------------
 
 
 `DoAttachObject` expects a second object (the xobject) to be given as the target for the object to be attached to; the routine itself contains appropriate error-handling if only one object is supplied.
