@@ -13,6 +13,7 @@ The AsciiDoc formatting and style conventions adopted in _The Hugo Book_.
 - [Footnotes](#footnotes)
     - [Handling Identical Footnotes](#handling-identical-footnotes)
     - [Footnotes in Table Cells](#footnotes-in-table-cells)
+- [Title Casing](#title-casing)
 
 <!-- /MarkdownTOC -->
 
@@ -25,6 +26,36 @@ These might be useful to those interested in covering new output formats, to ens
 And they might be even more useful to anyone wishing to further develop the book, to ensure consistency in added contents.
 
 # Footnotes
+
+All footnotes are [externalized] at the beginning of the source document via custom attributes on the form `:fn1:`, `:fn2:`, etc.:
+
+```asciidoc
+= Chapter Title
+
+// >>> footnotes definitions >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+:fn1: footnote:[Note text.]
+
+:fn2: pass:q[footnote:[Note with `inline code`.]]
+
+// <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+```
+
+These are then injected in the main text via attributes substitutions (`{fn1}`, `{fn2}`, etc.):
+
+
+```asciidoc
+A paragraph with footnotes{fn1} via custom attributes.{fn2}
+```
+
+This allows to access all footnotes in a chapter at once, without having to sift the document to find them.
+
+The footnote attributes of every document are named starting from 1 (`:fn1:`) regardless of the actual note number in the final document (Asciidoctor will take care of that).
+
+For more info:
+
+- [Asciidoctor Manual: §61. Footnotes]
+- [Asciidoctor Manual: §61.1. Externalizing a Footnote]
 
 ## Handling Identical Footnotes
 
@@ -60,9 +91,24 @@ For more info:
 - [asciidoctor/#2350] — Footnotes in tables.
 - [asciidoctor/#1705] — Placement of footnotes in tables.
 
+# Title Casing
+
+For title capitalization I've adopted the conventions of _[The Chicago Manual of Style]_ (CMS).
+The following online title capitalization tool was used (_Chicago_ option):
+
+* https://capitalizemytitle.com/#Chicago
+
+In the original book, all level one titles were in all-caps.
+I've opted to adopt conventional title capitalization since the original all-caps can easily be achieved via templates styles, whereas there is no easy way to automatically reverse all-caps.
+
+
 <!-----------------------------------------------------------------------------
                                REFERENCE LINKS
 ------------------------------------------------------------------------------>
+
+[externalized]: https://asciidoctor.org/docs/user-manual/#externalizing-a-footnote "See Asciidoctor Manual on externalizing footnote"
+
+[The Chicago Manual of Style]: https://www.chicagomanualofstyle.org "Go to The Chicago Manual of Style website"
 
 <!-- Issues: Hugo Book -->
 
@@ -78,5 +124,6 @@ For more info:
 <!-- Asciidoctor Manual -->
 
 [Asciidoctor Manual: §61. Footnotes]: https://asciidoctor.org/docs/user-manual/#user-footnotes
+[Asciidoctor Manual: §61.1. Externalizing a Footnote]: https://asciidoctor.org/docs/user-manual/#externalizing-a-footnote
 
 <!-- EOF -->
