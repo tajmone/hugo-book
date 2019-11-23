@@ -70,7 +70,7 @@ Some text adaptations that were required to better exploit the new AsciiDoc form
 
 ----
 
-<!-- Issue #27 (pending approval) -------------------------------------------->
+<!-- Issue #27 (approved) ---------------------------------------------------->
 
 In _App. A: Summary of Keywords and Commands_, the cross reference text to a specific page number:
 
