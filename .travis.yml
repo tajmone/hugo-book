@@ -3,19 +3,44 @@
 #  https://github.com/tajmone/hugo-book  #
 ##########################################
 
-dist: trusty
+dist: xenial
 
 git:
   depth: false
 
+before_install:
+  - sudo apt-get update
+  - sudo apt-get install -y libboost-dev liblua5.3-dev
 install:
+  # ==================================
+  # Asciidoctor Toolchain Dependencies
+  # ==================================
+  - gem install asciidoctor tilt haml concurrent-ruby
+  # Clone and Compile Highlight from Sources:
+  - git clone https://gitlab.com/saalen/highlight highlight_src
+  - pushd ./highlight_src
+  - make cli
+  - sudo make install
+  - popd
+  # =====================================
+  # Install EditorConfig Validation Tools
+  # =====================================
   - npm install -g eclint
-  # - gem install asciidoctor
 
-script:
-  # ==============================================
-  # EditorConfig Code Styles Validation via EClint
-  # ==============================================
-  # https://editorconfig.org
-  # https://www.npmjs.com/package/eclint
-  - bash ./validate.sh
+jobs:
+    include:
+    # ================================
+    # Asciidoctor Toolchain Build Test
+    # ================================
+    - name: "Asciidoctor Toolchain"
+      script:
+        - pushd ./docs_src/
+        - bash ./build.sh
+    # ==============================================
+    # EditorConfig Code Styles Validation via EClint
+    # ==============================================
+    # https://editorconfig.org
+    # https://www.npmjs.com/package/eclint
+    - name: "EditorConfig Validation"
+      script:
+        - bash ./validate.sh

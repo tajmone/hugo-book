@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# "docs_src/build.sh"                                      | v0.0.2 | 2019/10/10
+# "docs_src/build.sh"                                      | v0.1.0 | 2019/11/24
 # ------------------------------------------------------------------------------
 # By Tristano Ajmone, released into the public domain via the Unlicense.
 # ------------------------------------------------------------------------------
@@ -23,15 +23,31 @@ export HIGHLIGHT_DATADIR="$(pwd)/../assets/hl"
 
 . ../assets/sh/_print-funcs.sh
 
-printBanner "Hugo Book: Final HTML Document"
-echo -e "Converting to standalone HTML document (\e[93m$output\e[0m):"
-echo -e "\e[91m *\e[0m TOC levels: 1."
-echo -e "\e[91m *\e[0m Single document."
-echo -e "\e[91m *\e[0m Graphics embedded via data-URI."
-echo -e "\e[91m *\e[0m Custom Haml HTML5 templates."
-echo -e "\e[91m *\e[0m Syntax highlighting via Highlight (no JS dependencies)."
 
+printBanner "Hugo Book: Build HTML Document"
+echo -e "\033[37;1mConverting to standalone HTML document (\033[33;1$output\033[0m):"
+echo -e "\033[31;1m *\033[0m TOC levels: 1."
+echo -e "\033[31;1m *\033[0m Single document."
+echo -e "\033[31;1m *\033[0m Graphics embedded via data-URI."
+echo -e "\033[31;1m *\033[0m Custom Haml HTML5 templates."
+echo -e "\033[31;1m *\033[0m Syntax highlighting via Highlight (no JS dependencies)."
+
+# Get Dependencies Version Info
+# =============================
+vHighlight=$(highlight --version | grep -o -m1 -E '[0-9]\.[0-9][0-9]')
+vAsciidoctor=$(asciidoctor --version | grep -o -m1 -E '[0-9]\.[0-9]+\.[0-9]+')
+vRuby=$(ruby --version | grep -o -m1 -E '[0-9]\.[0-9]+\.[0-9]+')
+
+echo -e "\n\033[37;1mUsing:"
+echo -e "\033[31;1m *\033[35m Ruby v$vRuby"
+echo -e "\033[31;1m *\033[35m Asciidoctor v$vAsciidoctor"
+echo -e "\033[31;1m *\033[35m Highlight v$vHighlight"
+
+printSeparator
+echo -e "\033[30;1m\c"
 asciidoctor \
+	--failure-level WARN \
+	--timings \
 	--verbose \
 	--safe-mode unsafe \
 	-a data-uri \
@@ -46,6 +62,11 @@ asciidoctor \
 	--require      ../assets/adoc/highlight-treeprocessor_mod.rb \
 	--template-dir ../assets/adoc/haml \
 	-o  $output \
-			$source
+		$source || {
+			printBuildFailed;
+			exit 1;
+			}
+printBuildPassed
+exit
 
 # EOF #

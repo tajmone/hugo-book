@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# _print-funcs.sh         v1.3.0 | 2019/05/05 | by Tristano Ajmone, MIT License.
+# _print-funcs.sh         v2.0.0 | 2019/11/24 | by Tristano Ajmone, MIT License.
 ################################################################################
 #                                                                              #
 #                          ORNAMENTAL PRINT FUNCTIONS                          #
@@ -11,18 +11,20 @@
 #
 # Formatting functions assume a max-width of 78 columns.
 #
-# +----------------+--------+-------------------------------------+
-# | function name  | params | description                         |
-# +----------------+--------+-------------------------------------+
-# | printBanner    | text   | Frame text                          |
-# | printHeading1  | text   | Frame text                          |
-# | printHeading2  | text   | Frame text                          |
-# | printHeading3  | text   | Frame text                          |
-# | printSeparator |        | Print horizontal ruler              |
-# | printErrMsg    |        | Frame text as error message         |
-# | printAborting  |        | Print end of script failure message |
-# | printFinished  |        | Print end of script success message |
-# +----------------+--------+-------------------------------------+
+# +------------------+--------+-------------------------------------+
+# | function name    | params | description                         |
+# +------------------+--------+-------------------------------------+
+# | printBanner      | text   | Frame text                          |
+# | printHeading1    | text   | Frame text                          |
+# | printHeading2    | text   | Frame text                          |
+# | printHeading3    | text   | Frame text                          |
+# | printSeparator   |        | Print horizontal ruler              |
+# | printErrMsg      |        | Frame text as error message         |
+# | printAborting    |        | Print end of script failure message |
+# | printFinished    |        | Print end of script success message |
+# | printBuildFailed |        | Print end of script failure message |
+# | printBuildPassed |        | Print end of script success message |
+# +------------------+--------+-------------------------------------+
 
 
 function printBanner {
@@ -35,11 +37,11 @@ function printBanner {
 	printf -v padding "%*s" $(((76 - ${#1})/2))
 	centeredText="$padding$1$padding"
 	[[ $(( (76 - ${#1}) % 2 )) -ne 0 ]] && centeredText="$centeredText "
-	echo -e "\e[94m******************************************************************************"
-	echo -e "*                                                                            *"
-	echo -e "*\e[93m$centeredText\e[94m*"
-	echo -e "*                                                                            *"
-	echo -e "******************************************************************************\e[97m"
+	echo -e "\033[34;1m******************************************************************************"
+	echo -e "\033[34;1m*                                                                            *"
+	echo -e "\033[34;1m*\033[33;1m$centeredText\033[34;1m*"
+	echo -e "\033[34;1m*                                                                            *"
+	echo -e "\033[34;1m******************************************************************************\033[37;1m"
 }
 
 function printHeading1 {
@@ -49,9 +51,9 @@ function printHeading1 {
 	# Parameters:
 	# - $1: the heading string (title).
 	# ============================================================================
-	echo -e "\n\e[93m******************************************************************************"
-	printf  "\e[94m%*s\n" $(((${#1}+78)/2)) "$1"
-	echo -e "\e[93m******************************************************************************\e[97m"
+	echo -e "\n\033[33;1m******************************************************************************"
+	printf  "\033[34;1m%*s\n" $(((${#1}+78)/2)) "$1"
+	echo -e "\033[33;1m******************************************************************************\033[37;1m"
 }
 
 function printHeading2 {
@@ -61,9 +63,9 @@ function printHeading2 {
 	# Parameters:
 	# - $1: the heading string (title).
 	# ============================================================================
-	echo -e "\e[94m=============================================================================="
-	echo -e "\e[95m$1"
-	echo -e "\e[94m==============================================================================\e[97m"
+	echo -e "\033[34;1m=============================================================================="
+	echo -e "\033[35;1m$1"
+	echo -e "\033[34;1m==============================================================================\033[37;1m"
 }
 
 function printHeading3 {
@@ -73,33 +75,33 @@ function printHeading3 {
 	# Parameters:
 	# - $1: the heading string (title).
 	# ============================================================================
-	echo -e "\e[95m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-	echo -e "\e[94m$1"
-	echo -e "\e[95m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\e[97m"
+	echo -e "\033[35;1m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+	echo -e "\033[34;1m$1"
+	echo -e "\033[35;1m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\033[37;1m"
 }
 
 function printSeparator {
 	# ============================================================================
 	# Print a dark grey horizontal ruler. Width 78.
 	# ============================================================================
-	echo -e "\e[90m------------------------------------------------------------------------------\e[97m"
+	echo -e "\033[30;1m------------------------------------------------------------------------------\033[37;1m"
 }
 
 function printErrMsg {
 	# ============================================================================
 	# Print the message of $1 in red, framed and preceded by "** ERROR! **".
 	# ============================================================================
-	echo -e "\n\e[91m" \
+	echo -e "\n\033[31;1m" \
 		"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n" \
 		"** ERROR! ** $1\n" \
-		"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\e[0m"
+		"\033[31;1m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\033[0m"
 }
 
 function printAborting {
 	# ============================================================================
 	# Print red message for aborting script failure.
 	# ============================================================================
-	echo -e "\n\e[91m/// Aborting ... ///\e[0m"
+	echo -e "\n\033[31;1m/// Aborting ... ///\033[0m"
 }
 
 function printFinished {
@@ -107,7 +109,23 @@ function printFinished {
 	# Print green message for successful end of script.
 	# ============================================================================
 	printSeparator
-	echo -e "\e[92m/// Finished ///\e[0m"
+	echo -e "\033[32;1m/// Finished ///\033[0m"
+}
+
+function printBuildFailed {
+	# ============================================================================
+	# Print red message for aborting script failure.
+	# ============================================================================
+	printSeparator
+	echo -e "\033[31;1m/// Build Failed ///\033[0m"
+}
+
+function printBuildPassed {
+	# ============================================================================
+	# Print green message for successful end of script.
+	# ============================================================================
+	printSeparator
+	echo -e "\033[32;1m/// Build Passed ///\033[0m"
 }
 
 # ------------------------------------------------------------------------------

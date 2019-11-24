@@ -1,15 +1,16 @@
 #!/bin/bash
 
-# "validate.sh"                                              v1.1.1 | 2019/11/20
+# "validate.sh"                                              v1.2.0 | 2019/11/24
 #-------------------------------------------------------------------------------
 # Validate code style consistency in the repository via EditorConfig settings
 # and the EClint validator tool:
 #   https://editorconfig.org
 #   https://www.npmjs.com/package/eclint
 #-------------------------------------------------------------------------------
-echo -e "\n\033[34;1m================================================"
-echo -e "\033[33;1mValidating Code Styles via EditorConfig Settings"
-echo -e "\033[34;1m================================================\033[0m"
+
+. ./assets/sh/_print-funcs.sh
+
+printBanner "Validate Code Styles via EditorConfig Settings"
 
 # ==================
 # Check Dependencies
@@ -19,8 +20,8 @@ echo -e "\033[34;1m================================================\033[0m"
 
 if eclint --version > /dev/null 2>&1 ; then
 	echo -e "Using:"
-	echo -e "\033[34;1m*\033[35m Node.js $(node -v)"
-	echo -e "\033[34;1m*\033[35m EClint v$(eclint --version).\n\033[31;1m"
+	echo -e "\033[31;1m *\033[35m Node.js $(node -v)"
+	echo -e "\033[31;1m *\033[35m EClint v$(eclint --version)\n\033[31;1m"
 else
 	echo -e "\033[31;1m~~~ ERROR! ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
 	echo -e "\033[31;1mIn order to run this script you need to install EClint (Node.js):\n"
@@ -46,12 +47,12 @@ eclint check 2> $tmpLog || {
 	cat $tmpLog | grep  "^[^ ]";
 	echo -e "\033[31;1m\n\033[31;1mRun ECLint locally for detailed information about the problems.";
 	echo -e "\033[31;1m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~";
-	echo -e "\033[31;1m/// Aborting All Tests ///\033[0m";
+	printBuildFailed;
 	rm $tmpLog;
 	exit 1;
 	}
 rm $tmpLog;
-echo -e "\033[32;1m/// Test Passed ///\033[0m"
+printBuildPassed
 exit
 
 # EOF #

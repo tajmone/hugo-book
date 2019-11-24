@@ -214,8 +214,8 @@ Released under MIT License:
 <!-- badges -->
 
 [license badge]: https://img.shields.io/badge/license-CC%20BY--NC--SA%204.0-00b5da.svg
-[status badge]: https://img.shields.io/badge/status-WIP-orange "Currently being ported to AsciiDoc in dev branches"
-[travis badge]: https://travis-ci.org/tajmone/hugo-book.svg?branch=draft "Travis CI Build Status"
+[status badge]: https://img.shields.io/badge/status-WIP-orange "Currently being ported to AsciiDoc in dev branch"
+[travis badge]: https://travis-ci.org/tajmone/hugo-book.svg?branch=draft "Travis CI Build Status for Asciidoctor Build and EditorConfig Validation"
 
 <!-- 3rd party links -->
 
