@@ -14,6 +14,11 @@ The AsciiDoc formatting and style conventions adopted in _The Hugo Book_.
     - [Handling Identical Footnotes](#handling-identical-footnotes)
     - [Footnotes in Table Cells](#footnotes-in-table-cells)
 - [Title Casing](#title-casing)
+- [Hugo Code](#hugo-code)
+    - [Indentation Conventions](#indentation-conventions)
+    - [Syntax Highlighting](#syntax-highlighting)
+        - [Escapes in File Paths](#escapes-in-file-paths)
+        - [Unsupported Asciidoctor Features](#unsupported-asciidoctor-features)
 
 <!-- /MarkdownTOC -->
 
@@ -23,7 +28,7 @@ The AsciiDoc formatting and style conventions adopted in _The Hugo Book_.
 
 The following notes document the choices made in the adaptation of the book from MS Word to AsciiDoc format.
 These might be useful to those interested in covering new output formats, to ensure that styles are rendered as expected in that format (via templates, stylesheets, or whatever the format uses to handle them).
-And they might be even more useful to anyone wishing to further develop the book, to ensure consistency in added contents.
+And they might be even more useful to anyone wishing to further develop the book, to ensure consistency in added contents, or to update the book in view of new [Asciidoctor] features.
 
 # Footnotes
 
@@ -101,6 +106,79 @@ The following online title capitalization tool was used (_Chicago_ option):
 In the original book, all level one titles were in all-caps.
 I've opted to adopt conventional title capitalization since the original all-caps can easily be achieved via templates styles, whereas there is no easy way to automatically reverse all-caps.
 
+# Hugo Code
+
+The following conventions, notes and considerations apply to Hugo code snippets, examples and syntax definitions across the book.
+
+## Indentation Conventions
+
+In the various Hugo code snippets and examples in the book, we've opted to use four-spaces indentation, except for Hugo Library excerpts (and other official boilerplates, like `sample.hug` and `shell.hug`) where we've preserved the original eight-spaces indentation.
+
+In a couple of places, an exception to the above rule was made in order to show that strings running across multiple lines can be smart-aligned to increase code readability — e.g. in _§2.4. Multiple Lines_:
+
+```hugo
+print "The engine will properly
+       print this text, assuming a
+       single space at the end of each
+       line."
+```
+
+The adopted indentation width is an arbitrary choice, but the above conventions ensure code consistency across the various snippets in the book.
+Adoption of eight-spaces for indenting Hugo Library excerpts should simplify immediately recognizing code from the library, besides honouring its original style.
+The few multi-line string exceptions should serve as a reminder to the reader that indentation (and whitespace in general) is flexible in Hugo.
+
+## Syntax Highlighting
+
+For _The Hugo Book_ HTML5 toolchain this project relies on a custom Hugo syntax definition for [Highlight], an open source, cross platform and binary standalone syntax highlighter by [André Simon].
+
+You're free to use other syntax highlighters, but Highlight remains the current highlighter of choice for building and testing _The Hugo Book_ to HTML5 format.
+
+The current syntax definition for Hugo has some known limitations which you should be aware of.
+
+### Escapes in File Paths
+
+The Highlight syntax is currently unable to distinguish between printable strings and file paths, with the result that escape sequences and special characters in file path string could be highlighted as escapes or interpolations.
+
+Currently this issue only affects a single Hugo code block in _§12.1. Creating and Using Resources_ (see [#33]):
+
+```hugo
+resource "GAMERES1"
+{
+    "c:\hugo\graphics\logo.jpg"
+    "h:\data\scenic panorama.jpg"
+    "h:\data\background.jpg"
+    "c:\music\intro_theme.s3m"
+    "c:\music\theme2.xm"
+    "c:\sounds\sample1.wav"
+    "c:\sounds\sample2.wav"
+}
+```
+
+where the Windows directory separator `\` is matched as a special formatting sequences in some cases (i.e. `\b`, `\i`).
+
+The current workaround for this problem was to introduce an extra `.noescapes` CSS class that would colour escape sequences with the same colour as the string, effectively hiding the problem from view.
+Hugo code blocks display this problem are given the `noescapes` role:
+
+```asciidoc
+[source,hugo,role="noescapes"]
+```
+
+### Unsupported Asciidoctor Features
+
+The currently used Asciidoctor extension to integrate Highlight into the HTML toolchain has the following limitations (see [#16]):
+
+1. Doesn't support [callouts] in code blocks.
+2. Code blocks inside table cells are not highlighted.
+3. Limited and buggy support for substitutions in code blocks via [the `subs` attribute][subs].
+4. Risk of becoming unusable in the future, if the API 2.0 breaks support for legacy extensions.
+
+Solving point 1 requires rewriting the current Highlight extension using the new Asciidoctor 2.0 API.
+
+The problem at point 2 should be resolved by an upcoming Asciidoctor feature (see [asciidoctor/#2352]).
+
+Any help in solving the above problems would be much appreciated; in the meantime, any commits that would break the book using [Highlight] can't be merged in, even though they might work with other highlighters.
+
+Of course, if another (static and cross platform) syntax highlighter for Hugo becomes available, without the above limitations, we'll be happy to adopt it as a replacement for Highlight.
 
 <!-----------------------------------------------------------------------------
                                REFERENCE LINKS
@@ -112,10 +190,18 @@ I've opted to adopt conventional title capitalization since the original all-cap
 
 <!-- Issues: Hugo Book -->
 
+[#16]: https://github.com/tajmone/hugo-book/issues/16 "Issue #16: Re-Write Highlight Extension for Asciidoctor 2.0"
 [#22]: https://github.com/tajmone/hugo-book/issues/22 "Issue #22: Footnotes inside Tables"
 [#24]: https://github.com/tajmone/hugo-book/issues/24 "Issue #24: Handling Identical Footnotes"
+[#33]: https://github.com/tajmone/hugo-book/issues/33 "Issue #33: Highlighting Filepath Strings: Prevent Escapes"
 
-<!-- Issues: Asciidoctor -->
+[Highlight]: http://www.andre-simon.de/ "Visit Highlight website"
+
+<!-- Asciidoctor ------------------------------------------------------------>
+
+[Asciidoctor]: https://asciidoctor.org/ "Visit Asciidoctor website"
+
+<!-- Asciidoctor Issues -->
 
 [asciidoctor/#2352]: https://github.com/asciidoctor/asciidoctor/issues/2352
 [asciidoctor/#2350]: https://github.com/asciidoctor/asciidoctor/issues/2350
@@ -125,5 +211,12 @@ I've opted to adopt conventional title capitalization since the original all-cap
 
 [Asciidoctor Manual: §61. Footnotes]: https://asciidoctor.org/docs/user-manual/#user-footnotes
 [Asciidoctor Manual: §61.1. Externalizing a Footnote]: https://asciidoctor.org/docs/user-manual/#externalizing-a-footnote
+
+[callouts]: https://asciidoctor.org/docs/user-manual/#callouts "Learn more about Asciidoctor callouts"
+[subs]: https://asciidoctor.org/docs/user-manual/#applying-substitutions "Learn more about Asciidoctor substitutions"
+
+<!-- people ------------------------------------------------------------------>
+
+[André Simon]: https://gitlab.com/saalen "View André Simon's GitLab profile"
 
 <!-- EOF -->
