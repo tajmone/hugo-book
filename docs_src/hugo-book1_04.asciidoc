@@ -1590,8 +1590,7 @@ The compiler looks after this translation for you.
 routine main
 {
     print "Text may be printed in \Bboldface\b,
-        \Iitalics\i, \Uunderlined\u, or
-        \Pproportional\p typefaces."
+        \Iitalics\i, or \Uunderlined\u typefaces."
     color RED               ! or color 4
     print "\nGet ready. ";
     color YELLOW            ! color 14
@@ -1603,16 +1602,17 @@ routine main
 
 The output will be:
 
-// @FIXME: proportional style!
-// @FIXME: color styles!
+// @EDITED CODE: (documented & approved: Issue #6)
+//    Removed from original code the `\Pproportional\p` example since all game
+//    transcipt are already in proportional typeface.
 
 [example,role="gametranscript"]
 ================================================================================
-Text may be printed in *boldface*, _italics_, [.underline]#underlined#, or proportional typefaces.
+Text may be printed in *boldface*, _italics_, or [.underline]#underlined# typefaces.
 
-Get ready. {nbsp}
-Get set. {nbsp}
-Go!
+[.red]#Get ready. {nbsp}#
+[.yellow]#Get set. {nbsp}#
+[.green]#Go!#
 ================================================================================
 
 with "`boldface`", "`italics`", "`underlined`", and "`proportional`" printed in their respective typefaces. "`Get ready`", "`Get set`", and "`Go!`" will all appear on the same line in three different colors.

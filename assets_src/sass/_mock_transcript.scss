@@ -3,14 +3,26 @@
 // -----------------------------------------------------------------------------
 // This isn't a syntax highlighted block, it's just an example block with custom
 // colors.
+
 $Transcript-background: #F7FDFF;
 $Transcript-border:     #CCF2FF;
 $Transcript-normal:     #0089B6;
-$Transcript-command:    #d90000; // RED  -- Player input
-$Transcript-comment:    #bcbcbc; // GREY -- Player input comment (i.e. ";")
+$Transcript-red:        #c80062;
+$Transcript-yellow:     #f2c900;
+$Transcript-green:      #19a600;
 
 .exampleblock.gametranscript>.content {
-    background: $Transcript-background;
+    background-color: $Transcript-background;
     color: $Transcript-normal;
     border-color: $Transcript-border;
+
+    .red {
+      color: $Transcript-red;
+    }
+    .yellow {
+      color: $Transcript-yellow;
+    }
+    .green {
+      color: $Transcript-green;
+    }
 }

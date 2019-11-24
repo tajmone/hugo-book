@@ -70,19 +70,54 @@ Some text adaptations that were required to better exploit the new AsciiDoc form
 
 ----
 
-<!-- Issue #27 (approved) ---------------------------------------------------->
+<!-- Issue #6 (approved) ----------------------------------------------------->
 
-In _App. A: Summary of Keywords and Commands_, the cross reference text to a specific page number:
+In _§4.8. What Should I Be Able to Do Now?_, the _Mixing Text Styles_ example:
 
-> Standard color values for `<foreground>` and `<background>` with constants defined in **hugolib.h** (see page 64) are:
+```hugo
+! Sample to print various typefaces/colors:
 
-was changed to the section number instead:
+#include "hugolib.h"
 
-> Standard color values for `<foreground>` and `<background>` with constants defined in **hugolib.h** (see Sec. 4.3) are:
+routine main
+{
+    print "Text may be printed in \Bboldface\b,
+        \Iitalics\i, \Uunderlined\u, or
+        \Pproportional\p typefaces."
+    color RED               ! or color 4
+    print "\nGet ready. ";
+    color YELLOW            ! color 14
+    print "Get set. ";
+    color GREEN             ! color 2
+    print "Go!"
+}
+```
 
-where "Sec. 4.3" is a link pointing to relevant paragraph on the topic.
+was edited by removing the proportional typeface, since game transcripts are all in proportional font throughout the book:
 
-This was necessary because not all output formats have page numbers (HTML documents, ePub, CHM Help files, etc., either don't have real page numbers or can't handle them well in cross references).
+```hugo
+! Sample to print various typefaces/colors:
+
+#include "hugolib.h"
+
+routine main
+{
+    print "Text may be printed in \Bboldface\b,
+        \Iitalics\i, or \Uunderlined\u typefaces."
+    color RED               ! or color 4
+    print "\nGet ready. ";
+    color YELLOW            ! color 14
+    print "Get set. ";
+    color GREEN             ! color 2
+    print "Go!"
+}
+```
+
+The output transcript was also changed accordingly.
+
+The rationale was that it was better to discard the proportional font example instead of having to use a monospace font as the base typeface for this transcript only, thus breaking consistency with the rest of the transcripts.
+Using a monospace font for all transcripts would have been counter-productive, for most IF games today use proportional fonts as the base typeface.
+Furthermore, monospace fonts are already used in code examples and syntax definitions, so using a proportional font for transcripts renders the book more readable.
 
 ----
 
@@ -124,6 +159,23 @@ was edited to make it consistent with the other syntax definitions:
 PlaySound(<resourcefile>, <sample>, <loop>, <force>)
 PlayMusic(<resourcefile>, <song>, <loop>, <force>)
 ```
+
+
+----
+
+<!-- Issue #27 (approved) ---------------------------------------------------->
+
+In _App. A: Summary of Keywords and Commands_, the cross reference text to a specific page number:
+
+> Standard color values for `<foreground>` and `<background>` with constants defined in **hugolib.h** (see page 64) are:
+
+was changed to the section number instead:
+
+> Standard color values for `<foreground>` and `<background>` with constants defined in **hugolib.h** (see Sec. 4.3) are:
+
+where "Sec. 4.3" is a link pointing to relevant paragraph on the topic.
+
+This was necessary because not all output formats have page numbers (HTML documents, ePub, CHM Help files, etc., either don't have real page numbers or can't handle them well in cross references).
 
 
 # List of Text Corrections

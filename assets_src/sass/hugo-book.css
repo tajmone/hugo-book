@@ -10,9 +10,18 @@ div.literalblock.cmd pre .conum {
 
 /* Game Transcripts */
 .exampleblock.gametranscript > .content {
-  background: #F7FDFF;
+  background-color: #F7FDFF;
   color: #0089B6;
   border-color: #CCF2FF;
+}
+.exampleblock.gametranscript > .content .red {
+  color: #c80062;
+}
+.exampleblock.gametranscript > .content .yellow {
+  color: #f2c900;
+}
+.exampleblock.gametranscript > .content .green {
+  color: #19a600;
 }
 
 /* Highlight theme for Hugo syntax */

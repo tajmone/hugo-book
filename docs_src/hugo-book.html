@@ -450,9 +450,18 @@ div.literalblock.cmd pre .conum {
 
 /* Game Transcripts */
 .exampleblock.gametranscript > .content {
-  background: #F7FDFF;
+  background-color: #F7FDFF;
   color: #0089B6;
   border-color: #CCF2FF;
+}
+.exampleblock.gametranscript > .content .red {
+  color: #c80062;
+}
+.exampleblock.gametranscript > .content .yellow {
+  color: #f2c900;
+}
+.exampleblock.gametranscript > .content .green {
+  color: #19a600;
 }
 
 /* Highlight theme for Hugo syntax */
@@ -560,7 +569,7 @@ div.literalblock.hugosyntax div.content pre > sup.footnote a {
 <span id="email" class="email"><a href="mailto:general@generalcoffee.com">general@generalcoffee.com</a></span><br>
 <span id="revnumber">version 1,</span>
 <span id="revdate">2018-10-04</span>
-<br><span id="revremark">Draft 117 -- Porting to AsciiDoc</span>
+<br><span id="revremark">Draft 118 -- Porting to AsciiDoc</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -6100,7 +6109,7 @@ The compiler looks after this translation for you.</p>
 <h4 id="example_mixing_text_styles" class="discrete">Example: Mixing Text Styles</h4>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl slc">! Sample to print various typefaces/colors:</span>&#x000A;&#x000A;<span class="hl ppc">#include</span> <span class="hl pps">&quot;hugolib.h&quot;</span><span class="hl ppc"></span>&#x000A;&#x000A;<span class="hl kwa">routine</span> main&#x000A;{&#x000A;    <span class="hl kwa">print</span> <span class="hl str">&quot;Text may be printed in</span> <span class="hl esc">\B</span><span class="hl str">boldface</span><span class="hl esc">\b</span><span class="hl str">,</span>&#x000A;<span class="hl str"></span>        <span class="hl esc">\I</span><span class="hl str">italics</span><span class="hl esc">\i</span><span class="hl str">,</span> <span class="hl esc">\U</span><span class="hl str">underlined</span><span class="hl esc">\u</span><span class="hl str">, or</span>&#x000A;<span class="hl str"></span>        <span class="hl esc">\P</span><span class="hl str">proportional</span><span class="hl esc">\p</span> <span class="hl str">typefaces.&quot;</span>&#x000A;    <span class="hl kwa">color</span> RED               <span class="hl slc">! or color 4</span>&#x000A;    <span class="hl kwa">print</span> <span class="hl str">&quot;</span><span class="hl esc">\n</span><span class="hl str">Get ready. &quot;</span>;&#x000A;    <span class="hl kwa">color</span> YELLOW            <span class="hl slc">! color 14</span>&#x000A;    <span class="hl kwa">print</span> <span class="hl str">&quot;Get set. &quot;</span>;&#x000A;    <span class="hl kwa">color</span> GREEN             <span class="hl slc">! color 2</span>&#x000A;    <span class="hl kwa">print</span> <span class="hl str">&quot;Go!&quot;</span>&#x000A;}</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl slc">! Sample to print various typefaces/colors:</span>&#x000A;&#x000A;<span class="hl ppc">#include</span> <span class="hl pps">&quot;hugolib.h&quot;</span><span class="hl ppc"></span>&#x000A;&#x000A;<span class="hl kwa">routine</span> main&#x000A;{&#x000A;    <span class="hl kwa">print</span> <span class="hl str">&quot;Text may be printed in</span> <span class="hl esc">\B</span><span class="hl str">boldface</span><span class="hl esc">\b</span><span class="hl str">,</span>&#x000A;<span class="hl str"></span>        <span class="hl esc">\I</span><span class="hl str">italics</span><span class="hl esc">\i</span><span class="hl str">, or</span> <span class="hl esc">\U</span><span class="hl str">underlined</span><span class="hl esc">\u</span> <span class="hl str">typefaces.&quot;</span>&#x000A;    <span class="hl kwa">color</span> RED               <span class="hl slc">! or color 4</span>&#x000A;    <span class="hl kwa">print</span> <span class="hl str">&quot;</span><span class="hl esc">\n</span><span class="hl str">Get ready. &quot;</span>;&#x000A;    <span class="hl kwa">color</span> YELLOW            <span class="hl slc">! color 14</span>&#x000A;    <span class="hl kwa">print</span> <span class="hl str">&quot;Get set. &quot;</span>;&#x000A;    <span class="hl kwa">color</span> GREEN             <span class="hl slc">! color 2</span>&#x000A;    <span class="hl kwa">print</span> <span class="hl str">&quot;Go!&quot;</span>&#x000A;}</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -6109,12 +6118,12 @@ The compiler looks after this translation for you.</p>
 <div class="exampleblock gametranscript">
 <div class="content">
 <div class="paragraph">
-<p>Text may be printed in <strong>boldface</strong>, <em>italics</em>, <span class="underline">underlined</span>, or proportional typefaces.</p>
+<p>Text may be printed in <strong>boldface</strong>, <em>italics</em>, or <span class="underline">underlined</span> typefaces.</p>
 </div>
 <div class="paragraph">
-<p>Get ready. &#160;
-Get set. &#160;
-Go!</p>
+<p><span class="red">Get ready. &#160;</span>
+<span class="yellow">Get set. &#160;</span>
+<span class="green">Go!</span></p>
 </div>
 </div>
 </div>
