@@ -4,6 +4,7 @@
 // *                                                                           *
 // *****************************************************************************
 //
+[[chapter_13]]
 = Introduction
 
 Most Hugo programmers will likely never need to bother with the detailed information in this technical guide, but anyone porting Hugo to a new platform, writing an interface or tool for the language, or just interested in taking a closer look at how the Hugo Compiler generates a compiled program (and how the Hugo Engine interprets it) might find a technical specification useful, even if only to verify the occasional behavior or detail.

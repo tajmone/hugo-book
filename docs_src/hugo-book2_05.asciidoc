@@ -4,6 +4,7 @@
 // *                                                                           *
 // *****************************************************************************
 //
+[[chapter_17]]
 = Grammar
 
 The grammar table starts immediately following the header (at $40, or 64 bytes into the *.HEX* file).

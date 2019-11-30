@@ -5,6 +5,7 @@
 // *****************************************************************************
 //
 [appendix]
+[[appendix_a]]
 = Summary of Keywords and Commands
 
 [cols="1m,3d,20a",frame=none,grid=none,stripes=none]

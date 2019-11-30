@@ -4,6 +4,7 @@
 // *                                                                           *
 // *****************************************************************************
 //
+[[chapter_14]]
 = Organization of the .HEX File
 
 // >>> footnotes definitions >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
@@ -25,7 +26,7 @@ Precompiled headers have the ID string `$$`.]]
 
 // @XREF: "H: Code Patterns" (in footnote!)
 :fn6: pass:q[footnote:[ \
-For another example, see xref:hugo-book2_16#code_patterns[]. \
+For another example, see xref:appendix_h[]. \
 Several of the conditional statements -- `if`, `elseif`, etc. -- use two bytes to give the absolute skip distance to the next statement if the conditional test fails. \
 The pair is coded in low-byte/high-byte order.]]
 

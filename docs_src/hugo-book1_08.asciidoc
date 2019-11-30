@@ -4,6 +4,7 @@
 // *                                                                           *
 // *****************************************************************************
 //
+[[chapter_8]]
 = Junction Routines
 
 // >>> footnotes definitions >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
@@ -11,7 +12,7 @@
 :fn1: footnote:[In other words, it is the library that defines all the rules and useful-sounding names for properties, routines, and the like; the engine doesn't really have any idea about the higher-level work being done by the library.]
 
 // @XREF: "HugoFix and the Hugo Debugger" (in 4 identical footnotes!)
-:fn-debug: For more information on debugging using HugoFix, see xref:hugo-book1_16#hugofix_and_the_hugo_debugger[].
+:fn-debug: For more information on debugging using HugoFix, see xref:appendix_d[].
 // @FOOTNOTE SAME TEXT: 42-44, 46 (i.e. 2,3,4, 6)
 :fn2: footnote:[{fn-debug}]
 :fn3: footnote:[{fn-debug}]

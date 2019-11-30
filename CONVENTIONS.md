@@ -146,13 +146,15 @@ I've opted to adopt conventional title capitalization since the original all-cap
 
 Every section title in the book has been given a custom ID according to the following naming convention:
 
+- **Colophon** — `colophon`.
+- **Author's Foreword** — `preface`.
 - **Parts** — `book1` and `book2`.
 - **Chapters**:
     + **Chapter Titles** — `chapter_1`, `chapter_2`, etc.
     + **Level 3 Subsections** — `sec_1-1`, `sec_1-2`, etc.
     + **Level 4 Subsections** — `sec_1-1-1`, `sec_1-1-2`, etc.
 - **Appendices**:
-    + **Appendices Titles** — `appendix-a`, `appendix-b`, etc.
+    + **Appendices Titles** — `appendix_a`, `appendix_b`, etc.
     + **Level 3 Subsections** — `sec_a-1`, `sec_a-2`, etc.
     + **Level 4 Subsections** — `sec_a-1-1`, `sec_a-1-2`, etc.
 

@@ -1,4 +1,5 @@
 [preface]
+[[preface]]
 = Author's Foreword
 
 Somewhere along the way this became a real book, and a real book deserves a foreword, and maybe even a dedication.

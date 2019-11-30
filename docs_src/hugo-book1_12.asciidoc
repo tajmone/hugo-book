@@ -4,6 +4,7 @@
 // *                                                                           *
 // *****************************************************************************
 //
+[[chapter_12]]
 = Resources
 
 // >>> footnotes definitions >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
@@ -11,7 +12,7 @@
 // @XREF: "Appendix F: Hugo Versions" (in footnote!)
 :fn1: pass:q[footnote:[ \
 Versions of Hugo prior to v3.0 may not support all resource types. \
-See xref:hugo-book1_18#hugo_versions[] for more information.]]
+See xref:appendix_f[] for more information.]]
 
 :fn2: pass:q[footnote:[The result codes are defined in *resource.h*.]]
 

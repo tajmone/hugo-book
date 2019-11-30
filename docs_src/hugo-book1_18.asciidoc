@@ -5,6 +5,7 @@
 // *****************************************************************************
 //
 [appendix]
+[[appendix_f]]
 = Hugo Versions
 
 As of this writing, the latest version of Hugo is 3.1.

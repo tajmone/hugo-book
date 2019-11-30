@@ -127,10 +127,18 @@ There's still a lot of work to be done in terms of enforcing consistent styles, 
     + [x] Decide how to handle:
         * [x] Identical footnotes. ([#24])
         * [x] Footnotes inside tables. ([#22])
-- [ ] **TITLE CASE** — Enforce [_Chicago_ style title capitalization]  ([#13]):
+- [x] **TITLE CASE** — Enforce [_Chicago_ style title capitalization]  ([#13]):
     + [x] All chapters and appendices titles (from all-caps).
     + [x] All sections.
-    + [ ] All captions (tables, figures, etc.).
+    + [x] All captions (tables, figures, etc.).
+- [ ] **SECTION IDs** — Create custom IDs using the chosen naming scheme to: ([#26])
+    + [ ] All IDs which have an xref pointing to them.
+        * [ ] Fix all existing xrefs, using the new ID.
+    + [ ] Every ID in the book:
+        * [x] **Chapters** Titles.
+            - [ ] Level 3 and 4 **Subsections**.
+        * [x] **Appendices** Titles.
+            - [ ] Level 3 and 4 **Subsections**.
 - [x] **CODE BLOCKS:**
     + [x] __Hugo code__:
         * [x] Enforce consistent indentation:
@@ -155,45 +163,80 @@ Every chapter in the list provides an [HTML Live Preview] link to quickly jump t
     + [ ]  Custom styling and adaptation to HTML5 version.
 - [ ]  [BOOK I. **THE HUGO PROGRAMMING MANUAL**][Book I]
     + [ ]  [1. _INTRODUCTION_][Ch1]
-    + [x]  [2. _A FIRST LOOK AT HUGO_][Ch2]
-    + [x]  [3. _OBJECTS_][Ch3]
-    + [x]  [4. _HUGO PROGRAMMING_][Ch4]
-    + [x]  [5. _ROUTINES AND EVENTS_][Ch5]
-    + [x]  [6. _FUSES, DAEMONS, AND SCRIPTS_][Ch6]
-    + [x]  [7. _GRAMMAR AND PARSING_][Ch7]
-    + [x]  [8. _JUNCTION ROUTINES_][Ch8]
-    + [x]  [9. _THE GAME LOOP_][Ch9]
-    + [x]  [10. _USING THE OBJECT LIBRARY_][Ch10]
-    + [x]  [11. _ADVANCED FEATURES_][Ch11]
-    + [x]  [12. _RESOURCES_][Ch12]
+        * [ ]  Level 3-4 Custom IDs.
+    + [ ]  [2. _A FIRST LOOK AT HUGO_][Ch2]
+        * [ ]  Level 3-4 Custom IDs.
+    + [ ]  [3. _OBJECTS_][Ch3]
+        * [ ]  Level 3-4 Custom IDs.
+    + [ ]  [4. _HUGO PROGRAMMING_][Ch4]
+        * [ ]  Level 3-4 Custom IDs.
+    + [ ]  [5. _ROUTINES AND EVENTS_][Ch5]
+        * [ ]  Level 3-4 Custom IDs.
+    + [ ]  [6. _FUSES, DAEMONS, AND SCRIPTS_][Ch6]
+        * [ ]  Level 3-4 Custom IDs.
+    + [ ]  [7. _GRAMMAR AND PARSING_][Ch7]
+        * [ ]  Level 3-4 Custom IDs.
+    + [ ]  [8. _JUNCTION ROUTINES_][Ch8]
+        * [ ]  Level 3-4 Custom IDs.
+    + [ ]  [9. _THE GAME LOOP_][Ch9]
+        * [ ]  Level 3-4 Custom IDs.
+    + [ ]  [10. _USING THE OBJECT LIBRARY_][Ch10]
+        * [ ]  Level 3-4 Custom IDs.
+    + [ ]  [11. _ADVANCED FEATURES_][Ch11]
+        * [ ]  Level 3-4 Custom IDs.
+    + [ ]  [12. _RESOURCES_][Ch12]
+        * [ ]  Level 3-4 Custom IDs.
     + [ ]  [APP. A. _SUMMARY OF KEYWORDS AND COMMANDS_][AppA]
+        * (_no Level 3-4 subsection requiring Custom IDs._)
         * [ ]  _needs to be proof-read once more, carefully!_
     + [ ]  [APP. B. _THE HUGO LIBRARY_][AppB]
+        * [ ]  Level 3-4 Custom IDs.
         * [ ]  _needs to be proof-read once more, carefully!_
     + [ ]  [APP. C. _LIMIT SETTINGS_][AppC]
+        * (_no Level 3-4 subsection requiring Custom IDs._)
         * [ ]  _needs to be proof-read once more, carefully!_
     + [ ]  [APP. D. _HUGOFIX AND THE HUGO DEBUGGER_][AppD]
+        * [ ]  Level 3-4 Custom IDs.
         * [ ]  _needs to be proof-read once more, carefully!_
     + [x]  [APP. E. _PRECOMPILED HEADERS_][AppE]
+        * (_no Level 3-4 subsection requiring Custom IDs._)
     + [x]  [APP. F. _HUGO VERSIONS_][AppF]
+        * (_no Level 3-4 subsection requiring Custom IDs._)
     + [x]  [APP. G. _ADDITIONAL RESOURCES_][AppG]
+        * (_no Level 3-4 subsection requiring Custom IDs._)
 - [ ]  [BOOK II. **TECHNICAL SYSTEM SPECIFICATION**][Book II]
-    + [x]  [13. _INTRODUCTION_][Ch13]
-    + [x]  [14. _ORGANIZATION OF THE .HEX FILE_][Ch14]
-    + [x]  [15. _TOKENS AND DATA TYPES_][Ch15]
+    + [ ]  [13. _INTRODUCTION_][Ch13]
+        * [ ]  Level 3-4 Custom IDs.
+    + [ ]  [14. _ORGANIZATION OF THE .HEX FILE_][Ch14]
+        * [ ]  Level 3-4 Custom IDs.
+    + [ ]  [15. _TOKENS AND DATA TYPES_][Ch15]
+        * [ ]  Level 3-4 Custom IDs.
     + [x]  [16. _ENGINE PARSING_][Ch16]
+        * (_no Level 3-4 subsection requiring Custom IDs._)
     + [x]  [17. _GRAMMAR_][Ch17]
-    + [x]  [18. _EXECUTABLE CODE_][Ch18]
+        * (_no Level 3-4 subsection requiring Custom IDs._)
+    + [ ]  [18. _EXECUTABLE CODE_][Ch18]
+        * [ ]  Level 3-4 Custom IDs.
     + [x]  [19. _ENCODING TEXT_][Ch19]
-    + [x]  [20. _THE OBJECT TABLE_][Ch20]
-    + [x]  [21. _THE PROPERTY TABLE_][Ch21]
+        * (_no Level 3-4 subsection requiring Custom IDs._)
+    + [ ]  [20. _THE OBJECT TABLE_][Ch20]
+        * [ ]  Level 3-4 Custom IDs.
+    + [ ]  [21. _THE PROPERTY TABLE_][Ch21]
+        * [ ]  Level 3-4 Custom IDs.
     + [x]  [22. _THE EVENT TABLE_][Ch22]
-    + [x]  [23. _THE DICTIONARY AND SPECIAL WORDS_][Ch23]
+        * (_no Level 3-4 subsection requiring Custom IDs._)
+    + [ ]  [23. _THE DICTIONARY AND SPECIAL WORDS_][Ch23]
+        * [ ]  Level 3-4 Custom IDs.
     + [x]  [24. _RESOURCEFILES_][Ch24]
-    + [x]  [25. _THE HUGO COMPILER AND HOW IT WORKS_][Ch25]
-    + [x]  [26. _THE HUGO ENGINE AND HOW IT WORKS_][Ch26]
-    + [x]  [27. _DARK SECRETS OF THE HUGO DEBUGGER_][Ch27]
+        * (_no Level 3-4 subsection requiring Custom IDs._)
+    + [ ]  [25. _THE HUGO COMPILER AND HOW IT WORKS_][Ch25]
+        * [ ]  Level 3-4 Custom IDs.
+    + [ ]  [26. _THE HUGO ENGINE AND HOW IT WORKS_][Ch26]
+        * [ ]  Level 3-4 Custom IDs.
+    + [ ]  [27. _DARK SECRETS OF THE HUGO DEBUGGER_][Ch27]
+        * [ ]  Level 3-4 Custom IDs.
     + [ ]  [APP. H. _CODE PATTERNS_][AppH]
+        * (_no Level 3-4 subsection requiring Custom IDs._)
         * [ ]  _needs to be proof-read once more, carefully!_
 - [ ] _INDEX_ (supported only in PDF format)
 
@@ -244,21 +287,21 @@ All the cross-references to chapters, appendices and sections:
 | 7.1. Grammar Definition                       |   1 | `hugo-book1_07#grammar_definition`                       |
 | 7.2. The Parser                               |   1 | `hugo-book1_07#the_parser`                               |
 | 8.7. Perform                                  |   1 | `hugo-book1_08#perform`                                  |
-| 9. The Game Loop                              |   2 | `hugo-book1_09#the_game_loop`                            |
+| 9. The Game Loop                              |   2 | `the_game_loop`                                          |
 | 11.1. The Display Object                      |   1 | `hugo-book1_11#the_display_object`                       |
-| 12. Resources                                 |   1 | `hugo-book1_12#resources`                                |
-| App. B: The Hugo Library                      |   3 | `hugo-book1_14#the_hugo_library`                         |
+| 12. Resources                                 |   1 | `chapter_12`                                             |
+| App. B: The Hugo Library                      |   3 | `appendix_b`                                             |
 | App. B.4. Constants                           |   1 | `#constants_2`                                           |
-| App. C: Limit Settings                        |   1 | `hugo-book1_15#limit_settings_2`                         |
-| App. D: HugoFix and the Hugo Debugger         |   5 | `hugo-book1_16#hugofix_and_the_hugo_debugger`            |
-| App. E: Precompiled Headers                   |   3 | `hugo-book1_17#precompiled_headers`                      |
-| App. F. Hugo Versions                         |   2 | `hugo-book1_18#hugo_versions`                            |
-| App. G: Additional Resources                  |   1 | `hugo-book1_19#additional_resources`                     |
+| App. C: Limit Settings                        |   1 | `appendix_c`                                             |
+| App. D: HugoFix and the Hugo Debugger         |   5 | `appendix_d`                                             |
+| App. E: Precompiled Headers                   |   3 | `appendix_e`                                             |
+| App. F. Hugo Versions                         |   2 | `appendix_f`                                             |
+| App. G: Additional Resources                  |   1 | `appendix_g`                                             |
 | 14.2. The Header                              |   1 | `hugo-book2_02#the_header`                               |
 | 15.2. Data Types                              |   1 | `hugo-book2_03#15-2_data_types`                          |
 | 23.2. Special Words                           |   1 | `hugo-book2_11#special_words`                            |
 | 25.2. The Linker                              |   1 | `hugo-book2_13#the_linker`                               |
-| App. H: Code Patterns                         |   2 | `hugo-book2_16#code_patterns`                            |
+| App. H: Code Patterns                         |   2 | `appendix_h`                                             |
 
 > __NOTE 1__ — Xrefs not preceded by the file name are internal cross-references to the same document.
 

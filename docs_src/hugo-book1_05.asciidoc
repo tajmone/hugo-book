@@ -4,6 +4,7 @@
 // *                                                                           *
 // *****************************************************************************
 //
+[[chapter_5]]
 = Routines and Events
 
 // >>> footnotes definitions >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
@@ -18,7 +19,7 @@
 :fn4: pass:q[footnote:[In the imperative sentence "`Put the book on the shelf`", the book is the direct object, and the shelf is the indirect object.]]
 
 // @XREF: "9. The Game Loop" (in footonote!)
-:fn5: footnote:[See xref:hugo-book1_09#the_game_loop[].]
+:fn5: footnote:[See xref:chapter_9[].]
 
 // @XREF: "7.1. Grammar Definition" (in footnote!)
 :fn6: pass:q[footnote:[ \
@@ -886,7 +887,7 @@ object woodcabinet "wooden cabinet"
 
 // @XREF: "Appendix B: The Hugo Library"
 
-Now, for bonus points for those who have looked ahead to <<hugo-book1_14#the_hugo_library>> to see what things like `when_open`, `contains_desc`, and `static` are for, how could the cabinet be converted into, say, a secret passage into another room?
+Now, for bonus points for those who have looked ahead to <<appendix_b>> to see what things like `when_open`, `contains_desc`, and `static` are for, how could the cabinet be converted into, say, a secret passage into another room?
 
 The answer is: by adding a `door_to` property, such as:
 

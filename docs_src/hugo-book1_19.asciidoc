@@ -5,6 +5,7 @@
 // *****************************************************************************
 //
 [appendix]
+[[appendix_g]]
 = Additional Resources
 
 WARNING: Please note that while these links were up-to-date as of this writing, the ephemeral nature of the Internet may result in changes, relocations, old sites closing and new sites appearing.

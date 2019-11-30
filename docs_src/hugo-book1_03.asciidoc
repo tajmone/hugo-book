@@ -4,8 +4,8 @@
 // *                                                                           *
 // *****************************************************************************
 //
+[[chapter_3]]
 = Objects
-
 
 // >>> footnotes definitions >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
@@ -15,7 +15,7 @@ It's also no coincidence that the "`nothing`" object is equal in its value to 0,
 The fact that these three are (value-wise, at least) identical will come in handy, as what it means in practice is that 0/null/empty/nothing/etc. is the same in every context.]]
 
 // @XREF: "HugoFix and the Hugo Debugger" (in footnote!)
-:fn2: footnote:[See xref:hugo-book1_16#hugofix_and_the_hugo_debugger[].]
+:fn2: footnote:[See xref:appendix_d[].]
 
 :fn3: pass:q[footnote:[For this reason, attributes are sometimes thought of as being "`lightweight classes`" in that, as can be seen in the list of attributes, they generally categorize an object as a certain "`kind`" of object -- although other than flagging the object with that particular quality they have no other direct effect.]]
 
@@ -25,7 +25,7 @@ An object cannot have both attributes, since in the library the idea of containm
 There are available classes that aren't part of the standard library distribution that allow an object to function as both.]]
 
 // @XREF: "Appendix B: The Hugo Library" (in footnote!)
-:fn5: pass:q[footnote:[`WhatsIn` is a library function used to list in formatted fashion all the objects present in a location: see xref:hugo-book1_14#the_hugo_library[].]]
+:fn5: pass:q[footnote:[`WhatsIn` is a library function used to list in formatted fashion all the objects present in a location: see xref:appendix_b[].]]
 
 
 :fn6: footnote:[ \
@@ -729,7 +729,7 @@ The list of properties defined in *hugolib.h* is:
 [TIP]
 ================================================================================
 // @XREF: "Appendix B: The Hugo Library"
-For a detailed description of how each property is used, see <<hugo-book1_14#the_hugo_library>>.
+For a detailed description of how each property is used, see <<appendix_b>>.
 ================================================================================
 
 The following properties are also defined and used exclusively by the display object:

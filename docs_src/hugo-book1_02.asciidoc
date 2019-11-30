@@ -4,6 +4,7 @@
 // *                                                                           *
 // *****************************************************************************
 //
+[[chapter_2]]
 = A First Look at Hugo
 
 // >>> footnotes definitions >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
@@ -12,7 +13,7 @@
 :fn1: pass:q[footnote:[ \
 Normally, unless the `Main` routine explicitly returns -- as opposed to just running through to the closing brace -- the Hugo Engine continues running. \
 Those familiar with the C programming language may notice the slight difference here: whereas in C the `main()` function is the entry point for a C program, in Hugo `Init` is the entry point, and `Main` can be thought of as the "`each-turn routine`". \
-For more elaboration on the execution pattern of a Hugo program, see xref:hugo-book1_09#the_game_loop[].]]
+For more elaboration on the execution pattern of a Hugo program, see xref:chapter_9[].]]
 
 :fn2: pass:q[footnote:[ \
 While it's a little beyond the scope of this manual to talk about what exactly a 16-bit integer is (partly because you don't need to worry about it, other than to know they involve a range of 65536, either 0 to 65535 or -32768 to 32767). \
@@ -562,7 +563,7 @@ There is no limit on the number of files that a single file may include; also, a
 ================================================================================
 A file or set of files can be compiled into a precompiled header using the `-h` switch, and then linked using `#link` instead of `#include`.
 // @XREF: "Appendix E: Precompiled Headers"
-See <<hugo-book1_17#precompiled_headers>>.
+See <<appendix_e>>.
 ================================================================================
 
 A useful tool for managing Hugo source code is the ability to use compiler flags for conditional compilation.
