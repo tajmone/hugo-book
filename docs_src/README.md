@@ -166,10 +166,10 @@ Every chapter in the list provides an [HTML Live Preview] link to quickly jump t
         * [x]  Level 3-4 Custom IDs.
     + [x]  [2. _A FIRST LOOK AT HUGO_][Ch2]
         * [x]  Level 3-4 Custom IDs.
-    + [ ]  [3. _OBJECTS_][Ch3]
-        * [ ]  Level 3-4 Custom IDs.
-    + [ ]  [4. _HUGO PROGRAMMING_][Ch4]
-        * [ ]  Level 3-4 Custom IDs.
+    + [x]  [3. _OBJECTS_][Ch3]
+        * [x]  Level 3-4 Custom IDs.
+    + [x]  [4. _HUGO PROGRAMMING_][Ch4]
+        * [x]  Level 3-4 Custom IDs.
     + [ ]  [5. _ROUTINES AND EVENTS_][Ch5]
         * [ ]  Level 3-4 Custom IDs.
     + [ ]  [6. _FUSES, DAEMONS, AND SCRIPTS_][Ch6]
@@ -189,8 +189,8 @@ Every chapter in the list provides an [HTML Live Preview] link to quickly jump t
     + [ ]  [APP. A. _SUMMARY OF KEYWORDS AND COMMANDS_][AppA]
         * (_no Level 3-4 subsection requiring Custom IDs._)
         * [ ]  _needs to be proof-read once more, carefully!_
-    + [ ]  [APP. B. _THE HUGO LIBRARY_][AppB]
-        * [ ]  Level 3-4 Custom IDs.
+    + [x]  [APP. B. _THE HUGO LIBRARY_][AppB]
+        * [x]  Level 3-4 Custom IDs.
         * [ ]  _needs to be proof-read once more, carefully!_
     + [ ]  [APP. C. _LIMIT SETTINGS_][AppC]
         * (_no Level 3-4 subsection requiring Custom IDs._)
@@ -271,37 +271,37 @@ The following tables list all the cross references currently used in _The Hugo B
 
 All the cross-references to chapters, appendices and sections:
 
-|                    Section                    | Qt. |                         XRef ID                          |
-|-----------------------------------------------|-----|----------------------------------------------------------|
-| _The Hugo Programming Manual_                 |   5 | `hugo-book1#book1`                                       |
-| 1.5. Packing List                             |   1 | `sec_1-5`                                                |
-| 1.9. Compiler Switches                        |   1 | `sec_1-9`                                                |
-| 1.10. Limit Settings                          |   1 | `sec_1-10`                                               |
-| 1.11. Directories                             |   1 | `sec_1-11`                                               |
-| 2.3. Data Types                               |   2 | `sec_2-3`                                                |
-| 3.5. Classes                                  |   1 | `classes`                                                |
-| 4.5. Operators and Assignments                |   1 | `hugo-book1_04#operators_and_assignments`                |
-| 4.7. Conditional Expressions and Program Flow |   2 | `hugo-book1_04#conditional_expressions_and_program_flow` |
-| 5.1. Routines                                 |   1 | `hugo-book1_05#routines`                                 |
-| 5.3. Before and After Routines                |   1 | `hugo-book1_05#before_and_after_routines`                |
-| 7.1. Grammar Definition                       |   1 | `hugo-book1_07#grammar_definition`                       |
-| 7.2. The Parser                               |   1 | `hugo-book1_07#the_parser`                               |
-| 8.7. Perform                                  |   1 | `hugo-book1_08#perform`                                  |
-| 9. The Game Loop                              |   2 | `the_game_loop`                                          |
-| 11.1. The Display Object                      |   1 | `hugo-book1_11#the_display_object`                       |
-| 12. Resources                                 |   1 | `chapter_12`                                             |
-| App. B: The Hugo Library                      |   3 | `appendix_b`                                             |
-| App. B.4. Constants                           |   1 | `#constants_2`                                           |
-| App. C: Limit Settings                        |   1 | `appendix_c`                                             |
-| App. D: HugoFix and the Hugo Debugger         |   5 | `appendix_d`                                             |
-| App. E: Precompiled Headers                   |   3 | `appendix_e`                                             |
-| App. F. Hugo Versions                         |   2 | `appendix_f`                                             |
-| App. G: Additional Resources                  |   1 | `appendix_g`                                             |
-| 14.2. The Header                              |   1 | `hugo-book2_02#the_header`                               |
-| 15.2. Data Types                              |   1 | `hugo-book2_03#15-2_data_types`                          |
-| 23.2. Special Words                           |   1 | `hugo-book2_11#special_words`                            |
-| 25.2. The Linker                              |   1 | `hugo-book2_13#the_linker`                               |
-| App. H: Code Patterns                         |   2 | `appendix_h`                                             |
+|                    Section                    | Qt. |                  XRef ID                  |
+|-----------------------------------------------|-----|-------------------------------------------|
+| _The Hugo Programming Manual_                 |   5 | `hugo-book1#book1`                        |
+| 1.5. Packing List                             |   1 | `sec_1-5`                                 |
+| 1.9. Compiler Switches                        |   1 | `sec_1-9`                                 |
+| 1.10. Limit Settings                          |   1 | `sec_1-10`                                |
+| 1.11. Directories                             |   1 | `sec_1-11`                                |
+| 2.3. Data Types                               |   2 | `sec_2-3`                                 |
+| 3.5. Classes                                  |   1 | `sec_3-5`                                 |
+| 4.5. Operators and Assignments                |   1 | `sec_4-5`                                 |
+| 4.7. Conditional Expressions and Program Flow |   2 | `sec_4-7`                                 |
+| 5.1. Routines                                 |   1 | `hugo-book1_05#routines`                  |
+| 5.3. Before and After Routines                |   1 | `hugo-book1_05#before_and_after_routines` |
+| 7.1. Grammar Definition                       |   1 | `hugo-book1_07#grammar_definition`        |
+| 7.2. The Parser                               |   1 | `hugo-book1_07#the_parser`                |
+| 8.7. Perform                                  |   1 | `hugo-book1_08#perform`                   |
+| 9. The Game Loop                              |   2 | `the_game_loop`                           |
+| 11.1. The Display Object                      |   1 | `hugo-book1_11#the_display_object`        |
+| 12. Resources                                 |   1 | `chapter_12`                              |
+| App. B: The Hugo Library                      |   3 | `appendix_b`                              |
+| App. B.4. Constants                           |   1 | `sec_b-4`                                 |
+| App. C: Limit Settings                        |   1 | `appendix_c`                              |
+| App. D: HugoFix and the Hugo Debugger         |   5 | `appendix_d`                              |
+| App. E: Precompiled Headers                   |   3 | `appendix_e`                              |
+| App. F. Hugo Versions                         |   2 | `appendix_f`                              |
+| App. G: Additional Resources                  |   1 | `appendix_g`                              |
+| 14.2. The Header                              |   1 | `hugo-book2_02#the_header`                |
+| 15.2. Data Types                              |   1 | `hugo-book2_03#15-2_data_types`           |
+| 23.2. Special Words                           |   1 | `hugo-book2_11#special_words`             |
+| 25.2. The Linker                              |   1 | `hugo-book2_13#the_linker`                |
+| App. H: Code Patterns                         |   2 | `appendix_h`                              |
 
 > __NOTE 1__ — Xrefs not preceded by the file name are internal cross-references to the same document.
 

@@ -19,7 +19,7 @@
 
 // <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
-
+[[sec_b-1]]
 == Attributes
 
 [cols="<2m,<8a",options=grid=rows,stripes=none]
@@ -63,6 +63,7 @@ NOTE: `container` and `platform` are generally mutually exclusive
 
 
 
+[[sec_b-2]]
 == Globals
 
 [cols="<2m,<8a",options=grid=rows,stripes=none]
@@ -131,6 +132,7 @@ NOTE: `container` and `platform` are generally mutually exclusive
 
 
 
+[[sec_b-3]]
 == Arrays
 
 [cols="<2m,<8a",options=grid=rows,stripes=none]
@@ -147,6 +149,7 @@ NOTE: `container` and `platform` are generally mutually exclusive
 
 
 
+[[sec_b-4]]
 == Constants
 
 [cols="2*<2m,<6a",options=grid=rows,stripes=none]
@@ -209,6 +212,7 @@ d| `HERE_WORD`       {nbsp}("`here`")   2+d| `ON_WORD` {nbsp}{nbsp}("`on`")
 | MENU_SELECTBGCOLOR   2+a| menu highlight background color
 |===============================================================================
 
+[[sec_b-5]]
 == Properties
 
 [cols="<2m,<8a",options=grid=rows,stripes=none]
@@ -360,6 +364,7 @@ While `screenwidth` through `title_caption` are technically defined by *hugolib.
 ===================
 
 
+[[sec_b-6]]
 == Verb Routines
 
 The library file *verblib.h* (included by *hugolib.h*) contains a fairly extensive set of basic actions, each of which takes the form `Do<verb>`, so that the action for taking an object is `DoGet`, the action for basic player movement is `DoGo`, etc.
@@ -481,6 +486,7 @@ To use these verbs, set the `VERBSTUBS` flag before compiling *hugolib.h*.
 
 
 
+[[sec_b-7]]
 == Utility Routines, Etc.
 
 First, the junction routines:
@@ -856,7 +862,7 @@ Also calls: `ObjectIsLight`
 Font(bitmask)
 
 // @XREF: "B.4. Constants" (INTERNAL XREF)
-Sets the current font attributes as specified by `bitmask`, where `bitmask` is one or more font-style constants (see <<constants_2,library constants>>, above) combined with `{vbar}` or `+`.
+Sets the current font attributes as specified by `bitmask`, where `bitmask` is one or more font-style constants (see <<sec_b-4,library constants>>, above) combined with `{vbar}` or `+`.
 
 //-----{ GetInput }-------------------------------------------------------------
 
@@ -1230,6 +1236,7 @@ Once a valid answer is received, it returns true (if yes) or false (if no).
 |===============================================================================
 
 
+[[sec_b-8]]
 == Auxiliary Math Routines
 
 
@@ -1296,6 +1303,7 @@ WARNING: The return value is undefined if the result is outside the boundary of 
 
 
 
+[[sec_b-9]]
 == String Array Routines
 
 [cols="<2m,<8a",options=grid=rows,stripes=none]
@@ -1370,6 +1378,7 @@ Prints the string stored as `array`, beginning with `start` and ending with `end
 
 
 
+[[sec_b-10]]
 == Fuse/Daemon Routines
 
 [cols="<2m,<8a",options=grid=rows,stripes=none]
@@ -1401,6 +1410,7 @@ Deactivates the specified `fuse` or `daemon` object.
 
 
 
+[[sec_b-11]]
 == Character Script Routines
 
 [cols="<2m,<8a",options=grid=rows,stripes=none]
@@ -1486,6 +1496,7 @@ CharRoutine(character, object)
 
 
 
+[[sec_b-12]]
 == Character Action Routines
 
 As a starting point, the library also provides a limited number of routines for character scripts to use.
@@ -1500,6 +1511,7 @@ and
 
 * `&LoopScript, 0`
 
+[[sec_b-13]]
 == Conditional Compilation
 
 A number of compiler flags may be set to exclude certain portions of *hugolib.h* from compilation if these functions or objects are not required.

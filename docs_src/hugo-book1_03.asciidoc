@@ -48,7 +48,7 @@ If you absolutely must change one of the library files, make a copy first.]
 
 // <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
-
+[[sec_3-1]]
 == Getting to Know Your Objects
 
 Objects are the building blocks of any Hugo program.
@@ -98,7 +98,7 @@ object placeholder
 
 creates an object called "`(placeholder)`".
 // @XREF: "3.5. Classes" (internal)
-Usually the latter is used for system objects or classes (see <<classes>>) that will never actually appear in a game.
+Usually the latter is used for system objects or classes (see <<sec_3-5>>) that will never actually appear in a game.
 
 
 [NOTE]
@@ -110,6 +110,7 @@ See section <<hugo-book1_11#the_display_object>>.
 ================================================================================
 
 
+[[sec_3-2]]
 == The Object Tree
 
 In order for objects to have a "`physical place`" in the game, i.e., to be in a room or contained in another object or beside another object, they must occupy a position in the object tree.
@@ -427,10 +428,11 @@ else
 [NOTE]
 ================================================================================
 // @XREF: "4.7. Conditional Expressions and Program Flow"
-We'll cover the `if...else...` structure in <<hugo-book1_04#conditional_expressions_and_program_flow>>.
+We'll cover the `if...else...` structure in <<sec_4-7>>.
 ================================================================================
 
 
+[[sec_3-3]]
 == Attributes
 
 Attributes are essentially qualities that every object either does or doesn't have.{fn3}
@@ -586,6 +588,7 @@ mysuitcase is locked = 0    ! or false
 --------------------------------------
 
 
+[[sec_3-4]]
 == Properties
 
 Properties are considerably more complex than attributes.
@@ -914,6 +917,7 @@ is understood as
 which is, in other words, the `name` property of the object stored in `location.n_to`.
 
 
+[[sec_3-5]]
 == Classes
 
 Classes are objects that are specifically intended to be used as prototypes for one or more similar objects.
@@ -1057,6 +1061,7 @@ Note that this means that the replacement must come _before_{fn10} any uses of t
 
 
 
+[[sec_3-6]]
 == _What Should I Be Able to Do Now?_
 
 By now you should:

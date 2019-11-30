@@ -29,8 +29,12 @@ To distinguish them, they're generally printed in lowercase, whereas program-def
 However, those versed at all in such calculations will notice that if such a value was treated as an absolute address, then any addressable executable code would be limited to 64K in size (65536 bytes, the maximum size of an unsigned 16-bit integer). \
 Such is not the case, since the routine address is actually an indexed representation of the absolute address, allowing Hugo games to far exceed any such limit in their size of executable code.]
 
+// @EDITED XREF: (undocumented)
+//  Changed "The section Sec. 4.5, “Operators and Assignments” goes into ..."
+//     -->  "Sec. 4.5, “Operators and Assignments” goes into ..."
+
 // @XREF: "4.5. Operators and Assignments" (in footnote!)
-:fn5: footnote:[The section xref:hugo-book1_04#operators_and_assignments[] goes into greater detail on assigning values to variables.]
+:fn5: footnote:[xref:sec_4-5[] goes into greater detail on assigning values to variables.]
 
 :fn6: footnote:[ \
 But keep an eye out for issues of comment maintenance. \
@@ -417,7 +421,7 @@ if i = 1
 [NOTE]
 ================================================================================
 // @XREF: "4.7. Conditional Expressions and Program Flow"
-We'll get to exactly what that `if...print...` business means in just a little bit in <<hugo-book1_04#conditional_expressions_and_program_flow>>.
+We'll get to exactly what that `if...print...` business means in just a little bit in <<sec_4-7>>.
 ================================================================================
 
 

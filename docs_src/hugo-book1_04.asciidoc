@@ -43,6 +43,7 @@ And, in the end, less ``jump``s and labels make for far more readable code.]]
 
 // <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
+[[sec_4-1]]
 == Variables
 
 What is a variable, exactly?
@@ -164,6 +165,7 @@ Statements following the `endflag` assignment even in the same function are not 
 ================================================================================
 
 
+[[sec_4-2]]
 == Constants
 
 Constants are simply labels that represent a non-modifiable value.
@@ -269,6 +271,7 @@ enumerate globals
 Otherwise the specifier `constants` (as opposed to `globals`) is implied as the default.
 
 
+[[sec_4-3]]
 == Printing Text
 
 Text can be printed -- that is, output to the screen during running of a Hugo program -- using two different methods.
@@ -594,6 +597,7 @@ places text output at the top left corner of the current text window.
 Neither `<column>` nor `<row>` may exceed the current window boundaries -- the engine will automatically constrain them as necessary.
 
 
+[[sec_4-4]]
 == More Formatting Sequences
 
 As listed above, the following are valid printing sequences that may be embedded in printed strings:
@@ -740,6 +744,7 @@ For this reason, or if you're not positive whether your font encoding is Latin-1
 ================================================================================
 
 
+[[sec_4-5]]
 == Operators and Assignments
 
 Hugo allows use of all standard mathematical operators:
@@ -859,6 +864,7 @@ Expressions can be evaluated and assigned to either a variable, a property, or a
 ...............................................
 
 
+[[sec_4-5-1]]
 === Efficient Operators
 
 Something like
@@ -961,6 +967,7 @@ x = y + (++z)
 -------------
 
 
+[[sec_4-6]]
 == Arrays and Strings
 
 Prior to this point, little has been said about arrays.
@@ -1276,6 +1283,7 @@ However, a guideline for programmers is that there should be a limit to how many
 That is, the word `test` requires 5 bytes.)
 
 
+[[sec_4-7]]
 == Conditional Expressions and Program Flow
 
 Program flow can be controlled using a variety of constructions, each of which is built around an expression that evaluates to false (zero) or non-false (non-zero).
@@ -1577,9 +1585,11 @@ The compiler looks after this translation for you.
 ================================================================================
 
 
+[[sec_4-8]]
 == _What Should I Be Able to Do Now?_
 
 [discrete]
+[[sec_4-8-1]]
 === Example: Mixing Text Styles
 
 [source,hugo]
@@ -1626,6 +1636,7 @@ The basic Unix and MS-DOS ports, for example, use color changes instead of actua
 
 
 [discrete]
+[[sec_4-8-2]]
 === Example: Managing Strings
 
 [source,hugo]

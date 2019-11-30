@@ -569,7 +569,7 @@ div.literalblock.hugosyntax div.content pre > sup.footnote a {
 <span id="email" class="email"><a href="mailto:general@generalcoffee.com">general@generalcoffee.com</a></span><br>
 <span id="revnumber">version 1,</span>
 <span id="revdate">2018-10-04</span>
-<br><span id="revremark">Draft 120 -- Porting to AsciiDoc</span>
+<br><span id="revremark">Draft 121 -- Porting to AsciiDoc</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -2108,7 +2108,7 @@ In other words:</p>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>We&#8217;ll get to exactly what that <code>if&#8230;&#8203;print&#8230;&#8203;</code> business means in just a little bit in <a href="#conditional_expressions_and_program_flow">Sec. 4.7, &#8220;Conditional Expressions and Program Flow&#8221;</a>.</p>
+<p>We&#8217;ll get to exactly what that <code>if&#8230;&#8203;print&#8230;&#8203;</code> business means in just a little bit in <a href="#sec_4-7">Sec. 4.7, &#8220;Conditional Expressions and Program Flow&#8221;</a>.</p>
 </div>
 </td>
 </tr>
@@ -2560,7 +2560,7 @@ Most importantly are the first couple, which look something like:</p>
 <h2 id="chapter_3"><a class="anchor" href="#chapter_3"></a>3. Objects</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="getting_to_know_your_objects"><a class="anchor" href="#getting_to_know_your_objects"></a>3.1. Getting to Know Your Objects</h3>
+<h3 id="sec_3-1"><a class="anchor" href="#sec_3-1"></a>3.1. Getting to Know Your Objects</h3>
 <div class="paragraph">
 <p>Objects are the building blocks of any Hugo program.
 Anything that will be accessible to a player during the game&#8201;&#8212;&#8201;including items, rooms, other characters, and even directions&#8201;&#8212;&#8201;will most likely be defined as an object.
@@ -2608,7 +2608,7 @@ That is, whereas</p>
 </div>
 <div class="paragraph">
 <p>creates an object called &#8220;(placeholder)&#8221;.
-Usually the latter is used for system objects or classes (see <a href="#classes">Sec. 3.5, &#8220;Classes&#8221;</a>) that will never actually appear in a game.</p>
+Usually the latter is used for system objects or classes (see <a href="#sec_3-5">Sec. 3.5, &#8220;Classes&#8221;</a>) that will never actually appear in a game.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -2628,7 +2628,7 @@ See section <a href="#the_display_object">Sec. 11.1, &#8220;The Display Object&#
 </div>
 </div>
 <div class="sect2">
-<h3 id="the_object_tree"><a class="anchor" href="#the_object_tree"></a>3.2. The Object Tree</h3>
+<h3 id="sec_3-2"><a class="anchor" href="#sec_3-2"></a>3.2. The Object Tree</h3>
 <div class="paragraph">
 <p>In order for objects to have a &#8220;physical place&#8221; in the game, i.e., to be in a room or contained in another object or beside another object, they must occupy a position in the object tree.
 The object tree is a simple map which represents the relationships between all objects in the game.
@@ -3042,7 +3042,7 @@ In this way, you can write a piece of code that looks something like:</p>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>We&#8217;ll cover the <code>if&#8230;&#8203;else&#8230;&#8203;</code> structure in <a href="#conditional_expressions_and_program_flow">Sec. 4.7, &#8220;Conditional Expressions and Program Flow&#8221;</a>.</p>
+<p>We&#8217;ll cover the <code>if&#8230;&#8203;else&#8230;&#8203;</code> structure in <a href="#sec_4-7">Sec. 4.7, &#8220;Conditional Expressions and Program Flow&#8221;</a>.</p>
 </div>
 </td>
 </tr>
@@ -3050,7 +3050,7 @@ In this way, you can write a piece of code that looks something like:</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="attributes"><a class="anchor" href="#attributes"></a>3.3. Attributes</h3>
+<h3 id="sec_3-3"><a class="anchor" href="#sec_3-3"></a>3.3. Attributes</h3>
 <div class="paragraph">
 <p>Attributes are essentially qualities that every object either does or doesn&#8217;t have.<sup class="footnote">[<a id="_footnoteref_13" class="footnote" href="#_footnotedef_13" title="View footnote.">13</a>]</sup>
 An attribute is defined as</p>
@@ -3295,7 +3295,7 @@ Therefore, given the suitcase object definition:</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="properties"><a class="anchor" href="#properties"></a>3.4. Properties</h3>
+<h3 id="sec_3-4"><a class="anchor" href="#sec_3-4"></a>3.4. Properties</h3>
 <div class="paragraph">
 <p>Properties are considerably more complex than attributes.
 First, not every object may have every property; in order for an object to have a property, it must be specified in the object definition at the time you create the object.
@@ -3785,7 +3785,7 @@ Trying to read <code>&lt;object&gt;.found_in #2</code> will return a value of 0&
 </div>
 </div>
 <div class="sect2">
-<h3 id="classes"><a class="anchor" href="#classes"></a>3.5. Classes</h3>
+<h3 id="sec_3-5"><a class="anchor" href="#sec_3-5"></a>3.5. Classes</h3>
 <div class="paragraph">
 <p>Classes are objects that are specifically intended to be used as prototypes for one or more similar objects.
 They&#8217;re extremely useful for when you want to create a number of objects that will all share certain basic characteristics.
@@ -3935,7 +3935,7 @@ All subsequent references to <code>&lt;class&gt;</code> will use this object ins
 </div>
 </div>
 <div class="sect2">
-<h3 id="what_should_i_be_able_to_do_now"><a class="anchor" href="#what_should_i_be_able_to_do_now"></a>3.6. <em>What Should I Be Able to Do Now?</em></h3>
+<h3 id="sec_3-6"><a class="anchor" href="#sec_3-6"></a>3.6. <em>What Should I Be Able to Do Now?</em></h3>
 <div class="paragraph">
 <p>By now you should:</p>
 </div>
@@ -3959,7 +3959,7 @@ All subsequent references to <code>&lt;class&gt;</code> will use this object ins
 <h2 id="chapter_4"><a class="anchor" href="#chapter_4"></a>4. Hugo Programming</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="variables"><a class="anchor" href="#variables"></a>4.1. Variables</h3>
+<h3 id="sec_4-1"><a class="anchor" href="#sec_4-1"></a>4.1. Variables</h3>
 <div class="paragraph">
 <p>What is a variable, exactly?
 Let&#8217;s start with the difference between a constant value and a variable value.
@@ -4139,7 +4139,7 @@ Statements following the <code>endflag</code> assignment even in the same functi
 </div>
 </div>
 <div class="sect2">
-<h3 id="constants"><a class="anchor" href="#constants"></a>4.2. Constants</h3>
+<h3 id="sec_4-2"><a class="anchor" href="#sec_4-2"></a>4.2. Constants</h3>
 <div class="paragraph">
 <p>Constants are simply labels that represent a non-modifiable value.</p>
 </div>
@@ -4247,7 +4247,7 @@ To start with 1 and count by multiples of two:</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="printing_text"><a class="anchor" href="#printing_text"></a>4.3. Printing Text</h3>
+<h3 id="sec_4-3"><a class="anchor" href="#sec_4-3"></a>4.3. Printing Text</h3>
 <div class="paragraph">
 <p>Text can be printed&#8201;&#8212;&#8201;that is, output to the screen during running of a Hugo program&#8201;&#8212;&#8201;using two different methods.
 The first is the basic <code>print</code> command, the simplest form of which is</p>
@@ -4762,7 +4762,7 @@ Neither <code>&lt;column&gt;</code> nor <code>&lt;row&gt;</code> may exceed the 
 </div>
 </div>
 <div class="sect2">
-<h3 id="more_formatting_sequences"><a class="anchor" href="#more_formatting_sequences"></a>4.4. More Formatting Sequences</h3>
+<h3 id="sec_4-4"><a class="anchor" href="#sec_4-4"></a>4.4. More Formatting Sequences</h3>
 <div class="paragraph">
 <p>As listed above, the following are valid printing sequences that may be embedded in printed strings:</p>
 </div>
@@ -5094,7 +5094,7 @@ For this reason, or if you&#8217;re not positive whether your font encoding is L
 </div>
 </div>
 <div class="sect2">
-<h3 id="operators_and_assignments"><a class="anchor" href="#operators_and_assignments"></a>4.5. Operators and Assignments</h3>
+<h3 id="sec_4-5"><a class="anchor" href="#sec_4-5"></a>4.5. Operators and Assignments</h3>
 <div class="paragraph">
 <p>Hugo allows use of all standard mathematical operators:</p>
 </div>
@@ -5317,7 +5317,7 @@ Standard mathematical rules for order of significance in evaluating an expressio
 </div>
 </div>
 <div class="sect3">
-<h4 id="efficient_operators"><a class="anchor" href="#efficient_operators"></a>Efficient Operators</h4>
+<h4 id="sec_4-5-1"><a class="anchor" href="#sec_4-5-1"></a>Efficient Operators</h4>
 <div class="paragraph">
 <p>Something like</p>
 </div>
@@ -5425,7 +5425,7 @@ To properly code this line with a pre-increment on the <code>z</code> variable i
 </div>
 </div>
 <div class="sect2">
-<h3 id="arrays_and_strings"><a class="anchor" href="#arrays_and_strings"></a>4.6. Arrays and Strings</h3>
+<h3 id="sec_4-6"><a class="anchor" href="#sec_4-6"></a>4.6. Arrays and Strings</h3>
 <div class="paragraph">
 <p>Prior to this point, little has been said about arrays.
 Arrays are sets of values that share a common name, and where the elements are referenced by number.
@@ -5792,7 +5792,7 @@ That is, the word <code>test</code> requires 5 bytes.)</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="conditional_expressions_and_program_flow"><a class="anchor" href="#conditional_expressions_and_program_flow"></a>4.7. Conditional Expressions and Program Flow</h3>
+<h3 id="sec_4-7"><a class="anchor" href="#sec_4-7"></a>4.7. Conditional Expressions and Program Flow</h3>
 <div class="paragraph">
 <p>Program flow can be controlled using a variety of constructions, each of which is built around an expression that evaluates to false (zero) or non-false (non-zero).</p>
 </div>
@@ -6105,8 +6105,8 @@ The compiler looks after this translation for you.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="what_should_i_be_able_to_do_now_2"><a class="anchor" href="#what_should_i_be_able_to_do_now_2"></a>4.8. <em>What Should I Be Able to Do Now?</em></h3>
-<h4 id="example_mixing_text_styles" class="discrete">Example: Mixing Text Styles</h4>
+<h3 id="sec_4-8"><a class="anchor" href="#sec_4-8"></a>4.8. <em>What Should I Be Able to Do Now?</em></h3>
+<h4 id="sec_4-8-1" class="discrete">Example: Mixing Text Styles</h4>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl slc">! Sample to print various typefaces/colors:</span>&#x000A;&#x000A;<span class="hl ppc">#include</span> <span class="hl pps">&quot;hugolib.h&quot;</span><span class="hl ppc"></span>&#x000A;&#x000A;<span class="hl kwa">routine</span> main&#x000A;{&#x000A;    <span class="hl kwa">print</span> <span class="hl str">&quot;Text may be printed in</span> <span class="hl esc">\B</span><span class="hl str">boldface</span><span class="hl esc">\b</span><span class="hl str">,</span>&#x000A;<span class="hl str"></span>        <span class="hl esc">\I</span><span class="hl str">italics</span><span class="hl esc">\i</span><span class="hl str">, or</span> <span class="hl esc">\U</span><span class="hl str">underlined</span><span class="hl esc">\u</span> <span class="hl str">typefaces.&quot;</span>&#x000A;    <span class="hl kwa">color</span> RED               <span class="hl slc">! or color 4</span>&#x000A;    <span class="hl kwa">print</span> <span class="hl str">&quot;</span><span class="hl esc">\n</span><span class="hl str">Get ready. &quot;</span>;&#x000A;    <span class="hl kwa">color</span> YELLOW            <span class="hl slc">! color 14</span>&#x000A;    <span class="hl kwa">print</span> <span class="hl str">&quot;Get set. &quot;</span>;&#x000A;    <span class="hl kwa">color</span> GREEN             <span class="hl slc">! color 2</span>&#x000A;    <span class="hl kwa">print</span> <span class="hl str">&quot;Go!&quot;</span>&#x000A;}</code></pre>
@@ -6145,7 +6145,7 @@ The basic Unix and MS-DOS ports, for example, use color changes instead of actua
 </tr>
 </table>
 </div>
-<h4 id="example_managing_strings" class="discrete">Example: Managing Strings</h4>
+<h4 id="sec_4-8-2" class="discrete">Example: Managing Strings</h4>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl ppc">#include</span> <span class="hl pps">&quot;hugolib.h&quot;</span><span class="hl ppc"></span>&#x000A;&#x000A;<span class="hl kwa">routine</span> main&#x000A;{&#x000A;    StringTests&#x000A;    <span class="hl kwa">return</span>&#x000A;}&#x000A;&#x000A;<span class="hl kwa">array</span> s1[<span class="hl num">32</span>]&#x000A;<span class="hl kwa">array</span> s2[<span class="hl num">10</span>]&#x000A;<span class="hl kwa">array</span> s3[<span class="hl num">10</span>]&#x000A;&#x000A;<span class="hl kwa">routine</span> StringTests&#x000A;{&#x000A;    <span class="hl kwa">local</span> a, len&#x000A;&#x000A;    a <span class="hl opt">=</span> <span class="hl str">&quot;This is a sample string.&quot;</span>&#x000A;    len <span class="hl opt">=</span> <span class="hl kwa">string</span>(s1, a, <span class="hl num">31</span>)&#x000A;    <span class="hl kwa">string</span>(s2, <span class="hl str">&quot;Apple&quot;</span>, <span class="hl num">9</span>)&#x000A;    <span class="hl kwa">string</span>(s3, <span class="hl str">&quot;Tomato&quot;</span>, <span class="hl num">9</span>)&#x000A;&#x000A;    <span class="hl kwa">print</span> <span class="hl str">&quot;a =</span> <span class="hl esc">\&quot;</span><span class="hl str">&quot;</span>; a; <span class="hl str">&quot;</span><span class="hl esc">\&quot;</span><span class="hl str">&quot;</span>&#x000A;    <span class="hl kwa">print</span> <span class="hl str">&quot;(Dictionary address:  &quot;</span>; <span class="hl kwa">number</span> a; <span class="hl str">&quot;)&quot;</span>&#x000A;    <span class="hl kwa">print</span> <span class="hl str">&quot;s1 contains</span> <span class="hl esc">\&quot;</span><span class="hl str">&quot;</span>; StringPrint(s1); <span class="hl str">&quot;</span><span class="hl esc">\&quot;</span><span class="hl str">&quot;</span>&#x000A;    <span class="hl kwa">print</span> <span class="hl str">&quot;(Array address:  &quot;</span>; <span class="hl kwa">number</span> s1;&#x000A;    <span class="hl kwa">print</span> <span class="hl str">&quot;, length = &quot;</span>; <span class="hl kwa">number</span> len; <span class="hl str">&quot;)&quot;</span>&#x000A;    <span class="hl kwa">print</span> <span class="hl str">&quot;s2 is</span> <span class="hl esc">\&quot;</span><span class="hl str">&quot;</span>; StringPrint(s2);&#x000A;    <span class="hl kwa">print</span> <span class="hl str">&quot;</span><span class="hl esc">\&quot;</span><span class="hl str">, s3 is</span> <span class="hl esc">\&quot;</span><span class="hl str">&quot;</span>; StringPrint(s3); <span class="hl str">&quot;</span><span class="hl esc">\&quot;</span><span class="hl str">&quot;</span>&#x000A;&#x000A;    <span class="hl str">&quot;</span><span class="hl esc">\n</span><span class="hl str">StringCompare(s1, s2) = &quot;</span>;&#x000A;    <span class="hl kwa">print number</span> StringCompare(s1, s2)&#x000A;    <span class="hl str">&quot;StringCompare(s1, s3) = &quot;</span>;&#x000A;    <span class="hl kwa">print number</span> StringCompare(s1, s3)&#x000A;}</code></pre>
@@ -6992,7 +6992,7 @@ The <code>in</code> is optional, but is recommended for legibility.
 </div>
 </div>
 <div class="sect2">
-<h3 id="what_should_i_be_able_to_do_now_3"><a class="anchor" href="#what_should_i_be_able_to_do_now_3"></a>5.6. <em>What Should I Be Able to Do Now?</em></h3>
+<h3 id="what_should_i_be_able_to_do_now"><a class="anchor" href="#what_should_i_be_able_to_do_now"></a>5.6. <em>What Should I Be Able to Do Now?</em></h3>
 <div class="sect3">
 <h4 id="example_borrowing_property_routines"><a class="anchor" href="#example_borrowing_property_routines"></a>Example: &#8220;Borrowing&#8221; Property Routines</h4>
 <div class="paragraph">
@@ -7468,7 +7468,7 @@ For instance, the character script routines in <strong>hugolib.h</strong> set <c
 </div>
 </div>
 <div class="sect2">
-<h3 id="what_should_i_be_able_to_do_now_4"><a class="anchor" href="#what_should_i_be_able_to_do_now_4"></a>6.5. <em>What Should I Be Able to Do Now?</em></h3>
+<h3 id="what_should_i_be_able_to_do_now_2"><a class="anchor" href="#what_should_i_be_able_to_do_now_2"></a>6.5. <em>What Should I Be Able to Do Now?</em></h3>
 <div class="sect3">
 <h4 id="example_a_simple_daemon_and_a_simpler_fuse"><a class="anchor" href="#example_a_simple_daemon_and_a_simpler_fuse"></a>Example: A Simple Daemon and a Simpler Fuse</h4>
 <div class="paragraph">
@@ -8201,7 +8201,7 @@ These are:</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="what_should_i_be_able_to_do_now_5"><a class="anchor" href="#what_should_i_be_able_to_do_now_5"></a>7.3. <em>What Should I Be Able to Do Now?</em></h3>
+<h3 id="what_should_i_be_able_to_do_now_3"><a class="anchor" href="#what_should_i_be_able_to_do_now_3"></a>7.3. <em>What Should I Be Able to Do Now?</em></h3>
 <div class="paragraph">
 <p>It should by now be relatively straightforward how to go about adding a new verb (with appropriate grammar)&#8201;&#8212;&#8201;or even modifying an existing one.
 For instance, consider a game in which disco dancing plays an absolutely vital role, and where the command &#8220;&gt;GET DOWN&#8221; must at all costs be implemented as a synonym for &#8220;&gt;DANCE&#8221; or &#8220;&gt;BOOGIE&#8221;.</p>
@@ -9115,7 +9115,7 @@ Control returns from the library <code>Perform</code> routine to the engine.
 </div>
 </div>
 <div class="sect2">
-<h3 id="what_should_i_be_able_to_do_now_6"><a class="anchor" href="#what_should_i_be_able_to_do_now_6"></a>9.2. <em>What Should I Be Able to Do Now?</em></h3>
+<h3 id="what_should_i_be_able_to_do_now_4"><a class="anchor" href="#what_should_i_be_able_to_do_now_4"></a>9.2. <em>What Should I Be Able to Do Now?</em></h3>
 <div class="paragraph">
 <p>By this point, you&#8217;ve been introduced to the basic facilities through which the Hugo Engine communicates with a running Hugo game: the junction routines <code>EndGame</code>, <code>FindObject</code>, <code>Parse</code>, <code>ParseError</code>, <code>Perform</code>, and <code>SpeakTo</code>.
 Becoming familiar with their implementation and use (and even inner workings) is an important step toward mastering an understanding of the Hugo game loop, including determining how a player input line is parsed, what objects are available or in scope, and how a command is either dispatched to a verbroutine or directed to another character.
@@ -9833,7 +9833,7 @@ In the second case, <code>attach_immobile</code> is also responsible for printin
 </div>
 </div>
 <div class="sect2">
-<h3 id="what_should_i_be_able_to_do_now_7"><a class="anchor" href="#what_should_i_be_able_to_do_now_7"></a>10.9. <em>What Should I Be Able to Do Now?</em></h3>
+<h3 id="what_should_i_be_able_to_do_now_5"><a class="anchor" href="#what_should_i_be_able_to_do_now_5"></a>10.9. <em>What Should I Be Able to Do Now?</em></h3>
 <div class="paragraph">
 <p>By now you should feel comfortable experimenting with the classes in the object library.
 You should be able to look at the various implementations of scenery, components, characters, doors, vehicles, identical/plural objects, and attachables in existing code (such as in <strong>sample.hug</strong>) and not only understand what the various properties of the objects are for, but also how to modify them to achieve a desired effect.</p>
@@ -12511,7 +12511,7 @@ Upon returning from the verb routine, <code>Main</code> is not called.</p>
 <h2 id="appendix_b"><a class="anchor" href="#appendix_b"></a>Appendix B: The Hugo Library</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="attributes_2"><a class="anchor" href="#attributes_2"></a>B.1. Attributes</h3>
+<h3 id="sec_b-1"><a class="anchor" href="#sec_b-1"></a>B.1. Attributes</h3>
 <table class="tableblock frame-all grid-all stripes-none stretch">
 <colgroup>
 <col style="width: 20%;">
@@ -12705,7 +12705,7 @@ Upon returning from the verb routine, <code>Main</code> is not called.</p>
 </table>
 </div>
 <div class="sect2">
-<h3 id="globals"><a class="anchor" href="#globals"></a>B.2. Globals</h3>
+<h3 id="sec_b-2"><a class="anchor" href="#sec_b-2"></a>B.2. Globals</h3>
 <table class="tableblock frame-all grid-all stripes-none stretch">
 <colgroup>
 <col style="width: 20%;">
@@ -12983,7 +12983,7 @@ Upon returning from the verb routine, <code>Main</code> is not called.</p>
 </table>
 </div>
 <div class="sect2">
-<h3 id="arrays"><a class="anchor" href="#arrays"></a>B.3. Arrays</h3>
+<h3 id="sec_b-3"><a class="anchor" href="#sec_b-3"></a>B.3. Arrays</h3>
 <table class="tableblock frame-all grid-all stripes-none stretch">
 <colgroup>
 <col style="width: 20%;">
@@ -13042,7 +13042,7 @@ Upon returning from the verb routine, <code>Main</code> is not called.</p>
 </table>
 </div>
 <div class="sect2">
-<h3 id="constants_2"><a class="anchor" href="#constants_2"></a>B.4. Constants</h3>
+<h3 id="sec_b-4"><a class="anchor" href="#sec_b-4"></a>B.4. Constants</h3>
 <table class="tableblock frame-all grid-all stripes-none stretch">
 <colgroup>
 <col style="width: 20%;">
@@ -13259,7 +13259,7 @@ Upon returning from the verb routine, <code>Main</code> is not called.</p>
 </table>
 </div>
 <div class="sect2">
-<h3 id="properties_2"><a class="anchor" href="#properties_2"></a>B.5. Properties</h3>
+<h3 id="sec_b-5"><a class="anchor" href="#sec_b-5"></a>B.5. Properties</h3>
 <table class="tableblock frame-all grid-all stripes-none stretch">
 <colgroup>
 <col style="width: 20%;">
@@ -13644,7 +13644,7 @@ The proper means of omitting an object from a list is to set the <code>hidden</c
 </div>
 </div>
 <div class="sect2">
-<h3 id="verb_routines"><a class="anchor" href="#verb_routines"></a>B.6. Verb Routines</h3>
+<h3 id="sec_b-6"><a class="anchor" href="#sec_b-6"></a>B.6. Verb Routines</h3>
 <div class="paragraph">
 <p>The library file <strong>verblib.h</strong> (included by <strong>hugolib.h</strong>) contains a fairly extensive set of basic actions, each of which takes the form <code>Do&lt;verb&gt;</code>, so that the action for taking an object is <code>DoGet</code>, the action for basic player movement is <code>DoGo</code>, etc.
 Each is called by the engine when a grammar syntax line specifying the particular verb routine is matched.
@@ -13816,7 +13816,7 @@ To use these verbs, set the <code>VERBSTUBS</code> flag before compiling <strong
 </div>
 </div>
 <div class="sect2">
-<h3 id="utility_routines_etc"><a class="anchor" href="#utility_routines_etc"></a>B.7. Utility Routines, Etc.</h3>
+<h3 id="sec_b-7"><a class="anchor" href="#sec_b-7"></a>B.7. Utility Routines, Etc.</h3>
 <div class="paragraph">
 <p>First, the junction routines:</p>
 </div>
@@ -14316,7 +14316,7 @@ Including a non-false long parameter will always force a location description.</
 </div>
 </div>
 <div class="paragraph">
-<p>Sets the current font attributes as specified by <code>bitmask</code>, where <code>bitmask</code> is one or more font-style constants (see <a href="#constants_2">library constants</a>, above) combined with <code>|</code> or <code>+</code>.</p>
+<p>Sets the current font attributes as specified by <code>bitmask</code>, where <code>bitmask</code> is one or more font-style constants (see <a href="#sec_b-4">library constants</a>, above) combined with <code>|</code> or <code>+</code>.</p>
 </div></div></td>
 </tr>
 <tr>
@@ -14805,7 +14805,7 @@ Once a valid answer is received, it returns true (if yes) or false (if no).</p>
 </table>
 </div>
 <div class="sect2">
-<h3 id="auxiliary_math_routines"><a class="anchor" href="#auxiliary_math_routines"></a>B.8. Auxiliary Math Routines</h3>
+<h3 id="sec_b-8"><a class="anchor" href="#sec_b-8"></a>B.8. Auxiliary Math Routines</h3>
 <table class="tableblock frame-all grid-all stripes-none stretch">
 <colgroup>
 <col style="width: 20%;">
@@ -14898,7 +14898,7 @@ The return value is undefined if the result is outside the boundary of -32768 to
 </table>
 </div>
 <div class="sect2">
-<h3 id="string_array_routines"><a class="anchor" href="#string_array_routines"></a>B.9. String Array Routines</h3>
+<h3 id="sec_b-9"><a class="anchor" href="#sec_b-9"></a>B.9. String Array Routines</h3>
 <table class="tableblock frame-all grid-all stripes-none stretch">
 <colgroup>
 <col style="width: 20%;">
@@ -14993,7 +14993,7 @@ The return value is undefined if the result is outside the boundary of -32768 to
 </table>
 </div>
 <div class="sect2">
-<h3 id="fusedaemon_routines"><a class="anchor" href="#fusedaemon_routines"></a>B.10. Fuse/Daemon Routines</h3>
+<h3 id="sec_b-10"><a class="anchor" href="#sec_b-10"></a>B.10. Fuse/Daemon Routines</h3>
 <table class="tableblock frame-all grid-all stripes-none stretch">
 <colgroup>
 <col style="width: 20%;">
@@ -15033,7 +15033,7 @@ The setting value is only specified for fuses, where it represents the initial v
 </table>
 </div>
 <div class="sect2">
-<h3 id="character_script_routines"><a class="anchor" href="#character_script_routines"></a>B.11. Character Script Routines</h3>
+<h3 id="sec_b-11"><a class="anchor" href="#sec_b-11"></a>B.11. Character Script Routines</h3>
 <table class="tableblock frame-all grid-all stripes-none stretch">
 <colgroup>
 <col style="width: 20%;">
@@ -15140,7 +15140,7 @@ Returns -1 if <code>MAX_SCRIPTS</code> is exceeded.</p>
 </table>
 </div>
 <div class="sect2">
-<h3 id="character_action_routines"><a class="anchor" href="#character_action_routines"></a>B.12. Character Action Routines</h3>
+<h3 id="sec_b-12"><a class="anchor" href="#sec_b-12"></a>B.12. Character Action Routines</h3>
 <div class="paragraph">
 <p>As a starting point, the library also provides a limited number of routines for character scripts to use.
 They are:</p>
@@ -15173,7 +15173,7 @@ They are:</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="conditional_compilation"><a class="anchor" href="#conditional_compilation"></a>B.13. Conditional Compilation</h3>
+<h3 id="sec_b-13"><a class="anchor" href="#sec_b-13"></a>B.13. Conditional Compilation</h3>
 <div class="paragraph">
 <p>A number of compiler flags may be set to exclude certain portions of <strong>hugolib.h</strong> from compilation if these functions or objects are not required.</p>
 </div>
@@ -17635,7 +17635,7 @@ Each object requires 24 bytes:<sup class="footnote">[<a id="_footnoteref_71" cla
 </div>
 </div>
 <div class="sect2">
-<h3 id="attributes_3"><a class="anchor" href="#attributes_3"></a>20.2. Attributes</h3>
+<h3 id="attributes"><a class="anchor" href="#attributes"></a>20.2. Attributes</h3>
 <div class="paragraph">
 <p>The 16 bytes of the attribute array contain 8 bits each, giving a total of 128 possible attributes.<sup class="footnote">[<a id="_footnoteref_72" class="footnote" href="#_footnotedef_72" title="View footnote.">72</a>]</sup>
 Essentially, if the bits are thought of sequentially in that the first byte represents attributes 0 to 7, the second byte represents attributes 8 to 15, the third 16 to 23, and the fourth and final byte 24 to 31.</p>
@@ -21909,7 +21909,7 @@ If there is an error, the <code>system_status</code> global variable is set.</p>
 <a href="#_footnoteref_7">7</a>. Routine addresses are also stored as 16-bit integers. However, those versed at all in such calculations will notice that if such a value was treated as an absolute address, then any addressable executable code would be limited to 64K in size (65536 bytes, the maximum size of an unsigned 16-bit integer). Such is not the case, since the routine address is actually an indexed representation of the absolute address, allowing Hugo games to far exceed any such limit in their size of executable code.
 </div>
 <div class="footnote" id="_footnotedef_8">
-<a href="#_footnoteref_8">8</a>. The section <a href="#operators_and_assignments">Sec. 4.5, &#8220;Operators and Assignments&#8221;</a> goes into greater detail on assigning values to variables.
+<a href="#_footnoteref_8">8</a>. <a href="#sec_4-5">Sec. 4.5, &#8220;Operators and Assignments&#8221;</a> goes into greater detail on assigning values to variables.
 </div>
 <div class="footnote" id="_footnotedef_9">
 <a href="#_footnoteref_9">9</a>. But keep an eye out for issues of comment maintenance. Again, a good comment should add clarity to a section of code, but it (usually) shouldn&#8217;t restate exactly what the code is doing. Doing that just means that when you change the code, you have to change the comment to keep it accurate, too, which if you&#8217;ve overcommented means doing the same thing twice, and increasing the chances of getting out of sync so that the comment doesn&#8217;t perfectly reflect the code it&#8217;s supposed to be commenting.
