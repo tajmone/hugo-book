@@ -24,10 +24,10 @@ Note also that (unlike in languages such as C) formatting sequences such as `\n`
 // @XREF: "5.1. Routines" (in footnote!)
 :fn5: pass:q[footnote:[ \
 "`Arguments`" are simply parameters passed to a routine at calling time. \
-See xref:hugo-book1_05#routines[].]]
+See xref:sec_5-1[].]]
 
 // @XREF: "7.2. The Parser" (in footnote!)
-:fn6: pass:q[footnote:[The built-in engine variables `parse$` and `serial$` may be used in place of the dictionary entry address; see xref:hugo-book1_07#the_parser[] for a description.]]
+:fn6: pass:q[footnote:[The built-in engine variables `parse$` and `serial$` may be used in place of the dictionary entry address; see xref:sec_7-2[] for a description.]]
 
 
 :fn7: pass:q[footnote:[ C programmers are used to cases that "`fall through`" to the next `case` unless explicitly told not to do so; such is not the case with Hugo.]]

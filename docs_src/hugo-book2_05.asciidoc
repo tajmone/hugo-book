@@ -63,7 +63,7 @@ Following the verb header giving the number of verb words and the dictionary add
 [NOTE]
 ================================================================================
 // @XREF: "The Hugo Programming Manual"
-For an elaboration of valid grammar syntax specification, please see <<hugo-book1#book1>>.
+For an elaboration of valid grammar syntax specification, please see <<book1>>.
 ================================================================================
 
 Grammar lines are encoded immediately following the verb header, so that in the first example given above,

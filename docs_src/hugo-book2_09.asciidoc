@@ -68,7 +68,7 @@ A simple explanation of the above is that `<object>.after` is called following a
 If `<object>` was the object of the verbroutine (i.e., the `object` global), and the `verbroutine` global was `DoGet`, the first block runs.
 The second block will run if no previous block has run.
 // @XREF: "The Hugo Programming Manual"
-For a full description of complex properties, see <<hugo-book1#book1>>.
+For a full description of complex properties, see <<book1>>.
 ================================================================================
 
 First of all, the entry in the property table for `<object>.after` will point to the first line of code in the property routine.

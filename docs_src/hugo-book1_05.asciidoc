@@ -14,7 +14,7 @@
 :fn2: pass:q[footnote:[Remember here that both zero (0) and the empty string `""` are equal in value.]]
 
 // @XREF: "8.7. Perform" (in footnote!)
-:fn3: footnote:[The actual mechanics are described in xref:hugo-book1_08#perform[].]
+:fn3: footnote:[The actual mechanics are described in xref:sec_8-7[].]
 
 :fn4: pass:q[footnote:[In the imperative sentence "`Put the book on the shelf`", the book is the direct object, and the shelf is the indirect object.]]
 
@@ -25,7 +25,7 @@
 :fn6: pass:q[footnote:[ \
 _Verbs_ are actions that the player uses to interact with the physical world of the game. \
 _Xverbs_ are "`non-action`" verbs that generally deal with system functions, such as getting help, saving a game, etc. but don't otherwise affect the state of the game world. \
-See xref:hugo-book1_07#grammar_definition[].]]
+See xref:sec_7-1[].]]
 
 :fn7: pass:q[footnote:[All of the capitalized `CONSTANTS` used here are defined in *hugolib.h*.]]
 
@@ -39,7 +39,7 @@ See xref:hugo-book1_07#grammar_definition[].]]
 
 // <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
-
+[[sec_5-1]]
 == Routines
 
 Routines are blocks of code that may be called at any point in a program.
@@ -232,6 +232,7 @@ Since `The` returns 0 (the empty string, or `+""+`), the `print` command is actu
 where the empty string (`+""+`) is preceded on the output line by The's printing of `"++the ++"` (notice the trailing space) and the object name.
 
 
+[[sec_5-2]]
 == Property Routines
 
 Property routines are slightly more complex than the simple routines described so far, but follow the same basic rules.
@@ -400,6 +401,7 @@ To avoid this, such as when "`borrowing`" a property from another object from wi
 using `..` instead of the normal property operator.
 
 
+[[sec_5-3]]
 == Before and After Routines
 
 // @NOTE:   "After" was capitalized in "Before and After Routines" because it's
@@ -615,6 +617,7 @@ But `AnyVerb(location)` will only equal the `location` global if the verbroutine
 
 
 
+[[sec_5-4]]
 == Init and Main
 
 At least two routines are typically part of every Hugo problem: `Init` and `Main`.
@@ -746,6 +749,7 @@ The `RunScripts` library routine runs any active scripts:_
 
 
 
+[[sec_5-5]]
 == Events
 
 Events are useful for bringing a game to life, so that little quirks, behaviors, and occurrences can be provided for with little difficulty or complexity.
@@ -785,9 +789,11 @@ If the event is not a global event, the `self` global is set to the number of th
 ================================================================================
 
 
+[[sec_5-6]]
 == _What Should I Be Able to Do Now?_
 
 
+[[sec_5-6-1]]
 === Example: "`Borrowing`" Property Routines
 
 Consider a situation where a class provides a particular property routine.
@@ -824,6 +830,7 @@ Using `..` calls `food.eating` with `self` set to `health_food`, not the `food` 
 This also allows changes to be made to any property, attribute, or property routine in a class, and that change will be reflected in all objects built from that class.
 
 
+[[sec_5-6-2]]
 === Example: Building a (More) Complex Object
 
 At this point, enough material has been covered to develop a comprehensive example of a functional object that will serve as a summary of concepts introduced so far, as well as providing instances of a number of common properties from *hugolib.h*.
@@ -903,6 +910,7 @@ as a new attribute.
 The cabinet can now be entered via: "`go cabinet`", "`get into cabinet`", "`enter cabinet`", etc.
 
 
+[[sec_5-6-3]]
 === Example: Building a Clock Event
 
 Suppose that there is a clock object in a room.

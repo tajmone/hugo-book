@@ -7,6 +7,7 @@
 [[chapter_7]]
 = Grammar and Parsing
 
+[[sec_7-1]]
 == Grammar Definition
 
 Every valid player command must specified.
@@ -252,6 +253,7 @@ If two routine names are used in a particular syntax, such as
 then `FirstRoutine` validates the object and `SecondRoutine` validates the xobject.
 
 
+[[sec_7-2]]
 == The Parser
 
 Immediately after an input line is received, the engine calls the parser, and the first step taken is to identify any invalid words, i.e., words that are not in the dictionary table.
@@ -458,6 +460,7 @@ The library defines several such synonyms.
 ================================================================================
 
 
+[[sec_7-3]]
 == _What Should I Be Able to Do Now?_
 
 It should by now be relatively straightforward how to go about adding a new verb (with appropriate grammar) -- or even modifying an existing one.

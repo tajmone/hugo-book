@@ -569,7 +569,7 @@ div.literalblock.hugosyntax div.content pre > sup.footnote a {
 <span id="email" class="email"><a href="mailto:general@generalcoffee.com">general@generalcoffee.com</a></span><br>
 <span id="revnumber">version 1,</span>
 <span id="revdate">2018-10-04</span>
-<br><span id="revremark">Draft 121 -- Porting to AsciiDoc</span>
+<br><span id="revremark">Draft 122 -- Porting to AsciiDoc</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -3319,7 +3319,7 @@ This <em>complex property routine</em> is defined by the compiler and handled di
 In this case, the property value representing the routine address is only returned if the global variables <code>object</code> and <code>verbroutine</code> contain the object in question and the address of the <code>DoGet</code> routine, respectively.
 If there is a match, the routine is executed before <code>DoGet</code>, which is the library routine (in <strong>verblib.h</strong>) that normally handles the taking of objects.
 (There is also a companion to <code>before</code> called <code>after</code>, which is checked after the verb routine has been called.)
-See <a href="#before_and_after_routines">Sec. 5.3, &#8220;Before and After Routines&#8221;</a> for further elucidation.</p>
+See <a href="#sec_5-3">Sec. 5.3, &#8220;Before and After Routines&#8221;</a> for further elucidation.</p>
 </div>
 <div class="paragraph">
 <p>There will be more on property routines and complex property routines later.
@@ -6186,7 +6186,7 @@ As &#8220;To(mato)&#8221; is lexically greater than &#8220;Th(is&#8230;&#8203;)&
 <h2 id="chapter_5"><a class="anchor" href="#chapter_5"></a>5. Routines and Events</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="routines"><a class="anchor" href="#routines"></a>5.1. Routines</h3>
+<h3 id="sec_5-1"><a class="anchor" href="#sec_5-1"></a>5.1. Routines</h3>
 <div class="paragraph">
 <p>Routines are blocks of code that may be called at any point in a program.
 A routine may or may not return a value, and it may or may not require a list of <em>parameters</em> or <em>arguments</em>.
@@ -6386,7 +6386,7 @@ the suitcase
 </div>
 </div>
 <div class="sect2">
-<h3 id="property_routines"><a class="anchor" href="#property_routines"></a>5.2. Property Routines</h3>
+<h3 id="sec_5-2"><a class="anchor" href="#sec_5-2"></a>5.2. Property Routines</h3>
 <div class="paragraph">
 <p>Property routines are slightly more complex than the simple routines described so far, but follow the same basic rules.
 Normally, a property routine runs when the program attempts to get the value of a property that contains a routine.</p>
@@ -6580,7 +6580,7 @@ To avoid this, such as when &#8220;borrowing&#8221; a property from another obje
 </div>
 </div>
 <div class="sect2">
-<h3 id="before_and_after_routines"><a class="anchor" href="#before_and_after_routines"></a>5.3. Before and After Routines</h3>
+<h3 id="sec_5-3"><a class="anchor" href="#sec_5-3"></a>5.3. Before and After Routines</h3>
 <div class="paragraph">
 <p>The Hugo Compiler predefines two special properties: <code>before</code> and <code>after</code>.
 They are unique in that not only are they always routines, but they are much more complex (and versatile) than a standard property routine.</p>
@@ -6811,7 +6811,7 @@ But <code>AnyVerb(location)</code> will only equal the <code>location</code> glo
 </div>
 </div>
 <div class="sect2">
-<h3 id="init_and_main"><a class="anchor" href="#init_and_main"></a>5.4. Init and Main</h3>
+<h3 id="sec_5-4"><a class="anchor" href="#sec_5-4"></a>5.4. Init and Main</h3>
 <div class="paragraph">
 <p>At least two routines are typically part of every Hugo problem: <code>Init</code> and <code>Main</code>.
 <code>Init</code> is optional but almost always implemented.
@@ -6933,7 +6933,7 @@ The <code>RunScripts</code> library routine runs any active scripts:</em></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="events"><a class="anchor" href="#events"></a>5.5. Events</h3>
+<h3 id="sec_5-5"><a class="anchor" href="#sec_5-5"></a>5.5. Events</h3>
 <div class="paragraph">
 <p>Events are useful for bringing a game to life, so that little quirks, behaviors, and occurrences can be provided for with little difficulty or complexity.
 Events are also routines, but their special characteristic is that they may be attached to a particular object, and they are run as a group by the <code>runevents</code> command.
@@ -6992,9 +6992,9 @@ The <code>in</code> is optional, but is recommended for legibility.
 </div>
 </div>
 <div class="sect2">
-<h3 id="what_should_i_be_able_to_do_now"><a class="anchor" href="#what_should_i_be_able_to_do_now"></a>5.6. <em>What Should I Be Able to Do Now?</em></h3>
+<h3 id="sec_5-6"><a class="anchor" href="#sec_5-6"></a>5.6. <em>What Should I Be Able to Do Now?</em></h3>
 <div class="sect3">
-<h4 id="example_borrowing_property_routines"><a class="anchor" href="#example_borrowing_property_routines"></a>Example: &#8220;Borrowing&#8221; Property Routines</h4>
+<h4 id="sec_5-6-1"><a class="anchor" href="#sec_5-6-1"></a>Example: &#8220;Borrowing&#8221; Property Routines</h4>
 <div class="paragraph">
 <p>Consider a situation where a class provides a particular property routine.
 Normally, that routine is inherited by all objects defined using that class.
@@ -7015,7 +7015,7 @@ This also allows changes to be made to any property, attribute, or property rout
 </div>
 </div>
 <div class="sect3">
-<h4 id="example_building_a_more_complex_object"><a class="anchor" href="#example_building_a_more_complex_object"></a>Example: Building a (More) Complex Object</h4>
+<h4 id="sec_5-6-2"><a class="anchor" href="#sec_5-6-2"></a>Example: Building a (More) Complex Object</h4>
 <div class="paragraph">
 <p>At this point, enough material has been covered to develop a comprehensive example of a functional object that will serve as a summary of concepts introduced so far, as well as providing instances of a number of common properties from <strong>hugolib.h</strong>.</p>
 </div>
@@ -7049,7 +7049,7 @@ The cabinet can now be entered via: &#8220;go cabinet&#8221;, &#8220;get into ca
 </div>
 </div>
 <div class="sect3">
-<h4 id="example_building_a_clock_event"><a class="anchor" href="#example_building_a_clock_event"></a>Example: Building a Clock Event</h4>
+<h4 id="sec_5-6-3"><a class="anchor" href="#sec_5-6-3"></a>Example: Building a Clock Event</h4>
 <div class="paragraph">
 <p>Suppose that there is a clock object in a room.
 Here is a possible event:</p>
@@ -7086,13 +7086,13 @@ Simply changing the event definition to:</p>
 <h2 id="chapter_6"><a class="anchor" href="#chapter_6"></a>6. Fuses, Daemons, and Scripts</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="introduction"><a class="anchor" href="#introduction"></a>6.1. Introduction</h3>
+<h3 id="sec_6-1"><a class="anchor" href="#sec_6-1"></a>6.1. Introduction</h3>
 <div class="paragraph">
 <p>While most of the previously discussed elements of programming with Hugo (such as events) are part of the internal architecture of the Hugo Engine, the means of running fuses, daemons, and scripts are written entirely in the Hugo language itself and contained in the Hugo Library.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="fuses_and_daemons"><a class="anchor" href="#fuses_and_daemons"></a>6.2. Fuses and Daemons</h3>
+<h3 id="sec_6-2"><a class="anchor" href="#sec_6-2"></a>6.2. Fuses and Daemons</h3>
 <div class="paragraph">
 <p>A <em>daemon</em> is the traditional name for a recurring activity.
 Hugo handles daemons as special events attached to objects that may be activated or deactivated (i.e., moved in and out of the scope of <code>runevents</code>).
@@ -7239,7 +7239,7 @@ The line</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="scripts"><a class="anchor" href="#scripts"></a>6.3. Scripts</h3>
+<h3 id="sec_6-3"><a class="anchor" href="#sec_6-3"></a>6.3. Scripts</h3>
 <div class="paragraph">
 <p>Scripts are considerably more complex than fuses and daemons.
 The purpose of a script (also called a character script) is to allow an object&#8201;&#8212;&#8201;usually a character&#8201;&#8212;&#8201;to follow a sequence of actions turn-by-turn, independent of the player.
@@ -7458,7 +7458,7 @@ It continues with the default action&#8201;&#8212;&#8201;i.e., the character act
 </div>
 </div>
 <div class="sect2">
-<h3 id="a_note_about_the_event_flag_global"><a class="anchor" href="#a_note_about_the_event_flag_global"></a>6.4. A Note about the event_flag Global</h3>
+<h3 id="sec_6-4"><a class="anchor" href="#sec_6-4"></a>6.4. A Note about the event_flag Global</h3>
 <div class="paragraph">
 <p>The library routines&#8201;&#8212;&#8201;particularly the <code>DoWait&#8230;&#8203;</code> verb routines (invoked whenever a player types &#8220;wait&#8221;, &#8220;wait for (someone)&#8221;, or &#8220;wait for 5 turns&#8221;&#8201;&#8212;&#8201;expect the <code>event_flag</code> global variable to be set to a non-false value if something happens (i.e., in an event or script) so that the player may be notified and given the opportunity to quit waiting.
 For instance, the character script routines in <strong>hugolib.h</strong> set <code>event_flag</code> whenever a character does something in the same location as the player.</p>
@@ -7468,9 +7468,9 @@ For instance, the character script routines in <strong>hugolib.h</strong> set <c
 </div>
 </div>
 <div class="sect2">
-<h3 id="what_should_i_be_able_to_do_now_2"><a class="anchor" href="#what_should_i_be_able_to_do_now_2"></a>6.5. <em>What Should I Be Able to Do Now?</em></h3>
+<h3 id="sec_6-5"><a class="anchor" href="#sec_6-5"></a>6.5. <em>What Should I Be Able to Do Now?</em></h3>
 <div class="sect3">
-<h4 id="example_a_simple_daemon_and_a_simpler_fuse"><a class="anchor" href="#example_a_simple_daemon_and_a_simpler_fuse"></a>Example: A Simple Daemon and a Simpler Fuse</h4>
+<h4 id="sec_6-5-1"><a class="anchor" href="#sec_6-5-1"></a>Example: A Simple Daemon and a Simpler Fuse</h4>
 <div class="paragraph">
 <p>The most basic daemon would be something like a sleep counter, which measures how far a player can go beginning from a certain rested state.
 Assume that the player&#8217;s amount of rest is kept in a property called <code>rest</code>, which decreases by 2 each turn.</p>
@@ -7516,7 +7516,7 @@ Assume that the player&#8217;s amount of rest is kept in a property called <code
 <h2 id="chapter_7"><a class="anchor" href="#chapter_7"></a>7. Grammar and Parsing</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="grammar_definition"><a class="anchor" href="#grammar_definition"></a>7.1. Grammar Definition</h3>
+<h3 id="sec_7-1"><a class="anchor" href="#sec_7-1"></a>7.1. Grammar Definition</h3>
 <div class="paragraph">
 <p>Every valid player command must specified.
 More precisely, each usage of a particular verb must be detailed in full by the source code.
@@ -7920,7 +7920,7 @@ If two routine names are used in a particular syntax, such as</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="the_parser"><a class="anchor" href="#the_parser"></a>7.2. The Parser</h3>
+<h3 id="sec_7-2"><a class="anchor" href="#sec_7-2"></a>7.2. The Parser</h3>
 <div class="paragraph">
 <p>Immediately after an input line is received, the engine calls the parser, and the first step taken is to identify any invalid words, i.e., words that are not in the dictionary table.</p>
 </div>
@@ -8201,7 +8201,7 @@ These are:</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="what_should_i_be_able_to_do_now_3"><a class="anchor" href="#what_should_i_be_able_to_do_now_3"></a>7.3. <em>What Should I Be Able to Do Now?</em></h3>
+<h3 id="sec_7-3"><a class="anchor" href="#sec_7-3"></a>7.3. <em>What Should I Be Able to Do Now?</em></h3>
 <div class="paragraph">
 <p>It should by now be relatively straightforward how to go about adding a new verb (with appropriate grammar)&#8201;&#8212;&#8201;or even modifying an existing one.
 For instance, consider a game in which disco dancing plays an absolutely vital role, and where the command &#8220;&gt;GET DOWN&#8221; must at all costs be implemented as a synonym for &#8220;&gt;DANCE&#8221; or &#8220;&gt;BOOGIE&#8221;.</p>
@@ -8251,7 +8251,7 @@ By superseding it, however, we ensure that any grammar matching the desired patt
 <h2 id="chapter_8"><a class="anchor" href="#chapter_8"></a>8. Junction Routines</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="before_we_get_to_the_routines"><a class="anchor" href="#before_we_get_to_the_routines"></a>8.1. Before We Get to the Routines</h3>
+<h3 id="sec_8-1"><a class="anchor" href="#sec_8-1"></a>8.1. Before We Get to the Routines</h3>
 <div class="paragraph">
 <p>Because, the engine is unaware of such things as attributes, properties, and objects in anything but a technical sense,<sup class="footnote">[<a id="_footnoteref_42" class="footnote" href="#_footnotedef_42" title="View footnote.">42</a>]</sup> there are provided a number of routines to facilitate communication between the engine and the program proper.
 Along with these junction routines are certain global variables and properties that are pre-defined by the compiler and accessed directly by the engine.
@@ -8364,7 +8364,7 @@ If a different routine is desired in place of a provided one, the routine should
 </div>
 </div>
 <div class="sect2">
-<h3 id="parse"><a class="anchor" href="#parse"></a>8.2. Parse</h3>
+<h3 id="sec_8-2"><a class="anchor" href="#sec_8-2"></a>8.2. Parse</h3>
 <div class="paragraph">
 <p>The <code>Parse</code> routine, if one exists, is called by the engine parser.
 Here, the program itself may modify the input line before grammar matching is attempted.
@@ -8412,7 +8412,7 @@ This is useful in case the <code>Parse</code> routine has changed the input line
 </div>
 </div>
 <div class="sect2">
-<h3 id="parseerror"><a class="anchor" href="#parseerror"></a>8.3. ParseError</h3>
+<h3 id="sec_8-3"><a class="anchor" href="#sec_8-3"></a>8.3. ParseError</h3>
 <div class="paragraph">
 <p>The <code>ParseError</code> routine is called whenever a command is invalid.
 <code>ParseError</code> is called in the form:</p>
@@ -8560,7 +8560,7 @@ Returning 2 is a signal to reparse the entire existing line (useful in cases whe
 </div>
 </div>
 <div class="sect2">
-<h3 id="endgame"><a class="anchor" href="#endgame"></a>8.4. EndGame</h3>
+<h3 id="sec_8-4"><a class="anchor" href="#sec_8-4"></a>8.4. EndGame</h3>
 <div class="paragraph">
 <p>The <code>EndGame</code> routine is called immediately whenever the global variable <code>endflag</code> is non-zero, regardless of whether or not the current function has not yet been terminated.</p>
 </div>
@@ -8613,7 +8613,7 @@ Other than being non-false, the various values of <code>endflag</code> are insig
 </div>
 </div>
 <div class="sect2">
-<h3 id="findobject"><a class="anchor" href="#findobject"></a>8.5. FindObject</h3>
+<h3 id="sec_8-5"><a class="anchor" href="#sec_8-5"></a>8.5. FindObject</h3>
 <div class="paragraph">
 <p>The <code>FindObject</code> routine takes into account all the relevant properties, attributes, and object hierarchy to determine whether or not a particular object is available in the current context.
 For example, the child of a parent object may be available if the parent is a platform, but unavailable if the parent is a container (and closed)&#8201;&#8212;&#8201;although internally, the object hierarchy is the same.
@@ -8674,7 +8674,7 @@ This occurs whenever the engine needs to determine if an object is available <em
 </div>
 </div>
 <div class="sect2">
-<h3 id="speakto"><a class="anchor" href="#speakto"></a>8.6. SpeakTo</h3>
+<h3 id="sec_8-6"><a class="anchor" href="#sec_8-6"></a>8.6. SpeakTo</h3>
 <div class="paragraph">
 <p>The <code>SpeakTo</code> routine is called whenever an input line begins with a valid object name instead of a verb.
 This is so the player may direct commands to (usually) characters in the game.
@@ -8794,7 +8794,7 @@ If no response is provided, <code>order_response</code> should return false.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="perform"><a class="anchor" href="#perform"></a>8.7. Perform</h3>
+<h3 id="sec_8-7"><a class="anchor" href="#sec_8-7"></a>8.7. Perform</h3>
 <div class="paragraph">
 <p>The <code>Perform</code> routine is what is called by the engine in order to execute the appropriate verbroutine with the given object(s) and/or indirect object, if either or both are applicable.
 It is the responsibility of <code>Perform</code> to do the appropriate checking of <code>before</code> routines to determine if execution actually gets to the verbroutine.
@@ -9115,7 +9115,7 @@ Control returns from the library <code>Perform</code> routine to the engine.
 </div>
 </div>
 <div class="sect2">
-<h3 id="what_should_i_be_able_to_do_now_4"><a class="anchor" href="#what_should_i_be_able_to_do_now_4"></a>9.2. <em>What Should I Be Able to Do Now?</em></h3>
+<h3 id="what_should_i_be_able_to_do_now"><a class="anchor" href="#what_should_i_be_able_to_do_now"></a>9.2. <em>What Should I Be Able to Do Now?</em></h3>
 <div class="paragraph">
 <p>By this point, you&#8217;ve been introduced to the basic facilities through which the Hugo Engine communicates with a running Hugo game: the junction routines <code>EndGame</code>, <code>FindObject</code>, <code>Parse</code>, <code>ParseError</code>, <code>Perform</code>, and <code>SpeakTo</code>.
 Becoming familiar with their implementation and use (and even inner workings) is an important step toward mastering an understanding of the Hugo game loop, including determining how a player input line is parsed, what objects are available or in scope, and how a command is either dispatched to a verbroutine or directed to another character.
@@ -9833,7 +9833,7 @@ In the second case, <code>attach_immobile</code> is also responsible for printin
 </div>
 </div>
 <div class="sect2">
-<h3 id="what_should_i_be_able_to_do_now_5"><a class="anchor" href="#what_should_i_be_able_to_do_now_5"></a>10.9. <em>What Should I Be Able to Do Now?</em></h3>
+<h3 id="what_should_i_be_able_to_do_now_2"><a class="anchor" href="#what_should_i_be_able_to_do_now_2"></a>10.9. <em>What Should I Be Able to Do Now?</em></h3>
 <div class="paragraph">
 <p>By now you should feel comfortable experimenting with the classes in the object library.
 You should be able to look at the various implementations of scenery, components, characters, doors, vehicles, identical/plural objects, and attachables in existing code (such as in <strong>sample.hug</strong>) and not only understand what the various properties of the objects are for, but also how to modify them to achieve a desired effect.</p>
@@ -21960,10 +21960,10 @@ If there is an error, the <code>system_status</code> global variable is set.</p>
 <a href="#_footnoteref_24">24</a>. Measured in 16-bit words, or 2 bytes per element.
 </div>
 <div class="footnote" id="_footnotedef_25">
-<a href="#_footnoteref_25">25</a>. &#8220;Arguments&#8221; are simply parameters passed to a routine at calling time. See <a href="#routines">Sec. 5.1, &#8220;Routines&#8221;</a>.
+<a href="#_footnoteref_25">25</a>. &#8220;Arguments&#8221; are simply parameters passed to a routine at calling time. See <a href="#sec_5-1">Sec. 5.1, &#8220;Routines&#8221;</a>.
 </div>
 <div class="footnote" id="_footnotedef_26">
-<a href="#_footnoteref_26">26</a>. The built-in engine variables <code>parse$</code> and <code>serial$</code> may be used in place of the dictionary entry address; see <a href="#the_parser">Sec. 7.2, &#8220;The Parser&#8221;</a> for a description.
+<a href="#_footnoteref_26">26</a>. The built-in engine variables <code>parse$</code> and <code>serial$</code> may be used in place of the dictionary entry address; see <a href="#sec_7-2">Sec. 7.2, &#8220;The Parser&#8221;</a> for a description.
 </div>
 <div class="footnote" id="_footnotedef_27">
 <a href="#_footnoteref_27">27</a>. C programmers are used to cases that &#8220;fall through&#8221; to the next <code>case</code> unless explicitly told not to do so; such is not the case with Hugo.
@@ -21981,7 +21981,7 @@ If there is an error, the <code>system_status</code> global variable is set.</p>
 <a href="#_footnoteref_31">31</a>. Remember here that both zero (0) and the empty string <code>""</code> are equal in value.
 </div>
 <div class="footnote" id="_footnotedef_32">
-<a href="#_footnoteref_32">32</a>. The actual mechanics are described in <a href="#perform">Sec. 8.7, &#8220;Perform&#8221;</a>.
+<a href="#_footnoteref_32">32</a>. The actual mechanics are described in <a href="#sec_8-7">Sec. 8.7, &#8220;Perform&#8221;</a>.
 </div>
 <div class="footnote" id="_footnotedef_33">
 <a href="#_footnoteref_33">33</a>. In the imperative sentence &#8220;Put the book on the shelf&#8221;, the book is the direct object, and the shelf is the indirect object.
@@ -21990,7 +21990,7 @@ If there is an error, the <code>system_status</code> global variable is set.</p>
 <a href="#_footnoteref_34">34</a>. See <a href="#chapter_9">Ch. 9, <em>The Game Loop</em></a>.
 </div>
 <div class="footnote" id="_footnotedef_35">
-<a href="#_footnoteref_35">35</a>. <em>Verbs</em> are actions that the player uses to interact with the physical world of the game. <em>Xverbs</em> are &#8220;non-action&#8221; verbs that generally deal with system functions, such as getting help, saving a game, etc. but don&#8217;t otherwise affect the state of the game world. See <a href="#grammar_definition">Sec. 7.1, &#8220;Grammar Definition&#8221;</a>.
+<a href="#_footnoteref_35">35</a>. <em>Verbs</em> are actions that the player uses to interact with the physical world of the game. <em>Xverbs</em> are &#8220;non-action&#8221; verbs that generally deal with system functions, such as getting help, saving a game, etc. but don&#8217;t otherwise affect the state of the game world. See <a href="#sec_7-1">Sec. 7.1, &#8220;Grammar Definition&#8221;</a>.
 </div>
 <div class="footnote" id="_footnotedef_36">
 <a href="#_footnoteref_36">36</a>. All of the capitalized <code>CONSTANTS</code> used here are defined in <strong>hugolib.h</strong>.

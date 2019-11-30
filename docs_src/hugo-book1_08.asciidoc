@@ -23,6 +23,7 @@
 
 // <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
+[[sec_8-1]]
 == Before We Get to the Routines
 
 Because, the engine is unaware of such things as attributes, properties, and objects in anything but a technical sense,{fn1} there are provided a number of routines to facilitate communication between the engine and the program proper.
@@ -68,6 +69,7 @@ If a different routine is desired in place of a provided one, the routine should
 
 
 
+[[sec_8-2]]
 == Parse
 
 The `Parse` routine, if one exists, is called by the engine parser.
@@ -93,6 +95,7 @@ Since the library's `Parse` routine is rather extensive, a provision is made for
 
 
 
+[[sec_8-3]]
 == ParseError
 
 The `ParseError` routine is called whenever a command is invalid.
@@ -157,6 +160,7 @@ If custom error messages are desired for user parsing routines, replace the rout
 ================================================================================
 
 
+[[sec_8-4]]
 == EndGame
 
 The `EndGame` routine is called immediately whenever the global variable `endflag` is non-zero, regardless of whether or not the current function has not yet been terminated.
@@ -184,6 +188,7 @@ Other than being non-false, the various values of `endflag` are insignificant ex
 
 
 
+[[sec_8-5]]
 == FindObject
 
 The `FindObject` routine takes into account all the relevant properties, attributes, and object hierarchy to determine whether or not a particular object is available in the current context.
@@ -221,6 +226,7 @@ The HugoFix debugging library can be used at runtime to monitor calls to `FindOb
 
 
 
+[[sec_8-6]]
 == SpeakTo
 
 The `SpeakTo` routine is called whenever an input line begins with a valid object name instead of a verb.
@@ -296,6 +302,7 @@ When something like the following is directed toward a character:
 
 
 
+[[sec_8-7]]
 == Perform
 
 The `Perform` routine is what is called by the engine in order to execute the appropriate verbroutine with the given object(s) and/or indirect object, if either or both are applicable.

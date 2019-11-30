@@ -832,7 +832,7 @@ system(<value>)
 Calls the system-level function designated by `<value>`.
 
 // @XREF: "The Hugo Programming Manual"
-TIP: See <<hugo-book1#book1>> for further elaboration on the `system` statement.
+TIP: See <<book1>> for further elaboration on the `system` statement.
 
 Obsolete usage:{fn6}
 
@@ -889,7 +889,7 @@ Where `<value>` or `<v__n__>`, if present, gives a number of lines or screen coo
 All instances of the `window` statement are followed by a code block except for `window 0`.
 
 // @XREF: "The Hugo Programming Manual"
-TIP: See <<hugo-book1#book1>> for further elaboration on the `window` statement.
+TIP: See <<book1>> for further elaboration on the `window` statement.
 
 [NOTE]
 ================================================================================

@@ -645,7 +645,7 @@ In this case, the property value representing the routine address is only return
 If there is a match, the routine is executed before `DoGet`, which is the library routine (in *verblib.h*) that normally handles the taking of objects.
 (There is also a companion to `before` called `after`, which is checked after the verb routine has been called.)
 // @XREF: "5.3. Before and After Routines"
-See <<hugo-book1_05#before_and_after_routines>> for further elucidation.
+See <<sec_5-3>> for further elucidation.
 
 There will be more on property routines and complex property routines later.
 For now, think of a property as simply containing one or more values of some kind.
