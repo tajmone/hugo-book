@@ -569,7 +569,7 @@ div.literalblock.hugosyntax div.content pre > sup.footnote a {
 <span id="email" class="email"><a href="mailto:general@generalcoffee.com">general@generalcoffee.com</a></span><br>
 <span id="revnumber">version 1,</span>
 <span id="revdate">2018-10-04</span>
-<br><span id="revremark">Draft 123 -- Porting to AsciiDoc</span>
+<br><span id="revremark">Draft 124 -- Porting to AsciiDoc</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -15333,7 +15333,7 @@ They are:</p>
 <h2 id="appendix_d"><a class="anchor" href="#appendix_d"></a>Appendix D: HugoFix and the Hugo Debugger</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="the_hugofix_debugging_library"><a class="anchor" href="#the_hugofix_debugging_library"></a>D.1. The HugoFix Debugging Library</h3>
+<h3 id="sec_d-1"><a class="anchor" href="#sec_d-1"></a>D.1. The HugoFix Debugging Library</h3>
 <div class="paragraph">
 <p>The HugoFix Debugging Library is a suite of routines that can be used via typed commands in a running Hugo game without the use of any special debugger program.
 To use HugoFix, set the compiler flag <code>DEBUG</code> before including <strong>hugolib.h</strong> or any other standard Hugo library files.<sup class="footnote">[<a id="_footnoteref_59" class="footnote" href="#_footnotedef_59" title="View footnote.">59</a>]</sup>
@@ -15639,7 +15639,7 @@ Handy for testing things that may be affected by use of the built-in <code>rando
 </table>
 </div>
 <div class="sect2">
-<h3 id="the_hugo_debugger"><a class="anchor" href="#the_hugo_debugger"></a>D.2. The Hugo Debugger</h3>
+<h3 id="sec_d-2"><a class="anchor" href="#sec_d-2"></a>D.2. The Hugo Debugger</h3>
 <div class="paragraph">
 <p>The Hugo Debugger is a valuable part of the Hugo design system.
 It allows a programmer to monitor all aspects of program execution, including watching expressions, modifying values, moving objects, etc.&#8201;&#8212;&#8201;all things expected of a modern source-level debugger.<sup class="footnote">[<a id="_footnoteref_60" class="footnote" href="#_footnotedef_60" title="View footnote.">60</a>]</sup></p>
@@ -16109,7 +16109,7 @@ For example, a current-version implementation of the Hugo Engine that conforms t
 For further elaboration on such differences, please see the Hugo source itself.</p>
 </div>
 <div class="sect2">
-<h3 id="how_hugo_works"><a class="anchor" href="#how_hugo_works"></a>13.1. How Hugo Works</h3>
+<h3 id="sec_13-1"><a class="anchor" href="#sec_13-1"></a>13.1. How Hugo Works</h3>
 <div class="paragraph">
 <p>The Hugo system is composed of two parts: the compiler and the engine (the interpreter).</p>
 </div>
@@ -16142,7 +16142,7 @@ These low-level operations are, for the most part, transparent to the programmer
 <h2 id="chapter_14"><a class="anchor" href="#chapter_14"></a>14. Organization of the .HEX File</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="memory_map"><a class="anchor" href="#memory_map"></a>14.1. Memory Map</h3>
+<h3 id="sec_14-1"><a class="anchor" href="#sec_14-1"></a>14.1. Memory Map</h3>
 <div class="paragraph">
 <p>If all the separate segments of a <strong>.HEX</strong> file were stacked contiguously on top of each other, the resulting pile would look something like this:</p>
 </div>
@@ -16233,7 +16233,7 @@ The following <em>n</em>*2 bytes give the property defaults.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="the_header"><a class="anchor" href="#the_header"></a>14.2. The Header</h3>
+<h3 id="sec_14-2"><a class="anchor" href="#sec_14-2"></a>14.2. The Header</h3>
 <div class="paragraph">
 <p>The header is reserved a total of 64 bytes at the start of the compiled <strong>.HEX</strong> file, immediately preceding the grammar table.
 It contains the bulk of information regarding table offsets, junction routine addresses, etc.: essentially, it is a map to where to find things in the file.</p>
@@ -19192,7 +19192,7 @@ Remember that the address of the debug workspace&#8201;&#8212;&#8201;256 bytes a
 <div class="sect2">
 <h3 id="the_hdx_file_format"><a class="anchor" href="#the_hdx_file_format"></a>27.2. The .HDX File Format</h3>
 <div class="paragraph">
-<p>The <strong>.HDX</strong> file format for Hugo debuggable executables, as well as having some additional information in the header (see <a href="#the_header">Sec. 14.2, &#8220;The Header&#8221;</a>) and a 256 byte workspace reserved at the end of the array table, appends symbolic debugging data as follows:</p>
+<p>The <strong>.HDX</strong> file format for Hugo debuggable executables, as well as having some additional information in the header (see <a href="#sec_14-2">Sec. 14.2, &#8220;The Header&#8221;</a>) and a 256 byte workspace reserved at the end of the array table, appends symbolic debugging data as follows:</p>
 </div>
 <table class="tableblock frame-all grid-none stripes-even fit-content center">
 <colgroup>

@@ -32,7 +32,7 @@ The pair is coded in low-byte/high-byte order.]]
 
 // <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
-
+[[sec_14-1]]
 == Memory Map
 
 If all the separate segments of a *.HEX* file were stacked contiguously on top of each other, the resulting pile would look something like this:
@@ -77,6 +77,7 @@ The following _n_*2 bytes give the property defaults.
 *Object table:* the first two bytes give the total number of objects.
 
 
+[[sec_14-2]]
 == The Header
 
 The header is reserved a total of 64 bytes at the start of the compiled *.HEX* file, immediately preceding the grammar table.

@@ -196,7 +196,7 @@ Every chapter in the list provides an [HTML Live Preview] link to quickly jump t
         * (_no Level 3-4 subsection requiring Custom IDs._)
         * [ ]  _needs to be proof-read once more, carefully!_
     + [ ]  [APP. D. _HUGOFIX AND THE HUGO DEBUGGER_][AppD]
-        * [ ]  Level 3-4 Custom IDs.
+        * [x]  Level 3-4 Custom IDs.
         * [ ]  _needs to be proof-read once more, carefully!_
     + [x]  [APP. E. _PRECOMPILED HEADERS_][AppE]
         * (_no Level 3-4 subsection requiring Custom IDs._)
@@ -205,10 +205,10 @@ Every chapter in the list provides an [HTML Live Preview] link to quickly jump t
     + [x]  [APP. G. _ADDITIONAL RESOURCES_][AppG]
         * (_no Level 3-4 subsection requiring Custom IDs._)
 - [ ]  [BOOK II. **TECHNICAL SYSTEM SPECIFICATION**][Book II]
-    + [ ]  [13. _INTRODUCTION_][Ch13]
-        * [ ]  Level 3-4 Custom IDs.
-    + [ ]  [14. _ORGANIZATION OF THE .HEX FILE_][Ch14]
-        * [ ]  Level 3-4 Custom IDs.
+    + [x]  [13. _INTRODUCTION_][Ch13]
+        * [x]  Level 3-4 Custom IDs.
+    + [x]  [14. _ORGANIZATION OF THE .HEX FILE_][Ch14]
+        * [x]  Level 3-4 Custom IDs.
     + [ ]  [15. _TOKENS AND DATA TYPES_][Ch15]
         * [ ]  Level 3-4 Custom IDs.
     + [x]  [16. _ENGINE PARSING_][Ch16]
@@ -293,7 +293,7 @@ All the cross-references to chapters, appendices and sections:
 | App. E: Precompiled Headers                   |   3 | `appendix_e`                    |
 | App. F. Hugo Versions                         |   2 | `appendix_f`                    |
 | App. G: Additional Resources                  |   1 | `appendix_g`                    |
-| 14.2. The Header                              |   1 | `hugo-book2_02#the_header`      |
+| 14.2. The Header                              |   1 | `sec_14-2`                      |
 | 15.2. Data Types                              |   1 | `hugo-book2_03#15-2_data_types` |
 | 23.2. Special Words                           |   1 | `hugo-book2_11#special_words`   |
 | 25.2. The Linker                              |   1 | `hugo-book2_13#the_linker`      |

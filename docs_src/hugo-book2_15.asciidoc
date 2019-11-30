@@ -52,7 +52,7 @@ After writing the expression, the debugger can then set `codeptr` to the start o
 
 
 // @XREF: "14.2. The Header"
-The *.HDX* file format for Hugo debuggable executables, as well as having some additional information in the header (see <<hugo-book2_02#the_header>>) and a 256 byte workspace reserved at the end of the array table, appends symbolic debugging data as follows:
+The *.HDX* file format for Hugo debuggable executables, as well as having some additional information in the header (see <<sec_14-2>>) and a 256 byte workspace reserved at the end of the array table, appends symbolic debugging data as follows:
 
 [.center,caption=]
 [cols="<s,<d",options=autowidth,grid=none,stripes=even]

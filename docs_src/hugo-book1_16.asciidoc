@@ -22,6 +22,7 @@ The result is a very close approximation of the original source code.]]
 // <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
 
+[[sec_d-1]]
 == The HugoFix Debugging Library
 
 The HugoFix Debugging Library is a suite of routines that can be used via typed commands in a running Hugo game without the use of any special debugger program.
@@ -190,6 +191,7 @@ Runs a number of tests to ensure the validity of certain data, including necessa
 |===============================================================================
 
 
+[[sec_d-2]]
 == The Hugo Debugger
 
 The Hugo Debugger is a valuable part of the Hugo design system.

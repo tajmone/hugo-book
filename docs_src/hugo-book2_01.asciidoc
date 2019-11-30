@@ -22,7 +22,7 @@ For example, a current-version implementation of the Hugo Engine that conforms t
 For further elaboration on such differences, please see the Hugo source itself.
 
 
-
+[[sec_13-1]]
 == How Hugo Works
 
 The Hugo system is composed of two parts: the compiler and the engine (the interpreter).
