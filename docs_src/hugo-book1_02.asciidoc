@@ -40,6 +40,7 @@ Doing that just means that when you change the code, you have to change the comm
 :fn7: pass:q[footnote:[Which is why, in certain cases, the `-a` switch can be helpful.]]
 // <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
+[[sec_2-1]]
 == Basic Concepts
 
 There are a couple of basic concepts to become familiar with in order to begin working with Hugo.
@@ -65,7 +66,7 @@ The idea of return values from a routine is an important one and, while sometime
 For instance, often a particular function will be described as "`returning true`" or "`returning false`" -- all this means is that when it's done it returns either a non-zero value (usually 1) or a zero value, usually to indicate whether the function was successful or not at whatever it was being asked to do.
 A program will constantly be checking the return values of the routines it calls to determine if particular operations have been successful in order to decide what to do next.
 // @XREF: "2.3. Data Types"
-A routine can return any kind of value (listed shortly in <<data_types>>).
+A routine can return any kind of value (listed shortly in <<sec_2-3>>).
 A very simple example is a routine that performs a needed operation, such as adding two supplied values, _a_ and _b_.
 Let's call it `AddTwoValues`.
 When `AddTwoValues` is called with the two supplied values, it will _return_ the sum __a__+_b_.
@@ -75,6 +76,7 @@ Individual objects and routines -- as well as conditional blocks -- are enclosed
 Keywords, variables, routine and object names, and other tokens are not case-sensitive.
 
 
+[[sec_2-2]]
 == Hello, Sailor!
 
 In the time-honored tradition of programming texts, the introduction to a new programming language is quite often a description of how to print the optimistic phrase "`Hello, world`" as an example of that particular language's form and substance.
@@ -103,6 +105,7 @@ It is from here that the central behavior of any Hugo program is controlled.
 In this case the task at hand is the printing of "`Hello, Sailor!`", followed by a wait for a keypress (the `pause`) and an order to exit the program (i.e., `quit` it) so that we don't strand the program waiting for input from the player, which is the normal order of Hugo business.{fn1}
 
 
+[[sec_2-3]]
 == Data Types
 
 Computer programs are mainly about two things: input and output (called _i/o_, for short), and modifying values.
@@ -252,6 +255,7 @@ to get a property routine address instead of calling the property routine itself
 
 
 
+[[sec_2-4]]
 == Multiple Lines
 
 If any single command is too long to fit on one line, it may be split across several lines by ending all but the last with the control character `\`.
@@ -417,6 +421,7 @@ We'll get to exactly what that `if...print...` business means in just a little b
 ================================================================================
 
 
+[[sec_2-5]]
 == Comments
 
 Comments allow you to insert notes into source code to serve as reminders, descriptions of what a particular chunk of code does, put a curse upon the libary/language author, or whatever else you want.
@@ -452,6 +457,7 @@ Similarly, the `\!` combination must come at the end of a line (or alone on an o
 
 
 
+[[sec_2-6]]
 == Compiler Errors and Warnings
 
 The compiler is pretty good about catching you when you do something that isn't going to work.
@@ -506,6 +512,7 @@ The section of offending code may not be printed exactly as it appears in the so
 ================================================================================
 
 
+[[sec_2-7]]
 == Compiler Directives
 
 A number of special commands may be used that aren't really part of a Huge program _per se_, but rather give instructions to the compiler itself to determine (a) how the source code -- or a part thereof -- is read by the compiler and (b) what special output will be generated at compile-time.
@@ -693,6 +700,7 @@ Any limit settings in the code of a program must be done before the particular d
 
 // @CHECK: Using emphasis style in headings might interfere with XRefs!
 
+[[sec_2-8]]
 == _What Should I Be Able to Do Now?_
 
 By now you should:

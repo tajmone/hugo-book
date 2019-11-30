@@ -569,7 +569,7 @@ div.literalblock.hugosyntax div.content pre > sup.footnote a {
 <span id="email" class="email"><a href="mailto:general@generalcoffee.com">general@generalcoffee.com</a></span><br>
 <span id="revnumber">version 1,</span>
 <span id="revdate">2018-10-04</span>
-<br><span id="revremark">Draft 119 -- Porting to AsciiDoc</span>
+<br><span id="revremark">Draft 120 -- Porting to AsciiDoc</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -705,7 +705,7 @@ HOW TO WRITE GAMES AND INFLUENCE PEOPLE
 <h2 id="chapter_1"><a class="anchor" href="#chapter_1"></a>1. Introduction</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="why_youre_here_or_just_what_is_hugo"><a class="anchor" href="#why_youre_here_or_just_what_is_hugo"></a>1.1. Why You&#8217;re Here (Or, Just What Is Hugo?)</h3>
+<h3 id="sec_1-1"><a class="anchor" href="#sec_1-1"></a>1.1. Why You&#8217;re Here (Or, Just What Is Hugo?)</h3>
 <div class="paragraph">
 <p>Chances are if you&#8217;re reading this book you&#8217;re already at least a little familiar with adventure games, and maybe even more specifically interactive fiction or text adventures.<sup class="footnote">[<a id="_footnoteref_1" class="footnote" href="#_footnotedef_1" title="View footnote.">1</a>]</sup>
 Hugo is a system for designing, programming, and running these.
@@ -721,7 +721,7 @@ Additionally, it includes the Hugo Library, in essence a suite of Hugo programmi
 </div>
 </div>
 <div class="sect2">
-<h3 id="legal_information"><a class="anchor" href="#legal_information"></a>1.2. Legal Information</h3>
+<h3 id="sec_1-2"><a class="anchor" href="#sec_1-2"></a>1.2. Legal Information</h3>
 <div class="paragraph">
 <p><strong>Please see the Hugo License for detailed legal information.</strong> Hugo is copyrighted by its Author.
 Programs created using the Hugo Compiler are the property of the individual user who created them.
@@ -747,7 +747,7 @@ Public distribution of modified versions of the Hugo Source Code is not permitte
 </div>
 </div>
 <div class="sect2">
-<h3 id="names_and_acknowledgments"><a class="anchor" href="#names_and_acknowledgments"></a>1.3. Names and Acknowledgments</h3>
+<h3 id="sec_1-3"><a class="anchor" href="#sec_1-3"></a>1.3. Names and Acknowledgments</h3>
 <div class="paragraph">
 <p>Those who have taken upon themselves the task of porting Hugo to various platforms include Julian Arnold (Acorn/RiscOS port), Gerald Bostock (OS/2 port), David Kinder (Amiga port), Bill Lash (original Unix/Linux port), Andrew Plotkin (Macintosh port using his Glk library), and Colin Turnbull (original Acorn Archimedes port).
 The author is considerably indebted to them, for all their work as well as for their input on how to improve the compiler and engine.
@@ -772,7 +772,7 @@ Finally, sincere apologies on my part for any omission of those who have contrib
 </div>
 </div>
 <div class="sect2">
-<h3 id="manual_conventions"><a class="anchor" href="#manual_conventions"></a>1.4. Manual Conventions</h3>
+<h3 id="sec_1-4"><a class="anchor" href="#sec_1-4"></a>1.4. Manual Conventions</h3>
 <div class="paragraph">
 <p>Please refer to the following conventions as they are used in this manual:</p>
 </div>
@@ -846,7 +846,7 @@ Finally, sincere apologies on my part for any omission of those who have contrib
 </div>
 </div>
 <div class="sect2">
-<h3 id="packing_list"><a class="anchor" href="#packing_list"></a>1.5. Packing List</h3>
+<h3 id="sec_1-5"><a class="anchor" href="#sec_1-5"></a>1.5. Packing List</h3>
 <div class="paragraph">
 <p>A number of files are part of the basic Hugo package.
 You&#8217;ll need to make sure to have these before you get started; a good starting point is the Hugo web page at
@@ -1108,7 +1108,7 @@ Other systems will have different names for their command-line environments (alt
 </div>
 </div>
 <div class="sect2">
-<h3 id="the_truth_about_programming"><a class="anchor" href="#the_truth_about_programming"></a>1.6. The Truth about Programming</h3>
+<h3 id="sec_1-6"><a class="anchor" href="#sec_1-6"></a>1.6. The Truth about Programming</h3>
 <div class="paragraph">
 <p>The truth about writing interactive fiction games is that yes, it is programming, and no, there&#8217;s really no way around it.
 It&#8217;s impossible for a game design system to provide a cookie-cutter means of picking and choosing all the various facets of any relatively complex game so that by clicking on a few buttons a fully formed and entirely original game world and story will be produced.
@@ -1135,7 +1135,7 @@ All of the complex inner workings of the game&#8201;&#8212;&#8201;from the templ
 </div>
 </div>
 <div class="sect2">
-<h3 id="working_with_hugo"><a class="anchor" href="#working_with_hugo"></a>1.7. Working with Hugo</h3>
+<h3 id="sec_1-7"><a class="anchor" href="#sec_1-7"></a>1.7. Working with Hugo</h3>
 <div class="paragraph">
 <p>The way Hugo works is fairly standard for a modern programming language.
 A programmer begins with a <em>source file</em>, which is a human-readable text file (created and edited in a separate text-editing application).
@@ -1155,7 +1155,7 @@ It functions as a hosting environment in which to load the <strong>.HEX</strong>
 </div>
 </div>
 <div class="sect2">
-<h3 id="getting_started"><a class="anchor" href="#getting_started"></a>1.8. Getting Started</h3>
+<h3 id="sec_1-8"><a class="anchor" href="#sec_1-8"></a>1.8. Getting Started</h3>
 <div class="paragraph">
 <p>Let&#8217;s take the first step by becoming acquainted with the tools we&#8217;ll be using.
 First and foremost is the Hugo Compiler.
@@ -1196,7 +1196,7 @@ The bare-bones version of the compiler invocation is</p>
 The default object filename is <strong>&lt;sourcefile&gt;.hex</strong>.</p>
 </div>
 <div class="paragraph">
-<p>Here&#8217;s how to compile the sample game from the <strong>sample.hug</strong> source code mentioned earlier in <a href="#packing_list">Sec. 1.5, &#8220;Packing List&#8221;</a>.
+<p>Here&#8217;s how to compile the sample game from the <strong>sample.hug</strong> source code mentioned earlier in <a href="#sec_1-5">Sec. 1.5, &#8220;Packing List&#8221;</a>.
 Make sure the compiler executable, library files, and sample game source code are all in the current directory, then type</p>
 </div>
 <div class="literalblock cmd">
@@ -1225,7 +1225,7 @@ As well, the <code>-l</code> switch wrote all compile-time output (which would h
 </td>
 <td class="content">
 <div class="paragraph">
-<p>The next three sections&#8201;&#8212;&#8201;<a href="#compiler_switches">Sec. 1.9, &#8220;Compiler Switches&#8221;</a>, <a href="#limit_settings">Sec. 1.10, &#8220;Limit Settings&#8221;</a>, and <a href="#directories">Sec. 1.11, &#8220;Directories&#8221;</a>&#8201;&#8212;&#8201;may seem a little confusing to those without much compiler experience.
+<p>The next three sections&#8201;&#8212;&#8201;<a href="#sec_1-9">Sec. 1.9, &#8220;Compiler Switches&#8221;</a>, <a href="#sec_1-10">Sec. 1.10, &#8220;Limit Settings&#8221;</a>, and <a href="#sec_1-11">Sec. 1.11, &#8220;Directories&#8221;</a>&#8201;&#8212;&#8201;may seem a little confusing to those without much compiler experience.
 Do look them over, but if you&#8217;re not exactly sure what it all means, don&#8217;t worry about it.
 You won&#8217;t need to tell the compiler to do anything particularly acrobatic at the outset, and the information is here for experimentation and for when you need it.</p>
 </div>
@@ -1235,7 +1235,7 @@ You won&#8217;t need to tell the compiler to do anything particularly acrobatic 
 </div>
 </div>
 <div class="sect2">
-<h3 id="compiler_switches"><a class="anchor" href="#compiler_switches"></a>1.9. Compiler Switches</h3>
+<h3 id="sec_1-9"><a class="anchor" href="#sec_1-9"></a>1.9. Compiler Switches</h3>
 <div class="paragraph">
 <p>A number of <em>switches</em> may be selected via the invocation line.
 These are one or more single-letter (usually, at least) options that follow a <code>-</code> character.
@@ -1387,7 +1387,7 @@ See <a href="#appendix_f">App. F, <em>Hugo Versions</em></a> for more informatio
 </div>
 </div>
 <div class="sect2">
-<h3 id="limit_settings"><a class="anchor" href="#limit_settings"></a>1.10. Limit Settings</h3>
+<h3 id="sec_1-10"><a class="anchor" href="#sec_1-10"></a>1.10. Limit Settings</h3>
 <div class="paragraph">
 <p>Also included on the invocation line before the sourcefile may be one or more limit settings.
 These settings are primarily for memory management, and limit the number of certain types of program elements, such as objects and dictionary entries.
@@ -1464,7 +1464,7 @@ Modify non-static default limits using:  $&lt;setting&gt;=&lt;new limit&gt;
 </div>
 </div>
 <div class="sect2">
-<h3 id="directories"><a class="anchor" href="#directories"></a>1.11. Directories</h3>
+<h3 id="sec_1-11"><a class="anchor" href="#sec_1-11"></a>1.11. Directories</h3>
 <div class="paragraph">
 <p>It is possible to specify where the Hugo Compiler will look for different types of files.
 This can be done in the command line via:</p>
@@ -1541,7 +1541,7 @@ In either case, if the file is not found in the specified directory, the current
 </div>
 </div>
 <div class="sect2">
-<h3 id="the_hugo_engine"><a class="anchor" href="#the_hugo_engine"></a>1.12. The Hugo Engine</h3>
+<h3 id="sec_1-12"><a class="anchor" href="#sec_1-12"></a>1.12. The Hugo Engine</h3>
 <div class="paragraph">
 <p>Once the sample game has been successfully compiled, you can run it with the help of the Hugo Engine.
 The way in which you do this will vary depending on what platform you&#8217;re using.</p>
@@ -1588,7 +1588,7 @@ All of these are optional.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="what_should_i_be_able_to_do_now"><a class="anchor" href="#what_should_i_be_able_to_do_now"></a>1.13. <em>What Should I Be Able to Do Now?</em></h3>
+<h3 id="sec_1-13"><a class="anchor" href="#sec_1-13"></a>1.13. <em>What Should I Be Able to Do Now?</em></h3>
 <div class="paragraph">
 <p>By now, you should be able to:</p>
 </div>
@@ -1638,7 +1638,7 @@ It sets the desired switches, changes the modifiable limit <code>MAXOBJECTS</cod
 <h2 id="chapter_2"><a class="anchor" href="#chapter_2"></a>2. A First Look at Hugo</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="basic_concepts"><a class="anchor" href="#basic_concepts"></a>2.1. Basic Concepts</h3>
+<h3 id="sec_2-1"><a class="anchor" href="#sec_2-1"></a>2.1. Basic Concepts</h3>
 <div class="paragraph">
 <p>There are a couple of basic concepts to become familiar with in order to begin working with Hugo.
 Once you begin to become familiar with them, you will hopefully be able to look at a chunk of Hugo source code and&#8201;&#8212;&#8201;even if you don&#8217;t understand everything it&#8217;s doing&#8201;&#8212;&#8201;be able to at least get a sense of the general organization.</p>
@@ -1664,7 +1664,7 @@ Write once, use many times.</p>
 <p>The idea of return values from a routine is an important one and, while sometimes puzzling to novices, is actually quite uncomplicated.
 For instance, often a particular function will be described as &#8220;returning true&#8221; or &#8220;returning false&#8221;&#8201;&#8212;&#8201;all this means is that when it&#8217;s done it returns either a non-zero value (usually 1) or a zero value, usually to indicate whether the function was successful or not at whatever it was being asked to do.
 A program will constantly be checking the return values of the routines it calls to determine if particular operations have been successful in order to decide what to do next.
-A routine can return any kind of value (listed shortly in <a href="#data_types">Sec. 2.3, &#8220;Data Types&#8221;</a>).
+A routine can return any kind of value (listed shortly in <a href="#sec_2-3">Sec. 2.3, &#8220;Data Types&#8221;</a>).
 A very simple example is a routine that performs a needed operation, such as adding two supplied values, <em>a</em> and <em>b</em>.
 Let&#8217;s call it <code>AddTwoValues</code>.
 When <code>AddTwoValues</code> is called with the two supplied values, it will <em>return</em> the sum <em>a</em>+<em>b</em>.</p>
@@ -1676,7 +1676,7 @@ Keywords, variables, routine and object names, and other tokens are not case-sen
 </div>
 </div>
 <div class="sect2">
-<h3 id="hello_sailor"><a class="anchor" href="#hello_sailor"></a>2.2. Hello, Sailor!</h3>
+<h3 id="sec_2-2"><a class="anchor" href="#sec_2-2"></a>2.2. Hello, Sailor!</h3>
 <div class="paragraph">
 <p>In the time-honored tradition of programming texts, the introduction to a new programming language is quite often a description of how to print the optimistic phrase &#8220;Hello, world&#8221; as an example of that particular language&#8217;s form and substance.
 In the almost-equally time-honored tradition of interactive fiction, we&#8217;ll start with the rallying cry &#8220;Hello, Sailor!&#8221;.
@@ -1711,7 +1711,7 @@ In this case the task at hand is the printing of &#8220;Hello, Sailor!&#8221;, f
 </div>
 </div>
 <div class="sect2">
-<h3 id="data_types"><a class="anchor" href="#data_types"></a>2.3. Data Types</h3>
+<h3 id="sec_2-3"><a class="anchor" href="#sec_2-3"></a>2.3. Data Types</h3>
 <div class="paragraph">
 <p>Computer programs are mainly about two things: input and output (called <em>i/o</em>, for short), and modifying values.
 In fact, the bulk of a computer program (that is, what happens behind the scenes, whirring away, unbeknownst to the user) consists of setting, changing, and comparing various values.
@@ -1922,7 +1922,7 @@ Instead, you can use the address operator <code>&amp;</code>, as in:</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="multiple_lines"><a class="anchor" href="#multiple_lines"></a>2.4. Multiple Lines</h3>
+<h3 id="sec_2-4"><a class="anchor" href="#sec_2-4"></a>2.4. Multiple Lines</h3>
 <div class="paragraph">
 <p>If any single command is too long to fit on one line, it may be split across several lines by ending all but the last with the control character <code>\</code>.</p>
 </div>
@@ -2116,7 +2116,7 @@ In other words:</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="comments"><a class="anchor" href="#comments"></a>2.5. Comments</h3>
+<h3 id="sec_2-5"><a class="anchor" href="#sec_2-5"></a>2.5. Comments</h3>
 <div class="paragraph">
 <p>Comments allow you to insert notes into source code to serve as reminders, descriptions of what a particular chunk of code does, put a curse upon the libary/language author, or whatever else you want.
 Comments are <em>very helpful</em>, and beginning programmers tend to put in either too many comments or too few.
@@ -2159,7 +2159,7 @@ Similarly, the <code>\!</code> combination must come at the end of a line (or al
 </div>
 </div>
 <div class="sect2">
-<h3 id="compiler_errors_and_warnings"><a class="anchor" href="#compiler_errors_and_warnings"></a>2.6. Compiler Errors and Warnings</h3>
+<h3 id="sec_2-6"><a class="anchor" href="#sec_2-6"></a>2.6. Compiler Errors and Warnings</h3>
 <div class="paragraph">
 <p>The compiler is pretty good about catching you when you do something that isn&#8217;t going to work.
 When it encounters something in your source code that doesn&#8217;t make sense, or is illegal in terms of the Hugo language, it&#8217;ll tell you.</p>
@@ -2231,7 +2231,7 @@ Compilation will generally continue unless the <code>-a</code> switch has been s
 </div>
 </div>
 <div class="sect2">
-<h3 id="compiler_directives"><a class="anchor" href="#compiler_directives"></a>2.7. Compiler Directives</h3>
+<h3 id="sec_2-7"><a class="anchor" href="#sec_2-7"></a>2.7. Compiler Directives</h3>
 <div class="paragraph">
 <p>A number of special commands may be used that aren&#8217;t really part of a Huge program <em>per se</em>, but rather give instructions to the compiler itself to determine (a) how the source code&#8201;&#8212;&#8201;or a part thereof&#8201;&#8212;&#8201;is read by the compiler and (b) what special output will be generated at compile-time.
 These special commands or instructions are called <em>compiler directives</em>, and are preceded with a <code>#</code> character to set them apart.</p>
@@ -2455,7 +2455,7 @@ Any limit settings in the code of a program must be done before the particular d
 </div>
 </div>
 <div class="sect2">
-<h3 id="what_should_i_be_able_to_do_now_2"><a class="anchor" href="#what_should_i_be_able_to_do_now_2"></a>2.8. <em>What Should I Be Able to Do Now?</em></h3>
+<h3 id="sec_2-8"><a class="anchor" href="#sec_2-8"></a>2.8. <em>What Should I Be Able to Do Now?</em></h3>
 <div class="paragraph">
 <p>By now you should:</p>
 </div>
@@ -3935,7 +3935,7 @@ All subsequent references to <code>&lt;class&gt;</code> will use this object ins
 </div>
 </div>
 <div class="sect2">
-<h3 id="what_should_i_be_able_to_do_now_3"><a class="anchor" href="#what_should_i_be_able_to_do_now_3"></a>3.6. <em>What Should I Be Able to Do Now?</em></h3>
+<h3 id="what_should_i_be_able_to_do_now"><a class="anchor" href="#what_should_i_be_able_to_do_now"></a>3.6. <em>What Should I Be Able to Do Now?</em></h3>
 <div class="paragraph">
 <p>By now you should:</p>
 </div>
@@ -6105,7 +6105,7 @@ The compiler looks after this translation for you.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="what_should_i_be_able_to_do_now_4"><a class="anchor" href="#what_should_i_be_able_to_do_now_4"></a>4.8. <em>What Should I Be Able to Do Now?</em></h3>
+<h3 id="what_should_i_be_able_to_do_now_2"><a class="anchor" href="#what_should_i_be_able_to_do_now_2"></a>4.8. <em>What Should I Be Able to Do Now?</em></h3>
 <h4 id="example_mixing_text_styles" class="discrete">Example: Mixing Text Styles</h4>
 <div class="listingblock">
 <div class="content">
@@ -6992,7 +6992,7 @@ The <code>in</code> is optional, but is recommended for legibility.
 </div>
 </div>
 <div class="sect2">
-<h3 id="what_should_i_be_able_to_do_now_5"><a class="anchor" href="#what_should_i_be_able_to_do_now_5"></a>5.6. <em>What Should I Be Able to Do Now?</em></h3>
+<h3 id="what_should_i_be_able_to_do_now_3"><a class="anchor" href="#what_should_i_be_able_to_do_now_3"></a>5.6. <em>What Should I Be Able to Do Now?</em></h3>
 <div class="sect3">
 <h4 id="example_borrowing_property_routines"><a class="anchor" href="#example_borrowing_property_routines"></a>Example: &#8220;Borrowing&#8221; Property Routines</h4>
 <div class="paragraph">
@@ -7468,7 +7468,7 @@ For instance, the character script routines in <strong>hugolib.h</strong> set <c
 </div>
 </div>
 <div class="sect2">
-<h3 id="what_should_i_be_able_to_do_now_6"><a class="anchor" href="#what_should_i_be_able_to_do_now_6"></a>6.5. <em>What Should I Be Able to Do Now?</em></h3>
+<h3 id="what_should_i_be_able_to_do_now_4"><a class="anchor" href="#what_should_i_be_able_to_do_now_4"></a>6.5. <em>What Should I Be Able to Do Now?</em></h3>
 <div class="sect3">
 <h4 id="example_a_simple_daemon_and_a_simpler_fuse"><a class="anchor" href="#example_a_simple_daemon_and_a_simpler_fuse"></a>Example: A Simple Daemon and a Simpler Fuse</h4>
 <div class="paragraph">
@@ -8201,7 +8201,7 @@ These are:</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="what_should_i_be_able_to_do_now_7"><a class="anchor" href="#what_should_i_be_able_to_do_now_7"></a>7.3. <em>What Should I Be Able to Do Now?</em></h3>
+<h3 id="what_should_i_be_able_to_do_now_5"><a class="anchor" href="#what_should_i_be_able_to_do_now_5"></a>7.3. <em>What Should I Be Able to Do Now?</em></h3>
 <div class="paragraph">
 <p>It should by now be relatively straightforward how to go about adding a new verb (with appropriate grammar)&#8201;&#8212;&#8201;or even modifying an existing one.
 For instance, consider a game in which disco dancing plays an absolutely vital role, and where the command &#8220;&gt;GET DOWN&#8221; must at all costs be implemented as a synonym for &#8220;&gt;DANCE&#8221; or &#8220;&gt;BOOGIE&#8221;.</p>
@@ -9115,7 +9115,7 @@ Control returns from the library <code>Perform</code> routine to the engine.
 </div>
 </div>
 <div class="sect2">
-<h3 id="what_should_i_be_able_to_do_now_8"><a class="anchor" href="#what_should_i_be_able_to_do_now_8"></a>9.2. <em>What Should I Be Able to Do Now?</em></h3>
+<h3 id="what_should_i_be_able_to_do_now_6"><a class="anchor" href="#what_should_i_be_able_to_do_now_6"></a>9.2. <em>What Should I Be Able to Do Now?</em></h3>
 <div class="paragraph">
 <p>By this point, you&#8217;ve been introduced to the basic facilities through which the Hugo Engine communicates with a running Hugo game: the junction routines <code>EndGame</code>, <code>FindObject</code>, <code>Parse</code>, <code>ParseError</code>, <code>Perform</code>, and <code>SpeakTo</code>.
 Becoming familiar with their implementation and use (and even inner workings) is an important step toward mastering an understanding of the Hugo game loop, including determining how a player input line is parsed, what objects are available or in scope, and how a command is either dispatched to a verbroutine or directed to another character.
@@ -9833,7 +9833,7 @@ In the second case, <code>attach_immobile</code> is also responsible for printin
 </div>
 </div>
 <div class="sect2">
-<h3 id="what_should_i_be_able_to_do_now_9"><a class="anchor" href="#what_should_i_be_able_to_do_now_9"></a>10.9. <em>What Should I Be Able to Do Now?</em></h3>
+<h3 id="what_should_i_be_able_to_do_now_7"><a class="anchor" href="#what_should_i_be_able_to_do_now_7"></a>10.9. <em>What Should I Be Able to Do Now?</em></h3>
 <div class="paragraph">
 <p>By now you should feel comfortable experimenting with the classes in the object library.
 You should be able to look at the various implementations of scenery, components, characters, doors, vehicles, identical/plural objects, and attachables in existing code (such as in <strong>sample.hug</strong>) and not only understand what the various properties of the objects are for, but also how to modify them to achieve a desired effect.</p>
@@ -21918,7 +21918,7 @@ If there is an error, the <code>system_status</code> global variable is set.</p>
 <a href="#_footnoteref_10">10</a>. Which is why, in certain cases, the <code>-a</code> switch can be helpful.
 </div>
 <div class="footnote" id="_footnotedef_11">
-<a href="#_footnoteref_11">11</a>. It&#8217;s also no coincidence that the &#8220;nothing&#8221; object is equal in its value to 0, which also represents the empty string <code>""</code> (see <a href="#data_types">Sec. 2.3, &#8220;Data Types&#8221;</a>). The fact that these three are (value-wise, at least) identical will come in handy, as what it means in practice is that 0/null/empty/nothing/etc. is the same in every context.
+<a href="#_footnoteref_11">11</a>. It&#8217;s also no coincidence that the &#8220;nothing&#8221; object is equal in its value to 0, which also represents the empty string <code>""</code> (see <a href="#sec_2-3">Sec. 2.3, &#8220;Data Types&#8221;</a>). The fact that these three are (value-wise, at least) identical will come in handy, as what it means in practice is that 0/null/empty/nothing/etc. is the same in every context.
 </div>
 <div class="footnote" id="_footnotedef_12">
 <a href="#_footnoteref_12">12</a>. See <a href="#appendix_d">App. D, <em>HugoFix and the Hugo Debugger</em></a>.

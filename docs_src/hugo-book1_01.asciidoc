@@ -17,6 +17,7 @@
 :fn3: footnote:[Other ports done by the author are for Windows, Linux, Macintosh, DOS, BeOS, Pocket PC, and PalmOS.]
 // <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
+[[sec_1-1]]
 == Why You're Here (Or, Just What Is Hugo?)
 
 
@@ -31,6 +32,7 @@ Additionally, it includes the Hugo Library, in essence a suite of Hugo programmi
 This book will serve as a means of becoming familiar with what Hugo is and what it does, and what is required to develop an interactive fiction game using Hugo, whether or not you have any prior programming experience.
 
 
+[[sec_1-2]]
 == Legal Information
 
 *Please see the Hugo License for detailed legal information.* Hugo is copyrighted by its Author.
@@ -47,6 +49,7 @@ The Hugo Compiler, the Hugo Engine, the Hugo Debugger, the Hugo Library, and rel
 ================================================================================
 
 
+[[sec_1-3]]
 == Names and Acknowledgments
 
 Those who have taken upon themselves the task of porting Hugo to various platforms include Julian Arnold (Acorn/RiscOS port), Gerald Bostock (OS/2 port), David Kinder (Amiga port), Bill Lash (original Unix/Linux port), Andrew Plotkin (Macintosh port using his Glk library), and Colin Turnbull (original Acorn Archimedes port).
@@ -68,6 +71,7 @@ Finally, sincere apologies on my part for any omission of those who have contrib
 And thank you, as always, to Jennifer.
 
 
+[[sec_1-4]]
 == Manual Conventions
 
 Please refer to the following conventions as they are used in this manual:
@@ -88,6 +92,7 @@ Please refer to the following conventions as they are used in this manual:
 `...`           :: for omissions (particularly of non-relevant sections of code)
 
 
+[[sec_1-5]]
 == Packing List
 
 A number of files are part of the basic Hugo package.
@@ -175,6 +180,7 @@ On Windows, this is the "`MS-DOS Prompt`" or "`Command Prompt`" under the Start 
 Other systems will have different names for their command-line environments (although on something like a pre-OS X Macintosh, there is no such thing as a terminal or console, so you needn't worry about it).
 
 
+[[sec_1-6]]
 == The Truth about Programming
 
 The truth about writing interactive fiction games is that yes, it is programming, and no, there's really no way around it.
@@ -200,6 +206,7 @@ To make everything even easier, Hugo is designed so that writing very basic game
 All of the complex inner workings of the game -- from the templates for standard rooms and objects and their related behaviors; to what happens when a player types >GO NORTH or >OPEN THE CARDBOARD BOX or any other command, recognized or unrecognized; to the rules of the game world for containment, edibility, bulk, switching things on or off, or any number of "`physical`" traits -- are handled by the Hugo Library, and a prospective doesn't have to worry about where these things are handled or how until he or she is ready to investigate deeper.
 
 
+[[sec_1-7]]
 == Working with Hugo
 
 The way Hugo works is fairly standard for a modern programming language.
@@ -217,6 +224,7 @@ The Hugo Engine is the _interpreter_ or _runtime_ for compiled Hugo object files
 It functions as a hosting environment in which to load the *.HEX* file, in sort of the same way that a browser loads a web page from the Internet.
 
 
+[[sec_1-8]]
 == Getting Started
 
 Let's take the first step by becoming acquainted with the tools we'll be using.
@@ -257,7 +265,7 @@ The default object filename is *<sourcefile>.hex*.
 
 // @XREF: "1.5. Packing List"
 
-Here's how to compile the sample game from the *sample.hug* source code mentioned earlier in <<packing_list>>.
+Here's how to compile the sample game from the *sample.hug* source code mentioned earlier in <<sec_1-5>>.
 Make sure the compiler executable, library files, and sample game source code are all in the current directory, then type
 
 [literal, role="cmd"]
@@ -281,12 +289,13 @@ As well, the `-l` switch wrote all compile-time output (which would have include
 // @XREF: "1.9. Compiler Switches"
 // @XREF: "1.10. Limit Settings"
 // @XREF: "1.11. Directories"
-The next three sections -- <<compiler_switches>>, <<limit_settings>>, and <<directories>> -- may seem a little confusing to those without much compiler experience.
+The next three sections -- <<sec_1-9>>, <<sec_1-10>>, and <<sec_1-11>> -- may seem a little confusing to those without much compiler experience.
 Do look them over, but if you're not exactly sure what it all means, don't worry about it.
 You won't need to tell the compiler to do anything particularly acrobatic at the outset, and the information is here for experimentation and for when you need it.
 ================================================================================
 
 
+[[sec_1-9]]
 == Compiler Switches
 
 A number of _switches_ may be selected via the invocation line.
@@ -347,6 +356,7 @@ Note, however that it's generally unnecessary to do so, since v2.5 and v3.x are 
 See <<appendix_f>> for more information.
 
 
+[[sec_1-10]]
 == Limit Settings
 
 Also included on the invocation line before the sourcefile may be one or more limit settings.
@@ -413,6 +423,7 @@ If a compile-time error is generated indicating that too many symbols of a parti
 See <<appendix_c>> for a complete listing of valid limit settings.
 
 
+[[sec_1-11]]
 == Directories
 
 It is possible to specify where the Hugo Compiler will look for different types of files.
@@ -457,6 +468,7 @@ In either case, if the file is not found in the specified directory, the current
 (And if you're not familiar with environment variables, again, don't worry about it.)
 
 
+[[sec_1-12]]
 == The Hugo Engine
 
 Once the sample game has been successfully compiled, you can run it with the help of the Hugo Engine.
@@ -484,6 +496,7 @@ All of these are optional.
 ================================================================================
 
 
+[[sec_1-13]]
 == _What Should I Be Able to Do Now?_
 
 By now, you should be able to:

@@ -162,10 +162,10 @@ Every chapter in the list provides an [HTML Live Preview] link to quickly jump t
 - [ ]  [_AUTHOR'S FOREWORD_][FOREWORD]:
     + [ ]  Custom styling and adaptation to HTML5 version.
 - [ ]  [BOOK I. **THE HUGO PROGRAMMING MANUAL**][Book I]
-    + [ ]  [1. _INTRODUCTION_][Ch1]
-        * [ ]  Level 3-4 Custom IDs.
-    + [ ]  [2. _A FIRST LOOK AT HUGO_][Ch2]
-        * [ ]  Level 3-4 Custom IDs.
+    + [x]  [1. _INTRODUCTION_][Ch1]
+        * [x]  Level 3-4 Custom IDs.
+    + [x]  [2. _A FIRST LOOK AT HUGO_][Ch2]
+        * [x]  Level 3-4 Custom IDs.
     + [ ]  [3. _OBJECTS_][Ch3]
         * [ ]  Level 3-4 Custom IDs.
     + [ ]  [4. _HUGO PROGRAMMING_][Ch4]
@@ -274,11 +274,11 @@ All the cross-references to chapters, appendices and sections:
 |                    Section                    | Qt. |                         XRef ID                          |
 |-----------------------------------------------|-----|----------------------------------------------------------|
 | _The Hugo Programming Manual_                 |   5 | `hugo-book1#book1`                                       |
-| 1.5. Packing List                             |   1 | `packing_list`                                           |
-| 1.9. Compiler Switches                        |   1 | `compiler_switches`                                      |
-| 1.10. Limit Settings                          |   1 | `limit_settings`                                         |
-| 1.11. Directories                             |   1 | `directories`                                            |
-| 2.3. Data Types                               |   2 | `hugo-book1_02#data_types`                               |
+| 1.5. Packing List                             |   1 | `sec_1-5`                                                |
+| 1.9. Compiler Switches                        |   1 | `sec_1-9`                                                |
+| 1.10. Limit Settings                          |   1 | `sec_1-10`                                               |
+| 1.11. Directories                             |   1 | `sec_1-11`                                               |
+| 2.3. Data Types                               |   2 | `sec_2-3`                                                |
 | 3.5. Classes                                  |   1 | `classes`                                                |
 | 4.5. Operators and Assignments                |   1 | `hugo-book1_04#operators_and_assignments`                |
 | 4.7. Conditional Expressions and Program Flow |   2 | `hugo-book1_04#conditional_expressions_and_program_flow` |
