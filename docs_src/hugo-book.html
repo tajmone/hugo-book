@@ -569,7 +569,7 @@ div.literalblock.hugosyntax div.content pre > sup.footnote a {
 <span id="email" class="email"><a href="mailto:general@generalcoffee.com">general@generalcoffee.com</a></span><br>
 <span id="revnumber">version 1,</span>
 <span id="revdate">2018-10-04</span>
-<br><span id="revremark">Draft 122 -- Porting to AsciiDoc</span>
+<br><span id="revremark">Draft 123 -- Porting to AsciiDoc</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -2620,7 +2620,7 @@ Usually the latter is used for system objects or classes (see <a href="#sec_3-5"
 <div class="paragraph">
 <p>The compiler automatically creates an object called <code>display</code> as the last-defined object if no other object named <code>display</code> is defined by the program (or the library).
 The display object can be used to get information about the engine&#8217;s output state and capabilities.
-See section <a href="#the_display_object">Sec. 11.1, &#8220;The Display Object&#8221;</a>.</p>
+See <a href="#sec_11-1">Sec. 11.1, &#8220;The Display Object&#8221;</a>.</p>
 </div>
 </td>
 </tr>
@@ -8933,7 +8933,7 @@ The <code>&lt;queue&gt;</code> is 0 unless the verbroutine is being called more 
 <h2 id="chapter_9"><a class="anchor" href="#chapter_9"></a>9. The Game Loop</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="overview_of_the_game_loop"><a class="anchor" href="#overview_of_the_game_loop"></a>9.1. Overview of the Game Loop</h3>
+<h3 id="sec_9-1"><a class="anchor" href="#sec_9-1"></a>9.1. Overview of the Game Loop</h3>
 <div class="paragraph">
 <p>This the basic execution pattern that the Hugo Engine follows during program execution.</p>
 </div>
@@ -9115,7 +9115,7 @@ Control returns from the library <code>Perform</code> routine to the engine.
 </div>
 </div>
 <div class="sect2">
-<h3 id="what_should_i_be_able_to_do_now"><a class="anchor" href="#what_should_i_be_able_to_do_now"></a>9.2. <em>What Should I Be Able to Do Now?</em></h3>
+<h3 id="sec_9-2"><a class="anchor" href="#sec_9-2"></a>9.2. <em>What Should I Be Able to Do Now?</em></h3>
 <div class="paragraph">
 <p>By this point, you&#8217;ve been introduced to the basic facilities through which the Hugo Engine communicates with a running Hugo game: the junction routines <code>EndGame</code>, <code>FindObject</code>, <code>Parse</code>, <code>ParseError</code>, <code>Perform</code>, and <code>SpeakTo</code>.
 Becoming familiar with their implementation and use (and even inner workings) is an important step toward mastering an understanding of the Hugo game loop, including determining how a player input line is parsed, what objects are available or in scope, and how a command is either dispatched to a verbroutine or directed to another character.
@@ -9220,7 +9220,7 @@ You would simply interrupt the <code>DoGet</code> routine before it even execute
 These classes can be used as-is to create objects or as base classes for more complex and/or game-specific classes.</p>
 </div>
 <div class="sect2">
-<h3 id="rooms_and_directions"><a class="anchor" href="#rooms_and_directions"></a>10.1. Rooms and Directions</h3>
+<h3 id="sec_10-1"><a class="anchor" href="#sec_10-1"></a>10.1. Rooms and Directions</h3>
 <div class="paragraph">
 <p>Most games will make use of rooms, directions, and possibly characters.
 A room in this context is an object which specifically functions as a location in the game world, and as such contains other objects as children in branches beneath it in the object tree.
@@ -9281,7 +9281,7 @@ In order to allow the player to travel back to the living kitchen in the same di
 </div>
 </div>
 <div class="sect2">
-<h3 id="characters"><a class="anchor" href="#characters"></a>10.2. Characters</h3>
+<h3 id="sec_10-2"><a class="anchor" href="#sec_10-2"></a>10.2. Characters</h3>
 <div class="paragraph">
 <p>The basic <code>character</code> class takes care of defining the basic elements that the library expects character objects to have.
 These include obvious attributes such as <code>living</code>, as well as useful properties such as <code>capacity</code> and <code>holding</code> for carrying objects.
@@ -9358,7 +9358,7 @@ To change to another form, it will be necessary to redefine the PC&#8217;s <code
 </div>
 </div>
 <div class="sect2">
-<h3 id="character_responses"><a class="anchor" href="#character_responses"></a>10.3. Character Responses</h3>
+<h3 id="sec_10-3"><a class="anchor" href="#sec_10-3"></a>10.3. Character Responses</h3>
 <div class="paragraph">
 <p>One thing that will likely be important for NPCs (non-player characters) is enabling them to respond to questions and otherwise interact with the player.
 This is traditionally accomplished by implementing NPC responses to the verbroutines <code>DoAsk</code>, <code>DoTell</code>, <code>DoShow</code>, and <code>DoGive</code>.</p>
@@ -9421,7 +9421,7 @@ The response is handled in the NPC&#8217;s <code>after</code> property routine:<
 </div>
 </div>
 <div class="sect2">
-<h3 id="scenery_and_components"><a class="anchor" href="#scenery_and_components"></a>10.4. Scenery and Components</h3>
+<h3 id="sec_10-4"><a class="anchor" href="#sec_10-4"></a>10.4. Scenery and Components</h3>
 <div class="paragraph">
 <p>It has become more and more expected of interactive fiction that objects mentioned in the textual description of a location should be implemented in a manipulable fashion.
 With this goal in mind, something like the following would be less than desirable:</p>
@@ -9484,7 +9484,7 @@ A component object will automatically be available to the player whenever the pr
 </div>
 </div>
 <div class="sect2">
-<h3 id="doors"><a class="anchor" href="#doors"></a>10.5. Doors</h3>
+<h3 id="sec_10-5"><a class="anchor" href="#sec_10-5"></a>10.5. Doors</h3>
 <div class="paragraph">
 <p>Doors are fairly common objects, and a given game&#8201;&#8212;&#8201;particularly one with a significant number of indoor locations&#8201;&#8212;&#8201;will likely make frequent use of them.
 The unfortunate thing is that they can be somewhat finicky and repetitive to code, ensuring that they respond to opening, closing, locking (if applicable), providing an appropriate open or closed description, and behaving appropriately from either side.
@@ -9524,7 +9524,7 @@ The <code>door_to</code> property will also automatically result in an attempt t
 </div>
 </div>
 <div class="sect2">
-<h3 id="vehicles"><a class="anchor" href="#vehicles"></a>10.6. Vehicles</h3>
+<h3 id="sec_10-6"><a class="anchor" href="#sec_10-6"></a>10.6. Vehicles</h3>
 <div class="paragraph">
 <p>Less frequently used but somewhat more complex than doors are vehicles.
 Anything from a car to a UFO to a wild zebra may make an appearance in a game, and often it is necessary that the player be able to use that object&#8201;&#8212;&#8201;whatever it may be&#8201;&#8212;&#8201;as a means of moving around the game&#8217;s geography.
@@ -9617,7 +9617,7 @@ For instance, a location to which both the mustang and a <code>wagon</code> obje
 </div>
 </div>
 <div class="sect2">
-<h3 id="plural_and_identical_objects"><a class="anchor" href="#plural_and_identical_objects"></a>10.7. Plural and Identical Objects</h3>
+<h3 id="sec_10-7"><a class="anchor" href="#sec_10-7"></a>10.7. Plural and Identical Objects</h3>
 <div class="paragraph">
 <p>Sometimes it is desirable to have a player be able to (or required to) refer to multiple objects as a group, or to be able to refer to only a certain number of such objects out of a larger group even if all the objects are identical.
 The object library&#8217;s <code>plural_class</code> and <code>identical_class</code> make these sorts of things possible.</p>
@@ -9722,7 +9722,7 @@ The <code>identical_class</code> is similar to the <code>plural_class</code> exc
 </div>
 </div>
 <div class="sect2">
-<h3 id="attachables"><a class="anchor" href="#attachables"></a>10.8. Attachables</h3>
+<h3 id="sec_10-8"><a class="anchor" href="#sec_10-8"></a>10.8. Attachables</h3>
 <div class="paragraph">
 <p>Ropes and other similar objects&#8201;&#8212;&#8201;anything, really, which ties onto something else or, even worse, ties <em>between</em> two or more objects&#8201;&#8212;&#8201;are notoriously difficult to code.
 Safe advice on how to code a rope used to be: code a block of wood instead.
@@ -9833,7 +9833,7 @@ In the second case, <code>attach_immobile</code> is also responsible for printin
 </div>
 </div>
 <div class="sect2">
-<h3 id="what_should_i_be_able_to_do_now_2"><a class="anchor" href="#what_should_i_be_able_to_do_now_2"></a>10.9. <em>What Should I Be Able to Do Now?</em></h3>
+<h3 id="sec_10-9"><a class="anchor" href="#sec_10-9"></a>10.9. <em>What Should I Be Able to Do Now?</em></h3>
 <div class="paragraph">
 <p>By now you should feel comfortable experimenting with the classes in the object library.
 You should be able to look at the various implementations of scenery, components, characters, doors, vehicles, identical/plural objects, and attachables in existing code (such as in <strong>sample.hug</strong>) and not only understand what the various properties of the objects are for, but also how to modify them to achieve a desired effect.</p>
@@ -9870,7 +9870,7 @@ You should be able to look at the various implementations of scenery, components
 <h2 id="chapter_11"><a class="anchor" href="#chapter_11"></a>11. Advanced Features</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="the_display_object"><a class="anchor" href="#the_display_object"></a>11.1. The Display Object</h3>
+<h3 id="sec_11-1"><a class="anchor" href="#sec_11-1"></a>11.1. The Display Object</h3>
 <div class="paragraph">
 <p>The display object is a special object with which the Hugo Engine interacts to allow the program to be knowledgeable about as well as set certain characteristics of the display.
 The engine provides access to the following read-only properties (although the names themselves are defined in <strong>hugolib.h</strong>):</p>
@@ -10026,7 +10026,7 @@ This is how the Hugo Library defines the display object, so that the various dis
 </div>
 </div>
 <div class="sect2">
-<h3 id="windows"><a class="anchor" href="#windows"></a>11.2. Windows</h3>
+<h3 id="sec_11-2"><a class="anchor" href="#sec_11-2"></a>11.2. Windows</h3>
 <div class="paragraph">
 <p>It is possible to create an enclosing window within the full-screen display for text output.
 Cursor position, line-wrapping, etc. are trimmed to the boundaries of the current window.
@@ -10103,7 +10103,7 @@ For this reason, it is wise to resample <code>display.&lt;property&gt;</code> wh
 </div>
 </div>
 <div class="sect2">
-<h3 id="reading_and_writing_files"><a class="anchor" href="#reading_and_writing_files"></a>11.3. Reading and Writing Files</h3>
+<h3 id="sec_11-3"><a class="anchor" href="#sec_11-3"></a>11.3. Reading and Writing Files</h3>
 <div class="paragraph">
 <p>There may be times when it will be useful to store data in a file for later recovery.
 The most basic way of doing this involves</p>
@@ -10208,7 +10208,7 @@ If there are too many or too few values in &#8220;<strong>testfile</strong>&#822
 </div>
 </div>
 <div class="sect2">
-<h3 id="mouse_input"><a class="anchor" href="#mouse_input"></a>11.4. Mouse Input</h3>
+<h3 id="sec_11-4"><a class="anchor" href="#sec_11-4"></a>11.4. Mouse Input</h3>
 <div class="paragraph">
 <p>If the player clicks somewhere on the screen with the mouse pointer (or taps on the screen on a handheld device, or whatever the comparable action is for the platform in question), a Hugo program may read that action.
 Specifically, a <code>pause</code> statement, which normally stores the ASCII value of a keypress in <code>word[0]</code>, will instead store the value <code>MOUSE_CLICK</code> (defined in <strong>hugolib.h</strong> to be 1) if the mouse is clicked while the engine is waiting for that keypress.</p>
@@ -10227,7 +10227,7 @@ The running Hugo program cannot itself monitor mouse input during typed input.</
 <h2 id="chapter_12"><a class="anchor" href="#chapter_12"></a>12. Resources</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="creating_and_using_resources"><a class="anchor" href="#creating_and_using_resources"></a>12.1. Creating and Using Resources</h3>
+<h3 id="sec_12-1"><a class="anchor" href="#sec_12-1"></a>12.1. Creating and Using Resources</h3>
 <div class="paragraph">
 <p>The engine allows a Hugo program to access external media data (called resources) compiled into a specially formatted file called a resourcefile.
 Resourcefiles contain sounds, music, images, and video files used by the program.
@@ -10322,7 +10322,7 @@ If <code>system_status</code> is non-zero (where zero signifies normal status), 
 </table>
 </div>
 <div class="sect2">
-<h3 id="pictures"><a class="anchor" href="#pictures"></a>12.2. Pictures</h3>
+<h3 id="sec_12-2"><a class="anchor" href="#sec_12-2"></a>12.2. Pictures</h3>
 <div class="paragraph">
 <p>A picture is displayed as a resource in a resourcefile using:</p>
 </div>
@@ -10420,7 +10420,7 @@ Wherever possible, however, it is recommended to always specify the resourcefile
 </div>
 </div>
 <div class="sect2">
-<h3 id="sound_and_music"><a class="anchor" href="#sound_and_music"></a>12.3. Sound and Music</h3>
+<h3 id="sec_12-3"><a class="anchor" href="#sec_12-3"></a>12.3. Sound and Music</h3>
 <div class="paragraph">
 <p>Sounds and music are played as follows:</p>
 </div>
@@ -10465,7 +10465,7 @@ To stop a sample or song from playing via the library interface, use:</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="video"><a class="anchor" href="#video"></a>12.4. Video</h3>
+<h3 id="sec_12-4"><a class="anchor" href="#sec_12-4"></a>12.4. Video</h3>
 <div class="paragraph">
 <p>Video is displayed similarly to static graphic images (that is, it is displayed in the currently window) and controlled similarly to music and sound.
 The syntax for playing video looks like:</p>

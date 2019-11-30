@@ -7,7 +7,7 @@
 [[chapter_9]]
 = The Game Loop
 
-
+[[sec_9-1]]
 == Overview of the Game Loop
 
 This the basic execution pattern that the Hugo Engine follows during program execution.
@@ -79,7 +79,7 @@ When finished, the engine loops back to *Main*, calling the `Main` routine only 
 Setting the global `endflag` at any point to a non-zero value will terminate the game loop and run the `EndGame` junction routine.
 ================================================================================
 
-
+[[sec_9-2]]
 == _What Should I Be Able to Do Now?_
 
 By this point, you've been introduced to the basic facilities through which the Hugo Engine communicates with a running Hugo game: the junction routines `EndGame`, `FindObject`, `Parse`, `ParseError`, `Perform`, and `SpeakTo`.

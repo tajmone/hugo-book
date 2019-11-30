@@ -18,7 +18,7 @@ See xref:appendix_f[] for more information.]]
 
 // <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
-
+[[sec_12-1]]
 == Creating and Using Resources
 
 
@@ -92,6 +92,7 @@ If `system_status` is non-zero (where zero signifies normal status), it will con
 |======================================================
 
 
+[[sec_12-2]]
 == Pictures
 
 A picture is displayed as a resource in a resourcefile using:
@@ -157,6 +158,7 @@ In this case, *resource.h* will attempt to find the resource in the last used re
 Wherever possible, however, it is recommended to always specify the resourcefile name.
 
 
+[[sec_12-3]]
 == Sound and Music
 
 Sounds and music are played as follows:
@@ -200,6 +202,7 @@ PlayMusic(MUSIC_STOP)
 (where `SOUND_STOP` and `MUSIC_STOP` are constants defined in *resource.h*).
 
 
+[[sec_12-4]]
 == Video
 
 Video is displayed similarly to static graphic images (that is, it is displayed in the currently window) and controlled similarly to music and sound.

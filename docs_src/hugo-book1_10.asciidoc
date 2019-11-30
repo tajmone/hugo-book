@@ -34,7 +34,7 @@ More bananas mean more monkeys, and monkeys are always fun.]]
 The Hugo Object Library (*objlib.h*), included by default by *hugolib.h* as part of the standard Hugo Library, provides a number of useful classes for common elements of many games.
 These classes can be used as-is to create objects or as base classes for more complex and/or game-specific classes.
 
-
+[[sec_10-1]]
 == Rooms and Directions
 
 Most games will make use of rooms, directions, and possibly characters.
@@ -103,7 +103,7 @@ w_to living_room
 to the `back_hallway` object.
 
 
-
+[[sec_10-2]]
 == Characters
 
 The basic `character` class takes care of defining the basic elements that the library expects character objects to have.
@@ -160,6 +160,7 @@ To change to another form, it will be necessary to redefine the PC's `pronouns` 
 
 
 
+[[sec_10-3]]
 == Character Responses
 
 One thing that will likely be important for NPCs (non-player characters) is enabling them to respond to questions and otherwise interact with the player.
@@ -258,6 +259,7 @@ after
 
 
 
+[[sec_10-4]]
 == Scenery and Components
 
 It has become more and more expected of interactive fiction that objects mentioned in the textual description of a location should be implemented in a manipulable fashion.
@@ -320,6 +322,7 @@ The `part_of` property specifies the primary object (the nefarious machine) of w
 A component object will automatically be available to the player whenever the primary object is.
 
 
+[[sec_10-5]]
 == Doors
 
 Doors are fairly common objects, and a given game -- particularly one with a significant number of indoor locations -- will likely make frequent use of them.
@@ -371,6 +374,7 @@ Notice that the use of `kitchen_door.door_to` is the same for both; the `door` c
 The `door_to` property will also automatically result in an attempt to open a closed door (by calling the `DoOpen` verbroutine), resulting in an additional turn by calling the `Main` routine.
 
 
+[[sec_10-6]]
 == Vehicles
 
 Less frequently used but somewhat more complex than doors are vehicles.
@@ -475,6 +479,7 @@ vehicle_path mustang, wagon
 
 
 
+[[sec_10-7]]
 == Plural and Identical Objects
 
 Sometimes it is desirable to have a player be able to (or required to) refer to multiple objects as a group, or to be able to refer to only a certain number of such objects out of a larger group even if all the objects are identical.
@@ -593,6 +598,7 @@ The identical object `bananas` will allow a player to use all the facilities of 
 
 
 
+[[sec_10-8]]
 == Attachables
 
 Ropes and other similar objects -- anything, really, which ties onto something else or, even worse, ties _between_ two or more objects -- are notoriously difficult to code.
@@ -679,6 +685,7 @@ In the second case, `attach_immobile` is also responsible for printing any expla
 
 
 
+[[sec_10-9]]
 == _What Should I Be Able to Do Now?_
 
 By now you should feel comfortable experimenting with the classes in the object library.

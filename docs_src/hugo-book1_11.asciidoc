@@ -7,7 +7,7 @@
 [[chapter_11]]
 = Advanced Features
 
-
+[[sec_11-1]]
 == The Display Object
 
 The display object is a special object with which the Hugo Engine interacts to allow the program to be knowledgeable about as well as set certain characteristics of the display.
@@ -56,6 +56,7 @@ with no explicit textual name.
 This is how the Hugo Library defines the display object, so that the various display object properties are readable as `display.screenheight`, `display.cursor_column`, etc.
 
 
+[[sec_11-2]]
 == Windows
 
 It is possible to create an enclosing window within the full-screen display for text output.
@@ -115,6 +116,7 @@ For this reason, it is wise to resample `display.<property>` whenever a window i
 ================================================================================
 
 
+[[sec_11-3]]
 == Reading and Writing Files
 
 There may be times when it will be useful to store data in a file for later recovery.
@@ -227,6 +229,7 @@ In the `readfile` block, `test` will only be set to `FILE_CHECK` if the sequence
 If there are too many or too few values in "`*testfile*`", or if an error forces an early exit from the `readfile` block, `test` will equal a value other than `FILE_CHECK`.
 
 
+[[sec_11-4]]
 == Mouse Input
 
 If the player clicks somewhere on the screen with the mouse pointer (or taps on the screen on a handheld device, or whatever the comparable action is for the platform in question), a Hugo program may read that action.
