@@ -122,7 +122,7 @@ There's still a lot of work to be done in terms of enforcing consistent styles, 
 
 - [x] Word to AsciiDoc porting and basic formatting and styles clean-up.
 - [x] **XREFS** — Restore all XRefs and create custom anchors ([milestone 6], [#25]).
-- [ ] **FOOTNOTES:** ([milestone 4])
+- [x] **FOOTNOTES:** ([milestone 4])
     + [x] Proofread and format all footnotes. ([#21])
     + [x] Decide how to handle:
         * [x] Identical footnotes. ([#24])
@@ -131,7 +131,7 @@ There's still a lot of work to be done in terms of enforcing consistent styles, 
     + [x] All chapters and appendices titles (from all-caps).
     + [x] All sections.
     + [ ] All captions (tables, figures, etc.).
-- [ ] **CODE BLOCKS:**
+- [x] **CODE BLOCKS:**
     + [x] __Hugo code__:
         * [x] Enforce consistent indentation:
             - [x] 4 spaces in book examples.
@@ -155,119 +155,47 @@ Every chapter in the list provides an [HTML Live Preview] link to quickly jump t
     + [ ]  Custom styling and adaptation to HTML5 version.
 - [ ]  [BOOK I. **THE HUGO PROGRAMMING MANUAL**][Book I]
     + [ ]  [1. _INTRODUCTION_][Ch1]
-        * No Hugo code to check.
     + [x]  [2. _A FIRST LOOK AT HUGO_][Ch2]
-        * [x]  Check/Fix Hugo code indentation.
-        * [x]  Convert Hugo syntax definitions to `literal, role="hugosyntax"` blocks.
     + [x]  [3. _OBJECTS_][Ch3]
-        * [x]  Check/Fix Hugo code indentation.
-        * [x]  Convert Hugo syntax definitions to `literal, role="hugosyntax"` blocks.
     + [x]  [4. _HUGO PROGRAMMING_][Ch4]
-        * [x]  Check/Fix Hugo code indentation.
-        * [x]  Convert Hugo syntax definitions to `literal, role="hugosyntax"` blocks.
     + [x]  [5. _ROUTINES AND EVENTS_][Ch5]
-        * [x]  Check/Fix Hugo code indentation.
-        * [x]  Convert Hugo syntax definitions to `literal, role="hugosyntax"` blocks.
     + [x]  [6. _FUSES, DAEMONS, AND SCRIPTS_][Ch6]
-        * [x]  Check/Fix Hugo code indentation.
-        * [x]  Convert Hugo syntax definitions to `literal, role="hugosyntax"` blocks.
     + [x]  [7. _GRAMMAR AND PARSING_][Ch7]
-        * [x]  Check/Fix Hugo code indentation.
-        * [x]  Convert Hugo syntax definitions to `literal, role="hugosyntax"` blocks.
     + [x]  [8. _JUNCTION ROUTINES_][Ch8]
-        * [x]  Check/Fix Hugo code indentation.
-        * [x]  Convert Hugo syntax definitions to `literal, role="hugosyntax"` blocks.
     + [x]  [9. _THE GAME LOOP_][Ch9]
-        * [x]  Check/Fix Hugo code indentation.
-        * [x]  Convert Hugo syntax definitions to `literal, role="hugosyntax"` blocks.
     + [x]  [10. _USING THE OBJECT LIBRARY_][Ch10]
-        * [x]  Check/Fix Hugo code indentation.
-        * [x]  Convert Hugo syntax definitions to `literal, role="hugosyntax"` blocks.
     + [x]  [11. _ADVANCED FEATURES_][Ch11]
-        * [x]  Check/Fix Hugo code indentation.
-        * [x]  Convert Hugo syntax definitions to `literal, role="hugosyntax"` blocks.
     + [x]  [12. _RESOURCES_][Ch12]
-        * [x]  Check/Fix Hugo code indentation.
-        * [x]  Convert Hugo syntax definitions to `literal, role="hugosyntax"` blocks.
     + [ ]  [APP. A. _SUMMARY OF KEYWORDS AND COMMANDS_][AppA]
         * [ ]  _needs to be proof-read once more, carefully!_
-        * No Hugo code to check.
-        * [x]  Convert Hugo syntax definitions to `literal, role="hugosyntax"` blocks.
     + [ ]  [APP. B. _THE HUGO LIBRARY_][AppB]
         * [ ]  _needs to be proof-read once more, carefully!_
-        * [x]  Check/Fix Hugo code indentation.
-        * [x]  Convert Hugo syntax definitions to `literal, role="hugosyntax"` blocks.
     + [ ]  [APP. C. _LIMIT SETTINGS_][AppC]
         * [ ]  _needs to be proof-read once more, carefully!_
-        * No Hugo code to check.
-        * No Hugo syntax definitions.
     + [ ]  [APP. D. _HUGOFIX AND THE HUGO DEBUGGER_][AppD]
         * [ ]  _needs to be proof-read once more, carefully!_
-        * No Hugo code to check.
-        * [x]  Convert Hugo syntax definitions to `literal, role="hugosyntax"` blocks.
     + [x]  [APP. E. _PRECOMPILED HEADERS_][AppE]
-        * [x]  Check/Fix Hugo code indentation.
     + [x]  [APP. F. _HUGO VERSIONS_][AppF]
-        * No Hugo code to check.
-        * No Hugo syntax definitions.
     + [x]  [APP. G. _ADDITIONAL RESOURCES_][AppG]
-        * No Hugo code to check.
-        * No Hugo syntax definitions.
 - [ ]  [BOOK II. **TECHNICAL SYSTEM SPECIFICATION**][Book II]
     + [x]  [13. _INTRODUCTION_][Ch13]
-        * No Hugo code to check.
-        * No Hugo syntax definitions.
     + [x]  [14. _ORGANIZATION OF THE .HEX FILE_][Ch14]
-        * No Hugo code to check.
-        * No Hugo syntax definitions.
     + [x]  [15. _TOKENS AND DATA TYPES_][Ch15]
-        * No Hugo code to check.
-        * No Hugo syntax definitions.
     + [x]  [16. _ENGINE PARSING_][Ch16]
-        * No Hugo code to check.
-        * No Hugo syntax definitions.
     + [x]  [17. _GRAMMAR_][Ch17]
-        * [x]  Check/Fix Hugo code indentation.
-        * No Hugo syntax definitions.
     + [x]  [18. _EXECUTABLE CODE_][Ch18]
-        * [x]  Check/Fix Hugo code indentation.
-        * No Hugo syntax definitions.
     + [x]  [19. _ENCODING TEXT_][Ch19]
-        * No Hugo code to check.
-        * No Hugo syntax definitions.
     + [x]  [20. _THE OBJECT TABLE_][Ch20]
-        * No Hugo code to check.
-        * No Hugo syntax definitions.
     + [x]  [21. _THE PROPERTY TABLE_][Ch21]
-        * [x]  Check/Fix Hugo code indentation.
-        * No Hugo syntax definitions.
     + [x]  [22. _THE EVENT TABLE_][Ch22]
-        * No Hugo code to check.
-        * No Hugo syntax definitions.
     + [x]  [23. _THE DICTIONARY AND SPECIAL WORDS_][Ch23]
-        * No Hugo code to check.
-        * No Hugo syntax definitions.
     + [x]  [24. _RESOURCEFILES_][Ch24]
-        * Title capitalization: _no sections._
-        *  (_no XRefs_).
-        *  (_No footnotes_).
-        * No Hugo code to check.
-        * No Hugo syntax definitions.
     + [x]  [25. _THE HUGO COMPILER AND HOW IT WORKS_][Ch25]
-        * No Hugo code to check.
-        * No Hugo syntax definitions.
     + [x]  [26. _THE HUGO ENGINE AND HOW IT WORKS_][Ch26]
-        * No Hugo code to check.
-        * No Hugo syntax definitions.
     + [x]  [27. _DARK SECRETS OF THE HUGO DEBUGGER_][Ch27]
-        * No Hugo code to check.
-        * No Hugo syntax definitions.
     + [ ]  [APP. H. _CODE PATTERNS_][AppH]
         * [ ]  _needs to be proof-read once more, carefully!_
-        * No Hugo code to check.
-        * [x]  Convert Hugo syntax definitions to `literal, role="hugosyntax"` blocks.
 - [ ] _INDEX_ (supported only in PDF format)
-
 
 # Annotations Convention
 

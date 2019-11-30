@@ -13,7 +13,11 @@ The AsciiDoc formatting and style conventions adopted in _The Hugo Book_.
 - [Footnotes](#footnotes)
     - [Handling Identical Footnotes](#handling-identical-footnotes)
     - [Footnotes in Table Cells](#footnotes-in-table-cells)
-- [Title Casing](#title-casing)
+- [Titles, Headings and Captions](#titles-headings-and-captions)
+    - [Book Sections](#book-sections)
+        - [Sections Numbering](#sections-numbering)
+    - [Title Casing](#title-casing)
+    - [Sections IDs Customization](#sections-ids-customization)
 - [Hugo Code](#hugo-code)
     - [Indentation Conventions](#indentation-conventions)
     - [Syntax Highlighting](#syntax-highlighting)
@@ -75,7 +79,7 @@ Although on printed paper it might have been more elegant to avoid identical foo
 
 For more info:
 
-- [hugo-book/#24][#24] — Handling Identical Footnotes
+- [hugo-book #24][#24] — Handling Identical Footnotes
 - [Asciidoctor Manual: §61. Footnotes]
 
 
@@ -85,26 +89,87 @@ Numerous notes occur inside table cells.
 Currently, Asciidoctor doesn't always handle them as expected, sometimes placing the footnote at the end of the cell, instead of placing it with the rest of the footnotes ([See #22][#22]).
 
 This is a known issue with Asciidoctor and it happens when the cell is styled as AsciiDoc (`a`), which gets treated as an embedded document.
-A solution has already been planned, introducing a new `b` cell style for "block-level content" (See [asciidoctor/#2352]), so we just have to wait.
+A solution has already been planned, introducing a new `b` cell style for "block-level content" (See [asciidoctor #2352]), so we just have to wait.
 
 When the new `b` feature will be available, all occurrences of `a` styled cells will have to be changed in the _Hugo Book_ sources.
 
 For more info:
 
-- [hugo-book/#22][#22] — Footnotes inside Tables
-- [asciidoctor/#2352] — Introduce a new type of AsciiDoc table cell.
-- [asciidoctor/#2350] — Footnotes in tables.
-- [asciidoctor/#1705] — Placement of footnotes in tables.
+- [hugo-book #22][#22] — Footnotes inside Tables
+- [asciidoctor #1705] — Placement of footnotes in tables.
+- [asciidoctor #2350] — Footnotes in tables.
+- [asciidoctor #2352] — Introduce a new type of AsciiDoc table cell.
 
-# Title Casing
+<!---------------------------------------------------------------------------->
+
+# Titles, Headings and Captions
+
+## Book Sections
+
+> __NOTE__ — In the Asciidoctor documentation the term "section" refers to any level of titles (parts, chapter, appendices, and their subsections).
+> In this document, to avoid confusion, we'll use the term "subsection" to refer to sub-sections of chapters and appendices (i.e. Level 3-4 headings).
+
+_The Hugo Book_ consists of two parts (_Book I_ and _Book II_), with 12 chapters and 7 appendices in _Book I_ (Chs 1-12, Apps A-F), and 15 chapters and 1 appendix in _Book II_ (Chs 13-27, App A), for a total of 35 book sections (19 + 16) plus the _Colophon_ and the _Author's Foreword_.
+
+### Sections Numbering
+
+In the original PDF edition of _The Hugo Book_ section numbering of chapters and appendices in _Book II_ were independent from _Book I_.
+Asciidoctor doesn't currently allow resetting section numbering in book parts, therefore in this new edition of the book chapters and appendices in _Book II_ carry on from _Book I_.
+
+This might be an issue when trying to publish _Book I_ and _Book II_ as independent documents, for in that case section numbering in _Book II_ would start from scratch (like in the original), resulting in inconsistent section numbering across different editions of the book — a rather inconvenient situation for the readers, leading to references confusions (with _Chapter 16_ of _Book II_ becoming _Chapter 4_ in the split-books editions, and _Appendix H_ becoming _Appendix A_).
+
+Ideally, we would have preferred to preserve the original section numbering system, which would prevent similar discrepancies, regardless of the output format and parts-splitting.
+Unfortunately, there seems to be no easy way to achieve this right now (at least, not with HTML backend).
+
+
+> ### TODO:
+>
+> - [ ] Mention that the original PDF employed roman numerals.
+
+For more info:
+
+- [hugo-book #4][#4] — Section Numbering in Book II
+- [Asciidoctor Manual: §16. Sections]
+- [Asciidoctor Manual: §16.7. Numbering]
+
+## Title Casing
 
 For title capitalization I've adopted the conventions of _[The Chicago Manual of Style]_ (CMS).
-The following online title capitalization tool was used (_Chicago_ option):
+The following online title capitalization tool was used (with _Chicago_ option):
 
 * https://capitalizemytitle.com/#Chicago
 
 In the original book, all level one titles were in all-caps.
 I've opted to adopt conventional title capitalization since the original all-caps can easily be achieved via templates styles, whereas there is no easy way to automatically reverse all-caps.
+
+## Sections IDs Customization
+
+Every section title in the book has been given a custom ID according to the following naming convention:
+
+- **Parts** — `book1` and `book2`.
+- **Chapters**:
+    + **Chapter Titles** — `chapter_1`, `chapter_2`, etc.
+    + **Level 3 Subsections** — `sec_1-1`, `sec_1-2`, etc.
+    + **Level 4 Subsections** — `sec_1-1-1`, `sec_1-1-2`, etc.
+- **Appendices**:
+    + **Appendices Titles** — `appendix-a`, `appendix-b`, etc.
+    + **Level 3 Subsections** — `sec_a-1`, `sec_a-2`, etc.
+    + **Level 4 Subsections** — `sec_a-1-1`, `sec_a-1-2`, etc.
+
+> ### TODO:
+>
+> - [ ] Spell out the above rules and the rationale behind them.
+> - [ ] Mention that the choice of relying on predefined section numbering in IDs is justified by the fact that there are no plans to further develop the book, therefore we don't expect new contents additions that would alter the current sections numbering.
+
+
+For more info:
+
+- [hugo-book #26][#26] — Customize IDs of Every Book Sections
+- [Asciidoctor Manual: §16. Sections]
+- [Asciidoctor Manual: §16.1. Titles as HTML Headings]
+- [Asciidoctor Manual: §16.2. Auto-generated IDs]
+
+<!---------------------------------------------------------------------------->
 
 # Hugo Code
 
@@ -174,7 +239,7 @@ The currently used Asciidoctor extension to integrate Highlight into the HTML to
 
 Solving point 1 requires rewriting the current Highlight extension using the new Asciidoctor 2.0 API.
 
-The problem at point 2 should be resolved by an upcoming Asciidoctor feature (see [asciidoctor/#2352]).
+The problem at point 2 should be resolved by an upcoming Asciidoctor feature (see [asciidoctor #2352]).
 
 Any help in solving the above problems would be much appreciated; in the meantime, any commits that would break the book using [Highlight] can't be merged in, even though they might work with other highlighters.
 
@@ -188,14 +253,14 @@ Of course, if another (static and cross platform) syntax highlighter for Hugo be
 
 [The Chicago Manual of Style]: https://www.chicagomanualofstyle.org "Go to The Chicago Manual of Style website"
 
-<!-- Issues: Hugo Book -->
+<!-- Hugo Book: Issues -->
 
 [#16]: https://github.com/tajmone/hugo-book/issues/16 "Issue #16: Re-Write Highlight Extension for Asciidoctor 2.0"
 [#22]: https://github.com/tajmone/hugo-book/issues/22 "Issue #22: Footnotes inside Tables"
 [#24]: https://github.com/tajmone/hugo-book/issues/24 "Issue #24: Handling Identical Footnotes"
+[#26]: https://github.com/tajmone/hugo-book/issues/26 "Issue #26: Customize IDs of Every Book Sections"
 [#33]: https://github.com/tajmone/hugo-book/issues/33 "Issue #33: Highlighting Filepath Strings: Prevent Escapes"
-
-[Highlight]: http://www.andre-simon.de/ "Visit Highlight website"
+[#4]: https://github.com/tajmone/hugo-book/issues/4 "Issue #4: Section Numbering in Book II"
 
 <!-- Asciidoctor ------------------------------------------------------------>
 
@@ -203,17 +268,26 @@ Of course, if another (static and cross platform) syntax highlighter for Hugo be
 
 <!-- Asciidoctor Issues -->
 
-[asciidoctor/#2352]: https://github.com/asciidoctor/asciidoctor/issues/2352
-[asciidoctor/#2350]: https://github.com/asciidoctor/asciidoctor/issues/2350
-[asciidoctor/#1705]: https://github.com/asciidoctor/asciidoctor/issues/1705
+[asciidoctor #2352]: https://github.com/asciidoctor/asciidoctor/issues/2352
+[asciidoctor #2350]: https://github.com/asciidoctor/asciidoctor/issues/2350
+[asciidoctor #1705]: https://github.com/asciidoctor/asciidoctor/issues/1705
 
 <!-- Asciidoctor Manual -->
+
+[Asciidoctor Manual: §16. Sections]: https://asciidoctor.org/docs/user-manual/#sections
+[Asciidoctor Manual: §16.1. Titles as HTML Headings]: https://asciidoctor.org/docs/user-manual/#titles-as-html-headings
+[Asciidoctor Manual: §16.2. Auto-generated IDs]: https://asciidoctor.org/docs/user-manual/#auto-generated-ids
+[Asciidoctor Manual: §16.7. Numbering]: https://asciidoctor.org/docs/user-manual/#numbering
 
 [Asciidoctor Manual: §61. Footnotes]: https://asciidoctor.org/docs/user-manual/#user-footnotes
 [Asciidoctor Manual: §61.1. Externalizing a Footnote]: https://asciidoctor.org/docs/user-manual/#externalizing-a-footnote
 
 [callouts]: https://asciidoctor.org/docs/user-manual/#callouts "Learn more about Asciidoctor callouts"
 [subs]: https://asciidoctor.org/docs/user-manual/#applying-substitutions "Learn more about Asciidoctor substitutions"
+
+<!-- 3rd party tools---------------------------------------------------------->
+
+[Highlight]: http://www.andre-simon.de/ "Visit Highlight website"
 
 <!-- people ------------------------------------------------------------------>
 
