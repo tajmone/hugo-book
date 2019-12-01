@@ -20,7 +20,7 @@
 The first two places to start inspecting how the Hugo compiler writes a *.HEX* file are: (1) what byte values are written to represent each individual token (i.e. keywords, built-in functions, etc.), and (2) how different data types and values are formatted.
 
 
-
+[[sec_15-1]]
 == Tokens
 
 // @NOTE: 123 tokens | 5 tokens x col = 2 empty cells
@@ -43,7 +43,7 @@ Note also tokens ending with `++#++`: these primarily represent data types that 
 For example, the occurrence of a variable name in the source will be compiled into `var#` (token $45) followed by two bytes giving the number of the variable being referenced. (See the following section on Data Types for more details.)
 
 
-[#15-2_data_types]
+[[sec_15-2]]
 == Data Types
 
 Internally, all data is stored as 16-bit integers (that may be treated as unsigned as appropriate).

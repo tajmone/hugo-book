@@ -569,7 +569,7 @@ div.literalblock.hugosyntax div.content pre > sup.footnote a {
 <span id="email" class="email"><a href="mailto:general@generalcoffee.com">general@generalcoffee.com</a></span><br>
 <span id="revnumber">version 1,</span>
 <span id="revdate">2018-10-04</span>
-<br><span id="revremark">Draft 124 -- Porting to AsciiDoc</span>
+<br><span id="revremark">Draft 125 -- Porting to AsciiDoc</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -16430,7 +16430,7 @@ It contains the bulk of information regarding table offsets, junction routine ad
 <p>The first two places to start inspecting how the Hugo compiler writes a <strong>.HEX</strong> file are: (1) what byte values are written to represent each individual token (i.e. keywords, built-in functions, etc.), and (2) how different data types and values are formatted.</p>
 </div>
 <div class="sect2">
-<h3 id="tokens"><a class="anchor" href="#tokens"></a>15.1. Tokens</h3>
+<h3 id="sec_15-1"><a class="anchor" href="#sec_15-1"></a>15.1. Tokens</h3>
 <table class="tableblock frame-all grid-all stripes-even stretch">
 <colgroup>
 <col style="width: 4%;">
@@ -16758,7 +16758,7 @@ For example, the occurrence of a variable name in the source will be compiled in
 </div>
 </div>
 <div class="sect2">
-<h3 id="15-2_data_types"><a class="anchor" href="#15-2_data_types"></a>15.2. Data Types</h3>
+<h3 id="sec_15-2"><a class="anchor" href="#sec_15-2"></a>15.2. Data Types</h3>
 <div class="paragraph">
 <p>Internally, all data is stored as 16-bit integers (that may be treated as unsigned as appropriate).
 The valid range is -32768 to 32767.</p>
@@ -17143,7 +17143,7 @@ Immediately following this is either another <code>verb</code> or <code>xverb</c
 <h2 id="chapter_18"><a class="anchor" href="#chapter_18"></a>18. Executable Code</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="a_simple_program"><a class="anchor" href="#a_simple_program"></a>18.1. A Simple Program</h3>
+<h3 id="sec_18-1"><a class="anchor" href="#sec_18-1"></a>18.1. A Simple Program</h3>
 <div class="paragraph">
 <p>The following is a simple Hugo program:</p>
 </div>
@@ -17309,7 +17309,7 @@ All routines are automatically followed by a default $21 and $4C&#8201;&#8212;&#
 </div>
 </div>
 <div class="sect2">
-<h3 id="expressions"><a class="anchor" href="#expressions"></a>18.2. Expressions</h3>
+<h3 id="sec_18-2"><a class="anchor" href="#sec_18-2"></a>18.2. Expressions</h3>
 <div class="paragraph">
 <p>Expressions are encoded as the tokenized representation of the expression.
 Consider the following code excerpts, assuming that global initializations have included:</p>
@@ -17579,7 +17579,7 @@ Note that an address in the text bank requires 3 bytes in the game code, however
 <h2 id="chapter_20"><a class="anchor" href="#chapter_20"></a>20. The Object Table</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="objects"><a class="anchor" href="#objects"></a>20.1. Objects</h3>
+<h3 id="sec_20-1"><a class="anchor" href="#sec_20-1"></a>20.1. Objects</h3>
 <div class="paragraph">
 <p>The object table begins with two bytes giving the total number of objects.
 The objects then follow in sequential order.
@@ -17635,7 +17635,7 @@ Each object requires 24 bytes:<sup class="footnote">[<a id="_footnoteref_71" cla
 </div>
 </div>
 <div class="sect2">
-<h3 id="attributes"><a class="anchor" href="#attributes"></a>20.2. Attributes</h3>
+<h3 id="sec_20-2"><a class="anchor" href="#sec_20-2"></a>20.2. Attributes</h3>
 <div class="paragraph">
 <p>The 16 bytes of the attribute array contain 8 bits each, giving a total of 128 possible attributes.<sup class="footnote">[<a id="_footnoteref_72" class="footnote" href="#_footnotedef_72" title="View footnote.">72</a>]</sup>
 Essentially, if the bits are thought of sequentially in that the first byte represents attributes 0 to 7, the second byte represents attributes 8 to 15, the third 16 to 23, and the fourth and final byte 24 to 31.</p>
@@ -17707,7 +17707,7 @@ See <a href="#the_linker">Sec. 25.2, &#8220;The Linker&#8221;</a>.</p>
 </table>
 </div>
 <div class="sect2">
-<h3 id="before_after_and_other_complex_properties"><a class="anchor" href="#before_after_and_other_complex_properties"></a>21.1. Before, After, and Other Complex Properties</h3>
+<h3 id="sec_21-1"><a class="anchor" href="#sec_21-1"></a>21.1. Before, After, and Other Complex Properties</h3>
 <div class="paragraph">
 <p>Consider the following complex property for an unspecified object:</p>
 </div>
@@ -17910,7 +17910,7 @@ Each event requires 2 bytes:</p>
 <h2 id="chapter_23"><a class="anchor" href="#chapter_23"></a>23. The Dictionary and Special Words</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="dictionary"><a class="anchor" href="#dictionary"></a>23.1. Dictionary</h3>
+<h3 id="sec_23-1"><a class="anchor" href="#sec_23-1"></a>23.1. Dictionary</h3>
 <div class="paragraph">
 <p>The dictionary begins with two bytes giving the total number of entries.
 Each dictionary entry is composed of 1 or more bytes:</p>
@@ -17937,7 +17937,7 @@ Each dictionary entry is composed of 1 or more bytes:</p>
 </table>
 </div>
 <div class="sect2">
-<h3 id="special_words"><a class="anchor" href="#special_words"></a>23.2. Special Words</h3>
+<h3 id="sec_23-2"><a class="anchor" href="#sec_23-2"></a>23.2. Special Words</h3>
 <div class="paragraph">
 <p>The special words table begins with two bytes giving the total number of entries.
 Each entry requires 5 bytes:</p>
@@ -19316,7 +19316,7 @@ These are typically used for delimitation, signaling the end of a structure or s
 </div>
 <div class="paragraph">
 <p><strong>VALUES</strong> return an integer value to the engine within the context of an expression.
-See <a href="#15-2_data_types">Sec. 15.2, &#8220;Data Types&#8221;</a>, which describes all the valid types of values.</p>
+See <a href="#sec_15-2">Sec. 15.2, &#8220;Data Types&#8221;</a>, which describes all the valid types of values.</p>
 </div>
 <div class="paragraph">
 <p><strong>INTERNAL</strong> tokens never appear in source code.
@@ -22092,7 +22092,7 @@ If there is an error, the <code>system_status</code> global variable is set.</p>
 <a href="#_footnoteref_69">69</a>. Prior to version 3.1, this scaling factor was 4.
 </div>
 <div class="footnote" id="_footnotedef_70">
-<a href="#_footnoteref_70">70</a>. See <a href="#special_words">Sec. 23.2, &#8220;Special Words&#8221;</a>.
+<a href="#_footnoteref_70">70</a>. See <a href="#sec_23-2">Sec. 23.2, &#8220;Special Words&#8221;</a>.
 </div>
 <div class="footnote" id="_footnotedef_71">
 <a href="#_footnoteref_71">71</a>. Pre-v2.1 objects had only 32 possible attributes, and the object size was only 12 bytes, with only 4 bytes given to the attribute array.

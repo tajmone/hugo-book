@@ -11,7 +11,7 @@
 // >>> footnotes definitions >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 // @XREF: "23.2. Special Words" (in footnote!)
-:fn1: footnote:[See xref:hugo-book2_11#special_words[].]
+:fn1: footnote:[See xref:sec_23-2[].]
 
 // <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 

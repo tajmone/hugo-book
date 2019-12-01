@@ -41,7 +41,7 @@ These are typically used for delimitation, signaling the end of a structure or s
 
 // @XREF: "15.2. Data Types"
 *VALUES* return an integer value to the engine within the context of an expression.
-See <<hugo-book2_03#15-2_data_types>>, which describes all the valid types of values.
+See <<sec_15-2>>, which describes all the valid types of values.
 
 *INTERNAL* tokens never appear in source code.
 These are added by the compiler for use by the engine.

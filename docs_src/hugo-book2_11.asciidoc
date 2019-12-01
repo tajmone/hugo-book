@@ -8,6 +8,7 @@
 = The Dictionary and Special Words
 
 
+[[sec_23-1]]
 == Dictionary
 
 The dictionary begins with two bytes giving the total number of entries.
@@ -21,7 +22,7 @@ Each dictionary entry is composed of 1 or more bytes:
 | 1 -     | Entry as an encrypted string
 |===============================================================================
 
-
+[[sec_23-2]]
 == Special Words
 
 The special words table begins with two bytes giving the total number of entries.

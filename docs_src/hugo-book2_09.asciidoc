@@ -42,6 +42,7 @@ See <<hugo-book2_13#the_linker>>.
 ================================================================================
 
 
+[[sec_21-1]]
 == Before, After, and Other Complex Properties
 
 Consider the following complex property for an unspecified object:

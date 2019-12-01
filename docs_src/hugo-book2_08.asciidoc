@@ -16,7 +16,7 @@
 
 // <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
-
+[[sec_20-1]]
 == Objects
 
 The object table begins with two bytes giving the total number of objects.
@@ -47,6 +47,7 @@ The property table position represents the offset of the beginning of the given 
 
 
 
+[[sec_20-2]]
 == Attributes
 
 The 16 bytes of the attribute array contain 8 bits each, giving a total of 128 possible attributes.{fn2}

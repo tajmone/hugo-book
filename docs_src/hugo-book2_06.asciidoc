@@ -8,6 +8,7 @@
 = Executable Code
 
 
+[[sec_18-1]]
 == A Simple Program
 
 The following is a simple Hugo program:
@@ -97,6 +98,7 @@ All routines are automatically followed by a default $21 and $4C -- the equivale
 --
 
 
+[[sec_18-2]]
 == Expressions
 
 Expressions are encoded as the tokenized representation of the expression.
