@@ -103,12 +103,12 @@ div.listingblock div.content pre[class=highlight][lang=hugo] code sup.footnote a
 
 /* Hugo Syntax Definitions (Issue #35) */
 div.literalblock.hugosyntax pre {
-  background-color: #f2f0ec;
-  color: #6699cc;
+  background-color: #192D34;
+  color: #62B1CB;
 }
 div.literalblock.hugosyntax div.content pre > sup.footnote,
 div.literalblock.hugosyntax div.content pre > sup.footnote a {
-  color: #2d2d2d;
+  color: #FAFAF9;
   font-weight: normal;
   font-style: normal;
 }

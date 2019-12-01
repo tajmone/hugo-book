@@ -12,8 +12,9 @@ The Sass sources to build the custom CSS stylesheets for _The Hugo Book_.
 - [System Requirements](#system-requirements)
     - [Installing Dart Sass](#installing-dart-sass)
 - [Credits](#credits)
-    - [Base16 Color Schemes](#base16-color-schemes)
+    - [Base16 Colour Schemes](#base16-colour-schemes)
     - [Base16 Sass](#base16-sass)
+    - [Base2Tone Colour Schemes](#base2tone-colour-schemes)
 
 <!-- /MarkdownTOC -->
 
@@ -34,9 +35,9 @@ The easiest way to install Dart Sass on Windows, and keep it always updated, is 
 
 # Credits
 
-## Base16 Color Schemes
+## Base16 Colour Schemes
 
-The Sass/CSS themes use the following Base16 color schemes:
+The Sass/CSS themes use the following Base16 colour schemes:
 
 - _Base16 Eighties_ — by [Chris Kempson].
 
@@ -88,6 +89,47 @@ SOFTWARE.
 ```
 
 
+## Base2Tone Colour Schemes
+
+- https://base2t.one
+
+The Sass/CSS themes use the following Base2Tone colour schemes:
+
+- _Base2Tone Lake_ — by [Bram de Haan].
+
+The __[Base2Tone]__ project was created by Bram de Haan ([@atelierbram]), based on [Simurai]'s __[Duotone Themes]__ for the [Atom editor].
+
+The following Base2Tone SCSS files:
+
+- [`_base2tone-lake.scss`][b2t Lake]
+
+were derived from the YAML schemes found at the __[Base2Tone]__ project by Bram de Haan, released under MIT License:
+
+- https://github.com/atelierbram/Base2Tone
+
+```
+The MIT License (MIT)
+
+Copyright (c) 2016 Bram de Haan
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+```
 
 <!-----------------------------------------------------------------------------
                                REFERENCE LINKS
@@ -98,6 +140,9 @@ SOFTWARE.
 [b16 80s]: ./_base16-eighties.scss "View SCSS source"
 [b16 Google]: ./_base16-google-dark.scss "View SCSS source"
 
+<!-- Base2Tone Sass sources -->
+
+[b2t Lake]: ./_base2tone-lake.scss "View SCSS source"
 
 <!-- dependencies -->
 
@@ -119,9 +164,20 @@ SOFTWARE.
 [Base16 Eighties]: https://github.com/chriskempson/base16-builder/blob/master/schemes/eighties.yml "View upstream source file"
 [Base16 Google]: https://github.com/chriskempson/base16-builder/blob/master/schemes/google.yml "View upstream source file"
 
+[Base2Tone]: https://github.com/atelierbram/Base2Tone "Visit Base2Tone repository on GitHub"
+[Duotone Themes]: http://simurai.com/projects/2016/01/01/duotone-themes
+
+<!-- 3rd party tools -->
+
+[Atom editor]: https://atom.io "Visit Atom website"
+
 <!-- people -->
 
+[@atelierbram]: https://github.com/atelierbram "View @atelierbram's GitHub profile"
+[Bram de Haan]: https://github.com/atelierbram "View Bram de Haan's GitHub profile"
 [Chris Kempson]: http://chriskempson.com "Visit Chris Kempson's website"
 [Seth Wright]:   http://sethawright.com  "Visit Seth Wright's website"
+[Simurai]: https://github.com/simurai "View simurai's GitHub profile"
+
 
 <!-- EOF -->

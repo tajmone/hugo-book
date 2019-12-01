@@ -46,17 +46,19 @@ div.listingblock div.content pre[class="highlight"][lang="hugo"] {
 /* Hugo Syntax Definitions (Issue #35) */
 // ======================================
 // Just a literal block with custom colors.
-// Use Base16 Eighties light colors.
+
+// Use Base2Tone Lake color scheme colors.
+@import 'base2tone-lake';
 
 div.literalblock.hugosyntax {
   pre {
-    background-color: $base07;
-    color: $base0D;
+    background-color: $baseA0;
+    color: $baseB4;
   }
   // Inline footnote links colors (Issue #23):
   div.content pre>sup.footnote,
   div.content pre>sup.footnote a {
-    color: $base00;
+    color: $baseC7;
     font-weight: normal;
     font-style: normal;
   }

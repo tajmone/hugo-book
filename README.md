@@ -23,7 +23,8 @@ Project created by [Tristano Ajmone] in 2019/09/29.
 - [License](#license)
 - [Acknowledgements](#acknowledgements)
 - [Credits](#credits)
-    - [Base16 Color Schemes](#base16-color-schemes)
+    - [Base16 Colour Schemes](#base16-colour-schemes)
+    - [Base2Tone Colour Schemes](#base2tone-colour-schemes)
     - [The Asciidoctor Project](#the-asciidoctor-project)
         - [Asciidoctor Extensions Lab](#asciidoctor-extensions-lab)
     - [Asciidoctor Backends](#asciidoctor-backends)
@@ -125,11 +126,11 @@ Hugo is a beautiful tool, as well an historical pillar of the Interactive Fictio
 
 This project also employs resources created by third parties.
 
-## Base16 Color Schemes
+## Base16 Colour Schemes
 
 - [`/assets_src/sass/`](./assets_src/sass/)
 
-For the Sass/CSS themes this project uses the following Base16 color schemes:
+For the Sass/CSS themes this project uses the following Base16 colour schemes:
 
 - _Base16 Eighties_ — by [Chris Kempson]  (MIT License).
 
@@ -154,6 +155,29 @@ __Base16 Sass__ is released under MIT License:
 For more details and the full license text, see:
 
 - [`/assets_src/sass/README.md`](./assets_src/sass/README.md#credits)
+
+## Base2Tone Colour Schemes
+
+- [`/assets_src/sass/`](./assets_src/sass/)
+
+For the Sass/CSS themes this project uses the following Base2Tone colour schemes:
+
+- _Base2Tone Lake_ — by [Bram de Haan]  (MIT License).
+
+The __Base2Tone__ project was created by Bram de Haan ([@atelierbram]), based on [Simurai]'s __[Duotone Themes]__ for the [Atom editor]:
+
+- https://github.com/atelierbram/Base2Tone
+
+The project is released under MIT License:
+
+    The MIT License (MIT)
+
+    Copyright (c) 2016 Bram de Haan
+
+For more details and the full license text, see:
+
+- [`/assets_src/sass/README.md`](./assets_src/sass/README.md#credits)
+
 
 ## The Asciidoctor Project
 
@@ -220,6 +244,8 @@ Released under MIT License:
 <!-- 3rd party links -->
 
 [Asciidoctor]: https://asciidoctor.org/ "Visit Asciidoctor website"
+[Atom editor]: https://atom.io "Visit Atom website"
+[Duotone Themes]: http://simurai.com/projects/2016/01/01/duotone-themes
 [IF Archive]: https://www.ifarchive.org/ "Visit the IF Archive"
 
 <!-- 3rd party upstream links -->
@@ -253,10 +279,13 @@ Released under MIT License:
 
 <!-- people -->
 
+[@atelierbram]: https://github.com/atelierbram "View @atelierbram's GitHub profile"
+[Bram de Haan]: https://github.com/atelierbram "View Bram de Haan's GitHub profile"
 [Chris Kempson]: http://chriskempson.com "Visit Chris Kempson's website"
 [Dan Allen]: https://github.com/mojavelinux "View Dan Allen's GitHub profile"
 [Dannii Willis]: https://github.com/curiousdannii "View Dannii Willis's GitHub profile"
 [Kent Tessman]: https://github.com/tessman "View Kent Tessman's GitHub profile"
+[Simurai]: https://github.com/simurai "View simurai's GitHub profile"
 [Tristano Ajmone]: https://github.com/tajmone "View Tristano Ajmone's GitHub profile"
 
 <!-- organizations -->
