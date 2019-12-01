@@ -15,8 +15,8 @@ This folder contains the AsciiDoc source files of the _The Hugo Book_.
     - [Build Toolchain](#build-toolchain)
 - [Toolchain Dependencies](#toolchain-dependencies)
 - [Book Status](#book-status)
-    - [List of Book-Wide Task](#list-of-book-wide-task)
     - [Chapters Status and Previews](#chapters-status-and-previews)
+        - [Special Sections](#special-sections)
 - [Annotations Convention](#annotations-convention)
 - [XRefs](#xrefs)
     - [Chapters, Appendices and Sections](#chapters-appendices-and-sections)
@@ -114,42 +114,23 @@ These assets are required to introduce support for Hugo highlighting in the [Asc
 
 # Book Status
 
-The initial Word-to-AsciiDoc porting stage is now completed: all the basic style elements are in place, and the whole text as been proofread.
+The Word-to-AsciiDoc porting stage is now completed: all the basic style elements are in place, and the whole text as been proofread.
 
-There's still a lot of work to be done in terms of enforcing consistent styles, _ad hoc_ customizations, and solving various problems.
+There's still a few minor chores pending, which are tacked via Issues:
 
-## List of Book-Wide Task
+- [All Issues relating to the porting stage]
+- [All Issues to be handled before 1st release]
 
-- [x] Word to AsciiDoc porting and basic formatting and styles clean-up.
-- [x] **XREFS** — Restore all XRefs and create custom anchors ([milestone 6], [#25]).
-- [x] **FOOTNOTES:** ([milestone 4])
-    + [x] Proofread and format all footnotes. ([#21])
-    + [x] Decide how to handle:
-        * [x] Identical footnotes. ([#24])
-        * [x] Footnotes inside tables. ([#22])
-- [x] **TITLE CASE** — Enforce [_Chicago_ style title capitalization]  ([#13]):
-    + [x] All chapters and appendices titles (from all-caps).
-    + [x] All sections.
-    + [x] All captions (tables, figures, etc.).
-- [x] **SECTION IDs** — Create custom IDs using the chosen naming scheme to: ([#26])
-    + [x] All IDs which have an xref pointing to them.
-        * [x] Fix all existing xrefs, using the new ID.
-    + [x] Every ID in the book:
-        * [x] **Chapters** Titles.
-            - [x] Level 3 and 4 **Subsections**.
-        * [x] **Appendices** Titles.
-            - [x] Level 3 and 4 **Subsections**.
-- [x] **CODE BLOCKS:**
-    + [x] __Hugo code__:
-        * [x] Enforce consistent indentation:
-            - [x] 4 spaces in book examples.
-            - [x] original indentation (8 spaces) in hugolib and other sources.
-    + [ ] __Hugo syntax__ definitions ([#35]):
-        * [x] Covert from `source` to `literal, role="hugosyntax"` blocks.
-        * [x] Customize CSS.
-            - [ ] Choose better color scheme.
-- [ ] Solve all annotated problems.
+Now the whole book needs to read again, from beginning to end, to ensure that everything looks fine and keeping an eye for anything that needs to be changed, fixed or improved.
 
+The following sections need to be thoroughly re-examined and compared with the original Word/PDF edition:
+
+- [ ]  [APP. A. _SUMMARY OF KEYWORDS AND COMMANDS_][AppA]
+- [ ]  [APP. B. _THE HUGO LIBRARY_][AppB]
+- [ ]  [APP. C. _LIMIT SETTINGS_][AppC]
+- [ ]  [APP. D. _HUGOFIX AND THE HUGO DEBUGGER_][AppD]
+
+They might also benefit from some extra styling to enhance readability (especially the long tables where entries could be coloured), and adding captions to tables and images.
 
 ## Chapters Status and Previews
 
@@ -157,88 +138,22 @@ The tasks list below indicates the status of the pending tasks after the initial
 
 Every chapter in the list provides an [HTML Live Preview] link to quickly jump to its position in the single-file online preview.
 
+### Special Sections
+
+The following sections need to be fixed, for they were merely ported as they were, without dedicated styles or special considerations:
+
 - [ ]  [_COLOPHON_][COLOPHON]:
     + [ ]  Custom styling and adaptation to HTML5 version.
 - [ ]  [_AUTHOR'S FOREWORD_][FOREWORD]:
     + [ ]  Custom styling and adaptation to HTML5 version.
-- [ ]  [BOOK I. **THE HUGO PROGRAMMING MANUAL**][Book I]
-    + [x]  [1. _INTRODUCTION_][Ch1]
-        * [x]  Level 3-4 Custom IDs.
-    + [x]  [2. _A FIRST LOOK AT HUGO_][Ch2]
-        * [x]  Level 3-4 Custom IDs.
-    + [x]  [3. _OBJECTS_][Ch3]
-        * [x]  Level 3-4 Custom IDs.
-    + [x]  [4. _HUGO PROGRAMMING_][Ch4]
-        * [x]  Level 3-4 Custom IDs.
-    + [x]  [5. _ROUTINES AND EVENTS_][Ch5]
-        * [x]  Level 3-4 Custom IDs.
-    + [x]  [6. _FUSES, DAEMONS, AND SCRIPTS_][Ch6]
-        * [x]  Level 3-4 Custom IDs.
-    + [x]  [7. _GRAMMAR AND PARSING_][Ch7]
-        * [x]  Level 3-4 Custom IDs.
-    + [x]  [8. _JUNCTION ROUTINES_][Ch8]
-        * [x]  Level 3-4 Custom IDs.
-    + [x]  [9. _THE GAME LOOP_][Ch9]
-        * [x]  Level 3-4 Custom IDs.
-    + [x]  [10. _USING THE OBJECT LIBRARY_][Ch10]
-        * [x]  Level 3-4 Custom IDs.
-    + [x]  [11. _ADVANCED FEATURES_][Ch11]
-        * [x]  Level 3-4 Custom IDs.
-    + [x]  [12. _RESOURCES_][Ch12]
-        * [x]  Level 3-4 Custom IDs.
-    + [ ]  [APP. A. _SUMMARY OF KEYWORDS AND COMMANDS_][AppA]
-        * (_no Level 3-4 subsection requiring Custom IDs._)
-        * [ ]  _needs to be proof-read once more, carefully!_
-    + [x]  [APP. B. _THE HUGO LIBRARY_][AppB]
-        * [x]  Level 3-4 Custom IDs.
-        * [ ]  _needs to be proof-read once more, carefully!_
-    + [ ]  [APP. C. _LIMIT SETTINGS_][AppC]
-        * (_no Level 3-4 subsection requiring Custom IDs._)
-        * [ ]  _needs to be proof-read once more, carefully!_
-    + [ ]  [APP. D. _HUGOFIX AND THE HUGO DEBUGGER_][AppD]
-        * [x]  Level 3-4 Custom IDs.
-        * [ ]  _needs to be proof-read once more, carefully!_
-    + [x]  [APP. E. _PRECOMPILED HEADERS_][AppE]
-        * (_no Level 3-4 subsection requiring Custom IDs._)
-    + [x]  [APP. F. _HUGO VERSIONS_][AppF]
-        * (_no Level 3-4 subsection requiring Custom IDs._)
-    + [x]  [APP. G. _ADDITIONAL RESOURCES_][AppG]
-        * (_no Level 3-4 subsection requiring Custom IDs._)
-- [ ]  [BOOK II. **TECHNICAL SYSTEM SPECIFICATION**][Book II]
-    + [x]  [13. _INTRODUCTION_][Ch13]
-        * [x]  Level 3-4 Custom IDs.
-    + [x]  [14. _ORGANIZATION OF THE .HEX FILE_][Ch14]
-        * [x]  Level 3-4 Custom IDs.
-    + [x]  [15. _TOKENS AND DATA TYPES_][Ch15]
-        * [x]  Level 3-4 Custom IDs.
-    + [x]  [16. _ENGINE PARSING_][Ch16]
-        * (_no Level 3-4 subsection requiring Custom IDs._)
-    + [x]  [17. _GRAMMAR_][Ch17]
-        * (_no Level 3-4 subsection requiring Custom IDs._)
-    + [x]  [18. _EXECUTABLE CODE_][Ch18]
-        * [x]  Level 3-4 Custom IDs.
-    + [x]  [19. _ENCODING TEXT_][Ch19]
-        * (_no Level 3-4 subsection requiring Custom IDs._)
-    + [x]  [20. _THE OBJECT TABLE_][Ch20]
-        * [x]  Level 3-4 Custom IDs.
-    + [x]  [21. _THE PROPERTY TABLE_][Ch21]
-        * [x]  Level 3-4 Custom IDs.
-    + [x]  [22. _THE EVENT TABLE_][Ch22]
-        * (_no Level 3-4 subsection requiring Custom IDs._)
-    + [x]  [23. _THE DICTIONARY AND SPECIAL WORDS_][Ch23]
-        * [x]  Level 3-4 Custom IDs.
-    + [x]  [24. _RESOURCEFILES_][Ch24]
-        * (_no Level 3-4 subsection requiring Custom IDs._)
-    + [x]  [25. _THE HUGO COMPILER AND HOW IT WORKS_][Ch25]
-        * [x]  Level 3-4 Custom IDs.
-    + [x]  [26. _THE HUGO ENGINE AND HOW IT WORKS_][Ch26]
-        * [x]  Level 3-4 Custom IDs.
-    + [x]  [27. _DARK SECRETS OF THE HUGO DEBUGGER_][Ch27]
-        * [x]  Level 3-4 Custom IDs.
-    + [ ]  [APP. H. _CODE PATTERNS_][AppH]
-        * (_no Level 3-4 subsection requiring Custom IDs._)
-        * [ ]  _needs to be proof-read once more, carefully!_
-- [ ] _INDEX_ (supported only in PDF format)
+
+As for the _Index_, there isn't an index at all currently because it only affects DocBook/PDF format.
+At some point in the future, it would be good to rebuild the original Index of the book, for the sake of PDF editions; also, there might exist extension to add index-support to the HTML5 backend, so it's worth looking into it.
+
+- [ ] _INDEX_ (supported only in PDF format):
+    + [ ] Rebuild original Index of the Word/PDF edition.
+    + [ ] Try to find an extension to add index-support to the HTML5 backend.
+
 
 # Annotations Convention
 
@@ -479,5 +394,9 @@ In order to convert _The Hugo Book_ to HTML you'll need to install the following
 [#35]: https://github.com/tajmone/hugo-book/issues/35
 [milestone 4]: https://github.com/tajmone/hugo-book/milestone/4
 [milestone 6]: https://github.com/tajmone/hugo-book/milestone/6
+
+
+[All Issues relating to the porting stage]: https://github.com/tajmone/hugo-book/issues?q=is%3Aopen+is%3Aissue+project%3Atajmone%2Fhugo-book%2F1
+[All Issues to be handled before 1st release]: https://github.com/tajmone/hugo-book/issues?q=is%3Aopen+is%3Aissue+project%3Atajmone%2Fhugo-book%2F2
 
 <!-- EOF -->
