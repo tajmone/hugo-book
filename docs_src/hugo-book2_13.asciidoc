@@ -39,7 +39,7 @@ First, `ResolveAddr()` (from *hcmisc.c*) patches all references that were unknow
 
 If a debuggable executable (called an *.HDX* file) is being generated, the last thing `Pass3()` does is to write the symbolic names of all objects, properties, attributes, aliases, globals, routines, events, and arrays to the end of the file.
 
-
+[[sec_25-1]]
 == Compile-Time Symbol Data
 
 Here are the various structures, arrays, and variables used by the compiler to keep track of symbols at compile-time:
@@ -205,6 +205,7 @@ The compiler, in `FindHash()` in *hcdef.c*, produces an _almost_ unique value fo
 Only if `...++_hash[n]++` matches an expected value does a more expensive `strcmp()` string comparison have to be performed to validate the "`match`" (or reject it).
 
 
+[[sec_25-2]]
 == The Linker
 
 The compiler has to be able to both create a linkable file (called an *.HLB* file, as it is usually a precompiled version of the library) and read it back when a `#link` directive is encountered.

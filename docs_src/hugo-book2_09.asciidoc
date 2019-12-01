@@ -38,7 +38,7 @@ A propertyless object simply has the value 255 at its position in the property t
 Property data being written for an *.HLB* linkable file is slightly altered.
 For example, property routines are marked by $FE instead of $FF.
 // @XREF: "25.2. The Linker"
-See <<hugo-book2_13#the_linker>>.
+See <<sec_25-2>>.
 ================================================================================
 
 

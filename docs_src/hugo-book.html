@@ -569,7 +569,7 @@ div.literalblock.hugosyntax div.content pre > sup.footnote a {
 <span id="email" class="email"><a href="mailto:general@generalcoffee.com">general@generalcoffee.com</a></span><br>
 <span id="revnumber">version 1,</span>
 <span id="revdate">2018-10-04</span>
-<br><span id="revremark">Draft 125 -- Porting to AsciiDoc</span>
+<br><span id="revremark">Draft 126 -- Porting to AsciiDoc</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -599,7 +599,7 @@ div.literalblock.hugosyntax div.content pre > sup.footnote a {
 <li><a href="#appendix_g">Appendix G: Additional Resources</a></li>
 </ul>
 </li>
-<li><a href="#book_ii_technical_system_specification">Book II: Technical System Specification</a>
+<li><a href="#book2">Book II: Technical System Specification</a>
 <ul class="sectlevel1">
 <li><a href="#chapter_13">13. Introduction</a></li>
 <li><a href="#chapter_14">14. Organization of the .HEX File</a></li>
@@ -16082,7 +16082,7 @@ are two other interactive-fiction programming languages.</p>
 </div>
 </div>
 </div>
-<h1 id="book_ii_technical_system_specification" class="sect0"><a class="anchor" href="#book_ii_technical_system_specification"></a>Book II: Technical System Specification</h1>
+<h1 id="book2" class="sect0"><a class="anchor" href="#book2"></a>Book II: Technical System Specification</h1>
 <div class="openblock partintro text-center partsubtitle">
 <div class="content">
 OR<br>
@@ -17700,7 +17700,7 @@ A propertyless object simply has the value 255 at its position in the property t
 <div class="paragraph">
 <p>Property data being written for an <strong>.HLB</strong> linkable file is slightly altered.
 For example, property routines are marked by $FE instead of $FF.
-See <a href="#the_linker">Sec. 25.2, &#8220;The Linker&#8221;</a>.</p>
+See <a href="#sec_25-2">Sec. 25.2, &#8220;The Linker&#8221;</a>.</p>
 </div>
 </td>
 </tr>
@@ -18135,7 +18135,7 @@ First, <code>ResolveAddr()</code> (from <strong>hcmisc.c</strong>) patches all r
 <p>If a debuggable executable (called an <strong>.HDX</strong> file) is being generated, the last thing <code>Pass3()</code> does is to write the symbolic names of all objects, properties, attributes, aliases, globals, routines, events, and arrays to the end of the file.</p>
 </div>
 <div class="sect2">
-<h3 id="compile_time_symbol_data"><a class="anchor" href="#compile_time_symbol_data"></a>25.1. Compile-Time Symbol Data</h3>
+<h3 id="sec_25-1"><a class="anchor" href="#sec_25-1"></a>25.1. Compile-Time Symbol Data</h3>
 <div class="paragraph">
 <p>Here are the various structures, arrays, and variables used by the compiler to keep track of symbols at compile-time:</p>
 </div>
@@ -18520,7 +18520,7 @@ Only if <code>&#8230;&#8203;_hash[n]</code> matches an expected value does a mor
 </div>
 </div>
 <div class="sect2">
-<h3 id="the_linker"><a class="anchor" href="#the_linker"></a>25.2. The Linker</h3>
+<h3 id="sec_25-2"><a class="anchor" href="#sec_25-2"></a>25.2. The Linker</h3>
 <div class="paragraph">
 <p>The compiler has to be able to both create a linkable file (called an <strong>.HLB</strong> file, as it is usually a precompiled version of the library) and read it back when a <code>#link</code> directive is encountered.</p>
 </div>
@@ -18633,7 +18633,7 @@ Here, the <code>eval[]</code> array is initialized with the expression to be eva
 The expression currently in <code>eval[]</code> is solved by calling <code>EvalExpr()</code>.</p>
 </div>
 <div class="sect2">
-<h3 id="runtime_symbol_data"><a class="anchor" href="#runtime_symbol_data"></a>26.1. Runtime Symbol Data</h3>
+<h3 id="sec_26-1"><a class="anchor" href="#sec_26-1"></a>26.1. Runtime Symbol Data</h3>
 <table class="tableblock frame-all grid-none stripes-even fit-content">
 <caption class="title">Code execution:</caption>
 <colgroup>
@@ -18811,7 +18811,7 @@ The expression currently in <code>eval[]</code> is solved by calling <code>EvalE
 </table>
 </div>
 <div class="sect2">
-<h3 id="non_portable_functionality"><a class="anchor" href="#non_portable_functionality"></a>26.2. Non-Portable Functionality</h3>
+<h3 id="sec_26-2"><a class="anchor" href="#sec_26-2"></a>26.2. Non-Portable Functionality</h3>
 <div class="paragraph">
 <p>The Hugo Engine requires a number of non-portable functions which provide the interface layer between the engine and the operating system on which it is running.
 These functions are:</p>
@@ -18982,7 +18982,7 @@ These functions are:</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="savefile_format"><a class="anchor" href="#savefile_format"></a>26.3. Savefile Format</h3>
+<h3 id="sec_26-3"><a class="anchor" href="#sec_26-3"></a>26.3. Savefile Format</h3>
 <div class="paragraph">
 <p>Hugo saves the game state by (among other things) saving the dynamic memory from start of the object table to the start of the text bank (i.e., including objects, properties, array data, and the dictionary).
 It does this, however, in a format that only notes if the data has changed from its initial state.</p>
@@ -19152,7 +19152,7 @@ In order to resume free execution, <code>Debugger()</code> returns with <code>de
 </table>
 </div>
 <div class="sect2">
-<h3 id="debugger_expression_evaluation"><a class="anchor" href="#debugger_expression_evaluation"></a>27.1. Debugger Expression Evaluation</h3>
+<h3 id="sec_27-1"><a class="anchor" href="#sec_27-1"></a>27.1. Debugger Expression Evaluation</h3>
 <div class="paragraph">
 <p>The debugger must evaluate expressions in several contexts, including when solving watch expressions and when changing an existing value.</p>
 </div>
@@ -19190,7 +19190,7 @@ Remember that the address of the debug workspace&#8201;&#8212;&#8201;256 bytes a
 </div>
 </div>
 <div class="sect2">
-<h3 id="the_hdx_file_format"><a class="anchor" href="#the_hdx_file_format"></a>27.2. The .HDX File Format</h3>
+<h3 id="sec_27-2"><a class="anchor" href="#sec_27-2"></a>27.2. The .HDX File Format</h3>
 <div class="paragraph">
 <p>The <strong>.HDX</strong> file format for Hugo debuggable executables, as well as having some additional information in the header (see <a href="#sec_14-2">Sec. 14.2, &#8220;The Header&#8221;</a>) and a 256 byte workspace reserved at the end of the array table, appends symbolic debugging data as follows:</p>
 </div>

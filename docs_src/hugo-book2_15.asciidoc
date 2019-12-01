@@ -34,6 +34,7 @@ A number of other variables in the debugger influence program execution in addit
 `step_nest`           :: for stepping over nested calls (i.e., with `debugger_step_over`)
 
 
+[[sec_27-1]]
 == Debugger Expression Evaluation
 
 The debugger must evaluate expressions in several contexts, including when solving watch expressions and when changing an existing value.
@@ -48,6 +49,7 @@ TIP: Remember that the address of the debug workspace -- 256 bytes after any use
 
 After writing the expression, the debugger can then set `codeptr` to the start of the debug workspace, then call the engine's `SetupExpr()` and `EvalExpr()` functions as it would to evaluate any other expression.
 
+[[sec_27-2]]
 == The .HDX File Format
 
 

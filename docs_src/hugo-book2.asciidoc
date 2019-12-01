@@ -4,6 +4,7 @@
 // *                                                                           *
 // *****************************************************************************
 //
+[[book2]]
 = Book II: Technical System Specification
 
 // @FIXME: Part Subtitle

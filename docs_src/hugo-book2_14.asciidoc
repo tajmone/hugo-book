@@ -43,7 +43,7 @@ Whenever it is necessary for the engine to evaluate an expression, the expressio
 Here, the `eval[]` array is initialized with the expression to be evaluated by calling `SetupExpr()` (which will in turn call `GetValue()` to sequentially retrieve the elements of the expression).
 The expression currently in `eval[]` is solved by calling `EvalExpr()`.
 
-
+[[sec_26-1]]
 == Runtime Symbol Data
 
 [caption=]
@@ -119,6 +119,7 @@ The expression currently in `eval[]` is solved by calling `EvalExpr()`.
 | undorecord  | true when recording undo info
 |===============================================================================
 
+[[sec_26-2]]
 == Non-Portable Functionality
 
 The Hugo Engine requires a number of non-portable functions which provide the interface layer between the engine and the operating system on which it is running.
@@ -169,6 +170,7 @@ These functions are:
 For elaboration of the intent and implementation of these functions, see *heblank.c* in the standard source distribution (*hugov31_source.tar.gz*), or one of the implementations such as *hemsvc.c* (in *hugov31_win32_source.zip*, the Windows source package), *hegcc.c* (in *hugov31_unix_source.tar.gz*, the gcc/Unix package), etc.
 
 
+[[sec_26-3]]
 == Savefile Format
 
 Hugo saves the game state by (among other things) saving the dynamic memory from start of the object table to the start of the text bank (i.e., including objects, properties, array data, and the dictionary).
