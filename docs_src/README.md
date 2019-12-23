@@ -88,8 +88,8 @@ List of _The Hugo Book_ AsciiDoc sources and contents-assets:
 
 ## Build Toolchain
 
-- [`build.sh`][build.sh] — (***slow***) generates final HTML version of the book:
-    + [`hugo-book.html`][HB.html] ( [HTML Live Preview] ) — fully standalone, embedded graphics, syntax highlighted, custom CSS.
+- [`build.sh`][build.sh] — (***slow***) generates final HTML version of the book in the [`../docs/`][docs] folder (served on the WWW via [GitHub Pages] project website):
+    + [`../docs/hugo-book.html`][HB.html] ( [HTML Live Preview] ) — fully standalone, embedded graphics, syntax highlighted, custom CSS.
 - [`preview.sh`][preview.sh] — (***fast***) generates a quick HTML preview of the book:
     + `preview.html` — no syntax highlighting, no embedded graphics, use default template. (ignored by Git)
 
@@ -263,6 +263,7 @@ In order to convert _The Hugo Book_ to HTML you'll need to install the following
 
 [AsciiDoctor]: https://asciidoctor.org/ "Visita Asciidoctor website"
 [Highlight]: http://www.andre-simon.de/ "Visit Highlight website"
+[GitHub Pages]: https://pages.github.com/ "Visit GitHub Pages website"
 
 <!-- Live HTML Links -->
 
@@ -312,7 +313,7 @@ In order to convert _The Hugo Book_ to HTML you'll need to install the following
 
 <!-- project files -->
 
-[HB.html]: ./hugo-book.html "View HTML file"
+[HB.html]: ../docs/hugo-book.html "View HTML file"
 
 [HL rb]: ../assets/adoc/highlight-treeprocessor_mod.rb "View source file"
 
@@ -325,6 +326,7 @@ In order to convert _The Hugo Book_ to HTML you'll need to install the following
 [haml src]: ../assets/adoc/haml/ "Navigate to the Haml HTML5 templates folder"
 [hl]: ../assets/hl/ "Navigate to the custom Highlight DataDir folder"
 [sass src]: ../assets_src/sass/ "Navigate to Sass sources folder"
+[docs]: ../docs/ "Navigate to website contents folder"
 
 <!-- ADoc sources -->
 
