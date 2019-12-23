@@ -18,6 +18,7 @@ Project created by [Tristano Ajmone] in 2019/09/29.
 
 <!-- MarkdownTOC autolink="true" bracket="round" autoanchor="false" lowercase="only_ascii" uri_encoding="true" levels="1,2,3" -->
 
+- [Project Contents](#project-contents)
 - [About](#about)
 - [Why AsciiDoc?](#why-asciidoc)
 - [License](#license)
@@ -34,6 +35,18 @@ Project created by [Tristano Ajmone] in 2019/09/29.
 
 -----
 
+# Project Contents
+
+- [`/assets/`][assets] — resources required to build the book.
+- [`/assets_src/`][assets_src] — sources of buildable assets.
+- [`/docs/`][docs] — HTML version of _The Hugo Book_, served online via [GitHub Pages].
+- [`/docs_src/`][docs_src] — AsciiDoc sources and build scripts.
+- [`CHANGES.md`][CHANGES.md] — list of changes from the original book.
+- [`CONVENTIONS.md`][CONVENTIONS.md] — formatting, styles and code conventions.
+- [`LICENSE`][LICENSE] —  [CC BY-NC-SA 4.0] license.
+- [`validate.sh`][validate.sh] — [EditorConfig] code styles validation via [EClint].
+
+
 # About
 
 _[The Hugo Book]_ is the official manual for the [Hugo Interactive Fiction] authoring system (1995–2006), a cross platform system for creating and playing text adventures with advanced multimedia support, created by Kent Tessman and released under BSD 2-Clause License.
@@ -44,8 +57,8 @@ Historically, _The Hugo Book_ was distributed in PDF format, which can be downlo
 
 I wanted to port the book to AsciiDoc using an open source license, so I e-mailed [Kent Tessman]; he kindly granted his permission to do so under [CC BY-NC-SA 4.0], and sent me his latest Word document of the _The Hugo Book_.
 
-I chose not to share the original Word document in the repository due to the potential leaks of personal information associated with MS Word files.
-For comparison between the AsciiDoc version and the original book, please refer to the PDF version from the IF Archive.
+I chose not to share the original Word document in the repository due to the [potential leaks of personal information associated with MS Word files].
+For comparison between the AsciiDoc version and the original book, please refer to the [PDF version from the IF Archive].
 
 # Why AsciiDoc?
 
@@ -99,7 +112,7 @@ I strongly believe that AsciiDoc is an excellent format for sharing documents, a
 
 # License
 
-- [`./LICENSE/`][LICENSE]
+- [`LICENSE`][LICENSE]
 
 Explicit permission was granted from [Kent Tessman] to republish _The Hugo Book_ under the terms of the [CC BY-NC-SA 4.0] license.
 
@@ -229,7 +242,10 @@ Released under MIT License:
                                REFERENCE LINKS
 ------------------------------------------------------------------------------>
 
+[potential leaks of personal information associated with MS Word files]: https://www.sans.org/reading-room/whitepapers/privacy/document-metadata-silent-killer-32974 "Read Larry Pesce's paper 'Document Metadata, the Silent Killer...' (2008)"
 [embed private user- and machine-details that pose a privacy and security threat]: https://www.sans.org/reading-room/whitepapers/privacy/document-metadata-silent-killer-32974 "Read Larry Pesce's paper 'Document Metadata, the Silent Killer...' (2008)"
+
+[PDF version from the IF Archive]: https://www.ifarchive.org/if-archive/programming/hugo/manuals/hugo_book.pdf "'The Hugo Book' in PDF format at the IF Archive"
 
 <!-- CC BY-NC-SA 4.0 -->
 
@@ -246,6 +262,9 @@ Released under MIT License:
 [Asciidoctor]: https://asciidoctor.org/ "Visit Asciidoctor website"
 [Atom editor]: https://atom.io "Visit Atom website"
 [Duotone Themes]: http://simurai.com/projects/2016/01/01/duotone-themes
+[EClint]: https://www.npmjs.com/package/eclint "Visit EClint page at NPM"
+[EditorConfig]: https://editorconfig.org/ "Visit EditorConfig website"
+[GitHub Pages]: https://pages.github.com/ "Visit GitHub Pages website"
 [IF Archive]: https://www.ifarchive.org/ "Visit the IF Archive"
 
 <!-- 3rd party upstream links -->
@@ -270,11 +289,19 @@ Released under MIT License:
 
 <!-- project files -->
 
+[CHANGES.md]: ./CHANGES.md "View file"
+[CONVENTIONS.md]: ./CONVENTIONS.md "View file"
 [HL rb]: ./assets/adoc/highlight-treeprocessor_mod.rb "View source file"
+[LICENSE]: ./LICENSE "View file"
 [LICENSE]: ./LICENSE "View License file"
+[validate.sh]: ./validate.sh "View file"
 
 <!-- project folders -->
 
+[assets]: ./assets/ "Navigate to folder"
+[assets_src]: ./assets_src/ "Navigate to folder"
+[docs]: ./docs/ "Navigate to folder"
+[docs_src]: ./docs_src/ "Navigate to folder"
 [haml]: ./assets/adoc/haml/ "Navigate to the Haml HTML5 templates folder"
 
 <!-- people -->
