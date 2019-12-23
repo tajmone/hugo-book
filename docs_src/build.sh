@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# "docs_src/build.sh"                                      | v0.1.0 | 2019/11/24
+# "docs_src/build.sh"                                      | v0.2.0 | 2019/12/23
 # ------------------------------------------------------------------------------
 # By Tristano Ajmone, released into the public domain via the Unlicense.
 # ------------------------------------------------------------------------------
@@ -14,6 +14,7 @@
 # ------------------------------------------------------------------------------
 source=hugo-book.asciidoc
 output=hugo-book.html
+outDir=../docs
 
 # Highlight Set-up
 # ================
@@ -25,7 +26,7 @@ export HIGHLIGHT_DATADIR="$(pwd)/../assets/hl"
 
 
 printBanner "Hugo Book: Build HTML Document"
-echo -e "\033[37;1mConverting to standalone HTML document (\033[33;1$output\033[0m):"
+echo -e "\033[37;1mConverting to standalone HTML document (\033[33;1m$outDir/$output\033[0m):"
 echo -e "\033[31;1m *\033[0m TOC levels: 1."
 echo -e "\033[31;1m *\033[0m Single document."
 echo -e "\033[31;1m *\033[0m Graphics embedded via data-URI."
@@ -61,6 +62,7 @@ asciidoctor \
 	-a source-highlighter=highlight \
 	--require      ../assets/adoc/highlight-treeprocessor_mod.rb \
 	--template-dir ../assets/adoc/haml \
+	--destination-dir $outDir \
 	-o  $output \
 		$source || {
 			printBuildFailed;
