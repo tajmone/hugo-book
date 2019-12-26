@@ -14,16 +14,11 @@ This folder contains the AsciiDoc source files of the _The Hugo Book_.
     - [Book Sources](#book-sources)
     - [Build Toolchain](#build-toolchain)
 - [Toolchain Dependencies](#toolchain-dependencies)
-- [Book Status](#book-status)
-    - [Chapters Status and Previews](#chapters-status-and-previews)
-        - [Special Sections](#special-sections)
 - [Annotations Convention](#annotations-convention)
 - [XRefs](#xrefs)
     - [Chapters, Appendices and Sections](#chapters-appendices-and-sections)
+    - [Tables and Figures](#tables-and-figures)
     - [Custom Anchors](#custom-anchors)
-- [Custom IDs](#custom-ids)
-    - [Chapters, Appendices and Sections](#chapters-appendices-and-sections-1)
-    - [Tables, Figures, Etc.](#tables-figures-etc)
 - [System Requirements](#system-requirements)
 
 <!-- /MarkdownTOC -->
@@ -112,49 +107,6 @@ The build process depends on further assets stored elsewhere inside this project
 These assets are required to introduce support for Hugo highlighting in the [Asciidoctor] toolchain via the external [Highlight] tool and our custom syntax definition for Hugo.
 
 
-# Book Status
-
-The Word-to-AsciiDoc porting stage is now completed: all the basic style elements are in place, and the whole text as been proofread.
-
-There's still a few minor chores pending, which are tacked via Issues:
-
-- [All Issues relating to the porting stage]
-- [All Issues to be handled before 1st release]
-
-Now the whole book needs to read again, from beginning to end, to ensure that everything looks fine and keeping an eye for anything that needs to be changed, fixed or improved.
-
-The following sections need to be thoroughly re-examined and compared with the original Word/PDF edition:
-
-- [ ]  [APP. A. _SUMMARY OF KEYWORDS AND COMMANDS_][AppA]
-- [ ]  [APP. B. _THE HUGO LIBRARY_][AppB]
-- [ ]  [APP. C. _LIMIT SETTINGS_][AppC]
-- [ ]  [APP. D. _HUGOFIX AND THE HUGO DEBUGGER_][AppD]
-
-They might also benefit from some extra styling to enhance readability (especially the long tables where entries could be coloured), and adding captions to tables and images.
-
-## Chapters Status and Previews
-
-The tasks list below indicates the status of the pending tasks after the initial Word-to-AsciiDoc porting stage.
-
-Every chapter in the list provides an [HTML Live Preview] link to quickly jump to its position in the single-file online preview.
-
-### Special Sections
-
-The following sections need to be fixed, for they were merely ported as they were, without dedicated styles or special considerations:
-
-- [ ]  [_COLOPHON_][COLOPHON]:
-    + [ ]  Custom styling and adaptation to HTML5 version.
-- [ ]  [_AUTHOR'S FOREWORD_][FOREWORD]:
-    + [ ]  Custom styling and adaptation to HTML5 version.
-
-As for the _Index_, there isn't an index at all currently because it only affects DocBook/PDF format.
-At some point in the future, it would be good to rebuild the original Index of the book, for the sake of PDF editions; also, there might exist extension to add index-support to the HTML5 backend, so it's worth looking into it.
-
-- [ ] _INDEX_ (supported only in PDF format):
-    + [ ] Rebuild original Index of the Word/PDF edition.
-    + [ ] Try to find an extension to add index-support to the HTML5 backend.
-
-
 # Annotations Convention
 
 In the AsciiDoc sources of the book I've added comments to annotate contents changes, pending tasks, and other points of interest.
@@ -177,6 +129,9 @@ Most of these notes pertain work in progress and will be deleted on final releas
 # XRefs
 
 The following tables list all the cross references currently used in _The Hugo Book_, and the number of times they occur (__Qt.__ column).
+
+For more details on the custom IDs conventions adopted in this book, see
+[`CONVENTIONS.md`](../CONVENTIONS.md#sections-ids-customization).
 
 ## Chapters, Appendices and Sections
 
@@ -214,6 +169,13 @@ All the cross-references to chapters, appendices and sections:
 | 25.2. The Linker                              |   1 | `sec_25-2`   |
 | App. H: Code Patterns                         |   2 | `appendix_h` |
 
+## Tables and Figures
+
+All custom IDs for formal tables, figures, and other captioned block-elements.
+
+|  Type |                   Caption                   |               XRef ID                |
+|-------|---------------------------------------------|--------------------------------------|
+| Table | Standard Colors Defined by the Hugo Library | `hugo-book1_04#table-hugolib-colors` |
 
 ## Custom Anchors
 
@@ -226,22 +188,6 @@ These are the custom inline anchors pointing to specific points in the text:
 | `hugo-book1_14#token-case`           |   1 | Tokens table: `case`           | App. H  |
 | `hugo-book1_14#token-if`             |   3 | Tokens table: `if`             | App. H  |
 
-# Custom IDs
-
-Here's a complete list of the custom defined IDs replacing the auto-generated IDs.
-Even if not all of them are used by actual XRefs, they provide a consistent naming convention for anchors in HTML based documents.
-
-## Chapters, Appendices and Sections
-
-> __NOTE__ — Missing table, will be added once all the section IDs are customized (see [#26]).
-
-## Tables, Figures, Etc.
-
-All custom IDs for formal tables, figures, and other captioned block-elements.
-
-|  Type |                   Caption                   |               XRef ID                |
-|-------|---------------------------------------------|--------------------------------------|
-| Table | Standard Colors Defined by the Hugo Library | `hugo-book1_04#table-hugolib-colors` |
 
 # System Requirements
 
@@ -249,6 +195,14 @@ In order to convert _The Hugo Book_ to HTML you'll need to install the following
 
 - [AsciiDoctor]  (Ruby)
 - [Highlight]
+
+This project was build by its maintainer under MS Windows 10 x64, using:
+
+- Asciidoctor 2.0.10
+- Ruby 2.6.5p114
+- Highlight 3.54
+
+The Travis CI build tests the project against the latest stable versions of these packages, to ensure that any compatibility breaking updates are caught in time.
 
 <!-----------------------------------------------------------------------------
                                REFERENCE LINKS
