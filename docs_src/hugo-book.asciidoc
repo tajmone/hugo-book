@@ -3,18 +3,9 @@ Kent Tessman <general@generalcoffee.com>
 v1, 2018-10-04: Draft 127 -- Porting to AsciiDoc
 :lang: en
 :doctype: book
-// TOC Settings:
+// TOC Settings for GitHub previewing (override via CLI):
+:toc: preamble
 :toclevels: 5
-// GitLab setting to show TOC after Preamble
-:toc: macro
-// TOC ... HTML Backend Hack to show TOC on the Left
-ifdef::backend-html5[]
-:toc: left
-endif::[]
-// TOC ... GitHub Hack to show TOC after Preamble (required)
-ifdef::env-github[]
-:toc: macro
-endif::[]
 // Sections Numbering:
 :sectnums:
 :sectnumlevels: 2
@@ -29,30 +20,20 @@ endif::[]
 :icons: font
 :linkattrs: true
 
+ifdef::coalescer[]
+include::warn-editing.asciidoc[]
+endif::[]
+
 // =============================================================================
 //                         Custom Attributes Definition
 // =============================================================================
 // Some attributes for custom substitution of multiple occurences of same text.
-
 
 // ***************************
 // *    DOCUMENT PREAMBLE    *
 // ***************************
 // Show document info and AsciiDoc conversion version and date...
 include::hugo-book0_preamble.asciidoc[]
-
-// >>> GitLab/GitHub hacks to ensure TOC is shown after Preamble: >>>>>>>>>>>>>>
-ifndef::backend-html5[]
-'''
-toc::[]
-'''
-endif::[]
-ifdef::env-github[]
-'''
-toc::[]
-'''
-endif::[]
-// <<< GitHub/GitLab hacks <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
 // ******************
 // *    COLOPHON    *

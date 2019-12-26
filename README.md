@@ -20,6 +20,10 @@ Project created by [Tristano Ajmone] in 2019/09/29.
 
 - [Project Contents](#project-contents)
 - [About](#about)
+    - [AsciiDoc Sources](#asciidoc-sources)
+    - [Single-File AsciDoc Version](#single-file-ascidoc-version)
+    - [HTML Version](#html-version)
+    - [Converting to Other Formats](#converting-to-other-formats)
 - [Why AsciiDoc?](#why-asciidoc)
 - [License](#license)
 - [Acknowledgements](#acknowledgements)
@@ -28,7 +32,7 @@ Project created by [Tristano Ajmone] in 2019/09/29.
     - [Base2Tone Colour Schemes](#base2tone-colour-schemes)
     - [The Asciidoctor Project](#the-asciidoctor-project)
         - [Asciidoctor Extensions Lab](#asciidoctor-extensions-lab)
-    - [Asciidoctor Backends](#asciidoctor-backends)
+        - [Asciidoctor Backends](#asciidoctor-backends)
 - [External Links](#external-links)
 
 <!-- /MarkdownTOC -->
@@ -43,6 +47,7 @@ Project created by [Tristano Ajmone] in 2019/09/29.
 - [`/docs_src/`][docs_src] — AsciiDoc sources and build scripts.
 - [`CHANGES.md`][CHANGES.md] — list of changes from the original book.
 - [`CONVENTIONS.md`][CONVENTIONS.md] — formatting, styles and code conventions.
+- [`hugo-book.asciidoc`][HB Adoc] — standalone preprocessed AsciiDoc version of _The Hugo Book_.
 - [`LICENSE`][LICENSE] —  [CC BY-NC-SA 4.0] license.
 - [`validate.sh`][validate.sh] — [EditorConfig] code styles validation via [EClint].
 
@@ -59,6 +64,40 @@ I wanted to port the book to AsciiDoc using an open source license, so I e-maile
 
 I chose not to share the original Word document in the repository due to the [potential leaks of personal information associated with MS Word files].
 For comparison between the AsciiDoc version and the original book, please refer to the [PDF version from the IF Archive].
+
+## AsciiDoc Sources
+
+- [`/docs_src/`][docs_src] — AsciiDoc sources and build scripts.
+
+_The Hugo Book_ was split into multiple AsciiDoc files to simplify maintainance as well as to allow republishing single chapters individually.
+
+## Single-File AsciDoc Version
+
+For convenience, the `build.sh` script also creates a single-file AsciiDoc version, by preprocessing the source files via the __[AsciiDoc Coalescer]__:
+
+- [`hugo-book.asciidoc`][HB Adoc]
+
+This standalone version is provided for simplifying handling the book as a single source in external projects —
+
+> __WARNING__ — _Do not edit the preprocessed file, for all changes would be lost on the next build!_
+> All changes must be submitted to the sources in the [`/docs_src/`][docs_src] folder.
+
+## HTML Version
+
+Currently _The Hugo Book_ is available only in HTML format in this project:
+
+- [`/docs/hugo-book.html`][HB HTML]
+
+We're planning to add more output formats to the build toolchain, at some point in the future — any help on this front is highly appreciated.
+
+## Converting to Other Formats
+
+AsciiDoc being format-agnostic, you should be able to build the book with any Asciidoctor backend, out of the box.
+
+To optimize the final look of the book, you might have to tweak the template used by the backend/converter to cover the custom styles adopted in this project.
+Also, to beautify the Hugo code examples you'll probably have to create your own Hugo syntax definition for the syntax highlighter employed by the specific backend/converter.
+
+If you've converted _The Hugo Book_ to other formats, please let use know about it.
 
 # Why AsciiDoc?
 
@@ -138,6 +177,7 @@ Hugo is a beautiful tool, as well an historical pillar of the Interactive Fictio
 # Credits
 
 This project also employs resources created by third parties.
+For the full licenses text, see the README file in the folders hosting the specific resources — below is just a quick credits summary.
 
 ## Base16 Colour Schemes
 
@@ -200,11 +240,12 @@ This project employs various assets taken from [The Asciidoctor Project], mostly
 
 ### Asciidoctor Extensions Lab
 
-- [`/assets/adoc/highlight-treeprocessor_mod.rb`][HL rb]
-
-The __Highlight TreeProcessor__ Asciidoctor extension (Ruby) was adapted by [Tristano Ajmone] from the original [`highlight-treeprocessor.rb`][rb upstream] file from the __Asciidoctor Extensions Lab__:
-
 - https://github.com/asciidoctor/asciidoctor-extensions-lab
+
+The following Asciidoctor extensions and scripts were taken from the __[Asciidoctor Extensions Lab]__:
+
+- [`/assets/adoc/asciidoc-coalescer.rb`][coalescer.rb] — __AsciiDoc Coalescer__.
+- [`/assets/adoc/highlight-treeprocessor_mod.rb`][HL rb] — __Highlight TreeProcessor__.
 
 Released under MIT License:
 
@@ -212,7 +253,9 @@ Released under MIT License:
 
     Copyright (C) 2014-2016 The Asciidoctor Project
 
-## Asciidoctor Backends
+The __Highlight TreeProcessor__ Asciidoctor extension (Ruby) was adapted by [Tristano Ajmone] from the original [`highlight-treeprocessor.rb`][rb upstream] file.
+
+### Asciidoctor Backends
 
 - [`/assets/adoc/haml/`][haml]
 
@@ -269,6 +312,7 @@ Released under MIT License:
 
 <!-- 3rd party upstream links -->
 
+[Asciidoctor Extensions Lab]: https://github.com/asciidoctor/asciidoctor-extensions-lab "Visit the Asciidoctor Extensions Lab project on GitHub"
 [Haml HTML5 templates]: https://github.com/asciidoctor/asciidoctor-backends/tree/master/haml/html5
 [rb upstream]: https://github.com/asciidoctor/asciidoctor-extensions-lab/blob/18bdf62/lib/highlight-treeprocessor.rb "View original source file"
 
@@ -291,10 +335,15 @@ Released under MIT License:
 
 [CHANGES.md]: ./CHANGES.md "View file"
 [CONVENTIONS.md]: ./CONVENTIONS.md "View file"
-[HL rb]: ./assets/adoc/highlight-treeprocessor_mod.rb "View source file"
+[HL rb]: ./assets/adoc/highlight-treeprocessor_mod.rb "View Ruby source file"
+[coalescer.rb]: ./assets/adoc/asciidoc-coalescer.rb "View Ruby source file"
 [LICENSE]: ./LICENSE "View file"
 [LICENSE]: ./LICENSE "View License file"
 [validate.sh]: ./validate.sh "View file"
+[HB Adoc]: ./hugo-book.asciidoc "View the Hugo Book single-file AsciiDoc preprocessed version"
+[HB HTML]: ./docs/hugo-book.html "View the Hugo Book in HTML format"
+
+[AsciiDoc Coalescer]: ./assets/adoc/asciidoc-coalescer.rb "View the AsciiDoc Coalescer script (Ruby)"
 
 <!-- project folders -->
 

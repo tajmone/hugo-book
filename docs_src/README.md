@@ -32,6 +32,7 @@ This folder contains the AsciiDoc source files of the _The Hugo Book_.
 List of _The Hugo Book_ AsciiDoc sources and contents-assets:
 
 - [`docinfo.html`][docinfo.html] — [docinfo file] with custom CSS ([generated via Sass]).
+- [`warn-editing.asciidoc`][warn-editing] — a "don't edit me!" notice included in the [standalone AsciiDoc build].
 - [`hugo-book.asciidoc`][HB] — the main AsciiDoc source file (contains _[Colophon]_ and _[Foreword]_) that imports all contents:
     + [`hugo-book0_preamble.asciidoc`][HB:Preamble] — Document Preamble.
     + [`hugo-book0_colophon.asciidoc`][HB:Colophon] — [_COLOPHON_][COLOPHON]
@@ -83,8 +84,11 @@ List of _The Hugo Book_ AsciiDoc sources and contents-assets:
 
 ## Build Toolchain
 
-- [`build.sh`][build.sh] — (***slow***) generates final HTML version of the book in the [`../docs/`][docs] folder (served on the WWW via [GitHub Pages] project website):
-    + [`../docs/hugo-book.html`][HB.html] ( [HTML Live Preview] ) — fully standalone, embedded graphics, syntax highlighted, custom CSS.
+- [`build.sh`][build.sh] — (***slow***) generates the two final build documents:
+    1. The HTML version of the book in the [`../docs/`][docs] folder (served on the WWW via [GitHub Pages]) — fully standalone, embedded graphics, syntax highlighted, custom CSS:
+        * [`../docs/hugo-book.html`][HB.html] ( [HTML Live Preview] )
+    2. A standalone AsciiDoc version of the book as a single file, via the [`asciidoc-coalescer.rb`][coalescer.rb] script:
+        * [`../hugo-book.asciidoc`](../hugo-book.asciidoc)
 - [`preview.sh`][preview.sh] — (***fast***) generates a quick HTML preview of the book:
     + `preview.html` — no syntax highlighting, no embedded graphics, use default template. (ignored by Git)
 
@@ -274,6 +278,10 @@ The Travis CI build tests the project against the latest stable versions of thes
 [build.sh]: ./build.sh "View source script"
 [docinfo.html]: ./docinfo.html "View source file"
 [preview.sh]: ./preview.sh "View source script"
+[warn-editing]: ./warn-editing.asciidoc "View source file"
+[coalescer.rb]: ../assets/adoc/asciidoc-coalescer.rb "View Ruby source file"
+
+[standalone AsciiDoc build]: ../hugo-book.asciidoc "View the preprocessed standalone AsciiDoc version"
 
 <!-- project folders -->
 
