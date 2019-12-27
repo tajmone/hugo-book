@@ -118,4 +118,18 @@ div.literalblock.hugosyntax div.content pre > sup.footnote a {
   color: #99cc99;
 }
 
+/* Book I/II Alternative Titles */
+@media screen and (min-width: 768px) {
+  div.openblock.partintro.text-center.big.ortitle > .content {
+    line-height: 1.2;
+    font-size: 1.4375em;
+    font-variant: small-caps;
+    font-weight: 300;
+  }
+  div.openblock.partintro.text-center.big.ortitle > .content em {
+    font-weight: 400;
+    color: #2160AB;
+  }
+}
+
 /*# sourceMappingURL=hugo-book.css.map */

@@ -6,11 +6,9 @@
 [[book1,_The Hugo Programming Manual_]]
 = Book I: The Hugo Programming Manual
 
-// @FIXME: Part Subtitle
-
-[.text-center.partsubtitle]
-OR +
-HOW TO WRITE GAMES AND INFLUENCE PEOPLE
+[.text-center.big.ortitle]
+or +
+_How to Write Games and Influence People_
 
 // =============================================================================
 //                               INCLUDE CHAPTERS

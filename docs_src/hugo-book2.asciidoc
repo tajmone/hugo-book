@@ -7,11 +7,9 @@
 [[book2]]
 = Book II: Technical System Specification
 
-// @FIXME: Part Subtitle
-
-[.text-center.partsubtitle]
-OR +
-UNDER THE HOOD OF HUGO AND THE .HEX FILE FORMAT
+[.text-center.big.ortitle]
+or +
+_Under the Hood of Hugo and the .HEX File Format_
 
 // =============================================================================
 //                               INCLUDE CHAPTERS

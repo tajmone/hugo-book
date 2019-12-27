@@ -1,6 +1,6 @@
 = The Hugo Book
 Kent Tessman <general@generalcoffee.com>
-v1, 2018-10-04: Draft 127 -- Porting to AsciiDoc
+v1, 2018-10-04: Draft 128 -- Porting to AsciiDoc
 :lang: en
 :doctype: book
 // TOC Settings for GitHub previewing (override via CLI):
@@ -126,11 +126,9 @@ _2004_
 [[book1,_The Hugo Programming Manual_]]
 = Book I: The Hugo Programming Manual
 
-// @FIXME: Part Subtitle
-
-[.text-center.partsubtitle]
-OR +
-HOW TO WRITE GAMES AND INFLUENCE PEOPLE
+[.text-center.big.ortitle]
+or +
+_How to Write Games and Influence People_
 
 // =============================================================================
 //                               INCLUDE CHAPTERS
@@ -11300,11 +11298,9 @@ are two other interactive-fiction programming languages.
 [[book2]]
 = Book II: Technical System Specification
 
-// @FIXME: Part Subtitle
-
-[.text-center.partsubtitle]
-OR +
-UNDER THE HOOD OF HUGO AND THE .HEX FILE FORMAT
+[.text-center.big.ortitle]
+or +
+_Under the Hood of Hugo and the .HEX File Format_
 
 // =============================================================================
 //                               INCLUDE CHAPTERS
