@@ -21,13 +21,13 @@ This directory tree contains assets required by the Asciidoctor conversion toolc
 # Directory Contents
 
 - [`/haml/`][haml] — customized Haml templates.
-- [`highlight-treeprocessor_mod.rb`][HL.rb] v1.3.0 — extension for [Highlight] integration.
+- [`highlight-treeprocessor_mod.rb`][HL.rb] v1.4.0 — extension for [Highlight] integration.
 
 # Credits
 
 ## Highlight Extension
 
-The [`highlight-treeprocessor_mod.rb`][HL.rb] file was adapted by Tristano Ajmone from the original file [`highlight-treeprocessor.rb`][rb upstream] taken from the __[Asciidoctor Extensions Lab]__ (commit [18bdf62]), Copyright (C) 2014-2016 [The Asciidoctor Project], released under MIT License:
+The [`highlight-treeprocessor_mod.rb`][HL.rb] file was adapted by Tristano Ajmone from the original file [`highlight-treeprocessor.rb`][rb upstream] taken from the __[Asciidoctor Extensions Lab]__ (commit [c9ce3ab]), Copyright (C) 2014-2016 [The Asciidoctor Project], released under MIT License:
 
     The MIT License
 
@@ -140,7 +140,7 @@ The files inside the [`/haml/`][haml] folder were adapted by Tristano Ajmone fro
 [Asciidoctor Backends]: https://github.com/asciidoctor/asciidoctor-backends "Visit the Asciidoctor Backends project"
 [Haml HTML5 templates]: https://github.com/asciidoctor/asciidoctor-backends/tree/master/haml/html5
 
-[18bdf62]: https://github.com/asciidoctor/asciidoctor-extensions-lab/commit/18bdf628f46d9c98920c20413d8d99bf5ea622a8
+[c9ce3ab]: https://github.com/asciidoctor/asciidoctor-extensions-lab/commit/c9ce3ab421c5d47f1178b57a4a5894811f9eb945
 [b617f44]: https://github.com/asciidoctor/asciidoctor-extensions-lab/commit/b617f4422ad7ccfa5716ba1301fb2f4773f4e0d3
 
 <!-- organizations -->

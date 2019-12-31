@@ -1,6 +1,6 @@
 =begin
 
-highlight-treeprocessor_mod.rb"         v1.3.0 | 2019/03/30 | by Tristano Ajmone
+highlight-treeprocessor_mod.rb"         v1.4.0 | 2019/12/31 | by Tristano Ajmone
 ================================================================================
 
                         Highlight Treeprocessor Extension
@@ -21,7 +21,7 @@ Usage:
 
 --------------------------------------------------------------------------------
 Adapted by Tristano Ajmone from the original "highlight-treeprocessor.rb" taken
-from the Asciidoctor Extensions Lab (commit 18bdf62), Copyright (C) 2014-2016
+from the Asciidoctor Extensions Lab (commit c9ce3ab), Copyright (C) 2014-2016
 The Asciidoctor Project, released under MIT License:
 
     https://github.com/asciidoctor/asciidoctor-extensions-lab/
@@ -49,7 +49,7 @@ Extensions.register do
   # ----------------------------------------------------------------------------
   treeprocessor do
     process do |document|
-      document.find_by context: :listing, style: 'source' do |src|
+      (document.find_by context: :listing, style: 'source').each do |src|
         # TODO handle callout numbers
 
         #-----------------------------------------------------------------------
@@ -97,7 +97,6 @@ Extensions.register do
           wait_thr.value
         end
       end if document.attr? 'source-highlighter', 'highlight'
-      nil
     end
   end
 end
@@ -106,6 +105,11 @@ end
 --------------------------------------------------------------------------------
                                   ChangeLog
 --------------------------------------------------------------------------------
+v1.4.0 (2019/12/31)
+  Integrate upstream changes from commit 'c9ce3ab' (2018/10/26):
+  https://github.com/asciidoctor/asciidoctor-extensions-lab/commit/c9ce3ab
+  - Iterate on return value instead of using filter block.
+
 v1.3.0 (2019/03/30)
   Enforce $HIGHLIGHT_DATADIR:
   - If the HIGHLIGHT_DATADIR env var is defined then enforce it via:
