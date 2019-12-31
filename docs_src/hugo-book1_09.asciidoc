@@ -130,12 +130,15 @@ replace ParseError(errornumber, obj)
 
 and modify the case for the error message in question from
 
+// @EDITED CODE: (documented & approved: Issue #38)
+// Fixed missing `" ` before `need to use the word \""; \`
+
 [source,hugo]
 -------------------------------------------------
 case 1
     print CThe(player); \
         MatchPlural(player, "doesn't, "don't"); \
-        need to use the word \""; \
+        " need to use the word \""; \
         parse$; "\"."
 -------------------------------------------------
 

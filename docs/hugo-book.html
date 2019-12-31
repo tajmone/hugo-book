@@ -583,7 +583,7 @@ div.literalblock.hugosyntax div.content pre > sup.footnote a {
 <span id="email" class="email"><a href="mailto:general@generalcoffee.com">general@generalcoffee.com</a></span><br>
 <span id="revnumber">version 1,</span>
 <span id="revdate">2018-10-04</span>
-<br><span id="revremark">Draft 129 -- Porting to AsciiDoc</span>
+<br><span id="revremark">Draft 130 -- Porting to AsciiDoc</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -9193,7 +9193,7 @@ You don&#8217;t need to use the word "&lt;unknown word&gt;".
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">case</span> <span class="hl num">1</span>&#x000A;    <span class="hl kwa">print</span> CThe(<span class="hl kwb">player</span>); \&#x000A;        MatchPlural(<span class="hl kwb">player</span>, <span class="hl str">&quot;doesn&#39;t, &quot;</span>don&#39;t<span class="hl str">&quot;); \</span>&#x000A;<span class="hl str">        need to use the word</span> <span class="hl esc">\&quot;</span><span class="hl str">&quot;</span>; \&#x000A;        <span class="hl kwb">parse$</span>; <span class="hl str">&quot;</span><span class="hl esc">\&quot;</span><span class="hl str">.&quot;</span></code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">case</span> <span class="hl num">1</span>&#x000A;    <span class="hl kwa">print</span> CThe(<span class="hl kwb">player</span>); \&#x000A;        MatchPlural(<span class="hl kwb">player</span>, <span class="hl str">&quot;doesn&#39;t, &quot;</span>don&#39;t<span class="hl str">&quot;); \</span>&#x000A;<span class="hl str">        &quot;</span> need <span class="hl kwa">to</span> use the <span class="hl kwa">word \</span>&quot;<span class="hl str">&quot;; \</span>&#x000A;<span class="hl str">        parse$; &quot;</span>\&quot;.<span class="hl str">&quot;</span></code></pre>
 </div>
 </div>
 <div class="paragraph">

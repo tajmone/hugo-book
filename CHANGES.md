@@ -14,7 +14,7 @@ This document lists all the contents changes that theAsciiDoc edition has underg
     - [Aesthetic Changes](#aesthetic-changes)
     - [Library Code Updates](#library-code-updates)
 - [List of Text Adaptations](#list-of-text-adaptations)
-- [List of Text Corrections](#list-of-text-corrections)
+- [List of Text and Code Corrections](#list-of-text-and-code-corrections)
 
 <!-- /MarkdownTOC -->
 
@@ -193,7 +193,11 @@ where "Sec. 4.3" is a link pointing to relevant paragraph on the topic.
 This was necessary because not all output formats have page numbers (HTML documents, ePub, CHM Help files, etc., either don't have real page numbers or can't handle them well in cross references).
 
 
-# List of Text Corrections
+# List of Text and Code Corrections
+
+Small typos in text or code that were detected and fixed.
+
+-------------------------------------------------------------------------------
 
 <!-- Issue #20 (approved) ---------------------------------------------------->
 
@@ -240,6 +244,30 @@ In _§5.3. Before And After Routines_, toward the section end, there was a parag
 The paragraph end was amended by Kent Tessman to:
 
 > [...] for `save`, `restore`, etc. (i.e., xverbs).
+
+----
+
+<!-- Issue #38 (approved) ---------------------------------------------------->
+
+In _§9.2. What Should I Be Able to Do Now?_, the following code:
+
+```hugo
+case 1
+    print CThe(player); \
+        MatchPlural(player, "doesn't, "don't"); \
+        need to use the word \""; \
+        parse$; "\"."
+```
+
+was missing the opening quote and a space before `need to use`, and was fixed to:
+
+```hugo
+case 1
+    print CThe(player); \
+        MatchPlural(player, "doesn't", "don't"); \
+        " need to use the word \""; \
+        parse$; "\"."
+```
 
 ----
 
