@@ -159,25 +159,6 @@ PictureinText("<picture>", <width>, <height>[, <preserve>])
 
 ----
 
-<!-- Issue #36 (pending approval) -------------------------------------------->
-
-In _§12.3. Sound and Music_, the the syntax definition:
-
-```hugo
-PlaySound(resourcefile, sample, loop, force)
-PlayMusic(resourcefile, song, loop, force)
-```
-
-was edited to make it consistent with the other syntax definitions:
-
-```hugo
-PlaySound(<resourcefile>, <sample>, <loop>, <force>)
-PlayMusic(<resourcefile>, <song>, <loop>, <force>)
-```
-
-
-----
-
 <!-- Issue #27 (approved) ---------------------------------------------------->
 
 In _App. A: Summary of Keywords and Commands_, the cross reference text to a specific page number:
@@ -293,6 +274,24 @@ was fixed by Kent Tessman to:
 
 > It is also necessary to provide grammar to relate the words in the `vehicle_verb` list to the object library’s `DoMoveInVehicle` routine.
 > Grammar such as the following is recommended:
+
+----
+
+<!-- Issue #36 (pending approval) -------------------------------------------->
+
+In _§12.3. Sound and Music_, the the syntax definition:
+
+```hugo
+PlaySound(resourcefile, sample, loop, force)
+PlayMusic(resourcefile, song, loop, force)
+```
+
+was amended to include some missing parameters and to make it consistent with the other syntax definitions:
+
+```hugo
+PlaySound(<resourcefile>, <sample>[, <volume>[, <loop>[, <force>]]])
+PlayMusic(<resourcefile>, <song>[, <volume>[, <loop>[, <force>]]])
+```
 
 ----
 

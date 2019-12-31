@@ -183,13 +183,14 @@ music 0
 
 // @EDITED CODE: (documented & waiting approval: Issue #36)
 //  Parameters enclosed within angular brackets for code consistency.
+//  Addde missing <volume> parameter.
 
 // @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
-....................................................
-PlaySound(<resourcefile>, <sample>, <loop>, <force>)
-PlayMusic(<resourcefile>, <song>, <loop>, <force>)
-....................................................
+....................................................................
+PlaySound(<resourcefile>, <sample>[, <volume>[, <loop>[, <force>]]])
+PlayMusic(<resourcefile>, <song>[, <volume>[, <loop>[, <force>]]])
+....................................................................
 
 In either case, if `<loop>` is true, it has the same effect as using the `repeat` token after `sound` or `music`.
 If `<force>` is true, the sample or song is restarted even if that same sample or song is already playing (otherwise the `PlaySound` or `PlayMusic` call will have essentially no effect).
