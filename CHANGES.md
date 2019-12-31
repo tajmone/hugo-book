@@ -66,7 +66,7 @@ The source files of the Hugo Library v3.1.03.2 that I've used can be found here:
 
 # List of Text Adaptations
 
-Some text adaptations that were required to better exploit the new AsciiDoc format.
+Some text adaptations that were required to better exploit the new AsciiDoc format or to provide a more readable text.
 
 ----
 
@@ -118,6 +118,21 @@ The output transcript was also changed accordingly.
 The rationale was that it was better to discard the proportional font example instead of having to use a monospace font as the base typeface for this transcript only, thus breaking consistency with the rest of the transcripts.
 Using a monospace font for all transcripts would have been counter-productive, for most IF games today use proportional fonts as the base typeface.
 Furthermore, monospace fonts are already used in code examples and syntax definitions, so using a proportional font for transcripts renders the book more readable.
+
+----
+
+<!-- Issue #30 (approved) ---------------------------------------------------->
+
+In _§10.6. Vehicles_, the sentence:
+
+> The `preposition` property defaults in the `vehicle` class itself defaults to "in" and "out", but in the case of a horse should be changed to the more suitable "on" and "off".
+
+was hard to read due to the double occurring "defaults", which introduced ambiguity as to which one was a verb.
+It was rephrased to:
+
+> In the `vehicle` class the `preposition` property defaults to "in" and "out", but in the case of a horse it should be changed to the more suitable "on" and "off".
+
+which is smoother on the reader (and shorter too).
 
 ----
 

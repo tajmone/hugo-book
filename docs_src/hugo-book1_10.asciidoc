@@ -414,14 +414,14 @@ vehicle mustang "wild mustang"
 }
 --------------------------------
 
-// @TEXT: Hard to read (Issue #30):
+// @EDITED HARD TO READ SENTENCE: (documented & approved: Issue #30)
 //  "The `preposition` property DEFAULTS in the `vehicle` class itself DEFAULTS to..."
-// maybe -> fix to:
-//  "The `preposition` property in the `vehicle` class itself DEFAULTS to..."
+// changed to:
+//  "In the `vehicle` class the `preposition` property DEFAULTS to..."
 
 The `vehicle_verb` property provides one or more synonyms for the verb used to "`drive`" this particular vehicle object.
 In the case of a horse, it is appropriately "`ride`".
-The `preposition` property defaults in the `vehicle` class itself defaults to "`in`" and "`out`", but in the case of a horse should be changed to the more suitable "`on`" and "`off`".
+In the `vehicle` class the `preposition` property defaults to "in" and "out", but in the case of a horse it should be changed to the more suitable "on" and "off".
 
 // @EDITED MALFORMED SENTENCE: (documented & approved: Issue #18)
 //      Fixed sentence:
