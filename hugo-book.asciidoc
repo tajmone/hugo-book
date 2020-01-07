@@ -858,7 +858,6 @@ A variable that holds the count of a number of objects _could_ be called `n`, bu
 
 At this point it's probably helpful to know that you can assign a value to a variable using the form:
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax", subs="+attributes,macros"]
 .......................................................
 <some variable> = <some value>{fn5}
@@ -1190,7 +1189,6 @@ These special commands or instructions are called _compiler directives_, and are
 
 To set switches within the source code so that they do not have to be specified each time the compiler is invoked for that particular program, the line
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 #switches -<sequence>
@@ -1208,7 +1206,6 @@ the first line in every new program, which will automatically print a statistica
 
 Using
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ...............................
 #version <version>[.<revision>]
@@ -1226,7 +1223,6 @@ Its general usage is largely deprecated.
 
 To include the contents of another file at the specified point in the current file, use
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 #include "<filename>"
@@ -1252,7 +1248,6 @@ Only if it has do they include the *hugofix.h* and *hugofix.g* files, which in t
 
 To set and clear flags, use
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 #set <flagname>
@@ -1260,7 +1255,6 @@ To set and clear flags, use
 
 and
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 #clear <flagname>
@@ -1283,7 +1277,6 @@ similarly to compiler limit settings and directories, with the same caveat that 
 
 Then, check to see if a flag is set or not (and include or exclude the specified block of source code) by using
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax", subs="+quotes"]
 ............................................
 #ifset <flagname>
@@ -1293,7 +1286,6 @@ Then, check to see if a flag is set or not (and include or exclude the specified
 
 or
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax", subs="+quotes"]
 ............................................
 #ifclear <flagname>
@@ -1324,7 +1316,6 @@ Use `#if defined <symbol>` and `#if undefined <symbol>` to test if objects, prop
 
 As seen above, the `#message` directive can be used as
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 #message "<text>"
@@ -1334,7 +1325,6 @@ to output `<text>` when (or if) that statement is processed during the first com
 
 Including `error` or `warning` before `<text>` as in
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 #message error "<text>"
@@ -1342,7 +1332,6 @@ Including `error` or `warning` before `<text>` as in
 
 or
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 #message warning "<text>"
@@ -1358,7 +1347,6 @@ That is, it's printed only when the compiler initially compiles the source code,
 
 It is also possible to include inline limit settings, such as
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 $<setting>=<limit>
@@ -1496,7 +1484,6 @@ Objects are the building blocks of any Hugo program.
 Anything that will be accessible to a player during the game -- including items, rooms, other characters, and even directions -- will most likely be defined as an object.
 The basic object definition looks like this:
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 .................................
 object <objectname> "object name"
@@ -1726,7 +1713,6 @@ Compiling with the `-d` switch will generate a debuggable (*.HDX*) version of th
 
 To initially place an object in the object tree, use
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 in <parent>
@@ -1734,7 +1720,6 @@ in <parent>
 
 in the object definition, or, alternatively
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 nearby <object>
@@ -1742,7 +1727,6 @@ nearby <object>
 
 or simply
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 nearby
@@ -1754,7 +1738,6 @@ All normal room objects have 0 as their parent.
 
 Therefore, the expanded basic case of an object definition is
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 .................................
 object <objectname> "object name"
@@ -1770,7 +1753,6 @@ object <objectname> "object name"
 Ensure that the opening brace `{` does not come on the same line as the `object` definition.
 Trying to do:
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ......................................
 object <objectname> "object name" {...
@@ -1802,7 +1784,6 @@ object mysuitcase "suitcase"
 
 Objects can later be moved around the object tree using the `move` command as in:
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 .............................
 move <object> to <new parent>
@@ -1824,7 +1805,6 @@ image::hugo-book1_03_object-tree3.svg[align="center",width=40%]
 
 There is also a command to remove an object from its position in the tree:
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 remove <object>
@@ -1832,7 +1812,6 @@ remove <object>
 
 which is the same as
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 move <object> to 0
@@ -1843,7 +1822,6 @@ The object may of course be moved to any position later.
 Logical tests can also be evaluated with regard to objects and children.
 The structure
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 <object> [not] in <parent>
@@ -1880,7 +1858,6 @@ We'll cover the `if...else...` structure in <<sec_4-7>>.
 Attributes are essentially qualities that every object either does or doesn't have.{fn3}
 An attribute is defined as
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 attribute <attribute name>
@@ -1926,7 +1903,6 @@ Those defined in *hugolib.h* include:
 Some of these attributes are actually the same attribute with different names.
 This is primarily just to save on the absolute number of attributes defined and is accomplished via
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 .........................................
 attribute <attribute2> alias <attribute1>
@@ -1945,7 +1921,6 @@ For the most part, you should never need to alias your own attributes, although 
 
 Attributes are given to an object during its definition as follows:
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ..................................................
 object <objectname> "object name"
@@ -1975,7 +1950,6 @@ object mysuitcase "suitcase"
 
 Even if an object was not given a particular attribute in its object definition, it may be given that attribute at any later point in the program with the command
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 .............................
 <object> is [not] <attribute>
@@ -2000,7 +1974,6 @@ mysuitcase is not open
 Attributes can also be read using the `is` and `is not` structures and evaluate to either true or false.
 In code, the expression
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 .............................
 <object> is [not] <attribute>
@@ -2094,7 +2067,6 @@ For now, think of a property as simply containing one or more values of some kin
 
 A property is defined similiarly to an attribute as
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 property <property name>
@@ -2103,7 +2075,6 @@ property <property name>
 A default value may be defined for the property using
 
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ........................................
 property <property name> <default value>
@@ -2194,7 +2165,6 @@ The following properties are also defined and used exclusively by the display ob
 
 Property names may be aliased similarly to attributes using:
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ......................................
 property <property2> alias <property1>
@@ -2213,7 +2183,6 @@ pronouns alias p
 
 Whereas a simple property is expressed as
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 <object>.<property>
@@ -2222,7 +2191,6 @@ Whereas a simple property is expressed as
 The number of elements to a property with more than a single value can be found via
 
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 <object>.#<property>
@@ -2230,7 +2198,6 @@ The number of elements to a property with more than a single value can be found 
 
 and a single element is expressed as
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 .....................................
 <object>.<property> #<element number>
@@ -2267,7 +2234,6 @@ Even "`big green`" and "`suit`" may be valid, provided that these don't also ref
 ================================================================================
 The basic form for identification by the parser is
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 .................................................
 <adjective 1> <adj. 2> <adj. 3>...<adj. n> <noun>
@@ -2276,7 +2242,6 @@ The basic form for identification by the parser is
 where any subset of these elements is allowable.
 However, the noun must come last, and only one noun is recognized, so that
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 <noun> <noun>
@@ -2284,7 +2249,6 @@ However, the noun must come last, and only one noun is recognized, so that
 
 and
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 <noun> <adjective>
@@ -2303,7 +2267,6 @@ found_in kitchen
 
 and later, the program tries to set
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 .................................
 <object>.found_in #2 = livingroom
@@ -2314,7 +2277,6 @@ That is, there will be no space initialized in `<object>`{wj}`'s property table 
 Trying to read `<object>.found_in #2` will return a value of 0 -- a non-existent property -- not the number of the `livingroom` object.
 
 To overcome this, if it is known that eventually a second (or third, or fourth, or ninth) value is going to be set -- even if only one value is defined at the outset -- use
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ...............................
 found_in kitchen, 0[, 0, 0,...]
@@ -2366,7 +2328,6 @@ Classes are objects that are specifically intended to be used as prototypes for 
 They're extremely useful for when you want to create a number of objects that will all share certain basic characteristics.
 Here is how a class is defined:
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 .....................................
 class <classname> ["<optional name>"]
@@ -2453,7 +2414,6 @@ We created what amounts to a "`copy`" of `largebox`, with a different name ("`la
 Occasionally, it may be necessary to have an object or class inherit from more than one previously defined class.
 This can be done using the `inherits` instruction.
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 .....................................
 <class1> <objectname> "name"
@@ -2465,7 +2425,6 @@ This can be done using the `inherits` instruction.
 
 or even
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ...............................................
 object <objectname> "name"
@@ -2483,7 +2442,6 @@ Sometimes, however, it may be desirable to use a different definition for, say, 
 
 Instead of actually editing *objlib.h*,{fn9} use:
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................................
 replace <class> ["<optional name>"]
@@ -2604,7 +2562,6 @@ temp_word = "the"
 _Global_ variables are visible throughout the program.
 They must be defined similarly to properties and attributes as
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 .................................................
 global <global variable name>[ = <initial value>]
@@ -2613,7 +2570,6 @@ global <global variable name>[ = <initial value>]
 _Local_ variables, on the other hand, are recognized only within the routine in which they are defined.
 They are defined using
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ...............................................
 local <local variable name>[ = <initial value>]
@@ -2775,7 +2731,6 @@ A = 1, B = 2, C = 4, D = 8.
 
 Enumeration of global variables is also possible, using the `globals` specifier, as in:
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 enumerate globals
@@ -2793,7 +2748,6 @@ Otherwise the specifier `constants` (as opposed to `globals`) is implied as the 
 Text can be printed -- that is, output to the screen during running of a Hugo program -- using two different methods.
 The first is the basic `print` command, the simplest form of which is
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 print "<string>"
@@ -3006,7 +2960,6 @@ is illegal.
 The color of text may be changed using the `color` command (also valid with the U.K. spelling `colour`).
 The format is
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ...................................................
 color <foreground>[, <background>[, <input color>]]
@@ -3096,7 +3049,6 @@ Date:
 
 Text can be specifically located using the `locate` command via
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 locate <column>, <row>
@@ -3153,7 +3105,6 @@ A **bold string with some _italics_ and [.underline]#underline#** [.underline]#t
 
 Print style can also be changed using the `Font` routine in *hugolib.h*, so that in
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 Font(<font change code>)
@@ -3369,7 +3320,6 @@ FindLight(location) + a   ! return value and variable
 
 Expressions can be evaluated and assigned to either a variable, a property, or an array element.
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ...............................................
 <variable> = <expression>
@@ -3490,7 +3440,6 @@ Prior to this point, little has been said about arrays.
 Arrays are sets of values that share a common name, and where the elements are referenced by number.
 Arrays are defined by
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ................................
 array <arrayname> [<array size>]
@@ -3531,7 +3480,6 @@ would result in `10`.
 
 Array elements can be assigned more than one at a time, as in
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 .........................................
 <arrayname> = <element1>, <element2>, ...
@@ -3645,7 +3593,6 @@ apple_array[5] = 0
 
 Hugo provides a handy way to store a dictionary entry in an array as a series of characters using the `string` built-in function:
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 .....................................................
 string(<array address>, <dict. entry>, <max. length>)
@@ -3680,7 +3627,6 @@ The Hugo Library defines the functions `StringCopy`, `StringEqual`, `StringLengt
 
 `StringCopy` copies one string array to another array.
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ................................................
 StringCopy(<new array>, <old array>[, <length>])
@@ -3702,7 +3648,6 @@ StringCopy(a, b, 5)
 
 copies only up to 5 characters of `b` to `a`.
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 .......................................
 x = StringEqual(<string1>, <string2>)
@@ -3721,7 +3666,6 @@ len = StringLength(a)
 
 and `StringPrint` prints a string array (or part of it).
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ..............................................
 StringPrint(<array address>[, <start>, <end>])
@@ -3762,7 +3706,6 @@ That is, while a dictionary entry is a simple value representing an address, a s
 
 The library provides the following to overcome this:
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 .........................................
 StringDictCompare(<array>, <dict. entry>)
@@ -3773,7 +3716,6 @@ which returns the same values (1, -1, 0) as `StringCompare`, depending on whethe
 There is also a complement to `string`: the `dict` built-in function, that dynamically creates a new dictionary entry at runtime.
 Its syntax is:
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 x = dict(<array>, <maxlen>)
@@ -3785,7 +3727,6 @@ where the contents of `<``array>` or `parse$` are written into the dictionary, t
 However, since this requires extending the actual length of the dictionary table in the game file, it is necessary to provide for this during compilation.
 Inserting
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 $MAXDICTEXTEND=<number>
@@ -3806,7 +3747,6 @@ Program flow can be controlled using a variety of constructions, each of which i
 
 The most basic of these is the `if` statement.
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ..................................
 if <expression>
@@ -3816,7 +3756,6 @@ if <expression>
 The enclosing braces are not necessary if the code block is a single line.
 Note also that the conditional block may begin (and even end) on the same line as the `if` statement provided that braces are used.
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ..............................................
 if <expression>
@@ -3828,7 +3767,6 @@ if <expression> {...conditional code block...}
 If braces are not used for a single line, the compiler automatically inserts them, although special care must be taken when constructing a block of code nesting several single-line conditionals.
 While
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ....................................
 if <expression1>
@@ -3839,7 +3777,6 @@ if <expression1>
 may be properly interpreted, other constructions (particularly those involving some of the more complex program-flow concepts we're about to get into) may not be.
 Therefore, it's always best to be as clear as possible about your intent, more along the lines of:
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ....................................
 if <expression1>
@@ -3851,7 +3788,6 @@ if <expression1>
 
 More elaborate uses of `if` involve the use of `elseif` and `else`.
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 .......................................
 if <expression1>
@@ -3875,7 +3811,6 @@ Of course, all three (`if`, `elseif`, and `else`) need not be used every time, a
 In certain cases, the `if` statement may not lend itself perfectly to clarity, and the `select`-`case` construction may be more appropriate.
 The general form is:
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax", subs="+attributes,macros"]
 .......................................................
 select <var>
@@ -3890,7 +3825,6 @@ select <var>
 
 In this case, the evaluation is essentially
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 .............................................
 if <var> = <value1> [or <var> = <value2> ...]
@@ -3901,14 +3835,12 @@ The same rules for bracing multiple-line code blocks apply as with `if` (as well
 
 Basic loops may be coded using `while` and `do`-`while`.
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ................................
 while <expression>
     ...conditional code block...
 ................................
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ...............................
 do
@@ -3946,7 +3878,6 @@ The most important side effect of this is that if you're doing something in the 
 
 The most complex loop construction uses the `for` statement:
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................................
 for (<assignment>; <expression>; <modifier>)
@@ -3989,7 +3920,6 @@ It may be a routine that modifies a global variable, for example, which is then 
 
 A second form of a `for` loop is:
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ................................
 for <var> in <object>
@@ -4025,7 +3955,6 @@ At any point during a loop, it may be necessary to exit immediately (and probabl
 The `break` statement passes control to the statement immediately following the current loop.
 In the example:
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 do
@@ -4274,7 +4203,6 @@ A routine may or may not return a value, and it may or may not require a list of
 
 A routine is defined as:
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 .............................................
 routine <routinename> [(<arg1>, <arg2>, ...)]
@@ -4289,7 +4217,6 @@ once again ensuring that the opening brace (`{`) comes on a new line following t
 ================================================================================
 To substitute a new routine for an existing one with the same name (such as in a library file), define the new one using `replace` instead of `routine`.
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 .............................................
 replace <routinename> [(<arg1>, <arg2>, ...)]
@@ -4320,7 +4247,6 @@ return
 
 and
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 return <expression>
@@ -4539,7 +4465,6 @@ For those wondering why the true (i.e., equal to 1) return value in the second c
 
 Property routines may be run directly using the `run` command:
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 run <object>.<property>
@@ -4551,7 +4476,6 @@ Property routines do not take arguments.
 
 Remember that at any point in a program, an existing property may be changed using
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 .............................
 <object>.<property> = <value>
@@ -4559,7 +4483,6 @@ Remember that at any point in a program, an existing property may be changed usi
 
 A property routine may be changed using
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ................................................
 <object>.<property> =
@@ -4574,7 +4497,6 @@ It is entirely possible to change what was once a property routine into a simple
 Even if a property routine is to be assigned later in the program, the property itself must still be defined at the outset in the original object definition.
 A simple
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 <property> 0
@@ -4582,7 +4504,6 @@ A simple
 
 or
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 <property> {return false}
@@ -4620,7 +4541,6 @@ because the engine now believes `<object>.found_in` to have only one element -- 
 Finally, keep in mind that whenever calling a property routine, the global variable `self` is normally set to the object number.
 To avoid this, such as when "`borrowing`" a property from another object from within a different object, reference the property via
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 <object>..<property>
@@ -4640,7 +4560,6 @@ They are unique in that not only are they always routines, but they are much mor
 
 _Complex_ properties like `before` and `after` are defined with
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 .................................
 property <property name> $complex
@@ -4656,7 +4575,6 @@ property after $complex
 
 Here is the syntax for the `before` property:
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 .................................................
 before
@@ -4764,7 +4682,6 @@ It is important to remember that, unlike other property routines, `before` and `
 Instead, the definition for the routine is -- in essence -- added onto.
 An additive property is defined using the `$additive` qualifier, as in:
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ..................................................
 property <property name> $additive <default value>
@@ -4779,7 +4696,6 @@ To force a `before` or `after` property routine to apply to _any_ verbroutine, d
 
 For example:
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ..............................
 before
@@ -4807,7 +4723,6 @@ This can be particularly undesirable in the case of location `before`/`after` pr
 To get around this, the library provides a function `AnyVerb`, which takes an object as its argument and returns that object number if the current verbroutine is not within the group of xverbs; otherwise it returns false.
 Therefore, it can be used via:
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 before
@@ -4822,7 +4737,6 @@ before
 
 instead of
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 
@@ -4986,7 +4900,6 @@ Events are useful for bringing a game to life, so that little quirks, behaviors,
 Events are also routines, but their special characteristic is that they may be attached to a particular object, and they are run as a group by the `runevents` command.
 Events are defined as:
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 event
@@ -4997,7 +4910,6 @@ event
 
 for global events, and
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 event [in] <object>
@@ -5177,7 +5089,6 @@ Now, suppose the clock should be audible throughout the entire game -- i.e., in 
 Simply changing the event definition to:
 
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ................................
 event       ! no object is given
@@ -5221,7 +5132,6 @@ A _daemon_ is the traditional name for a recurring activity.
 Hugo handles daemons as special events attached to objects that may be activated or deactivated (i.e., moved in and out of the scope of `runevents`).
 Since the daemon class is defined in the library, define a daemon itself using:
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 daemon <name>
@@ -5231,7 +5141,6 @@ daemon <name>
 The body of the daemon definition is empty.
 The daemon object is only needed to attach the daemon event to, so the daemon definition must be followed by:
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 event [in] <name>
@@ -5243,7 +5152,6 @@ event [in] <name>
 
 Activate it by:
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 Activate(<name>)
@@ -5254,7 +5162,6 @@ This way, whenever a `runevents` command is given (as it should be in the `Main`
 
 Deactivate the daemon using:
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 Deactivate(<name>)
@@ -5276,7 +5183,6 @@ The fuse itself is a slightly more complex version of a daemon object, containin
 
 Similarly to a daemon, define a fuse in two steps:
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 fuse <name>
@@ -5294,7 +5200,6 @@ event [in] <name>
 
 and turn it on or off by:
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 Activate(<name>, <setting>)
@@ -5302,7 +5207,6 @@ Activate(<name>, <setting>)
 
 and
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 Deactivate(<name>)
@@ -5315,7 +5219,6 @@ where `<setting>` is the initial value of the `timer` property.
 Note that it is up to the event itself to run the `timer` and check for its expiration.
 The line
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 if not self.tick
@@ -5338,7 +5241,6 @@ Here's why:
 
 To define a script, use the following notation:
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ......................................................
 setscript[Script(<char>, <num>)] =  &CharRoutine, obj,
@@ -5423,7 +5325,6 @@ It continues with the default action -- i.e., the character action routine speci
 
 To override a default character action routine, include a `before` property for the character object using the following form:
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 before
@@ -5535,7 +5436,6 @@ That is, if several additional grammar files are to be included, or new grammar 
 
 The syntax used for grammar definition is:
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ..................................................
 [x]verb "<verb1>" [, "<verb2>", "<verb3>",...]
@@ -5583,7 +5483,6 @@ An `xverb` is a special signifier that indicates that the engine should not call
 
 Another thing that can be done is to specify:
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 verb some_object
@@ -5797,7 +5696,6 @@ The next step is to process the four types of special "`words`" which may be def
 These are simply words that are to be automatically removed from any input line, and are generally limited to words such as "`a`" and "`the`" which would, generally speaking, only make grammar matching more complicated and difficult.
 The syntax for defining a removal is:
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 .............................................
 removal "<word1>"[, "<word2>", "word<3>",...]
@@ -5812,7 +5710,6 @@ removal "a", "an", "the"
 
 [.big.red]#_Punctuation_# is similar to a removal, except it specifies the removal of individual characters instead of whole words:
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ..........................................
 punctuation "<character1>[<character2>...]
@@ -5828,7 +5725,6 @@ punctuation "$%"
 [.big.red]#_Synonyms_# are slightly more complex.
 These are words that will never be found in the parsed input line; they are replaced by the specified word for which they are a synonym.
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ................................
 synonym "<synonym>" for "<word>"
@@ -5850,7 +5746,6 @@ Usage of synonyms will likely not be extensive, since of course it is possible t
 
 [.big.red]#_Compounds_# are the final type of special word, specified as:
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 .............................
 compound "<word1>", "<word2>"
@@ -6128,7 +6023,6 @@ Since the library's `Parse` routine is rather extensive, a provision is made for
 The `ParseError` routine is called whenever a command is invalid.
 `ParseError` is called in the form:
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ...................................
 ParseError(<errornumber>, <object>)
@@ -6222,7 +6116,6 @@ The `FindObject` routine takes into account all the relevant properties, attribu
 For example, the child of a parent object may be available if the parent is a platform, but unavailable if the parent is a container (and closed) -- although internally, the object hierarchy is the same.
 `FindObject` is called via:
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ................................
 FindObject(<object>, <location>)
@@ -6266,7 +6159,6 @@ For example:
 It is up to the `SpeakTo` routine to properly interpret the instruction.
 `SpeakTo` is called via:
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 SpeakTo(<character>)
@@ -6336,7 +6228,6 @@ The `Perform` routine is what is called by the engine in order to execute the ap
 It is the responsibility of `Perform` to do the appropriate checking of `before` routines to determine if execution actually gets to the verbroutine.
 `Perform` is called as:
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ...............................................................
 Perform(<verbroutine>, <object>, <xobject>, <queue>, <isxverb>)
@@ -6503,7 +6394,6 @@ You should now understand how to create an `order_response` property for charact
 It should be apparent how a game can implement custom versions of things like end-of-game behavior, parser messages, etc. without editing the library itself by using the compiler's `replace` directive with library routines such as `EndGame` and `ParseError`.
 Most often, a programmer will copy the selected routine out of *hugolib.h* (or wherever it comes from) and paste it into the game's source, changing (for instance):
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 routine EndGame ...
@@ -6511,7 +6401,6 @@ routine EndGame ...
 
 to
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 replace EndGame ...
@@ -7023,7 +6912,6 @@ In the `vehicle` class the `preposition` property defaults to "in" and "out", bu
 It is also necessary to provide grammar to relate the words in the `vehicle_verb` list to the object library's `DoMoveInVehicle` routine.
 Grammar such as the following is recommended:
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 .......................................
 verb "<verb1>"[, "<verb2>",...]
@@ -7231,7 +7119,6 @@ If `attach_drop` is true, the object is automatically dropped after it is attach
 The `attach_verbs` and `detach_verbs` properties contain lists of all valid verbs to attach or detach the object.
 The `DoAttachObject` and `DoDetachObject` verbroutines can be used by all basic attachables, with new grammar specified for the object (corresponding exactly to the verb lists in `attach_verbs` and `detach_verbs`) as in:
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ..............................................
 
@@ -7390,7 +7277,6 @@ To clear the record of any window and restore the main text window to the full-s
 
 A windowing library file exists called *window.h* which defines a `window_class` and the associated properties so a window object can be created via:
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ..............................................
 window_class <window name> "title"
@@ -7437,7 +7323,6 @@ To accomplish this, use the `writefile` and `readfile` operations.
 
 The structure
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 writefile <filename>
@@ -7451,7 +7336,6 @@ will, at the start of the `writefile` block, open `<filename>` for writing and p
 
 Within a `writefile` block, write individual values using
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ..................................
 writeval <value1>[, <value2>, ...]
@@ -7461,7 +7345,6 @@ where one or more values can be specified.
 
 To read the file, use the structure
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 readfile <filename>
@@ -7568,7 +7451,6 @@ The engine allows a Hugo program to access external media data (called resources
 Resourcefiles contain sounds, music, images, and video files used by the program.
 A resourcefile is created using:
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 resource "<resourcefile>"
@@ -7639,7 +7521,6 @@ If `system_status` is non-zero (where zero signifies normal status), it will con
 
 A picture is displayed as a resource in a resourcefile using:
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 .....................................
 picture "<resourcefile>", "<picture>"
@@ -7674,7 +7555,6 @@ If the picture is not found or a recoverable error occurs during loading, normal
 // @EDITED CODE: (documented & waiting approval: Issue #36)
 //  Parameters enclosed within angular brackets for code consistency.
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 .................................................................
 LoadPicture("<resourcefile>", "<picture>")
@@ -7705,7 +7585,6 @@ Wherever possible, however, it is recommended to always specify the resourcefile
 
 Sounds and music are played as follows:
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ..................................................
 sound [repeat] <resourcefile>, <resource>[, <vol>]
@@ -7727,7 +7606,6 @@ music 0
 //  Parameters enclosed within angular brackets for code consistency.
 //  Addde missing <volume> parameter.
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ....................................................................
 PlaySound(<resourcefile>, <sample>[, <volume>[, <loop>[, <force>]]])
@@ -7751,7 +7629,6 @@ PlayMusic(MUSIC_STOP)
 Video is displayed similarly to static graphic images (that is, it is displayed in the currently window) and controlled similarly to music and sound.
 The syntax for playing video looks like:
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ....................................................
 video [repeat] <resfile>, <res>[, <vol>, <bkground>]
@@ -7786,7 +7663,6 @@ In combination with the `repeat` token, this is useful for creating background/s
 s| Description: a| Logical AND.
 
 s| Syntax: a|
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 x = <value1> and <value2>
@@ -7813,7 +7689,6 @@ s| Description: a|
 When used as a data type modifier, specifies that the following value is to be treated as an array address.
 
 s| Example: a|
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 <var1> = array <var2>[<n>]
@@ -7829,7 +7704,6 @@ The variable `<var2>` will be treated as an array address.
 s| Description: a| Terminates the immediate enclosing loop.
 
 s| Example: a|
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 while <expression1>
@@ -7855,7 +7729,6 @@ s| Description: a|
 Calls a routine indirectly, i.e., when the routine address has been stored in a variable, object property, etc.
 
 s| Syntax: a|
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ..................................
 call <value>[(<arg1>, <arg2>,...)]
@@ -7863,7 +7736,6 @@ call <value>[(<arg1>, <arg2>,...)]
 
 or
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 x = call <value>(...)
@@ -7883,7 +7755,6 @@ s| Description: a|
 Print statement modifier, indicating that the next word should be printed with the first letter capitalized.
 
 s| Syntax: a|
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 print capital <address>
@@ -7900,7 +7771,6 @@ where `<address>` is any dictionary word, such as, for example, an `object.name`
 s| Description: a| Specifies a conditional case in a select structure.
 
 s| Syntax: a|
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ...............................
 select <val>
@@ -7918,7 +7788,6 @@ where `<val>` is value such as a variable, routine return value, object property
 .2+| {blank}
 
 s| Syntax: a|
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 x = child(<parent>)
@@ -7934,7 +7803,6 @@ The object number of the immediate child object of `<parent>`, or 0 if `<parent>
 .2+| {blank}
 
 s| Syntax: a|
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 x = children(<parent>)
@@ -7952,7 +7820,6 @@ s| Description: a|
 Clears the current text window repositions the output coordinates at the bottom left of the text window.
 
 s| Syntax: a|
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 cls
@@ -7967,7 +7834,6 @@ cls
 s| Description: a| Sets the display colors for text output.
 
 s| Syntax: a|
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ..................................
 color <foreground>[, <background>]
@@ -8011,7 +7877,6 @@ Standard color values for `<foreground>` and `<background>` with constants defin
 s| Description: a| Dynamically creates a new dictionary entry at runtime.
 
 s| Syntax: a|
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 x = dict(<array>, <maxlen>)
@@ -8034,7 +7899,6 @@ Space should be reserved for any dictionary entries to be created at runtime usi
 s| Description: a| Marks the starting point of a do-while loop.
 
 s| Syntax: a|
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 do
@@ -8052,7 +7916,6 @@ The loop will continue to run as long as `<expr>` holds true.
 .2+| {blank}
 
 s| Syntax: a|
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 x = elder(<object>)
@@ -8079,7 +7942,6 @@ s| Description: a|
 In an `if`-`elseif`-`else` conditional block, indicates the default operation if no previous condition has been met.
 
 s| Syntax: a|
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 if <condition>
@@ -8098,7 +7960,6 @@ s| Description: a|
 In an `if`-`elseif`-`else` conditional block, indicates a condition that will be checked only if no preceding condition has been met.
 
 s| Syntax: a|
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 if <condition1>
@@ -8125,7 +7986,6 @@ s| Description: a| A predefined constant value: 0.
 s| Description: a| Loop construction.
 
 s| Syntax: a|
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ..............................
 for (<initial>; <test>; <mod>)
@@ -8134,7 +7994,6 @@ for (<initial>; <test>; <mod>)
 }
 ..............................
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 for <var> in <object>
@@ -8165,7 +8024,6 @@ s| Description: a|
 Print statement modifier signifying that the following value is not a dictionary address, but should be printed as a hexadecimal number.
 
 s| Syntax: a|
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 print hex <var>
@@ -8181,7 +8039,6 @@ where, for example, `<var>` is equal to 26, will print "`1A`".
 s| Description: a| A conditional expression.
 
 s| Syntax: a|
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 if <condition>
@@ -8200,7 +8057,6 @@ When used in an object definition, places the object in the object tree as a pos
 When used in an expression, returns true if the object is in the specified parent.
 
 s| Syntax: a|
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 in <parent>
@@ -8208,7 +8064,6 @@ in <parent>
 
 or, for example:
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 if <object> [not] in <parent>
@@ -8228,7 +8083,6 @@ Receive input from keyboard, storing the dictionary addresses of the individual 
 Unrecognized words are given a value of 0.
 
 s| Syntax: a|
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 input
@@ -8243,7 +8097,6 @@ input
 s| Description: a| Attribute assignment/testing.
 
 s| Syntax: a|
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 .............................
 <object> is [not] <attribute>
@@ -8266,7 +8119,6 @@ Otherwise, it returns false.
 s| Description: a| Jumps to a specified label.
 
 s| Syntax: a|
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 jump <label>
@@ -8274,7 +8126,6 @@ jump <label>
 
 where a unique `<label>` exists on a separate line somewhere in the program, in the form:
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 :<label>
@@ -8289,7 +8140,6 @@ where a unique `<label>` exists on a separate line somewhere in the program, in 
 s| Description: a| Defines one or more variables local to the current routine.
 
 s| Syntax: a|
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ..................................
 local <var1>[, <var2>, <var3>,...]
@@ -8304,7 +8154,6 @@ local <var1>[, <var2>, <var3>,...]
 s| Description: a| Sets the cursor position within the current text window.
 
 s| Syntax: a|
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 locate(<row>, <column>)
@@ -8323,7 +8172,6 @@ The cursor position is calculated in fixed-width character coordinates.
 s| Description: a| Moves an object with all its possessions to a new parent.
 
 s| Syntax: a|
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 .............................
 move <object> to <new parent>
@@ -8362,7 +8210,6 @@ Object specifier in grammar syntax line, indicating that multiple objects explic
 s| Description: a| Load and play a music resource (if audio output is available).
 
 s| Syntax: a|
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ....................................
 music [repeat] "file", "song"[, vol]
@@ -8382,7 +8229,6 @@ s| Description: a|
 Used in an object definition to place the object in the specified position in the object tree.
 
 s| Syntax: a|
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 nearby <object>
@@ -8390,7 +8236,6 @@ nearby <object>
 
 Gives the current object the same parent as `<object>`.
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 nearby
@@ -8407,7 +8252,6 @@ s| Description: a|
 Print statement modifier, indicating that a line feed and carriage return should be issued if the current output position is not already at the start of a blank line.
 
 s| Syntax: a|
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 print newline
@@ -8422,13 +8266,11 @@ print newline
 s| Description: a| Logical not.
 
 s| Syntax: a|
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 x = not <value>
 ............................
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 <object> is not <attribute>
@@ -8462,7 +8304,6 @@ When used as a `print` statement modifier, indicates that the following value is
 s| Syntax: a|
 (for usage as a `print` statement modifier)
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 print number <val>
@@ -8488,7 +8329,6 @@ When used in a grammar syntax line, indicates that a single available object is 
 s| Description: a| Logical OR.
 
 s| Syntax: a|
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 x = <value1> or <value2>
@@ -8505,7 +8345,6 @@ s| Result: a|
 
 2+d| (Usage 1)
 s| Syntax: a|
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 x = parent(<object>)
@@ -8545,7 +8384,6 @@ s| Description: a|
 Load and display an image resource in the currently defined window (if graphics are available).
 
 s| Syntax: a|
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 .....................................
 picture "<resourcefile>", "<picture>"
@@ -8563,7 +8401,6 @@ s| Description: a|
 Plays back recorded commands from a file in place of keyboard input (by prompting the user).
 
 s| Syntax: a|
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 x = playback
@@ -8580,7 +8417,6 @@ s| Return{nbsp}value: a| True if successful, false if not.
 s| Description: a| Print text output.
 
 s| Syntax: a|
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 print <output>
@@ -8602,7 +8438,6 @@ Prints a character or series of characters at the current cursor position.
 No newline is printed.
 
 s| Syntax: a|
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ..............................
 printchar <val1>[, <val2>,...]
@@ -8617,7 +8452,6 @@ printchar <val1>[, <val2>,...]
 s| Description: a| Terminates the game loop.
 
 s| Syntax: a|
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 quit
@@ -8632,7 +8466,6 @@ quit
 s| Description: a| Engine function which generates a random number.
 
 s| Syntax: a|
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 x = random(<val>)
@@ -8651,7 +8484,6 @@ s| Description: a|
 A structure that allows values to be read from a file written using `writefile`.
 
 s| Syntax: a|
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 readfile <filename>
@@ -8670,7 +8502,6 @@ The file is opened and positioned to the start at the beginning of the `readfile
 s| Description: a| Reads a value in a `readfile` block.
 
 s| Syntax: a|
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 x = readval
@@ -8690,7 +8521,6 @@ Use the `FILE_CHECK` constant defined in *hugolib.h* to determine if a `readfile
 s| Description: a| Ends recording commands to a file.
 
 s| Syntax: a|
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 x = recordoff
@@ -8708,7 +8538,6 @@ s| Description: a|
 Begins recording commands to a file (by prompting the user).
 
 s| Syntax: a|
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 x = recordon
@@ -8725,7 +8554,6 @@ s| Value: a| True if successful, false if not.
 s| Description: a| Removes an object from the object tree.
 
 s| Syntax: a|
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 remove <object>
@@ -8742,7 +8570,6 @@ s| Description: a|
 Reloads the initial game data from the *.HEX* file and calls the `Init` routine.
 
 s| Syntax: a|
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 x = restart
@@ -8763,7 +8590,6 @@ s| Description: a|
 Restores a saved game's state data from a previously saved file (by prompting the user).
 
 s| Syntax: a|
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 x = restore
@@ -8780,7 +8606,6 @@ s| Value: a| True if successful, false if not.
 s| Description: a| Returns from a called routine.
 
 s| Syntax: a|
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 return [<expression>]
@@ -8799,7 +8624,6 @@ Returns `<expression>` if provided, otherwise returns false.
 s| Description: a| Runs an object property routine if one exists.
 
 s| Syntax: a|
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 run <object>.<property>
@@ -8818,7 +8642,6 @@ s| Description: a|
 Calls all events which are either global or currently within the event scope of the player object.
 
 s| Syntax: a|
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 runevents
@@ -8833,7 +8656,6 @@ runevents
 s| Description: a| Saves the current game state to a file (by prompting the user).
 
 s| Syntax: a|
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 x = save
@@ -8850,7 +8672,6 @@ s| Value: a| True if successful, false if not.
 s| Description: a| Turns transcription off.
 
 s| Syntax: a|
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 x = scriptoff
@@ -8869,7 +8690,6 @@ s| Description: a|
 Turns transcription (i.e., recording output to a file or to a printer) on.
 
 s| Syntax: a|
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 x = scripton
@@ -8886,8 +8706,7 @@ s| Value: a| True if successful, false if not.
 s| Description: a|
 Specifies the value for comparison in a `select`-`case` conditional structure.
 
-s| Syntax: a|// @HUGO SYNTAX DEFINITION
-[literal, role="hugosyntax"]
+s| Syntax: a|[literal, role="hugosyntax"]
 ...............................
 select <val>
     case <case1>[, <case2>,...]
@@ -8912,7 +8731,6 @@ Read-only engine variable that contains the serial number as written by the comp
 .2+| {blank}
 
 s| Syntax: a|
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 x = sibling(<object>)
@@ -8932,7 +8750,6 @@ s| Description: a|
 Load and play an audio sample resource (if waveform audio output is available).
 
 s| Syntax: a|
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ......................................
 sound [repeat] "file", "sample"[, vol]
@@ -8954,7 +8771,6 @@ When used in a grammar syntax line, indicates that a string array enclosed in qu
 When used as a function, stores a dictionary entry in a string array.
 
 s| Syntax: a|
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 .....................................
 x = string(<array>, <dict>, <maxlen>)
@@ -8972,7 +8788,6 @@ Returns the length of the string stored in `<array>`.
 s| Description: a| Built-in function to call low-level system functions.
 
 s| Syntax: a|
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 system(<function>)
@@ -9016,7 +8831,6 @@ s| Description: a|
 In a `print` statement, prints blank spaces in the current background color to the specified position.
 
 s| Syntax: a|
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 print to <val>
@@ -9040,7 +8854,6 @@ s| Description: a|
 Attempts to recover the state of the game data before the last player command.
 
 s| Syntax: a|
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 x = undo
@@ -9059,7 +8872,6 @@ Begins definition of a regular verb.
 Upon returning true from the verb routine, `Main` is called.
 
 s| Syntax: a|
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 verb "<word1>"[, "<word2>",...]
@@ -9073,8 +8885,7 @@ verb "<word1>"[, "<word2>",...]
 
 s| Description: a| Component of `while` or `do`-`while` loop construct.
 
-s| Syntax: a|// @HUGO SYNTAX DEFINITION
-[literal, role="hugosyntax"]
+s| Syntax: a|[literal, role="hugosyntax"]
 ............................
 while <expr>
 {
@@ -9084,7 +8895,6 @@ while <expr>
 
 or
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 do
@@ -9104,7 +8914,6 @@ where the loop will run as long as `<expr>` holds true.
 s| Description: a| Switches output to the status window.
 
 s| Syntax: a|
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 window a[, b, c, d]
@@ -9113,7 +8922,6 @@ window a[, b, c, d]
 
 or
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 window
@@ -9122,7 +8930,6 @@ window
 
 or
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 writefile <filename>
@@ -9141,7 +8948,6 @@ The file is opened and positioned to the start at the beginning of the `writefil
 s| Description: a| Writes one or more values in a `writefile` block.
 
 s| Syntax: a|
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ...............................
 writefile value1[, value2, ...]
@@ -9168,7 +8974,6 @@ Begins definition of non-action verb.
 Upon returning from the verb routine, `Main` is not called.
 
 s| Syntax: a|
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 .................................
 xverb "<word1>"[, "<word2>", ...]
@@ -9188,7 +8993,6 @@ xverb "<word1>"[, "<word2>", ...]
 .2+| {blank}
 
 s| Syntax: a|
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 x = youngest(<parent>)
@@ -9702,7 +9506,6 @@ First, the junction routines:
 | [.big]#EndGame#
 | called by the engine via:
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 EndGame(end_type)
 
@@ -9720,7 +9523,6 @@ Also calls: `PrintEndGame` and `PrintScore`
 | [.big]#FindObject#
 | called by the engine via:
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 FindObject(object, location)
 
@@ -9736,7 +9538,6 @@ Also calls: `ObjectisKnown`, `ExcludeFromAll`
 | [.big]#Parse#
 | called by the engine via:
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 Parse()
 
@@ -9750,7 +9551,6 @@ Also calls: `PreParse`, `AssignPronoun` and `SetObjWord`
 | [.big]#ParseError#
 | called by the engine via:
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ParseError(errornumber, object)
 
@@ -9764,7 +9564,6 @@ May also call: `CustomError`
 | [.big]#Perform#
 | called by the engine via:
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 Perform(verbroutine, object, xobject, queue, isxverb)
 
@@ -9775,7 +9574,6 @@ The `queue` argument is true if more than one call to `Perform` is being made fo
 | [.big]#SpeakTo#
 | called by the engine via:
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 SpeakTo(character)
 
@@ -9795,7 +9593,6 @@ And the routines for grammatically-correct printing:
 | [.big]#Art#
 | calling form:
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 Art(object)
 
@@ -9806,7 +9603,6 @@ Prints the indefinite article form of the object name, e.g. "`an apple`"
 | [.big]#The#
 | calling form:
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 The(object)
 
@@ -9817,7 +9613,6 @@ Prints the definite article form of the object name, e.g. "`the apple`"
 | [.big]#CArt#
 | calling form:
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 CArt(object)
 
@@ -9828,7 +9623,6 @@ Prints the capitalized indefinite article form of the object name, e.g. "`An app
 | [.big]#CThe#
 | calling form:
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 CThe(object)
 
@@ -9839,7 +9633,6 @@ Prints the capitalized definite article form of the object name, e.g. "`The appl
 | [.big]#IsorAre#
 | calling form:
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 IsorAre(object[, formal])
 
@@ -9854,7 +9647,6 @@ Depending on whether or not the specified object is `plural` or singular, prints
 | [.big]#MatchPlural#
 | calling form:
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 MatchPlural(object, w1, w2)
 
@@ -9865,7 +9657,6 @@ Prints the dictionary entry given by `w1` if the supplied object is not plural, 
 | [.big]#MatchSubject#
 | calling form:
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 MatchSubject(object)
 
@@ -9904,7 +9695,6 @@ Other library routines:
 | [.big]#Acquire#
 | calling form:
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 Acquire(parent, object)
 
@@ -9919,7 +9709,6 @@ Also calls: `CalculateHolding`
 | [.big]#AnyVerb#
 | calling form:
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 AnyVerb(value)
 
@@ -9930,7 +9719,6 @@ Returns `value` if the current verbroutine is not an xverb; otherwise it returns
 | [.big]#AssignPronoun#
 | calling form:
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 AssignPronoun(object)
 
@@ -9941,7 +9729,6 @@ Sets the appropriate global `it_obj`, `them_obj`, `him_obj`, or `her_obj` to the
 | [.big]#CalculateHolding#
 | calling form:
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 CalculateHolding(object)
 
@@ -9952,7 +9739,6 @@ Properly recalculates `object.holding` based on the sizes of all child objects.
 | [.big]#CenterTitle#
 | calling form:
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 CenterTitle(text[, lines])
 
@@ -9964,7 +9750,6 @@ The default height of the title (i.e., one line) can be overridden with a second
 | [.big]#CheckReach#
 | calling form:
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 CheckReach(object)
 
@@ -9976,7 +9761,6 @@ Returns true if accessible; returns false and prints an appropriate message if n
 | [.big]#Contains#
 | calling form:
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 Contains(parent, object)
 
@@ -9987,7 +9771,6 @@ Returns `object` if the specified object is present as a possession of the speci
 | [.big]#CustomError#
 | calling form:
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 CustomError(errornumber, object)
 
@@ -10000,7 +9783,6 @@ Should return false if no user message is found.
 | [.big]#DarkWarning#
 | calling form:
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 DarkWarning
 
@@ -10012,7 +9794,6 @@ The default library routine simply prints a message; for a more sinister respons
 | [.big]#DeleteWord#
 | calling form:
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 DeleteWord(wordnumber[, number])
 
@@ -10024,7 +9805,6 @@ Returns the number of words deleted.
 | [.big]#DescribePlace#
 | calling form:
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 DescribePlace(location[, long])
 
@@ -10036,7 +9816,6 @@ Including a non-false long parameter will always force a location description.
 | [.big]#ExcludeFromAll#
 | calling form:
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ExcludeFromAll(object)
 
@@ -10047,7 +9826,6 @@ Returns true if, based on the current circumstances (verbroutine, etc.), the sup
 | [.big]#FindLight#
 | calling form:
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 FindLight(location)
 
@@ -10060,7 +9838,6 @@ Also calls: `ObjectIsLight`
 | [.big]#Font#
 | calling form:
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 Font(bitmask)
 
@@ -10072,7 +9849,6 @@ Sets the current font attributes as specified by `bitmask`, where `bitmask` is o
 | [.big]#GetInput#
 | calling form:
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 GetInput([prompt string])
 
@@ -10085,7 +9861,6 @@ If no argument is passed, no prompt is printed.
 | [.big]#HoursMinutes#
 | calling form:
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 HoursMinutes(counter[, military])
 
@@ -10097,7 +9872,6 @@ If the optional `military` value is given as a true value, the time is printed i
 | [.big]#Indent#
 | calling form:
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 Indent
 
@@ -10108,7 +9882,6 @@ If the `NOINDENT_F` bit is not set in the `FORMAT` mask, `Indent` prints `INDENT
 | [.big]#InList#
 | calling form:
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 InList(object, property, value)
 
@@ -10119,7 +9892,6 @@ If the `value` is in the list of values held in `object.property`, returns the e
 | [.big]#InsertWord#
 | calling form:
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 InsertWord(wordnumber[, number])
 
@@ -10131,7 +9903,6 @@ Returns the number of words inserted.
 | [.big]#IsPossibleXobject#
 | calling form:
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 IsPossibleXobject(object)
 
@@ -10143,7 +9914,6 @@ Does not, however, guarantee that the object _is_ an xobject, but is instead a q
 | [.big]#ListObjects#
 | calling form:
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ListObjects(object)
 
@@ -10151,7 +9921,6 @@ Lists all the possessions of the specified object in the appropriate form (accor
 Possessions of possessions are listed recursively if `FORMAT` does not contain the `NORECURSE_F` bit.
 Format masks are combined, as in:
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax", subs="+attributes"]
 FORMAT = LIST_F {vbar} NORECURSE_F {vbar} ...
 
@@ -10162,7 +9931,6 @@ Also calls: `WhatsIn`
 | [.big]#Menu#
 | calling form:
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 Menu(number, [width[, selection]])
 
@@ -10177,7 +9945,6 @@ Also calls: `CenterTitle`
 | [.big]#Message#
 | calling form:
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 Message(&routine, num, a, b)
 
@@ -10191,7 +9958,6 @@ TIP: Similar routines are provided in `VMessage` in *verblib.h* and `OMessage` i
 | [.big]#MovePlayer#
 | calling form:
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 MovePlayer(loc[, silent[, none]])
 MovePlayer(dir[, silent[, none]])
@@ -10217,7 +9983,6 @@ May also call: `DarkWarning`
 | [.big]#NumberWord#
 | calling form:
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 NumberWord(number[, true])
 
@@ -10230,7 +9995,6 @@ If a second true argument is supplied, the word is capitalized.
 | [.big]#ObjectIs#
 | calling form:
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ObjectIs(object)
 
@@ -10241,7 +10005,6 @@ Lists certain attributes, such as providing `light` or being `worn`, of the give
 | [.big]#ObjectisKnown#
 | calling form:
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ObjectisKnown(object)
 
@@ -10252,7 +10015,6 @@ Returns true if the object is `known` to the player.
 | [.big]#ObjectisLight#
 | calling form:
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ObjectisLight(object)
 
@@ -10264,7 +10026,6 @@ If so, it also sets the global `light_source` the object number of the source.
 | [.big]#ObjWord#
 | calling form:
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ObjWord(word, object)
 
@@ -10283,7 +10044,6 @@ The default `PreParse` routine defined in the library is empty.
 | [.big]#PrintEndGame#
 | calling form:
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 PrintEndGame(end_type)
 
@@ -10304,7 +10064,6 @@ If `end_type` is some other value, nothing is printed.
 | [.big]#PrintScore#
 | calling form:
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 PrintScore(end_of_game)
 
@@ -10315,7 +10074,6 @@ Prints the `score` in the appropriate form, depending on whether or not `end_of_
 | [.big]#PrintStatusLine#
 | calling form:
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 PrintStatusLine
 
@@ -10326,7 +10084,6 @@ Prints the statusline in the appropriate format, according to the global `STATUS
 | [.big]#PropertyList#
 | calling form:
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 PropertyList(object, property)
 
@@ -10337,7 +10094,6 @@ Lists the objects held in `object.property` (if any), returning the number of ob
 | [.big]#PutInScope#
 | calling form:
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 PutInScope(object, actor)
 
@@ -10349,7 +10105,6 @@ Returns true if successful.
 | [.big]#RemoveFromScope#
 | calling form:
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 RemoveFromScope(object, actor)
 
@@ -10361,13 +10116,11 @@ Returns true if successful, or false if the object was never in scope of the act
 | [.big]#SetObjWord#
 | calling form:
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 SetObjWord(position, object)
 
 Inserts the specified object in the `word` array in the format:
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 "adjective1 adjective2 ... noun"
 
@@ -10378,7 +10131,6 @@ Inserts the specified object in the `word` array in the format:
 | [.big]#ShortDescribe#
 | calling form:
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ShortDescribe(object)
 
@@ -10392,7 +10144,6 @@ Also calls: `WhatsIn`
 | [.big]#SpecialDesc#
 | calling form:
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 SpecialDesc(object)
 
@@ -10404,7 +10155,6 @@ Sets the global variable `list_count` to the number of remaining (i.e., non-list
 | [.big]#VerbWord#
 | calling form:
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 VerbWord
 
@@ -10415,7 +10165,6 @@ Returns the dictionary word used as the verb in a typed command.
 | [.big]#WhatsIn#
 | calling form:
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 WhatsIn(parent)
 
@@ -10429,7 +10178,6 @@ Also calls: `SpecialDesc`, `ListObjects`
 | [.big]#YesorNo#
 | calling form:
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 YesorNo
 
@@ -10451,7 +10199,6 @@ Once a valid answer is received, it returns true (if yes) or false (if no).
 | [.big]#abs#
 | calling form:
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 abs(a)
 
@@ -10462,7 +10209,6 @@ Returns an absolute value given a supplied value.
 | [.big]#higher#
 | calling form:
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 higher(a, b)
 
@@ -10473,7 +10219,6 @@ Returns the higher number of two supplied values.
 | [.big]#lower#
 | calling form:
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 lower(a, b)
 
@@ -10484,7 +10229,6 @@ Returns the lower number of two supplied values.
 | [.big]#mod#
 | calling form:
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 mod(a, b)
 
@@ -10495,7 +10239,6 @@ Returns the remainder of one number divided by a second number.
 | [.big]#pow#
 | calling form:
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 pow(a, b)
 
@@ -10517,7 +10260,6 @@ WARNING: The return value is undefined if the result is outside the boundary of 
 | [.big]#StringCompare#
 | calling form:
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 StringCompare(array1, array2)
 
@@ -10528,7 +10270,6 @@ Returns 1 if `array1` is lexically greater than `array2`, -1 if `array1` is lexi
 | [.big]#StringCopy#
 | calling form:
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 StringCopy(new, old[, len])
 
@@ -10539,7 +10280,6 @@ Copies the contents of the array at the address given by `old` to the array at `
 | [.big]#StringDictCompare#
 | calling form:
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 StringDictCompare(array, dictentry)
 
@@ -10550,7 +10290,6 @@ Performs a `StringCompare`-like comparison of a string array given by `array` an
 | [.big]#StringEqual#
 | calling form:
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 StringEqual(array1, array2)
 
@@ -10561,7 +10300,6 @@ Returns true only if `array1` and `array2` are identical.
 | [.big]#StringLength#
 | calling form:
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 StringLength(array)
 
@@ -10572,7 +10310,6 @@ Returns the length of the string stored as `array`.
 | [.big]#StringPrint#
 | calling form:
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 StringPrint(array[, start, end])
 
@@ -10592,7 +10329,6 @@ Prints the string stored as `array`, beginning with `start` and ending with `end
 | [.big]#Activate#
 | calling form:
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 Activate(object[, setting])
 
@@ -10604,7 +10340,6 @@ The setting value is only specified for fuses, where it represents the initial v
 | [.big]#Deactivate#
 | calling form:
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 Deactivate(object)
 
@@ -10624,7 +10359,6 @@ Deactivates the specified `fuse` or `daemon` object.
 | [.big]#CancelScript#
 | calling form:
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 CancelScript(character)
 
@@ -10636,7 +10370,6 @@ Returns true if successful, i.e., if a script for `character` is found.
 | [.big]#PauseScript#
 | calling form:
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 PauseScript(character)
 
@@ -10648,7 +10381,6 @@ Returns true if successful.
 | [.big]#ResumeScript#
 | calling form:
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ResumeScript(character)
 
@@ -10660,7 +10392,6 @@ Returns true if successful.
 | [.big]#SkipScript#
 | calling form:
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 SkipScript(character)
 
@@ -10671,7 +10402,6 @@ Skips execution of the script for a given `character` during the next call to `R
 | [.big]#Script#
 | calling form:
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 Script(character, steps)
 
@@ -10683,13 +10413,11 @@ Returns -1 if `MAX_SCRIPTS` is exceeded.
 | [.big]#RunScripts#
 | calling form:
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 RunScripts
 
 Runs all active scripts, calling them in the form:
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 CharRoutine(character, object)
 
@@ -10910,7 +10638,6 @@ TIP: It's useful to have generated debugging information by passing the `–i` s
 
 Essentially the same as the Hugo statement:
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 move <object> to <parent>.
@@ -10922,7 +10649,6 @@ The object will become the youngest child of the parent object.
 
 Essentially the same as the Hugo Library function call:
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 MovePlayer(<obj.>).
@@ -13159,7 +12885,6 @@ The reading of values from data types or expressions begins with `GetValue()` in
 
 >s| As in:  <a|
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 if <expression>
@@ -13191,7 +12916,6 @@ Note that $4C indicates end-of-line.
 
 >s| As in:  <a|
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 else
@@ -13219,7 +12943,6 @@ If a previous condition has been met, control passes ahead to `<next statment>`,
 
 >s| As in:  <a|
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 elseif <expression>
@@ -13250,7 +12973,6 @@ elseif <expression>
 
 >s| As in:  <a|
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 while <expression>
@@ -13284,7 +13006,6 @@ Note that because the `<starting point>` is written as a two-byte indexed addres
 
 >s| As in:  <a|
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 do
@@ -13368,7 +13089,6 @@ Note that $1A is the `else` token, $05 is the `=` token, and that the two bytes 
 
 >s| As in:  <a|
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ...................................
 for (<assign>; <expr>; <modifying>)
@@ -13399,7 +13119,6 @@ This, like the `<assignment>` is simply a regular executable assignment.
 
 >s| As in:  <a|
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 return <expression>
@@ -13435,7 +13154,6 @@ Where `<expression>` is optional, so that a standalone return order can be coded
 
 >s| As in:  <a|
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 jump <label>
@@ -13558,7 +13276,6 @@ Signals that the following dictionary entry should have its first letter capital
 
 >s| As in:  <a|
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 text to n
@@ -13585,7 +13302,6 @@ Where `<value>` is either an address in the array table, or constant 0 (to resto
 
 >s| As in:  <a|
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ........................................
 color foreground
@@ -13608,7 +13324,6 @@ If a third value is given, separated by a comma ($19), it represents the input c
 
 >s| As in:  <a|
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 remove <object>
@@ -13630,7 +13345,6 @@ remove <object>
 
 >s| As in:  <a|
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 move <object1> to <object2>
@@ -13666,7 +13380,6 @@ Typically found in `print to n`, `text to n`, etc., in which case the line will 
 
 >s| As in:  <a|
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 parent(...)
@@ -13687,7 +13400,6 @@ NOTE: Alternate usage is as a grammar token, coded simply as $3C with no followi
 
 >s| As in:  <a|
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 sibling(...)
@@ -13706,7 +13418,6 @@ Returns the sibling of the object resulting from `<expression>`.
 
 >s| As in:  <a|
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 child(...)
@@ -13725,7 +13436,6 @@ Returns the child object of the object resulting from `<expression>`.
 
 >s| As in:  <a|
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 youngest(...)
@@ -13744,7 +13454,6 @@ Returns the youngest (most recently added) child object of the object resulting 
 
 >s| As in:  <a|
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 eldest(...)
@@ -13763,7 +13472,6 @@ Interpreted identically to `child(...)`.
 
 >s| As in:  <a|
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 younger(...)
@@ -13782,7 +13490,6 @@ Interpreted identically to `sibling(...)`.
 
 >s| As in:  <a|
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 elder(...)
@@ -13884,7 +13591,6 @@ End-of-line marker.
 
 >s| As in:  <a|
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 system(<value>)
@@ -13915,7 +13621,6 @@ Where `<value>` is some Hugo data type giving the number of the system function 
 
 .2+| 50 | window | *STATEMENT*
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 window n
@@ -13923,7 +13628,6 @@ window n
 
     50 <value> 4C
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ...............................
 window left, top, right, bottom
@@ -13931,7 +13635,6 @@ window left, top, right, bottom
 
     50 <v1> 19 <v2> 19 <v3> 19 <v4> 4C
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 window
@@ -13939,7 +13642,6 @@ window
 
     50 4C
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 window 0
@@ -13974,7 +13676,6 @@ The result was a window beginning at the top of the screen, reaching down to the
 
 >s| As in:  <a|
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 random(...)
@@ -13995,7 +13696,6 @@ Returns a random value between 1 and `<expression>`.
 
 *As in:*
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 word[...]
@@ -14015,7 +13715,6 @@ Returns the dictionary address of `word[<expression>`].
 
 >s| As in:  <a|
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 locate x
@@ -14047,7 +13746,6 @@ Read-only engine variable representing the engine parser's internal `parse$` str
 
 >s| As in:  <a|
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 children(...)
@@ -14061,7 +13759,6 @@ Returns the number of children owned by the object resulting from `<expression>`
 
 >s| As in:  <a|
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 for <object> in <parent>
@@ -14069,7 +13766,6 @@ for <object> in <parent>
 
 or
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 .............................
 if <object> [not] in <parent>
@@ -14126,7 +13822,6 @@ Where `<array>` is two bytes giving the address of the array in the array table.
 
 >s| As in:  <a|
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 call <routine address>
@@ -14156,7 +13851,6 @@ Valid only in a `print` statement.
 
 >s| As in:  <a|
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 x = save
@@ -14174,7 +13868,6 @@ Calls the engine's save-game procedure (which includes filename input); returns 
 
 >s| As in:  <a|
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 x = restore
@@ -14230,7 +13923,6 @@ Clears the currently defined text window.
 .2+| 62 | scripton | *VALUE*
 *As in:*
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 x = scripton
@@ -14248,7 +13940,6 @@ Calls the engine's begin-scripting procedure (which includes filename input); re
 
 >s| As in:  <a|
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 x = scriptoff
@@ -14266,7 +13957,6 @@ Calls the engine's end-scripting procedure; returns a true value on success, or 
 
 >s| As in:  <a|
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 x = restart
@@ -14303,7 +13993,6 @@ NOTE: Removed as a token after grammar table is compiled so that `xobject` can r
 
 >s| As in:  <a|
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 x = string(a, "apple", 8)
@@ -14339,7 +14028,6 @@ Forces `<value>` to be used as an address in the array table, so that `array <va
 
 >s| As in:  <a|
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 printchar 'A', 'B',...
@@ -14354,7 +14042,6 @@ Multiple values are separated by $19; the sequence is terminated by $4C.
 
 >s| As in:  <a|
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 x = undo
@@ -14377,7 +14064,6 @@ Attempts to restore all data changes made since the last typed input; returns a 
 
 >s| As in:  <a|
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 x = dict(<array>, <len>)
@@ -14398,7 +14084,6 @@ Otherwise, it is appended to the end of the table, and the new location is retur
 
 >s| As in:  <a|
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 x = recordon
@@ -14416,7 +14101,6 @@ Calls the engine's begin-command-recording procedure (which includes filename in
 
 >s| As in:  <a|
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 x = recordoff
@@ -14440,7 +14124,6 @@ Calls the engine's end-command-recording procedure; returns a true value on succ
 
 >s| As in:  <a|
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 writefile <file>
@@ -14467,7 +14150,6 @@ Upon any error, jumps to the end of the file i/o code block and closes `<file>`.
 
 >s| As in:  <a|
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 readfile <file>
@@ -14494,7 +14176,6 @@ Multiple values are separated by $19.
 
 >s| As in:  <a|
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 x = readval
@@ -14509,7 +14190,6 @@ Reads a 16-bit integer from the currently open file.
 
 >s| As in:  <a|
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 x = playback

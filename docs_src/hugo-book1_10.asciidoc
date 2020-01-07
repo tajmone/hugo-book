@@ -433,7 +433,6 @@ In the `vehicle` class the `preposition` property defaults to "in" and "out", bu
 It is also necessary to provide grammar to relate the words in the `vehicle_verb` list to the object library's `DoMoveInVehicle` routine.
 Grammar such as the following is recommended:
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 .......................................
 verb "<verb1>"[, "<verb2>",...]
@@ -641,7 +640,6 @@ If `attach_drop` is true, the object is automatically dropped after it is attach
 The `attach_verbs` and `detach_verbs` properties contain lists of all valid verbs to attach or detach the object.
 The `DoAttachObject` and `DoDetachObject` verbroutines can be used by all basic attachables, with new grammar specified for the object (corresponding exactly to the verb lists in `attach_verbs` and `detach_verbs`) as in:
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ..............................................
 

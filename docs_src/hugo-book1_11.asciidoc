@@ -92,7 +92,6 @@ To clear the record of any window and restore the main text window to the full-s
 
 A windowing library file exists called *window.h* which defines a `window_class` and the associated properties so a window object can be created via:
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ..............................................
 window_class <window name> "title"
@@ -139,7 +138,6 @@ To accomplish this, use the `writefile` and `readfile` operations.
 
 The structure
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 writefile <filename>
@@ -153,7 +151,6 @@ will, at the start of the `writefile` block, open `<filename>` for writing and p
 
 Within a `writefile` block, write individual values using
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ..................................
 writeval <value1>[, <value2>, ...]
@@ -163,7 +160,6 @@ where one or more values can be specified.
 
 To read the file, use the structure
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 readfile <filename>

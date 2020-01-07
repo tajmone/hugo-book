@@ -97,7 +97,6 @@ The reading of values from data types or expressions begins with `GetValue()` in
 
 >s| As in:  <a|
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 if <expression>
@@ -129,7 +128,6 @@ Note that $4C indicates end-of-line.
 
 >s| As in:  <a|
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 else
@@ -157,7 +155,6 @@ If a previous condition has been met, control passes ahead to `<next statment>`,
 
 >s| As in:  <a|
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 elseif <expression>
@@ -188,7 +185,6 @@ elseif <expression>
 
 >s| As in:  <a|
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 while <expression>
@@ -222,7 +218,6 @@ Note that because the `<starting point>` is written as a two-byte indexed addres
 
 >s| As in:  <a|
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 do
@@ -306,7 +301,6 @@ Note that $1A is the `else` token, $05 is the `=` token, and that the two bytes 
 
 >s| As in:  <a|
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ...................................
 for (<assign>; <expr>; <modifying>)
@@ -337,7 +331,6 @@ This, like the `<assignment>` is simply a regular executable assignment.
 
 >s| As in:  <a|
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 return <expression>
@@ -373,7 +366,6 @@ Where `<expression>` is optional, so that a standalone return order can be coded
 
 >s| As in:  <a|
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 jump <label>
@@ -496,7 +488,6 @@ Signals that the following dictionary entry should have its first letter capital
 
 >s| As in:  <a|
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 text to n
@@ -523,7 +514,6 @@ Where `<value>` is either an address in the array table, or constant 0 (to resto
 
 >s| As in:  <a|
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ........................................
 color foreground
@@ -546,7 +536,6 @@ If a third value is given, separated by a comma ($19), it represents the input c
 
 >s| As in:  <a|
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 remove <object>
@@ -568,7 +557,6 @@ remove <object>
 
 >s| As in:  <a|
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 move <object1> to <object2>
@@ -604,7 +592,6 @@ Typically found in `print to n`, `text to n`, etc., in which case the line will 
 
 >s| As in:  <a|
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 parent(...)
@@ -625,7 +612,6 @@ NOTE: Alternate usage is as a grammar token, coded simply as $3C with no followi
 
 >s| As in:  <a|
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 sibling(...)
@@ -644,7 +630,6 @@ Returns the sibling of the object resulting from `<expression>`.
 
 >s| As in:  <a|
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 child(...)
@@ -663,7 +648,6 @@ Returns the child object of the object resulting from `<expression>`.
 
 >s| As in:  <a|
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 youngest(...)
@@ -682,7 +666,6 @@ Returns the youngest (most recently added) child object of the object resulting 
 
 >s| As in:  <a|
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 eldest(...)
@@ -701,7 +684,6 @@ Interpreted identically to `child(...)`.
 
 >s| As in:  <a|
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 younger(...)
@@ -720,7 +702,6 @@ Interpreted identically to `sibling(...)`.
 
 >s| As in:  <a|
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 elder(...)
@@ -822,7 +803,6 @@ End-of-line marker.
 
 >s| As in:  <a|
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 system(<value>)
@@ -853,7 +833,6 @@ Where `<value>` is some Hugo data type giving the number of the system function 
 
 .2+| 50 | window | *STATEMENT*
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 window n
@@ -861,7 +840,6 @@ window n
 
     50 <value> 4C
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ...............................
 window left, top, right, bottom
@@ -869,7 +847,6 @@ window left, top, right, bottom
 
     50 <v1> 19 <v2> 19 <v3> 19 <v4> 4C
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 window
@@ -877,7 +854,6 @@ window
 
     50 4C
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 window 0
@@ -912,7 +888,6 @@ The result was a window beginning at the top of the screen, reaching down to the
 
 >s| As in:  <a|
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 random(...)
@@ -933,7 +908,6 @@ Returns a random value between 1 and `<expression>`.
 
 *As in:*
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 word[...]
@@ -953,7 +927,6 @@ Returns the dictionary address of `word[<expression>`].
 
 >s| As in:  <a|
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 locate x
@@ -985,7 +958,6 @@ Read-only engine variable representing the engine parser's internal `parse$` str
 
 >s| As in:  <a|
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 children(...)
@@ -999,7 +971,6 @@ Returns the number of children owned by the object resulting from `<expression>`
 
 >s| As in:  <a|
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 for <object> in <parent>
@@ -1007,7 +978,6 @@ for <object> in <parent>
 
 or
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 .............................
 if <object> [not] in <parent>
@@ -1064,7 +1034,6 @@ Where `<array>` is two bytes giving the address of the array in the array table.
 
 >s| As in:  <a|
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 call <routine address>
@@ -1094,7 +1063,6 @@ Valid only in a `print` statement.
 
 >s| As in:  <a|
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 x = save
@@ -1112,7 +1080,6 @@ Calls the engine's save-game procedure (which includes filename input); returns 
 
 >s| As in:  <a|
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 x = restore
@@ -1168,7 +1135,6 @@ Clears the currently defined text window.
 .2+| 62 | scripton | *VALUE*
 *As in:*
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 x = scripton
@@ -1186,7 +1152,6 @@ Calls the engine's begin-scripting procedure (which includes filename input); re
 
 >s| As in:  <a|
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 x = scriptoff
@@ -1204,7 +1169,6 @@ Calls the engine's end-scripting procedure; returns a true value on success, or 
 
 >s| As in:  <a|
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 x = restart
@@ -1241,7 +1205,6 @@ NOTE: Removed as a token after grammar table is compiled so that `xobject` can r
 
 >s| As in:  <a|
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 x = string(a, "apple", 8)
@@ -1277,7 +1240,6 @@ Forces `<value>` to be used as an address in the array table, so that `array <va
 
 >s| As in:  <a|
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 printchar 'A', 'B',...
@@ -1292,7 +1254,6 @@ Multiple values are separated by $19; the sequence is terminated by $4C.
 
 >s| As in:  <a|
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 x = undo
@@ -1315,7 +1276,6 @@ Attempts to restore all data changes made since the last typed input; returns a 
 
 >s| As in:  <a|
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 x = dict(<array>, <len>)
@@ -1336,7 +1296,6 @@ Otherwise, it is appended to the end of the table, and the new location is retur
 
 >s| As in:  <a|
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 x = recordon
@@ -1354,7 +1313,6 @@ Calls the engine's begin-command-recording procedure (which includes filename in
 
 >s| As in:  <a|
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 x = recordoff
@@ -1378,7 +1336,6 @@ Calls the engine's end-command-recording procedure; returns a true value on succ
 
 >s| As in:  <a|
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 writefile <file>
@@ -1405,7 +1362,6 @@ Upon any error, jumps to the end of the file i/o code block and closes `<file>`.
 
 >s| As in:  <a|
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 readfile <file>
@@ -1432,7 +1388,6 @@ Multiple values are separated by $19.
 
 >s| As in:  <a|
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 x = readval
@@ -1447,7 +1402,6 @@ Reads a 16-bit integer from the currently open file.
 
 >s| As in:  <a|
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 x = playback

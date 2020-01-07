@@ -192,7 +192,6 @@ A variable that holds the count of a number of objects _could_ be called `n`, bu
 
 At this point it's probably helpful to know that you can assign a value to a variable using the form:
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax", subs="+attributes,macros"]
 .......................................................
 <some variable> = <some value>{fn5}
@@ -524,7 +523,6 @@ These special commands or instructions are called _compiler directives_, and are
 
 To set switches within the source code so that they do not have to be specified each time the compiler is invoked for that particular program, the line
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 #switches -<sequence>
@@ -542,7 +540,6 @@ the first line in every new program, which will automatically print a statistica
 
 Using
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ...............................
 #version <version>[.<revision>]
@@ -560,7 +557,6 @@ Its general usage is largely deprecated.
 
 To include the contents of another file at the specified point in the current file, use
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 #include "<filename>"
@@ -586,7 +582,6 @@ Only if it has do they include the *hugofix.h* and *hugofix.g* files, which in t
 
 To set and clear flags, use
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 #set <flagname>
@@ -594,7 +589,6 @@ To set and clear flags, use
 
 and
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 #clear <flagname>
@@ -617,7 +611,6 @@ similarly to compiler limit settings and directories, with the same caveat that 
 
 Then, check to see if a flag is set or not (and include or exclude the specified block of source code) by using
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax", subs="+quotes"]
 ............................................
 #ifset <flagname>
@@ -627,7 +620,6 @@ Then, check to see if a flag is set or not (and include or exclude the specified
 
 or
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax", subs="+quotes"]
 ............................................
 #ifclear <flagname>
@@ -658,7 +650,6 @@ Use `#if defined <symbol>` and `#if undefined <symbol>` to test if objects, prop
 
 As seen above, the `#message` directive can be used as
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 #message "<text>"
@@ -668,7 +659,6 @@ to output `<text>` when (or if) that statement is processed during the first com
 
 Including `error` or `warning` before `<text>` as in
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 #message error "<text>"
@@ -676,7 +666,6 @@ Including `error` or `warning` before `<text>` as in
 
 or
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 #message warning "<text>"
@@ -692,7 +681,6 @@ That is, it's printed only when the compiler initially compiles the source code,
 
 It is also possible to include inline limit settings, such as
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 $<setting>=<limit>

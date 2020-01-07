@@ -48,7 +48,6 @@ A routine may or may not return a value, and it may or may not require a list of
 
 A routine is defined as:
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 .............................................
 routine <routinename> [(<arg1>, <arg2>, ...)]
@@ -63,7 +62,6 @@ once again ensuring that the opening brace (`{`) comes on a new line following t
 ================================================================================
 To substitute a new routine for an existing one with the same name (such as in a library file), define the new one using `replace` instead of `routine`.
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 .............................................
 replace <routinename> [(<arg1>, <arg2>, ...)]
@@ -94,7 +92,6 @@ return
 
 and
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 return <expression>
@@ -313,7 +310,6 @@ For those wondering why the true (i.e., equal to 1) return value in the second c
 
 Property routines may be run directly using the `run` command:
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 run <object>.<property>
@@ -325,7 +321,6 @@ Property routines do not take arguments.
 
 Remember that at any point in a program, an existing property may be changed using
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 .............................
 <object>.<property> = <value>
@@ -333,7 +328,6 @@ Remember that at any point in a program, an existing property may be changed usi
 
 A property routine may be changed using
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ................................................
 <object>.<property> =
@@ -348,7 +342,6 @@ It is entirely possible to change what was once a property routine into a simple
 Even if a property routine is to be assigned later in the program, the property itself must still be defined at the outset in the original object definition.
 A simple
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 <property> 0
@@ -356,7 +349,6 @@ A simple
 
 or
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 <property> {return false}
@@ -394,7 +386,6 @@ because the engine now believes `<object>.found_in` to have only one element -- 
 Finally, keep in mind that whenever calling a property routine, the global variable `self` is normally set to the object number.
 To avoid this, such as when "`borrowing`" a property from another object from within a different object, reference the property via
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 <object>..<property>
@@ -414,7 +405,6 @@ They are unique in that not only are they always routines, but they are much mor
 
 _Complex_ properties like `before` and `after` are defined with
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 .................................
 property <property name> $complex
@@ -430,7 +420,6 @@ property after $complex
 
 Here is the syntax for the `before` property:
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 .................................................
 before
@@ -538,7 +527,6 @@ It is important to remember that, unlike other property routines, `before` and `
 Instead, the definition for the routine is -- in essence -- added onto.
 An additive property is defined using the `$additive` qualifier, as in:
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ..................................................
 property <property name> $additive <default value>
@@ -553,7 +541,6 @@ To force a `before` or `after` property routine to apply to _any_ verbroutine, d
 
 For example:
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ..............................
 before
@@ -581,7 +568,6 @@ This can be particularly undesirable in the case of location `before`/`after` pr
 To get around this, the library provides a function `AnyVerb`, which takes an object as its argument and returns that object number if the current verbroutine is not within the group of xverbs; otherwise it returns false.
 Therefore, it can be used via:
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 before
@@ -596,7 +582,6 @@ before
 
 instead of
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 
@@ -760,7 +745,6 @@ Events are useful for bringing a game to life, so that little quirks, behaviors,
 Events are also routines, but their special characteristic is that they may be attached to a particular object, and they are run as a group by the `runevents` command.
 Events are defined as:
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 event
@@ -771,7 +755,6 @@ event
 
 for global events, and
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 event [in] <object>
@@ -951,7 +934,6 @@ Now, suppose the clock should be audible throughout the entire game -- i.e., in 
 Simply changing the event definition to:
 
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ................................
 event       ! no object is given

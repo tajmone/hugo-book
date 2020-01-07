@@ -26,7 +26,6 @@ A _daemon_ is the traditional name for a recurring activity.
 Hugo handles daemons as special events attached to objects that may be activated or deactivated (i.e., moved in and out of the scope of `runevents`).
 Since the daemon class is defined in the library, define a daemon itself using:
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 daemon <name>
@@ -36,7 +35,6 @@ daemon <name>
 The body of the daemon definition is empty.
 The daemon object is only needed to attach the daemon event to, so the daemon definition must be followed by:
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 event [in] <name>
@@ -48,7 +46,6 @@ event [in] <name>
 
 Activate it by:
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 Activate(<name>)
@@ -59,7 +56,6 @@ This way, whenever a `runevents` command is given (as it should be in the `Main`
 
 Deactivate the daemon using:
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 Deactivate(<name>)
@@ -81,7 +77,6 @@ The fuse itself is a slightly more complex version of a daemon object, containin
 
 Similarly to a daemon, define a fuse in two steps:
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 fuse <name>
@@ -99,7 +94,6 @@ event [in] <name>
 
 and turn it on or off by:
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 Activate(<name>, <setting>)
@@ -107,7 +101,6 @@ Activate(<name>, <setting>)
 
 and
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 Deactivate(<name>)
@@ -120,7 +113,6 @@ where `<setting>` is the initial value of the `timer` property.
 Note that it is up to the event itself to run the `timer` and check for its expiration.
 The line
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 if not self.tick
@@ -143,7 +135,6 @@ Here's why:
 
 To define a script, use the following notation:
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ......................................................
 setscript[Script(<char>, <num>)] =  &CharRoutine, obj,
@@ -228,7 +219,6 @@ It continues with the default action -- i.e., the character action routine speci
 
 To override a default character action routine, include a `before` property for the character object using the following form:
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 before

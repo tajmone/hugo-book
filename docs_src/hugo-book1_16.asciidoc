@@ -88,7 +88,6 @@ TIP: It's useful to have generated debugging information by passing the `–i` s
 
 Essentially the same as the Hugo statement:
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 move <object> to <parent>.
@@ -100,7 +99,6 @@ The object will become the youngest child of the parent object.
 
 Essentially the same as the Hugo Library function call:
 
-// @HUGO SYNTAX DEFINITION
 [literal, role="hugosyntax"]
 ............................
 MovePlayer(<obj.>).
