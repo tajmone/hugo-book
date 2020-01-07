@@ -7,31 +7,32 @@ This document lists all the contents changes that theAsciiDoc edition has introd
 
 **Table of Contents**
 
-<!-- MarkdownTOC autolink="true" bracket="round" autoanchor="false" lowercase="only_ascii" uri_encoding="true" levels="1,2,3" -->
+<!-- MarkdownTOC autolink="true" bracket="round" autoanchor="false" lowercase="only_ascii" uri_encoding="true" levels="1,2,3,4" -->
 
 - [Introduction](#introduction)
     - [Text Corrections](#text-corrections)
     - [Aesthetic Changes](#aesthetic-changes)
     - [Library Code Updates](#library-code-updates)
 - [Changes List](#changes-list)
-    - [1. Introduction](#1-introduction)
-        - [1.5. _Packing List_](#15-packing-list)
-        - [1.10. _Limit Settings_](#110-limit-settings)
-    - [2. A First Look at Hugo](#2-a-first-look-at-hugo)
-        - [2.4. _Multiple Lines_](#24-multiple-lines)
-    - [4. Hugo Programming](#4-hugo-programming)
-        - [4.8. _What Should I Be Able to Do Now?_](#48-what-should-i-be-able-to-do-now)
-    - [5. Routines and Events](#5-routines-and-events)
-        - [5.3. _Before And After Routines_](#53-before-and-after-routines)
-    - [9. The Game Loop](#9-the-game-loop)
-        - [9.2. _What Should I Be Able to Do Now?_](#92-what-should-i-be-able-to-do-now)
-    - [10. Using the Object Library](#10-using-the-object-library)
-        - [10.5. _Doors_](#105-doors)
-        - [10.6. _Vehicles_](#106-vehicles)
-    - [12. Resources](#12-resources)
-        - [12.2. _Pictures_](#122-pictures)
-        - [12.3. _Sound and Music_](#123-sound-and-music)
-    - [App. A. Summary of Keywords and Commands](#app-a-summary-of-keywords-and-commands)
+    - [Book I](#book-i)
+        - [1. Introduction](#1-introduction)
+            - [1.5. _Packing List_](#15-packing-list)
+            - [1.10. _Limit Settings_](#110-limit-settings)
+        - [2. A First Look at Hugo](#2-a-first-look-at-hugo)
+            - [2.4. _Multiple Lines_](#24-multiple-lines)
+        - [4. Hugo Programming](#4-hugo-programming)
+            - [4.8. _What Should I Be Able to Do Now?_](#48-what-should-i-be-able-to-do-now)
+        - [5. Routines and Events](#5-routines-and-events)
+            - [5.3. _Before And After Routines_](#53-before-and-after-routines)
+        - [9. The Game Loop](#9-the-game-loop)
+            - [9.2. _What Should I Be Able to Do Now?_](#92-what-should-i-be-able-to-do-now)
+        - [10. Using the Object Library](#10-using-the-object-library)
+            - [10.5. _Doors_](#105-doors)
+            - [10.6. _Vehicles_](#106-vehicles)
+        - [12. Resources](#12-resources)
+            - [12.2. _Pictures_](#122-pictures)
+            - [12.3. _Sound and Music_](#123-sound-and-music)
+        - [App. A. Summary of Keywords and Commands](#app-a-summary-of-keywords-and-commands)
 
 <!-- /MarkdownTOC -->
 
@@ -90,13 +91,19 @@ These changes fall under two main categories:
 - Text adaptations to better exploit the new AsciiDoc format, or to provide a more readable text.
 - Fixes to minor typos in text or code.
 
-## 1. Introduction
+## Book I
 
-### 1.5. _Packing List_
+List of changes to [Book I: _The Hugo Programming Manual_][Book1].
+
+### 1. Introduction
+
+List of changes to Chapter [1. _Introduction_][Ch1].
+
+#### 1.5. _Packing List_
 
 <!-- Issue #28 (approved) ---------------------------------------------------->
 
-In _§1.5. Packing List_:
+In _[§1.5. Packing List]_:
 
 > Additionally, you're probably want to download *shell.hug*,
 
@@ -106,11 +113,11 @@ was amended into:
 
 (See [Issue #28])
 
-### 1.10. _Limit Settings_
+#### 1.10. _Limit Settings_
 
 <!-- Issue #20 (approved) ---------------------------------------------------->
 
-In _§1.10. Limit Settings_, the following admonition block:
+In _[§1.10. Limit Settings]_, the following admonition block:
 
 > Users of Unix or similar systems (including OS X, BeOS, and others) may, depending on the shell being used, need to escape special tokens like `$` or enclose these arguments in single quotes (e.g. `\$list` and `\$<setting>=<new limit>` or `'list'`, `'$<setting>=<new limit>'`, etc.) to override the shell's parsing of those tokens in the compiler invocation line.
 
@@ -120,13 +127,15 @@ was missing the `$` symbol in `'list'`, and was fixed to:
 
 (See [Issue #20])
 
-## 2. A First Look at Hugo
+### 2. A First Look at Hugo
 
-### 2.4. _Multiple Lines_
+List of changes to Chapter [2. _A First Look at Hugo_][Ch2].
+
+#### 2.4. _Multiple Lines_
 
 <!-- Issue #17 (approved) ---------------------------------------------------->
 
-In _§2.4. Multiple Lines_, inside the tip admonition on how to preserve a double space when splitting a string over multiple line, the original text:
+In _[§2.4. Multiple Lines]_, inside the tip admonition on how to preserve a double space when splitting a string across multiple lines, the original text:
 
 > since normally, if the `/` were omitted after “…​on one line.”,
 
@@ -137,13 +146,15 @@ was changed to:
 (See [Issue #17])
 
 
-## 4. Hugo Programming
+### 4. Hugo Programming
 
-### 4.8. _What Should I Be Able to Do Now?_
+List of changes to Chapter [4. _Hugo Programming_][Ch4].
+
+#### 4.8. _What Should I Be Able to Do Now?_
 
 <!-- Issue #6 (approved) ----------------------------------------------------->
 
-In _§4.8. What Should I Be Able to Do Now?_, the _Mixing Text Styles_ example:
+In _[§4.8. What Should I Be Able to Do Now?]_, the _Mixing Text Styles_ example:
 
 ```hugo
 ! Sample to print various typefaces/colors:
@@ -193,13 +204,15 @@ Furthermore, monospace fonts are already used in code examples and syntax defini
 (See [Issue #6])
 
 
-## 5. Routines and Events
+### 5. Routines and Events
 
-### 5.3. _Before And After Routines_
+List of changes to Chapter [5. _Routines and Events_][Ch5].
+
+#### 5.3. _Before And After Routines_
 
 <!-- Issue #14 (approved) ---------------------------------------------------->
 
-In _§5.3. Before And After Routines_, toward the section end, there was a paragraph where some text ending text had gone lost:
+In _[§5.3. Before And After Routines]_, toward the section end, there was a paragraph where some ending text went lost:
 
 > A drawback of this non-specification is that all verbroutines are matched — both verbs and xverbs.
 > This can be particularly undesirable in the case of location `before`/`after` properties, where you may wish to be circumventing any action the player tries to perform in that location, but where the non-specific response will be triggered even for `save`, `restore`, etc. (i.e.,
@@ -212,13 +225,15 @@ The paragraph end was amended by Kent Tessman to:
 (See [Issue #14])
 
 
-## 9. The Game Loop
+### 9. The Game Loop
 
-### 9.2. _What Should I Be Able to Do Now?_
+List of changes to Chapter [9. _The Game Loop_][Ch9].
+
+#### 9.2. _What Should I Be Able to Do Now?_
 
 <!-- Issue #38 (approved) ---------------------------------------------------->
 
-In _§9.2. What Should I Be Able to Do Now?_, the following code:
+In _[§9.2. What Should I Be Able to Do Now?]_, the following code:
 
 ```hugo
 case 1
@@ -241,28 +256,30 @@ case 1
 (See [Issue #38])
 
 
-## 10. Using the Object Library
+### 10. Using the Object Library
 
-### 10.5. _Doors_
+List of changes to Chapter [10. _Using the Object Library_][Ch10].
+
+#### 10.5. _Doors_
 
 <!-- Issue #19 (approved) ---------------------------------------------------->
 
-In _§10.5. Doors_:
+In _[§10.5. Doors]_:
 
 > The `between` property takes care of making the room available in both locations
 
 "room" was changed with "door":
 
-> The `between` property takes care of making the room available in both locations
+> The `between` property takes care of making the door available in both locations
 
 (See [Issue #19])
 
 
-### 10.6. _Vehicles_
+#### 10.6. _Vehicles_
 
 <!-- Issue #18 (approved) ---------------------------------------------------->
 
-In _§10.6. Vehicles_, the accidentally damaged sentence:
+In _[§10.6. Vehicles]_, the accidentally damaged sentence:
 
 > It is also necessary to provide grammar to relate the words in the `vehicle_verb` list to the object library's `DoMoveInVehicle` routine.Grammar he following is recommended:
 
@@ -277,7 +294,7 @@ was fixed by Kent Tessman to:
 
 <!-- Issue #30 (approved) ---------------------------------------------------->
 
-In _§10.6. Vehicles_, the sentence:
+In _[§10.6. Vehicles]_, the sentence:
 
 > The `preposition` property defaults in the `vehicle` class itself defaults to "in" and "out", but in the case of a horse should be changed to the more suitable "on" and "off".
 
@@ -291,13 +308,15 @@ which is smoother on the reader (and shorter too).
 (See [Issue #30])
 
 
-## 12. Resources
+### 12. Resources
 
-### 12.2. _Pictures_
+List of changes to Chapter [12. _Resources_][Ch12].
+
+#### 12.2. _Pictures_
 
 <!-- Issue #36 (pending approval) -------------------------------------------->
 
-In _§12.2. Pictures_, the syntax definition:
+In _[§12.2. Pictures]_, the syntax definition:
 
 ```hugo
 LoadPicture("resourcefile", "picture")
@@ -306,7 +325,7 @@ PictureinText("file", "pic", width, height, preserve)
 PictureinText("picture", width, height, preserve)
 ```
 
-was edited to make it consistent with the other syntax definitions:
+was edited to make it consistent with other syntax definitions:
 
 ```hugo
 LoadPicture("<resourcefile>", "<picture>")
@@ -319,18 +338,18 @@ PictureinText("<picture>", <width>, <height>[, <preserve>])
 (See [Issue #36])
 
 
-### 12.3. _Sound and Music_
+#### 12.3. _Sound and Music_
 
 <!-- Issue #36 (pending approval) -------------------------------------------->
 
-In _§12.3. Sound and Music_, the syntax definition:
+In _[§12.3. Sound and Music]_, the syntax definition:
 
 ```hugo
 PlaySound(resourcefile, sample, loop, force)
 PlayMusic(resourcefile, song, loop, force)
 ```
 
-was amended to include some missing parameters and to make it consistent with the other syntax definitions:
+was amended to include some missing parameters and to make it consistent with other syntax definitions:
 
 ```hugo
 PlaySound(<resourcefile>, <sample>[, <volume>[, <loop>[, <force>]]])
@@ -340,19 +359,24 @@ PlayMusic(<resourcefile>, <song>[, <volume>[, <loop>[, <force>]]])
 
 (See [Issue #36])
 
-## App. A. Summary of Keywords and Commands
+### App. A. Summary of Keywords and Commands
+
+List of changes to Appendix [A. _Summary of Keywords and Commands_][AppA].
+
+
+---
 
 <!-- Issue #27 (approved) ---------------------------------------------------->
 
-In _App. A: Summary of Keywords and Commands_, the cross reference text to a specific page number:
+In the definition of `color`, the cross reference to a specific page number:
 
 > Standard color values for `<foreground>` and `<background>` with constants defined in **hugolib.h** (see page 64) are:
 
-was changed to the section number instead:
+was changed to the section number containing that page number (in the original Word/PDF document) instead:
 
-> Standard color values for `<foreground>` and `<background>` with constants defined in **hugolib.h** (see Sec. 4.3) are:
+> Standard color values for `<foreground>` and `<background>` with constants defined in **hugolib.h** (see [Sec. 4.3]) are:
 
-where "Sec. 4.3" is a link pointing to relevant paragraph on the topic.
+where "[Sec. 4.3]" is a link pointing to the relevant paragraph on the topic through a custom anchor (`hugolib-colors`).
 
 This was necessary because not all output formats have page numbers (HTML documents, ePub, CHM Help files, etc., either don't have real page numbers or can't handle them well in cross references).
 
@@ -363,11 +387,11 @@ This was necessary because not all output formats have page numbers (HTML docume
 
 <!-- Issue #28 (pending approval) -------------------------------------------->
 
-In _Appendix A_, regarding the syntax of `print <output>`:
+In the definition of `print`, after the `print <output>` syntax:
 
 > where `<output>` can consist of both test strings enclosed in quotation marks (`"…​"`), and values representing dictionary addresses
 
-"test strings" was changed to "text strings"
+"test strings" was changed to "text strings":
 
 > where `<output>` can consist of both text strings enclosed in quotation marks (`"…​"`), and values representing dictionary addresses
 
@@ -400,6 +424,34 @@ In _Appendix A_, regarding the syntax of `print <output>`:
 [Issue #36]: https://github.com/tajmone/hugo-book/issues/36 "View Issue #36 regarding this text amendment"
 [Issue #38]: https://github.com/tajmone/hugo-book/issues/38 "View Issue #38 regarding this text amendment"
 
-[Issue #XXXX]: https://github.com/tajmone/hugo-book/issues/XXXX "View Issue #XXXX regarding this text amendment"
+<!-- Live HTML Links -->
+
+[Book1]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/docs/hugo-book.html#book1 "Jump to Live HTML Preview of: Book I"
+
+[Ch1]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/docs/hugo-book.html#chapter_1 "Jump to Live HTML Preview of: Book I » 1. INTRODUCTION"
+[Ch2]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/docs/hugo-book.html#chapter_2 "Jump to Live HTML Preview of: Book I » 2. A FIRST LOOK AT HUGO"
+[Ch3]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/docs/hugo-book.html#chapter_3 "Jump to Live HTML Preview of: Book I » 3. OBJECTS"
+[Ch4]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/docs/hugo-book.html#chapter_4 "Jump to Live HTML Preview of: Book I » 4. HUGO PROGRAMMING"
+[Ch5]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/docs/hugo-book.html#chapter_5 "Jump to Live HTML Preview of: Book I » 5. ROUTINES AND EVENTS"
+[Ch6]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/docs/hugo-book.html#chapter_6 "Jump to Live HTML Preview of: Book I » 6. FUSES, DAEMONS, AND SCRIPTS"
+[Ch9]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/docs/hugo-book.html#chapter_9 "Jump to Live HTML Preview of: Book I » 9. THE GAME LOOP"
+[Ch10]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/docs/hugo-book.html#chapter_10 "Jump to Live HTML Preview of: Book I » 10. USING THE OBJECT LIBRARY"
+[Ch12]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/docs/hugo-book.html#chapter_12 "Jump to Live HTML Preview of: Book I » 12. RESOURCES"
+[AppA]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/docs/hugo-book.html#appendix_a "Jump to Live HTML Preview of: Book I » Appendix A: SUMMARY OF KEYWORDS AND COMMANDS"
+
+[§1.5. Packing List]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/docs/hugo-book.html#sec_1-5 "Live HTML Preview"
+[§1.10. Limit Settings]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/docs/hugo-book.html#sec_1-10 "Live HTML Preview"
+[§2.4. Multiple Lines]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/docs/hugo-book.html#sec_2-4 "Live HTML Preview"
+[§4.8. What Should I Be Able to Do Now?]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/docs/hugo-book.html#sec_4-8 "Live HTML Preview"
+[§5.3. Before And After Routines]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/docs/hugo-book.html#sec_5-3 "Live HTML Preview"
+[§9.2. What Should I Be Able to Do Now?]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/docs/hugo-book.html#sec_9-2 "Live HTML Preview"
+[§10.5. Doors]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/docs/hugo-book.html#sec_10-5 "Live HTML Preview"
+[§10.6. Vehicles]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/docs/hugo-book.html#sec_10-6 "Live HTML Preview"
+[§12.2. Pictures]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/docs/hugo-book.html#sec_12-2 "Live HTML Preview"
+[§12.3. Sound and Music]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/docs/hugo-book.html#sec_12-3 "Live HTML Preview"
+
+[Sec. 4.3]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/docs/hugo-book.html#hugolib-colors "Live HTML Preview"
+
+
 
 <!-- EOF -->
