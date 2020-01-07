@@ -14,7 +14,7 @@ This folder contains the AsciiDoc source files of the _The Hugo Book_.
     - [Book Sources](#book-sources)
     - [Build Toolchain](#build-toolchain)
 - [Toolchain Dependencies](#toolchain-dependencies)
-- [Annotations Convention](#annotations-convention)
+- [Annotations Conventions](#annotations-conventions)
 - [XRefs](#xrefs)
     - [Chapters, Appendices and Sections](#chapters-appendices-and-sections)
     - [Tables and Figures](#tables-and-figures)
@@ -111,12 +111,12 @@ The build process depends on further assets stored elsewhere inside this project
 These assets are required to introduce support for Hugo highlighting in the [Asciidoctor] toolchain via the external [Highlight] tool and our custom syntax definition for Hugo.
 
 
-# Annotations Convention
+# Annotations Conventions
 
 In the AsciiDoc sources of the book I've added comments to annotate contents changes, pending tasks, and other points of interest.
-To simplify looking up these notes via editors S&R functionality, I've adopted a formal annotation convention:
+To simplify looking up these notes via editors S&R functionality, I've adopted a formal convention of comment prefixes:
 
-|   comment start   |                     indicates                      |
+|   comment prefix  |                     indicates                      |
 |-------------------|----------------------------------------------------|
 | `// @DELME`       | Commented-out contents to delete on final release. |
 | `// @EDITED`      | Changes to the original contents.                  |
@@ -128,7 +128,13 @@ To simplify looking up these notes via editors S&R functionality, I've adopted a
 | `// @TODO`        | A pending task.                                    |
 | `// @XREF`        | An issue regarding cross references.               |
 
-Most of these notes pertain work in progress and will be deleted on final release, while other might be left in the sources for the benefit of other contributors.
+Often you'll find these prefixes followed by another keyword which narrows down its context. E.g. `// @XREF INTERNAL`, to mark internal cross references inside tables; `// @EDITED TYPO` and `// @EDITED XREF` to distinguish between typo corrections and amended cross references; and so on.
+Again, the idea is to use those added words to simplify filtering annotations via S&R, allowing to target specific sets of annotations.
+
+Since annotation prefixes follow an established convention, it's always possible to check if any prefix is present elsewhere in the project, or you're dealing with an isolate issue of that type.
+
+Some of the above prefixes pertain to work in progress which is usually deleted when merging into `master` branch, while others might be left in the sources for the benefit of other contributors.
+In any case, the above system will always be used in development branches, as it simplifies looking up what needs to be done or what is the status for any of the topics associated to these prefixes.
 
 # XRefs
 

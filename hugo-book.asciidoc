@@ -1438,7 +1438,7 @@ Feel free to experiment with *test.hug* by adding comments, changing lines, comm
 
 // >>> footnotes definitions >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
-// @XREF: "2.3. Data Types"(in footnote!)
+// @XREF: "2.3. Data Types" (in footnote!)
 :fn1: pass:q[footnote:[ \
 It's also no coincidence that the "`nothing`" object is equal in its value to 0, which also represents the empty string `""` (see xref:sec_2-3[]). \
 The fact that these three are (value-wise, at least) identical will come in handy, as what it means in practice is that 0/null/empty/nothing/etc. is the same in every context.]]
@@ -1630,53 +1630,6 @@ and
 | children(Chair) | = `0`
 |===============================================================================
 --
-
-// @DELME: Commented-Out alternative version...
-////
-// >>>> h.desc.list alt. >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-// Alternative version, using horizontal description lists instead.
-
-A number of built-in functions can be used to read the object tree.
-
-[horizontal]
-`parent`      :: {empty}
-`sibling`     :: {empty}
-`child`       :: {empty}
-`youngest`    :: {empty}
-`elder`       :: {empty}
-`eldest`      :: (same as `child`)
-`younger`     :: (same as `sibling`)
-
-and
-
-[horizontal]
-`children`    :: {empty}
-
-Each function takes a single object as its argument, so that
-
-[horizontal]
-`parent(Table)`    :: = `Room`
-`parent(Bookmark)` :: = `Book`
-`parent(Player)`   :: = `Room`
-`child(Bowl)`      :: = `Spoon`
-`child(Room)`      :: = `Table`
-`child(Chair)`     :: = `0` ("`nothing`")
-`sibling(Table)`   :: = `Chair`
-`sibling(Player)`  :: = `0` ("`nothing`")
-`youngest(Room)`   :: = `Player`
-`youngest(Spoon)`  :: = `0` ("`nothing`")
-`elder(Chair)`     :: = `Table`
-`elder(Table)`     :: = `0` ("`nothing`")
-
-and
-
-[horizontal]
-`children(Room)`  :: = `4`
-`children(Table)` :: = `1`
-`children(Chair)` :: = `0`
-
-// <<<< h.desc.list alt. <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-////
 
 [NOTE]
 ================================================================================
@@ -2086,9 +2039,6 @@ If no default is explicitly declared, it is 0 (or `+""+` or the `nothing` object
 
 The list of properties defined in *hugolib.h* is:
 
-// @DELME: Alternative Table styles for testing...
-// [cols="<10m,<90d"]
-// [cols="<10m,<90d",grid=rows]
 [cols="<10m,<90d",grid=rows,stripes=even]
 |===============================================================================
 | name         | the basic object name
@@ -12950,7 +12900,7 @@ elseif <expression>
 ............................
 
 
-// @XREF: ('if' token entry in same table.) INTERNAL XREF
+// @XREF INTERNAL: 'if' token entry in same table (custom anchor).
 <<token-if,See `if`>>.
 
 >s| Source: <a|
@@ -12981,7 +12931,7 @@ while <expression>
 
 As long as `<expression>` evaluates to a non-false value, <conditional block> is run.
 Note the implicit jump ($25) coded by the compiler to maintain the loop -- `<starting point>` is only an address; only the two-byte address following $25 is written as a jump-back point.
-// @XREF: ('if' token entry in same table.) INTERNAL XREF
+// @XREF INTERNAL: 'if' token entry in same table (custom anchor).
 <<token-if,See `if`>>.
 
 Note that because the `<starting point>` is written as a two-byte indexed address, it must begin on an address boundary, padded with empty ($00) values, if necessary.
@@ -13031,7 +12981,7 @@ Instead, the distance to the next statement is given after the do token ($1D) in
 When encountered by the engine, resets the conditional-statement evaluator, i.e., so that the next case conditional is treated as an `if` instead of an `elseif`.
 Note that the variable that follows `select` in a line of source code is not coded here (but it is needed by the compiler to construct subsequent `case` statements).
 
-// @XREF: ('case' token entry in same table.) INTERNAL XREF
+// @XREF INTERNAL: 'case' token entry in same table (custom anchor).
 <<token-case,See `case`>>.
 
 >s| Source: <a|
@@ -13098,7 +13048,7 @@ for (<assign>; <expr>; <modifying>)
 
 The `<assignment>`, if given in the source code, is coded as a regular executable assignment of some data type.
 Again, nothing is explicitly coded at `<starting point>` -- it is simply a reference point for the `jump` ($25) to return to.
-// @XREF: ('if' token entry in same table.) INTERNAL XREF
+// @XREF INTERNAL: 'if' token entry in same table (custom anchor).
 The `for` ($20) line operates as a regular conditional test (<<token-if,see `if`>>.).
 The `<modifying expression>` is appended after the conditional block is coded.
 This, like the `<assignment>` is simply a regular executable assignment.
