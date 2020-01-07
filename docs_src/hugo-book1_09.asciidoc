@@ -130,8 +130,8 @@ replace ParseError(errornumber, obj)
 
 and modify the case for the error message in question from
 
-// @EDITED CODE: (documented & approved: Issue #38)
-// Fixed missing `" ` before `need to use the word \""; \`
+// @EDITED CODE: (Issue #38)
+//    Fixed missing `" ` before `need to use the word \""; \`
 
 [source,hugo]
 -------------------------------------------------

@@ -1613,7 +1613,7 @@ routine main
 
 The output will be:
 
-// @EDITED CODE: (documented & approved: Issue #6)
+// @EDITED CODE: (Issue #6)
 //    Removed from original code the `\Pproportional\p` example since all game
 //    transcipt are already in proportional typeface.
 

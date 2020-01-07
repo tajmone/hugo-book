@@ -150,8 +150,8 @@ hugofix.g   :: Debugging grammar
 verbstub.h  :: Additional verb routines
 verbstub.g  :: Additional verb grammar
 
-// @EDITED TYPO: (documented & approved: Issue #28)
-//  "you're probably want" -> "you're going to want"
+// @EDITED TYPO: (Issue #28)
+//    "you're probably want" -> "you're going to want"
 
 [.big]#*Sources.*#
 It's probably a good idea as you delve into Hugo programming to have some existing source code to look at.
@@ -401,8 +401,8 @@ To change a non-static limit (and compile a source file), type:
 hc $<setting>=<new limit> <sourcefile>...
 ................................................................................
 
-// @EDITED TYPO: (documented & approved: Issue #20)
-// Fixed missing '$'in: "or `'list'`" --> "or `'$list'`" ???
+// @EDITED TYPO: (Issue #20)
+//    Fixed missing '$' in: "or `'list'`" --> "or `'$list'`"
 
 [IMPORTANT]
 ================================================================================

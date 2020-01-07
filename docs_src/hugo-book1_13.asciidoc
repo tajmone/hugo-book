@@ -210,8 +210,8 @@ where `<background>` is optional.
 
 s| Parameters: a|
 
-// @EDITED XREF: (documented & approved: Issue #27)
-//      "(see page 64)" -> "(see Sec. 4.3)"
+// @EDITED XREF: (Issue #27)
+//    "(see page 64)" -> "(see Sec. 4.3)"
 // @XREF: Table "Standard Colors Defined by the Hugo Library" in §4.3.
 Standard color values for `<foreground>` and `<background>` with constants defined in *hugolib.h* (see <<hugo-book1_04#hugolib-colors,{section-refsig} 4.3>>) are:
 

@@ -288,8 +288,8 @@ hugofix.g   :: Debugging grammar
 verbstub.h  :: Additional verb routines
 verbstub.g  :: Additional verb grammar
 
-// @EDITED TYPO: (documented & approved: Issue #28)
-//  "you're probably want" -> "you're going to want"
+// @EDITED TYPO: (Issue #28)
+//    "you're probably want" -> "you're going to want"
 
 [.big]#*Sources.*#
 It's probably a good idea as you delve into Hugo programming to have some existing source code to look at.
@@ -539,8 +539,8 @@ To change a non-static limit (and compile a source file), type:
 hc $<setting>=<new limit> <sourcefile>...
 ................................................................................
 
-// @EDITED TYPO: (documented & approved: Issue #20)
-// Fixed missing '$'in: "or `'list'`" --> "or `'$list'`" ???
+// @EDITED TYPO: (Issue #20)
+//    Fixed missing '$' in: "or `'list'`" --> "or `'$list'`"
 
 [IMPORTANT]
 ================================================================================
@@ -999,8 +999,8 @@ Here, we'll end a sentence on one line.{nbsp}{nbsp}
 However, we'd like to make sure there are two spaces before the second sentence.
 ===============================
 
-// @EDITED TYPO: (documented & approved: Issue #17)
-// Was "if the `/` were ", but must have been a typo, for it didn't make sense!
+// @EDITED TYPO: (Issue #17)
+//    Was "if the `/` were ", but should have been a `\` instead!
 
 since normally, if the `{nbsp}\` were omitted after "`...on one line.`", the compiler would assume only a single space before continuing with "`However...`" from the next line.
 ================================================================================
@@ -4128,7 +4128,7 @@ routine main
 
 The output will be:
 
-// @EDITED CODE: (documented & approved: Issue #6)
+// @EDITED CODE: (Issue #6)
 //    Removed from original code the `\Pproportional\p` example since all game
 //    transcipt are already in proportional typeface.
 
@@ -4794,7 +4794,9 @@ The specified routine will be run whenever the object in question is the `xobjec
 If a non-specific block occurs before any block(s) specifying verbroutines, then the following blocks, if matched, will run as well so long as the block does not return true.
 If the non-specific block comes after any other blocks, then it will run only if no other object/verbroutine combination is matched.
 
-// @EDITED MALFORMED SENTENCE: (documented & approved: Issue #14)
+// @EDITED LOST TEXT: (Issue #14)
+//    Some accidentally lost text after "restore, etc. (i.e.," was restored
+//    by K.Tessman.
 A drawback of this non-specification is that all verbroutines are matched -- both verbs and xverbs.{fn6}
 This can be particularly undesirable in the case of location `before`/`after` properties, where you may wish to be circumventing any action the player tries to perform in that location, but where the non-specific response will be triggered even for `save`, `restore`, etc.
 (i.e., xverbs).
@@ -6538,8 +6540,8 @@ replace ParseError(errornumber, obj)
 
 and modify the case for the error message in question from
 
-// @EDITED CODE: (documented & approved: Issue #38)
-// Fixed missing `" ` before `need to use the word \""; \`
+// @EDITED CODE: (Issue #38)
+//    Fixed missing `" ` before `need to use the word \""; \`
 
 [source,hugo]
 -------------------------------------------------
@@ -6927,10 +6929,10 @@ door kitchen_door "kitchen door"
 }
 --------------------------------
 
-// @EDITED TYPO: (documented & approved: Issue #19)
-//  ROOM vs DOOR mistake:
-//   was  "making the ROOM available in both locations"
-//    ->  "making the DOOR available in both locations"
+// @EDITED TYPO: (Issue #19)
+//    ROOM vs DOOR mistake:
+//      was  "making the ROOM available in both locations"
+//      ->  "making the DOOR available in both locations"
 
 The `between` property takes care of making the door available in both locations as well as determining where the player travels to when leaving either location.
 In order to incorporate the door into the `kitchen` and `living_room` locations, it's only necessary to change the two room objects to specify:
@@ -6999,19 +7001,21 @@ vehicle mustang "wild mustang"
 }
 --------------------------------
 
-// @EDITED HARD TO READ SENTENCE: (documented & approved: Issue #30)
-//  "The `preposition` property DEFAULTS in the `vehicle` class itself DEFAULTS to..."
-// changed to:
-//  "In the `vehicle` class the `preposition` property DEFAULTS to..."
+// @EDITED HARD TO READ SENTENCE: (Issue #30)
+//    The sentence:
+//      "The `preposition` property DEFAULTS in the `vehicle` class itself
+//       DEFAULTS to..."
+//    was changed to:
+//      "In the `vehicle` class the `preposition` property DEFAULTS to..."
 
 The `vehicle_verb` property provides one or more synonyms for the verb used to "`drive`" this particular vehicle object.
 In the case of a horse, it is appropriately "`ride`".
 In the `vehicle` class the `preposition` property defaults to "in" and "out", but in the case of a horse it should be changed to the more suitable "on" and "off".
 
-// @EDITED MALFORMED SENTENCE: (documented & approved: Issue #18)
-//      Fixed sentence:
-//          from:   "`DoMoveInVehicle` routine.GRAMMAR HE FOLLOWING is..."
-//          to:     "`DoMoveInVehicle` routine. GRAMMAR SUCH AS THE FOLLOWING is..."
+// @EDITED MALFORMED SENTENCE: (Issue #18)
+//    Fixed sentence:
+//      from:   "`DoMoveInVehicle` routine.GRAMMAR HE FOLLOWING is..."
+//      to:     "`DoMoveInVehicle` routine. GRAMMAR SUCH AS THE FOLLOWING is..."
 
 It is also necessary to provide grammar to relate the words in the `vehicle_verb` list to the object library's `DoMoveInVehicle` routine.
 Grammar such as the following is recommended:
@@ -7970,8 +7974,8 @@ where `<background>` is optional.
 
 s| Parameters: a|
 
-// @EDITED XREF: (documented & approved: Issue #27)
-//      "(see page 64)" -> "(see Sec. 4.3)"
+// @EDITED XREF: (Issue #27)
+//    "(see page 64)" -> "(see Sec. 4.3)"
 // @XREF: Table "Standard Colors Defined by the Hugo Library" in §4.3.
 Standard color values for `<foreground>` and `<background>` with constants defined in *hugolib.h* (see <<hugo-book1_04#hugolib-colors,{section-refsig} 4.3>>) are:
 

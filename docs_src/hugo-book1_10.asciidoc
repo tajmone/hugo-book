@@ -342,10 +342,10 @@ door kitchen_door "kitchen door"
 }
 --------------------------------
 
-// @EDITED TYPO: (documented & approved: Issue #19)
-//  ROOM vs DOOR mistake:
-//   was  "making the ROOM available in both locations"
-//    ->  "making the DOOR available in both locations"
+// @EDITED TYPO: (Issue #19)
+//    ROOM vs DOOR mistake:
+//      was  "making the ROOM available in both locations"
+//      ->  "making the DOOR available in both locations"
 
 The `between` property takes care of making the door available in both locations as well as determining where the player travels to when leaving either location.
 In order to incorporate the door into the `kitchen` and `living_room` locations, it's only necessary to change the two room objects to specify:
@@ -414,19 +414,21 @@ vehicle mustang "wild mustang"
 }
 --------------------------------
 
-// @EDITED HARD TO READ SENTENCE: (documented & approved: Issue #30)
-//  "The `preposition` property DEFAULTS in the `vehicle` class itself DEFAULTS to..."
-// changed to:
-//  "In the `vehicle` class the `preposition` property DEFAULTS to..."
+// @EDITED HARD TO READ SENTENCE: (Issue #30)
+//    The sentence:
+//      "The `preposition` property DEFAULTS in the `vehicle` class itself
+//       DEFAULTS to..."
+//    was changed to:
+//      "In the `vehicle` class the `preposition` property DEFAULTS to..."
 
 The `vehicle_verb` property provides one or more synonyms for the verb used to "`drive`" this particular vehicle object.
 In the case of a horse, it is appropriately "`ride`".
 In the `vehicle` class the `preposition` property defaults to "in" and "out", but in the case of a horse it should be changed to the more suitable "on" and "off".
 
-// @EDITED MALFORMED SENTENCE: (documented & approved: Issue #18)
-//      Fixed sentence:
-//          from:   "`DoMoveInVehicle` routine.GRAMMAR HE FOLLOWING is..."
-//          to:     "`DoMoveInVehicle` routine. GRAMMAR SUCH AS THE FOLLOWING is..."
+// @EDITED MALFORMED SENTENCE: (Issue #18)
+//    Fixed sentence:
+//      from:   "`DoMoveInVehicle` routine.GRAMMAR HE FOLLOWING is..."
+//      to:     "`DoMoveInVehicle` routine. GRAMMAR SUCH AS THE FOLLOWING is..."
 
 It is also necessary to provide grammar to relate the words in the `vehicle_verb` list to the object library's `DoMoveInVehicle` routine.
 Grammar such as the following is recommended:
