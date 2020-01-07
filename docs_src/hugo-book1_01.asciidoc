@@ -373,7 +373,7 @@ hc $list
 
 You'll see something like:
 
-// @NOTE: Output below generated with HUGO COMPILER v3.1.03.
+// @NOTE: Output below was re-generated using HUGO COMPILER v3.1.03.
 [literal, role="cmd"]
 ................................................................................
 ---------------------------------------------------------------

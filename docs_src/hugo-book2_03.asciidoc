@@ -23,9 +23,10 @@ The first two places to start inspecting how the Hugo compiler writes a *.HEX* f
 [[sec_15-1]]
 == Tokens
 
-// @NOTE: 123 tokens | 5 tokens x col = 2 empty cells
+// @NOTE: There are 123 tokens -> 5 tokens x table row -> 2 empty cells
 
-// @FOOTNOTE: Two footnotes inside CSV file (1 and 2 = fn1).
+// @FOOTNOTE: There are two footnotes inside CSV file (fn1, fn2 -> 67, 68)
+//            both identical (fn2 -> fn1).
 
 [cols=">2m,<8m,>2m,<8m,>2m,<8m,>2m,<8m,>2m,<8m",format=csv,stripes=even]
 |===============================================================================

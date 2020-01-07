@@ -406,8 +406,8 @@ using `..` instead of the normal property operator.
 [[sec_5-3]]
 == Before and After Routines
 
-// @NOTE:   "After" was capitalized in "Before and After Routines" because it's
-//          the name of a routine, not a preposition.
+// @NOTE: "After" was capitalized in "Before and After Routines" because it's
+//        the name of a routine, not a preposition.
 
 The Hugo Compiler predefines two special properties: `before` and `after`.
 They are unique in that not only are they always routines, but they are much more complex (and versatile) than a standard property routine.

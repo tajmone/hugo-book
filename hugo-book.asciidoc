@@ -1,6 +1,6 @@
 = The Hugo Book
 Kent Tessman <general@generalcoffee.com>
-v1, 2018-10-04: Draft 131 -- Porting to AsciiDoc
+v1, 2018-10-04: Draft 132 -- Porting to AsciiDoc
 :lang: en
 :doctype: book
 // TOC Settings for GitHub previewing (override via CLI):
@@ -511,7 +511,7 @@ hc $list
 
 You'll see something like:
 
-// @NOTE: Output below generated with HUGO COMPILER v3.1.03.
+// @NOTE: Output below was re-generated using HUGO COMPILER v3.1.03.
 [literal, role="cmd"]
 ................................................................................
 ---------------------------------------------------------------
@@ -1398,7 +1398,7 @@ asdf#set DEBUG
 
 Now, when you compile, you'll see:
 
-// @NOTE: Output below was actually generated via Hugo Compiler!
+// @NOTE: Output below was re-generated using HUGO COMPILER v3.1.03.
 [literal, role="cmd"]
 ................................................................................
 test.hug:12:  Error:  Unknown compiler directive:  asdf
@@ -1421,11 +1421,12 @@ to the start of *test.hug*.
 Compile again, and you'll see this time a whole bunch of compiler errors.
 Most importantly are the first couple, which look something like:
 
-// @NOTE: Text below was compared against output generated via Hugo Compiler!
-//        (got "test.hug:610:" instead of "691", but the rest is the same)
+// @NOTE: The output text below was replaced with real output generated using
+//        HUGO COMPILER v3.1.03 and HUGO LIBRARY v3.1.03.2.
+//        (got "test.hug:610:" instead of "691", but the rest was identical)
 [literal, role="cmd"]
 ................................................................................
-test.hug:691:  Error:  Maximum of 50 objects exceeded
+test.hug:610:  Error:  Maximum of 50 objects exceeded
 ................................................................................
 
 [NOTE]
@@ -2260,7 +2261,7 @@ object mysuitcase "big green suitcase"
 Based on the parser's rules for object identification, the suitcase object may now be referred to by the player as "`big green suitcase`", "`big case`", or "`green suitcase`" among other combinations.
 Even "`big green`" and "`suit`" may be valid, provided that these don't also refer to other objects within valid scope such as "`a big green apple`" or "`your suit jacket`".
 
-// @NOTE: Admonition block arbitrarily added by editor:
+// @NOTE: Arbitrarily converted to Admonition block by @tajmone:
 
 [NOTE]
 ================================================================================
@@ -4631,8 +4632,8 @@ using `..` instead of the normal property operator.
 [[sec_5-3]]
 == Before and After Routines
 
-// @NOTE:   "After" was capitalized in "Before and After Routines" because it's
-//          the name of a routine, not a preposition.
+// @NOTE: "After" was capitalized in "Before and After Routines" because it's
+//        the name of a routine, not a preposition.
 
 The Hugo Compiler predefines two special properties: `before` and `after`.
 They are unique in that not only are they always routines, but they are much more complex (and versatile) than a standard property routine.
@@ -5546,7 +5547,7 @@ The syntax used for grammar definition is:
 Now, what does that mean?
 Here are some examples from the library grammar file *verblib.g*:
 
-// @NOTE: Code pasted from actual library source:
+// @NOTE: Code below was pasted from HUGO LIBRARY v3.1.03.2 sources:
 [source,hugo]
 ---------------------------------------------------------------------------
 verb "get", "step"
@@ -11527,9 +11528,10 @@ The first two places to start inspecting how the Hugo compiler writes a *.HEX* f
 [[sec_15-1]]
 == Tokens
 
-// @NOTE: 123 tokens | 5 tokens x col = 2 empty cells
+// @NOTE: There are 123 tokens -> 5 tokens x table row -> 2 empty cells
 
-// @FOOTNOTE: Two footnotes inside CSV file (1 and 2 = fn1).
+// @FOOTNOTE: There are two footnotes inside CSV file (fn1, fn2 -> 67, 68)
+//            both identical (fn2 -> fn1).
 
 [cols=">2m,<8m,>2m,<8m,>2m,<8m,>2m,<8m,>2m,<8m",format=csv,stripes=even]
 |===============================================================================

@@ -732,7 +732,7 @@ asdf#set DEBUG
 
 Now, when you compile, you'll see:
 
-// @NOTE: Output below was actually generated via Hugo Compiler!
+// @NOTE: Output below was re-generated using HUGO COMPILER v3.1.03.
 [literal, role="cmd"]
 ................................................................................
 test.hug:12:  Error:  Unknown compiler directive:  asdf
@@ -755,11 +755,12 @@ to the start of *test.hug*.
 Compile again, and you'll see this time a whole bunch of compiler errors.
 Most importantly are the first couple, which look something like:
 
-// @NOTE: Text below was compared against output generated via Hugo Compiler!
-//        (got "test.hug:610:" instead of "691", but the rest is the same)
+// @NOTE: The output text below was replaced with real output generated using
+//        HUGO COMPILER v3.1.03 and HUGO LIBRARY v3.1.03.2.
+//        (got "test.hug:610:" instead of "691", but the rest was identical)
 [literal, role="cmd"]
 ................................................................................
-test.hug:691:  Error:  Maximum of 50 objects exceeded
+test.hug:610:  Error:  Maximum of 50 objects exceeded
 ................................................................................
 
 [NOTE]

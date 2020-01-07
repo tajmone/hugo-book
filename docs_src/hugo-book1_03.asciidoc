@@ -820,7 +820,7 @@ object mysuitcase "big green suitcase"
 Based on the parser's rules for object identification, the suitcase object may now be referred to by the player as "`big green suitcase`", "`big case`", or "`green suitcase`" among other combinations.
 Even "`big green`" and "`suit`" may be valid, provided that these don't also refer to other objects within valid scope such as "`a big green apple`" or "`your suit jacket`".
 
-// @NOTE: Admonition block arbitrarily added by editor:
+// @NOTE: Arbitrarily converted to Admonition block by @tajmone:
 
 [NOTE]
 ================================================================================
