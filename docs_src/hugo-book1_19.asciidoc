@@ -16,8 +16,8 @@ with a mirror at
 link:https://mirror.ifarchive.org[_**https://mirror.ifarchive.org**_^,title="Visit the IF Archive mirror"].
 
 
-// @EDITED DEAD LINKS: (undocumented)
-//      Links updated to current URLs at Google Groups:
+// @EDITED DEAD LINKS:
+//    Links updated to point to current URLs at Google Groups:
 Two newsgroups serve as the hubs of the interactive fiction community:
 link:++https://groups.google.com/forum/#!forum/rec.arts.int-fiction++[_**rec.arts.int-fiction**_^,title="Visit rec.arts.int-fiction at Google Groups"]
 where the focus is on writing games, and
@@ -26,9 +26,8 @@ which talks about playing them.
 
 // @NOTE: Neither the Developers Laboratory nor the Future Boy! Forum exist
 //        any longer, although the page is still there.
-//        Should ask Kent to edit the text.
 // @NOTE: The actual link skips the Flash intro page, due to Flash being no
-//        longer supported in browsers!
+//        longer supported in browsers.
 The *Developers Laboratory* at the _Future Boy!_ Forum
 (link:https://www.generalcoffee.com/futureboy/about.html[_**https://www.generalcoffee.com/futureboy**_^,title="Visit Future Boy! website"])
 provides a place for Hugo programming discussion.

@@ -29,9 +29,9 @@ To distinguish them, they're generally printed in lowercase, whereas program-def
 However, those versed at all in such calculations will notice that if such a value was treated as an absolute address, then any addressable executable code would be limited to 64K in size (65536 bytes, the maximum size of an unsigned 16-bit integer). \
 Such is not the case, since the routine address is actually an indexed representation of the absolute address, allowing Hugo games to far exceed any such limit in their size of executable code.]
 
-// @EDITED XREF: (undocumented)
-//  Changed "The section Sec. 4.5, “Operators and Assignments” goes into ..."
-//     -->  "Sec. 4.5, “Operators and Assignments” goes into ..."
+// @EDITED XREF:
+//    Changed "The section Sec. 4.5, “Operators and Assignments” goes into ..."
+//    to -->  "Sec. 4.5, “Operators and Assignments” goes into ..."
 
 // @XREF: "4.5. Operators and Assignments" (in footnote!)
 :fn5: footnote:[xref:sec_4-5[] goes into greater detail on assigning values to variables.]

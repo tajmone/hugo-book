@@ -11,7 +11,7 @@ This document lists all the contents changes that theAsciiDoc edition has introd
 
 - [Introduction](#introduction)
     - [Text Corrections](#text-corrections)
-    - [Aesthetic Changes](#aesthetic-changes)
+    - [Aesthetic and Functional Changes](#aesthetic-and-functional-changes)
     - [Library Code Updates](#library-code-updates)
 - [Changes List](#changes-list)
     - [Book I](#book-i)
@@ -64,9 +64,21 @@ These problems were very few in number, and most likely due to editing accidents
 In any case, all significant changes to the original text have been annotated in this document, so that end users can look them up and compare the with the [latest PDF version of _The Hugo Book_ deposited on the IF Archive].
 Just bare in mind that the Word document from which the AsciiDoc version was derived might contain some text updates by the original author that were never published.
 
-## Aesthetic Changes
+## Aesthetic and Functional Changes
 
 The switch for Word to AsciiDoc called for some aesthetic adaptations — e.g. moving comments within parentheses to admonition blocks — which are more inline with the overall AsciiDoc philosophy on how documents should be organized in order to maximize fruition across different formats and media, and to allow end users full control over customization of the look and feel of the various parts of a document.
+
+Aesthetic changes include resorting to colour and bigger font sizes to highlight key elements in lists or tables, and similar visual enhancements that can be easily controlled (and even suppressed, if so desired) via custom stylesheets or templates.
+
+For the sake of better game transcripts emulation, in some places inline transcripts where substituted with block elements, which also required removing surrounding quotes.
+The rationale for this was that using _ad hoc_ styled for transcripts examples would have a higher visual impact (especially on the HTML document, which uses colours) and simplify quick reading through chapters and finding required references.
+
+The text of cross references was also slightly adapted to better fit the AsciiDoc model.
+Occurrences like "The section Sec. 4.5" or "Section Sec. 4.5" were all adapted to "Sec. 4.5", in order to fit a standard cross reference model.
+
+Dead links in the original book were fixed wherever possible, pointing either to the new URL where these resources are currently hosted, or to their archived copy on Wayback Machine in case of no longer available websites and services.
+The original URLs were kept in the text, for the sake of historical preservation, but clicking on them redirects to their updated URL of destination.
+
 None of these changes disrupt the original contents of the book; and I believe they serve well the original author intentions.
 
 ## Library Code Updates

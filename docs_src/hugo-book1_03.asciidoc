@@ -105,7 +105,7 @@ Usually the latter is used for system objects or classes (see <<sec_3-5>>) that 
 ================================================================================
 The compiler automatically creates an object called `display` as the last-defined object if no other object named `display` is defined by the program (or the library).
 The display object can be used to get information about the engine's output state and capabilities.
-// @EDITED XREF: "See section Sec. 11.1" -> "See Sec. 11.1" (undocumented)
+// @EDITED XREF: "See section Sec. 11.1" -> "See Sec. 11.1"
 // @XREF: "11.1. The Display Object"
 See <<sec_11-1>>.
 ================================================================================

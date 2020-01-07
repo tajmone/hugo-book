@@ -695,9 +695,9 @@ To distinguish them, they're generally printed in lowercase, whereas program-def
 However, those versed at all in such calculations will notice that if such a value was treated as an absolute address, then any addressable executable code would be limited to 64K in size (65536 bytes, the maximum size of an unsigned 16-bit integer). \
 Such is not the case, since the routine address is actually an indexed representation of the absolute address, allowing Hugo games to far exceed any such limit in their size of executable code.]
 
-// @EDITED XREF: (undocumented)
-//  Changed "The section Sec. 4.5, “Operators and Assignments” goes into ..."
-//     -->  "Sec. 4.5, “Operators and Assignments” goes into ..."
+// @EDITED XREF:
+//    Changed "The section Sec. 4.5, “Operators and Assignments” goes into ..."
+//    to -->  "Sec. 4.5, “Operators and Assignments” goes into ..."
 
 // @XREF: "4.5. Operators and Assignments" (in footnote!)
 :fn5: footnote:[xref:sec_4-5[] goes into greater detail on assigning values to variables.]
@@ -1545,7 +1545,7 @@ Usually the latter is used for system objects or classes (see <<sec_3-5>>) that 
 ================================================================================
 The compiler automatically creates an object called `display` as the last-defined object if no other object named `display` is defined by the program (or the library).
 The display object can be used to get information about the engine's output state and capabilities.
-// @EDITED XREF: "See section Sec. 11.1" -> "See Sec. 11.1" (undocumented)
+// @EDITED XREF: "See section Sec. 11.1" -> "See Sec. 11.1"
 // @XREF: "11.1. The Display Object"
 See <<sec_11-1>>.
 ================================================================================
@@ -4338,8 +4338,9 @@ TestRoutine(mysuitcase)
 
 will (assuming the `mysuitcase` object as been defined as previously illustrated) print
 
-// @EDITED PUNCTUATION: (undocumented)
-// Removed enclosing "", to emulate transcript.
+// @EDITED PUNCTUATION:
+//    Removed enclosing quotes ("") to emulate a real transcript.
+
 [example,role="gametranscript"]
 The big green suitcase has a size of 25.
 
@@ -4523,8 +4524,9 @@ In the first case, an attempt on the part of the player to move north would resu
 In the second case, a custom invalid-move message would be displayed.
 In the third case, the custom invalid-move message would be displayed, but then the library would continue as if it had not found a `n_to` property for `<object>`, and it would print the standard invalid-move message (without a newline, thanks to the semicolon):
 
-// @EDITED PUNCTUATION: (undocumented)
-// Removed enclosing "", to emulate transcript.
+// @EDITED PUNCTUATION:
+//    Removed enclosing quotes ("") to emulate a real transcript.
+
 [example,role="gametranscript"]
 The office door is locked.
 You can't go that way.
@@ -5786,9 +5788,9 @@ All characters in an input line are converted to lowercase (except those inside 
 
 The next step is to process the four types of special "`words`" which may be defined in the source code.
 
-// @EDITED STYLES: (undocumented)
-//      Added extra [.big.red] styles to the four special words, to make them
-//      stand out more.
+// @EDITED STYLES:
+//    Added extra [.big.red] styles to the four special words, to make them
+//    stand out more.
 
 [.big.red]#_Removals_# are the simplest.
 These are simply words that are to be automatically removed from any input line, and are generally limited to words such as "`a`" and "`the`" which would, generally speaking, only make grammar matching more complicated and difficult.
@@ -6528,8 +6530,8 @@ to something along the lines of
 
 first copy the `ParseError` routine from *hugolib.h* to the game's source, and change, in the copied `ParseError`,
 
-// @EDITED CODE HUGO LIB: (undocumented)
-// Changed "object" into "obj", to match current "hugolib.h" code!
+// @EDITED CODE HUGO LIB:
+//    Changed "object" into "obj", to match current "hugolib.h" code!
 [source,hugo]
 routine ParseError(errornumber, obj)
 
@@ -11257,8 +11259,8 @@ with a mirror at
 link:https://mirror.ifarchive.org[_**https://mirror.ifarchive.org**_^,title="Visit the IF Archive mirror"].
 
 
-// @EDITED DEAD LINKS: (undocumented)
-//      Links updated to current URLs at Google Groups:
+// @EDITED DEAD LINKS:
+//    Links updated to point to current URLs at Google Groups:
 Two newsgroups serve as the hubs of the interactive fiction community:
 link:++https://groups.google.com/forum/#!forum/rec.arts.int-fiction++[_**rec.arts.int-fiction**_^,title="Visit rec.arts.int-fiction at Google Groups"]
 where the focus is on writing games, and
@@ -11267,9 +11269,8 @@ which talks about playing them.
 
 // @NOTE: Neither the Developers Laboratory nor the Future Boy! Forum exist
 //        any longer, although the page is still there.
-//        Should ask Kent to edit the text.
 // @NOTE: The actual link skips the Flash intro page, due to Flash being no
-//        longer supported in browsers!
+//        longer supported in browsers.
 The *Developers Laboratory* at the _Future Boy!_ Forum
 (link:https://www.generalcoffee.com/futureboy/about.html[_**https://www.generalcoffee.com/futureboy**_^,title="Visit Future Boy! website"])
 provides a place for Hugo programming discussion.

@@ -113,8 +113,9 @@ TestRoutine(mysuitcase)
 
 will (assuming the `mysuitcase` object as been defined as previously illustrated) print
 
-// @EDITED PUNCTUATION: (undocumented)
-// Removed enclosing "", to emulate transcript.
+// @EDITED PUNCTUATION:
+//    Removed enclosing quotes ("") to emulate a real transcript.
+
 [example,role="gametranscript"]
 The big green suitcase has a size of 25.
 
@@ -298,8 +299,9 @@ In the first case, an attempt on the part of the player to move north would resu
 In the second case, a custom invalid-move message would be displayed.
 In the third case, the custom invalid-move message would be displayed, but then the library would continue as if it had not found a `n_to` property for `<object>`, and it would print the standard invalid-move message (without a newline, thanks to the semicolon):
 
-// @EDITED PUNCTUATION: (undocumented)
-// Removed enclosing "", to emulate transcript.
+// @EDITED PUNCTUATION:
+//    Removed enclosing quotes ("") to emulate a real transcript.
+
 [example,role="gametranscript"]
 The office door is locked.
 You can't go that way.
