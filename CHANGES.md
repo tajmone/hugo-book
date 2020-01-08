@@ -113,7 +113,7 @@ List of changes to Chapter [1. _Introduction_][Ch1].
 
 #### 1.5. _Packing List_
 
-<!-- Issue #28 (approved) ---------------------------------------------------->
+<!-- Issue #28 --------------------------------------------------------------->
 
 In _[§1.5. Packing List]_:
 
@@ -127,7 +127,7 @@ was amended into:
 
 #### 1.10. _Limit Settings_
 
-<!-- Issue #20 (approved) ---------------------------------------------------->
+<!-- Issue #20 --------------------------------------------------------------->
 
 In _[§1.10. Limit Settings]_, the following admonition block:
 
@@ -145,7 +145,7 @@ List of changes to Chapter [2. _A First Look at Hugo_][Ch2].
 
 #### 2.4. _Multiple Lines_
 
-<!-- Issue #17 (approved) ---------------------------------------------------->
+<!-- Issue #17 --------------------------------------------------------------->
 
 In _[§2.4. Multiple Lines]_, inside the tip admonition on how to preserve a double space when splitting a string across multiple lines, the original text:
 
@@ -164,7 +164,7 @@ List of changes to Chapter [4. _Hugo Programming_][Ch4].
 
 #### 4.8. _What Should I Be Able to Do Now?_
 
-<!-- Issue #6 (approved) ----------------------------------------------------->
+<!-- Issue #6  --------------------------------------------------------------->
 
 In _[§4.8. What Should I Be Able to Do Now?]_, the _Mixing Text Styles_ example:
 
@@ -222,7 +222,7 @@ List of changes to Chapter [5. _Routines and Events_][Ch5].
 
 #### 5.3. _Before And After Routines_
 
-<!-- Issue #14 (approved) ---------------------------------------------------->
+<!-- Issue #14 --------------------------------------------------------------->
 
 In _[§5.3. Before And After Routines]_, toward the section end, there was a paragraph where some ending text went lost:
 
@@ -243,7 +243,7 @@ List of changes to Chapter [9. _The Game Loop_][Ch9].
 
 #### 9.2. _What Should I Be Able to Do Now?_
 
-<!-- Issue #38 (approved) ---------------------------------------------------->
+<!-- Issue #38 --------------------------------------------------------------->
 
 In _[§9.2. What Should I Be Able to Do Now?]_, the following code:
 
@@ -274,7 +274,7 @@ List of changes to Chapter [10. _Using the Object Library_][Ch10].
 
 #### 10.5. _Doors_
 
-<!-- Issue #19 (approved) ---------------------------------------------------->
+<!-- Issue #19 --------------------------------------------------------------->
 
 In _[§10.5. Doors]_:
 
@@ -289,7 +289,7 @@ In _[§10.5. Doors]_:
 
 #### 10.6. _Vehicles_
 
-<!-- Issue #18 (approved) ---------------------------------------------------->
+<!-- Issue #18 --------------------------------------------------------------->
 
 In _[§10.6. Vehicles]_, the accidentally damaged sentence:
 
@@ -304,7 +304,7 @@ was fixed by Kent Tessman to:
 
 -------------------------------------------------------------------------------
 
-<!-- Issue #30 (approved) ---------------------------------------------------->
+<!-- Issue #30 --------------------------------------------------------------->
 
 In _[§10.6. Vehicles]_, the sentence:
 
@@ -326,7 +326,7 @@ List of changes to Chapter [12. _Resources_][Ch12].
 
 #### 12.2. _Pictures_
 
-<!-- Issue #36 (pending approval) -------------------------------------------->
+<!-- Issue #36 --------------------------------------------------------------->
 
 In _[§12.2. Pictures]_, the syntax definition:
 
@@ -352,7 +352,7 @@ PictureinText("<picture>", <width>, <height>[, <preserve>])
 
 #### 12.3. _Sound and Music_
 
-<!-- Issue #36 (pending approval) -------------------------------------------->
+<!-- Issue #36 --------------------------------------------------------------->
 
 In _[§12.3. Sound and Music]_, the syntax definition:
 
@@ -378,7 +378,7 @@ List of changes to Appendix [A. _Summary of Keywords and Commands_][AppA].
 
 ---
 
-<!-- Issue #27 (approved) ---------------------------------------------------->
+<!-- Issue #27 --------------------------------------------------------------->
 
 In the definition of `color`, the cross reference to a specific page number:
 
@@ -397,7 +397,7 @@ This was necessary because not all output formats have page numbers (HTML docume
 
 ---
 
-<!-- Issue #28 (pending approval) -------------------------------------------->
+<!-- Issue #28 --------------------------------------------------------------->
 
 In the definition of `print`, after the `print <output>` syntax:
 

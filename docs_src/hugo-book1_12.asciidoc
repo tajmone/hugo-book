@@ -127,8 +127,8 @@ If the picture is not found or a recoverable error occurs during loading, normal
 
 *resource.h* provides a couple of useful routines for managing graphics:
 
-// @EDITED CODE: (documented & waiting approval: Issue #36)
-//  Parameters enclosed within angular brackets for code consistency.
+// @EDITED CODE: (Issue #36)
+//    Parameters enclosed within angular brackets for code consistency.
 
 [literal, role="hugosyntax"]
 .................................................................
@@ -177,9 +177,9 @@ music 0
 
 *resource.h* provides a pair of wrapper functions to manage playing of audio resources:
 
-// @EDITED CODE: (documented & waiting approval: Issue #36)
-//  Parameters enclosed within angular brackets for code consistency.
-//  Addde missing <volume> parameter.
+// @EDITED CODE: (Issue #36)
+//    Parameters enclosed within angular brackets for code consistency.
+//    Addded missing <volume> parameter.
 
 [literal, role="hugosyntax"]
 ....................................................................
