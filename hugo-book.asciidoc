@@ -1,6 +1,6 @@
 = The Hugo Book
 Kent Tessman <general@generalcoffee.com>
-v1, 2018-10-04: Draft 132 -- Porting to AsciiDoc
+v1, 2018-10-04: Draft 133 -- Porting to AsciiDoc
 :lang: en
 :doctype: book
 // TOC Settings for GitHub previewing (override via CLI):
@@ -45,6 +45,12 @@ If you want to contribute to this document, edit those source files instead.
 // *    DOCUMENT PREAMBLE    *
 // ***************************
 // Show document info and AsciiDoc conversion version and date...
+// *****************************************************************************
+// *                                                                           *
+// *                          Hugo Book -- Preamble                            *
+// *                                                                           *
+// *****************************************************************************
+
 // -----------------------------------------------------------------------------
 // The Hugo Book
 // Hugo: An Interactive Fiction Design System
@@ -52,6 +58,11 @@ If you want to contribute to this document, edit those source files instead.
 // First Edition
 // -----------------------------------------------------------------------------
 
+AsciiDoc port of _The Hugo Book_, written by Kent Tessman, 2004.
+
+Released under
+link:https://creativecommons.org/licenses/by-nc-sa/4.0/[CC BY-NC-SA 4.0^,title="View the CC BY-NC-SA 4.0 License at Creative Commons"]
+license with explicit permission by Kent Tessman.
 
 .About the Author
 --
@@ -67,6 +78,12 @@ Toronto, Canada
 // ******************
 // *    COLOPHON    *
 // ******************
+// ******************************************************************************
+// *                                                                            *
+// *                           Hugo Book -- Colophon                            *
+// *                                                                            *
+// ******************************************************************************
+//
 [colophon]
 = Colophon
 
@@ -75,17 +92,7 @@ Hugo: An Interactive Fiction Design System
 
 Copyright (C) 2004 by Kent Tessman +
 The General Coffee Company Film Productions +
-www.generalcoffee.com
-
-All rights reserved.
-No part of this book may be used or reproduced in any form or by any means, or stored in a database or retrieval system, without prior written permission of the publisher except in the case of brief quotations embodied in critical articles and reviews.
-
-*Warning and Disclaimer*
-
-This book is sold as is, without warranty of any kind, either express or implied.
-While every precaution has been taken in the preparation of this book, neither the author nor the publisher assumes any responsibility for errors or omissions.
-Neither is any liability assumed for damages resulting from the use of the information or instructions contained herein.
-It is further stated that neither the author nor the publisher is responsible for any damage or loss to any data or equipment that results directly or indirectly from the use of this book.
+link:https://www.generalcoffee.com[www.generalcoffee.com^]
 
 _First Edition_
 
@@ -7502,8 +7509,8 @@ If the picture is not found or a recoverable error occurs during loading, normal
 
 *resource.h* provides a couple of useful routines for managing graphics:
 
-// @EDITED CODE: (documented & waiting approval: Issue #36)
-//  Parameters enclosed within angular brackets for code consistency.
+// @EDITED CODE: (Issue #36)
+//    Parameters enclosed within angular brackets for code consistency.
 
 [literal, role="hugosyntax"]
 .................................................................
@@ -7552,9 +7559,9 @@ music 0
 
 *resource.h* provides a pair of wrapper functions to manage playing of audio resources:
 
-// @EDITED CODE: (documented & waiting approval: Issue #36)
-//  Parameters enclosed within angular brackets for code consistency.
-//  Addde missing <volume> parameter.
+// @EDITED CODE: (Issue #36)
+//    Parameters enclosed within angular brackets for code consistency.
+//    Addded missing <volume> parameter.
 
 [literal, role="hugosyntax"]
 ....................................................................
@@ -8372,8 +8379,8 @@ s| Syntax: a|
 print <output>
 ............................
 
-// @EDITED TYPO: (documented & waiting approval: Issue #28)
-//  "both TEST strings" --> "both TEXT strings"
+// @EDITED TYPO: (Issue #28)
+//    "both TEST strings" --> "both TEXT strings"
 where `<output>` can consist of both text strings enclosed in quotation marks (`"..."`), and values representing dictionary addresses, such as object names.
 Separate components of `<output>` are separated by a semicolon (`;`).
 Each component may also be preceded by a modifier such as `capital`, `hex`, or `number`.

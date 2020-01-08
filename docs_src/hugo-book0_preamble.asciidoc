@@ -1,3 +1,9 @@
+// *****************************************************************************
+// *                                                                           *
+// *                          Hugo Book -- Preamble                            *
+// *                                                                           *
+// *****************************************************************************
+
 // -----------------------------------------------------------------------------
 // The Hugo Book
 // Hugo: An Interactive Fiction Design System
@@ -5,6 +11,11 @@
 // First Edition
 // -----------------------------------------------------------------------------
 
+AsciiDoc port of _The Hugo Book_, written by Kent Tessman, 2004.
+
+Released under
+link:https://creativecommons.org/licenses/by-nc-sa/4.0/[CC BY-NC-SA 4.0^,title="View the CC BY-NC-SA 4.0 License at Creative Commons"]
+license with explicit permission by Kent Tessman.
 
 .About the Author
 --
