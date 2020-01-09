@@ -583,7 +583,7 @@ div.literalblock.hugosyntax div.content pre > sup.footnote a {
 <span id="email" class="email"><a href="mailto:general@generalcoffee.com">general@generalcoffee.com</a></span><br>
 <span id="revnumber">version 1,</span>
 <span id="revdate">2018-10-04</span>
-<br><span id="revremark">Draft 133 -- Porting to AsciiDoc</span>
+<br><span id="revremark">Draft 134 -- Porting to AsciiDoc</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -862,7 +862,7 @@ You&#8217;ll need to make sure to have these before you get started; a good star
 <a href="https://www.generalcoffee.com/hugo" title="Visit Hugo website" target="_blank" rel="noopener"><em>https://www.generalcoffee.com/hugo</em></a>.</p>
 </div>
 <div class="paragraph">
-<p><span class="big"><strong>Executable package.</strong></span>
+<p><span class="big red"><strong>Executable package.</strong></span>
 You&#8217;ll need, first and foremost, a version of Hugo compiled for your particular computer system, which will allow you to run existing Hugo programs, as well as compile and run your own.
 Usually the package itself is named something like:</p>
 </div>
@@ -949,7 +949,7 @@ To develop and compile your own games, the Hugo Compiler is necessary.
 The Hugo Debugger is a useful and powerful tool, but it is not essential for Hugo development.</p>
 </div>
 <div class="paragraph">
-<p><span class="big"><strong>Library package.</strong></span>
+<p><span class="big red"><strong>Library package.</strong></span>
 You may be relieved to learn that you don&#8217;t have to write every last part of a Hugo game yourself.
 In fact, much of the basic infrastructure is provided by the Hugo Library, a set of existing Hugo source code files that you include in your game to manage the game world.
 Using the Hugo Library, you can easily create a small game that incorporates the basic behavior of a standard Hugo game.
@@ -1062,7 +1062,7 @@ verbstub.g
 </table>
 </div>
 <div class="paragraph">
-<p><span class="big"><strong>Sources.</strong></span>
+<p><span class="big red"><strong>Sources.</strong></span>
 It&#8217;s probably a good idea as you delve into Hugo programming to have some existing source code to look at.
 <strong>sample.hug</strong> is a valuable resource to have handy since it contains examples of most aspects of Hugo programming.
 Additionally, you&#8217;re going to want to download <strong>shell.hug</strong>, which provides the very bare bones of a Hugo game for you to start building on:</p>
@@ -1103,7 +1103,7 @@ hugolib.hug
 </table>
 </div>
 <div class="paragraph">
-<p><span class="big"><strong>Extras.</strong></span>
+<p><span class="big red"><strong>Extras.</strong></span>
 The last essential remaining piece you&#8217;ll need to begin Hugo development in earnest is a <em>text editor</em> of some sort.
 This is what you&#8217;ll use to edit the Hugo source files that you&#8217;ll write and ultimately compile into working Hugo programs.
 On Windows or Macintosh you could use the pre-packaged Notepad or SimpleText (or TextEdit on Mac OS X) applications, respectively, but it&#8217;s really not recommended: there are far better inexpensive or even freeware editors available (and once you get deeper into programming, you&#8217;ll realize that the one sure investment you can make is an editor you&#8217;re comfortable with).
@@ -10505,7 +10505,7 @@ In combination with the <code>repeat</code> token, this is useful for creating b
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big">and</span></code></p></td>
+<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big red">and</span></code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" rowspan="3"></td>
@@ -10532,7 +10532,7 @@ In combination with the <code>repeat</code> token, this is useful for creating b
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big">anything</span></code></p></td>
+<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big red">anything</span></code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"></td>
@@ -10542,7 +10542,7 @@ In combination with the <code>repeat</code> token, this is useful for creating b
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big">array</span></code></p></td>
+<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big red">array</span></code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" rowspan="2"></td>
@@ -10563,7 +10563,7 @@ In combination with the <code>repeat</code> token, this is useful for creating b
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big">break</span></code></p></td>
+<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big red">break</span></code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" rowspan="2"></td>
@@ -10593,7 +10593,7 @@ In combination with the <code>repeat</code> token, this is useful for creating b
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big">call</span></code></p></td>
+<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big red">call</span></code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" rowspan="3"></td>
@@ -10628,7 +10628,7 @@ In combination with the <code>repeat</code> token, this is useful for creating b
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big">capital</span></code></p></td>
+<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big red">capital</span></code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" rowspan="2"></td>
@@ -10649,7 +10649,7 @@ In combination with the <code>repeat</code> token, this is useful for creating b
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big">case</span></code></p></td>
+<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big red">case</span></code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" rowspan="2"></td>
@@ -10674,7 +10674,7 @@ In combination with the <code>repeat</code> token, this is useful for creating b
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big">child</span></code></p></td>
+<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big red">child</span></code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" rowspan="2"></td>
@@ -10695,7 +10695,7 @@ In combination with the <code>repeat</code> token, this is useful for creating b
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big">children</span></code></p></td>
+<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big red">children</span></code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" rowspan="2"></td>
@@ -10716,7 +10716,7 @@ In combination with the <code>repeat</code> token, this is useful for creating b
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big">cls</span></code></p></td>
+<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big red">cls</span></code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" rowspan="2"></td>
@@ -10737,7 +10737,7 @@ In combination with the <code>repeat</code> token, this is useful for creating b
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big">color (colour)</span></code></p></td>
+<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big red">color (colour)</span></code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" rowspan="3"></td>
@@ -10856,7 +10856,7 @@ In combination with the <code>repeat</code> token, this is useful for creating b
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big">dict</span></code></p></td>
+<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big red">dict</span></code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" rowspan="2"></td>
@@ -10893,7 +10893,7 @@ x = dict(parse$, &lt;maxlen&gt;)</pre>
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big">do</span></code></p></td>
+<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big red">do</span></code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" rowspan="2"></td>
@@ -10918,7 +10918,7 @@ while &lt;expr&gt;</pre>
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big">elder</span></code></p></td>
+<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big red">elder</span></code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" rowspan="2"></td>
@@ -10940,14 +10940,14 @@ The reverse of <code>sibling</code>.</p>
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big">eldest</span></code></p></td>
+<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big red">eldest</span></code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"></td>
 <td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock">Same as <code>child</code>.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big">else</span></code></p></td>
+<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big red">else</span></code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" rowspan="2"></td>
@@ -10971,7 +10971,7 @@ else
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big">elseif</span></code></p></td>
+<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big red">elseif</span></code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" rowspan="2"></td>
@@ -10997,7 +10997,7 @@ elseif &lt;condition3&gt;
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big">false</span></code></p></td>
+<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big red">false</span></code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"></td>
@@ -11007,7 +11007,7 @@ elseif &lt;condition3&gt;
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big">for</span></code></p></td>
+<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big red">for</span></code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" rowspan="2"></td>
@@ -11043,7 +11043,7 @@ The loop will execute as long as <code>&lt;test&gt;</code> holds true.</p>
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big">held</span></code></p></td>
+<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big red">held</span></code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"></td>
@@ -11053,7 +11053,7 @@ The loop will execute as long as <code>&lt;test&gt;</code> holds true.</p>
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big">hex</span></code></p></td>
+<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big red">hex</span></code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" rowspan="2"></td>
@@ -11074,7 +11074,7 @@ The loop will execute as long as <code>&lt;test&gt;</code> holds true.</p>
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big">if</span></code></p></td>
+<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big red">if</span></code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" rowspan="2"></td>
@@ -11096,7 +11096,7 @@ The loop will execute as long as <code>&lt;test&gt;</code> holds true.</p>
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big">in</span></code></p></td>
+<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big red">in</span></code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" rowspan="2"></td>
@@ -11129,7 +11129,7 @@ When used in an expression, returns true if the object is in the specified paren
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big">input</span></code></p></td>
+<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big red">input</span></code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" rowspan="2"></td>
@@ -11151,7 +11151,7 @@ Unrecognized words are given a value of 0.</p>
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big">is</span></code></p></td>
+<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big red">is</span></code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" rowspan="4"></td>
@@ -11186,7 +11186,7 @@ Otherwise, it returns false.</p>
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big">jump</span></code></p></td>
+<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big red">jump</span></code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" rowspan="2"></td>
@@ -11215,7 +11215,7 @@ Otherwise, it returns false.</p>
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big">local</span></code></p></td>
+<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big red">local</span></code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" rowspan="2"></td>
@@ -11236,7 +11236,7 @@ Otherwise, it returns false.</p>
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big">locate</span></code></p></td>
+<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big red">locate</span></code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" rowspan="3"></td>
@@ -11264,7 +11264,7 @@ The cursor position is calculated in fixed-width character coordinates.</p>
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big">move</span></code></p></td>
+<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big red">move</span></code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" rowspan="2"></td>
@@ -11285,7 +11285,7 @@ The cursor position is calculated in fixed-width character coordinates.</p>
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big">multi</span></code></p></td>
+<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big red">multi</span></code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"></td>
@@ -11295,7 +11295,7 @@ The cursor position is calculated in fixed-width character coordinates.</p>
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big">multiheld</span></code></p></td>
+<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big red">multiheld</span></code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"></td>
@@ -11305,7 +11305,7 @@ The cursor position is calculated in fixed-width character coordinates.</p>
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big">multinotheld</span></code></p></td>
+<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big red">multinotheld</span></code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"></td>
@@ -11315,7 +11315,7 @@ The cursor position is calculated in fixed-width character coordinates.</p>
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big">music</span></code></p></td>
+<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big red">music</span></code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" rowspan="2"></td>
@@ -11339,7 +11339,7 @@ If the <code>repeat</code> token is used, the song continues to loop until eithe
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big">nearby</span></code></p></td>
+<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big red">nearby</span></code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" rowspan="2"></td>
@@ -11368,7 +11368,7 @@ If the <code>repeat</code> token is used, the song continues to loop until eithe
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big">newline</span></code></p></td>
+<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big red">newline</span></code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" rowspan="2"></td>
@@ -11389,7 +11389,7 @@ If the <code>repeat</code> token is used, the song continues to loop until eithe
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big">not</span></code></p></td>
+<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big red">not</span></code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" rowspan="3"></td>
@@ -11425,7 +11425,7 @@ As part of an expression, it will return true only if <code>&lt;object&gt;</code
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big">notheld</span></code></p></td>
+<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big red">notheld</span></code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"></td>
@@ -11435,7 +11435,7 @@ As part of an expression, it will return true only if <code>&lt;object&gt;</code
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big">number</span></code></p></td>
+<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big red">number</span></code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" rowspan="2"></td>
@@ -11462,7 +11462,7 @@ As part of an expression, it will return true only if <code>&lt;object&gt;</code
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big">object</span></code></p></td>
+<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big red">object</span></code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"></td>
@@ -11475,7 +11475,7 @@ As part of an expression, it will return true only if <code>&lt;object&gt;</code
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big">or</span></code></p></td>
+<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big red">or</span></code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" rowspan="3"></td>
@@ -11502,7 +11502,7 @@ As part of an expression, it will return true only if <code>&lt;object&gt;</code
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big">parent</span></code></p></td>
+<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big red">parent</span></code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" rowspan="5"></td>
@@ -11535,7 +11535,7 @@ As part of an expression, it will return true only if <code>&lt;object&gt;</code
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big">parse</span>$</code></p></td>
+<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big red">parse</span>$</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"></td>
@@ -11545,7 +11545,7 @@ As part of an expression, it will return true only if <code>&lt;object&gt;</code
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big">pause</span></code></p></td>
+<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big red">pause</span></code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"></td>
@@ -11556,7 +11556,7 @@ The value of the key is stored in <code>word[0]</code>.</p>
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big">picture</span></code></p></td>
+<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big red">picture</span></code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" rowspan="2"></td>
@@ -11578,7 +11578,7 @@ picture "&lt;picturefile&gt;"</pre>
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big">playback</span></code></p></td>
+<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big red">playback</span></code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" rowspan="3"></td>
@@ -11605,7 +11605,7 @@ picture "&lt;picturefile&gt;"</pre>
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big">print</span></code></p></td>
+<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big red">print</span></code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" rowspan="2"></td>
@@ -11628,7 +11628,7 @@ Each component may also be preceded by a modifier such as <code>capital</code>, 
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big">printchar</span></code></p></td>
+<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big red">printchar</span></code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" rowspan="2"></td>
@@ -11650,7 +11650,7 @@ No newline is printed.</p>
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big">quit</span></code></p></td>
+<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big red">quit</span></code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" rowspan="2"></td>
@@ -11671,7 +11671,7 @@ No newline is printed.</p>
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big">random</span></code></p></td>
+<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big red">random</span></code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" rowspan="3"></td>
@@ -11698,7 +11698,7 @@ No newline is printed.</p>
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big">readfile</span></code></p></td>
+<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big red">readfile</span></code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" rowspan="2"></td>
@@ -11722,7 +11722,7 @@ No newline is printed.</p>
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big">readval</span></code></p></td>
+<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big red">readval</span></code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" rowspan="3"></td>
@@ -11750,7 +11750,7 @@ Use the <code>FILE_CHECK</code> constant defined in <strong>hugolib.h</strong> t
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big">recordoff</span></code></p></td>
+<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big red">recordoff</span></code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" rowspan="3"></td>
@@ -11777,7 +11777,7 @@ Use the <code>FILE_CHECK</code> constant defined in <strong>hugolib.h</strong> t
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big">recordon</span></code></p></td>
+<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big red">recordon</span></code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" rowspan="3"></td>
@@ -11804,7 +11804,7 @@ Use the <code>FILE_CHECK</code> constant defined in <strong>hugolib.h</strong> t
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big">remove</span></code></p></td>
+<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big red">remove</span></code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" rowspan="2"></td>
@@ -11825,7 +11825,7 @@ Use the <code>FILE_CHECK</code> constant defined in <strong>hugolib.h</strong> t
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big">restart</span></code></p></td>
+<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big red">restart</span></code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" rowspan="4"></td>
@@ -11858,7 +11858,7 @@ Use the <code>FILE_CHECK</code> constant defined in <strong>hugolib.h</strong> t
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big">restore</span></code></p></td>
+<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big red">restore</span></code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" rowspan="3"></td>
@@ -11885,7 +11885,7 @@ Use the <code>FILE_CHECK</code> constant defined in <strong>hugolib.h</strong> t
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big">return</span></code></p></td>
+<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big red">return</span></code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" rowspan="3"></td>
@@ -11912,7 +11912,7 @@ Use the <code>FILE_CHECK</code> constant defined in <strong>hugolib.h</strong> t
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big">run</span></code></p></td>
+<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big red">run</span></code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" rowspan="3"></td>
@@ -11939,7 +11939,7 @@ Use the <code>FILE_CHECK</code> constant defined in <strong>hugolib.h</strong> t
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big">runevents</span></code></p></td>
+<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big red">runevents</span></code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" rowspan="2"></td>
@@ -11960,7 +11960,7 @@ Use the <code>FILE_CHECK</code> constant defined in <strong>hugolib.h</strong> t
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big">save</span></code></p></td>
+<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big red">save</span></code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" rowspan="3"></td>
@@ -11987,7 +11987,7 @@ Use the <code>FILE_CHECK</code> constant defined in <strong>hugolib.h</strong> t
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big">scriptoff</span></code></p></td>
+<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big red">scriptoff</span></code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" rowspan="3"></td>
@@ -12014,7 +12014,7 @@ Use the <code>FILE_CHECK</code> constant defined in <strong>hugolib.h</strong> t
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big">scripton</span></code></p></td>
+<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big red">scripton</span></code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" rowspan="3"></td>
@@ -12041,7 +12041,7 @@ Use the <code>FILE_CHECK</code> constant defined in <strong>hugolib.h</strong> t
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big">select</span></code></p></td>
+<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big red">select</span></code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" rowspan="2"></td>
@@ -12066,7 +12066,7 @@ Use the <code>FILE_CHECK</code> constant defined in <strong>hugolib.h</strong> t
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big">serial</span>$</code></p></td>
+<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big red">serial</span>$</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"></td>
@@ -12076,7 +12076,7 @@ Use the <code>FILE_CHECK</code> constant defined in <strong>hugolib.h</strong> t
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big">sibling</span></code></p></td>
+<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big red">sibling</span></code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" rowspan="2"></td>
@@ -12097,7 +12097,7 @@ Use the <code>FILE_CHECK</code> constant defined in <strong>hugolib.h</strong> t
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big">sound</span></code></p></td>
+<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big red">sound</span></code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" rowspan="2"></td>
@@ -12121,7 +12121,7 @@ If the <code>repeat</code> token is used, the sample continues to loop until eit
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big">string</span></code></p></td>
+<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big red">string</span></code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" rowspan="2"></td>
@@ -12147,7 +12147,7 @@ Returns the length of the string stored in <code>&lt;array&gt;</code>.</p>
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big">system</span></code></p></td>
+<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big red">system</span></code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" rowspan="2"></td>
@@ -12255,7 +12255,7 @@ Labels are defined as a constants in <strong>system.h</strong>.
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big">text</span></code></p></td>
+<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big red">text</span></code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" rowspan="2"></td>
@@ -12269,7 +12269,7 @@ Labels are defined as a constants in <strong>system.h</strong>.
 <td class="tableblock halign-left valign-top"><p class="tableblock">Restores normal printing.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big">to</span></code></p></td>
+<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big red">to</span></code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" rowspan="2"></td>
@@ -12290,7 +12290,7 @@ Labels are defined as a constants in <strong>system.h</strong>.
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big">true</span></code></p></td>
+<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big red">true</span></code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"></td>
@@ -12300,7 +12300,7 @@ Labels are defined as a constants in <strong>system.h</strong>.
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big">undo</span></code></p></td>
+<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big red">undo</span></code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" rowspan="3"></td>
@@ -12327,7 +12327,7 @@ Labels are defined as a constants in <strong>system.h</strong>.
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big">verb</span></code></p></td>
+<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big red">verb</span></code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" rowspan="2"></td>
@@ -12349,7 +12349,7 @@ Upon returning true from the verb routine, <code>Main</code> is called.</p>
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big">while</span></code></p></td>
+<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big red">while</span></code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" rowspan="2"></td>
@@ -12385,7 +12385,7 @@ while &lt;expr&gt;</pre>
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big">window</span></code></p></td>
+<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big red">window</span></code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" rowspan="2"></td>
@@ -12427,7 +12427,7 @@ while &lt;expr&gt;</pre>
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big">writeval</span></code></p></td>
+<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big red">writeval</span></code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" rowspan="2"></td>
@@ -12448,7 +12448,7 @@ while &lt;expr&gt;</pre>
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big">xobject</span></code></p></td>
+<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big red">xobject</span></code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"></td>
@@ -12461,7 +12461,7 @@ while &lt;expr&gt;</pre>
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big">xverb</span></code></p></td>
+<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big red">xverb</span></code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" rowspan="2"></td>
@@ -12483,7 +12483,7 @@ Upon returning from the verb routine, <code>Main</code> is not called.</p>
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big">younger</span></code></p></td>
+<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big red">younger</span></code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"></td>
@@ -12492,7 +12492,7 @@ Upon returning from the verb routine, <code>Main</code> is not called.</p>
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big">youngest</span></code></p></td>
+<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big red">youngest</span></code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" rowspan="2"></td>
