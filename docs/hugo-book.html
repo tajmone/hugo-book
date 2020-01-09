@@ -583,7 +583,7 @@ div.literalblock.hugosyntax div.content pre > sup.footnote a {
 <span id="email" class="email"><a href="mailto:general@generalcoffee.com">general@generalcoffee.com</a></span><br>
 <span id="revnumber">version 1,</span>
 <span id="revdate">2018-10-04</span>
-<br><span id="revremark">Draft 135 -- Porting to AsciiDoc</span>
+<br><span id="revremark">Draft 136 -- Porting to AsciiDoc</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -3398,11 +3398,11 @@ If no default is explicitly declared, it is 0 (or <code>""</code> or the <code>n
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>react_before</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">to allow reaction by an object that is not</p></td>
+<td class="tableblock halign-left valign-middle" rowspan="2"><p class="tableblock">to allow reaction by an object that is not directly
+                      involved in the action</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>react_after</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">directly involved in the action</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>short_desc</code></p></td>
@@ -3584,11 +3584,11 @@ If no default is explicitly declared, it is 0 (or <code>""</code> or the <code>n
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>cursor_column</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">horizontal and vertical position of</p></td>
+<td class="tableblock halign-left valign-middle" rowspan="2"><p class="tableblock">horizontal and vertical position of the cursor in the
+                        current text window</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>cursor_row</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">the cursor in the current text window</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>hasgraphics</code></p></td>
@@ -3596,7 +3596,8 @@ If no default is explicitly declared, it is 0 (or <code>""</code> or the <code>n
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>title_caption</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">dictionary entry giving the full proper name of the program (optional)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">dictionary entry giving the full proper name of the
+                        program (optional)</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>statusline_height</code></p></td>
@@ -12838,7 +12839,7 @@ Upon returning from the verb routine, <code>Main</code> is not called.</p>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>MAX_RANK</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>up to x levels of player ranking</p>
+<p>up to <code>x</code> levels of player ranking</p>
 </div></div></td>
 </tr>
 <tr>
@@ -13357,7 +13358,7 @@ Upon returning from the verb routine, <code>Main</code> is not called.</p>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>exclude_from_all</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>returns true if the object should be excluded from actions such as &#8220;&gt;GET ALL&#8221;</p>
+<p>returns true if the object should be excluded from actions such as &#8220;<strong>&gt;GET ALL</strong>&#8221;</p>
 </div></div></td>
 </tr>
 <tr>
@@ -13381,7 +13382,7 @@ Upon returning from the verb routine, <code>Main</code> is not called.</p>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>initial_desc</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>routine; same as above, but if object has not been moved and an <code>initial_desc</code> exists, it is called in place of short_desc</p>
+<p>routine; same as above, but if object has not been moved and an <code>initial_desc</code> exists, it is called in place of <code>short_desc</code></p>
 </div></div></td>
 </tr>
 <tr>
@@ -13422,20 +13423,17 @@ Upon returning from the verb routine, <code>Main</code> is not called.</p>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>react_before</code></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>to allow reaction by an object that is not</p>
+<td class="tableblock halign-left valign-middle" rowspan="2"><div class="content"><div class="paragraph">
+<p>to allow reaction by an object that is not directly involved in the action</p>
 </div></div></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>react_after</code></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>directly involved in the action</p>
-</div></div></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>short_desc</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>routine; basic &#8220;X is here&#8221; description</p>
+<p>routine; basic &#8220;<strong>X is here</strong>&#8221; description</p>
 </div></div></td>
 </tr>
 <tr>
@@ -13498,7 +13496,7 @@ Upon returning from the verb routine, <code>Main</code> is not called.</p>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>cant_go</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>routine; message instead of the default &#8220;You can&#8217;t go that way.&#8221;</p>
+<p>routine; message instead of the default &#8220;<strong>You can&#8217;t go that way.</strong>&#8221;</p>
 </div></div></td>
 </tr>
 <tr>
@@ -13507,13 +13505,13 @@ Upon returning from the verb routine, <code>Main</code> is not called.</p>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>contains_desc</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>a routine that prints the introduction to a list of child objects, instead of the default &#8220;Inside &lt;object&gt; are &#8230;&#8203;&#8221; or &#8220;&lt;Character&gt; has &#8230;&#8203;&#8221;; <code>contains_desc</code> should always conclude with a semicolon (<code>;</code>) instead of a new line</p>
+<p>a routine that prints the introduction to a list of child objects, instead of the default &#8220;<strong>Inside &lt;object&gt; are &#8230;&#8203;</strong>&#8221; or &#8220;<strong>&lt;Character&gt; has &#8230;&#8203;</strong>&#8221;; <code>contains_desc</code> should always conclude with a semicolon (<code>;</code>) instead of a new line</p>
 </div></div></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>desc_detail</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>a routine that prints a parenthetical detail following an object listing, such as: &#8220;&#160;(which is open)&#8221;; the leading space is expected, as are the parentheses, and the <code>print</code> statement should conclude with a semicolon (<code>;</code>)</p>
+<p>a routine that prints a parenthetical detail following an object listing, such as: &#8220;<strong>&#160;(which is open)</strong>&#8221;; the leading space is expected, as are the parentheses, and the <code>print</code> statement should conclude with a semicolon (<code>;</code>)</p>
 </div></div></td>
 </tr>
 <tr>
@@ -13525,7 +13523,7 @@ Upon returning from the verb routine, <code>Main</code> is not called.</p>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>ignore_response</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>for characters, a routine that runs if the character ignores a player&#8217;s question, request, etc., instead of the default &#8220;X ignores you.&#8221;</p>
+<p>for characters, a routine that runs if the character ignores a player&#8217;s question, request, etc., instead of the default &#8220;<strong>X ignores you.</strong>&#8221;</p>
 </div></div></td>
 </tr>
 <tr>
@@ -13586,15 +13584,12 @@ The proper means of omitting an object from a list is to set the <code>hidden</c
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>cursor_column</code></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>horizontal and vertical position of</p>
+<td class="tableblock halign-left valign-middle" rowspan="2"><div class="content"><div class="paragraph">
+<p>horizontal and vertical position of the cursor in the current text window</p>
 </div></div></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>cursor_row</code></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>the cursor in the current text window</p>
-</div></div></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>hasgraphics</code></p></td>
@@ -13687,7 +13682,7 @@ The proper means of omitting an object from a list is to set the <code>hidden</c
 <div class="paragraph">
 <p>The library file <strong>verblib.h</strong> (included by <strong>hugolib.h</strong>) contains a fairly extensive set of basic actions, each of which takes the form <code>Do&lt;verb&gt;</code>, so that the action for taking an object is <code>DoGet</code>, the action for basic player movement is <code>DoGo</code>, etc.
 Each is called by the engine when a grammar syntax line specifying the particular verb routine is matched.
-The globals object and <code>xobject</code> are set up by the engine, and the routine is called with no parameters.</p>
+The globals <code>object</code> and <code>xobject</code> are set up by the engine, and the routine is called with no parameters.</p>
 </div>
 <div class="paragraph">
 <p>Here is a list of the provided verb routines for action verbs:</p>
@@ -13850,7 +13845,8 @@ The globals object and <code>xobject</code> are set up by the engine, and the ro
 </tbody>
 </table>
 <div class="paragraph">
-<p>The default response for each of these stub routines is a more colorful variation of &#8220;Try something else.&#8221; Any more meaningful response must be incorporated into <code>before</code> property routines.
+<p>The default response for each of these stub routines is a more colorful variation of &#8220;<strong>Try something else.</strong>&#8221;
+Any more meaningful responses must be incorporated into <code>before</code> property routines.
 To use these verbs, set the <code>VERBSTUBS</code> flag before compiling <strong>hugolib.h</strong>.</p>
 </div>
 </div>
@@ -13913,7 +13909,7 @@ Returning false from <code>EndGame</code> terminates the Hugo Engine.</p>
 Returns 2 if the object is visible but not physically accessible.</p>
 </div>
 <div class="paragraph">
-<p>The <code>location</code> argument is 0 during object disambiguation performed by the engine.</p>
+<p>The location argument is 0 during object disambiguation performed by the engine.</p>
 </div>
 <div class="paragraph">
 <p>Also calls: <code>ObjectisKnown</code>, <code>ExcludeFromAll</code></p>
@@ -14011,7 +14007,7 @@ Globals <code>object</code>, <code>xobject</code>, and <code>verbroutine</code> 
 </div>
 </div>
 <div class="paragraph">
-<p>Prints the indefinite article form of the object name, e.g. &#8220;an apple&#8221;</p>
+<p>Prints the indefinite article form of the object name, e.g. &#8220;<strong>an apple</strong>&#8221;</p>
 </div></div></td>
 </tr>
 <tr>
@@ -14025,7 +14021,7 @@ Globals <code>object</code>, <code>xobject</code>, and <code>verbroutine</code> 
 </div>
 </div>
 <div class="paragraph">
-<p>Prints the definite article form of the object name, e.g. &#8220;the apple&#8221;</p>
+<p>Prints the definite article form of the object name, e.g. &#8220;<strong>the apple</strong>&#8221;</p>
 </div></div></td>
 </tr>
 <tr>
@@ -14039,7 +14035,7 @@ Globals <code>object</code>, <code>xobject</code>, and <code>verbroutine</code> 
 </div>
 </div>
 <div class="paragraph">
-<p>Prints the capitalized indefinite article form of the object name, e.g. &#8220;An apple&#8221;</p>
+<p>Prints the capitalized indefinite article form of the object name, e.g. &#8220;<strong>An apple</strong>&#8221;</p>
 </div></div></td>
 </tr>
 <tr>
@@ -14053,7 +14049,7 @@ Globals <code>object</code>, <code>xobject</code>, and <code>verbroutine</code> 
 </div>
 </div>
 <div class="paragraph">
-<p>Prints the capitalized definite article form of the object name, e.g. &#8220;The apple&#8221;</p>
+<p>Prints the capitalized definite article form of the object name, e.g. &#8220;<strong>The apple</strong>&#8221;</p>
 </div></div></td>
 </tr>
 <tr>
@@ -14070,7 +14066,7 @@ Globals <code>object</code>, <code>xobject</code>, and <code>verbroutine</code> 
 <p>where the parameter <code>formal</code> is optional</p>
 </div>
 <div class="paragraph">
-<p>Depending on whether or not the specified object is <code>plural</code> or singular, prints <code>'re</code> or <code>'s</code>, respectively (or <code> are</code> or <code> is</code> if a non-false <code>formal</code> parameter is passed).</p>
+<p>Depending on whether or not the specified object is <code>plural</code> or singular, prints <code>'re</code> or <code>'s</code>, respectively (or <code>&#160;are</code> or <code>&#160;is</code> if a non-false <code>formal</code> parameter is passed).</p>
 </div></div></td>
 </tr>
 <tr>
@@ -14324,7 +14320,7 @@ Including a non-false long parameter will always force a location description.</
 </div>
 </div>
 <div class="paragraph">
-<p>Returns true if, based on the current circumstances (verbroutine, etc.), the supplied <code>object</code> should be excluded from actions using &#8220;all&#8221;&#8201;&#8212;&#8201;such as <code>multi</code>, <code>multiheld</code>, and <code>multinotheld</code> grammar tokens.</p>
+<p>Returns true if, based on the current circumstances (verbroutine, etc.), the supplied <code>object</code> should be excluded from actions using &#8220;<strong>ALL</strong>&#8221;&#8201;&#8212;&#8201;such as <code>multi</code>, <code>multiheld</code>, and <code>multinotheld</code> grammar tokens.</p>
 </div></div></td>
 </tr>
 <tr>
@@ -14385,7 +14381,7 @@ If no argument is passed, no prompt is printed.</p>
 </div>
 </div>
 <div class="paragraph">
-<p>Prints the time in <code>hh:mm</code> format given that <code>counter</code> represents the time in minutes from 12:00 a.m.
+<p>Prints the time in &#8220;<em>hh</em>:<em>mm</em>&#8221; format given that <code>counter</code> represents the time in minutes from 12:00 a.m.
 If the optional <code>military</code> value is given as a true value, the time is printed in 24-hour format.</p>
 </div></div></td>
 </tr>
@@ -14414,7 +14410,7 @@ If the optional <code>military</code> value is given as a true value, the time i
 </div>
 </div>
 <div class="paragraph">
-<p>If the <code>value</code> is in the list of values held in <code>object.property</code>, returns the element number of the (first) property element equal to <code>value</code>; otherwise returns 0.</p>
+<p>If the <code>value</code> is in the list of values held in <code>object.property</code>, returns the element number of the (first) <code>property</code> element equal to <code>value</code>; otherwise returns 0.</p>
 </div></div></td>
 </tr>
 <tr>
@@ -14608,7 +14604,7 @@ If a second true argument is supplied, the word is capitalized.</p>
 </div>
 <div class="paragraph">
 <p>Returns true if the object or one of its visible possessions is providing <code>light</code>.
-If so, it also sets the global <code>light_source</code> the object number of the source.</p>
+If so, it also sets the global <code>light_source</code> to the object number of the source.</p>
 </div></div></td>
 </tr>
 <tr>
@@ -14622,13 +14618,18 @@ If so, it also sets the global <code>light_source</code> the object number of th
 </div>
 </div>
 <div class="paragraph">
-<p>Returns either <code>adjective</code> or <code>noun</code> (i.e., the property number) if the given is either an adjective or noun of the specified object.</p>
+<p>Returns either <code>adjective</code> or <code>noun</code> (i.e., the property number) if the given <code>word</code> is either an adjective or noun of the specified object.</p>
 </div></div></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code><span class="big">PreParse</span></code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>calling form: PreParse</p>
+<p>calling form:</p>
+</div>
+<div class="literalblock hugosyntax">
+<div class="content">
+<pre>PreParse</pre>
+</div>
 </div>
 <div class="paragraph">
 <p>Provided so that, if needed, this routine may be replaced instead of the more extensive library <code>Parse</code> routine.
@@ -14771,7 +14772,7 @@ Returns true if successful, or false if the object was never in scope of the act
 </div>
 <div class="paragraph">
 <p>Prints the short description (<code>short_desc</code>) of the given object, first checking to see if it should run <code>initial_desc</code>, <code>when_open</code>, or <code>when_closed</code>, as appropriate.
-Then, if no <code>short_desc</code> property exists, it prints a default &#8220;X is here.&#8221;</p>
+Then, if no <code>short_desc</code> property exists, it prints a default &#8220;<strong>X is here.</strong>&#8221;</p>
 </div>
 <div class="paragraph">
 <p>Also calls: <code>WhatsIn</code></p>
@@ -14835,7 +14836,7 @@ Returns the number of objects listed.</p>
 </div>
 </div>
 <div class="paragraph">
-<p>Checks to see if the just-received input is &#8220;yes&#8221;, &#8220;y&#8221;, &#8220;no&#8221;, or &#8220;n&#8221;.
+<p>Checks to see if the just-received input is &#8220;<strong>YES</strong>&#8221;, &#8220;<strong>Y</strong>&#8221;, &#8220;<strong>NO</strong>&#8221;, or &#8220;<strong>N</strong>&#8221;.
 If none of the above, it prompts for a yes or no answer.
 Once a valid answer is received, it returns true (if yes) or false (if no).</p>
 </div></div></td>

@@ -1,6 +1,6 @@
 = The Hugo Book
 Kent Tessman <general@generalcoffee.com>
-v1, 2018-10-04: Draft 135 -- Porting to AsciiDoc
+v1, 2018-10-04: Draft 136 -- Porting to AsciiDoc
 :lang: en
 :doctype: book
 // TOC Settings for GitHub previewing (override via CLI):
@@ -2056,8 +2056,11 @@ The list of properties defined in *hugolib.h* is:
 | article      | "`a`", "`an`", "`the`", "`some`", etc.
 | preposition  | "`in`", "`inside`", "`outside of`", etc.
 | pronoun      | appropriate for the object in question
-| react_before | to allow reaction by an object that is not
-| react_after  | directly involved in the action
+
+| react_before .2+.^| to allow reaction by an object that is not directly
+                      involved in the action
+| react_after
+
 | short_desc   | basic "`X is here`" description
 | initial_desc | supersedes `short_desc` (or `long_desc` for locations)
 | long_desc    | detailed description
@@ -2109,15 +2112,17 @@ The following properties are also defined and used exclusively by the display ob
 
 [cols="<10m,<90d",grid=rows,stripes=even]
 |===============================================================================
-| screenwidth       | width of the display, in characters
-| screenheight      | height of the display, in characters
-| linelength        | width of the current text window
-| windowlines       | height of the current text window
-| cursor_column     | horizontal and vertical position of
-| cursor_row        | the cursor in the current text window
-| hasgraphics       | true if the current display is graphics- capable
-| title_caption     | dictionary entry giving the full proper name of the program (optional)
-| statusline_height | of the last-printed status line
+| screenwidth         | width of the display, in characters
+| screenheight        | height of the display, in characters
+| linelength          | width of the current text window
+| windowlines         | height of the current text window
+| cursor_column  .2+.^| horizontal and vertical position of the cursor in the
+                        current text window
+| cursor_row
+| hasgraphics         | true if the current display is graphics- capable
+| title_caption       | dictionary entry giving the full proper name of the
+                        program (optional)
+| statusline_height   | of the last-printed status line
 |===============================================================================
 
 Property names may be aliased similarly to attributes using:
@@ -9073,7 +9078,7 @@ NOTE: `container` and `platform` are generally mutually exclusive
 2+h| Game setup global variables:
 
 | MAX_SCORE     | total possible score
-| MAX_RANK      | up to x levels of player ranking
+| MAX_RANK      | up to `x` levels of player ranking
 | player_person | first (1), second (2), or third (3)
 
 2+h| Formatting/output global variables:
@@ -9220,7 +9225,7 @@ d| "`in`", "`inside`", "`outside of`", etc.{fn1}
 | contains a value representing the capacity of a container or platform
 
 | exclude_from_all
-| returns true if the object should be excluded from actions such as "`>GET ALL`"
+| returns true if the object should be excluded from actions such as "`*>GET ALL*`"
 
 | found_in
 | in case of multiple virtual (not "`physical`") parents, `found_in` may hold one or more object numbers; in this case, an `in <object>` specifier should probably not be included in the object definition, since `found_in` values are unrelated to `<object> in <parent>` relationships
@@ -9232,7 +9237,7 @@ d| "`in`", "`inside`", "`outside of`", etc.{fn1}
 | contains a list of actors or objects to which the object is accessible beyond the use of the object tree or the `found_in` property; generally contains either the player object (or, less commonly, another character) and is set using `PutInScope` or cleared using `RemoveFromScope`
 
 | initial_desc
-| routine; same as above, but if object has not been moved and an `initial_desc` exists, it is called in place of short_desc
+| routine; same as above, but if object has not been moved and an `initial_desc` exists, it is called in place of `short_desc`
 
 | list_contents
 | a routine that overrides the normal contents listing for a room or object; normal listing is only carried out if it returns false
@@ -9249,9 +9254,10 @@ d| "`in`", "`inside`", "`outside of`", etc.{fn1}
 | reach
 | for `enterable` objects such as chairs, vehicles, etc., if the accessibility of objects outside the object in question is limited, `reach` contains a list of the objects which may be accessed
 
-| react_before   | to allow reaction by an object that is not
-| react_after    | directly involved in the action
-| short_desc     | routine; basic "`X is here`" description
+| react_before  .2+.^| to allow reaction by an object that is not directly involved in the action
+| react_after
+
+| short_desc     | routine; basic "`*X is here*`" description
 
 | size
 | for holding/inventory purposes, contains a value representing the size of an individual object
@@ -9277,22 +9283,22 @@ d| "`in`", "`inside`", "`outside of`", etc.{fn1}
 
 2+| {nbsp}
 | cant_go
-| routine; message instead of the default "`You can't go that way.`"
+| routine; message instead of the default "`*You can't go that way.*`"
 
 2+h| For non-room objects only:
 
 | contains_desc
-| a routine that prints the introduction to a list of child objects, instead of the default "`Inside <object> are ...`" or "`<Character> has ...`"; `contains_desc` should always conclude with a semicolon (`;`) instead of a new line
+| a routine that prints the introduction to a list of child objects, instead of the default "`*Inside <object> are ...*`" or "`*<Character> has ...*`"; `contains_desc` should always conclude with a semicolon (`;`) instead of a new line
 
 | desc_detail
-| a routine that prints a parenthetical detail following an object listing, such as: "`{nbsp}(which is open)`"; the leading space is expected, as are the parentheses, and the `print` statement should conclude with a semicolon (`;`)
+| a routine that prints a parenthetical detail following an object listing, such as: "`**{nbsp}(which is open)**`"; the leading space is expected, as are the parentheses, and the `print` statement should conclude with a semicolon (`;`)
 
 | door_to
 | for handling "`**>ENTER <object>**`", holds the object number of the object to which an object enters (where the latter behaves as a door or portal)
 
 
 | ignore_response
-| for characters, a routine that runs if the character ignores a player's question, request, etc., instead of the default "`X ignores you.`"
+| for characters, a routine that runs if the character ignores a player's question, request, etc., instead of the default "`*X ignores you.*`"
 
 | inv_desc
 | a routine that prints a special description when the object is listed as part of the player's inventory; `inv_desc` should conclude with a semicolon (`;`)
@@ -9321,8 +9327,9 @@ The proper means of omitting an object from a list is to set the `hidden` attrib
 
 2+e| Read-only:
 
-| cursor_column | horizontal and vertical position of
-| cursor_row    | the cursor in the current text window
+| cursor_column .2+.^| horizontal and vertical position of the cursor in the current text window
+| cursor_row
+
 | hasgraphics   | true if graphics display is available
 | hasvideo      | true if video playback is available
 | linelength    | width of the current text window
@@ -9355,7 +9362,7 @@ While `screenwidth` through `title_caption` are technically defined by *hugolib.
 
 The library file *verblib.h* (included by *hugolib.h*) contains a fairly extensive set of basic actions, each of which takes the form `Do<verb>`, so that the action for taking an object is `DoGet`, the action for basic player movement is `DoGo`, etc.
 Each is called by the engine when a grammar syntax line specifying the particular verb routine is matched.
-The globals object and `xobject` are set up by the engine, and the routine is called with no parameters.
+The globals `object` and `xobject` are set up by the engine, and the routine is called with no parameters.
 
 Here is a list of the provided verb routines for action verbs:
 
@@ -9467,7 +9474,8 @@ A set of verb stub routines is also available in *verbstub.h*, including the act
 | {blank}
 |===============================================================
 
-The default response for each of these stub routines is a more colorful variation of "`Try something else.`" Any more meaningful response must be incorporated into `before` property routines.
+The default response for each of these stub routines is a more colorful variation of "`*Try something else.*`"
+Any more meaningful responses must be incorporated into `before` property routines.
 To use these verbs, set the `VERBSTUBS` flag before compiling *hugolib.h*.
 
 
@@ -9508,7 +9516,7 @@ FindObject(object, location)
 Returns true (1) if the specified object is available in the specified location, or false (0) if it is not.
 Returns 2 if the object is visible but not physically accessible.
 
-The `location` argument is 0 during object disambiguation performed by the engine.
+The location argument is 0 during object disambiguation performed by the engine.
 
 Also calls: `ObjectisKnown`, `ExcludeFromAll`
 
@@ -9562,7 +9570,11 @@ Globals `object`, `xobject`, and `verbroutine` are set up as in a normal verb ro
 Also calls: `AssignPronoun`
 |===============================================================================
 
+
+
 And the routines for grammatically-correct printing:
+
+
 
 [cols="<2m,<8a",options=grid=rows,stripes=none]
 |===============================================================================
@@ -9575,7 +9587,7 @@ And the routines for grammatically-correct printing:
 [literal, role="hugosyntax"]
 Art(object)
 
-Prints the indefinite article form of the object name, e.g. "`an apple`"
+Prints the indefinite article form of the object name, e.g. "`*an apple*`"
 
 //-----{ The }------------------------------------------------------------------
 
@@ -9585,7 +9597,7 @@ Prints the indefinite article form of the object name, e.g. "`an apple`"
 [literal, role="hugosyntax"]
 The(object)
 
-Prints the definite article form of the object name, e.g. "`the apple`"
+Prints the definite article form of the object name, e.g. "`*the apple*`"
 
 //-----{ CArt }-----------------------------------------------------------------
 
@@ -9595,7 +9607,7 @@ Prints the definite article form of the object name, e.g. "`the apple`"
 [literal, role="hugosyntax"]
 CArt(object)
 
-Prints the capitalized indefinite article form of the object name, e.g. "`An apple`"
+Prints the capitalized indefinite article form of the object name, e.g. "`*An apple*`"
 
 //-----{ CThe }-----------------------------------------------------------------
 
@@ -9605,7 +9617,7 @@ Prints the capitalized indefinite article form of the object name, e.g. "`An app
 [literal, role="hugosyntax"]
 CThe(object)
 
-Prints the capitalized definite article form of the object name, e.g. "`The apple`"
+Prints the capitalized definite article form of the object name, e.g. "`*The apple*`"
 
 //-----{ IsorAre }--------------------------------------------------------------
 
@@ -9619,7 +9631,7 @@ where the parameter `formal` is optional
 
 // @EDITED: Used monospace instead of enclosing in typographical quotes,
 //  becaue it's more readble and less messy.
-Depending on whether or not the specified object is `plural` or singular, prints `+'re+` or `+'s+`, respectively (or `` are`` or `` is`` if a non-false `formal` parameter is passed).
+Depending on whether or not the specified object is `plural` or singular, prints `+'re+` or `+'s+`, respectively (or ``{nbsp}are`` or ``{nbsp}is`` if a non-false `formal` parameter is passed).
 
 //-----{ MatchPlural }----------------------------------------------------------
 
@@ -9798,7 +9810,7 @@ Including a non-false long parameter will always force a location description.
 [literal, role="hugosyntax"]
 ExcludeFromAll(object)
 
-Returns true if, based on the current circumstances (verbroutine, etc.), the supplied `object` should be excluded from actions using "`all`" -- such as `multi`, `multiheld`, and `multinotheld` grammar tokens.
+Returns true if, based on the current circumstances (verbroutine, etc.), the supplied `object` should be excluded from actions using "`*ALL*`" -- such as `multi`, `multiheld`, and `multinotheld` grammar tokens.
 
 //-----{ FindLight }------------------------------------------------------------
 
@@ -9843,7 +9855,7 @@ If no argument is passed, no prompt is printed.
 [literal, role="hugosyntax"]
 HoursMinutes(counter[, military])
 
-Prints the time in `hh:mm` format given that `counter` represents the time in minutes from 12:00 a.m.
+Prints the time in "`__hh__:__mm__`" format given that `counter` represents the time in minutes from 12:00 a.m.
 If the optional `military` value is given as a true value, the time is printed in 24-hour format.
 
 //-----{ Indent }---------------------------------------------------------------
@@ -9864,7 +9876,7 @@ If the `NOINDENT_F` bit is not set in the `FORMAT` mask, `Indent` prints `INDENT
 [literal, role="hugosyntax"]
 InList(object, property, value)
 
-If the `value` is in the list of values held in `object.property`, returns the element number of the (first) property element equal to `value`; otherwise returns 0.
+If the `value` is in the list of values held in `object.property`, returns the element number of the (first) `property` element equal to `value`; otherwise returns 0.
 
 //-----{ InsertWord }-----------------------------------------------------------
 
@@ -9998,7 +10010,7 @@ Returns true if the object is `known` to the player.
 ObjectisLight(object)
 
 Returns true if the object or one of its visible possessions is providing `light`.
-If so, it also sets the global `light_source` the object number of the source.
+If so, it also sets the global `light_source` to the object number of the source.
 
 //-----{ ObjWord }--------------------------------------------------------------
 
@@ -10008,12 +10020,17 @@ If so, it also sets the global `light_source` the object number of the source.
 [literal, role="hugosyntax"]
 ObjWord(word, object)
 
-Returns either `adjective` or `noun` (i.e., the property number) if the given is either an adjective or noun of the specified object.
+// @EDITED TEXT: (undocumented & waiting approval: Issue #47)
+//    Reconstucted missing word: "if the given [`word`] is either"
+Returns either `adjective` or `noun` (i.e., the property number) if the given `word` is either an adjective or noun of the specified object.
 
 //-----{ PreParse }-------------------------------------------------------------
 
 | [.big]#PreParse#
-| calling form: PreParse
+| calling form:
+
+[literal, role="hugosyntax"]
+PreParse
 
 Provided so that, if needed, this routine may be replaced instead of the more extensive library `Parse` routine.
 The default `PreParse` routine defined in the library is empty.
@@ -10114,7 +10131,7 @@ Inserts the specified object in the `word` array in the format:
 ShortDescribe(object)
 
 Prints the short description (`short_desc`) of the given object, first checking to see if it should run `initial_desc`, `when_open`, or `when_closed`, as appropriate.
-Then, if no `short_desc` property exists, it prints a default "`X is here.`"
+Then, if no `short_desc` property exists, it prints a default "`*X is here.*`"
 
 Also calls: `WhatsIn`
 
@@ -10160,7 +10177,7 @@ Also calls: `SpecialDesc`, `ListObjects`
 [literal, role="hugosyntax"]
 YesorNo
 
-Checks to see if the just-received input is "`yes`", "`y`", "`no`", or "`n`".
+Checks to see if the just-received input is "`*YES*`", "`*Y*`", "`*NO*`", or "`*N*`".
 If none of the above, it prompts for a yes or no answer.
 Once a valid answer is received, it returns true (if yes) or false (if no).
 |===============================================================================

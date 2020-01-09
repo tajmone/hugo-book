@@ -620,8 +620,11 @@ The list of properties defined in *hugolib.h* is:
 | article      | "`a`", "`an`", "`the`", "`some`", etc.
 | preposition  | "`in`", "`inside`", "`outside of`", etc.
 | pronoun      | appropriate for the object in question
-| react_before | to allow reaction by an object that is not
-| react_after  | directly involved in the action
+
+| react_before .2+.^| to allow reaction by an object that is not directly
+                      involved in the action
+| react_after
+
 | short_desc   | basic "`X is here`" description
 | initial_desc | supersedes `short_desc` (or `long_desc` for locations)
 | long_desc    | detailed description
@@ -673,15 +676,17 @@ The following properties are also defined and used exclusively by the display ob
 
 [cols="<10m,<90d",grid=rows,stripes=even]
 |===============================================================================
-| screenwidth       | width of the display, in characters
-| screenheight      | height of the display, in characters
-| linelength        | width of the current text window
-| windowlines       | height of the current text window
-| cursor_column     | horizontal and vertical position of
-| cursor_row        | the cursor in the current text window
-| hasgraphics       | true if the current display is graphics- capable
-| title_caption     | dictionary entry giving the full proper name of the program (optional)
-| statusline_height | of the last-printed status line
+| screenwidth         | width of the display, in characters
+| screenheight        | height of the display, in characters
+| linelength          | width of the current text window
+| windowlines         | height of the current text window
+| cursor_column  .2+.^| horizontal and vertical position of the cursor in the
+                        current text window
+| cursor_row
+| hasgraphics         | true if the current display is graphics- capable
+| title_caption       | dictionary entry giving the full proper name of the
+                        program (optional)
+| statusline_height   | of the last-printed status line
 |===============================================================================
 
 Property names may be aliased similarly to attributes using:
