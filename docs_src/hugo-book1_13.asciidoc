@@ -108,7 +108,7 @@ When used as a function, returns the value returned by the specified routine.
 .2+| {blank}
 
 s| Description: a|
-Print statement modifier, indicating that the next word should be printed with the first letter capitalized.
+`Print` statement modifier, indicating that the next word should be printed with the first letter capitalized.
 
 s| Syntax: a|
 [literal, role="hugosyntax"]
@@ -124,7 +124,7 @@ where `<address>` is any dictionary word, such as, for example, an `object.name`
 .2+| {blank}
 
 
-s| Description: a| Specifies a conditional case in a select structure.
+s| Description: a| Specifies a conditional case in a `select` structure.
 
 s| Syntax: a|
 [literal, role="hugosyntax"]
@@ -173,7 +173,7 @@ s| Return{nbsp}value: a| The number of child objects possessed by `<parent>`.
 .2+| {blank}
 
 s| Description: a|
-Clears the current text window repositions the output coordinates at the bottom left of the text window.
+Clears the current text window and repositions the output coordinates at the bottom left of the text window.
 
 s| Syntax: a|
 [literal, role="hugosyntax"]
@@ -252,7 +252,7 @@ Space should be reserved for any dictionary entries to be created at runtime usi
 3+<.^| [.big.red]#do#
 .2+| {blank}
 
-s| Description: a| Marks the starting point of a do-while loop.
+s| Description: a| Marks the starting point of a `do`-`while` loop.
 
 s| Syntax: a|
 [literal, role="hugosyntax"]
@@ -287,7 +287,7 @@ The reverse of `sibling`.
 
 3+<.^| [.big.red]#eldest#
 
-| {blank} 2+d| Same as `child`.
+| {blank} 2+a| Same as `child`.
 
 // ****//   else   //****
 
@@ -377,7 +377,7 @@ Object specifier in grammar syntax line, indicating that any single object posse
 .2+| {blank}
 
 s| Description: a|
-Print statement modifier signifying that the following value is not a dictionary address, but should be printed as a hexadecimal number.
+`Print` statement modifier signifying that the following value is not a dictionary address, but should be printed as a hexadecimal number.
 
 s| Syntax: a|
 [literal, role="hugosyntax"]
@@ -605,7 +605,7 @@ Gives the current object the same parent as the last-defined object.
 .2+| {blank}
 
 s| Description: a|
-Print statement modifier, indicating that a line feed and carriage return should be issued if the current output position is not already at the start of a blank line.
+`Print` statement modifier, indicating that a line feed and carriage return should be issued if the current output position is not already at the start of a blank line.
 
 s| Syntax: a|
 [literal, role="hugosyntax"]
@@ -619,7 +619,7 @@ print newline
 3+<.^| [.big.red]#not#
 .3+| {blank}
 
-s| Description: a| Logical not.
+s| Description: a| Logical NOT.
 
 s| Syntax: a|
 [literal, role="hugosyntax"]
@@ -634,7 +634,7 @@ x = not <value>
 {blank}
 
 s| Result: a|
-In the first example, x will be true if `<value>` is false, or false if `<value>` is true.
+In the first example, `x` will be true if `<value>` is false, or false if `<value>` is true.
 
 In the second, the specified attribute will be cleared for `<object>` when used alone as an assignment.
 As part of an expression, it will return true only if `<object>` does not have `<attribute>` set.
@@ -714,9 +714,9 @@ The object number of `<object>`{wj}`'s parent object.
 s| Description: a|
 When used in a grammar syntax line, indicates that the domain for validating the availability of the specified direct object should be set to the parent object specified in the input line.
 
-// ****//   parse   //****
+// ****//   parse$   //****
 
-3+<.^| [.big.red]#parse#$
+3+<.^| [.big.red]#parse$#
 | {blank}
 
 s| Description: a|
@@ -1073,9 +1073,9 @@ select <val>
 
 where `<val>` is value such as a variable, routine return value, object property, array element, etc., and each `<case>` is a single value for comparison (not an expression).
 
-// ****//   serial   //****
+// ****//   serial$   //****
 
-3+<.^| [.big.red]#serial#$
+3+<.^| [.big.red]#serial$#
 | {blank}
 
 s| Description: a|
@@ -1133,7 +1133,7 @@ x = string(<array>, <dict>, <maxlen>)
 x = string(<array>, parse$, <maxlen>)
 .....................................
 
-where `<array>` is an array address, stores the either the dictionary entry given by `<dict>` or the contents of `parse$` as a series of characters, to a maximum of `<maxlen>` characters.
+where `<array>` is an array address, stores either the dictionary entry given by `<dict>` or the contents of `parse$` as a series of characters, to a maximum of `<maxlen>` characters.
 Returns the length of the string stored in `<array>`.
 
 // ****//   system   //****
@@ -1158,7 +1158,7 @@ system(<function>)
 ! 22 ! INIT_RANDOM        ! Restore `random` random values
 ! 31 ! PAUSE_SECOND       ! Pause for one second
 ! 32 ! PAUSE_100TH_SECOND ! Pause for 1/100th of a second
-! 41 ! GAME_RESET         ! Returns true after restore or undo
+! 41 ! GAME_RESET         ! Returns true after `restore` or `undo`
 ! 51 ! SYSTEM_TIME        ! Stores system time in `parse$`
 ! 61 ! MINIMAL_INTERFACE  ! Returns true for minimal ports
 !=====================================
@@ -1273,7 +1273,7 @@ s| Syntax: a|
 [literal, role="hugosyntax"]
 ............................
 window a[, b, c, d]
-    {...}
+{...}
 ............................
 
 or
@@ -1281,11 +1281,33 @@ or
 [literal, role="hugosyntax"]
 ............................
 window
-    {...}
+{...}
 ............................
 
 or
 
+[literal, role="hugosyntax"]
+............................
+window 0
+............................
+
+If only a single value `<a>` is given, a window of `<a>` lines from the top of the screen is created.
+If more values are given, a window from top-left (`a`, `b`) to bottom-right (`c`, `d`) is created.
+If no values are given, the last-defined window is recreated.
+The new boundaries apply for the length of the following `"{…}"` code block.
+
+`"window 0"` restores full-screen display.
+There is no following code block.
+
+// ****//   writefile   //****
+
+3+<.^| [.big.red]#writefile#
+.2+| {blank}
+
+s| Description: a|
+A structure that writes values to a file that may be read using `readfile`.
+
+s| Syntax: a|
 [literal, role="hugosyntax"]
 ............................
 writefile <filename>

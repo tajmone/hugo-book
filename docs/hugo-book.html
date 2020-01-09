@@ -583,7 +583,7 @@ div.literalblock.hugosyntax div.content pre > sup.footnote a {
 <span id="email" class="email"><a href="mailto:general@generalcoffee.com">general@generalcoffee.com</a></span><br>
 <span id="revnumber">version 1,</span>
 <span id="revdate">2018-10-04</span>
-<br><span id="revremark">Draft 134 -- Porting to AsciiDoc</span>
+<br><span id="revremark">Draft 135 -- Porting to AsciiDoc</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -10634,7 +10634,7 @@ In combination with the <code>repeat</code> token, this is useful for creating b
 <td class="tableblock halign-left valign-top" rowspan="2"></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Description:</strong></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Print statement modifier, indicating that the next word should be printed with the first letter capitalized.</p>
+<p><code>Print</code> statement modifier, indicating that the next word should be printed with the first letter capitalized.</p>
 </div></div></td>
 </tr>
 <tr>
@@ -10655,7 +10655,7 @@ In combination with the <code>repeat</code> token, this is useful for creating b
 <td class="tableblock halign-left valign-top" rowspan="2"></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Description:</strong></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Specifies a conditional case in a select structure.</p>
+<p>Specifies a conditional case in a <code>select</code> structure.</p>
 </div></div></td>
 </tr>
 <tr>
@@ -10722,7 +10722,7 @@ In combination with the <code>repeat</code> token, this is useful for creating b
 <td class="tableblock halign-left valign-top" rowspan="2"></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Description:</strong></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Clears the current text window repositions the output coordinates at the bottom left of the text window.</p>
+<p>Clears the current text window and repositions the output coordinates at the bottom left of the text window.</p>
 </div></div></td>
 </tr>
 <tr>
@@ -10899,7 +10899,7 @@ x = dict(parse$, &lt;maxlen&gt;)</pre>
 <td class="tableblock halign-left valign-top" rowspan="2"></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Description:</strong></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Marks the starting point of a do-while loop.</p>
+<p>Marks the starting point of a <code>do</code>-<code>while</code> loop.</p>
 </div></div></td>
 </tr>
 <tr>
@@ -10944,7 +10944,9 @@ The reverse of <code>sibling</code>.</p>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock">Same as <code>child</code>.</p></td>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Same as <code>child</code>.</p>
+</div></div></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big red">else</span></code></p></td>
@@ -11059,7 +11061,7 @@ The loop will execute as long as <code>&lt;test&gt;</code> holds true.</p>
 <td class="tableblock halign-left valign-top" rowspan="2"></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Description:</strong></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Print statement modifier signifying that the following value is not a dictionary address, but should be printed as a hexadecimal number.</p>
+<p><code>Print</code> statement modifier signifying that the following value is not a dictionary address, but should be printed as a hexadecimal number.</p>
 </div></div></td>
 </tr>
 <tr>
@@ -11374,7 +11376,7 @@ If the <code>repeat</code> token is used, the song continues to loop until eithe
 <td class="tableblock halign-left valign-top" rowspan="2"></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Description:</strong></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Print statement modifier, indicating that a line feed and carriage return should be issued if the current output position is not already at the start of a blank line.</p>
+<p><code>Print</code> statement modifier, indicating that a line feed and carriage return should be issued if the current output position is not already at the start of a blank line.</p>
 </div></div></td>
 </tr>
 <tr>
@@ -11395,7 +11397,7 @@ If the <code>repeat</code> token is used, the song continues to loop until eithe
 <td class="tableblock halign-left valign-top" rowspan="3"></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Description:</strong></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Logical not.</p>
+<p>Logical NOT.</p>
 </div></div></td>
 </tr>
 <tr>
@@ -11417,7 +11419,7 @@ If the <code>repeat</code> token is used, the song continues to loop until eithe
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Result:</strong></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>In the first example, x will be true if <code>&lt;value&gt;</code> is false, or false if <code>&lt;value&gt;</code> is true.</p>
+<p>In the first example, <code>x</code> will be true if <code>&lt;value&gt;</code> is false, or false if <code>&lt;value&gt;</code> is true.</p>
 </div>
 <div class="paragraph">
 <p>In the second, the specified attribute will be cleared for <code>&lt;object&gt;</code> when used alone as an assignment.
@@ -11535,7 +11537,7 @@ As part of an expression, it will return true only if <code>&lt;object&gt;</code
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big red">parse</span>$</code></p></td>
+<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big red">parse$</span></code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"></td>
@@ -12066,7 +12068,7 @@ Use the <code>FILE_CHECK</code> constant defined in <strong>hugolib.h</strong> t
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big red">serial</span>$</code></p></td>
+<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big red">serial$</span></code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"></td>
@@ -12142,7 +12144,7 @@ x = string(&lt;array&gt;, parse$, &lt;maxlen&gt;)</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>where <code>&lt;array&gt;</code> is an array address, stores the either the dictionary entry given by <code>&lt;dict&gt;</code> or the contents of <code>parse$</code> as a series of characters, to a maximum of <code>&lt;maxlen&gt;</code> characters.
+<p>where <code>&lt;array&gt;</code> is an array address, stores either the dictionary entry given by <code>&lt;dict&gt;</code> or the contents of <code>parse$</code> as a series of characters, to a maximum of <code>&lt;maxlen&gt;</code> characters.
 Returns the length of the string stored in <code>&lt;array&gt;</code>.</p>
 </div></div></td>
 </tr>
@@ -12216,7 +12218,7 @@ Returns the length of the string stored in <code>&lt;array&gt;</code>.</p>
 <td class="tableblock halign-right valign-top"><p class="tableblock"><code>41</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>GAME_RESET</code></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Returns true after restore or undo</p>
+<p>Returns true after <code>restore</code> or <code>undo</code></p>
 </div></div></td>
 </tr>
 <tr>
@@ -12399,7 +12401,7 @@ while &lt;expr&gt;</pre>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="literalblock hugosyntax">
 <div class="content">
 <pre>window a[, b, c, d]
-    {...}</pre>
+{...}</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -12408,13 +12410,41 @@ while &lt;expr&gt;</pre>
 <div class="literalblock hugosyntax">
 <div class="content">
 <pre>window
-    {...}</pre>
+{...}</pre>
 </div>
 </div>
 <div class="paragraph">
 <p>or</p>
 </div>
 <div class="literalblock hugosyntax">
+<div class="content">
+<pre>window 0</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If only a single value <code>&lt;a&gt;</code> is given, a window of <code>&lt;a&gt;</code> lines from the top of the screen is created.
+If more values are given, a window from top-left (<code>a</code>, <code>b</code>) to bottom-right (<code>c</code>, <code>d</code>) is created.
+If no values are given, the last-defined window is recreated.
+The new boundaries apply for the length of the following <code>"{…}"</code> code block.</p>
+</div>
+<div class="paragraph">
+<p><code>"window 0"</code> restores full-screen display.
+There is no following code block.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle" colspan="3"><p class="tableblock"><code><span class="big red">writefile</span></code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" rowspan="2"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Description:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>A structure that writes values to a file that may be read using <code>readfile</code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Syntax:</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="literalblock hugosyntax">
 <div class="content">
 <pre>writefile &lt;filename&gt;
 {
