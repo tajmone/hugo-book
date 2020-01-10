@@ -33,11 +33,11 @@ List of _The Hugo Book_ AsciiDoc sources and contents-assets:
 
 - [`docinfo.html`][docinfo.html] — [docinfo file] with custom CSS ([generated via Sass]).
 - [`warn-editing.asciidoc`][warn-editing] — a "don't edit me!" notice included in the [standalone AsciiDoc build].
-- [`hugo-book.asciidoc`][HB] — the main AsciiDoc source file (contains _[Colophon]_ and _[Foreword]_) that imports all contents:
+- [`hugo-book.asciidoc`][HB] — the main AsciiDoc source file that imports all contents:
     + [`hugo-book0_preamble.asciidoc`][HB:Preamble] — Document Preamble.
-    + [`hugo-book0_colophon.asciidoc`][HB:Colophon] — [_COLOPHON_][COLOPHON]
-    + [`hugo-book0_preface.asciidoc`][HB:Preface] — [_AUTHOR'S FOREWORD_][FOREWORD]
-    + [`hugo-book1.asciidoc`][HB1] — imports chapters of _Book I_:
+    + [`hugo-book0_colophon.asciidoc`][HB:Colophon] — _[Colophon]_
+    + [`hugo-book0_preface.asciidoc`][HB:Preface] — _[Author's Foreword]_
+    + [`hugo-book1.asciidoc`][HB1] — imports chapters of _[Book I]_:
         * [`hugo-book1_01.asciidoc`][HB1:01] — [1. _Introduction_][Ch1]
         * [`hugo-book1_02.asciidoc`][HB1:02] — [2. _A First Look at Hugo_][Ch2]
         * [`hugo-book1_03.asciidoc`][HB1:03] — [3. _Objects_][Ch3]
@@ -60,7 +60,7 @@ List of _The Hugo Book_ AsciiDoc sources and contents-assets:
         * [`hugo-book1_17.asciidoc`][HB1:17] — [App. E. _Precompiled Headers_][AppE]
         * [`hugo-book1_18.asciidoc`][HB1:18] — [App. F. _Hugo Versions_][AppF]
         * [`hugo-book1_19.asciidoc`][HB1:19] — [App. G. _Additional Resources_][AppG]
-    + [`hugo-book2.asciidoc`][HB2] — imports chapters of _Book II_:
+    + [`hugo-book2.asciidoc`][HB2] — imports chapters of _[Book II]_:
         * [`hugo-book2_01.asciidoc`][HB2:01] — [13. _Introduction_][Ch13]
         * [`hugo-book2_02.asciidoc`][HB2:02] — [14. _Organization of the .HEX File_][Ch14]
         * [`hugo-book2_03.asciidoc`][HB2:03] — [15. _Tokens and Data Types_][Ch15]
@@ -90,7 +90,7 @@ List of _The Hugo Book_ AsciiDoc sources and contents-assets:
     2. A standalone AsciiDoc version of the book as a single file, via the [`asciidoc-coalescer.rb`][coalescer.rb] script:
         * [`../hugo-book.asciidoc`](../hugo-book.asciidoc)
 - [`preview.sh`][preview.sh] — (***fast***) generates a quick HTML preview of the book:
-    + `preview.html` — no syntax highlighting, no embedded graphics, use default template. (ignored by Git)
+    + `preview.html` — (ignored by Git) no syntax highlighting, no embedded graphics, use default template.
 
 > __NOTE 1__ — Since the overhead introduced by using the external Highlight tool is considerable on a big document like this one, the `preview.sh` script is very handy when editing the document, for it provides a very fast-updating preview of the changes (without syntax highlighting).
 >
@@ -233,8 +233,8 @@ The Travis CI build tests the project against the latest stable versions of thes
 
 [HTML Live Preview]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/docs/hugo-book.html "Click here to preview The Hugo Book via GitHub & BitBucket HTML Preview"
 
-[COLOPHON]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/docs/hugo-book.html#colophon "Jump to Live HTML Preview of: COLOPHON"
-[FOREWORD]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/docs/hugo-book.html#preface "Jump to Live HTML Preview of: AUTHOR’S FOREWORD"
+[Colophon]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/docs/hugo-book.html#colophon "Jump to Live HTML Preview of: COLOPHON"
+[Author's Foreword]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/docs/hugo-book.html#preface "Jump to Live HTML Preview of: AUTHOR’S FOREWORD"
 
 [Book I]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/docs/hugo-book.html#book1 "Jump to Live HTML Preview of: Book I"
 [Ch1]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/docs/hugo-book.html#chapter_1 "Jump to Live HTML Preview of: Book I » 1. INTRODUCTION"
