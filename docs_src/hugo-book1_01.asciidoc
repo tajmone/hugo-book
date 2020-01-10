@@ -76,11 +76,6 @@ And thank you, as always, to Jennifer.
 
 Please refer to the following conventions as they are used in this manual:
 
-// @TODO: Formatting Conventions!
-//    These might need to be adapted to the actual styles used in the final
-//    document. This might include adding samples od admonitions, Hugo code,
-//    CMD blocks, and transcriptions -- but I'll need Kent's approval to do so!
-
 [horizontal]
 `<parameter>`   :: for required parameters
 `[parameter]`   :: for optional parameters
@@ -194,11 +189,12 @@ The word "`programming`" seems to hold a sort of mystique that, to the non-progr
 In fact, that's pretty far from the truth.
 Programming is indeed a creative pursuit, but it is pretty much unique among creative pursuits in that it's the only one that can be overcome by enough banging of keys: eventually you can make almost anything work.
 
-// @FIX: "MANY OF things will..." -> "Many things"/"Many of these things"
+// @EDITED TYPO: (omitted in CHANGES.md)
+//    "MANY OF things will..." -> "MANY OF THESE things"
 
 If you've never done any programming before, you can probably expect to be slightly baffled by at least some of the early going in this manual.
 The truth about _learning_ programming is that you're probably not going to be able to read through this book (or any book on programming in any other programming language, for that matter) once, in proper sequence, from cover to cover, and be able to write programs expertly in the language.
-Many of things will require the introduction of concepts that will only be discussed in full later on once a better grounding in the language is achieved.
+Many of these things will require the introduction of concepts that will only be discussed in full later on once a better grounding in the language is achieved.
 There will, in fact, be several places in this book (especially in the early sections) where readers will be encouraged to not worry if the subject matter at hand seems quite foreign.
 But rest assured that, after a brief initial period of acclimation, before long things like "`objects`", "`properties`", "`routines`", "`global variables`", "`calling parameters`", and a host of others will be rolling off your tongue like the alphabet.
 

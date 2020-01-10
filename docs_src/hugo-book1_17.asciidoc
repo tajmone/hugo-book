@@ -33,7 +33,6 @@ The advantage of doing this is primarily one of faster compilation speed; files 
 The `#link` directive must come _after_ any grammar, but _before_ any new definitions of attributes, properties, globals, objects, synonyms, etc.
 Grammar is illegal in a precompiled header.
 
-// @TEXT: Why "-h directive" instead of "-h compiler switch"?
 To create a precompiled header, use the `-h` directive when invoking the Hugo Compiler.
 The file *hugolib.hug* serves as a good example: it is a small wrapper which compiles the standard Hugo Library.
 Compile it via

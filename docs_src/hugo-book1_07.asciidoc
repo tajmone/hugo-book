@@ -318,12 +318,11 @@ as in
 synonym "myself" for "me"
 -------------------------
 
-// @TEXT:  The sentence "is possible to, particularly [..] and adjectives specify"
-//         might need a comma (-> "adjectives, specify") to reduce ambiguity and
-//         increase readability.
+// @EDITED PUNCTUATION: (omitted in CHANGES.md)
+//    Added the comma in "adjectives, specify".
 
 The above example will replace every occurrence of "`myself`" in the input line with "`me`".
-Usage of synonyms will likely not be extensive, since of course it is possible to, particularly in the case of object nouns and adjectives specify synonymous words which are still treated as distinct.
+Usage of synonyms will likely not be extensive, since of course it is possible to, particularly in the case of object nouns and adjectives, specify synonymous words which are still treated as distinct.
 
 [.big.red]#_Compounds_# are the final type of special word, specified as:
 

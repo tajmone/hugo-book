@@ -690,7 +690,6 @@ in the same way as in the invocation line.
 However, an error will be issued if, for example, an attempt is made to reset `MAXOBJECTS` if one or more objects have already been defined.
 Any limit settings in the code of a program must be done before the particular data type for which a new limit is being set has been used.
 
-// @CHECK: Using emphasis style in headings might interfere with XRefs!
 
 [[sec_2-8]]
 == _What Should I Be Able to Do Now?_

@@ -1,6 +1,6 @@
 = The Hugo Book
 Kent Tessman <general@generalcoffee.com>
-v1, 2018-10-04: Draft 137 -- Porting to AsciiDoc
+v1, 2018-10-04: Draft 138 -- Porting to AsciiDoc
 :lang: en
 :doctype: book
 // TOC Settings for GitHub previewing (override via CLI):
@@ -221,11 +221,6 @@ And thank you, as always, to Jennifer.
 
 Please refer to the following conventions as they are used in this manual:
 
-// @TODO: Formatting Conventions!
-//    These might need to be adapted to the actual styles used in the final
-//    document. This might include adding samples od admonitions, Hugo code,
-//    CMD blocks, and transcriptions -- but I'll need Kent's approval to do so!
-
 [horizontal]
 `<parameter>`   :: for required parameters
 `[parameter]`   :: for optional parameters
@@ -339,11 +334,12 @@ The word "`programming`" seems to hold a sort of mystique that, to the non-progr
 In fact, that's pretty far from the truth.
 Programming is indeed a creative pursuit, but it is pretty much unique among creative pursuits in that it's the only one that can be overcome by enough banging of keys: eventually you can make almost anything work.
 
-// @FIX: "MANY OF things will..." -> "Many things"/"Many of these things"
+// @EDITED TYPO: (omitted in CHANGES.md)
+//    "MANY OF things will..." -> "MANY OF THESE things"
 
 If you've never done any programming before, you can probably expect to be slightly baffled by at least some of the early going in this manual.
 The truth about _learning_ programming is that you're probably not going to be able to read through this book (or any book on programming in any other programming language, for that matter) once, in proper sequence, from cover to cover, and be able to write programs expertly in the language.
-Many of things will require the introduction of concepts that will only be discussed in full later on once a better grounding in the language is achieved.
+Many of these things will require the introduction of concepts that will only be discussed in full later on once a better grounding in the language is achieved.
 There will, in fact, be several places in this book (especially in the early sections) where readers will be encouraged to not worry if the subject matter at hand seems quite foreign.
 But rest assured that, after a brief initial period of acclimation, before long things like "`objects`", "`properties`", "`routines`", "`global variables`", "`calling parameters`", and a host of others will be rolling off your tongue like the alphabet.
 
@@ -1363,7 +1359,6 @@ in the same way as in the invocation line.
 However, an error will be issued if, for example, an attempt is made to reset `MAXOBJECTS` if one or more objects have already been defined.
 Any limit settings in the code of a program must be done before the particular data type for which a new limit is being set has been used.
 
-// @CHECK: Using emphasis style in headings might interfere with XRefs!
 
 [[sec_2-8]]
 == _What Should I Be Able to Do Now?_
@@ -1572,7 +1567,6 @@ The compiler automatically assigns each object an object number, and refers to i
 Here is an example of an object tree:
 
 // @NOTE: Diagram at p.35 of PDF:
-// @TODO: Add color via custom styles?
 image::hugo-book1_03_object-tree1.svg[align="center",width=40%]
 
 A number of built-in functions can be used to read the object tree.
@@ -5699,12 +5693,11 @@ as in
 synonym "myself" for "me"
 -------------------------
 
-// @TEXT:  The sentence "is possible to, particularly [..] and adjectives specify"
-//         might need a comma (-> "adjectives, specify") to reduce ambiguity and
-//         increase readability.
+// @EDITED PUNCTUATION: (omitted in CHANGES.md)
+//    Added the comma in "adjectives, specify".
 
 The above example will replace every occurrence of "`myself`" in the input line with "`me`".
-Usage of synonyms will likely not be extensive, since of course it is possible to, particularly in the case of object nouns and adjectives specify synonymous words which are still treated as distinct.
+Usage of synonyms will likely not be extensive, since of course it is possible to, particularly in the case of object nouns and adjectives, specify synonymous words which are still treated as distinct.
 
 [.big.red]#_Compounds_# are the final type of special word, specified as:
 
@@ -9187,7 +9180,6 @@ NOTE: `container` and `platform` are generally mutually exclusive
 | RIGHT_ARROW    | ESCAPE_KEY
 | MOUSE_CLICK    | {blank}
 
-// @FIXME: Replacing dquotes with emphasis style would increase readability:
 3+| {nbsp}
 d| `AND_WORD`  {nbsp}{nbsp}("`and`")    2+d| `IN_WORD` {nbsp}{nbsp}("`in`")
 d| `ARE_WORD`  {nbsp}{nbsp}("`are`")    2+d| `IS_WORD` {nbsp}{nbsp}("`is`")
@@ -10864,7 +10856,6 @@ The advantage of doing this is primarily one of faster compilation speed; files 
 The `#link` directive must come _after_ any grammar, but _before_ any new definitions of attributes, properties, globals, objects, synonyms, etc.
 Grammar is illegal in a precompiled header.
 
-// @TEXT: Why "-h directive" instead of "-h compiler switch"?
 To create a precompiled header, use the `-h` directive when invoking the Hugo Compiler.
 The file *hugolib.hug* serves as a good example: it is a small wrapper which compiles the standard Hugo Library.
 Compile it via

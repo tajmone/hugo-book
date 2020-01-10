@@ -196,7 +196,6 @@ NOTE: `container` and `platform` are generally mutually exclusive
 | RIGHT_ARROW    | ESCAPE_KEY
 | MOUSE_CLICK    | {blank}
 
-// @FIXME: Replacing dquotes with emphasis style would increase readability:
 3+| {nbsp}
 d| `AND_WORD`  {nbsp}{nbsp}("`and`")    2+d| `IN_WORD` {nbsp}{nbsp}("`in`")
 d| `ARE_WORD`  {nbsp}{nbsp}("`are`")    2+d| `IS_WORD` {nbsp}{nbsp}("`is`")

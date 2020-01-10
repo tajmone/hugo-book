@@ -136,7 +136,6 @@ The compiler automatically assigns each object an object number, and refers to i
 Here is an example of an object tree:
 
 // @NOTE: Diagram at p.35 of PDF:
-// @TODO: Add color via custom styles?
 image::hugo-book1_03_object-tree1.svg[align="center",width=40%]
 
 A number of built-in functions can be used to read the object tree.

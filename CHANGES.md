@@ -103,6 +103,9 @@ These changes fall under two main categories:
 - Text adaptations to better exploit the new AsciiDoc format, or to provide a more readable text.
 - Fixes to minor typos in text or code.
 
+By "significant changes" we mean those changes which would be worth mentioning in an _Errata_.
+Minor typos and other obvious fixes are not listed here, but they have been annotated in the documents sources comments nonetheless, for historical accuracy.
+
 ## Book I
 
 List of changes to [Book I: _The Hugo Programming Manual_][Book1].
