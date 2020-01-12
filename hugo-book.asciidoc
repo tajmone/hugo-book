@@ -1,6 +1,6 @@
 = The Hugo Book
 Kent Tessman <general@generalcoffee.com>
-v1, 2018-10-04: Draft 139 -- Porting to AsciiDoc
+v1, 2018-10-04: Draft 140 -- Porting to AsciiDoc
 :lang: en
 :doctype: book
 // TOC Settings for GitHub previewing (override via CLI):
@@ -1554,7 +1554,7 @@ The "`nothing`" object is defined in the library as object 0 and is referred to 
 This is the root of the object tree, upon which all other objects are based.{fn1}
 (And again, the name "`nothing`" is given to this first object by the library.)
 
-[NOTE]
+[WARNING]
 ================================================================================
 When using the standard library routines, ensure that no objects (or classes, to be discussed later) are defined before *hugolib.h* is included.
 Problems will arise if the first-defined object -- object 0 -- is not the `nothing` object.
@@ -1563,7 +1563,7 @@ Currently the library will point this out for you as a runtime error if for some
 
 
 
-When referring to object numbers, this manual is generally referring to the name given the object in the source code: i.e., `<objectname>`.
+When referring to object numbers, this manual is generally referring to the name given to the object in the source code: i.e., `<objectname>`.
 The compiler automatically assigns each object an object number, and refers to it whenever a specified `<objectname>` is encountered.
 
 Here is an example of an object tree:
@@ -1700,7 +1700,6 @@ object <objectname> "object name"
 {
     in <parent object>
     ...
-
 }
 .................................
 
@@ -2057,7 +2056,7 @@ The list of properties defined in *hugolib.h* is:
                       involved in the action
 | react_after
 
-| short_desc   | basic "`X is here`" description
+| short_desc   | basic "`*X is here*`" description
 | initial_desc | supersedes `short_desc` (or `long_desc` for locations)
 | long_desc    | detailed description
 | found_in     | in case of multiple locations (virtual, _not_ physical parent objects{fn8})
@@ -2091,7 +2090,7 @@ The list of properties defined in *hugolib.h* is:
 | when_closed
 | ignore_response  .2+.^| for characters
 | order_response
-| contains_desc         | instead of basic "`Inside X are...`"
+| contains_desc         | instead of basic "`*Inside X are...*`"
 | inv_desc              | for special inventory descriptions
 | desc_detail           | parenthetical detail for object listing
 | misc                  | for miscellaneous use
@@ -2115,7 +2114,7 @@ The following properties are also defined and used exclusively by the display ob
 | cursor_column  .2+.^| horizontal and vertical position of the cursor in the
                         current text window
 | cursor_row
-| hasgraphics         | true if the current display is graphics- capable
+| hasgraphics         | true if the current display is graphics-capable
 | title_caption       | dictionary entry giving the full proper name of the
                         program (optional)
 | statusline_height   | of the last-printed status line
@@ -2134,9 +2133,9 @@ The library aliases (among others) the following:
 [source,hugo]
 --------------------------
 nouns alias noun
-adjectives alias
-prep alias prepo
-pronouns alias p
+adjectives alias adjective
+prep alias preposition
+pronouns alias pronoun
 --------------------------
 
 Whereas a simple property is expressed as
@@ -2396,7 +2395,7 @@ The precedence of inheritance is in the order of occurrence.
 In either example, the object inherits its properties and attributes first from `<class1>`, then from `<class2>`, and so on.
 
 The Hugo Object Library (*objlib.h*) contains a number of useful class definitions for things like rooms, characters, scenery, vehicles, etc.
-Sometimes, however, it may be desirable to use a different definition for, say, the room class while keeping all the others in the Object Library.
+Sometimes, however, it may be desirable to use a different definition for, say, the `room` class while keeping all the others in the Object Library.
 
 Instead of actually editing *objlib.h*,{fn9} use:
 

@@ -583,7 +583,7 @@ div.literalblock.hugosyntax div.content pre > sup.footnote a {
 <span id="email" class="email"><a href="mailto:general@generalcoffee.com">general@generalcoffee.com</a></span><br>
 <span id="revnumber">version 1,</span>
 <span id="revdate">2018-10-04</span>
-<br><span id="revremark">Draft 139 -- Porting to AsciiDoc</span>
+<br><span id="revremark">Draft 140 -- Porting to AsciiDoc</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -2649,11 +2649,11 @@ The total number of objects is held in the global variable <code>objects</code>.
 This is the root of the object tree, upon which all other objects are based.<sup class="footnote">[<a id="_footnoteref_11" class="footnote" href="#_footnotedef_11" title="View footnote.">11</a>]</sup>
 (And again, the name &#8220;nothing&#8221; is given to this first object by the library.)</p>
 </div>
-<div class="admonitionblock note">
+<div class="admonitionblock warning">
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-note" title="Note"></i>
+<i class="fa icon-warning" title="Warning"></i>
 </td>
 <td class="content">
 <div class="paragraph">
@@ -2666,7 +2666,7 @@ Currently the library will point this out for you as a runtime error if for some
 </table>
 </div>
 <div class="paragraph">
-<p>When referring to object numbers, this manual is generally referring to the name given the object in the source code: i.e., <code>&lt;objectname&gt;</code>.
+<p>When referring to object numbers, this manual is generally referring to the name given to the object in the source code: i.e., <code>&lt;objectname&gt;</code>.
 The compiler automatically assigns each object an object number, and refers to it whenever a specified <code>&lt;objectname&gt;</code> is encountered.</p>
 </div>
 <div class="paragraph">
@@ -2935,7 +2935,6 @@ All normal room objects have 0 as their parent.</p>
 {
     in &lt;parent object&gt;
     ...
-
 }</pre>
 </div>
 </div>
@@ -3407,7 +3406,7 @@ If no default is explicitly declared, it is 0 (or <code>""</code> or the <code>n
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>short_desc</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">basic &#8220;X is here&#8221; description</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">basic &#8220;<strong>X is here</strong>&#8221; description</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>initial_desc</code></p></td>
@@ -3528,7 +3527,7 @@ If no default is explicitly declared, it is 0 (or <code>""</code> or the <code>n
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>contains_desc</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">instead of basic &#8220;Inside X are&#8230;&#8203;&#8221;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">instead of basic &#8220;<strong>Inside X are&#8230;&#8203;</strong>&#8221;</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>inv_desc</code></p></td>
@@ -3593,7 +3592,7 @@ If no default is explicitly declared, it is 0 (or <code>""</code> or the <code>n
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>hasgraphics</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">true if the current display is graphics- capable</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">true if the current display is graphics-capable</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>title_caption</code></p></td>
@@ -3620,7 +3619,7 @@ The library aliases (among others) the following:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">nouns <span class="hl kwa">alias</span> <span class="hl kwb">noun</span>&#x000A;adjectives <span class="hl kwa">alias</span>&#x000A;prep <span class="hl kwa">alias</span> prepo&#x000A;pronouns <span class="hl kwa">alias</span> p</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">nouns <span class="hl kwa">alias</span> <span class="hl kwb">noun</span>&#x000A;adjectives <span class="hl kwa">alias</span> <span class="hl kwb">adjective</span>&#x000A;prep <span class="hl kwa">alias</span> preposition&#x000A;pronouns <span class="hl kwa">alias</span> pronoun</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -3912,7 +3911,7 @@ In either example, the object inherits its properties and attributes first from 
 </div>
 <div class="paragraph">
 <p>The Hugo Object Library (<strong>objlib.h</strong>) contains a number of useful class definitions for things like rooms, characters, scenery, vehicles, etc.
-Sometimes, however, it may be desirable to use a different definition for, say, the room class while keeping all the others in the Object Library.</p>
+Sometimes, however, it may be desirable to use a different definition for, say, the <code>room</code> class while keeping all the others in the Object Library.</p>
 </div>
 <div class="paragraph">
 <p>Instead of actually editing <strong>objlib.h</strong>,<sup class="footnote">[<a id="_footnoteref_19" class="footnote" href="#_footnotedef_19" title="View footnote.">19</a>]</sup> use:</p>
