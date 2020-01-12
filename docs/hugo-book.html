@@ -583,7 +583,7 @@ div.literalblock.hugosyntax div.content pre > sup.footnote a {
 <span id="email" class="email"><a href="mailto:general@generalcoffee.com">general@generalcoffee.com</a></span><br>
 <span id="revnumber">version 1,</span>
 <span id="revdate">2018-10-04</span>
-<br><span id="revremark">Draft 138 -- Porting to AsciiDoc</span>
+<br><span id="revremark">Draft 139 -- Porting to AsciiDoc</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -1140,7 +1140,7 @@ But rest assured that, after a brief initial period of acclimation, before long 
 </div>
 <div class="paragraph">
 <p>To make everything even easier, Hugo is designed so that writing very basic games will consist largely of defining and describing objects and locations in a very straightforward manner.
-All of the complex inner workings of the game&#8201;&#8212;&#8201;from the templates for standard rooms and objects and their related behaviors; to what happens when a player types &gt;GO NORTH or &gt;OPEN THE CARDBOARD BOX or any other command, recognized or unrecognized; to the rules of the game world for containment, edibility, bulk, switching things on or off, or any number of &#8220;physical&#8221; traits&#8201;&#8212;&#8201;are handled by the Hugo Library, and a prospective doesn&#8217;t have to worry about where these things are handled or how until he or she is ready to investigate deeper.</p>
+All of the complex inner workings of the game&#8201;&#8212;&#8201;from the templates for standard rooms and objects and their related behaviors; to what happens when a player types <strong>&gt;GO NORTH</strong> or <strong>&gt;OPEN THE CARDBOARD BOX</strong> or any other command, recognized or unrecognized; to the rules of the game world for containment, edibility, bulk, switching things on or off, or any number of &#8220;physical&#8221; traits&#8201;&#8212;&#8201;are handled by the Hugo Library, and a prospective doesn&#8217;t have to worry about where these things are handled or how until he or she is ready to investigate deeper.</p>
 </div>
 </div>
 <div class="sect2">
@@ -1579,15 +1579,15 @@ The engine assumes <strong>.hex</strong> if none is given.</p>
 </li>
 </ol>
 </div>
-<div class="admonitionblock note">
+<div class="admonitionblock tip">
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-note" title="Note"></i>
+<i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>If you know how to set environment variables for your system, the environment variable <code>HUGO_OBJEC`T or `HUGO_GAMES</code> may hold the directory that the Hugo Engine searches for the specified <strong>.HEX</strong> file.
+<p>If you know how to set environment variables for your system, the environment variable <code>HUGO_OBJECT</code> or <code>HUGO_GAMES</code> may hold the directory that the Hugo Engine searches for the specified <strong>.HEX</strong> file.
 The location for save files may be specified with <code>HUGO_SAVE</code>.
 All of these are optional.</p>
 </div>
@@ -1714,7 +1714,7 @@ Here&#8217;s how one accomplishes that in Hugo:</p>
 </table>
 </div>
 <div class="paragraph">
-<p>The Main routine is automatically called by the engine.
+<p>The <code>Main</code> routine is automatically called by the engine.
 It is from here that the central behavior of any Hugo program is controlled.
 In this case the task at hand is the printing of &#8220;Hello, Sailor!&#8221;, followed by a wait for a keypress (the <code>pause</code>) and an order to exit the program (i.e., <code>quit</code> it) so that we don&#8217;t strand the program waiting for input from the player, which is the normal order of Hugo business.<sup class="footnote">[<a id="_footnoteref_4" class="footnote" href="#_footnotedef_4" title="View footnote.">4</a>]</sup></p>
 </div>
@@ -1732,7 +1732,8 @@ The name of any individual data type may contain up to 32 alphanumeric character
 <div class="paragraph">
 <p>All of the following are valid data types:</p>
 </div>
-<table class="tableblock frame-all grid-rows stripes-odd stretch">
+<table id="table-hugo-data-types" class="tableblock frame-all grid-rows stripes-odd stretch">
+<caption class="title">Table 1. List of Hugo Data Types</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -1743,71 +1744,71 @@ The name of any individual data type may contain up to 32 alphanumeric character
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>0, -10, 16800, -25005</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><em>(constant values that appear in Hugo source code as numbers)</em></p></td>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><em>Constant values that appear in Hugo source code as numbers.</em></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>ASCII characters</strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>'A', 'z', '7'</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><em>(constant values equal to the common ASCII value for a character; i.e., 65 for &#8216;A&#8217;)</em></p></td>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><em>Constant values equal to the common ASCII value for a character; i.e., 65 for &#8216;A&#8217;.</em></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Objects</strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>mysuitcase, emptyroom, player</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><em>(constant values representing the object number of the given object)</em></p></td>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><em>Constant values representing the object number of the given object.</em></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Variables</strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>a, b, score, TEXTCOLOR</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><em>(changeable value-holders that may be set to equal another variable or constant value)</em></p></td>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><em>Changeable value-holders that may be set to equal another variable or constant value.</em></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Constants</strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>true, false, BANNER</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><em>(constant&#8201;&#8212;&#8201;obviously&#8201;&#8212;&#8201;values that are given a name similarly to a variable, but are non-modifiable)</em></p></td>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><em>Constant&#8201;&#8212;&#8201;obviously&#8201;&#8212;&#8201;values that are given a name similarly to a variable, but are non-modifiable.</em></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Dictionary entries</strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>"a", "the", "basketball"</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><em>(The appearance of <code>the</code> in a line of code actually refers to the location in the dictionary table where the word &#8220;<strong>the</strong>&#8221; is stored.
-Dictionary entries are non-modifiable.)</em></p></td>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><em>The appearance of <code>the</code> in a line of code actually refers to the location in the dictionary table where the word &#8220;<strong>the</strong>&#8221; is stored.
+Dictionary entries are non-modifiable.</em></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Array elements</strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>ranking[1]</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><em>(a series of one or more changeable values that may be referenced from a common base point)</em></p></td>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><em>A series of one or more changeable values that may be referenced from a common base point.</em></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Array addresses</strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>ranking</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><em>(the base point of an array&#8201;&#8212;&#8201;see above; the array address itself is non-modifiable, unlike the contents of the array)</em></p></td>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><em>The base point of an array&#8201;&#8212;&#8201;see above; the array address itself is non-modifiable, unlike the contents of the array.</em></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Properties</strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>nouns, short_desc, found_in</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><em>(variable attachments of data relating specifically to objects)</em></p></td>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><em>Variable attachments of data relating specifically to objects.</em></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Attributes</strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>open, light, transparent</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><em>(less complex attachments of data describing an object, which may be specified as either having or not having the given attribute)</em></p></td>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><em>Less complex attachments of data describing an object, which may be specified as either having or not having the given attribute.</em></p></td>
 </tr>
 </tbody>
 </table>
@@ -2025,7 +2026,7 @@ In other words:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">x[<span class="hl num">0</span>] <span class="hl opt">=</span> <span class="hl num">1</span>, <span class="hl num">2</span>, <span class="hl num">3</span>, <span class="hl slc">! array assignment x[0]..x[4]</span>&#x000A;    <span class="hl num">4</span>, <span class="hl num">5</span></code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">x[<span class="hl num">0</span>] <span class="hl opt">=</span> <span class="hl num">1</span>, <span class="hl num">2</span>, <span class="hl num">3</span>, <span class="hl slc">! array assignment x[0]..x[4]</span>&#x000A;       <span class="hl num">4</span>, <span class="hl num">5</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -2033,7 +2034,7 @@ In other words:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">if</span> a <span class="hl opt">=</span> <span class="hl num">5</span> <span class="hl kwa">and</span>&#x000A;    b <span class="hl opt">=</span> <span class="hl str">&quot;tall&quot;</span></code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">if</span> a <span class="hl opt">=</span> <span class="hl num">5</span> <span class="hl kwa">and</span>&#x000A;   b <span class="hl opt">=</span> <span class="hl str">&quot;tall&quot;</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -2067,7 +2068,7 @@ In other words:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">nouns <span class="hl str">&quot;plant&quot;</span>, <span class="hl str">&quot;flower&quot;</span>, <span class="hl str">&quot;marigold&quot;</span>, \&#x000A;    <span class="hl str">&quot;fauna&quot;</span>, <span class="hl str">&quot;greenery&quot;</span></code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">nouns <span class="hl str">&quot;plant&quot;</span>, <span class="hl str">&quot;flower&quot;</span>, <span class="hl str">&quot;marigold&quot;</span>, \&#x000A;      <span class="hl str">&quot;fauna&quot;</span>, <span class="hl str">&quot;greenery&quot;</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -2151,11 +2152,11 @@ Multiple-line comments are begun with <code>!\</code> and ended with <code>\!</c
 <pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl slc">! A comment on a single line</span>&#x000A;&#x000A;<span class="hl com">!\ A multiple-line</span>&#x000A;<span class="hl com">    comment \!</span></code></pre>
 </div>
 </div>
-<div class="admonitionblock note">
+<div class="admonitionblock important">
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-note" title="Note"></i>
+<i class="fa icon-important" title="Important"></i>
 </td>
 <td class="content">
 <div class="paragraph">
@@ -2242,7 +2243,7 @@ Compilation will generally continue unless the <code>-a</code> switch has been s
 <div class="sect2">
 <h3 id="sec_2-7"><a class="anchor" href="#sec_2-7"></a>2.7. Compiler Directives</h3>
 <div class="paragraph">
-<p>A number of special commands may be used that aren&#8217;t really part of a Huge program <em>per se</em>, but rather give instructions to the compiler itself to determine (a) how the source code&#8201;&#8212;&#8201;or a part thereof&#8201;&#8212;&#8201;is read by the compiler and (b) what special output will be generated at compile-time.
+<p>A number of special commands may be used that aren&#8217;t really part of a Hugo program <em>per se</em>, but rather give instructions to the compiler itself to determine (a) how the source code&#8201;&#8212;&#8201;or a part thereof&#8201;&#8212;&#8201;is read by the compiler and (b) what special output will be generated at compile-time.
 These special commands or instructions are called <em>compiler directives</em>, and are preceded with a <code>#</code> character to set them apart.</p>
 </div>
 <div class="paragraph">
@@ -4567,7 +4568,7 @@ The input color is also not necessary&#8201;&#8212;&#8201;this refers to the col
 <p>The standard color set with corresponding values and constant labels (defined in <strong>hugolib.h</strong>) is:</p>
 </div>
 <table id="table-hugolib-colors" class="tableblock frame-all grid-none stripes-even fit-content center">
-<caption class="title">Table 1. Standard Colors Defined by the Hugo Library</caption>
+<caption class="title">Table 2. Standard Colors Defined by the Hugo Library</caption>
 <colgroup>
 <col>
 <col>

@@ -104,7 +104,7 @@ The entire program consists of one routine.
 Two routines are normally required for any Hugo program, the other being the `Init` routine, which is omitted in this simple example since there isn't anything required in the way of initialization.
 ================================================================================
 
-The Main routine is automatically called by the engine.
+The `Main` routine is automatically called by the engine.
 It is from here that the central behavior of any Hugo program is controlled.
 In this case the task at hand is the printing of "`Hello, Sailor!`", followed by a wait for a keypress (the `pause`) and an order to exit the program (i.e., `quit` it) so that we don't strand the program waiting for input from the player, which is the normal order of Hugo business.{fn1}
 
@@ -121,48 +121,50 @@ The name of any individual data type may contain up to 32 alphanumeric character
 
 All of the following are valid data types:
 
+[[table-hugo-data-types]]
+.List of Hugo Data Types
 [cols="<s,<m",grid=rows,stripes=odd]
 |===============================================================================
 | Integer values
 | 0, -10, 16800, -25005
-2+e| (constant values that appear in Hugo source code as numbers)
+2+e| Constant values that appear in Hugo source code as numbers.
 
 | ASCII characters
 | 'A', 'z', '7'
-2+e| (constant values equal to the common ASCII value for a character; i.e., 65 for '`A`')
+2+e| Constant values equal to the common ASCII value for a character; i.e., 65 for '`A`'.
 
 | Objects
 | mysuitcase, emptyroom, player
-2+e| (constant values representing the object number of the given object)
+2+e| Constant values representing the object number of the given object.
 
 | Variables
 | a, b, score, TEXTCOLOR
-2+e| (changeable value-holders that may be set to equal another variable or constant value)
+2+e| Changeable value-holders that may be set to equal another variable or constant value.
 
 | Constants
 | true, false, BANNER
-2+e| (constant -- obviously -- values that are given a name similarly to a variable, but are non-modifiable)
+2+e| Constant -- obviously -- values that are given a name similarly to a variable, but are non-modifiable.
 
 | Dictionary entries
 | "a", "the", "basketball"
-2+e| (The appearance of `the` in a line of code actually refers to the location in the dictionary table where the word "`**the**`" is stored.
-Dictionary entries are non-modifiable.)
+2+e| The appearance of `the` in a line of code actually refers to the location in the dictionary table where the word "`**the**`" is stored.
+Dictionary entries are non-modifiable.
 
 | Array elements
 | ranking[1]
-2+e| (a series of one or more changeable values that may be referenced from a common base point)
+2+e| A series of one or more changeable values that may be referenced from a common base point.
 
 | Array addresses
 | ranking
-2+e| (the base point of an array -- see above; the array address itself is non-modifiable, unlike the contents of the array)
+2+e| The base point of an array -- see above; the array address itself is non-modifiable, unlike the contents of the array.
 
 | Properties
 | nouns, short_desc, found_in
-2+e| (variable attachments of data relating specifically to objects)
+2+e| Variable attachments of data relating specifically to objects.
 
 | Attributes
 | open, light, transparent
-2+e| (less complex attachments of data describing an object, which may be specified as either having or not having the given attribute)
+2+e| Less complex attachments of data describing an object, which may be specified as either having or not having the given attribute.
 |===============================================================================
 
 Most of these types are relatively straightforward, representing in most cases a simple value.
@@ -344,7 +346,7 @@ In other words:
 [source,hugo]
 --------------------------------------------------------------------------------
 x[0] = 1, 2, 3, ! array assignment x[0]..x[4]
-    4, 5
+       4, 5
 --------------------------------------------------------------------------------
 
 
@@ -353,7 +355,7 @@ and
 [source,hugo]
 --------------------------------------------------------------------------------
 if a = 5 and
-    b = "tall"
+   b = "tall"
 --------------------------------------------------------------------------------
 
 get compiled the same as:
@@ -379,7 +381,7 @@ Multiple lines that are not strictly code, such as property assignments in objec
 [source,hugo]
 --------------------------------------------------------------------------------
 nouns "plant", "flower", "marigold", \
-    "fauna", "greenery"
+      "fauna", "greenery"
 --------------------------------------------------------------------------------
 
 
@@ -452,7 +454,7 @@ Multiple-line comments are begun with `!\` and ended with `\!`.
     comment \!
 --------------------------------------------------------------------------------
 
-[NOTE]
+[IMPORTANT]
 ================================================================================
 The `!\` combination must come at the start of a line to be significant; it cannot be preceded by any other statements or remarks.
 Similarly, the `\!` combination must come at the end of a line (or alone on an otherwise blank line).
@@ -518,7 +520,7 @@ The section of offending code may not be printed exactly as it appears in the so
 [[sec_2-7]]
 == Compiler Directives
 
-A number of special commands may be used that aren't really part of a Huge program _per se_, but rather give instructions to the compiler itself to determine (a) how the source code -- or a part thereof -- is read by the compiler and (b) what special output will be generated at compile-time.
+A number of special commands may be used that aren't really part of a Hugo program _per se_, but rather give instructions to the compiler itself to determine (a) how the source code -- or a part thereof -- is read by the compiler and (b) what special output will be generated at compile-time.
 These special commands or instructions are called _compiler directives_, and are preceded with a `#` character to set them apart.
 
 To set switches within the source code so that they do not have to be specified each time the compiler is invoked for that particular program, the line

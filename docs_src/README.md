@@ -183,9 +183,10 @@ All the cross-references to chapters, appendices and sections:
 
 All custom IDs for formal tables, figures, and other captioned block-elements.
 
-|  Type |                   Caption                   |               XRef ID                |
-|-------|---------------------------------------------|--------------------------------------|
-| Table | Standard Colors Defined by the Hugo Library | `hugo-book1_04#table-hugolib-colors` |
+|    Type   |                   Caption                   |     File Ref     |         XRef ID         |
+|-----------|---------------------------------------------|------------------|-------------------------|
+| [Table 1] | List of Hugo Data Types                     | `hugo-book1_02#` | `table-hugo-data-types` |
+| [Table 2] | Standard Colors Defined by the Hugo Library | `hugo-book1_04#` | `table-hugolib-colors`  |
 
 ## Custom Anchors
 
@@ -274,6 +275,9 @@ The Travis CI build tests the project against the latest stable versions of thes
 [Ch26]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/docs/hugo-book.html#chapter_26 "Jump to Live HTML Preview of: Book II » 26. THE HUGO ENGINE AND HOW IT WORKS"
 [Ch27]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/docs/hugo-book.html#chapter_27 "Jump to Live HTML Preview of: Book II » 27. DARK SECRETS OF THE HUGO DEBUGGER"
 [AppH]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/docs/hugo-book.html#appendix_h "Jump to Live HTML Preview of: Book II » Appendix H: CODE PATTERNS"
+
+[Table 1]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/docs/hugo-book.html#table-hugo-data-types "Live HTML Preview of captioned Table"
+[Table 2]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/docs/hugo-book.html#table-hugolib-colors "Live HTML Preview of captioned Table"
 
 <!-- project files -->
 

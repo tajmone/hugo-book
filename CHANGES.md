@@ -66,7 +66,7 @@ Just bare in mind that the Word document from which the AsciiDoc version was der
 
 ## Aesthetic and Functional Changes
 
-The switch for Word to AsciiDoc called for some aesthetic adaptations — e.g. moving comments within parentheses to admonition blocks — which are more inline with the overall AsciiDoc philosophy on how documents should be organized in order to maximize fruition across different formats and media, and to allow end users full control over customization of the look and feel of the various parts of a document.
+The switch for Word to AsciiDoc called for some aesthetic adaptations — e.g. converting notes within parentheses to admonition blocks — as well as some functional changes — e.g. adding captions to tables and figures, to allow direct linking via anchors or providing an index of tables and figures in those output formats that support this feature (e.g. PDF) — which are more inline with the overall AsciiDoc philosophy on how documents should be organized in order to maximize fruition across different formats and media, and to allow end users full control over customization of the look and feel of the various parts of a document.
 
 Aesthetic changes include resorting to colour and bigger font sizes to highlight key elements in lists or tables, and similar visual enhancements that can be easily controlled (and even suppressed, if so desired) via custom stylesheets or templates.
 

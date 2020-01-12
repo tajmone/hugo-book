@@ -199,7 +199,7 @@ There will, in fact, be several places in this book (especially in the early sec
 But rest assured that, after a brief initial period of acclimation, before long things like "`objects`", "`properties`", "`routines`", "`global variables`", "`calling parameters`", and a host of others will be rolling off your tongue like the alphabet.
 
 To make everything even easier, Hugo is designed so that writing very basic games will consist largely of defining and describing objects and locations in a very straightforward manner.
-All of the complex inner workings of the game -- from the templates for standard rooms and objects and their related behaviors; to what happens when a player types >GO NORTH or >OPEN THE CARDBOARD BOX or any other command, recognized or unrecognized; to the rules of the game world for containment, edibility, bulk, switching things on or off, or any number of "`physical`" traits -- are handled by the Hugo Library, and a prospective doesn't have to worry about where these things are handled or how until he or she is ready to investigate deeper.
+All of the complex inner workings of the game -- from the templates for standard rooms and objects and their related behaviors; to what happens when a player types *>GO NORTH* or *>OPEN THE CARDBOARD BOX* or any other command, recognized or unrecognized; to the rules of the game world for containment, edibility, bulk, switching things on or off, or any number of "`physical`" traits -- are handled by the Hugo Library, and a prospective doesn't have to worry about where these things are handled or how until he or she is ready to investigate deeper.
 
 
 [[sec_1-7]]
@@ -484,9 +484,9 @@ at the command line (replacing `he` with the name of the engine executable for y
 Again, it should not be necessary to specify the extension.
 The engine assumes *.hex* if none is given.
 
-[NOTE]
+[TIP]
 ================================================================================
-If you know how to set environment variables for your system, the environment variable `HUGO_OBJEC`T or `HUGO_GAMES` may hold the directory that the Hugo Engine searches for the specified *.HEX* file.
+If you know how to set environment variables for your system, the environment variable `HUGO_OBJECT` or `HUGO_GAMES` may hold the directory that the Hugo Engine searches for the specified *.HEX* file.
 The location for save files may be specified with `HUGO_SAVE`.
 All of these are optional.
 ================================================================================
