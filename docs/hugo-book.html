@@ -583,7 +583,7 @@ div.literalblock.hugosyntax div.content pre > sup.footnote a {
 <span id="email" class="email"><a href="mailto:general@generalcoffee.com">general@generalcoffee.com</a></span><br>
 <span id="revnumber">version 1,</span>
 <span id="revdate">2018-10-04</span>
-<br><span id="revremark">Draft 140 -- Porting to AsciiDoc</span>
+<br><span id="revremark">Draft 141 -- Porting to AsciiDoc</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -4063,7 +4063,8 @@ On the other hand, the variables</p>
 <p>The compiler defines a set of engine globals: global variables that are referenced directly by the engine, but which may otherwise be treated like any other global variables.
 These are:</p>
 </div>
-<table class="tableblock frame-all grid-none stripes-even fit-content center">
+<table id="table-engine-globals" class="tableblock frame-all grid-none stripes-even fit-content center">
+<caption class="title">Table 2. Global Variables Defined by the Hugo Engine</caption>
 <colgroup>
 <col>
 <col>
@@ -4132,11 +4133,11 @@ The engine will reset it to the &#8220;real&#8221; value whenever referenced.
 The <code>system_status</code> variable may be read (after a resource operation or a <code>system</code> call; <a href="#chapter_12">see the relevant sections</a> for an explanation of these functions) to check for an error value.
 See the <a href="#system_status_values">section on &#8220;<em>Resources</em>&#8221;</a> for possible return values.</p>
 </div>
-<div class="admonitionblock note">
+<div class="admonitionblock important">
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-note" title="Note"></i>
+<i class="fa icon-important" title="Important"></i>
 </td>
 <td class="content">
 <div class="paragraph">
@@ -4418,7 +4419,7 @@ To avoid this, append a semicolon (<code>;</code>) to the end of the <code>print
 </div>
 </div>
 <div class="paragraph">
-<p>Print statements may also contain data types, or a combination of data types and strings.
+<p><code>Print</code> statements may also contain data types, or a combination of data types and strings.
 The command</p>
 </div>
 <div class="listingblock">
@@ -4567,7 +4568,7 @@ The input color is also not necessary&#8201;&#8212;&#8201;this refers to the col
 <p>The standard color set with corresponding values and constant labels (defined in <strong>hugolib.h</strong>) is:</p>
 </div>
 <table id="table-hugolib-colors" class="tableblock frame-all grid-none stripes-even fit-content center">
-<caption class="title">Table 2. Standard Colors Defined by the Hugo Library</caption>
+<caption class="title">Table 3. Standard Colors Defined by the Hugo Library</caption>
 <colgroup>
 <col>
 <col>
@@ -5270,21 +5271,21 @@ not (8 and 0) = 1
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>1 &amp; 1 = 1</code></p></td>
-<td class="tableblock halign-left valign-middle" rowspan="2"><p class="tableblock">(Bitwise and)</p></td>
+<td class="tableblock halign-left valign-middle" rowspan="2"><p class="tableblock">(Bitwise AND)</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>1 &amp; 0 = 0</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>1 | 0 = 1</code></p></td>
-<td class="tableblock halign-left valign-middle" rowspan="2"><p class="tableblock">(Bitwise or)</p></td>
+<td class="tableblock halign-left valign-middle" rowspan="2"><p class="tableblock">(Bitwise OR)</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>1 | 1 = 1</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>~0 = -1</code></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">(Bitwise not/inverse)</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">(Bitwise NOT/inverse)</p></td>
 </tr>
 </tbody>
 </table>
@@ -5347,7 +5348,7 @@ Standard mathematical rules for order of significance in evaluating an expressio
 <div class="paragraph">
 <p>The <code>++</code> operator increases the following variable by one before returning the value of the variable.
 Similarly, <code>--</code> can precede a variable to decrease the value by one before returning it.
-Since these operators act before the value is returned, they are called &#8220;pre-increment&#8221; and &#8220;pre-decrement&#8221;.</p>
+Since these operators act <em>before</em> the value is returned, they are called &#8220;pre-increment&#8221; and &#8220;pre-decrement&#8221;.</p>
 </div>
 <div class="paragraph">
 <p>If <code>++</code> or <code>--</code> comes <em>after</em> a variable, the value of the variable is returned and then the value is increased or decreased, respectively.
@@ -5585,7 +5586,7 @@ socks
 </div>
 </div>
 <div class="paragraph">
-<p>even though v is an argument (i.e., local variable), and technically not an array.
+<p>even though <code>v</code> is an argument (i.e., local variable), and technically not an array.
 The line</p>
 </div>
 <div class="listingblock">
@@ -5636,7 +5637,7 @@ A string array is an array containing a series of character values, terminated b
 </td>
 <td class="content">
 <div class="paragraph">
-<p>It is expected in the preceding example that a would have at least 11 elements, since <code>string</code> expects to store a terminating 0 after the string itself.</p>
+<p>It is expected in the preceding example that <code>a</code> would have at least 11 elements, since <code>string</code> expects to store a terminating 0 after the string itself.</p>
 </div>
 </td>
 </tr>
@@ -5755,7 +5756,7 @@ x = StringCompare(&lt;string1&gt;, &lt;string2&gt;)</pre>
 <p>will copy <code>b</code> to <code>a</code>, beginning with the third letter of <code>b</code> (since the first letter of <code>b</code> is <code>b[0]</code>).</p>
 </div>
 <div class="paragraph">
-<p>It should also be kept in mind that string arrays and dictionary entries are two entirely separate animals, and that comparing them directly is using <code>StringCompare</code> is not possible.
+<p>It should also be kept in mind that string arrays and dictionary entries are two entirely separate animals, and that comparing them directly using <code>StringCompare</code> is not possible.
 That is, while a dictionary entry is a simple value representing an address, a string array is a series of values each representing a character in the string.</p>
 </div>
 <div class="paragraph">
@@ -5780,7 +5781,7 @@ x = dict(parse$, &lt;maxlen&gt;)</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>where the contents of <code>&lt;``array&gt;</code> or <code>parse$</code> are written into the dictionary, to a maximum of <code>&lt;maxlen&gt;</code> characters, and the address of the new word is returned.</p>
+<p>where the contents of <code>&lt;array&gt;</code> or <code>parse$</code> are written into the dictionary, to a maximum of <code>&lt;maxlen&gt;</code> characters, and the address of the new word is returned.</p>
 </div>
 <div class="paragraph">
 <p>However, since this requires extending the actual length of the dictionary table in the game file, it is necessary to provide for this during compilation.
@@ -6138,7 +6139,7 @@ The compiler looks after this translation for you.</p>
 </div>
 </div>
 <div class="paragraph">
-<p>with &#8220;boldface&#8221;, &#8220;italics&#8221;, &#8220;underlined&#8221;, and &#8220;proportional&#8221; printed in their respective typefaces. &#8220;Get ready&#8221;, &#8220;Get set&#8221;, and &#8220;Go!&#8221; will all appear on the same line in three different colors.</p>
+<p>with &#8220;boldface&#8221;, &#8220;italics&#8221; and &#8220;underlined&#8221; printed in their respective typefaces. &#8220;Get ready&#8221;, &#8220;Get set&#8221;, and &#8220;Go!&#8221; will all appear on the same line in three different colors.</p>
 </div>
 <div class="admonitionblock warning">
 <table>

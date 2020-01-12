@@ -186,7 +186,8 @@ All custom IDs for formal tables, figures, and other captioned block-elements.
 |    Type   |                   Caption                   |     File Ref     |         XRef ID         |
 |-----------|---------------------------------------------|------------------|-------------------------|
 | [Table 1] | List of Hugo Data Types                     | `hugo-book1_02#` | `table-hugo-data-types` |
-| [Table 2] | Standard Colors Defined by the Hugo Library | `hugo-book1_04#` | `table-hugolib-colors`  |
+| [Table 2] | Global Variables Defined by the Hugo Engine | `hugo-book1_04#` | `table-engine-globals`  |
+| [Table 3] | Standard Colors Defined by the Hugo Library | `hugo-book1_04#` | `table-hugolib-colors`  |
 
 ## Custom Anchors
 
@@ -277,7 +278,8 @@ The Travis CI build tests the project against the latest stable versions of thes
 [AppH]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/docs/hugo-book.html#appendix_h "Jump to Live HTML Preview of: Book II » Appendix H: CODE PATTERNS"
 
 [Table 1]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/docs/hugo-book.html#table-hugo-data-types "Live HTML Preview of captioned Table"
-[Table 2]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/docs/hugo-book.html#table-hugolib-colors "Live HTML Preview of captioned Table"
+[Table 2]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/docs/hugo-book.html#table-engine-globals "Live HTML Preview of captioned Table"
+[Table 3]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/docs/hugo-book.html#table-hugolib-colors "Live HTML Preview of captioned Table"
 
 <!-- project files -->
 

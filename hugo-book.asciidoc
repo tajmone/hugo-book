@@ -1,6 +1,6 @@
 = The Hugo Book
 Kent Tessman <general@generalcoffee.com>
-v1, 2018-10-04: Draft 140 -- Porting to AsciiDoc
+v1, 2018-10-04: Draft 141 -- Porting to AsciiDoc
 :lang: en
 :doctype: book
 // TOC Settings for GitHub previewing (override via CLI):
@@ -2555,8 +2555,10 @@ are visible only within the block of code where they are defined, and are initia
 The compiler defines a set of engine globals: global variables that are referenced directly by the engine, but which may otherwise be treated like any other global variables.
 These are:
 
-[.center,caption=]
-[cols="<m,<d",options=autowidth,grid=none,stripes=even]
+// [.center,caption=]
+[[table-engine-globals]]
+.Global Variables Defined by the Hugo Engine
+[.center,cols="<m,<d",options=autowidth,grid=none,stripes=even]
 |============================================================
 | object        | direct object of an action
 | xobject       | indirect object
@@ -2587,7 +2589,7 @@ The `system_status` variable may be read (after a resource operation or a `syste
 See the <<hugo-book1_12#system_status_values,section on "`__Resources__`">> for possible return values.
 // See the section on "`__Resources__`" for possible return values.
 
-[NOTE]
+[IMPORTANT]
 ================================================================================
 Setting `endflag` to a non-zero value forces an _immediate_ break from the game loop.
 Statements following the `endflag` assignment even in the same function are not executed; control is passed directly to the engine, which calls the `EndGame` routine.
@@ -2807,7 +2809,7 @@ print "single line."
 This is a single line.
 ===============================
 
-Print statements may also contain data types, or a combination of data types and strings.
+`Print` statements may also contain data types, or a combination of data types and strings.
 The command
 
 [source,hugo]
@@ -3247,11 +3249,11 @@ Additionally, bitwise operators are provided:
 [caption=]
 [cols="<m,<.^d",options=autowidth,grid=rows,stripes=even]
 |========================================================
-| 1 & 1 = 1  .2+| (Bitwise and)
+| 1 & 1 = 1  .2+| (Bitwise AND)
 | 1 & 0 = 0
-| 1 \| 0 = 1  .2+| (Bitwise or)
+| 1 \| 0 = 1  .2+| (Bitwise OR)
 | 1 \| 1 = 1
-| ~0 = -1    | (Bitwise not/inverse)
+| ~0 = -1    | (Bitwise NOT/inverse)
 |========================================================
 
 [NOTE]
@@ -3313,7 +3315,7 @@ if ++number_of_items > 10
 
 The `++` operator increases the following variable by one before returning the value of the variable.
 Similarly, `--` can precede a variable to decrease the value by one before returning it.
-Since these operators act before the value is returned, they are called "`pre-increment`" and "`pre-decrement`".
+Since these operators act _before_ the value is returned, they are called "`pre-increment`" and "`pre-decrement`".
 
 If `++` or `--` comes _after_ a variable, the value of the variable is returned and then the value is increased or decreased, respectively.
 In this usage, the operators are called "`post-increment`" and "`post-decrement`".
@@ -3522,7 +3524,7 @@ to produce the output
 [example,role="gametranscript"]
 socks
 
-even though v is an argument (i.e., local variable), and technically not an array.
+even though `v` is an argument (i.e., local variable), and technically not an array.
 The line
 
 [source,hugo, subs="+attributes"]
@@ -3566,7 +3568,7 @@ will store up to 10 characters from `word[1]` into the array `a`.
 
 [NOTE]
 ================================================================================
-It is expected in the preceding example that a would have at least 11 elements, since `string` expects to store a terminating 0 after the string itself.
+It is expected in the preceding example that `a` would have at least 11 elements, since `string` expects to store a terminating 0 after the string itself.
 ================================================================================
 
 
@@ -3658,7 +3660,7 @@ StringCopy(a, b+2)
 
 will copy `b` to `a`, beginning with the third letter of `b` (since the first letter of `b` is `b[0]`).
 
-It should also be kept in mind that string arrays and dictionary entries are two entirely separate animals, and that comparing them directly is using `StringCompare` is not possible.
+It should also be kept in mind that string arrays and dictionary entries are two entirely separate animals, and that comparing them directly using `StringCompare` is not possible.
 That is, while a dictionary entry is a simple value representing an address, a string array is a series of values each representing a character in the string.
 
 The library provides the following to overcome this:
@@ -3679,7 +3681,7 @@ x = dict(<array>, <maxlen>)
 x = dict(parse$, <maxlen>)
 ............................
 
-where the contents of `<``array>` or `parse$` are written into the dictionary, to a maximum of `<maxlen>` characters, and the address of the new word is returned.
+where the contents of `<array>` or `parse$` are written into the dictionary, to a maximum of `<maxlen>` characters, and the address of the new word is returned.
 
 However, since this requires extending the actual length of the dictionary table in the game file, it is necessary to provide for this during compilation.
 Inserting
@@ -4028,7 +4030,7 @@ Text may be printed in *boldface*, _italics_, or [.underline]#underlined# typefa
 [.green]#Go!#
 ================================================================================
 
-with "`boldface`", "`italics`", "`underlined`", and "`proportional`" printed in their respective typefaces. "`Get ready`", "`Get set`", and "`Go!`" will all appear on the same line in three different colors.
+with "`boldface`", "`italics`" and "`underlined`" printed in their respective typefaces. "`Get ready`", "`Get set`", and "`Go!`" will all appear on the same line in three different colors.
 
 [WARNING]
 ================================================================================
