@@ -583,7 +583,7 @@ div.literalblock.hugosyntax div.content pre > sup.footnote a {
 <span id="email" class="email"><a href="mailto:general@generalcoffee.com">general@generalcoffee.com</a></span><br>
 <span id="revnumber">version 1,</span>
 <span id="revdate">2018-10-04</span>
-<br><span id="revremark">Draft 142 -- Porting to AsciiDoc</span>
+<br><span id="revremark">Draft 143 -- Porting to AsciiDoc</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -7279,7 +7279,7 @@ Here&#8217;s why:</p>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>(remembering that a hanging comma at the end of a line of code is a signal to the compiler that the line continues onto the next unbroken.)</p>
+<p>Remembering that a hanging comma at the end of a line of code is a signal to the compiler that the line continues onto the next unbroken.</p>
 </div>
 </td>
 </tr>
@@ -7387,11 +7387,11 @@ The line:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">setscript[Script(ned, <span class="hl num">4</span>)] <span class="hl opt">= &amp;</span>CharMove, s_obj,&#x000A;                            <span class="hl opt">&amp;</span>CharGet, cannonb&#x000A;                            <span class="hl opt">&amp;</span>CharMove, n_obj,&#x000A;                            <span class="hl opt">&amp;</span>CharWait, <span class="hl num">0</span>,&#x000A;                            <span class="hl opt">&amp;</span>CharDrop, ca</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">setscript[Script(ned, <span class="hl num">4</span>)] <span class="hl opt">= &amp;</span>CharMove, s_obj,&#x000A;                            <span class="hl opt">&amp;</span>CharGet,  cannonball,&#x000A;                            <span class="hl opt">&amp;</span>CharMove, n_obj,&#x000A;                            <span class="hl opt">&amp;</span>CharWait, <span class="hl num">0</span>,&#x000A;                            <span class="hl opt">&amp;</span>CharDrop, cannonball</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Ned will go south, retrieve the cannonball object, bring it north, wait a turn, and drop it.</p>
+<p>Ned will go south, retrieve the <code>cannonball</code> object, bring it north, wait a turn, and drop it.</p>
 </div>
 <div class="admonitionblock caution">
 <table>
@@ -7401,7 +7401,7 @@ The line:</p>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>The character script routines provided in the library are relatively basic; for example, <code>CharGet</code> assumes that the specified object will be there when the character comes to get it, so it&#8217;s more or less up to the game author&#8201;&#8212;&#8201;at least when using the default library routines for character scripting&#8201;&#8212;&#8201;to have things well planned out.)</p>
+<p>The character script routines provided in the library are relatively basic; for example, <code>CharGet</code> assumes that the specified object will be there when the character comes to get it, so it&#8217;s more or less up to the game author&#8201;&#8212;&#8201;at least when using the default library routines for character scripting&#8201;&#8212;&#8201;to have things well planned out.</p>
 </div>
 </td>
 </tr>
@@ -7457,7 +7457,7 @@ It continues with the default action&#8201;&#8212;&#8201;i.e., the character act
 <div class="content">
 <pre>before
 {
-    actor CharRoutine
+    actor &lt;CharRoutine&gt;
     {
         ...
     }
@@ -7465,7 +7465,7 @@ It continues with the default action&#8201;&#8212;&#8201;i.e., the character act
 </div>
 </div>
 <div class="paragraph">
-<p>where <code>CharRoutine</code> is <code>CharWait</code>, <code>CharMove</code>, <code>CharGet</code>, <code>CharDrop</code>, etc.</p>
+<p>where <code>&lt;CharRoutine&gt;</code> is <code>CharWait</code>, <code>CharMove</code>, <code>CharGet</code>, <code>CharDrop</code>, etc.</p>
 </div>
 </div>
 <div class="sect2">

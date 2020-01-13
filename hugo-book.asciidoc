@@ -1,6 +1,6 @@
 = The Hugo Book
 Kent Tessman <general@generalcoffee.com>
-v1, 2018-10-04: Draft 142 -- Porting to AsciiDoc
+v1, 2018-10-04: Draft 143 -- Porting to AsciiDoc
 :lang: en
 :doctype: book
 // TOC Settings for GitHub previewing (override via CLI):
@@ -5210,7 +5210,7 @@ setscript[Script(<char>, <num>)] =  &CharRoutine, obj,
 
 [TIP]
 ================================================================================
-(remembering that a hanging comma at the end of a line of code is a signal to the compiler that the line continues onto the next unbroken.)
+Remembering that a hanging comma at the end of a line of code is a signal to the compiler that the line continues onto the next unbroken.
 ================================================================================
 
 Notice that `setscript` is actually an array, taking its starting element from the return value of the `Script` routine, which has `<object>` and `<number>` as its arguments.
@@ -5259,17 +5259,17 @@ Here is a sample script for a character named "`Ned`":
 [source,hugo]
 ---------------------------------------------
 setscript[Script(ned, 4)] = &CharMove, s_obj,
-                            &CharGet, cannonb
+                            &CharGet,  cannonball,
                             &CharMove, n_obj,
                             &CharWait, 0,
-                            &CharDrop, ca
+                            &CharDrop, cannonball
 ---------------------------------------------
 
-Ned will go south, retrieve the cannonball object, bring it north, wait a turn, and drop it.
+Ned will go south, retrieve the `cannonball` object, bring it north, wait a turn, and drop it.
 
 [CAUTION]
 ================================================================================
-The character script routines provided in the library are relatively basic; for example, `CharGet` assumes that the specified object will be there when the character comes to get it, so it's more or less up to the game author -- at least when using the default library routines for character scripting -- to have things well planned out.)
+The character script routines provided in the library are relatively basic; for example, `CharGet` assumes that the specified object will be there when the character comes to get it, so it's more or less up to the game author -- at least when using the default library routines for character scripting -- to have things well planned out.
 ================================================================================
 
 Other script-management routines in *hugolib.h* include:
@@ -5289,14 +5289,14 @@ To override a default character action routine, include a `before` property for 
 ............................
 before
 {
-    actor CharRoutine
+    actor <CharRoutine>
     {
         ...
     }
 }
 ............................
 
-where `CharRoutine` is `CharWait`, `CharMove`, `CharGet`, `CharDrop`, etc.
+where `<CharRoutine>` is `CharWait`, `CharMove`, `CharGet`, `CharDrop`, etc.
 
 
 [[sec_6-4]]
