@@ -583,7 +583,7 @@ div.literalblock.hugosyntax div.content pre > sup.footnote a {
 <span id="email" class="email"><a href="mailto:general@generalcoffee.com">general@generalcoffee.com</a></span><br>
 <span id="revnumber">version 1,</span>
 <span id="revdate">2018-10-04</span>
-<br><span id="revremark">Draft 141 -- Porting to AsciiDoc</span>
+<br><span id="revremark">Draft 142 -- Porting to AsciiDoc</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -6251,9 +6251,9 @@ A routine may or may not return a value, and it may or may not require a list of
 <p>The <code>return</code> keyword exits the current routine, and returns a value if specified.
 Both</p>
 </div>
-<div class="listingblock">
+<div class="literalblock hugosyntax">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">return</span></code></pre>
+<pre>return</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -6379,9 +6379,9 @@ You open the suitcase.
 <div class="paragraph">
 <p>It is the <code>The</code> routine that prints</p>
 </div>
-<div class="exampleblock gametranscript">
+<div class="literalblock">
 <div class="content">
-the suitcase
+<pre>"the suitcase"</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -6393,7 +6393,7 @@ the suitcase
 </div>
 </div>
 <div class="paragraph">
-<p>where the empty string (<code>""</code>) is preceded on the output line by The&#8217;s printing of <code>"the "</code> (notice the trailing space) and the object name.</p>
+<p>where the empty string (<code>""</code>) is preceded on the output line by <code>The</code>&#8288;&#8217;s printing of <code>"the "</code> (notice the trailing space) and the object name.</p>
 </div>
 </div>
 <div class="sect2">
@@ -6678,7 +6678,7 @@ You can&#8217;t eat the suitcase!
 </div>
 <div class="paragraph">
 <p>and the normal verbroutine for <code>eat</code>, the library&#8217;s <code>DoEat</code> verbroutine, will not be run.
-When the player tries to &#8220;get the suitcase&#8221;, the library&#8217;s <code>DoGet</code> verbroutine will be run (since no <code>before</code> property interrupts it), but instead of the default library response (which is a simple &#8220;Taken.&#8221;), the game will print:</p>
+When the player tries to &#8220;get the suitcase&#8221;, the library&#8217;s <code>DoGet</code> verbroutine will be run (since no <code>before</code> property interrupts it), but instead of the default library response (which is a simple &#8220;<strong>Taken.</strong>&#8221;), the game will print:</p>
 </div>
 <div class="exampleblock gametranscript">
 <div class="content">
@@ -6716,7 +6716,7 @@ In order to fool the engine into continuing normally, as if no <code>before</cod
 </div>
 </div>
 <div class="paragraph">
-<p>Since the <code>after</code> routine returns false, and the library&#8217;s default response for a successful call to <code>DoGet</code> is &#8220;Taken.&#8221;</p>
+<p>Since the <code>after</code> routine returns false, and the library&#8217;s default response for a successful call to <code>DoGet</code> is &#8220;<strong>Taken.</strong>&#8221;</p>
 </div>
 <div class="paragraph">
 <p>It is important to remember that, unlike other property routines, <code>before</code> and <code>after</code> routines are also <em>additive</em>; i.e., a <code>before</code> (or <code>after</code>) routine defined in an inherited class or object is not overwritten by a new property routine in the new object.
@@ -6890,7 +6890,7 @@ Also, determine the starting bulk of whatever the player is carrying at the outs
 </div>
 </li>
 <li>
-<p><em>Finally, if we&#8217;ve defined <code>USE_PLURAL_OBJECTS</code></em>,<sup class="footnote">[<a id="_footnoteref_37" class="footnote" href="#_footnotedef_37" title="View footnote.">37</a>]</sup> call the appropriate initialization routine:_</p>
+<p><em>Finally, if we&#8217;ve defined <code>USE_PLURAL_OBJECTS</code>,</em><sup class="footnote">[<a id="_footnoteref_37" class="footnote" href="#_footnotedef_37" title="View footnote.">37</a>]</sup> <em>call the appropriate initialization routine:</em></p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl ppc">#ifset USE_PLURAL_OBJECTS</span>&#x000A;        InitPluralObjects&#x000A;<span class="hl ppc">#endif</span>&#x000A;}</code></pre>

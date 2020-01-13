@@ -1,6 +1,6 @@
 = The Hugo Book
 Kent Tessman <general@generalcoffee.com>
-v1, 2018-10-04: Draft 141 -- Porting to AsciiDoc
+v1, 2018-10-04: Draft 142 -- Porting to AsciiDoc
 :lang: en
 :doctype: book
 // TOC Settings for GitHub previewing (override via CLI):
@@ -4199,10 +4199,10 @@ Where `TestRoutine` takes a single value as an argument, assigns it to a local v
 The `return` keyword exits the current routine, and returns a value if specified.
 Both
 
-[source,hugo]
--------------
+[literal, role="hugosyntax"]
+............................
 return
--------------
+............................
 
 and
 
@@ -4332,8 +4332,9 @@ and
 
 It is the `The` routine that prints
 
-[example,role="gametranscript"]
-the suitcase
+..............
+"the suitcase"
+..............
 
 Since `The` returns 0 (the empty string, or `+""+`), the `print` command is actually displaying
 
@@ -4341,7 +4342,7 @@ Since `The` returns 0 (the empty string, or `+""+`), the `print` command is actu
 "You open ", "", and "."
 ........................
 
-where the empty string (`+""+`) is preceded on the output line by The's printing of `"++the ++"` (notice the trailing space) and the object name.
+where the empty string (`+""+`) is preceded on the output line by `The`{wj}`'s printing of `"++the ++"` (notice the trailing space) and the object name.
 
 
 [[sec_5-2]]
@@ -4601,7 +4602,7 @@ When the player tries the command "`eat suitcase`", the response printed will be
 You can't eat the suitcase!
 
 and the normal verbroutine for `eat`, the library's `DoEat` verbroutine, will not be run.
-When the player tries to "`get the suitcase`", the library's `DoGet` verbroutine will be run (since no `before` property interrupts it), but instead of the default library response (which is a simple "`Taken.`"), the game will print:
+When the player tries to "`get the suitcase`", the library's `DoGet` verbroutine will be run (since no `before` property interrupts it), but instead of the default library response (which is a simple "`*Taken.*`"), the game will print:
 
 [example,role="gametranscript"]
 With a vigorous effort, you pick up the suitcase.
@@ -4635,7 +4636,7 @@ will result in:
 Fine. Taken.
 ===============================
 
-Since the `after` routine returns false, and the library's default response for a successful call to `DoGet` is "`Taken.`"
+Since the `after` routine returns false, and the library's default response for a successful call to `DoGet` is "`*Taken.*`"
 
 It is important to remember that, unlike other property routines, `before` and `after` routines are also _additive_; i.e., a `before` (or `after`) routine defined in an inherited class or object is not overwritten by a new property routine in the new object.
 Instead, the definition for the routine is -- in essence -- added onto.
@@ -4799,7 +4800,7 @@ Also, determine the starting bulk of whatever the player is carrying at the outs
         CalculateHolding(player)
 -----------------------------------
 
-* __Finally, if we've defined ``USE_PLURAL_OBJECTS``__,{fn8} call the appropriate initialization routine:_
+* _Finally, if we've defined ``USE_PLURAL_OBJECTS``,_{fn8} _call the appropriate initialization routine:_
 +
 [source,hugo]
 -------------------------
