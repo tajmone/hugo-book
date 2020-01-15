@@ -193,12 +193,14 @@ All custom IDs for formal tables, figures, and other captioned block-elements.
 
 These are the custom inline anchors pointing to specific points in the text:
 
-|               XRef ID                | Qt. |          Description           | Section |
-|--------------------------------------|-----|--------------------------------|---------|
-| `hugo-book1_04#hugolib-colors`       |   1 | Colors defined by Hugo Library | §4.3.   |
-| `hugo-book1_12#system_status_values` |   1 | `system_status` return values  | §12.1.  |
-| `hugo-book1_14#token-case`           |   1 | Tokens table: `case`           | App. H  |
-| `hugo-book1_14#token-if`             |   3 | Tokens table: `if`             | App. H  |
+|     File Ref     |        XRef ID         | Qt. |          Description           | Section |
+|------------------|------------------------|-----|--------------------------------|---------|
+| `hugo-book1_04#` | `hugolib-colors`       |   1 | Colors defined by Hugo Library | §4.3.   |
+| `hugo-book1_07#` | `dynamic-grammars1`    |   1 | Dynamic grammars definitions   | §7.1.   |
+| `hugo-book1_12#` | `system_status_values` |   1 | `system_status` return values  | §12.1.  |
+| `hugo-book1_14#` | `token-case`           |   1 | Tokens table: `case`           | App. H  |
+| `hugo-book1_14#` | `token-if`             |   3 | Tokens table: `if`             | App. H  |
+| `hugo-book2_05#` | `dynamic-grammars2`    |   1 | Dynamic grammars definitions   | Ch. 17  |
 
 
 # System Requirements

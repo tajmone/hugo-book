@@ -1,6 +1,6 @@
 = The Hugo Book
 Kent Tessman <general@generalcoffee.com>
-v1, 2018-10-04: Draft 143 -- Porting to AsciiDoc
+v1, 2018-10-04: Draft 144 -- Porting to AsciiDoc
 :lang: en
 :doctype: book
 // TOC Settings for GitHub previewing (override via CLI):
@@ -5441,17 +5441,27 @@ Each `verb` or `xverb` header begins a new verb definition.
 An `xverb` is a special signifier that indicates that the engine should not call the `Main` routine after successful completion of the action.
 `xverb` is typically used with non-action, housekeeping-type verbs such as saving, restoring, quitting, and restarting.
 
+[[dynamic-grammars1]]
 Another thing that can be done is to specify:
 
-[literal, role="hugosyntax"]
-............................
+[source,hugo]
+--------------------------
 verb some_object
     * object        DoVerb
-............................
+--------------------------
 
 which will have the effect of, instead of defining the verb with a dictionary word, checking at runtime `some_object.noun` as the verb word to be matched.
 What this allows is for the `some_object.noun` property to be a routine that can return varying values at runtime in order to provide for dynamic grammar, if required.
 However, since this sort of dynamic grammar isn't often required, static grammar definitions are far more common.
+
+// @EDITED XREF ADDED: (undocumented & waiting approval: Issue #22)
+//    The following admonition block was added to the original book to provide
+//    a cross reference to learn more about dynamic grammars.
+
+[TIP]
+================================================================================
+For more details on dynamic grammars see the <<hugo-book2_05#dynamic-grammars2,_Grammar_ chapter in _Book II_>>.
+================================================================================
 
 Next in the header comes one or more verb words.
 Each of the specified words will share the following verb grammar _exactly_.
@@ -5508,11 +5518,11 @@ Valid object specifications are:
 `attribute`     :: any visible object that is `attribute`
 `parent`        :: an xobject that is the parent of the object
 `held`          :: any object possessed by the player object
-`notheld`       :: an object explicitly not held
-`anything`      :: any object, held or not, visible or not
+`notheld`       :: an object explicitly not `held`
+`anything`      :: any object, `held` or not, visible or not
 `multi`         :: multiple visible objects
-`multiheld`     :: multiple held objects
-`multinotheld`  :: multiple notheld objects
+`multiheld`     :: multiple `held` objects
+`multinotheld`  :: multiple `notheld` objects
 `number`        :: a positive integer number
 `word`          :: any dictionary word
 `string`        :: a quoted string
@@ -5617,7 +5627,7 @@ verb "rub"
     * (magic_lamp)      DoRubMagicLamp
 ------------------------------------------
 
-will produce a "`You can't do that with...`" error for any object other than the `magic_lamp` object.
+will produce a "`*You can't do that with...*`" error for any object other than the `magic_lamp` object.
 
 Using a routine name to specify an object is slightly more involved: the engine calls the given routine with the object specified in the input line as its argument; if the routine returns true, the object is valid -- if not, a parsing error is expected to have been printed by the routine.
 If two routine names are used in a particular syntax, such as
@@ -5635,7 +5645,7 @@ then `FirstRoutine` validates the object and `SecondRoutine` validates the xobje
 
 Immediately after an input line is received, the engine calls the parser, and the first step taken is to identify any invalid words, i.e., words that are not in the dictionary table.
 
-[NOTE]
+[WARNING]
 ================================================================================
 One non-dictionary word or phrase is allowed in an input line, providing it is enclosed in quotation marks.
 If the command is successfully parsed and the quoted word or phrase is matched to a `string` grammar token, that string is passed to `parse$`.
@@ -5671,9 +5681,9 @@ removal "a", "an", "the"
 [.big.red]#_Punctuation_# is similar to a removal, except it specifies the removal of individual characters instead of whole words:
 
 [literal, role="hugosyntax"]
-..........................................
-punctuation "<character1>[<character2>...]
-..........................................
+...........................................
+punctuation "<character1>[<character2>...]"
+...........................................
 
 as in
 
@@ -5813,7 +5823,7 @@ The period is in each case converted to the empty dictionary entry (`+""+`; dict
 
 [NOTE]
 ================================================================================
-The parsing and grammar routines also recognize several system words, each in the format `~word`.
+The parsing and grammar routines also recognize several system words, each in the format `~<word>`.
 These are:
 
 [horizontal]
@@ -5836,7 +5846,7 @@ The library defines several such synonyms.
 == _What Should I Be Able to Do Now?_
 
 It should by now be relatively straightforward how to go about adding a new verb (with appropriate grammar) -- or even modifying an existing one.
-For instance, consider a game in which disco dancing plays an absolutely vital role, and where the command "`>GET DOWN`" must at all costs be implemented as a synonym for "`>DANCE`" or "`>BOOGIE`".
+For instance, consider a game in which disco dancing plays an absolutely vital role, and where the command "`*>GET DOWN*`" must at all costs be implemented as a synonym for "`*>DANCE*`" or "`*>BOOGIE*`".
 
 For starters, you'll need to add the initial grammar and verbroutine:
 
@@ -5857,7 +5867,7 @@ routine DoDance
 -----------------------------------
 
 Keep in mind that the verb definition, as with all grammar, must come before any other code, definitions, etc.
-Now, you'll have to add the "`>GET DOWN`" grammar:
+Now, you'll have to add the "`*>GET DOWN*`" grammar:
 
 [source,hugo]
 -------------------------------
@@ -5865,7 +5875,7 @@ verb "get"
     * "down"            DoDance
 -------------------------------
 
-Now, this must come both before any other code or definitions as well as the _existing_ grammar for "`>GET <object>`" (from *VERBLIB.G*).
+Now, this must come both before any other code or definitions as well as the _existing_ grammar for "`*>GET <object>*`" (from *verblib.g*).
 Otherwise, the regular grammar for
 
 [source,hugo, subs="+attributes"]
@@ -11602,6 +11612,7 @@ If this were the first verb defined, the start of the grammar table would look l
 
 where $__x1x2__ is the dictionary address of "`get`", and $__y1y2__ is the dictionary address of "`take`".
 
+[[dynamic-grammars2]]
 With v2.5 was introduced a separate -- although rarely used -- variation to the verb header.
 A verb or xverb definition can contain something like
 
@@ -11618,6 +11629,9 @@ The grammar table in this case would look like
 
 where $FFFF is the signal that instead of a dictionary word address, the engine must read the following discrete value, where $4A is the `object#` token, and $__x1x2__ is the object number of `get_object`.
 This extension is provided so that grammar may be dynamically coded and changed at runtime.
+// @EDITED XREF ADDED: (undocumented & waiting approval: Issue #22)
+//    The following cross reference was added to the original book:
+(See also <<dynamic-grammars1,_Book I_ on dynamic grammars definitions>>.)
 
 Following the verb header giving the number of verb words and the dictionary address of each is one or more grammar lines, each beginning with a `*` signifying the matched verb word.
 

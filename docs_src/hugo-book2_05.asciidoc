@@ -40,6 +40,7 @@ If this were the first verb defined, the start of the grammar table would look l
 
 where $__x1x2__ is the dictionary address of "`get`", and $__y1y2__ is the dictionary address of "`take`".
 
+[[dynamic-grammars2]]
 With v2.5 was introduced a separate -- although rarely used -- variation to the verb header.
 A verb or xverb definition can contain something like
 
@@ -56,6 +57,9 @@ The grammar table in this case would look like
 
 where $FFFF is the signal that instead of a dictionary word address, the engine must read the following discrete value, where $4A is the `object#` token, and $__x1x2__ is the object number of `get_object`.
 This extension is provided so that grammar may be dynamically coded and changed at runtime.
+// @EDITED XREF ADDED: (undocumented & waiting approval: Issue #48)
+//    The following cross reference was added to the original book:
+(See also <<dynamic-grammars1,_Book I_ on dynamic grammars definitions>>.)
 
 Following the verb header giving the number of verb words and the dictionary address of each is one or more grammar lines, each beginning with a `*` signifying the matched verb word.
 

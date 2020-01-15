@@ -583,7 +583,7 @@ div.literalblock.hugosyntax div.content pre > sup.footnote a {
 <span id="email" class="email"><a href="mailto:general@generalcoffee.com">general@generalcoffee.com</a></span><br>
 <span id="revnumber">version 1,</span>
 <span id="revdate">2018-10-04</span>
-<br><span id="revremark">Draft 143 -- Porting to AsciiDoc</span>
+<br><span id="revremark">Draft 144 -- Porting to AsciiDoc</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -7559,19 +7559,32 @@ Here are some examples from the library grammar file <strong>verblib.g</strong>:
 An <code>xverb</code> is a special signifier that indicates that the engine should not call the <code>Main</code> routine after successful completion of the action.
 <code>xverb</code> is typically used with non-action, housekeeping-type verbs such as saving, restoring, quitting, and restarting.</p>
 </div>
-<div class="paragraph">
+<div id="dynamic-grammars1" class="paragraph">
 <p>Another thing that can be done is to specify:</p>
 </div>
-<div class="literalblock hugosyntax">
+<div class="listingblock">
 <div class="content">
-<pre>verb some_object
-    * object        DoVerb</pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">verb</span> some_object&#x000A;    <span class="hl opt">*</span> <span class="hl kwb">object</span>        DoVerb</code></pre>
 </div>
 </div>
 <div class="paragraph">
 <p>which will have the effect of, instead of defining the verb with a dictionary word, checking at runtime <code>some_object.noun</code> as the verb word to be matched.
 What this allows is for the <code>some_object.noun</code> property to be a routine that can return varying values at runtime in order to provide for dynamic grammar, if required.
 However, since this sort of dynamic grammar isn&#8217;t often required, static grammar definitions are far more common.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>For more details on dynamic grammars see the <a href="#dynamic-grammars2"><em>Grammar</em> chapter in <em>Book II</em></a>.</p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>Next in the header comes one or more verb words.
@@ -7698,7 +7711,7 @@ The objects must be separated by at least one dictionary word.</p>
 <code>notheld</code>       
 </td>
 <td class="hdlist2">
-<p>an object explicitly not held</p>
+<p>an object explicitly not <code>held</code></p>
 </td>
 </tr>
 <tr>
@@ -7706,7 +7719,7 @@ The objects must be separated by at least one dictionary word.</p>
 <code>anything</code>      
 </td>
 <td class="hdlist2">
-<p>any object, held or not, visible or not</p>
+<p>any object, <code>held</code> or not, visible or not</p>
 </td>
 </tr>
 <tr>
@@ -7722,7 +7735,7 @@ The objects must be separated by at least one dictionary word.</p>
 <code>multiheld</code>     
 </td>
 <td class="hdlist2">
-<p>multiple held objects</p>
+<p>multiple <code>held</code> objects</p>
 </td>
 </tr>
 <tr>
@@ -7730,7 +7743,7 @@ The objects must be separated by at least one dictionary word.</p>
 <code>multinotheld</code>  
 </td>
 <td class="hdlist2">
-<p>multiple notheld objects</p>
+<p>multiple <code>notheld</code> objects</p>
 </td>
 </tr>
 <tr>
@@ -7915,7 +7928,7 @@ It&#8217;s generally good practice to make sure that more specific grammar prece
 </div>
 </div>
 <div class="paragraph">
-<p>will produce a &#8220;You can&#8217;t do that with&#8230;&#8203;&#8221; error for any object other than the <code>magic_lamp</code> object.</p>
+<p>will produce a &#8220;<strong>You can&#8217;t do that with&#8230;&#8203;</strong>&#8221; error for any object other than the <code>magic_lamp</code> object.</p>
 </div>
 <div class="paragraph">
 <p>Using a routine name to specify an object is slightly more involved: the engine calls the given routine with the object specified in the input line as its argument; if the routine returns true, the object is valid&#8201;&#8212;&#8201;if not, a parsing error is expected to have been printed by the routine.
@@ -7935,11 +7948,11 @@ If two routine names are used in a particular syntax, such as</p>
 <div class="paragraph">
 <p>Immediately after an input line is received, the engine calls the parser, and the first step taken is to identify any invalid words, i.e., words that are not in the dictionary table.</p>
 </div>
-<div class="admonitionblock note">
+<div class="admonitionblock warning">
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-note" title="Note"></i>
+<i class="fa icon-warning" title="Warning"></i>
 </td>
 <td class="content">
 <div class="paragraph">
@@ -7982,7 +7995,7 @@ The syntax for defining a removal is:</p>
 </div>
 <div class="literalblock hugosyntax">
 <div class="content">
-<pre>punctuation "&lt;character1&gt;[&lt;character2&gt;...]</pre>
+<pre>punctuation "&lt;character1&gt;[&lt;character2&gt;...]"</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -8148,7 +8161,7 @@ The period is in each case converted to the empty dictionary entry (<code>""</co
 </td>
 <td class="content">
 <div class="paragraph">
-<p>The parsing and grammar routines also recognize several system words, each in the format <code>~word</code>.
+<p>The parsing and grammar routines also recognize several system words, each in the format <code>~&lt;word&gt;</code>.
 These are:</p>
 </div>
 <div class="hdlist">
@@ -8215,7 +8228,7 @@ These are:</p>
 <h3 id="sec_7-3"><a class="anchor" href="#sec_7-3"></a>7.3. <em>What Should I Be Able to Do Now?</em></h3>
 <div class="paragraph">
 <p>It should by now be relatively straightforward how to go about adding a new verb (with appropriate grammar)&#8201;&#8212;&#8201;or even modifying an existing one.
-For instance, consider a game in which disco dancing plays an absolutely vital role, and where the command &#8220;&gt;GET DOWN&#8221; must at all costs be implemented as a synonym for &#8220;&gt;DANCE&#8221; or &#8220;&gt;BOOGIE&#8221;.</p>
+For instance, consider a game in which disco dancing plays an absolutely vital role, and where the command &#8220;<strong>&gt;GET DOWN</strong>&#8221; must at all costs be implemented as a synonym for &#8220;<strong>&gt;DANCE</strong>&#8221; or &#8220;<strong>&gt;BOOGIE</strong>&#8221;.</p>
 </div>
 <div class="paragraph">
 <p>For starters, you&#8217;ll need to add the initial grammar and verbroutine:</p>
@@ -8235,7 +8248,7 @@ For instance, consider a game in which disco dancing plays an absolutely vital r
 </div>
 <div class="paragraph">
 <p>Keep in mind that the verb definition, as with all grammar, must come before any other code, definitions, etc.
-Now, you&#8217;ll have to add the &#8220;&gt;GET DOWN&#8221; grammar:</p>
+Now, you&#8217;ll have to add the &#8220;<strong>&gt;GET DOWN</strong>&#8221; grammar:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -8243,7 +8256,7 @@ Now, you&#8217;ll have to add the &#8220;&gt;GET DOWN&#8221; grammar:</p>
 </div>
 </div>
 <div class="paragraph">
-<p>Now, this must come both before any other code or definitions as well as the <em>existing</em> grammar for &#8220;&gt;GET &lt;object&gt;&#8221; (from <strong>VERBLIB.G</strong>).
+<p>Now, this must come both before any other code or definitions as well as the <em>existing</em> grammar for &#8220;<strong>&gt;GET &lt;object&gt;</strong>&#8221; (from <strong>verblib.g</strong>).
 Otherwise, the regular grammar for</p>
 </div>
 <div class="listingblock">
@@ -17113,7 +17126,7 @@ Following that are the dictionary addresses of the individual words.</p>
 <div class="paragraph">
 <p>where $<em>x1x2</em> is the dictionary address of &#8220;get&#8221;, and $<em>y1y2</em> is the dictionary address of &#8220;take&#8221;.</p>
 </div>
-<div class="paragraph">
+<div id="dynamic-grammars2" class="paragraph">
 <p>With v2.5 was introduced a separate&#8201;&#8212;&#8201;although rarely used&#8201;&#8212;&#8201;variation to the verb header.
 A verb or xverb definition can contain something like</p>
 </div>
@@ -17134,7 +17147,8 @@ The grammar table in this case would look like</p>
 </div>
 <div class="paragraph">
 <p>where $FFFF is the signal that instead of a dictionary word address, the engine must read the following discrete value, where $4A is the <code>object#</code> token, and $<em>x1x2</em> is the object number of <code>get_object</code>.
-This extension is provided so that grammar may be dynamically coded and changed at runtime.</p>
+This extension is provided so that grammar may be dynamically coded and changed at runtime.
+(See also <a href="#dynamic-grammars1"><em>Book I</em> on dynamic grammars definitions</a>.)</p>
 </div>
 <div class="paragraph">
 <p>Following the verb header giving the number of verb words and the dictionary address of each is one or more grammar lines, each beginning with a <code>*</code> signifying the matched verb word.</p>
