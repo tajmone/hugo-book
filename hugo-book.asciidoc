@@ -168,7 +168,7 @@ _How to Write Games and Influence People_
 
 Chances are if you're reading this book you're already at least a little familiar with adventure games, and maybe even more specifically interactive fiction or text adventures.{wj}{fn1}
 Hugo is a system for designing, programming, and running these.
-It is not the first such system -- and it's difficult to find substantial fault in any general way with the best of those systems that predate Hugo{fn2} -- but Hugo does hope to extend the concepts developed in earlier, similar systems in order to make interactive fiction programming less cryptic, and more flexible and accessible to designers, as well as to add functionality in certain areas where other systems are lacking.
+It is not the first such system -- and it's difficult to find substantial fault in any general way with the best of those systems that predate Hugo{wj}{fn2} -- but Hugo does hope to extend the concepts developed in earlier, similar systems in order to make interactive fiction programming less cryptic, and more flexible and accessible to designers, as well as to add functionality in certain areas where other systems are lacking.
 
 What does it mean to be a "`system`" for interactive fiction?
 In Hugo's case, it means that not only does it provide an environment for running Hugo games -- the rather exciting-sounding Hugo Engine -- but also the means of creating them (the Hugo Compiler) and a tool for troubleshooting (the Hugo Debugger).
@@ -784,7 +784,7 @@ In this case the task at hand is the printing of "`Hello, Sailor!`", followed by
 Computer programs are mainly about two things: input and output (called _i/o_, for short), and modifying values.
 In fact, the bulk of a computer program (that is, what happens behind the scenes, whirring away, unbeknownst to the user) consists of setting, changing, and comparing various values.
 Hugo is no exception.
-All data in Hugo is represented in terms of 16-bit integers,{fn2} treated as signed (-32768 to 32767) or unsigned (0 to 65535) as appropriate.
+All data in Hugo is represented in terms of 16-bit integers,{wj}{fn2} treated as signed (-32768 to 32767) or unsigned (0 to 65535) as appropriate.
 It's up to the compiler and engine to decide what a particular value means in a given context.
 The name of any individual data type may contain up to 32 alphanumeric characters (as well as the underscore `_`).
 
@@ -842,7 +842,7 @@ Dictionary entries are addresses in the dictionary table (comprising all diction
 Array addresses (as opposed to separate array elements) represent the address at which the array begins in the array table (comprising all array data in the *.HEX* file).
 Properties and attributes treated as discrete values represent the number of that property or attribute, assigned sequentially as the individual property or attribute is defined.
 
-As mentioned, routines also return values, as do built-in{fn3} engine functions, so that
+As mentioned, routines also return values, as do built-in{wj}{fn3} engine functions, so that
 
 [source,hugo]
 --------------------------------------------------------------------------------
@@ -865,7 +865,7 @@ At this point it's probably helpful to know that you can assign a value to a var
 
 [literal, role="hugosyntax", subs="+attributes,macros"]
 .......................................................
-<some variable> = <some value>{fn5}
+<some variable> = <some value>{wj}{fn5}
 .......................................................
 
 For instance, to set the variable `x` equal to 5, you would use:
@@ -1663,7 +1663,7 @@ and
 [TIP]
 ================================================================================
 Try compiling *sample.hug* with the `-o` switch in order to see the object tree for the sample game.
-Or, if the `DEBUG` flag was set during compilation, use the HugoFix{fn2} command `$ot` or `$ot <object>` during play to view the current state of the object tree during play.
+Or, if the `DEBUG` flag was set during compilation, use the HugoFix{wj}{fn2} command `$ot` or `$ot <object>` during play to view the current state of the object tree during play.
 Compiling with the `-d` switch will generate a debuggable (*.HDX*) version of the file -- the object tree can then be viewed directly from the debugger.
 ================================================================================
 
@@ -1846,11 +1846,11 @@ Those defined in *hugolib.h* include:
 | mobile         | if the object can be rolled, etc.
 | enterable      | if an object is enterable
 | container      | if an object can hold other objects
-| platform       | if other objects can be placed on it{fn4}
+| platform       | if other objects can be placed on it{wj}{fn4}
 | hidden         | if an object is not to be listed
 | quiet          | if container or platform is quiet (i.e., the initial listing of contents is suppressed)
 | transparent    | if object is not opaque
-| already_listed | if object has been pre-listed (i.e., before a `WhatsIn` listing{fn5})
+| already_listed | if object has been pre-listed (i.e., before a `WhatsIn` listing{wj}{fn5})
 | workflag       | for system use
 | special        | for miscellaneous use
 |===============================================================================
@@ -1992,7 +1992,7 @@ short_desc
     print "."
 }
 
-before{fn7}
+before{wj}{fn7}
 {
     object DoGet
     {
@@ -2059,7 +2059,7 @@ The list of properties defined in *hugolib.h* is:
 | short_desc   | basic "`*X is here*`" description
 | initial_desc | supersedes `short_desc` (or `long_desc` for locations)
 | long_desc    | detailed description
-| found_in     | in case of multiple locations (virtual, _not_ physical parent objects{fn8})
+| found_in     | in case of multiple locations (virtual, _not_ physical parent objects{wj}{fn8})
 | type             | to identify the type of object
 | size        .3+.^| for holding/inventory
 | capacity
@@ -2397,7 +2397,7 @@ In either example, the object inherits its properties and attributes first from 
 The Hugo Object Library (*objlib.h*) contains a number of useful class definitions for things like rooms, characters, scenery, vehicles, etc.
 Sometimes, however, it may be desirable to use a different definition for, say, the `room` class while keeping all the others in the Object Library.
 
-Instead of actually editing *objlib.h*,{fn9} use:
+Instead of actually editing *objlib.h*,{wj}{fn9} use:
 
 [literal, role="hugosyntax"]
 ............................................
@@ -2413,7 +2413,7 @@ All subsequent references to `<class>` will use this object instead of the previ
 
 [IMPORTANT]
 ================================================================================
-Note that this means that the replacement must come _before_{fn10} any uses of the class as the parent class for other objects.
+Note that this means that the replacement must come _before_{wj}{fn10} any uses of the class as the parent class for other objects.
 ================================================================================
 
 
@@ -3177,7 +3177,7 @@ Hugo allows use of all standard mathematical operators:
 `*` :: multiplication
 `/` :: integer division
 
-which take precedence{fn3} over:
+which take precedence{wj}{fn3} over:
 
 [horizontal]
 `+` :: addition
@@ -3404,7 +3404,7 @@ array <arrayname> [<array size>]
 
 where `<array size>` must be a numerical constant.
 
-An array definition reserves a block of memory of `<array size>`,{fn4} so that, for example,
+An array definition reserves a block of memory of `<array size>`,{wj}{fn4} so that, for example,
 
 [source,hugo]
 --------------------
@@ -4559,7 +4559,7 @@ Most commonly, it is `object`, `xobject`, `location`, `actor`, `parent(object)`,
 The `<verbroutine>` is the name of a verb routine to which the usage in question applies.
 
 When the Hugo Engine goes to execute a player command, it runs a series of tests on the various elements of the command, such as the object on which the specified verb is to be enacted.{wj}{fn3}
-Know for now that when a player command is executed, the `before` properties of the `object` (i.e., the direct object) and `xobject` (i.e., the indirect object){fn4} are checked, then if neither has returned non-false, the appropriate `<verbroutine>` is run.
+Know for now that when a player command is executed, the `before` properties of the `object` (i.e., the direct object) and `xobject` (i.e., the indirect object){wj}{fn4} are checked, then if neither has returned non-false, the appropriate `<verbroutine>` is run.
 Afterward, the `after` properties are checked; if neither returns non-false, a default message is normally printed by the verbroutine.
 In other words, `before` routines typically pre-empt the execution of a verbroutine, and `after` routines typically pre-empt the default response of a verbroutine.
 
@@ -4746,7 +4746,7 @@ routine init
 {wj}        counter = -1
 ---------------------------------
 
-* _Set up the kind of statusline we're going to be displaying, as well as define the default text colors:_{fn7}
+* _Set up the kind of statusline we're going to be displaying, as well as define the default text colors:_{wj}{fn7}
 +
 [source,hugo, subs="+attributes"]
 ---------------------------------------------------------
@@ -4798,7 +4798,7 @@ Also, determine the starting bulk of whatever the player is carrying at the outs
         CalculateHolding(player)
 -----------------------------------
 
-* _Finally, if we've defined ``USE_PLURAL_OBJECTS``,_{fn8} _call the appropriate initialization routine:_
+* _Finally, if we've defined ``USE_PLURAL_OBJECTS``,_{wj}{fn8} _call the appropriate initialization routine:_
 +
 [source,hugo]
 -------------------------
@@ -5035,7 +5035,7 @@ event in clock
             .
             .
             .
-            case 12: print "twelve";{fn11}
+            case 12: print "twelve";{wj}{fn11}
         print " o'clock."
     }
 }
@@ -5903,10 +5903,10 @@ By superseding it, however, we ensure that any grammar matching the desired patt
 // @XREF: "HugoFix and the Hugo Debugger" (in 4 identical footnotes!)
 :fn-debug: For more information on debugging using HugoFix, see xref:appendix_d[].
 // @FOOTNOTE SAME TEXT: 42-44, 46 (i.e. 2,3,4, 6)
-:fn2: footnote:[{fn-debug}]
-:fn3: footnote:[{fn-debug}]
-:fn4: footnote:[{fn-debug}]
-:fn6: footnote:[{fn-debug}]
+:fn2: footnote:[{wj}{fn-debug}]
+:fn3: footnote:[{wj}{fn-debug}]
+:fn4: footnote:[{wj}{fn-debug}]
+:fn6: footnote:[{wj}{fn-debug}]
 
 :fn5: pass:q[footnote:[The `&lt;isxverb&gt;` argument is new in v3.1.]]
 
@@ -5915,7 +5915,7 @@ By superseding it, however, we ensure that any grammar matching the desired patt
 [[sec_8-1]]
 == Before We Get to the Routines
 
-Because, the engine is unaware of such things as attributes, properties, and objects in anything but a technical sense,{fn1} there are provided a number of routines to facilitate communication between the engine and the program proper.
+Because, the engine is unaware of such things as attributes, properties, and objects in anything but a technical sense,{wj}{fn1} there are provided a number of routines to facilitate communication between the engine and the program proper.
 Along with these junction routines are certain global variables and properties that are pre-defined by the compiler and accessed directly by the engine.
 They are:
 
@@ -6602,7 +6602,7 @@ player_character you "you"
 --------------------------
 
 The PC is by default named in the second person (as opposed to the first-person "`I`" or the third-person "`he`", "`she`", "`it`", or "`them`").
-To change to another form, it will be necessary to redefine the PC's `pronouns` property accordingly, as well as to change the global variable `player_person`{fn2} (which defaults to 2) to 1 or 3, as appropriate, and optionally to give a plural PC the `plural` attribute (in the rare case where that may be desired).
+To change to another form, it will be necessary to redefine the PC's `pronouns` property accordingly, as well as to change the global variable `player_person`{wj}{fn2} (which defaults to 2) to 1 or 3, as appropriate, and optionally to give a plural PC the `plural` attribute (in the rare case where that may be desired).
 
 
 
@@ -7032,7 +7032,7 @@ object banana1 "banana"
     identical_to bananas
 }
 
-banana1 banana2 "banana"{fn5}
+banana1 banana2 "banana"{wj}{fn5}
 {}
 
 banana1 banana3 "banana"
@@ -7470,7 +7470,7 @@ Because of the relative non-portability of resourcefiles (plus the additional ti
 [[system_status_values]]
 The library extension *resource.h* provides useful routines for managing resources in a Hugo program.
 It also defines the following potential values for the `system_status` global, which may be tested after a resource operation.
-If `system_status` is non-zero (where zero signifies normal status), it will contain one of the following values:{fn2}
+If `system_status` is non-zero (where zero signifies normal status), it will contain one of the following values:{wj}{fn2}
 
 
 [.center,cols=">m,<m",options=autowidth,grid=none,stripes=even]
@@ -9755,7 +9755,7 @@ Returns true if accessible; returns false and prints an appropriate message if n
 [literal, role="hugosyntax"]
 Contains(parent, object)
 
-Returns `object` if the specified object is present as a possession of the specified parent, even as a grandchild,{fn2} otherwise returns false.
+Returns `object` if the specified object is present as a possession of the specified parent, even as a grandchild,{wj}{fn2} otherwise returns false.
 
 //-----{ CustomError }----------------------------------------------------------
 
@@ -11136,7 +11136,7 @@ If all the separate segments of a *.HEX* file were stacked contiguously on top o
 | Header                        |      64 bytes
 2+^| (Bottom: `$000000`) +
  +
-MAXIMUM SIZE: 17792K bytes{fn1}
+MAXIMUM SIZE: 17792K bytes{wj}{fn1}
 |===============================================================================
 
 Each new segment begins on a boundary divisible by 16; an end-of-segment is padded with zeroes until the next boundary.
@@ -11171,13 +11171,13 @@ Compile with the `-u` switch to display a map of memory usage in the *.HEX* file
 |===============================================================================
 | Byte | Length | Description
 
-| $00 | 1 | Version of Hugo Compiler used{fn2}
-| 01  | 2 | ID string (compiler-generated){fn3}
+| $00 | 1 | Version of Hugo Compiler used{wj}{fn2}
+| 01  | 2 | ID string (compiler-generated){wj}{fn3}
 | 03  | 8 | Serial number
 3+^a| {blank}
 | 0B  | 2 | Address of start of executable code
 3+^a| {blank}
-| 0D  | 2 | Object table offset{fn4}
+| 0D  | 2 | Object table offset{wj}{fn4}
 | 0F  | 2 | Property table offset
 | 11  | 2 | Event table offset
 | 13  | 2 | Array space offset
@@ -11191,7 +11191,7 @@ Compile with the `-u` switch to display a map of memory usage in the *.HEX* file
 | 21  | 2 | `FindObject` routine indexed address
 | 23  | 2 | `EndGame` routine indexed address
 | 25  | 2 | `SpeakTo` routine indexed address
-| 27  | 2 | `Perform` routine indexed address{fn5}
+| 27  | 2 | `Perform` routine indexed address{wj}{fn5}
 3+^a| {blank}
 | 29  | 2 | Text bank offset
 |===============================================================================
@@ -11236,7 +11236,7 @@ In *.HDX* (debuggable) Hugo executables only:
 // @FOOTNOTE SAME TEXT: 66, 67 (i.e. 1, 2)
 // @FOOTNOTE: Footnote 1 is used twice in CSV file!
 :fn1: footnote:[v3.0 and later]
-:fn2: {fn1}
+:fn2: {wj}{fn1}
 :fn3: footnote:[Prior to version 3.1, this scaling factor was 4.]
 
 // <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
@@ -11467,7 +11467,7 @@ ROUTINE: ::
 ....................
 
 The two bytes (one 16-bit word) give the indexed address of the routine.
-All blocks of executable code begin on an address divisible by 16;{fn3} this allows 1024K of memory to be addressable via the range 0 to 65536. (Code is padded with empty ($00) values to the next address divisible by the address scale.)
+All blocks of executable code begin on an address divisible by 16;{wj}{fn3} this allows 1024K of memory to be addressable via the range 0 to 65536. (Code is padded with empty ($00) values to the next address divisible by the address scale.)
 
 For example, a routine beginning at $004004 would be divided by 16 and encoded as the indexed address $0401, in the form:
 
@@ -11936,7 +11936,7 @@ NOTE: Note that an address in the text bank requires 3 bytes in the game code, h
 
 The object table begins with two bytes giving the total number of objects.
 The objects then follow in sequential order.
-Each object requires 24 bytes:{fn1}
+Each object requires 24 bytes:{wj}{fn1}
 
 
 [.center,caption=]
@@ -12650,7 +12650,7 @@ These functions are:
 | hugo_strlen          | `strlen()` for embedded codes
 | hugo_specialchar     | Translation for special characters
 2+^a| {blank}
-| hugo_hasvideo        | Returns video availability{fn1}
+| hugo_hasvideo        | Returns video availability{wj}{fn1}
 |===============================================================================
 
 
@@ -12798,14 +12798,14 @@ Note that it isn't necessary to store the total number of objects, since that is
 // @FOOTNOTE SAME TEXT: 73-77, 80-82 (i.e. 1-5, 8-10)
 :fn-eol: pass:q[Pre-v2.3 omitted the `eol#` marker ($4C).]
 
-:fn1: footnote:[{fn-eol}]
-:fn2: footnote:[{fn-eol}]
-:fn3: footnote:[{fn-eol}]
-:fn4: footnote:[{fn-eol}]
-:fn5: footnote:[{fn-eol}]
-:fn8: footnote:[{fn-eol}]
-:fn9: footnote:[{fn-eol}]
-:fn10: footnote:[{fn-eol}]
+:fn1: footnote:[{wj}{fn-eol}]
+:fn2: footnote:[{wj}{fn-eol}]
+:fn3: footnote:[{wj}{fn-eol}]
+:fn4: footnote:[{wj}{fn-eol}]
+:fn5: footnote:[{wj}{fn-eol}]
+:fn8: footnote:[{wj}{fn-eol}]
+:fn9: footnote:[{wj}{fn-eol}]
+:fn10: footnote:[{wj}{fn-eol}]
 
 :fn6: footnote:[Not implemented post-v2.2.]
 
@@ -13164,7 +13164,7 @@ Where `<address>` is two bytes giving the indexed address of the next statement 
 | 26 | run | *STATEMENT*
 
 [literal,subs="+attributes,macros"]
-26 <value> 4C{fn1}
+26 <value> 4C{wj}{fn1}
 
 Where `<value>` is simply read and forgotten, as in running an `object.property` property routine and throwing away the value.
 
@@ -13269,7 +13269,7 @@ Signals that the following dictionary entry should have its first letter capital
 .2+| 36 | text | *STATEMENT*
 
 [literal,subs="+attributes,macros"]
-36 3B <value> 4C{fn2}
+36 3B <value> 4C{wj}{fn2}
 
 >s| As in:  <a|
 
@@ -13315,7 +13315,7 @@ If a third value is given, separated by a comma ($19), it represents the input c
 .3+| 39 | remove | *STATEMENT*
 
 [literal,subs="+attributes,macros"]
-39 <value> 4C{fn3}
+39 <value> 4C{wj}{fn3}
 
 {blank}
 
@@ -13336,7 +13336,7 @@ remove <object>
 .3+| 3A | move | *STATEMENT*
 
 [literal,subs="+attributes,macros"]
-3A <value> 3B <value> 4C{fn4}
+3A <value> 3B <value> 4C{wj}{fn4}
 
 {blank}
 
@@ -13582,7 +13582,7 @@ End-of-line marker.
 .3+| 4D | system | *INTERNAL STATEMENT* or *VALUE*
 
 [literal,subs="+attributes,macros"]
-4D 01 <value> 02 4C{fn5}
+4D 01 <value> 02 4C{wj}{fn5}
 
 {blank}
 
@@ -13599,7 +13599,7 @@ Calls the system-level function designated by `<value>`.
 // @XREF: "The Hugo Programming Manual"
 TIP: See <<book1>> for further elaboration on the `system` statement.
 
-Obsolete usage:{fn6}
+Obsolete usage:{wj}{fn6}
 
     4D <value>
 
@@ -13813,7 +13813,7 @@ Where `<array>` is two bytes giving the address of the array in the array table.
 .2+| 5A | call | STATEMENT or VALUE
 
 [literal,subs="+attributes,macros"]
-5A <value> 4C{fn7}
+5A <value> 4C{wj}{fn7}
 
 {blank}
 
@@ -14114,7 +14114,7 @@ Calls the engine's end-command-recording procedure; returns a true value on succ
 .3+| 6F | writefile | *STATEMENT*
 
 [literal,subs="+attributes,macros"]
-6F <value> 4C{fn8}
+6F <value> 4C{wj}{fn8}
     ...file i/o code block...
 
 {blank}
@@ -14140,7 +14140,7 @@ Upon any error, jumps to the end of the file i/o code block and closes `<file>`.
 .2+| 70 | readfile | *STATEMENT*
 
 [literal,subs="+attributes,macros"]
-70 <value> 4C{fn9}
+70 <value> 4C{wj}{fn9}
     ...file i/o code block...
 
 {blank}
@@ -14161,7 +14161,7 @@ Upon any error, jumps to the end of the file i/o code block and closes `<file>`.
 | 71 | writeval | *STATEMENT*
 
 [literal,subs="+attributes,macros"]
-71 <value> 19 <value> 19 ... 4C{fn10}
+71 <value> 19 <value> 19 ... 4C{wj}{fn10}
 
 Valid only in a `writefile` block.
 Writes `<value>` as a 16-bit integer to the currently open file.
@@ -14234,7 +14234,7 @@ If there is an error, the `system_status` global variable is set.
     78 [79] <value1> 19 <value2> [19 <value3>] 4C
     78 <value1> 4C
 
-Attempts to load and play a music resource{fn11} as resource `<value2>` in resourcefile `<value1>`.
+Attempts to load and play a music resource{wj}{fn11} as resource `<value2>` in resourcefile `<value1>`.
 (`<value1>` and `<value2>` are dictionary entries.)
 If `<value3>` is given, the music output volume is set to `<value3>` (as a percentage of normal output).
 If `<value1>` is 0, the current music is stopped.

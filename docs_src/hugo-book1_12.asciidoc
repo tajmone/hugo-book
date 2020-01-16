@@ -78,7 +78,7 @@ Because of the relative non-portability of resourcefiles (plus the additional ti
 [[system_status_values]]
 The library extension *resource.h* provides useful routines for managing resources in a Hugo program.
 It also defines the following potential values for the `system_status` global, which may be tested after a resource operation.
-If `system_status` is non-zero (where zero signifies normal status), it will contain one of the following values:{fn2}
+If `system_status` is non-zero (where zero signifies normal status), it will contain one of the following values:{wj}{fn2}
 
 
 [.center,cols=">m,<m",options=autowidth,grid=none,stripes=even]

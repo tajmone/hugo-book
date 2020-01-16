@@ -14,10 +14,10 @@
 // @XREF: "HugoFix and the Hugo Debugger" (in 4 identical footnotes!)
 :fn-debug: For more information on debugging using HugoFix, see xref:appendix_d[].
 // @FOOTNOTE SAME TEXT: 42-44, 46 (i.e. 2,3,4, 6)
-:fn2: footnote:[{fn-debug}]
-:fn3: footnote:[{fn-debug}]
-:fn4: footnote:[{fn-debug}]
-:fn6: footnote:[{fn-debug}]
+:fn2: footnote:[{wj}{fn-debug}]
+:fn3: footnote:[{wj}{fn-debug}]
+:fn4: footnote:[{wj}{fn-debug}]
+:fn6: footnote:[{wj}{fn-debug}]
 
 :fn5: pass:q[footnote:[The `&lt;isxverb&gt;` argument is new in v3.1.]]
 
@@ -26,7 +26,7 @@
 [[sec_8-1]]
 == Before We Get to the Routines
 
-Because, the engine is unaware of such things as attributes, properties, and objects in anything but a technical sense,{fn1} there are provided a number of routines to facilitate communication between the engine and the program proper.
+Because, the engine is unaware of such things as attributes, properties, and objects in anything but a technical sense,{wj}{fn1} there are provided a number of routines to facilitate communication between the engine and the program proper.
 Along with these junction routines are certain global variables and properties that are pre-defined by the compiler and accessed directly by the engine.
 They are:
 

@@ -447,7 +447,7 @@ Most commonly, it is `object`, `xobject`, `location`, `actor`, `parent(object)`,
 The `<verbroutine>` is the name of a verb routine to which the usage in question applies.
 
 When the Hugo Engine goes to execute a player command, it runs a series of tests on the various elements of the command, such as the object on which the specified verb is to be enacted.{wj}{fn3}
-Know for now that when a player command is executed, the `before` properties of the `object` (i.e., the direct object) and `xobject` (i.e., the indirect object){fn4} are checked, then if neither has returned non-false, the appropriate `<verbroutine>` is run.
+Know for now that when a player command is executed, the `before` properties of the `object` (i.e., the direct object) and `xobject` (i.e., the indirect object){wj}{fn4} are checked, then if neither has returned non-false, the appropriate `<verbroutine>` is run.
 Afterward, the `after` properties are checked; if neither returns non-false, a default message is normally printed by the verbroutine.
 In other words, `before` routines typically pre-empt the execution of a verbroutine, and `after` routines typically pre-empt the default response of a verbroutine.
 
@@ -634,7 +634,7 @@ routine init
 {wj}        counter = -1
 ---------------------------------
 
-* _Set up the kind of statusline we're going to be displaying, as well as define the default text colors:_{fn7}
+* _Set up the kind of statusline we're going to be displaying, as well as define the default text colors:_{wj}{fn7}
 +
 [source,hugo, subs="+attributes"]
 ---------------------------------------------------------
@@ -686,7 +686,7 @@ Also, determine the starting bulk of whatever the player is carrying at the outs
         CalculateHolding(player)
 -----------------------------------
 
-* _Finally, if we've defined ``USE_PLURAL_OBJECTS``,_{fn8} _call the appropriate initialization routine:_
+* _Finally, if we've defined ``USE_PLURAL_OBJECTS``,_{wj}{fn8} _call the appropriate initialization routine:_
 +
 [source,hugo]
 -------------------------
@@ -923,7 +923,7 @@ event in clock
             .
             .
             .
-            case 12: print "twelve";{fn11}
+            case 12: print "twelve";{wj}{fn11}
         print " o'clock."
     }
 }

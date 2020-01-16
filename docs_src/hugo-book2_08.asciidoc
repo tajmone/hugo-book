@@ -21,7 +21,7 @@
 
 The object table begins with two bytes giving the total number of objects.
 The objects then follow in sequential order.
-Each object requires 24 bytes:{fn1}
+Each object requires 24 bytes:{wj}{fn1}
 
 
 [.center,caption=]

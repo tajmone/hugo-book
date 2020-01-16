@@ -718,7 +718,7 @@ or<br>
 <div class="paragraph">
 <p>Chances are if you&#8217;re reading this book you&#8217;re already at least a little familiar with adventure games, and maybe even more specifically interactive fiction or text adventures.&#8288;<sup class="footnote">[<a id="_footnoteref_1" class="footnote" href="#_footnotedef_1" title="View footnote.">1</a>]</sup>
 Hugo is a system for designing, programming, and running these.
-It is not the first such system&#8201;&#8212;&#8201;and it&#8217;s difficult to find substantial fault in any general way with the best of those systems that predate Hugo<sup class="footnote">[<a id="_footnoteref_2" class="footnote" href="#_footnotedef_2" title="View footnote.">2</a>]</sup>&#8201;&#8212;&#8201;but Hugo does hope to extend the concepts developed in earlier, similar systems in order to make interactive fiction programming less cryptic, and more flexible and accessible to designers, as well as to add functionality in certain areas where other systems are lacking.</p>
+It is not the first such system&#8201;&#8212;&#8201;and it&#8217;s difficult to find substantial fault in any general way with the best of those systems that predate Hugo&#8288;<sup class="footnote">[<a id="_footnoteref_2" class="footnote" href="#_footnotedef_2" title="View footnote.">2</a>]</sup>&#8201;&#8212;&#8201;but Hugo does hope to extend the concepts developed in earlier, similar systems in order to make interactive fiction programming less cryptic, and more flexible and accessible to designers, as well as to add functionality in certain areas where other systems are lacking.</p>
 </div>
 <div class="paragraph">
 <p>What does it mean to be a &#8220;system&#8221; for interactive fiction?
@@ -1725,7 +1725,7 @@ In this case the task at hand is the printing of &#8220;Hello, Sailor!&#8221;, f
 <p>Computer programs are mainly about two things: input and output (called <em>i/o</em>, for short), and modifying values.
 In fact, the bulk of a computer program (that is, what happens behind the scenes, whirring away, unbeknownst to the user) consists of setting, changing, and comparing various values.
 Hugo is no exception.
-All data in Hugo is represented in terms of 16-bit integers,<sup class="footnote">[<a id="_footnoteref_5" class="footnote" href="#_footnotedef_5" title="View footnote.">5</a>]</sup> treated as signed (-32768 to 32767) or unsigned (0 to 65535) as appropriate.
+All data in Hugo is represented in terms of 16-bit integers,&#8288;<sup class="footnote">[<a id="_footnoteref_5" class="footnote" href="#_footnotedef_5" title="View footnote.">5</a>]</sup> treated as signed (-32768 to 32767) or unsigned (0 to 65535) as appropriate.
 It&#8217;s up to the compiler and engine to decide what a particular value means in a given context.
 The name of any individual data type may contain up to 32 alphanumeric characters (as well as the underscore <code>_</code>).</p>
 </div>
@@ -1820,7 +1820,7 @@ Array addresses (as opposed to separate array elements) represent the address at
 Properties and attributes treated as discrete values represent the number of that property or attribute, assigned sequentially as the individual property or attribute is defined.</p>
 </div>
 <div class="paragraph">
-<p>As mentioned, routines also return values, as do built-in<sup class="footnote">[<a id="_footnoteref_6" class="footnote" href="#_footnotedef_6" title="View footnote.">6</a>]</sup> engine functions, so that</p>
+<p>As mentioned, routines also return values, as do built-in&#8288;<sup class="footnote">[<a id="_footnoteref_6" class="footnote" href="#_footnotedef_6" title="View footnote.">6</a>]</sup> engine functions, so that</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1847,7 +1847,7 @@ A variable that holds the count of a number of objects <em>could</em> be called 
 </div>
 <div class="literalblock hugosyntax">
 <div class="content">
-<pre>&lt;some variable&gt; = &lt;some value&gt;<sup class="footnote">[<a id="_footnoteref_8" class="footnote" href="#_footnotedef_8" title="View footnote.">8</a>]</sup></pre>
+<pre>&lt;some variable&gt; = &lt;some value&gt;&#8288;<sup class="footnote">[<a id="_footnoteref_8" class="footnote" href="#_footnotedef_8" title="View footnote.">8</a>]</sup></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -2890,7 +2890,7 @@ The Hugo library will assume that the player object in the example is standing; 
 <td class="content">
 <div class="paragraph">
 <p>Try compiling <strong>sample.hug</strong> with the <code>-o</code> switch in order to see the object tree for the sample game.
-Or, if the <code>DEBUG</code> flag was set during compilation, use the HugoFix<sup class="footnote">[<a id="_footnoteref_12" class="footnote" href="#_footnotedef_12" title="View footnote.">12</a>]</sup> command <code>$ot</code> or <code>$ot &lt;object&gt;</code> during play to view the current state of the object tree during play.
+Or, if the <code>DEBUG</code> flag was set during compilation, use the HugoFix&#8288;<sup class="footnote">[<a id="_footnoteref_12" class="footnote" href="#_footnotedef_12" title="View footnote.">12</a>]</sup> command <code>$ot</code> or <code>$ot &lt;object&gt;</code> during play to view the current state of the object tree during play.
 Compiling with the <code>-d</code> switch will generate a debuggable (<strong>.HDX</strong>) version of the file&#8201;&#8212;&#8201;the object tree can then be viewed directly from the debugger.</p>
 </div>
 </td>
@@ -3165,7 +3165,7 @@ Those defined in <strong>hugolib.h</strong> include:</p>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>platform</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">if other objects can be placed on it<sup class="footnote">[<a id="_footnoteref_14" class="footnote" href="#_footnotedef_14" title="View footnote.">14</a>]</sup></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">if other objects can be placed on it&#8288;<sup class="footnote">[<a id="_footnoteref_14" class="footnote" href="#_footnotedef_14" title="View footnote.">14</a>]</sup></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>hidden</code></p></td>
@@ -3181,7 +3181,7 @@ Those defined in <strong>hugolib.h</strong> include:</p>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>already_listed</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">if object has been pre-listed (i.e., before a <code>WhatsIn</code> listing<sup class="footnote">[<a id="_footnoteref_15" class="footnote" href="#_footnotedef_15" title="View footnote.">15</a>]</sup>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">if object has been pre-listed (i.e., before a <code>WhatsIn</code> listing&#8288;<sup class="footnote">[<a id="_footnoteref_15" class="footnote" href="#_footnotedef_15" title="View footnote.">15</a>]</sup>)</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>workflag</code></p></td>
@@ -3316,7 +3316,7 @@ They are sets of valid data associated with an object, where the values may repr
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">nouns <span class="hl str">&quot;tree&quot;</span>, <span class="hl str">&quot;bush&quot;</span>, <span class="hl str">&quot;shrub&quot;</span>, <span class="hl str">&quot;plant&quot;</span>&#x000A;&#x000A;size <span class="hl num">20</span>&#x000A;&#x000A;found_in livingroom, entrancehall&#x000A;&#x000A;long_desc&#x000A;{&#x000A;    <span class="hl str">&quot;Exits lead north and west. A door is set</span>&#x000A;<span class="hl str">    in the southeast wall.&quot;</span>&#x000A;}&#x000A;&#x000A;short_desc&#x000A;{&#x000A;    <span class="hl str">&quot;There is a box here. It is &quot;</span>;&#x000A;    <span class="hl kwa">if</span> <span class="hl kwb">self</span> <span class="hl kwa">is</span> open&#x000A;        <span class="hl kwa">print</span> <span class="hl str">&quot;open&quot;</span>;&#x000A;    <span class="hl kwa">else</span>&#x000A;        <span class="hl kwa">print</span> <span class="hl str">&quot;closed&quot;</span>;&#x000A;    <span class="hl kwa">print</span> <span class="hl str">&quot;.&quot;</span>&#x000A;}&#x000A;&#x000A;<span class="hl kwb">before</span><sup class="footnote">[<a id="_footnoteref_17" class="footnote" href="#_footnotedef_17" title="View footnote.">17</a>]</sup>&#x000A;{&#x000A;    <span class="hl kwb">object</span> DoGet&#x000A;    {&#x000A;        <span class="hl kwa">if</span> Acquire(<span class="hl kwb">player</span>, <span class="hl kwb">self</span>)&#x000A;        {&#x000A;            <span class="hl str">&quot;You pick up &quot;</span>;&#x000A;            <span class="hl kwa">print</span> Art(<span class="hl kwb">self</span>); <span class="hl str">&quot;.&quot;</span>&#x000A;        }&#x000A;        <span class="hl kwa">else</span>&#x000A;            <span class="hl kwa">return</span> <span class="hl kwc">false</span>&#x000A;    }&#x000A;}</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">nouns <span class="hl str">&quot;tree&quot;</span>, <span class="hl str">&quot;bush&quot;</span>, <span class="hl str">&quot;shrub&quot;</span>, <span class="hl str">&quot;plant&quot;</span>&#x000A;&#x000A;size <span class="hl num">20</span>&#x000A;&#x000A;found_in livingroom, entrancehall&#x000A;&#x000A;long_desc&#x000A;{&#x000A;    <span class="hl str">&quot;Exits lead north and west. A door is set</span>&#x000A;<span class="hl str">    in the southeast wall.&quot;</span>&#x000A;}&#x000A;&#x000A;short_desc&#x000A;{&#x000A;    <span class="hl str">&quot;There is a box here. It is &quot;</span>;&#x000A;    <span class="hl kwa">if</span> <span class="hl kwb">self</span> <span class="hl kwa">is</span> open&#x000A;        <span class="hl kwa">print</span> <span class="hl str">&quot;open&quot;</span>;&#x000A;    <span class="hl kwa">else</span>&#x000A;        <span class="hl kwa">print</span> <span class="hl str">&quot;closed&quot;</span>;&#x000A;    <span class="hl kwa">print</span> <span class="hl str">&quot;.&quot;</span>&#x000A;}&#x000A;&#x000A;<span class="hl kwb">before</span>&#8288;<sup class="footnote">[<a id="_footnoteref_17" class="footnote" href="#_footnotedef_17" title="View footnote.">17</a>]</sup>&#x000A;{&#x000A;    <span class="hl kwb">object</span> DoGet&#x000A;    {&#x000A;        <span class="hl kwa">if</span> Acquire(<span class="hl kwb">player</span>, <span class="hl kwb">self</span>)&#x000A;        {&#x000A;            <span class="hl str">&quot;You pick up &quot;</span>;&#x000A;            <span class="hl kwa">print</span> Art(<span class="hl kwb">self</span>); <span class="hl str">&quot;.&quot;</span>&#x000A;        }&#x000A;        <span class="hl kwa">else</span>&#x000A;            <span class="hl kwa">return</span> <span class="hl kwc">false</span>&#x000A;    }&#x000A;}</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -3418,7 +3418,7 @@ If no default is explicitly declared, it is 0 (or <code>""</code> or the <code>n
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>found_in</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">in case of multiple locations (virtual, <em>not</em> physical parent objects<sup class="footnote">[<a id="_footnoteref_18" class="footnote" href="#_footnotedef_18" title="View footnote.">18</a>]</sup>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">in case of multiple locations (virtual, <em>not</em> physical parent objects&#8288;<sup class="footnote">[<a id="_footnoteref_18" class="footnote" href="#_footnotedef_18" title="View footnote.">18</a>]</sup>)</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>type</code></p></td>
@@ -3914,7 +3914,7 @@ In either example, the object inherits its properties and attributes first from 
 Sometimes, however, it may be desirable to use a different definition for, say, the <code>room</code> class while keeping all the others in the Object Library.</p>
 </div>
 <div class="paragraph">
-<p>Instead of actually editing <strong>objlib.h</strong>,<sup class="footnote">[<a id="_footnoteref_19" class="footnote" href="#_footnotedef_19" title="View footnote.">19</a>]</sup> use:</p>
+<p>Instead of actually editing <strong>objlib.h</strong>,&#8288;<sup class="footnote">[<a id="_footnoteref_19" class="footnote" href="#_footnotedef_19" title="View footnote.">19</a>]</sup> use:</p>
 </div>
 <div class="literalblock hugosyntax">
 <div class="content">
@@ -3937,7 +3937,7 @@ All subsequent references to <code>&lt;class&gt;</code> will use this object ins
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Note that this means that the replacement must come <em>before</em><sup class="footnote">[<a id="_footnoteref_20" class="footnote" href="#_footnotedef_20" title="View footnote.">20</a>]</sup> any uses of the class as the parent class for other objects.</p>
+<p>Note that this means that the replacement must come <em>before</em>&#8288;<sup class="footnote">[<a id="_footnoteref_20" class="footnote" href="#_footnotedef_20" title="View footnote.">20</a>]</sup> any uses of the class as the parent class for other objects.</p>
 </div>
 </td>
 </tr>
@@ -5130,7 +5130,7 @@ For this reason, or if you&#8217;re not positive whether your font encoding is L
 </table>
 </div>
 <div class="paragraph">
-<p>which take precedence<sup class="footnote">[<a id="_footnoteref_23" class="footnote" href="#_footnotedef_23" title="View footnote.">23</a>]</sup> over:</p>
+<p>which take precedence&#8288;<sup class="footnote">[<a id="_footnoteref_23" class="footnote" href="#_footnotedef_23" title="View footnote.">23</a>]</sup> over:</p>
 </div>
 <div class="hdlist">
 <table>
@@ -5451,7 +5451,7 @@ Arrays are defined by</p>
 <p>where <code>&lt;array size&gt;</code> must be a numerical constant.</p>
 </div>
 <div class="paragraph">
-<p>An array definition reserves a block of memory of <code>&lt;array size&gt;</code>,<sup class="footnote">[<a id="_footnoteref_24" class="footnote" href="#_footnotedef_24" title="View footnote.">24</a>]</sup> so that, for example,</p>
+<p>An array definition reserves a block of memory of <code>&lt;array size&gt;</code>,&#8288;<sup class="footnote">[<a id="_footnoteref_24" class="footnote" href="#_footnotedef_24" title="View footnote.">24</a>]</sup> so that, for example,</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -6652,7 +6652,7 @@ The <code>&lt;verbroutine&gt;</code> is the name of a verb routine to which the 
 </div>
 <div class="paragraph">
 <p>When the Hugo Engine goes to execute a player command, it runs a series of tests on the various elements of the command, such as the object on which the specified verb is to be enacted.&#8288;<sup class="footnote">[<a id="_footnoteref_32" class="footnote" href="#_footnotedef_32" title="View footnote.">32</a>]</sup>
-Know for now that when a player command is executed, the <code>before</code> properties of the <code>object</code> (i.e., the direct object) and <code>xobject</code> (i.e., the indirect object)<sup class="footnote">[<a id="_footnoteref_33" class="footnote" href="#_footnotedef_33" title="View footnote.">33</a>]</sup> are checked, then if neither has returned non-false, the appropriate <code>&lt;verbroutine&gt;</code> is run.
+Know for now that when a player command is executed, the <code>before</code> properties of the <code>object</code> (i.e., the direct object) and <code>xobject</code> (i.e., the indirect object)&#8288;<sup class="footnote">[<a id="_footnoteref_33" class="footnote" href="#_footnotedef_33" title="View footnote.">33</a>]</sup> are checked, then if neither has returned non-false, the appropriate <code>&lt;verbroutine&gt;</code> is run.
 Afterward, the <code>after</code> properties are checked; if neither returns non-false, a default message is normally printed by the verbroutine.
 In other words, <code>before</code> routines typically pre-empt the execution of a verbroutine, and <code>after</code> routines typically pre-empt the default response of a verbroutine.</p>
 </div>
@@ -6849,7 +6849,7 @@ Here&#8217;s the <code>Init</code> routine from <strong>shell.hug</strong>:</p>
 </div>
 </li>
 <li>
-<p><em>Set up the kind of statusline we&#8217;re going to be displaying, as well as define the default text colors:</em><sup class="footnote">[<a id="_footnoteref_36" class="footnote" href="#_footnotedef_36" title="View footnote.">36</a>]</sup></p>
+<p><em>Set up the kind of statusline we&#8217;re going to be displaying, as well as define the default text colors:</em>&#8288;<sup class="footnote">[<a id="_footnoteref_36" class="footnote" href="#_footnotedef_36" title="View footnote.">36</a>]</sup></p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">&#8288;        STATUSTYPE <span class="hl opt">=</span> <span class="hl num">1</span>                  <span class="hl slc">! score/turns</span>&#x000A;        TEXTCOLOR <span class="hl opt">=</span> DEF_FOREGROUND&#x000A;        BGCOLOR <span class="hl opt">=</span> DEF_BACKGROUND&#x000A;        SL_TEXTCOLOR <span class="hl opt">=</span> DEF_SL_FOREGROUND&#x000A;        SL_BGCOLOR <span class="hl opt">=</span> DEF_SL_BACKGROUND</code></pre>
@@ -6890,7 +6890,7 @@ Also, determine the starting bulk of whatever the player is carrying at the outs
 </div>
 </li>
 <li>
-<p><em>Finally, if we&#8217;ve defined <code>USE_PLURAL_OBJECTS</code>,</em><sup class="footnote">[<a id="_footnoteref_37" class="footnote" href="#_footnotedef_37" title="View footnote.">37</a>]</sup> <em>call the appropriate initialization routine:</em></p>
+<p><em>Finally, if we&#8217;ve defined <code>USE_PLURAL_OBJECTS</code>,</em>&#8288;<sup class="footnote">[<a id="_footnoteref_37" class="footnote" href="#_footnotedef_37" title="View footnote.">37</a>]</sup> <em>call the appropriate initialization routine:</em></p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl ppc">#ifset USE_PLURAL_OBJECTS</span>&#x000A;        InitPluralObjects&#x000A;<span class="hl ppc">#endif</span>&#x000A;}</code></pre>
@@ -7067,7 +7067,7 @@ Here is a possible event:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">event in</span> clock&#x000A;{&#x000A;    <span class="hl kwa">local</span> minutes, hours&#x000A;&#x000A;    hours <span class="hl opt">=</span> counter <span class="hl opt">/</span> <span class="hl num">60</span>&#x000A;    minutes <span class="hl opt">=</span> counter <span class="hl opt">-</span> (hours <span class="hl opt">*</span> <span class="hl num">60</span>)&#x000A;&#x000A;    <span class="hl kwa">if</span> minutes <span class="hl opt">=</span> <span class="hl num">0</span>&#x000A;    {&#x000A;        <span class="hl kwa">print</span> <span class="hl str">&quot;The clock chimes &quot;</span>;&#x000A;        <span class="hl kwa">select</span> hour&#x000A;            <span class="hl kwa">case</span> <span class="hl num">1</span>: <span class="hl kwa">print</span> <span class="hl str">&quot;one&quot;</span>;&#x000A;            <span class="hl kwa">case</span> <span class="hl num">2</span>: <span class="hl kwa">print</span> <span class="hl str">&quot;two&quot;</span>;&#x000A;            <span class="hl kwa">case</span> <span class="hl num">3</span>: <span class="hl kwa">print</span> <span class="hl str">&quot;three&quot;</span>;&#x000A;            .&#x000A;            .&#x000A;            .&#x000A;            <span class="hl kwa">case</span> <span class="hl num">12</span>: <span class="hl kwa">print</span> <span class="hl str">&quot;twelve&quot;</span>;<sup class="footnote">[<a id="_footnoteref_40" class="footnote" href="#_footnotedef_40" title="View footnote.">40</a>]</sup>&#x000A;        <span class="hl kwa">print</span> <span class="hl str">&quot; o&#39;clock.&quot;</span>&#x000A;    }&#x000A;}</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">event in</span> clock&#x000A;{&#x000A;    <span class="hl kwa">local</span> minutes, hours&#x000A;&#x000A;    hours <span class="hl opt">=</span> counter <span class="hl opt">/</span> <span class="hl num">60</span>&#x000A;    minutes <span class="hl opt">=</span> counter <span class="hl opt">-</span> (hours <span class="hl opt">*</span> <span class="hl num">60</span>)&#x000A;&#x000A;    <span class="hl kwa">if</span> minutes <span class="hl opt">=</span> <span class="hl num">0</span>&#x000A;    {&#x000A;        <span class="hl kwa">print</span> <span class="hl str">&quot;The clock chimes &quot;</span>;&#x000A;        <span class="hl kwa">select</span> hour&#x000A;            <span class="hl kwa">case</span> <span class="hl num">1</span>: <span class="hl kwa">print</span> <span class="hl str">&quot;one&quot;</span>;&#x000A;            <span class="hl kwa">case</span> <span class="hl num">2</span>: <span class="hl kwa">print</span> <span class="hl str">&quot;two&quot;</span>;&#x000A;            <span class="hl kwa">case</span> <span class="hl num">3</span>: <span class="hl kwa">print</span> <span class="hl str">&quot;three&quot;</span>;&#x000A;            .&#x000A;            .&#x000A;            .&#x000A;            <span class="hl kwa">case</span> <span class="hl num">12</span>: <span class="hl kwa">print</span> <span class="hl str">&quot;twelve&quot;</span>;&#8288;<sup class="footnote">[<a id="_footnoteref_40" class="footnote" href="#_footnotedef_40" title="View footnote.">40</a>]</sup>&#x000A;        <span class="hl kwa">print</span> <span class="hl str">&quot; o&#39;clock.&quot;</span>&#x000A;    }&#x000A;}</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -8277,7 +8277,7 @@ By superseding it, however, we ensure that any grammar matching the desired patt
 <div class="sect2">
 <h3 id="sec_8-1"><a class="anchor" href="#sec_8-1"></a>8.1. Before We Get to the Routines</h3>
 <div class="paragraph">
-<p>Because, the engine is unaware of such things as attributes, properties, and objects in anything but a technical sense,<sup class="footnote">[<a id="_footnoteref_42" class="footnote" href="#_footnotedef_42" title="View footnote.">42</a>]</sup> there are provided a number of routines to facilitate communication between the engine and the program proper.
+<p>Because, the engine is unaware of such things as attributes, properties, and objects in anything but a technical sense,&#8288;<sup class="footnote">[<a id="_footnoteref_42" class="footnote" href="#_footnotedef_42" title="View footnote.">42</a>]</sup> there are provided a number of routines to facilitate communication between the engine and the program proper.
 Along with these junction routines are certain global variables and properties that are pre-defined by the compiler and accessed directly by the engine.
 They are:</p>
 </div>
@@ -9380,7 +9380,7 @@ A game&#8217;s PC can be defined easily as:</p>
 </div>
 <div class="paragraph">
 <p>The PC is by default named in the second person (as opposed to the first-person &#8220;I&#8221; or the third-person &#8220;he&#8221;, &#8220;she&#8221;, &#8220;it&#8221;, or &#8220;them&#8221;).
-To change to another form, it will be necessary to redefine the PC&#8217;s <code>pronouns</code> property accordingly, as well as to change the global variable <code>player_person</code><sup class="footnote">[<a id="_footnoteref_49" class="footnote" href="#_footnotedef_49" title="View footnote.">49</a>]</sup> (which defaults to 2) to 1 or 3, as appropriate, and optionally to give a plural PC the <code>plural</code> attribute (in the rare case where that may be desired).</p>
+To change to another form, it will be necessary to redefine the PC&#8217;s <code>pronouns</code> property accordingly, as well as to change the global variable <code>player_person</code>&#8288;<sup class="footnote">[<a id="_footnoteref_49" class="footnote" href="#_footnotedef_49" title="View footnote.">49</a>]</sup> (which defaults to 2) to 1 or 3, as appropriate, and optionally to give a plural PC the <code>plural</code> attribute (in the rare case where that may be desired).</p>
 </div>
 </div>
 <div class="sect2">
@@ -9740,7 +9740,7 @@ The <code>identical_class</code> is similar to the <code>plural_class</code> exc
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">identical_class bananas <span class="hl str">&quot;bananas&quot;</span>&#x000A;{&#x000A;    plural_of banana1, banana2, banana3,&#x000A;        banana4, banana5&#x000A;    <span class="hl kwb">noun</span> <span class="hl str">&quot;bananas&quot;</span>&#x000A;    single_noun <span class="hl str">&quot;banana&quot;</span>&#x000A;}&#x000A;&#x000A;<span class="hl kwb">object</span> banana1 <span class="hl str">&quot;banana&quot;</span>&#x000A;{&#x000A;    <span class="hl kwb">noun</span> <span class="hl str">&quot;banana&quot;</span>&#x000A;    identical_to bananas&#x000A;}&#x000A;&#x000A;banana1 banana2 <span class="hl str">&quot;banana&quot;</span><sup class="footnote">[<a id="_footnoteref_52" class="footnote" href="#_footnotedef_52" title="View footnote.">52</a>]</sup>&#x000A;{}&#x000A;&#x000A;banana1 banana3 <span class="hl str">&quot;banana&quot;</span>&#x000A;{}&#x000A;...</code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo">identical_class bananas <span class="hl str">&quot;bananas&quot;</span>&#x000A;{&#x000A;    plural_of banana1, banana2, banana3,&#x000A;        banana4, banana5&#x000A;    <span class="hl kwb">noun</span> <span class="hl str">&quot;bananas&quot;</span>&#x000A;    single_noun <span class="hl str">&quot;banana&quot;</span>&#x000A;}&#x000A;&#x000A;<span class="hl kwb">object</span> banana1 <span class="hl str">&quot;banana&quot;</span>&#x000A;{&#x000A;    <span class="hl kwb">noun</span> <span class="hl str">&quot;banana&quot;</span>&#x000A;    identical_to bananas&#x000A;}&#x000A;&#x000A;banana1 banana2 <span class="hl str">&quot;banana&quot;</span>&#8288;<sup class="footnote">[<a id="_footnoteref_52" class="footnote" href="#_footnotedef_52" title="View footnote.">52</a>]</sup>&#x000A;{}&#x000A;&#x000A;banana1 banana3 <span class="hl str">&quot;banana&quot;</span>&#x000A;{}&#x000A;...</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -10320,7 +10320,7 @@ As a result, two resources with the same name but different paths/extensions can
 <div id="system_status_values" class="paragraph">
 <p>The library extension <strong>resource.h</strong> provides useful routines for managing resources in a Hugo program.
 It also defines the following potential values for the <code>system_status</code> global, which may be tested after a resource operation.
-If <code>system_status</code> is non-zero (where zero signifies normal status), it will contain one of the following values:<sup class="footnote">[<a id="_footnoteref_56" class="footnote" href="#_footnotedef_56" title="View footnote.">56</a>]</sup></p>
+If <code>system_status</code> is non-zero (where zero signifies normal status), it will contain one of the following values:&#8288;<sup class="footnote">[<a id="_footnoteref_56" class="footnote" href="#_footnotedef_56" title="View footnote.">56</a>]</sup></p>
 </div>
 <table class="tableblock frame-all grid-none stripes-even fit-content center">
 <colgroup>
@@ -14255,7 +14255,7 @@ Returns true if accessible; returns false and prints an appropriate message if n
 </div>
 </div>
 <div class="paragraph">
-<p>Returns <code>object</code> if the specified object is present as a possession of the specified parent, even as a grandchild,<sup class="footnote">[<a id="_footnoteref_58" class="footnote" href="#_footnotedef_58" title="View footnote.">58</a>]</sup> otherwise returns false.</p>
+<p>Returns <code>object</code> if the specified object is present as a possession of the specified parent, even as a grandchild,&#8288;<sup class="footnote">[<a id="_footnoteref_58" class="footnote" href="#_footnotedef_58" title="View footnote.">58</a>]</sup> otherwise returns false.</p>
 </div>
 <div id="footnotes">
 <hr>
@@ -16257,7 +16257,7 @@ These low-level operations are, for the most part, transparent to the programmer
 <tr>
 <td class="tableblock halign-center valign-top" colspan="2"><p class="tableblock">(Bottom: <code>$000000</code>)<br>
 <br>
-MAXIMUM SIZE: 17792K bytes<sup class="footnote">[<a id="_footnoteref_61" class="footnote" href="#_footnotedef_61" title="View footnote.">61</a>]</sup></p></td>
+MAXIMUM SIZE: 17792K bytes&#8288;<sup class="footnote">[<a id="_footnoteref_61" class="footnote" href="#_footnotedef_61" title="View footnote.">61</a>]</sup></p></td>
 </tr>
 </tbody>
 </table>
@@ -16314,12 +16314,12 @@ It contains the bulk of information regarding table offsets, junction routine ad
 <tr>
 <td class="tableblock halign-right valign-top"><p class="tableblock"><code>$00</code></p></td>
 <td class="tableblock halign-right valign-top"><p class="tableblock">1</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Version of Hugo Compiler used<sup class="footnote">[<a id="_footnoteref_62" class="footnote" href="#_footnotedef_62" title="View footnote.">62</a>]</sup></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Version of Hugo Compiler used&#8288;<sup class="footnote">[<a id="_footnoteref_62" class="footnote" href="#_footnotedef_62" title="View footnote.">62</a>]</sup></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-right valign-top"><p class="tableblock"><code>01</code></p></td>
 <td class="tableblock halign-right valign-top"><p class="tableblock">2</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">ID string (compiler-generated)<sup class="footnote">[<a id="_footnoteref_63" class="footnote" href="#_footnotedef_63" title="View footnote.">63</a>]</sup></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ID string (compiler-generated)&#8288;<sup class="footnote">[<a id="_footnoteref_63" class="footnote" href="#_footnotedef_63" title="View footnote.">63</a>]</sup></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-right valign-top"><p class="tableblock"><code>03</code></p></td>
@@ -16344,7 +16344,7 @@ It contains the bulk of information regarding table offsets, junction routine ad
 <tr>
 <td class="tableblock halign-right valign-top"><p class="tableblock"><code>0D</code></p></td>
 <td class="tableblock halign-right valign-top"><p class="tableblock">2</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Object table offset<sup class="footnote">[<a id="_footnoteref_64" class="footnote" href="#_footnotedef_64" title="View footnote.">64</a>]</sup></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Object table offset&#8288;<sup class="footnote">[<a id="_footnoteref_64" class="footnote" href="#_footnotedef_64" title="View footnote.">64</a>]</sup></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-right valign-top"><p class="tableblock"><code>0F</code></p></td>
@@ -16414,7 +16414,7 @@ It contains the bulk of information regarding table offsets, junction routine ad
 <tr>
 <td class="tableblock halign-right valign-top"><p class="tableblock"><code>27</code></p></td>
 <td class="tableblock halign-right valign-top"><p class="tableblock">2</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Perform</code> routine indexed address<sup class="footnote">[<a id="_footnoteref_65" class="footnote" href="#_footnotedef_65" title="View footnote.">65</a>]</sup></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Perform</code> routine indexed address&#8288;<sup class="footnote">[<a id="_footnoteref_65" class="footnote" href="#_footnotedef_65" title="View footnote.">65</a>]</sup></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top" colspan="3"><div class="content"><div class="paragraph">
@@ -16795,7 +16795,7 @@ It contains the bulk of information regarding table offsets, junction routine ad
 <td class="tableblock halign-right valign-top"><p class="tableblock"><code>7A</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>addcontext<sup class="footnote">[<a id="_footnoteref_67" class="footnote" href="#_footnotedef_67" title="View footnote.">67</a>]</sup></code></p></td>
 <td class="tableblock halign-right valign-top"><p class="tableblock"><code>7B</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>video<sup class="footnote">[<a id="_footnoteref_68" class="footnote" href="#_footnotedef_68" title="View footnote.">68</a>]</sup></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>video&#8288;<sup class="footnote">[<a id="_footnoteref_68" class="footnote" href="#_footnotedef_68" title="View footnote.">68</a>]</sup></code></p></td>
 <td class="tableblock halign-right valign-top"></td>
 <td class="tableblock halign-left valign-top"></td>
 <td class="tableblock halign-right valign-top"></td>
@@ -16942,7 +16942,7 @@ ROUTINE:
 </div>
 <div class="paragraph">
 <p>The two bytes (one 16-bit word) give the indexed address of the routine.
-All blocks of executable code begin on an address divisible by 16;<sup class="footnote">[<a id="_footnoteref_69" class="footnote" href="#_footnotedef_69" title="View footnote.">69</a>]</sup> this allows 1024K of memory to be addressable via the range 0 to 65536. (Code is padded with empty ($00) values to the next address divisible by the address scale.)</p>
+All blocks of executable code begin on an address divisible by 16;&#8288;<sup class="footnote">[<a id="_footnoteref_69" class="footnote" href="#_footnotedef_69" title="View footnote.">69</a>]</sup> this allows 1024K of memory to be addressable via the range 0 to 65536. (Code is padded with empty ($00) values to the next address divisible by the address scale.)</p>
 </div>
 <div class="paragraph">
 <p>For example, a routine beginning at $004004 would be divided by 16 and encoded as the indexed address $0401, in the form:</p>
@@ -17640,7 +17640,7 @@ Note that an address in the text bank requires 3 bytes in the game code, however
 <div class="paragraph">
 <p>The object table begins with two bytes giving the total number of objects.
 The objects then follow in sequential order.
-Each object requires 24 bytes:<sup class="footnote">[<a id="_footnoteref_71" class="footnote" href="#_footnotedef_71" title="View footnote.">71</a>]</sup></p>
+Each object requires 24 bytes:&#8288;<sup class="footnote">[<a id="_footnoteref_71" class="footnote" href="#_footnotedef_71" title="View footnote.">71</a>]</sup></p>
 </div>
 <table class="tableblock frame-all grid-none stripes-odd fit-content center">
 <colgroup>
@@ -19030,7 +19030,7 @@ These functions are:</p>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>hugo_hasvideo</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Returns video availability<sup class="footnote">[<a id="_footnoteref_73" class="footnote" href="#_footnotedef_73" title="View footnote.">73</a>]</sup></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Returns video availability&#8288;<sup class="footnote">[<a id="_footnoteref_73" class="footnote" href="#_footnotedef_73" title="View footnote.">73</a>]</sup></p></td>
 </tr>
 </tbody>
 </table>
@@ -20031,7 +20031,7 @@ This, like the <code>&lt;assignment&gt;</code> is simply a regular executable as
 </div>
 <div class="literalblock">
 <div class="content">
-<pre>26 &lt;value&gt; 4C<sup class="footnote">[<a id="_footnoteref_74" class="footnote" href="#_footnotedef_74" title="View footnote.">74</a>]</sup></pre>
+<pre>26 &lt;value&gt; 4C&#8288;<sup class="footnote">[<a id="_footnoteref_74" class="footnote" href="#_footnotedef_74" title="View footnote.">74</a>]</sup></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -20040,7 +20040,7 @@ This, like the <code>&lt;assignment&gt;</code> is simply a regular executable as
 <div id="footnotes">
 <hr>
 <div class="footnote" id="_footnotedef_74">
-<a href="#_footnoteref_74">74</a>. Pre-v2.3 omitted the <code>eol#</code> marker ($4C).
+<a href="#_footnoteref_74">74</a>. &#8288;Pre-v2.3 omitted the <code>eol#</code> marker ($4C).
 </div>
 </div></div></td>
 </tr>
@@ -20262,13 +20262,13 @@ This, like the <code>&lt;assignment&gt;</code> is simply a regular executable as
 </div>
 <div class="literalblock">
 <div class="content">
-<pre>36 3B &lt;value&gt; 4C<sup class="footnote">[<a id="_footnoteref_75" class="footnote" href="#_footnotedef_75" title="View footnote.">75</a>]</sup></pre>
+<pre>36 3B &lt;value&gt; 4C&#8288;<sup class="footnote">[<a id="_footnoteref_75" class="footnote" href="#_footnotedef_75" title="View footnote.">75</a>]</sup></pre>
 </div>
 </div>
 <div id="footnotes">
 <hr>
 <div class="footnote" id="_footnotedef_75">
-<a href="#_footnoteref_75">75</a>. Pre-v2.3 omitted the <code>eol#</code> marker ($4C).
+<a href="#_footnoteref_75">75</a>. &#8288;Pre-v2.3 omitted the <code>eol#</code> marker ($4C).
 </div>
 </div></div></td>
 </tr>
@@ -20333,7 +20333,7 @@ If a third value is given, separated by a comma ($19), it represents the input c
 </div>
 <div class="literalblock">
 <div class="content">
-<pre>39 &lt;value&gt; 4C<sup class="footnote">[<a id="_footnoteref_76" class="footnote" href="#_footnotedef_76" title="View footnote.">76</a>]</sup></pre>
+<pre>39 &lt;value&gt; 4C&#8288;<sup class="footnote">[<a id="_footnoteref_76" class="footnote" href="#_footnotedef_76" title="View footnote.">76</a>]</sup></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -20342,7 +20342,7 @@ If a third value is given, separated by a comma ($19), it represents the input c
 <div id="footnotes">
 <hr>
 <div class="footnote" id="_footnotedef_76">
-<a href="#_footnoteref_76">76</a>. Pre-v2.3 omitted the <code>eol#</code> marker ($4C).
+<a href="#_footnoteref_76">76</a>. &#8288;Pre-v2.3 omitted the <code>eol#</code> marker ($4C).
 </div>
 </div></div></td>
 </tr>
@@ -20375,7 +20375,7 @@ If a third value is given, separated by a comma ($19), it represents the input c
 </div>
 <div class="literalblock">
 <div class="content">
-<pre>3A &lt;value&gt; 3B &lt;value&gt; 4C<sup class="footnote">[<a id="_footnoteref_77" class="footnote" href="#_footnotedef_77" title="View footnote.">77</a>]</sup></pre>
+<pre>3A &lt;value&gt; 3B &lt;value&gt; 4C&#8288;<sup class="footnote">[<a id="_footnoteref_77" class="footnote" href="#_footnotedef_77" title="View footnote.">77</a>]</sup></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -20384,7 +20384,7 @@ If a third value is given, separated by a comma ($19), it represents the input c
 <div id="footnotes">
 <hr>
 <div class="footnote" id="_footnotedef_77">
-<a href="#_footnoteref_77">77</a>. Pre-v2.3 omitted the <code>eol#</code> marker ($4C).
+<a href="#_footnoteref_77">77</a>. &#8288;Pre-v2.3 omitted the <code>eol#</code> marker ($4C).
 </div>
 </div></div></td>
 </tr>
@@ -20789,7 +20789,7 @@ Read by the debugger; ignored by the engine.</p>
 </div>
 <div class="literalblock">
 <div class="content">
-<pre>4D 01 &lt;value&gt; 02 4C<sup class="footnote">[<a id="_footnoteref_78" class="footnote" href="#_footnotedef_78" title="View footnote.">78</a>]</sup></pre>
+<pre>4D 01 &lt;value&gt; 02 4C&#8288;<sup class="footnote">[<a id="_footnoteref_78" class="footnote" href="#_footnotedef_78" title="View footnote.">78</a>]</sup></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -20798,7 +20798,7 @@ Read by the debugger; ignored by the engine.</p>
 <div id="footnotes">
 <hr>
 <div class="footnote" id="_footnotedef_78">
-<a href="#_footnoteref_78">78</a>. Pre-v2.3 omitted the <code>eol#</code> marker ($4C).
+<a href="#_footnoteref_78">78</a>. &#8288;Pre-v2.3 omitted the <code>eol#</code> marker ($4C).
 </div>
 </div></div></td>
 </tr>
@@ -20825,7 +20825,7 @@ See <a href="#book1"><em>The Hugo Programming Manual</em></a> for further elabor
 </table>
 </div>
 <div class="paragraph">
-<p>Obsolete usage:<sup class="footnote">[<a id="_footnoteref_79" class="footnote" href="#_footnotedef_79" title="View footnote.">79</a>]</sup></p>
+<p>Obsolete usage:&#8288;<sup class="footnote">[<a id="_footnoteref_79" class="footnote" href="#_footnotedef_79" title="View footnote.">79</a>]</sup></p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -21190,7 +21190,7 @@ Stores the resulting key value in <code>word[0]</code>.</p>
 </div>
 <div class="literalblock">
 <div class="content">
-<pre>5A &lt;value&gt; 4C<sup class="footnote">[<a id="_footnoteref_80" class="footnote" href="#_footnotedef_80" title="View footnote.">80</a>]</sup></pre>
+<pre>5A &lt;value&gt; 4C&#8288;<sup class="footnote">[<a id="_footnoteref_80" class="footnote" href="#_footnotedef_80" title="View footnote.">80</a>]</sup></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -21712,7 +21712,7 @@ Otherwise, it is appended to the end of the table, and the new location is retur
 </div>
 <div class="literalblock">
 <div class="content">
-<pre>6F &lt;value&gt; 4C<sup class="footnote">[<a id="_footnoteref_81" class="footnote" href="#_footnotedef_81" title="View footnote.">81</a>]</sup>
+<pre>6F &lt;value&gt; 4C&#8288;<sup class="footnote">[<a id="_footnoteref_81" class="footnote" href="#_footnotedef_81" title="View footnote.">81</a>]</sup>
     ...file i/o code block...</pre>
 </div>
 </div>
@@ -21722,7 +21722,7 @@ Otherwise, it is appended to the end of the table, and the new location is retur
 <div id="footnotes">
 <hr>
 <div class="footnote" id="_footnotedef_81">
-<a href="#_footnoteref_81">81</a>. Pre-v2.3 omitted the <code>eol#</code> marker ($4C).
+<a href="#_footnoteref_81">81</a>. &#8288;Pre-v2.3 omitted the <code>eol#</code> marker ($4C).
 </div>
 </div></div></td>
 </tr>
@@ -21757,7 +21757,7 @@ Upon any error, jumps to the end of the file i/o code block and closes <code>&lt
 </div>
 <div class="literalblock">
 <div class="content">
-<pre>70 &lt;value&gt; 4C<sup class="footnote">[<a id="_footnoteref_82" class="footnote" href="#_footnotedef_82" title="View footnote.">82</a>]</sup>
+<pre>70 &lt;value&gt; 4C&#8288;<sup class="footnote">[<a id="_footnoteref_82" class="footnote" href="#_footnotedef_82" title="View footnote.">82</a>]</sup>
     ...file i/o code block...</pre>
 </div>
 </div>
@@ -21767,7 +21767,7 @@ Upon any error, jumps to the end of the file i/o code block and closes <code>&lt
 <div id="footnotes">
 <hr>
 <div class="footnote" id="_footnotedef_82">
-<a href="#_footnoteref_82">82</a>. Pre-v2.3 omitted the <code>eol#</code> marker ($4C).
+<a href="#_footnoteref_82">82</a>. &#8288;Pre-v2.3 omitted the <code>eol#</code> marker ($4C).
 </div>
 </div></div></td>
 </tr>
@@ -21792,7 +21792,7 @@ Upon any error, jumps to the end of the file i/o code block and closes <code>&lt
 </div>
 <div class="literalblock">
 <div class="content">
-<pre>71 &lt;value&gt; 19 &lt;value&gt; 19 ... 4C<sup class="footnote">[<a id="_footnoteref_83" class="footnote" href="#_footnotedef_83" title="View footnote.">83</a>]</sup></pre>
+<pre>71 &lt;value&gt; 19 &lt;value&gt; 19 ... 4C&#8288;<sup class="footnote">[<a id="_footnoteref_83" class="footnote" href="#_footnotedef_83" title="View footnote.">83</a>]</sup></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -21803,7 +21803,7 @@ Multiple values are separated by $19.</p>
 <div id="footnotes">
 <hr>
 <div class="footnote" id="_footnotedef_83">
-<a href="#_footnoteref_83">83</a>. Pre-v2.3 omitted the <code>eol#</code> marker ($4C).
+<a href="#_footnoteref_83">83</a>. &#8288;Pre-v2.3 omitted the <code>eol#</code> marker ($4C).
 </div>
 </div></div></td>
 </tr>
@@ -21914,7 +21914,7 @@ If there is an error, the <code>system_status</code> global variable is set.</p>
 </div>
 </div>
 <div class="paragraph">
-<p>Attempts to load and play a music resource<sup class="footnote">[<a id="_footnoteref_84" class="footnote" href="#_footnotedef_84" title="View footnote.">84</a>]</sup> as resource <code>&lt;value2&gt;</code> in resourcefile <code>&lt;value1&gt;</code>.
+<p>Attempts to load and play a music resource&#8288;<sup class="footnote">[<a id="_footnoteref_84" class="footnote" href="#_footnotedef_84" title="View footnote.">84</a>]</sup> as resource <code>&lt;value2&gt;</code> in resourcefile <code>&lt;value1&gt;</code>.
 (<code>&lt;value1&gt;</code> and <code>&lt;value2&gt;</code> are dictionary entries.)
 If <code>&lt;value3&gt;</code> is given, the music output volume is set to <code>&lt;value3&gt;</code> (as a percentage of normal output).
 If <code>&lt;value1&gt;</code> is 0, the current music is stopped.
@@ -22071,19 +22071,19 @@ If there is an error, the <code>system_status</code> global variable is set.</p>
 <a href="#_footnoteref_42">42</a>. In other words, it is the library that defines all the rules and useful-sounding names for properties, routines, and the like; the engine doesn&#8217;t really have any idea about the higher-level work being done by the library.
 </div>
 <div class="footnote" id="_footnotedef_43">
-<a href="#_footnoteref_43">43</a>. For more information on debugging using HugoFix, see <a href="#appendix_d">App. D, <em>HugoFix and the Hugo Debugger</em></a>.
+<a href="#_footnoteref_43">43</a>. &#8288;For more information on debugging using HugoFix, see <a href="#appendix_d">App. D, <em>HugoFix and the Hugo Debugger</em></a>.
 </div>
 <div class="footnote" id="_footnotedef_44">
-<a href="#_footnoteref_44">44</a>. For more information on debugging using HugoFix, see <a href="#appendix_d">App. D, <em>HugoFix and the Hugo Debugger</em></a>.
+<a href="#_footnoteref_44">44</a>. &#8288;For more information on debugging using HugoFix, see <a href="#appendix_d">App. D, <em>HugoFix and the Hugo Debugger</em></a>.
 </div>
 <div class="footnote" id="_footnotedef_45">
-<a href="#_footnoteref_45">45</a>. For more information on debugging using HugoFix, see <a href="#appendix_d">App. D, <em>HugoFix and the Hugo Debugger</em></a>.
+<a href="#_footnoteref_45">45</a>. &#8288;For more information on debugging using HugoFix, see <a href="#appendix_d">App. D, <em>HugoFix and the Hugo Debugger</em></a>.
 </div>
 <div class="footnote" id="_footnotedef_46">
 <a href="#_footnoteref_46">46</a>. The <code>&lt;isxverb&gt;</code> argument is new in v3.1.
 </div>
 <div class="footnote" id="_footnotedef_47">
-<a href="#_footnoteref_47">47</a>. For more information on debugging using HugoFix, see <a href="#appendix_d">App. D, <em>HugoFix and the Hugo Debugger</em></a>.
+<a href="#_footnoteref_47">47</a>. &#8288;For more information on debugging using HugoFix, see <a href="#appendix_d">App. D, <em>HugoFix and the Hugo Debugger</em></a>.
 </div>
 <div class="footnote" id="_footnotedef_48">
 <a href="#_footnoteref_48">48</a>. This also means that in order to create a dark location&#8201;&#8212;&#8201;i.e., one that has no intrinsic lighting&#8201;&#8212;&#8201;it is necessary to put an explicit <code>not light</code> in the object&#8217;s definition. In that case, in order for the player to see anything in the location, light will have to be provided either by an object in the location (such as a lamp) or by something portable that can be brought into the location (like a flashlight).

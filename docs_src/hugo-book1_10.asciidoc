@@ -156,7 +156,7 @@ player_character you "you"
 --------------------------
 
 The PC is by default named in the second person (as opposed to the first-person "`I`" or the third-person "`he`", "`she`", "`it`", or "`them`").
-To change to another form, it will be necessary to redefine the PC's `pronouns` property accordingly, as well as to change the global variable `player_person`{fn2} (which defaults to 2) to 1 or 3, as appropriate, and optionally to give a plural PC the `plural` attribute (in the rare case where that may be desired).
+To change to another form, it will be necessary to redefine the PC's `pronouns` property accordingly, as well as to change the global variable `player_person`{wj}{fn2} (which defaults to 2) to 1 or 3, as appropriate, and optionally to give a plural PC the `plural` attribute (in the rare case where that may be desired).
 
 
 
@@ -586,7 +586,7 @@ object banana1 "banana"
     identical_to bananas
 }
 
-banana1 banana2 "banana"{fn5}
+banana1 banana2 "banana"{wj}{fn5}
 {}
 
 banana1 banana3 "banana"

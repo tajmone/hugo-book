@@ -163,7 +163,7 @@ These functions are:
 | hugo_strlen          | `strlen()` for embedded codes
 | hugo_specialchar     | Translation for special characters
 2+^a| {blank}
-| hugo_hasvideo        | Returns video availability{fn1}
+| hugo_hasvideo        | Returns video availability{wj}{fn1}
 |===============================================================================
 
 

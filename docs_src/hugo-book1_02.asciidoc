@@ -115,7 +115,7 @@ In this case the task at hand is the printing of "`Hello, Sailor!`", followed by
 Computer programs are mainly about two things: input and output (called _i/o_, for short), and modifying values.
 In fact, the bulk of a computer program (that is, what happens behind the scenes, whirring away, unbeknownst to the user) consists of setting, changing, and comparing various values.
 Hugo is no exception.
-All data in Hugo is represented in terms of 16-bit integers,{fn2} treated as signed (-32768 to 32767) or unsigned (0 to 65535) as appropriate.
+All data in Hugo is represented in terms of 16-bit integers,{wj}{fn2} treated as signed (-32768 to 32767) or unsigned (0 to 65535) as appropriate.
 It's up to the compiler and engine to decide what a particular value means in a given context.
 The name of any individual data type may contain up to 32 alphanumeric characters (as well as the underscore `_`).
 
@@ -173,7 +173,7 @@ Dictionary entries are addresses in the dictionary table (comprising all diction
 Array addresses (as opposed to separate array elements) represent the address at which the array begins in the array table (comprising all array data in the *.HEX* file).
 Properties and attributes treated as discrete values represent the number of that property or attribute, assigned sequentially as the individual property or attribute is defined.
 
-As mentioned, routines also return values, as do built-in{fn3} engine functions, so that
+As mentioned, routines also return values, as do built-in{wj}{fn3} engine functions, so that
 
 [source,hugo]
 --------------------------------------------------------------------------------
@@ -196,7 +196,7 @@ At this point it's probably helpful to know that you can assign a value to a var
 
 [literal, role="hugosyntax", subs="+attributes,macros"]
 .......................................................
-<some variable> = <some value>{fn5}
+<some variable> = <some value>{wj}{fn5}
 .......................................................
 
 For instance, to set the variable `x` equal to 5, you would use:

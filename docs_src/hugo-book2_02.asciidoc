@@ -53,7 +53,7 @@ If all the separate segments of a *.HEX* file were stacked contiguously on top o
 | Header                        |      64 bytes
 2+^| (Bottom: `$000000`) +
  +
-MAXIMUM SIZE: 17792K bytes{fn1}
+MAXIMUM SIZE: 17792K bytes{wj}{fn1}
 |===============================================================================
 
 Each new segment begins on a boundary divisible by 16; an end-of-segment is padded with zeroes until the next boundary.
@@ -88,13 +88,13 @@ Compile with the `-u` switch to display a map of memory usage in the *.HEX* file
 |===============================================================================
 | Byte | Length | Description
 
-| $00 | 1 | Version of Hugo Compiler used{fn2}
-| 01  | 2 | ID string (compiler-generated){fn3}
+| $00 | 1 | Version of Hugo Compiler used{wj}{fn2}
+| 01  | 2 | ID string (compiler-generated){wj}{fn3}
 | 03  | 8 | Serial number
 3+^a| {blank}
 | 0B  | 2 | Address of start of executable code
 3+^a| {blank}
-| 0D  | 2 | Object table offset{fn4}
+| 0D  | 2 | Object table offset{wj}{fn4}
 | 0F  | 2 | Property table offset
 | 11  | 2 | Event table offset
 | 13  | 2 | Array space offset
@@ -108,7 +108,7 @@ Compile with the `-u` switch to display a map of memory usage in the *.HEX* file
 | 21  | 2 | `FindObject` routine indexed address
 | 23  | 2 | `EndGame` routine indexed address
 | 25  | 2 | `SpeakTo` routine indexed address
-| 27  | 2 | `Perform` routine indexed address{fn5}
+| 27  | 2 | `Perform` routine indexed address{wj}{fn5}
 3+^a| {blank}
 | 29  | 2 | Text bank offset
 |===============================================================================

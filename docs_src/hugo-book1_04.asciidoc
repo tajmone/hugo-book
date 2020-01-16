@@ -746,7 +746,7 @@ Hugo allows use of all standard mathematical operators:
 `*` :: multiplication
 `/` :: integer division
 
-which take precedence{fn3} over:
+which take precedence{wj}{fn3} over:
 
 [horizontal]
 `+` :: addition
@@ -973,7 +973,7 @@ array <arrayname> [<array size>]
 
 where `<array size>` must be a numerical constant.
 
-An array definition reserves a block of memory of `<array size>`,{fn4} so that, for example,
+An array definition reserves a block of memory of `<array size>`,{wj}{fn4} so that, for example,
 
 [source,hugo]
 --------------------

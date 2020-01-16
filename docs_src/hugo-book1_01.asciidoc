@@ -23,7 +23,7 @@
 
 Chances are if you're reading this book you're already at least a little familiar with adventure games, and maybe even more specifically interactive fiction or text adventures.{wj}{fn1}
 Hugo is a system for designing, programming, and running these.
-It is not the first such system -- and it's difficult to find substantial fault in any general way with the best of those systems that predate Hugo{fn2} -- but Hugo does hope to extend the concepts developed in earlier, similar systems in order to make interactive fiction programming less cryptic, and more flexible and accessible to designers, as well as to add functionality in certain areas where other systems are lacking.
+It is not the first such system -- and it's difficult to find substantial fault in any general way with the best of those systems that predate Hugo{wj}{fn2} -- but Hugo does hope to extend the concepts developed in earlier, similar systems in order to make interactive fiction programming less cryptic, and more flexible and accessible to designers, as well as to add functionality in certain areas where other systems are lacking.
 
 What does it mean to be a "`system`" for interactive fiction?
 In Hugo's case, it means that not only does it provide an environment for running Hugo games -- the rather exciting-sounding Hugo Engine -- but also the means of creating them (the Hugo Compiler) and a tool for troubleshooting (the Hugo Debugger).

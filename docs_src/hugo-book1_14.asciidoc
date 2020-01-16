@@ -760,7 +760,7 @@ Returns true if accessible; returns false and prints an appropriate message if n
 [literal, role="hugosyntax"]
 Contains(parent, object)
 
-Returns `object` if the specified object is present as a possession of the specified parent, even as a grandchild,{fn2} otherwise returns false.
+Returns `object` if the specified object is present as a possession of the specified parent, even as a grandchild,{wj}{fn2} otherwise returns false.
 
 //-----{ CustomError }----------------------------------------------------------
 

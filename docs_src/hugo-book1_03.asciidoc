@@ -230,7 +230,7 @@ and
 [TIP]
 ================================================================================
 Try compiling *sample.hug* with the `-o` switch in order to see the object tree for the sample game.
-Or, if the `DEBUG` flag was set during compilation, use the HugoFix{fn2} command `$ot` or `$ot <object>` during play to view the current state of the object tree during play.
+Or, if the `DEBUG` flag was set during compilation, use the HugoFix{wj}{fn2} command `$ot` or `$ot <object>` during play to view the current state of the object tree during play.
 Compiling with the `-d` switch will generate a debuggable (*.HDX*) version of the file -- the object tree can then be viewed directly from the debugger.
 ================================================================================
 
@@ -413,11 +413,11 @@ Those defined in *hugolib.h* include:
 | mobile         | if the object can be rolled, etc.
 | enterable      | if an object is enterable
 | container      | if an object can hold other objects
-| platform       | if other objects can be placed on it{fn4}
+| platform       | if other objects can be placed on it{wj}{fn4}
 | hidden         | if an object is not to be listed
 | quiet          | if container or platform is quiet (i.e., the initial listing of contents is suppressed)
 | transparent    | if object is not opaque
-| already_listed | if object has been pre-listed (i.e., before a `WhatsIn` listing{fn5})
+| already_listed | if object has been pre-listed (i.e., before a `WhatsIn` listing{wj}{fn5})
 | workflag       | for system use
 | special        | for miscellaneous use
 |===============================================================================
@@ -559,7 +559,7 @@ short_desc
     print "."
 }
 
-before{fn7}
+before{wj}{fn7}
 {
     object DoGet
     {
@@ -626,7 +626,7 @@ The list of properties defined in *hugolib.h* is:
 | short_desc   | basic "`*X is here*`" description
 | initial_desc | supersedes `short_desc` (or `long_desc` for locations)
 | long_desc    | detailed description
-| found_in     | in case of multiple locations (virtual, _not_ physical parent objects{fn8})
+| found_in     | in case of multiple locations (virtual, _not_ physical parent objects{wj}{fn8})
 | type             | to identify the type of object
 | size        .3+.^| for holding/inventory
 | capacity
@@ -964,7 +964,7 @@ In either example, the object inherits its properties and attributes first from 
 The Hugo Object Library (*objlib.h*) contains a number of useful class definitions for things like rooms, characters, scenery, vehicles, etc.
 Sometimes, however, it may be desirable to use a different definition for, say, the `room` class while keeping all the others in the Object Library.
 
-Instead of actually editing *objlib.h*,{fn9} use:
+Instead of actually editing *objlib.h*,{wj}{fn9} use:
 
 [literal, role="hugosyntax"]
 ............................................
@@ -980,7 +980,7 @@ All subsequent references to `<class>` will use this object instead of the previ
 
 [IMPORTANT]
 ================================================================================
-Note that this means that the replacement must come _before_{fn10} any uses of the class as the parent class for other objects.
+Note that this means that the replacement must come _before_{wj}{fn10} any uses of the class as the parent class for other objects.
 ================================================================================
 
 
