@@ -21,7 +21,7 @@
 == Why You're Here (Or, Just What Is Hugo?)
 
 
-Chances are if you're reading this book you're already at least a little familiar with adventure games, and maybe even more specifically interactive fiction or text adventures.{fn1}
+Chances are if you're reading this book you're already at least a little familiar with adventure games, and maybe even more specifically interactive fiction or text adventures.{wj}{fn1}
 Hugo is a system for designing, programming, and running these.
 It is not the first such system -- and it's difficult to find substantial fault in any general way with the best of those systems that predate Hugo{fn2} -- but Hugo does hope to extend the concepts developed in earlier, similar systems in order to make interactive fiction programming less cryptic, and more flexible and accessible to designers, as well as to add functionality in certain areas where other systems are lacking.
 
@@ -54,7 +54,7 @@ The Hugo Compiler, the Hugo Engine, the Hugo Debugger, the Hugo Library, and rel
 
 Those who have taken upon themselves the task of porting Hugo to various platforms include Julian Arnold (Acorn/RiscOS port), Gerald Bostock (OS/2 port), David Kinder (Amiga port), Bill Lash (original Unix/Linux port), Andrew Plotkin (Macintosh port using his Glk library), and Colin Turnbull (original Acorn Archimedes port).
 The author is considerably indebted to them, for all their work as well as for their input on how to improve the compiler and engine.
-Without their efforts, Hugo and the games created with it would not be available for so nearly as wide an audience.{fn3}
+Without their efforts, Hugo and the games created with it would not be available for so nearly as wide an audience.{wj}{fn3}
 
 More than a few words of appreciation must be given to Volker Blasius, the original maintainer of the Interactive Fiction Archive at GMD, one of the key resources for interactive fiction players and developers, and a primary hub of material for contributors to (and readers of) the Usenet newsgroups
 link:++https://groups.google.com/forum/#!forum/rec.arts.int-fiction++[_rec.arts.int-fiction_^,title="Visit rec.arts.int-fiction at Google Groups"] and

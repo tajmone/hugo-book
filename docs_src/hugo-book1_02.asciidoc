@@ -106,7 +106,7 @@ Two routines are normally required for any Hugo program, the other being the `In
 
 The `Main` routine is automatically called by the engine.
 It is from here that the central behavior of any Hugo program is controlled.
-In this case the task at hand is the printing of "`Hello, Sailor!`", followed by a wait for a keypress (the `pause`) and an order to exit the program (i.e., `quit` it) so that we don't strand the program waiting for input from the player, which is the normal order of Hugo business.{fn1}
+In this case the task at hand is the printing of "`Hello, Sailor!`", followed by a wait for a keypress (the `pause`) and an order to exit the program (i.e., `quit` it) so that we don't strand the program waiting for input from the player, which is the normal order of Hugo business.{wj}{fn1}
 
 
 [[sec_2-3]]
@@ -187,7 +187,7 @@ and
 parent(object)
 --------------------------------------------------------------------------------
 
-are also valid integer data types.{fn4}
+are also valid integer data types.{wj}{fn4}
 
 It's good medicine to be as descriptive as possible in naming symbols, regardless of what you're naming.
 A variable that holds the count of a number of objects _could_ be called `n`, but it's almost always better (especially after the fact, when you're looking at code you've written days or even months before) to call it something more helpful like `object_count`.
@@ -439,7 +439,7 @@ x = 5
 --------------------------------------------------------------------------------
 
 with the rather obvious explanation of "`set x equal to 5`" -- it's always better to err on the side of too many comments in order to avoid the situation that every programmer find himself or herself in at least once (and once only if very, very lucky) of trying to remember what a piece of code does that you wrote yesterday, or last week, or several months ago.
-Comment, comment, comment.{fn6}
+Comment, comment, comment.{wj}{fn6}
 
 There are two types of comments.
 Comments on a single line begin with a `!`.
@@ -488,7 +488,7 @@ A non-fatal error typically looks like:
 
 Non-fatal errors are usually programming mistakes: either doing something illegal (like trying to assign a value to something to which you're not allowed to assign a value), making a syntax error such as using a symbol name that the compiler doesn't know about (often due to a typing mistake), or making a formatting mistake (like missing something that the compiler knows is supposed to be coming next but you forgot to include).
 Unless the `-a` switch is specified at invocation to tell the compiler to quit after the first error, multiple non-fatal errors may be printed.
-The side-effect of this is that a specific error (particularly a formatting error) may affect many lines of code after it, so that the compiler -- having become lost and not really knowing what you're trying to do -- may report a whole string of errors, even on lines that, if the compiler understood their proper context, would be error free.{fn7}
+The side-effect of this is that a specific error (particularly a formatting error) may affect many lines of code after it, so that the compiler -- having become lost and not really knowing what you're trying to do -- may report a whole string of errors, even on lines that, if the compiler understood their proper context, would be error free.{wj}{fn7}
 
 When a compiler issues a warning, it looks like:
 

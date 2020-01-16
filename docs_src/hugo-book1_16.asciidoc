@@ -26,7 +26,7 @@ The result is a very close approximation of the original source code.]]
 == The HugoFix Debugging Library
 
 The HugoFix Debugging Library is a suite of routines that can be used via typed commands in a running Hugo game without the use of any special debugger program.
-To use HugoFix, set the compiler flag `DEBUG` before including *hugolib.h* or any other standard Hugo library files.{fn1}
+To use HugoFix, set the compiler flag `DEBUG` before including *hugolib.h* or any other standard Hugo library files.{wj}{fn1}
 Then, from the player input line, type:
 
 [example,role="gametranscript"]
@@ -193,7 +193,7 @@ Runs a number of tests to ensure the validity of certain data, including necessa
 == The Hugo Debugger
 
 The Hugo Debugger is a valuable part of the Hugo design system.
-It allows a programmer to monitor all aspects of program execution, including watching expressions, modifying values, moving objects, etc. -- all things expected of a modern source-level debugger.{fn2}
+It allows a programmer to monitor all aspects of program execution, including watching expressions, modifying values, moving objects, etc. -- all things expected of a modern source-level debugger.{wj}{fn2}
 
 In order to be used with the debugger, a Hugo program must be compiled using the `-d` switch in order to create an *.HDX* debuggable file with additional data such as names for objects, variables, properties, etc.
 

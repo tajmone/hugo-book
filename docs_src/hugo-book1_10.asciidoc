@@ -58,7 +58,7 @@ room living_room "living room"
 
 
 Since a room is not placed within another object in the object tree (using the `in` directive), it automatically has a parent of 0 or `nothing`.
-By inheriting from the `room` class, the `living_room` object acquires the characteristics defined in the object library, including being `static` and `light`.{fn1}
+By inheriting from the `room` class, the `living_room` object acquires the characteristics defined in the object library, including being `static` and `light`.{wj}{fn1}
 
 Additionally, as with other classes in the object library, the `type` property of an object can be checked to see which class it was derived from.
 In this case, `living_room.type` would equal `room`.
@@ -291,7 +291,7 @@ scenery prison_window "prison window"
 --------------------------------------------------
 
 The most important characteristic of a scenery object created using the `scenery` class is that it will not be listed by the library as part of the room's contents (in this case, the contents of `prison_cell`).
-The `scenery` class is otherwise relatively unadorned: looking at a scenery object will produce a generic message about seeing nothing special, attempting to take a scenery object will generate a generic "`You can't take that`"-type response, etc.{fn3}
+The `scenery` class is otherwise relatively unadorned: looking at a scenery object will produce a generic message about seeing nothing special, attempting to take a scenery object will generate a generic "`You can't take that`"-type response, etc.{wj}{fn3}
 The scenery object can be fleshed out with a `long_desc` property and `before`/`after` handling for desired verbroutines.
 
 Components are similar to scenery objects in two important respects in that they're not intended to be taken and they're not specifically listed in any itemization of contents.
@@ -595,7 +595,7 @@ banana1 banana3 "banana"
 ----------------------------------------
 
 
-The identical object `bananas` will allow a player to use all the facilities of the `identical_class` in order to manipulate one or more otherwise indistinguishable banana objects.{fn6}
+The identical object `bananas` will allow a player to use all the facilities of the `identical_class` in order to manipulate one or more otherwise indistinguishable banana objects.{wj}{fn6}
 
 
 
@@ -604,7 +604,7 @@ The identical object `bananas` will allow a player to use all the facilities of 
 
 Ropes and other similar objects -- anything, really, which ties onto something else or, even worse, ties _between_ two or more objects -- are notoriously difficult to code.
 Safe advice on how to code a rope used to be: code a block of wood instead.
-The object library provides an `attachable` class which has successfully been used for everything from ropes to blankets to three-ended chains and darts.{fn7}
+The object library provides an `attachable` class which has successfully been used for everything from ropes to blankets to three-ended chains and darts.{wj}{fn7}
 
 [IMPORTANT]
 ================================================================================

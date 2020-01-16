@@ -42,7 +42,7 @@ The `<resourcefile>` name must be 8 or fewer alphanumeric characters which will 
 
 NOTE: The reason for this is to maximize portability across different platforms and filenaming systems -- unfortunately not everyone adheres to the same conventions, so this restriction is intended to reduce filenaming to the lowest common denominator.
 
-Currently Hugo supports as resources: JPEG graphic files, RIFF/WAV audio samples, MOD/S3M/XM music modules, MIDI and MP3 songs, and MPEG and AVI movies.{fn1}
+Currently Hugo supports as resources: JPEG graphic files, RIFF/WAV audio samples, MOD/S3M/XM music modules, MIDI and MP3 songs, and MPEG and AVI movies.{wj}{fn1}
 
 For example, here is an imaginary example resourcefile compiled on a Windows platform:
 
@@ -81,8 +81,7 @@ It also defines the following potential values for the `system_status` global, w
 If `system_status` is non-zero (where zero signifies normal status), it will contain one of the following values:{fn2}
 
 
-[.center]
-[cols=">m,<m",options=autowidth,grid=none,stripes=even]
+[.center,cols=">m,<m",options=autowidth,grid=none,stripes=even]
 |======================================================
 | -1  | STAT_UNAVAILABLE
 | 101 | STAT_NOFILE

@@ -30,9 +30,9 @@ Because, the engine is unaware of such things as attributes, properties, and obj
 Along with these junction routines are certain global variables and properties that are pre-defined by the compiler and accessed directly by the engine.
 They are:
 
-[.center]
-// [cols="<m,<a",options=autowidth,grid=none,stripes=even]
-[cols="<m,<d",options=autowidth,grid=rows,stripes=none]
+[[table-engine-globals]]
+.Predefined Global Variables and Properties
+[.center,cols="<m,<d",options=autowidth,grid=rows,stripes=none]
 |===============================================================================
 
 2+^h| GLOBALS
@@ -86,9 +86,9 @@ For example, the `Parse` routine in *hugolib.h* takes care of such things as pro
 Returning true from the `Parse` routine calls the engine parser again (i.e., returns to step 1 in the process above); returning false continues normally.
 This is useful in case the `Parse` routine has changed the input line substantially, requiring a reconfiguration of the already split words.
 
-The HugoFix debugging library can be used at runtime to monitor the goings-on of the `Parse` routine by enabling parser monitoring with the `$pm` command.{fn2}
+The HugoFix debugging library can be used at runtime to monitor the goings-on of the `Parse` routine by enabling parser monitoring with the `$pm` command.{wj}{fn2}
 
-[NOTE]
+[TIP]
 ================================================================================
 Since the library's `Parse` routine is rather extensive, a provision is made for a `PreParse` routine -- which in the library is defined as being empty -- which may more easily be replaced for additional parsing.
 ================================================================================
@@ -122,8 +122,9 @@ print "The illegal word was: "; parse$; "."
 
 The default responses provided by the engine parse error routine are:
 
-[.center]
-[cols="^d,<m",options=autowidth,grid=none,stripes=even]
+[[table-parseerror-responses]]
+.Default ParseError Responses
+[.center,cols="^d,<m",options=autowidth,grid=none,stripes=even]
 |===============================================================================
 | ERROR{nbsp}NUMBER | RESPONSE
 
@@ -153,7 +154,7 @@ If the `ParseError` routine does not provide a response for a particular `<error
 Returning false is a signal that the engine should continue with the default message.
 Returning 2 is a signal to reparse the entire existing line (useful in cases where a peculiar syntax is trapped as an error, changed, and must then be reparsed).
 
-[NOTE]
+[TIP]
 ================================================================================
 If custom error messages are desired for user parsing routines, replace the routine `CustomError` with a new routine (called with the same parameters as `ParseError`), providing that `<errornumber>` is greater than or equal to 100.
 ================================================================================
@@ -167,8 +168,7 @@ The `EndGame` routine is called immediately whenever the global variable `endfla
 *hugolib.h*{wj}`'s `EndGame` routine behaves according to the value to which `endflag` is set:
 
 
-[.center]
-[cols="^d,<d",options=autowidth,grid=none,stripes=even]
+[.center,cols="^d,<d",options=autowidth,grid=none,stripes=even]
 |===============================================================================
 | endflag | RESULT
 
@@ -220,7 +220,7 @@ This occurs whenever the engine needs to determine if an object is available _at
 Also, `FindObject` may be called by the engine with both `<object>` and `<location>` equal to 0 to reset any library-based object disambiguation.
 ================================================================================
 
-The HugoFix debugging library can be used at runtime to monitor calls to `FindObject` by enabling the `$fi` command.{fn3}
+The HugoFix debugging library can be used at runtime to monitor calls to `FindObject` by enabling the `$fi` command.{wj}{fn3}
 
 
 
@@ -263,7 +263,7 @@ may be directed to the proper verb routine, as if the player had typed:
 [example,role="gametranscript"]
 >ask Professor Plum about the lead pipe
 
-Imperative commands are, such as
+Imperative commands, such as
 
 [example,role="gametranscript"]
 >Colonel Mustard, stand up
@@ -272,7 +272,7 @@ are first directed to the `order_response` property of the character object in q
 It is subsequently up to `<character>.order_response` to analyze `verbroutine` (as well as `object` and `xobject`, if applicable) to see if the request is a valid one.
 If no response is provided, `order_response` should return false.
 
-The HugoFix debugging library can be used at runtime to monitor calls to `SpeakTo` by enabling the `$pm` command.{fn4}
+The HugoFix debugging library can be used at runtime to monitor calls to `SpeakTo` by enabling the `$pm` command.{wj}{fn4}
 
 [source,hugo]
 -------------------------------------------
@@ -319,7 +319,7 @@ The `<queue>` is 0 unless the verbroutine is being called more than once for mul
 As a special case, `<queue>` is –1 if `object` or `xobject` is a number supplied in the input as one or more digits, in order to signal `Perform` not to do normal `before`/`after` routine calling.
 ================================================================================
 
-The `<isxverb>` argument is true if the grammar for invoking `Perform` designates an xverb.{fn5}
+The `<isxverb>` argument is true if the grammar for invoking `Perform` designates an xverb.{wj}{fn5}
 
 For example, various player commands might (approximately, depending on verbroutine and object names) result in the routine calls:
 
@@ -374,7 +374,7 @@ If no `Perform` routine exists, the engine performs a default calling of `player
 
 [TIP]
 ================================================================================
-Using HugoFix's parser monitoring (`$pm`) at runtime will trace calls to `Perform`.{fn6}
+Using HugoFix's parser monitoring (`$pm`) at runtime will trace calls to `Perform`.{wj}{fn6}
 ================================================================================
 
 

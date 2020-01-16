@@ -227,7 +227,7 @@ d| `HERE_WORD`       {nbsp}("`here`")   2+d| `ON_WORD` {nbsp}{nbsp}("`on`")
 | article | "`a`", "`an`", "`the`", "`some`", etc.
 
 | preposition (prep)
-d| "`in`", "`inside`", "`outside of`", etc.{fn1}
+d| "`in`", "`inside`", "`outside of`", etc.{wj}{fn1}
 
 | capacity
 | contains a value representing the capacity of a container or platform
@@ -375,8 +375,7 @@ The globals `object` and `xobject` are set up by the engine, and the routine is 
 Here is a list of the provided verb routines for action verbs:
 
 // NOTE: 39 entries in list
-[.center]
-[cols="5*d",options=autowidth,frame=none,grid=none,stripes=none]
+[.center,cols="5*d",options=autowidth,frame=none,grid=none,stripes=none]
 |===============================================================
 | DoAsk
 | DoAskQuestion
@@ -424,8 +423,7 @@ Here are the non-action verb routines:
 
 
 // NOTE: 11 entries in list
-[.center]
-[cols="4*d",options=autowidth,frame=none,grid=none,stripes=none]
+[.center,cols="4*d",options=autowidth,frame=none,grid=none,stripes=none]
 |===============================================================
 | DoBrief
 | DoRecordOnOff
@@ -447,8 +445,7 @@ Output messages for these verbroutines are handled by the routine `VMessage` in 
 A set of verb stub routines is also available in *verbstub.h*, including the actions:
 
 // NOTE: 29 entries in list
-[.center]
-[cols="5*d",options=autowidth,frame=none,grid=none,stripes=none]
+[.center,cols="5*d",options=autowidth,frame=none,grid=none,stripes=none]
 |===============================================================
 | DoBurn
 | DoClimb
@@ -1451,8 +1448,7 @@ and
 
 A number of compiler flags may be set to exclude certain portions of *hugolib.h* from compilation if these functions or objects are not required.
 
-[.center]
-[cols="<m,<d",options=autowidth,grid=none,stripes=even]
+[.center,cols="<m,<d",options=autowidth,grid=none,stripes=even]
 |======================================================
 | FLAG             | EXCLUDES
 

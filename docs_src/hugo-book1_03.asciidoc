@@ -118,7 +118,7 @@ The object tree is a simple map which represents the relationships between all o
 The total number of objects is held in the global variable `objects`.
 
 The "`nothing`" object is defined in the library as object 0 and is referred to in code using the label `nothing`.
-This is the root of the object tree, upon which all other objects are based.{fn1}
+This is the root of the object tree, upon which all other objects are based.{wj}{fn1}
 (And again, the name "`nothing`" is given to this first object by the library.)
 
 [WARNING]
@@ -377,7 +377,7 @@ We'll cover the `if...else...` structure in <<sec_4-7>>.
 [[sec_3-3]]
 == Attributes
 
-Attributes are essentially qualities that every object either does or doesn't have.{fn3}
+Attributes are essentially qualities that every object either does or doesn't have.{wj}{fn3}
 An attribute is defined as
 
 [literal, role="hugosyntax"]

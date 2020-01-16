@@ -37,8 +37,7 @@ The pair is coded in low-byte/high-byte order.]]
 
 If all the separate segments of a *.HEX* file were stacked contiguously on top of each other, the resulting pile would look something like this:
 
-[.center]
-[cols="<,>",options="autowidth",stripes=even]
+[.center,cols="<,>",options="autowidth",stripes=even]
 |===============================================================================
 | DATA STORAGE:                 | MAXIMUM SIZE:
 
@@ -134,7 +133,7 @@ In *.HDX* (debuggable) Hugo executables only:
 
 [TIP]
 ================================================================================
-*A note on data storage:* whenever 16-bit words (i.e., two bytes representing a single value) are written or read, it is in low-byte/high-byte order, with the first byte being the remainder of _x_/256 (or the modulus _x_%256), and the second byte being the integer value _x_/256.{fn6}
+*A note on data storage:* whenever 16-bit words (i.e., two bytes representing a single value) are written or read, it is in low-byte/high-byte order, with the first byte being the remainder of _x_/256 (or the modulus _x_%256), and the second byte being the integer value _x_/256.{wj}{fn6}
 ================================================================================
 
 

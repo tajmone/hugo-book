@@ -73,7 +73,7 @@ or
 The temperature is –9 degrees.
 ================================================================================
 
-or any other similar variation depending on what the _variable_ `temp` happens to be equal to at the time.{fn1}
+or any other similar variation depending on what the _variable_ `temp` happens to be equal to at the time.{wj}{fn1}
 
 Hugo supports two kinds of variables: _global_ and _local_.
 Either type simply holds an integer value, so a variable can hold a simple value, an object number, a dictionary address, a routine address, or any other standard Hugo data type through an assignment such as:
@@ -124,9 +124,8 @@ are visible only within the block of code where they are defined, and are initia
 The compiler defines a set of engine globals: global variables that are referenced directly by the engine, but which may otherwise be treated like any other global variables.
 These are:
 
-// [.center,caption=]
-[[table-engine-globals]]
-.Global Variables Defined by the Hugo Engine
+[[table-engine-variables]]
+.Predefined Global Variables
 [.center,cols="<m,<d",options=autowidth,grid=none,stripes=even]
 |============================================================
 | object        | direct object of an action
@@ -284,7 +283,7 @@ print "<string>"
 where `<string>` consists of a series of alphanumeric characters and punctuation.
 
 The backslash character (`\`) is handled specially.
-It modifies how the character following it in a string is treated.{fn2}
+It modifies how the character following it in a string is treated.{wj}{fn2}
 
 [horizontal]
 `\"` :: inserts quotation marks
@@ -502,8 +501,7 @@ The standard color set with corresponding values and constant labels (defined in
 
 [[table-hugolib-colors]]
 .Standard Colors Defined by the Hugo Library
-[.center]
-[cols="<d,>s,<m",options=autowidth,grid=none,stripes=even]
+[.center,cols="<d,>s,<m",options=autowidth,grid=none,stripes=even]
 |=========================================================
 | COLOR                     | VALUE | LABEL
 
@@ -1058,7 +1056,7 @@ which would set the variable `b` to 4 + 2, or 6.
 
 
 Because array space is statically allocated by the compiler, all arrays must be declared at the global level.
-Local arrays are illegal, as are entire arrays passed as arguments.{fn5}
+Local arrays are illegal, as are entire arrays passed as arguments.{wj}{fn5}
 However, single elements of arrays are valid arguments.
 
 It is, however, possible to pass an array address as an argument, and the routine can then access the elements of the array using the `array` modifier.
@@ -1348,7 +1346,7 @@ select <var>
         ...second conditional code block...
     ...
     case else
-        ...default code block...{fn7}
+        ...default code block...{wj}{fn7}
 .......................................................
 
 In this case, the evaluation is essentially
@@ -1358,7 +1356,7 @@ In this case, the evaluation is essentially
 if <var> = <value1> [or <var> = <value2> ...]
 .............................................
 
-There is no limit on the number of values (separated by commas) that can appear on a line following ``case``.{fn8}
+There is no limit on the number of values (separated by commas) that can appear on a line following ``case``.{wj}{fn8}
 The same rules for bracing multiple-line code blocks apply as with `if` (as well as for every other type of conditional block).
 
 Basic loops may be coded using `while` and `do`-`while`.
@@ -1466,7 +1464,7 @@ will print the names of each object in the `mysuitcase` object.
 
 Hugo also supports `jump` commands and labels.
 A label is simply a user-specified token preceded by a colon (`:`) at the beginning of a line.
-The label name must be a unique token in the program.{fn9}
+The label name must be a unique token in the program.{wj}{fn9}
 
 [source,hugo]
 ------------------------------------

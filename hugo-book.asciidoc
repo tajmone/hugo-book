@@ -1,6 +1,6 @@
 = The Hugo Book
 Kent Tessman <general@generalcoffee.com>
-v1, 2018-10-04: Draft 144 -- Porting to AsciiDoc
+v1, 2018-10-04: Draft 145 -- Porting to AsciiDoc
 :lang: en
 :doctype: book
 // TOC Settings for GitHub previewing (override via CLI):
@@ -166,7 +166,7 @@ _How to Write Games and Influence People_
 == Why You're Here (Or, Just What Is Hugo?)
 
 
-Chances are if you're reading this book you're already at least a little familiar with adventure games, and maybe even more specifically interactive fiction or text adventures.{fn1}
+Chances are if you're reading this book you're already at least a little familiar with adventure games, and maybe even more specifically interactive fiction or text adventures.{wj}{fn1}
 Hugo is a system for designing, programming, and running these.
 It is not the first such system -- and it's difficult to find substantial fault in any general way with the best of those systems that predate Hugo{fn2} -- but Hugo does hope to extend the concepts developed in earlier, similar systems in order to make interactive fiction programming less cryptic, and more flexible and accessible to designers, as well as to add functionality in certain areas where other systems are lacking.
 
@@ -199,7 +199,7 @@ The Hugo Compiler, the Hugo Engine, the Hugo Debugger, the Hugo Library, and rel
 
 Those who have taken upon themselves the task of porting Hugo to various platforms include Julian Arnold (Acorn/RiscOS port), Gerald Bostock (OS/2 port), David Kinder (Amiga port), Bill Lash (original Unix/Linux port), Andrew Plotkin (Macintosh port using his Glk library), and Colin Turnbull (original Acorn Archimedes port).
 The author is considerably indebted to them, for all their work as well as for their input on how to improve the compiler and engine.
-Without their efforts, Hugo and the games created with it would not be available for so nearly as wide an audience.{fn3}
+Without their efforts, Hugo and the games created with it would not be available for so nearly as wide an audience.{wj}{fn3}
 
 More than a few words of appreciation must be given to Volker Blasius, the original maintainer of the Interactive Fiction Archive at GMD, one of the key resources for interactive fiction players and developers, and a primary hub of material for contributors to (and readers of) the Usenet newsgroups
 link:++https://groups.google.com/forum/#!forum/rec.arts.int-fiction++[_rec.arts.int-fiction_^,title="Visit rec.arts.int-fiction at Google Groups"] and
@@ -775,7 +775,7 @@ Two routines are normally required for any Hugo program, the other being the `In
 
 The `Main` routine is automatically called by the engine.
 It is from here that the central behavior of any Hugo program is controlled.
-In this case the task at hand is the printing of "`Hello, Sailor!`", followed by a wait for a keypress (the `pause`) and an order to exit the program (i.e., `quit` it) so that we don't strand the program waiting for input from the player, which is the normal order of Hugo business.{fn1}
+In this case the task at hand is the printing of "`Hello, Sailor!`", followed by a wait for a keypress (the `pause`) and an order to exit the program (i.e., `quit` it) so that we don't strand the program waiting for input from the player, which is the normal order of Hugo business.{wj}{fn1}
 
 
 [[sec_2-3]]
@@ -856,7 +856,7 @@ and
 parent(object)
 --------------------------------------------------------------------------------
 
-are also valid integer data types.{fn4}
+are also valid integer data types.{wj}{fn4}
 
 It's good medicine to be as descriptive as possible in naming symbols, regardless of what you're naming.
 A variable that holds the count of a number of objects _could_ be called `n`, but it's almost always better (especially after the fact, when you're looking at code you've written days or even months before) to call it something more helpful like `object_count`.
@@ -1108,7 +1108,7 @@ x = 5
 --------------------------------------------------------------------------------
 
 with the rather obvious explanation of "`set x equal to 5`" -- it's always better to err on the side of too many comments in order to avoid the situation that every programmer find himself or herself in at least once (and once only if very, very lucky) of trying to remember what a piece of code does that you wrote yesterday, or last week, or several months ago.
-Comment, comment, comment.{fn6}
+Comment, comment, comment.{wj}{fn6}
 
 There are two types of comments.
 Comments on a single line begin with a `!`.
@@ -1157,7 +1157,7 @@ A non-fatal error typically looks like:
 
 Non-fatal errors are usually programming mistakes: either doing something illegal (like trying to assign a value to something to which you're not allowed to assign a value), making a syntax error such as using a symbol name that the compiler doesn't know about (often due to a typing mistake), or making a formatting mistake (like missing something that the compiler knows is supposed to be coming next but you forgot to include).
 Unless the `-a` switch is specified at invocation to tell the compiler to quit after the first error, multiple non-fatal errors may be printed.
-The side-effect of this is that a specific error (particularly a formatting error) may affect many lines of code after it, so that the compiler -- having become lost and not really knowing what you're trying to do -- may report a whole string of errors, even on lines that, if the compiler understood their proper context, would be error free.{fn7}
+The side-effect of this is that a specific error (particularly a formatting error) may affect many lines of code after it, so that the compiler -- having become lost and not really knowing what you're trying to do -- may report a whole string of errors, even on lines that, if the compiler understood their proper context, would be error free.{wj}{fn7}
 
 When a compiler issues a warning, it looks like:
 
@@ -1551,7 +1551,7 @@ The object tree is a simple map which represents the relationships between all o
 The total number of objects is held in the global variable `objects`.
 
 The "`nothing`" object is defined in the library as object 0 and is referred to in code using the label `nothing`.
-This is the root of the object tree, upon which all other objects are based.{fn1}
+This is the root of the object tree, upon which all other objects are based.{wj}{fn1}
 (And again, the name "`nothing`" is given to this first object by the library.)
 
 [WARNING]
@@ -1810,7 +1810,7 @@ We'll cover the `if...else...` structure in <<sec_4-7>>.
 [[sec_3-3]]
 == Attributes
 
-Attributes are essentially qualities that every object either does or doesn't have.{fn3}
+Attributes are essentially qualities that every object either does or doesn't have.{wj}{fn3}
 An attribute is defined as
 
 [literal, role="hugosyntax"]
@@ -2504,7 +2504,7 @@ or
 The temperature is –9 degrees.
 ================================================================================
 
-or any other similar variation depending on what the _variable_ `temp` happens to be equal to at the time.{fn1}
+or any other similar variation depending on what the _variable_ `temp` happens to be equal to at the time.{wj}{fn1}
 
 Hugo supports two kinds of variables: _global_ and _local_.
 Either type simply holds an integer value, so a variable can hold a simple value, an object number, a dictionary address, a routine address, or any other standard Hugo data type through an assignment such as:
@@ -2555,9 +2555,8 @@ are visible only within the block of code where they are defined, and are initia
 The compiler defines a set of engine globals: global variables that are referenced directly by the engine, but which may otherwise be treated like any other global variables.
 These are:
 
-// [.center,caption=]
-[[table-engine-globals]]
-.Global Variables Defined by the Hugo Engine
+[[table-engine-variables]]
+.Predefined Global Variables
 [.center,cols="<m,<d",options=autowidth,grid=none,stripes=even]
 |============================================================
 | object        | direct object of an action
@@ -2715,7 +2714,7 @@ print "<string>"
 where `<string>` consists of a series of alphanumeric characters and punctuation.
 
 The backslash character (`\`) is handled specially.
-It modifies how the character following it in a string is treated.{fn2}
+It modifies how the character following it in a string is treated.{wj}{fn2}
 
 [horizontal]
 `\"` :: inserts quotation marks
@@ -2933,8 +2932,7 @@ The standard color set with corresponding values and constant labels (defined in
 
 [[table-hugolib-colors]]
 .Standard Colors Defined by the Hugo Library
-[.center]
-[cols="<d,>s,<m",options=autowidth,grid=none,stripes=even]
+[.center,cols="<d,>s,<m",options=autowidth,grid=none,stripes=even]
 |=========================================================
 | COLOR                     | VALUE | LABEL
 
@@ -3489,7 +3487,7 @@ which would set the variable `b` to 4 + 2, or 6.
 
 
 Because array space is statically allocated by the compiler, all arrays must be declared at the global level.
-Local arrays are illegal, as are entire arrays passed as arguments.{fn5}
+Local arrays are illegal, as are entire arrays passed as arguments.{wj}{fn5}
 However, single elements of arrays are valid arguments.
 
 It is, however, possible to pass an array address as an argument, and the routine can then access the elements of the array using the `array` modifier.
@@ -3779,7 +3777,7 @@ select <var>
         ...second conditional code block...
     ...
     case else
-        ...default code block...{fn7}
+        ...default code block...{wj}{fn7}
 .......................................................
 
 In this case, the evaluation is essentially
@@ -3789,7 +3787,7 @@ In this case, the evaluation is essentially
 if <var> = <value1> [or <var> = <value2> ...]
 .............................................
 
-There is no limit on the number of values (separated by commas) that can appear on a line following ``case``.{fn8}
+There is no limit on the number of values (separated by commas) that can appear on a line following ``case``.{wj}{fn8}
 The same rules for bracing multiple-line code blocks apply as with `if` (as well as for every other type of conditional block).
 
 Basic loops may be coded using `while` and `do`-`while`.
@@ -3897,7 +3895,7 @@ will print the names of each object in the `mysuitcase` object.
 
 Hugo also supports `jump` commands and labels.
 A label is simply a user-specified token preceded by a colon (`:`) at the beginning of a line.
-The label name must be a unique token in the program.{fn9}
+The label name must be a unique token in the program.{wj}{fn9}
 
 [source,hugo]
 ------------------------------------
@@ -4213,7 +4211,7 @@ return <expression>
 
 are valid.
 If no expression is given, the routine returns 0.
-If no `return` statement at all is encountered, the routine continues until the closing brace (`}`), then returns 0.{fn1}
+If no `return` statement at all is encountered, the routine continues until the closing brace (`}`), then returns 0.{wj}{fn1}
 
 Once defined, `TestRoutine` can be called several ways:
 
@@ -4303,7 +4301,7 @@ routine Double(a)
 
 The local `a` in `TestRoutine` is reassigned with the return value from the `Double` routine.
 
-An interesting side-effect of a zero (0) return value can be seen using the `print` command.{fn2}
+An interesting side-effect of a zero (0) return value can be seen using the `print` command.{wj}{fn2}
 Consider the `The` routine in *hugolib.h*, which prints an object's definite article (i.e., "`the`", if appropriate), followed by the object's `name` property.
 
 [source,hugo]
@@ -4560,7 +4558,7 @@ The `<usage>` specifier is a value against which the specified object is matched
 Most commonly, it is `object`, `xobject`, `location`, `actor`, `parent(object)`, etc.
 The `<verbroutine>` is the name of a verb routine to which the usage in question applies.
 
-When the Hugo Engine goes to execute a player command, it runs a series of tests on the various elements of the command, such as the object on which the specified verb is to be enacted.{fn3}
+When the Hugo Engine goes to execute a player command, it runs a series of tests on the various elements of the command, such as the object on which the specified verb is to be enacted.{wj}{fn3}
 Know for now that when a player command is executed, the `before` properties of the `object` (i.e., the direct object) and `xobject` (i.e., the indirect object){fn4} are checked, then if neither has returned non-false, the appropriate `<verbroutine>` is run.
 Afterward, the `after` properties are checked; if neither returns non-false, a default message is normally printed by the verbroutine.
 In other words, `before` routines typically pre-empt the execution of a verbroutine, and `after` routines typically pre-empt the default response of a verbroutine.
@@ -4612,7 +4610,7 @@ Finally, when the player tries to put something into the suitcase using, say, "`
 [example,role="gametranscript"]
 You put the book into the suitcase.
 
-Each of these examples will return true (as property routines do by default), thereby overriding the engine's default operation.{fn5}
+Each of these examples will return true (as property routines do by default), thereby overriding the engine's default operation.{wj}{fn5}
 In order to fool the engine into continuing normally, as if no `before` or `after` property has been found, return false from the property routine.
 
 [source,hugo]
@@ -4676,7 +4674,7 @@ If the non-specific block comes after any other blocks, then it will run only if
 // @EDITED LOST TEXT: (Issue #14)
 //    Some accidentally lost text after "restore, etc. (i.e.," was restored
 //    by K.Tessman.
-A drawback of this non-specification is that all verbroutines are matched -- both verbs and xverbs.{fn6}
+A drawback of this non-specification is that all verbroutines are matched -- both verbs and xverbs.{wj}{fn6}
 This can be particularly undesirable in the case of location `before`/`after` properties, where you may wish to be circumventing any action the player tries to perform in that location, but where the non-specific response will be triggered even for `save`, `restore`, etc.
 (i.e., xverbs).
 
@@ -4812,7 +4810,7 @@ Also, determine the starting bulk of whatever the player is carrying at the outs
 
 
 `Main` is called every turn.
-It should take care of general game management such as moving ahead the counter, as well as running events and scripts.{fn9}
+It should take care of general game management such as moving ahead the counter, as well as running events and scripts.{wj}{fn9}
 The `Main` routine from *shell.hug* is as follows:
 
 * {blank}
@@ -4883,7 +4881,7 @@ for events attached to a particular object.
 
 TIP: The `in` is optional, but is recommended for legibility.
 
-If an event is attached to an object, it is run only when that object has the same grandparent as the player object, where "`grandparent`" refers to the last object before 0 (the `nothing` object as defined in *hugolib.h*), or can otherwise be determined to be in the player's current location.{fn10}
+If an event is attached to an object, it is run only when that object has the same grandparent as the player object, where "`grandparent`" refers to the last object before 0 (the `nothing` object as defined in *hugolib.h*), or can otherwise be determined to be in the player's current location.{wj}{fn10}
 
 [IMPORTANT]
 ================================================================================
@@ -5193,7 +5191,7 @@ runs the `tick` property -- defined in the library, which is responsible for dec
 
 Scripts are considerably more complex than fuses and daemons.
 The purpose of a script (also called a character script) is to allow an object -- usually a character -- to follow a sequence of actions turn-by-turn, independent of the player.
-Up to 16 scripts may be running at once.{fn1}
+Up to 16 scripts may be running at once.{wj}{fn1}
 
 A script is represented by two arrays: `scriptdata` and `setscript`.
 The latter was named for programming clarity rather than for what it actually contains.
@@ -5454,7 +5452,7 @@ which will have the effect of, instead of defining the verb with a dictionary wo
 What this allows is for the `some_object.noun` property to be a routine that can return varying values at runtime in order to provide for dynamic grammar, if required.
 However, since this sort of dynamic grammar isn't often required, static grammar definitions are far more common.
 
-// @EDITED XREF ADDED: (undocumented & waiting approval: Issue #22)
+// @EDITED XREF ADDED: (undocumented & waiting approval: Issue #48)
 //    The following admonition block was added to the original book to provide
 //    a cross reference to learn more about dynamic grammars.
 
@@ -5921,9 +5919,9 @@ Because, the engine is unaware of such things as attributes, properties, and obj
 Along with these junction routines are certain global variables and properties that are pre-defined by the compiler and accessed directly by the engine.
 They are:
 
-[.center]
-// [cols="<m,<a",options=autowidth,grid=none,stripes=even]
-[cols="<m,<d",options=autowidth,grid=rows,stripes=none]
+[[table-engine-globals]]
+.Predefined Global Variables and Properties
+[.center,cols="<m,<d",options=autowidth,grid=rows,stripes=none]
 |===============================================================================
 
 2+^h| GLOBALS
@@ -5977,9 +5975,9 @@ For example, the `Parse` routine in *hugolib.h* takes care of such things as pro
 Returning true from the `Parse` routine calls the engine parser again (i.e., returns to step 1 in the process above); returning false continues normally.
 This is useful in case the `Parse` routine has changed the input line substantially, requiring a reconfiguration of the already split words.
 
-The HugoFix debugging library can be used at runtime to monitor the goings-on of the `Parse` routine by enabling parser monitoring with the `$pm` command.{fn2}
+The HugoFix debugging library can be used at runtime to monitor the goings-on of the `Parse` routine by enabling parser monitoring with the `$pm` command.{wj}{fn2}
 
-[NOTE]
+[TIP]
 ================================================================================
 Since the library's `Parse` routine is rather extensive, a provision is made for a `PreParse` routine -- which in the library is defined as being empty -- which may more easily be replaced for additional parsing.
 ================================================================================
@@ -6013,8 +6011,9 @@ print "The illegal word was: "; parse$; "."
 
 The default responses provided by the engine parse error routine are:
 
-[.center]
-[cols="^d,<m",options=autowidth,grid=none,stripes=even]
+[[table-parseerror-responses]]
+.Default ParseError Responses
+[.center,cols="^d,<m",options=autowidth,grid=none,stripes=even]
 |===============================================================================
 | ERROR{nbsp}NUMBER | RESPONSE
 
@@ -6044,7 +6043,7 @@ If the `ParseError` routine does not provide a response for a particular `<error
 Returning false is a signal that the engine should continue with the default message.
 Returning 2 is a signal to reparse the entire existing line (useful in cases where a peculiar syntax is trapped as an error, changed, and must then be reparsed).
 
-[NOTE]
+[TIP]
 ================================================================================
 If custom error messages are desired for user parsing routines, replace the routine `CustomError` with a new routine (called with the same parameters as `ParseError`), providing that `<errornumber>` is greater than or equal to 100.
 ================================================================================
@@ -6058,8 +6057,7 @@ The `EndGame` routine is called immediately whenever the global variable `endfla
 *hugolib.h*{wj}`'s `EndGame` routine behaves according to the value to which `endflag` is set:
 
 
-[.center]
-[cols="^d,<d",options=autowidth,grid=none,stripes=even]
+[.center,cols="^d,<d",options=autowidth,grid=none,stripes=even]
 |===============================================================================
 | endflag | RESULT
 
@@ -6111,7 +6109,7 @@ This occurs whenever the engine needs to determine if an object is available _at
 Also, `FindObject` may be called by the engine with both `<object>` and `<location>` equal to 0 to reset any library-based object disambiguation.
 ================================================================================
 
-The HugoFix debugging library can be used at runtime to monitor calls to `FindObject` by enabling the `$fi` command.{fn3}
+The HugoFix debugging library can be used at runtime to monitor calls to `FindObject` by enabling the `$fi` command.{wj}{fn3}
 
 
 
@@ -6154,7 +6152,7 @@ may be directed to the proper verb routine, as if the player had typed:
 [example,role="gametranscript"]
 >ask Professor Plum about the lead pipe
 
-Imperative commands are, such as
+Imperative commands, such as
 
 [example,role="gametranscript"]
 >Colonel Mustard, stand up
@@ -6163,7 +6161,7 @@ are first directed to the `order_response` property of the character object in q
 It is subsequently up to `<character>.order_response` to analyze `verbroutine` (as well as `object` and `xobject`, if applicable) to see if the request is a valid one.
 If no response is provided, `order_response` should return false.
 
-The HugoFix debugging library can be used at runtime to monitor calls to `SpeakTo` by enabling the `$pm` command.{fn4}
+The HugoFix debugging library can be used at runtime to monitor calls to `SpeakTo` by enabling the `$pm` command.{wj}{fn4}
 
 [source,hugo]
 -------------------------------------------
@@ -6210,7 +6208,7 @@ The `<queue>` is 0 unless the verbroutine is being called more than once for mul
 As a special case, `<queue>` is –1 if `object` or `xobject` is a number supplied in the input as one or more digits, in order to signal `Perform` not to do normal `before`/`after` routine calling.
 ================================================================================
 
-The `<isxverb>` argument is true if the grammar for invoking `Perform` designates an xverb.{fn5}
+The `<isxverb>` argument is true if the grammar for invoking `Perform` designates an xverb.{wj}{fn5}
 
 For example, various player commands might (approximately, depending on verbroutine and object names) result in the routine calls:
 
@@ -6265,7 +6263,7 @@ If no `Perform` routine exists, the engine performs a default calling of `player
 
 [TIP]
 ================================================================================
-Using HugoFix's parser monitoring (`$pm`) at runtime will trace calls to `Perform`.{fn6}
+Using HugoFix's parser monitoring (`$pm`) at runtime will trace calls to `Perform`.{wj}{fn6}
 ================================================================================
 
 
@@ -6506,7 +6504,7 @@ room living_room "living room"
 
 
 Since a room is not placed within another object in the object tree (using the `in` directive), it automatically has a parent of 0 or `nothing`.
-By inheriting from the `room` class, the `living_room` object acquires the characteristics defined in the object library, including being `static` and `light`.{fn1}
+By inheriting from the `room` class, the `living_room` object acquires the characteristics defined in the object library, including being `static` and `light`.{wj}{fn1}
 
 Additionally, as with other classes in the object library, the `type` property of an object can be checked to see which class it was derived from.
 In this case, `living_room.type` would equal `room`.
@@ -6739,7 +6737,7 @@ scenery prison_window "prison window"
 --------------------------------------------------
 
 The most important characteristic of a scenery object created using the `scenery` class is that it will not be listed by the library as part of the room's contents (in this case, the contents of `prison_cell`).
-The `scenery` class is otherwise relatively unadorned: looking at a scenery object will produce a generic message about seeing nothing special, attempting to take a scenery object will generate a generic "`You can't take that`"-type response, etc.{fn3}
+The `scenery` class is otherwise relatively unadorned: looking at a scenery object will produce a generic message about seeing nothing special, attempting to take a scenery object will generate a generic "`You can't take that`"-type response, etc.{wj}{fn3}
 The scenery object can be fleshed out with a `long_desc` property and `before`/`after` handling for desired verbroutines.
 
 Components are similar to scenery objects in two important respects in that they're not intended to be taken and they're not specifically listed in any itemization of contents.
@@ -7043,7 +7041,7 @@ banana1 banana3 "banana"
 ----------------------------------------
 
 
-The identical object `bananas` will allow a player to use all the facilities of the `identical_class` in order to manipulate one or more otherwise indistinguishable banana objects.{fn6}
+The identical object `bananas` will allow a player to use all the facilities of the `identical_class` in order to manipulate one or more otherwise indistinguishable banana objects.{wj}{fn6}
 
 
 
@@ -7052,7 +7050,7 @@ The identical object `bananas` will allow a player to use all the facilities of 
 
 Ropes and other similar objects -- anything, really, which ties onto something else or, even worse, ties _between_ two or more objects -- are notoriously difficult to code.
 Safe advice on how to code a rope used to be: code a block of wood instead.
-The object library provides an `attachable` class which has successfully been used for everything from ropes to blankets to three-ended chains and darts.{fn7}
+The object library provides an `attachable` class which has successfully been used for everything from ropes to blankets to three-ended chains and darts.{wj}{fn7}
 
 [IMPORTANT]
 ================================================================================
@@ -7436,7 +7434,7 @@ The `<resourcefile>` name must be 8 or fewer alphanumeric characters which will 
 
 NOTE: The reason for this is to maximize portability across different platforms and filenaming systems -- unfortunately not everyone adheres to the same conventions, so this restriction is intended to reduce filenaming to the lowest common denominator.
 
-Currently Hugo supports as resources: JPEG graphic files, RIFF/WAV audio samples, MOD/S3M/XM music modules, MIDI and MP3 songs, and MPEG and AVI movies.{fn1}
+Currently Hugo supports as resources: JPEG graphic files, RIFF/WAV audio samples, MOD/S3M/XM music modules, MIDI and MP3 songs, and MPEG and AVI movies.{wj}{fn1}
 
 For example, here is an imaginary example resourcefile compiled on a Windows platform:
 
@@ -7475,8 +7473,7 @@ It also defines the following potential values for the `system_status` global, w
 If `system_status` is non-zero (where zero signifies normal status), it will contain one of the following values:{fn2}
 
 
-[.center]
-[cols=">m,<m",options=autowidth,grid=none,stripes=even]
+[.center,cols=">m,<m",options=autowidth,grid=none,stripes=even]
 |======================================================
 | -1  | STAT_UNAVAILABLE
 | 101 | STAT_NOFILE
@@ -9225,7 +9222,7 @@ d| `HERE_WORD`       {nbsp}("`here`")   2+d| `ON_WORD` {nbsp}{nbsp}("`on`")
 | article | "`a`", "`an`", "`the`", "`some`", etc.
 
 | preposition (prep)
-d| "`in`", "`inside`", "`outside of`", etc.{fn1}
+d| "`in`", "`inside`", "`outside of`", etc.{wj}{fn1}
 
 | capacity
 | contains a value representing the capacity of a container or platform
@@ -9373,8 +9370,7 @@ The globals `object` and `xobject` are set up by the engine, and the routine is 
 Here is a list of the provided verb routines for action verbs:
 
 // NOTE: 39 entries in list
-[.center]
-[cols="5*d",options=autowidth,frame=none,grid=none,stripes=none]
+[.center,cols="5*d",options=autowidth,frame=none,grid=none,stripes=none]
 |===============================================================
 | DoAsk
 | DoAskQuestion
@@ -9422,8 +9418,7 @@ Here are the non-action verb routines:
 
 
 // NOTE: 11 entries in list
-[.center]
-[cols="4*d",options=autowidth,frame=none,grid=none,stripes=none]
+[.center,cols="4*d",options=autowidth,frame=none,grid=none,stripes=none]
 |===============================================================
 | DoBrief
 | DoRecordOnOff
@@ -9445,8 +9440,7 @@ Output messages for these verbroutines are handled by the routine `VMessage` in 
 A set of verb stub routines is also available in *verbstub.h*, including the actions:
 
 // NOTE: 29 entries in list
-[.center]
-[cols="5*d",options=autowidth,frame=none,grid=none,stripes=none]
+[.center,cols="5*d",options=autowidth,frame=none,grid=none,stripes=none]
 |===============================================================
 | DoBurn
 | DoClimb
@@ -10449,8 +10443,7 @@ and
 
 A number of compiler flags may be set to exclude certain portions of *hugolib.h* from compilation if these functions or objects are not required.
 
-[.center]
-[cols="<m,<d",options=autowidth,grid=none,stripes=even]
+[.center,cols="<m,<d",options=autowidth,grid=none,stripes=even]
 |======================================================
 | FLAG             | EXCLUDES
 
@@ -10578,7 +10571,7 @@ The result is a very close approximation of the original source code.]]
 == The HugoFix Debugging Library
 
 The HugoFix Debugging Library is a suite of routines that can be used via typed commands in a running Hugo game without the use of any special debugger program.
-To use HugoFix, set the compiler flag `DEBUG` before including *hugolib.h* or any other standard Hugo library files.{fn1}
+To use HugoFix, set the compiler flag `DEBUG` before including *hugolib.h* or any other standard Hugo library files.{wj}{fn1}
 Then, from the player input line, type:
 
 [example,role="gametranscript"]
@@ -10745,7 +10738,7 @@ Runs a number of tests to ensure the validity of certain data, including necessa
 == The Hugo Debugger
 
 The Hugo Debugger is a valuable part of the Hugo design system.
-It allows a programmer to monitor all aspects of program execution, including watching expressions, modifying values, moving objects, etc. -- all things expected of a modern source-level debugger.{fn2}
+It allows a programmer to monitor all aspects of program execution, including watching expressions, modifying values, moving objects, etc. -- all things expected of a modern source-level debugger.{wj}{fn2}
 
 In order to be used with the debugger, a Hugo program must be compiled using the `-d` switch in order to create an *.HDX* debuggable file with additional data such as names for objects, variables, properties, etc.
 
@@ -11127,8 +11120,7 @@ The pair is coded in low-byte/high-byte order.]]
 
 If all the separate segments of a *.HEX* file were stacked contiguously on top of each other, the resulting pile would look something like this:
 
-[.center]
-[cols="<,>",options="autowidth",stripes=even]
+[.center,cols="<,>",options="autowidth",stripes=even]
 |===============================================================================
 | DATA STORAGE:                 | MAXIMUM SIZE:
 
@@ -11224,7 +11216,7 @@ In *.HDX* (debuggable) Hugo executables only:
 
 [TIP]
 ================================================================================
-*A note on data storage:* whenever 16-bit words (i.e., two bytes representing a single value) are written or read, it is in low-byte/high-byte order, with the first byte being the remainder of _x_/256 (or the modulus _x_%256), and the second byte being the integer value _x_/256.{fn6}
+*A note on data storage:* whenever 16-bit words (i.e., two bytes representing a single value) are written or read, it is in low-byte/high-byte order, with the first byte being the remainder of _x_/256 (or the modulus _x_%256), and the second byte being the integer value _x_/256.{wj}{fn6}
 ================================================================================
 
 
@@ -11557,7 +11549,7 @@ The first parsing pass also does the following:
 . Time given in "`__hh__:__mm__`" (hours:minutes) format is converted to an integer number representing the total minutes since midnight, i.e., through the formula: _hh_ * 60 + _mm_.
 The original "`__hh__:__mm__`" is stored in `parse$`.
 . Up to one word (or set of words) in quotation marks is allowed; if found, it is stored in `parse$`.
-. Special words are processed, i.e., removals and user-defined punctuation are removed, compounds are combined, and synonyms are replaced.{fn1}
+. Special words are processed, i.e., removals and user-defined punctuation are removed, compounds are combined, and synonyms are replaced.{wj}{fn1}
 
 If a user-defined `Parse` routine exists (i.e., if bytes $1D-1E in the header are not $0000), it is called next.
 If the routine returns true, the engine parsing routine is called a second time to reconcile any changes to the word set.
@@ -11629,7 +11621,7 @@ The grammar table in this case would look like
 
 where $FFFF is the signal that instead of a dictionary word address, the engine must read the following discrete value, where $4A is the `object#` token, and $__x1x2__ is the object number of `get_object`.
 This extension is provided so that grammar may be dynamically coded and changed at runtime.
-// @EDITED XREF ADDED: (undocumented & waiting approval: Issue #22)
+// @EDITED XREF ADDED: (undocumented & waiting approval: Issue #48)
 //    The following cross reference was added to the original book:
 (See also <<dynamic-grammars1,_Book I_ on dynamic grammars definitions>>.)
 
@@ -11973,7 +11965,7 @@ The property table position represents the offset of the beginning of the given 
 [[sec_20-2]]
 == Attributes
 
-The 16 bytes of the attribute array contain 8 bits each, giving a total of 128 possible attributes.{fn2}
+The 16 bytes of the attribute array contain 8 bits each, giving a total of 128 possible attributes.{wj}{fn2}
 Essentially, if the bits are thought of sequentially in that the first byte represents attributes 0 to 7, the second byte represents attributes 8 to 15, the third 16 to 23, and the fourth and final byte 24 to 31.
 
 

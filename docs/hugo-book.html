@@ -583,7 +583,7 @@ div.literalblock.hugosyntax div.content pre > sup.footnote a {
 <span id="email" class="email"><a href="mailto:general@generalcoffee.com">general@generalcoffee.com</a></span><br>
 <span id="revnumber">version 1,</span>
 <span id="revdate">2018-10-04</span>
-<br><span id="revremark">Draft 144 -- Porting to AsciiDoc</span>
+<br><span id="revremark">Draft 145 -- Porting to AsciiDoc</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -716,7 +716,7 @@ or<br>
 <div class="sect2">
 <h3 id="sec_1-1"><a class="anchor" href="#sec_1-1"></a>1.1. Why You&#8217;re Here (Or, Just What Is Hugo?)</h3>
 <div class="paragraph">
-<p>Chances are if you&#8217;re reading this book you&#8217;re already at least a little familiar with adventure games, and maybe even more specifically interactive fiction or text adventures.<sup class="footnote">[<a id="_footnoteref_1" class="footnote" href="#_footnotedef_1" title="View footnote.">1</a>]</sup>
+<p>Chances are if you&#8217;re reading this book you&#8217;re already at least a little familiar with adventure games, and maybe even more specifically interactive fiction or text adventures.&#8288;<sup class="footnote">[<a id="_footnoteref_1" class="footnote" href="#_footnotedef_1" title="View footnote.">1</a>]</sup>
 Hugo is a system for designing, programming, and running these.
 It is not the first such system&#8201;&#8212;&#8201;and it&#8217;s difficult to find substantial fault in any general way with the best of those systems that predate Hugo<sup class="footnote">[<a id="_footnoteref_2" class="footnote" href="#_footnotedef_2" title="View footnote.">2</a>]</sup>&#8201;&#8212;&#8201;but Hugo does hope to extend the concepts developed in earlier, similar systems in order to make interactive fiction programming less cryptic, and more flexible and accessible to designers, as well as to add functionality in certain areas where other systems are lacking.</p>
 </div>
@@ -760,7 +760,7 @@ Public distribution of modified versions of the Hugo Source Code is not permitte
 <div class="paragraph">
 <p>Those who have taken upon themselves the task of porting Hugo to various platforms include Julian Arnold (Acorn/RiscOS port), Gerald Bostock (OS/2 port), David Kinder (Amiga port), Bill Lash (original Unix/Linux port), Andrew Plotkin (Macintosh port using his Glk library), and Colin Turnbull (original Acorn Archimedes port).
 The author is considerably indebted to them, for all their work as well as for their input on how to improve the compiler and engine.
-Without their efforts, Hugo and the games created with it would not be available for so nearly as wide an audience.<sup class="footnote">[<a id="_footnoteref_3" class="footnote" href="#_footnotedef_3" title="View footnote.">3</a>]</sup></p>
+Without their efforts, Hugo and the games created with it would not be available for so nearly as wide an audience.&#8288;<sup class="footnote">[<a id="_footnoteref_3" class="footnote" href="#_footnotedef_3" title="View footnote.">3</a>]</sup></p>
 </div>
 <div class="paragraph">
 <p>More than a few words of appreciation must be given to Volker Blasius, the original maintainer of the Interactive Fiction Archive at GMD, one of the key resources for interactive fiction players and developers, and a primary hub of material for contributors to (and readers of) the Usenet newsgroups
@@ -1716,7 +1716,7 @@ Here&#8217;s how one accomplishes that in Hugo:</p>
 <div class="paragraph">
 <p>The <code>Main</code> routine is automatically called by the engine.
 It is from here that the central behavior of any Hugo program is controlled.
-In this case the task at hand is the printing of &#8220;Hello, Sailor!&#8221;, followed by a wait for a keypress (the <code>pause</code>) and an order to exit the program (i.e., <code>quit</code> it) so that we don&#8217;t strand the program waiting for input from the player, which is the normal order of Hugo business.<sup class="footnote">[<a id="_footnoteref_4" class="footnote" href="#_footnotedef_4" title="View footnote.">4</a>]</sup></p>
+In this case the task at hand is the printing of &#8220;Hello, Sailor!&#8221;, followed by a wait for a keypress (the <code>pause</code>) and an order to exit the program (i.e., <code>quit</code> it) so that we don&#8217;t strand the program waiting for input from the player, which is the normal order of Hugo business.&#8288;<sup class="footnote">[<a id="_footnoteref_4" class="footnote" href="#_footnotedef_4" title="View footnote.">4</a>]</sup></p>
 </div>
 </div>
 <div class="sect2">
@@ -1836,7 +1836,7 @@ Properties and attributes treated as discrete values represent the number of tha
 </div>
 </div>
 <div class="paragraph">
-<p>are also valid integer data types.<sup class="footnote">[<a id="_footnoteref_7" class="footnote" href="#_footnotedef_7" title="View footnote.">7</a>]</sup></p>
+<p>are also valid integer data types.&#8288;<sup class="footnote">[<a id="_footnoteref_7" class="footnote" href="#_footnotedef_7" title="View footnote.">7</a>]</sup></p>
 </div>
 <div class="paragraph">
 <p>It&#8217;s good medicine to be as descriptive as possible in naming symbols, regardless of what you&#8217;re naming.
@@ -2139,7 +2139,7 @@ Despite the complaints that some people may have about over-commented code&#8201
 </div>
 <div class="paragraph">
 <p>with the rather obvious explanation of &#8220;set x equal to 5&#8221;&#8201;&#8212;&#8201;it&#8217;s always better to err on the side of too many comments in order to avoid the situation that every programmer find himself or herself in at least once (and once only if very, very lucky) of trying to remember what a piece of code does that you wrote yesterday, or last week, or several months ago.
-Comment, comment, comment.<sup class="footnote">[<a id="_footnoteref_9" class="footnote" href="#_footnotedef_9" title="View footnote.">9</a>]</sup></p>
+Comment, comment, comment.&#8288;<sup class="footnote">[<a id="_footnoteref_9" class="footnote" href="#_footnotedef_9" title="View footnote.">9</a>]</sup></p>
 </div>
 <div class="paragraph">
 <p>There are two types of comments.
@@ -2198,7 +2198,7 @@ Fatal errors include things like not being able to find a requested file, encoun
 <div class="paragraph">
 <p>Non-fatal errors are usually programming mistakes: either doing something illegal (like trying to assign a value to something to which you&#8217;re not allowed to assign a value), making a syntax error such as using a symbol name that the compiler doesn&#8217;t know about (often due to a typing mistake), or making a formatting mistake (like missing something that the compiler knows is supposed to be coming next but you forgot to include).
 Unless the <code>-a</code> switch is specified at invocation to tell the compiler to quit after the first error, multiple non-fatal errors may be printed.
-The side-effect of this is that a specific error (particularly a formatting error) may affect many lines of code after it, so that the compiler&#8201;&#8212;&#8201;having become lost and not really knowing what you&#8217;re trying to do&#8201;&#8212;&#8201;may report a whole string of errors, even on lines that, if the compiler understood their proper context, would be error free.<sup class="footnote">[<a id="_footnoteref_10" class="footnote" href="#_footnotedef_10" title="View footnote.">10</a>]</sup></p>
+The side-effect of this is that a specific error (particularly a formatting error) may affect many lines of code after it, so that the compiler&#8201;&#8212;&#8201;having become lost and not really knowing what you&#8217;re trying to do&#8201;&#8212;&#8201;may report a whole string of errors, even on lines that, if the compiler understood their proper context, would be error free.&#8288;<sup class="footnote">[<a id="_footnoteref_10" class="footnote" href="#_footnotedef_10" title="View footnote.">10</a>]</sup></p>
 </div>
 <div class="paragraph">
 <p>When a compiler issues a warning, it looks like:</p>
@@ -2646,7 +2646,7 @@ The total number of objects is held in the global variable <code>objects</code>.
 </div>
 <div class="paragraph">
 <p>The &#8220;nothing&#8221; object is defined in the library as object 0 and is referred to in code using the label <code>nothing</code>.
-This is the root of the object tree, upon which all other objects are based.<sup class="footnote">[<a id="_footnoteref_11" class="footnote" href="#_footnotedef_11" title="View footnote.">11</a>]</sup>
+This is the root of the object tree, upon which all other objects are based.&#8288;<sup class="footnote">[<a id="_footnoteref_11" class="footnote" href="#_footnotedef_11" title="View footnote.">11</a>]</sup>
 (And again, the name &#8220;nothing&#8221; is given to this first object by the library.)</p>
 </div>
 <div class="admonitionblock warning">
@@ -3061,7 +3061,7 @@ In this way, you can write a piece of code that looks something like:</p>
 <div class="sect2">
 <h3 id="sec_3-3"><a class="anchor" href="#sec_3-3"></a>3.3. Attributes</h3>
 <div class="paragraph">
-<p>Attributes are essentially qualities that every object either does or doesn&#8217;t have.<sup class="footnote">[<a id="_footnoteref_13" class="footnote" href="#_footnotedef_13" title="View footnote.">13</a>]</sup>
+<p>Attributes are essentially qualities that every object either does or doesn&#8217;t have.&#8288;<sup class="footnote">[<a id="_footnoteref_13" class="footnote" href="#_footnotedef_13" title="View footnote.">13</a>]</sup>
 An attribute is defined as</p>
 </div>
 <div class="literalblock hugosyntax">
@@ -4006,7 +4006,7 @@ In other words, we may want to use a value that we won&#8217;t know at the time 
 </div>
 </div>
 <div class="paragraph">
-<p>or any other similar variation depending on what the <em>variable</em> <code>temp</code> happens to be equal to at the time.<sup class="footnote">[<a id="_footnoteref_21" class="footnote" href="#_footnotedef_21" title="View footnote.">21</a>]</sup></p>
+<p>or any other similar variation depending on what the <em>variable</em> <code>temp</code> happens to be equal to at the time.&#8288;<sup class="footnote">[<a id="_footnoteref_21" class="footnote" href="#_footnotedef_21" title="View footnote.">21</a>]</sup></p>
 </div>
 <div class="paragraph">
 <p>Hugo supports two kinds of variables: <em>global</em> and <em>local</em>.
@@ -4063,8 +4063,8 @@ On the other hand, the variables</p>
 <p>The compiler defines a set of engine globals: global variables that are referenced directly by the engine, but which may otherwise be treated like any other global variables.
 These are:</p>
 </div>
-<table id="table-engine-globals" class="tableblock frame-all grid-none stripes-even fit-content center">
-<caption class="title">Table 2. Global Variables Defined by the Hugo Engine</caption>
+<table id="table-engine-variables" class="tableblock frame-all grid-none stripes-even fit-content center">
+<caption class="title">Table 2. Predefined Global Variables</caption>
 <colgroup>
 <col>
 <col>
@@ -4273,7 +4273,7 @@ The first is the basic <code>print</code> command, the simplest form of which is
 </div>
 <div class="paragraph">
 <p>The backslash character (<code>\</code>) is handled specially.
-It modifies how the character following it in a string is treated.<sup class="footnote">[<a id="_footnoteref_22" class="footnote" href="#_footnotedef_22" title="View footnote.">22</a>]</sup></p>
+It modifies how the character following it in a string is treated.&#8288;<sup class="footnote">[<a id="_footnoteref_22" class="footnote" href="#_footnotedef_22" title="View footnote.">22</a>]</sup></p>
 </div>
 <div class="hdlist">
 <table>
@@ -5549,7 +5549,7 @@ Ned and Maria
 </div>
 <div class="paragraph">
 <p>Because array space is statically allocated by the compiler, all arrays must be declared at the global level.
-Local arrays are illegal, as are entire arrays passed as arguments.<sup class="footnote">[<a id="_footnoteref_25" class="footnote" href="#_footnotedef_25" title="View footnote.">25</a>]</sup>
+Local arrays are illegal, as are entire arrays passed as arguments.&#8288;<sup class="footnote">[<a id="_footnoteref_25" class="footnote" href="#_footnotedef_25" title="View footnote.">25</a>]</sup>
 However, single elements of arrays are valid arguments.</p>
 </div>
 <div class="paragraph">
@@ -5890,7 +5890,7 @@ The general form is:</p>
         ...second conditional code block...
     ...
     case else
-        ...default code block...<sup class="footnote">[<a id="_footnoteref_27" class="footnote" href="#_footnotedef_27" title="View footnote.">27</a>]</sup></pre>
+        ...default code block...&#8288;<sup class="footnote">[<a id="_footnoteref_27" class="footnote" href="#_footnotedef_27" title="View footnote.">27</a>]</sup></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -5902,7 +5902,7 @@ The general form is:</p>
 </div>
 </div>
 <div class="paragraph">
-<p>There is no limit on the number of values (separated by commas) that can appear on a line following <code>case</code>.<sup class="footnote">[<a id="_footnoteref_28" class="footnote" href="#_footnotedef_28" title="View footnote.">28</a>]</sup>
+<p>There is no limit on the number of values (separated by commas) that can appear on a line following <code>case</code>.&#8288;<sup class="footnote">[<a id="_footnoteref_28" class="footnote" href="#_footnotedef_28" title="View footnote.">28</a>]</sup>
 The same rules for bracing multiple-line code blocks apply as with <code>if</code> (as well as for every other type of conditional block).</p>
 </div>
 <div class="paragraph">
@@ -6014,7 +6014,7 @@ It may be a routine that modifies a global variable, for example, which is then 
 <div class="paragraph">
 <p>Hugo also supports <code>jump</code> commands and labels.
 A label is simply a user-specified token preceded by a colon (<code>:</code>) at the beginning of a line.
-The label name must be a unique token in the program.<sup class="footnote">[<a id="_footnoteref_29" class="footnote" href="#_footnotedef_29" title="View footnote.">29</a>]</sup></p>
+The label name must be a unique token in the program.&#8288;<sup class="footnote">[<a id="_footnoteref_29" class="footnote" href="#_footnotedef_29" title="View footnote.">29</a>]</sup></p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -6267,7 +6267,7 @@ Both</p>
 <div class="paragraph">
 <p>are valid.
 If no expression is given, the routine returns 0.
-If no <code>return</code> statement at all is encountered, the routine continues until the closing brace (<code>}</code>), then returns 0.<sup class="footnote">[<a id="_footnoteref_30" class="footnote" href="#_footnotedef_30" title="View footnote.">30</a>]</sup></p>
+If no <code>return</code> statement at all is encountered, the routine continues until the closing brace (<code>}</code>), then returns 0.&#8288;<sup class="footnote">[<a id="_footnoteref_30" class="footnote" href="#_footnotedef_30" title="View footnote.">30</a>]</sup></p>
 </div>
 <div class="paragraph">
 <p>Once defined, <code>TestRoutine</code> can be called several ways:</p>
@@ -6344,7 +6344,7 @@ What this means is that, for example, in the following routines:</p>
 <p>The local <code>a</code> in <code>TestRoutine</code> is reassigned with the return value from the <code>Double</code> routine.</p>
 </div>
 <div class="paragraph">
-<p>An interesting side-effect of a zero (0) return value can be seen using the <code>print</code> command.<sup class="footnote">[<a id="_footnoteref_31" class="footnote" href="#_footnotedef_31" title="View footnote.">31</a>]</sup>
+<p>An interesting side-effect of a zero (0) return value can be seen using the <code>print</code> command.&#8288;<sup class="footnote">[<a id="_footnoteref_31" class="footnote" href="#_footnotedef_31" title="View footnote.">31</a>]</sup>
 Consider the <code>The</code> routine in <strong>hugolib.h</strong>, which prints an object&#8217;s definite article (i.e., &#8220;the&#8221;, if appropriate), followed by the object&#8217;s <code>name</code> property.</p>
 </div>
 <div class="listingblock">
@@ -6651,7 +6651,7 @@ Most commonly, it is <code>object</code>, <code>xobject</code>, <code>location</
 The <code>&lt;verbroutine&gt;</code> is the name of a verb routine to which the usage in question applies.</p>
 </div>
 <div class="paragraph">
-<p>When the Hugo Engine goes to execute a player command, it runs a series of tests on the various elements of the command, such as the object on which the specified verb is to be enacted.<sup class="footnote">[<a id="_footnoteref_32" class="footnote" href="#_footnotedef_32" title="View footnote.">32</a>]</sup>
+<p>When the Hugo Engine goes to execute a player command, it runs a series of tests on the various elements of the command, such as the object on which the specified verb is to be enacted.&#8288;<sup class="footnote">[<a id="_footnoteref_32" class="footnote" href="#_footnotedef_32" title="View footnote.">32</a>]</sup>
 Know for now that when a player command is executed, the <code>before</code> properties of the <code>object</code> (i.e., the direct object) and <code>xobject</code> (i.e., the indirect object)<sup class="footnote">[<a id="_footnoteref_33" class="footnote" href="#_footnotedef_33" title="View footnote.">33</a>]</sup> are checked, then if neither has returned non-false, the appropriate <code>&lt;verbroutine&gt;</code> is run.
 Afterward, the <code>after</code> properties are checked; if neither returns non-false, a default message is normally printed by the verbroutine.
 In other words, <code>before</code> routines typically pre-empt the execution of a verbroutine, and <code>after</code> routines typically pre-empt the default response of a verbroutine.</p>
@@ -6694,7 +6694,7 @@ You put the book into the suitcase.
 </div>
 </div>
 <div class="paragraph">
-<p>Each of these examples will return true (as property routines do by default), thereby overriding the engine&#8217;s default operation.<sup class="footnote">[<a id="_footnoteref_34" class="footnote" href="#_footnotedef_34" title="View footnote.">34</a>]</sup>
+<p>Each of these examples will return true (as property routines do by default), thereby overriding the engine&#8217;s default operation.&#8288;<sup class="footnote">[<a id="_footnoteref_34" class="footnote" href="#_footnotedef_34" title="View footnote.">34</a>]</sup>
 In order to fool the engine into continuing normally, as if no <code>before</code> or <code>after</code> property has been found, return false from the property routine.</p>
 </div>
 <div class="listingblock">
@@ -6768,7 +6768,7 @@ However, the processing of a <code>before</code>/<code>after</code> property beg
 If the non-specific block comes after any other blocks, then it will run only if no other object/verbroutine combination is matched.</p>
 </div>
 <div class="paragraph">
-<p>A drawback of this non-specification is that all verbroutines are matched&#8201;&#8212;&#8201;both verbs and xverbs.<sup class="footnote">[<a id="_footnoteref_35" class="footnote" href="#_footnotedef_35" title="View footnote.">35</a>]</sup>
+<p>A drawback of this non-specification is that all verbroutines are matched&#8201;&#8212;&#8201;both verbs and xverbs.&#8288;<sup class="footnote">[<a id="_footnoteref_35" class="footnote" href="#_footnotedef_35" title="View footnote.">35</a>]</sup>
 This can be particularly undesirable in the case of location <code>before</code>/<code>after</code> properties, where you may wish to be circumventing any action the player tries to perform in that location, but where the non-specific response will be triggered even for <code>save</code>, <code>restore</code>, etc.
 (i.e., xverbs).</p>
 </div>
@@ -6901,7 +6901,7 @@ Also, determine the starting bulk of whatever the player is carrying at the outs
 </div>
 <div class="paragraph">
 <p><code>Main</code> is called every turn.
-It should take care of general game management such as moving ahead the counter, as well as running events and scripts.<sup class="footnote">[<a id="_footnoteref_38" class="footnote" href="#_footnotedef_38" title="View footnote.">38</a>]</sup>
+It should take care of general game management such as moving ahead the counter, as well as running events and scripts.&#8288;<sup class="footnote">[<a id="_footnoteref_38" class="footnote" href="#_footnotedef_38" title="View footnote.">38</a>]</sup>
 The <code>Main</code> routine from <strong>shell.hug</strong> is as follows:</p>
 </div>
 <div class="ulist">
@@ -6985,7 +6985,7 @@ The <code>in</code> is optional, but is recommended for legibility.
 </table>
 </div>
 <div class="paragraph">
-<p>If an event is attached to an object, it is run only when that object has the same grandparent as the player object, where &#8220;grandparent&#8221; refers to the last object before 0 (the <code>nothing</code> object as defined in <strong>hugolib.h</strong>), or can otherwise be determined to be in the player&#8217;s current location.<sup class="footnote">[<a id="_footnoteref_39" class="footnote" href="#_footnotedef_39" title="View footnote.">39</a>]</sup></p>
+<p>If an event is attached to an object, it is run only when that object has the same grandparent as the player object, where &#8220;grandparent&#8221; refers to the last object before 0 (the <code>nothing</code> object as defined in <strong>hugolib.h</strong>), or can otherwise be determined to be in the player&#8217;s current location.&#8288;<sup class="footnote">[<a id="_footnoteref_39" class="footnote" href="#_footnotedef_39" title="View footnote.">39</a>]</sup></p>
 </div>
 <div class="admonitionblock important">
 <table>
@@ -7254,7 +7254,7 @@ The line</p>
 <div class="paragraph">
 <p>Scripts are considerably more complex than fuses and daemons.
 The purpose of a script (also called a character script) is to allow an object&#8201;&#8212;&#8201;usually a character&#8201;&#8212;&#8201;to follow a sequence of actions turn-by-turn, independent of the player.
-Up to 16 scripts may be running at once.<sup class="footnote">[<a id="_footnoteref_41" class="footnote" href="#_footnotedef_41" title="View footnote.">41</a>]</sup></p>
+Up to 16 scripts may be running at once.&#8288;<sup class="footnote">[<a id="_footnoteref_41" class="footnote" href="#_footnotedef_41" title="View footnote.">41</a>]</sup></p>
 </div>
 <div class="paragraph">
 <p>A script is represented by two arrays: <code>scriptdata</code> and <code>setscript</code>.
@@ -8281,7 +8281,8 @@ By superseding it, however, we ensure that any grammar matching the desired patt
 Along with these junction routines are certain global variables and properties that are pre-defined by the compiler and accessed directly by the engine.
 They are:</p>
 </div>
-<table class="tableblock frame-all grid-rows stripes-none fit-content center">
+<table id="table-engine-globals" class="tableblock frame-all grid-rows stripes-none fit-content center">
+<caption class="title">Table 4. Predefined Global Variables and Properties</caption>
 <colgroup>
 <col>
 <col>
@@ -8418,13 +8419,13 @@ What happens is:</p>
 This is useful in case the <code>Parse</code> routine has changed the input line substantially, requiring a reconfiguration of the already split words.</p>
 </div>
 <div class="paragraph">
-<p>The HugoFix debugging library can be used at runtime to monitor the goings-on of the <code>Parse</code> routine by enabling parser monitoring with the <code>$pm</code> command.<sup class="footnote">[<a id="_footnoteref_43" class="footnote" href="#_footnotedef_43" title="View footnote.">43</a>]</sup></p>
+<p>The HugoFix debugging library can be used at runtime to monitor the goings-on of the <code>Parse</code> routine by enabling parser monitoring with the <code>$pm</code> command.&#8288;<sup class="footnote">[<a id="_footnoteref_43" class="footnote" href="#_footnotedef_43" title="View footnote.">43</a>]</sup></p>
 </div>
-<div class="admonitionblock note">
+<div class="admonitionblock tip">
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-note" title="Note"></i>
+<i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
 <div class="paragraph">
@@ -8474,7 +8475,8 @@ This is useful in case the <code>Parse</code> routine has changed the input line
 <div class="paragraph">
 <p>The default responses provided by the engine parse error routine are:</p>
 </div>
-<table class="tableblock frame-all grid-none stripes-even fit-content center">
+<table id="table-parseerror-responses" class="tableblock frame-all grid-none stripes-even fit-content center">
+<caption class="title">Table 5. Default ParseError Responses</caption>
 <colgroup>
 <col>
 <col>
@@ -8568,11 +8570,11 @@ This is useful in case the <code>Parse</code> routine has changed the input line
 Returning false is a signal that the engine should continue with the default message.
 Returning 2 is a signal to reparse the entire existing line (useful in cases where a peculiar syntax is trapped as an error, changed, and must then be reparsed).</p>
 </div>
-<div class="admonitionblock note">
+<div class="admonitionblock tip">
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-note" title="Note"></i>
+<i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
 <div class="paragraph">
@@ -8694,7 +8696,7 @@ This occurs whenever the engine needs to determine if an object is available <em
 </table>
 </div>
 <div class="paragraph">
-<p>The HugoFix debugging library can be used at runtime to monitor calls to <code>FindObject</code> by enabling the <code>$fi</code> command.<sup class="footnote">[<a id="_footnoteref_44" class="footnote" href="#_footnotedef_44" title="View footnote.">44</a>]</sup></p>
+<p>The HugoFix debugging library can be used at runtime to monitor calls to <code>FindObject</code> by enabling the <code>$fi</code> command.&#8288;<sup class="footnote">[<a id="_footnoteref_44" class="footnote" href="#_footnotedef_44" title="View footnote.">44</a>]</sup></p>
 </div>
 </div>
 <div class="sect2">
@@ -8771,7 +8773,7 @@ For the above example, then, these would be</p>
 </div>
 </div>
 <div class="paragraph">
-<p>Imperative commands are, such as</p>
+<p>Imperative commands, such as</p>
 </div>
 <div class="exampleblock gametranscript">
 <div class="content">
@@ -8784,7 +8786,7 @@ It is subsequently up to <code>&lt;character&gt;.order_response</code> to analyz
 If no response is provided, <code>order_response</code> should return false.</p>
 </div>
 <div class="paragraph">
-<p>The HugoFix debugging library can be used at runtime to monitor calls to <code>SpeakTo</code> by enabling the <code>$pm</code> command.<sup class="footnote">[<a id="_footnoteref_45" class="footnote" href="#_footnotedef_45" title="View footnote.">45</a>]</sup></p>
+<p>The HugoFix debugging library can be used at runtime to monitor calls to <code>SpeakTo</code> by enabling the <code>$pm</code> command.&#8288;<sup class="footnote">[<a id="_footnoteref_45" class="footnote" href="#_footnotedef_45" title="View footnote.">45</a>]</sup></p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -8848,7 +8850,7 @@ The <code>&lt;queue&gt;</code> is 0 unless the verbroutine is being called more 
 </table>
 </div>
 <div class="paragraph">
-<p>The <code>&lt;isxverb&gt;</code> argument is true if the grammar for invoking <code>Perform</code> designates an xverb.<sup class="footnote">[<a id="_footnoteref_46" class="footnote" href="#_footnotedef_46" title="View footnote.">46</a>]</sup></p>
+<p>The <code>&lt;isxverb&gt;</code> argument is true if the grammar for invoking <code>Perform</code> designates an xverb.&#8288;<sup class="footnote">[<a id="_footnoteref_46" class="footnote" href="#_footnotedef_46" title="View footnote.">46</a>]</sup></p>
 </div>
 <div class="paragraph">
 <p>For example, various player commands might (approximately, depending on verbroutine and object names) result in the routine calls:</p>
@@ -8944,7 +8946,7 @@ The <code>&lt;queue&gt;</code> is 0 unless the verbroutine is being called more 
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Using HugoFix&#8217;s parser monitoring (<code>$pm</code>) at runtime will trace calls to <code>Perform</code>.<sup class="footnote">[<a id="_footnoteref_47" class="footnote" href="#_footnotedef_47" title="View footnote.">47</a>]</sup></p>
+<p>Using HugoFix&#8217;s parser monitoring (<code>$pm</code>) at runtime will trace calls to <code>Perform</code>.&#8288;<sup class="footnote">[<a id="_footnoteref_47" class="footnote" href="#_footnotedef_47" title="View footnote.">47</a>]</sup></p>
 </div>
 </td>
 </tr>
@@ -9260,7 +9262,7 @@ Despite being called &#8220;rooms&#8221;, these generic locations aren&#8217;t e
 </div>
 <div class="paragraph">
 <p>Since a room is not placed within another object in the object tree (using the <code>in</code> directive), it automatically has a parent of 0 or <code>nothing</code>.
-By inheriting from the <code>room</code> class, the <code>living_room</code> object acquires the characteristics defined in the object library, including being <code>static</code> and <code>light</code>.<sup class="footnote">[<a id="_footnoteref_48" class="footnote" href="#_footnotedef_48" title="View footnote.">48</a>]</sup></p>
+By inheriting from the <code>room</code> class, the <code>living_room</code> object acquires the characteristics defined in the object library, including being <code>static</code> and <code>light</code>.&#8288;<sup class="footnote">[<a id="_footnoteref_48" class="footnote" href="#_footnotedef_48" title="View footnote.">48</a>]</sup></p>
 </div>
 <div class="paragraph">
 <p>Additionally, as with other classes in the object library, the <code>type</code> property of an object can be checked to see which class it was derived from.
@@ -9476,7 +9478,7 @@ It may be gotten around by adding an embellishment like this:</p>
 </div>
 <div class="paragraph">
 <p>The most important characteristic of a scenery object created using the <code>scenery</code> class is that it will not be listed by the library as part of the room&#8217;s contents (in this case, the contents of <code>prison_cell</code>).
-The <code>scenery</code> class is otherwise relatively unadorned: looking at a scenery object will produce a generic message about seeing nothing special, attempting to take a scenery object will generate a generic &#8220;You can&#8217;t take that&#8221;-type response, etc.<sup class="footnote">[<a id="_footnoteref_50" class="footnote" href="#_footnotedef_50" title="View footnote.">50</a>]</sup>
+The <code>scenery</code> class is otherwise relatively unadorned: looking at a scenery object will produce a generic message about seeing nothing special, attempting to take a scenery object will generate a generic &#8220;You can&#8217;t take that&#8221;-type response, etc.&#8288;<sup class="footnote">[<a id="_footnoteref_50" class="footnote" href="#_footnotedef_50" title="View footnote.">50</a>]</sup>
 The scenery object can be fleshed out with a <code>long_desc</code> property and <code>before</code>/<code>after</code> handling for desired verbroutines.</p>
 </div>
 <div class="paragraph">
@@ -9742,7 +9744,7 @@ The <code>identical_class</code> is similar to the <code>plural_class</code> exc
 </div>
 </div>
 <div class="paragraph">
-<p>The identical object <code>bananas</code> will allow a player to use all the facilities of the <code>identical_class</code> in order to manipulate one or more otherwise indistinguishable banana objects.<sup class="footnote">[<a id="_footnoteref_53" class="footnote" href="#_footnotedef_53" title="View footnote.">53</a>]</sup>]</p>
+<p>The identical object <code>bananas</code> will allow a player to use all the facilities of the <code>identical_class</code> in order to manipulate one or more otherwise indistinguishable banana objects.&#8288;<sup class="footnote">[<a id="_footnoteref_53" class="footnote" href="#_footnotedef_53" title="View footnote.">53</a>]</sup>]</p>
 </div>
 </div>
 <div class="sect2">
@@ -9750,7 +9752,7 @@ The <code>identical_class</code> is similar to the <code>plural_class</code> exc
 <div class="paragraph">
 <p>Ropes and other similar objects&#8201;&#8212;&#8201;anything, really, which ties onto something else or, even worse, ties <em>between</em> two or more objects&#8201;&#8212;&#8201;are notoriously difficult to code.
 Safe advice on how to code a rope used to be: code a block of wood instead.
-The object library provides an <code>attachable</code> class which has successfully been used for everything from ropes to blankets to three-ended chains and darts.<sup class="footnote">[<a id="_footnoteref_54" class="footnote" href="#_footnotedef_54" title="View footnote.">54</a>]</sup></p>
+The object library provides an <code>attachable</code> class which has successfully been used for everything from ropes to blankets to three-ended chains and darts.&#8288;<sup class="footnote">[<a id="_footnoteref_54" class="footnote" href="#_footnotedef_54" title="View footnote.">54</a>]</sup></p>
 </div>
 <div class="admonitionblock important">
 <table>
@@ -10283,7 +10285,7 @@ The reason for this is to maximize portability across different platforms and fi
 </table>
 </div>
 <div class="paragraph">
-<p>Currently Hugo supports as resources: JPEG graphic files, RIFF/WAV audio samples, MOD/S3M/XM music modules, MIDI and MP3 songs, and MPEG and AVI movies.<sup class="footnote">[<a id="_footnoteref_55" class="footnote" href="#_footnotedef_55" title="View footnote.">55</a>]</sup></p>
+<p>Currently Hugo supports as resources: JPEG graphic files, RIFF/WAV audio samples, MOD/S3M/XM music modules, MIDI and MP3 songs, and MPEG and AVI movies.&#8288;<sup class="footnote">[<a id="_footnoteref_55" class="footnote" href="#_footnotedef_55" title="View footnote.">55</a>]</sup></p>
 </div>
 <div class="paragraph">
 <p>For example, here is an imaginary example resourcefile compiled on a Windows platform:</p>
@@ -13361,7 +13363,7 @@ Upon returning from the verb routine, <code>Main</code> is not called.</p>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>preposition (prep)</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">&#8220;in&#8221;, &#8220;inside&#8221;, &#8220;outside of&#8221;, etc.<sup class="footnote">[<a id="_footnoteref_57" class="footnote" href="#_footnotedef_57" title="View footnote.">57</a>]</sup></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&#8220;in&#8221;, &#8220;inside&#8221;, &#8220;outside of&#8221;, etc.&#8288;<sup class="footnote">[<a id="_footnoteref_57" class="footnote" href="#_footnotedef_57" title="View footnote.">57</a>]</sup></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>capacity</code></p></td>
@@ -15390,7 +15392,7 @@ They are:</p>
 <h3 id="sec_d-1"><a class="anchor" href="#sec_d-1"></a>D.1. The HugoFix Debugging Library</h3>
 <div class="paragraph">
 <p>The HugoFix Debugging Library is a suite of routines that can be used via typed commands in a running Hugo game without the use of any special debugger program.
-To use HugoFix, set the compiler flag <code>DEBUG</code> before including <strong>hugolib.h</strong> or any other standard Hugo library files.<sup class="footnote">[<a id="_footnoteref_59" class="footnote" href="#_footnotedef_59" title="View footnote.">59</a>]</sup>
+To use HugoFix, set the compiler flag <code>DEBUG</code> before including <strong>hugolib.h</strong> or any other standard Hugo library files.&#8288;<sup class="footnote">[<a id="_footnoteref_59" class="footnote" href="#_footnotedef_59" title="View footnote.">59</a>]</sup>
 Then, from the player input line, type:</p>
 </div>
 <div class="exampleblock gametranscript">
@@ -15696,7 +15698,7 @@ Handy for testing things that may be affected by use of the built-in <code>rando
 <h3 id="sec_d-2"><a class="anchor" href="#sec_d-2"></a>D.2. The Hugo Debugger</h3>
 <div class="paragraph">
 <p>The Hugo Debugger is a valuable part of the Hugo design system.
-It allows a programmer to monitor all aspects of program execution, including watching expressions, modifying values, moving objects, etc.&#8201;&#8212;&#8201;all things expected of a modern source-level debugger.<sup class="footnote">[<a id="_footnoteref_60" class="footnote" href="#_footnotedef_60" title="View footnote.">60</a>]</sup></p>
+It allows a programmer to monitor all aspects of program execution, including watching expressions, modifying values, moving objects, etc.&#8201;&#8212;&#8201;all things expected of a modern source-level debugger.&#8288;<sup class="footnote">[<a id="_footnoteref_60" class="footnote" href="#_footnotedef_60" title="View footnote.">60</a>]</sup></p>
 </div>
 <div class="paragraph">
 <p>In order to be used with the debugger, a Hugo program must be compiled using the <code>-d</code> switch in order to create an <strong>.HDX</strong> debuggable file with additional data such as names for objects, variables, properties, etc.</p>
@@ -16468,7 +16470,7 @@ It contains the bulk of information regarding table offsets, junction routine ad
 </td>
 <td class="content">
 <div class="paragraph">
-<p><strong>A note on data storage:</strong> whenever 16-bit words (i.e., two bytes representing a single value) are written or read, it is in low-byte/high-byte order, with the first byte being the remainder of <em>x</em>/256 (or the modulus <em>x</em>%256), and the second byte being the integer value <em>x</em>/256.<sup class="footnote">[<a id="_footnoteref_66" class="footnote" href="#_footnotedef_66" title="View footnote.">66</a>]</sup></p>
+<p><strong>A note on data storage:</strong> whenever 16-bit words (i.e., two bytes representing a single value) are written or read, it is in low-byte/high-byte order, with the first byte being the remainder of <em>x</em>/256 (or the modulus <em>x</em>%256), and the second byte being the integer value <em>x</em>/256.&#8288;<sup class="footnote">[<a id="_footnoteref_66" class="footnote" href="#_footnotedef_66" title="View footnote.">66</a>]</sup></p>
 </div>
 </td>
 </tr>
@@ -17052,7 +17054,7 @@ The original &#8220;<em>hh</em>:<em>mm</em>&#8221; is stored in <code>parse$</co
 <p>Up to one word (or set of words) in quotation marks is allowed; if found, it is stored in <code>parse$</code>.</p>
 </li>
 <li>
-<p>Special words are processed, i.e., removals and user-defined punctuation are removed, compounds are combined, and synonyms are replaced.<sup class="footnote">[<a id="_footnoteref_70" class="footnote" href="#_footnotedef_70" title="View footnote.">70</a>]</sup></p>
+<p>Special words are processed, i.e., removals and user-defined punctuation are removed, compounds are combined, and synonyms are replaced.&#8288;<sup class="footnote">[<a id="_footnoteref_70" class="footnote" href="#_footnotedef_70" title="View footnote.">70</a>]</sup></p>
 </li>
 </ol>
 </div>
@@ -17692,7 +17694,7 @@ Each object requires 24 bytes:<sup class="footnote">[<a id="_footnoteref_71" cla
 <div class="sect2">
 <h3 id="sec_20-2"><a class="anchor" href="#sec_20-2"></a>20.2. Attributes</h3>
 <div class="paragraph">
-<p>The 16 bytes of the attribute array contain 8 bits each, giving a total of 128 possible attributes.<sup class="footnote">[<a id="_footnoteref_72" class="footnote" href="#_footnotedef_72" title="View footnote.">72</a>]</sup>
+<p>The 16 bytes of the attribute array contain 8 bits each, giving a total of 128 possible attributes.&#8288;<sup class="footnote">[<a id="_footnoteref_72" class="footnote" href="#_footnotedef_72" title="View footnote.">72</a>]</sup>
 Essentially, if the bits are thought of sequentially in that the first byte represents attributes 0 to 7, the second byte represents attributes 8 to 15, the third 16 to 23, and the fourth and final byte 24 to 31.</p>
 </div>
 </div>
