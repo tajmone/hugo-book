@@ -583,7 +583,7 @@ div.literalblock.hugosyntax div.content pre > sup.footnote a {
 <span id="email" class="email"><a href="mailto:general@generalcoffee.com">general@generalcoffee.com</a></span><br>
 <span id="revnumber">version 1,</span>
 <span id="revdate">2018-10-04</span>
-<br><span id="revremark">Draft 145 -- Porting to AsciiDoc</span>
+<br><span id="revremark">Draft 146 -- Porting to AsciiDoc</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -9020,7 +9020,7 @@ If no match is found, the engine loops back to <strong>Input</strong>.</p>
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><strong>Before routines (as called by Perform in hugolib.h):</strong></p></td>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><strong>Before routines (as called by <code>Perform</code> in hugolib.h):</strong></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"></td>
@@ -9080,7 +9080,7 @@ The <code>react_before</code> property for relevant objects is checked at this t
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><strong>Verb routine (as called by Perform in hugolib.h):</strong></p></td>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><strong>Verb routine (as called by <code>Perform</code> in hugolib.h):</strong></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"></td>
@@ -9125,11 +9125,11 @@ Control returns from the library <code>Perform</code> routine to the engine.
 </tr>
 </tbody>
 </table>
-<div class="admonitionblock tip">
+<div class="admonitionblock warning">
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
+<i class="fa icon-warning" title="Warning"></i>
 </td>
 <td class="content">
 <div class="paragraph">
@@ -9152,17 +9152,17 @@ You should now understand how to create an <code>order_response</code> property 
 <p>It should be apparent how a game can implement custom versions of things like end-of-game behavior, parser messages, etc. without editing the library itself by using the compiler&#8217;s <code>replace</code> directive with library routines such as <code>EndGame</code> and <code>ParseError</code>.
 Most often, a programmer will copy the selected routine out of <strong>hugolib.h</strong> (or wherever it comes from) and paste it into the game&#8217;s source, changing (for instance):</p>
 </div>
-<div class="literalblock hugosyntax">
+<div class="listingblock">
 <div class="content">
-<pre>routine EndGame ...</pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">routine</span> EndGame ...</code></pre>
 </div>
 </div>
 <div class="paragraph">
 <p>to</p>
 </div>
-<div class="literalblock hugosyntax">
+<div class="listingblock">
 <div class="content">
-<pre>replace EndGame ...</pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">replace</span> EndGame ...</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -9173,7 +9173,7 @@ Most often, a programmer will copy the selected routine out of <strong>hugolib.h
 </div>
 <div class="exampleblock gametranscript">
 <div class="content">
-You don&#8217;t need to use the word "&lt;unknown word&gt;".
+You don&#8217;t need to use the word &#8220;&lt;unknown word&gt;&#8221;.
 </div>
 </div>
 <div class="paragraph">
@@ -9181,7 +9181,7 @@ You don&#8217;t need to use the word "&lt;unknown word&gt;".
 </div>
 <div class="exampleblock gametranscript">
 <div class="content">
-[This game does not recognize "&lt;unknown word&gt;".]
+[This game does not recognize &#8220;&lt;unknown word&gt;&#8221;.]
 </div>
 </div>
 <div class="paragraph">
@@ -9205,7 +9205,7 @@ You don&#8217;t need to use the word "&lt;unknown word&gt;".
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">case</span> <span class="hl num">1</span>&#x000A;    <span class="hl kwa">print</span> CThe(<span class="hl kwb">player</span>); \&#x000A;        MatchPlural(<span class="hl kwb">player</span>, <span class="hl str">&quot;doesn&#39;t, &quot;</span>don&#39;t<span class="hl str">&quot;); \</span>&#x000A;<span class="hl str">        &quot;</span> need <span class="hl kwa">to</span> use the <span class="hl kwa">word \</span>&quot;<span class="hl str">&quot;; \</span>&#x000A;<span class="hl str">        parse$; &quot;</span>\&quot;.<span class="hl str">&quot;</span></code></pre>
+<pre class="highlight" lang="hugo"><code class="language-hugo" data-lang="hugo"><span class="hl kwa">case</span> <span class="hl num">1</span>&#x000A;    <span class="hl kwa">print</span> CThe(<span class="hl kwb">player</span>); \&#x000A;        MatchPlural(<span class="hl kwb">player</span>, <span class="hl str">&quot;doesn&#39;t&quot;</span>, <span class="hl str">&quot;don&#39;t&quot;</span>); \&#x000A;        <span class="hl str">&quot; need to use the word</span> <span class="hl esc">\&quot;</span><span class="hl str">&quot;</span>; \&#x000A;        <span class="hl kwb">parse$</span>; <span class="hl str">&quot;</span><span class="hl esc">\&quot;</span><span class="hl str">.&quot;</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -9227,7 +9227,7 @@ The boulder is far too heavy to lift!
 </div>
 </div>
 <div class="paragraph">
-<p>in place of the library&#8217;s default &#8220;You can&#8217;t take that.&#8221; message?
+<p>in place of the library&#8217;s default &#8220;<strong>You can&#8217;t take that.</strong>&#8221; message?
 You would simply interrupt the <code>DoGet</code> routine before it even executes via a <code>before</code> property on the boulder object:</p>
 </div>
 <div class="listingblock">

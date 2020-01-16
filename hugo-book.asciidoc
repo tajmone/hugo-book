@@ -1,6 +1,6 @@
 = The Hugo Book
 Kent Tessman <general@generalcoffee.com>
-v1, 2018-10-04: Draft 145 -- Porting to AsciiDoc
+v1, 2018-10-04: Draft 146 -- Porting to AsciiDoc
 :lang: en
 :doctype: book
 // TOC Settings for GitHub previewing (override via CLI):
@@ -6313,7 +6313,7 @@ If no match is found, the engine loops back to *Input*.
 
 Otherwise, a successful grammar match results in at least the `verbroutine` global being set, as well as potentially `object` and `xobject`.
 
-2+s| Before routines (as called by Perform in hugolib.h):
+2+s| Before routines (as called by `Perform` in hugolib.h):
 | {blank}
 | If any objects were specified in the input line, their `before` properties are checked in the following order, for each object:
 
@@ -6328,7 +6328,7 @@ If any of these property routines returns true, the engine skips the verb routin
 
 NOTE: The `react_before` property for relevant objects is checked at this time as well.
 
-2+s| Verb routine (as called by Perform in hugolib.h):
+2+s| Verb routine (as called by `Perform` in hugolib.h):
 | {blank}
 | If no `before` property routine returns true, the verb routine is run.
 
@@ -6345,7 +6345,7 @@ IMPORTANT: Control returns from the library `Perform` routine to the engine.
 When finished, the engine loops back to *Main*, calling the `Main` routine only if the last verb matched was not an `xverb`.
 |===============================================================================
 
-[TIP]
+[WARNING]
 ================================================================================
 Setting the global `endflag` at any point to a non-zero value will terminate the game loop and run the `EndGame` junction routine.
 ================================================================================
@@ -6361,29 +6361,29 @@ You should now understand how to create an `order_response` property for charact
 It should be apparent how a game can implement custom versions of things like end-of-game behavior, parser messages, etc. without editing the library itself by using the compiler's `replace` directive with library routines such as `EndGame` and `ParseError`.
 Most often, a programmer will copy the selected routine out of *hugolib.h* (or wherever it comes from) and paste it into the game's source, changing (for instance):
 
-[literal, role="hugosyntax"]
-............................
+[source,hugo]
+-------------------
 routine EndGame ...
-............................
+-------------------
 
 to
 
-[literal, role="hugosyntax"]
-............................
+[source,hugo]
+-------------------
 replace EndGame ...
-............................
+-------------------
 
 and customize the `EndGame` routine's messages, behavior, or whatever the desired modifications may involve.
 
 For instance, to change the default parser error message
 
 [example,role="gametranscript"]
-You don't need to use the word "<unknown word>".
+You don't need to use the word "`<unknown word>`".
 
 to something along the lines of
 
 [example,role="gametranscript"]
-{empty}[This game does not recognize "<unknown word>".]
+{empty}[This game does not recognize "`<unknown word>`".]
 
 first copy the `ParseError` routine from *hugolib.h* to the game's source, and change, in the copied `ParseError`,
 
@@ -6406,7 +6406,7 @@ and modify the case for the error message in question from
 -------------------------------------------------
 case 1
     print CThe(player); \
-        MatchPlural(player, "doesn't, "don't"); \
+        MatchPlural(player, "doesn't", "don't"); \
         " need to use the word \""; \
         parse$; "\"."
 -------------------------------------------------
@@ -6427,7 +6427,7 @@ But what if you created a heavy boulder and wanted to have the response
 [example,role="gametranscript"]
 The boulder is far too heavy to lift!
 
-in place of the library's default "`You can't take that.`" message?
+in place of the library's default "`*You can't take that.*`" message?
 You would simply interrupt the `DoGet` routine before it even executes via a `before` property on the boulder object:
 
 [source,hugo]
