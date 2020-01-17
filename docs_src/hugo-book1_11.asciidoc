@@ -13,17 +13,20 @@
 The display object is a special object with which the Hugo Engine interacts to allow the program to be knowledgeable about as well as set certain characteristics of the display.
 The engine provides access to the following read-only properties (although the names themselves are defined in *hugolib.h*):
 
-[horizontal]
-`screenwidth`   :: width of the display, in characters
-`screenheight`  :: height of the display, in characters
-`linelength`    :: width of the current text window
-`windowlines`   :: height of the current text window
-`cursor_column` :: horizontal and vertical position of
-`cursor_row`    :: the cursor in the current text window
-`hasgraphics`   :: returns true if graphic display is available
-`hasvideo`      :: returns true if video playback is available
-`pointer_x`     :: horizontal mouse position (in characters)
-`pointer_y`     :: vertical mouse position (in characters)
+[cols="<2a,<8d",frame=none,grid=none,stripes=none]
+|===============================================================================
+| `screenwidth`         | width of the display, in characters
+| `screenheight`        | height of the display, in characters
+| `linelength`          | width of the current text window
+| `windowlines`         | height of the current text window
+| `cursor_column`  .2+.^| horizontal and vertical position of the cursor in the
+                          current text window
+| `cursor_row`
+| `hasgraphics`         | returns true if graphic display is available
+| `hasvideo`            | returns true if video playback is available
+| `pointer_x`           | horizontal mouse position (in characters)
+| `pointer_y`           | vertical mouse position (in characters)
+|===============================================================================
 
 [NOTE]
 ================================================================================
@@ -65,7 +68,7 @@ Cursor positioning and window boundaries are always calculated in fixed-width ch
 Various syntaxes for the window statement are:
 
 [caption=]
-[cols="<2m,<8d",grid=rows,stripes=none]
+[cols="<2m,<8a",grid=rows,stripes=none]
 |===============================================================================
 
 |window 0

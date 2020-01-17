@@ -583,7 +583,7 @@ div.literalblock.hugosyntax div.content pre > sup.footnote a {
 <span id="email" class="email"><a href="mailto:general@generalcoffee.com">general@generalcoffee.com</a></span><br>
 <span id="revnumber">version 1,</span>
 <span id="revdate">2018-10-04</span>
-<br><span id="revremark">Draft 147 -- Porting to AsciiDoc</span>
+<br><span id="revremark">Draft 148 -- Porting to AsciiDoc</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -9901,90 +9901,74 @@ You should be able to look at the various implementations of scenery, components
 <p>The display object is a special object with which the Hugo Engine interacts to allow the program to be knowledgeable about as well as set certain characteristics of the display.
 The engine provides access to the following read-only properties (although the names themselves are defined in <strong>hugolib.h</strong>):</p>
 </div>
-<div class="hdlist">
-<table>
+<table class="tableblock frame-none grid-none stripes-none stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 80%;">
+</colgroup>
+<tbody>
 <tr>
-<td class="hdlist1">
-<code>screenwidth</code>   
-</td>
-<td class="hdlist2">
-<p>width of the display, in characters</p>
-</td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>screenwidth</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">width of the display, in characters</p></td>
 </tr>
 <tr>
-<td class="hdlist1">
-<code>screenheight</code>  
-</td>
-<td class="hdlist2">
-<p>height of the display, in characters</p>
-</td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>screenheight</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">height of the display, in characters</p></td>
 </tr>
 <tr>
-<td class="hdlist1">
-<code>linelength</code>    
-</td>
-<td class="hdlist2">
-<p>width of the current text window</p>
-</td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>linelength</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">width of the current text window</p></td>
 </tr>
 <tr>
-<td class="hdlist1">
-<code>windowlines</code>   
-</td>
-<td class="hdlist2">
-<p>height of the current text window</p>
-</td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>windowlines</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">height of the current text window</p></td>
 </tr>
 <tr>
-<td class="hdlist1">
-<code>cursor_column</code> 
-</td>
-<td class="hdlist2">
-<p>horizontal and vertical position of</p>
-</td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>cursor_column</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle" rowspan="2"><p class="tableblock">horizontal and vertical position of the cursor in the
+                          current text window</p></td>
 </tr>
 <tr>
-<td class="hdlist1">
-<code>cursor_row</code>    
-</td>
-<td class="hdlist2">
-<p>the cursor in the current text window</p>
-</td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>cursor_row</code></p>
+</div></div></td>
 </tr>
 <tr>
-<td class="hdlist1">
-<code>hasgraphics</code>   
-</td>
-<td class="hdlist2">
-<p>returns true if graphic display is available</p>
-</td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>hasgraphics</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">returns true if graphic display is available</p></td>
 </tr>
 <tr>
-<td class="hdlist1">
-<code>hasvideo</code>      
-</td>
-<td class="hdlist2">
-<p>returns true if video playback is available</p>
-</td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>hasvideo</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">returns true if video playback is available</p></td>
 </tr>
 <tr>
-<td class="hdlist1">
-<code>pointer_x</code>     
-</td>
-<td class="hdlist2">
-<p>horizontal mouse position (in characters)</p>
-</td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>pointer_x</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">horizontal mouse position (in characters)</p></td>
 </tr>
 <tr>
-<td class="hdlist1">
-<code>pointer_y</code>     
-</td>
-<td class="hdlist2">
-<p>vertical mouse position (in characters)</p>
-</td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>pointer_y</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">vertical mouse position (in characters)</p></td>
 </tr>
+</tbody>
 </table>
-</div>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -10067,22 +10051,30 @@ Various syntaxes for the window statement are:</p>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>window 0</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Restores full-screen output</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Restores full-screen output</p>
+</div></div></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>window n<br>
 {&#8230;&#8203;}</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Creates a window of <code>n</code> lines, bordering on the top edge and sides of the full-screen</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Creates a window of <code>n</code> lines, bordering on the top edge and sides of the full-screen</p>
+</div></div></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>window&#160;l,&#160;t,&#160;r,&#160;b<br>
 {&#8230;&#8203;}</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Creates a window with the left-top corner (<code>l</code>, <code>t</code>) and the right-bottom corner (<code>r</code>, <code>b</code>), where these coordinates are character coordinates on the full-screen</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Creates a window with the left-top corner (<code>l</code>, <code>t</code>) and the right-bottom corner (<code>r</code>, <code>b</code>), where these coordinates are character coordinates on the full-screen</p>
+</div></div></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>window<br>
 {&#8230;&#8203;}</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Redraws the last-defined window</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Redraws the last-defined window</p>
+</div></div></td>
 </tr>
 </tbody>
 </table>
