@@ -20,12 +20,12 @@ A game that takes 2 seconds to compile normally will compile in 1.
 
 It is possible to precompile files that would normally be included using the `#include` directive into a precompiled header file that may be linked using `#link`, as in:
 
-[literal, role="cmd"]
+[literal, role="hugosyntax"]
 #link "<filename.hlb>"
 
 instead of:
 
-[literal, role="cmd"]
+[literal, role="hugosyntax"]
 #include "<filename.h>"
 
 The advantage of doing this is primarily one of faster compilation speed; files that are used over and over again without alteration (such as the Hugo Library) may be precompiled so that they are not recompiled every time.
