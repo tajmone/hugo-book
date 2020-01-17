@@ -1,6 +1,6 @@
 = The Hugo Book
 Kent Tessman <general@generalcoffee.com>
-v1, 2018-10-04: Draft 146 -- Porting to AsciiDoc
+v1, 2018-10-04: Draft 147 -- Porting to AsciiDoc
 :lang: en
 :doctype: book
 // TOC Settings for GitHub previewing (override via CLI):
@@ -6471,7 +6471,7 @@ This is largely the point of scenery objects.]]
 
 :fn6: footnote:[ \
 The author encourages the implementation of bananas in any game. \
-More bananas mean more monkeys, and monkeys are always fun.]]
+More bananas mean more monkeys, and monkeys are always fun.]
 
 :fn7: pass:q[footnote:[See *sample.hug* for examples of the last two.]]
 
@@ -6613,13 +6613,13 @@ One thing that will likely be important for NPCs (non-player characters) is enab
 This is traditionally accomplished by implementing NPC responses to the verbroutines `DoAsk`, `DoTell`, `DoShow`, and `DoGive`.
 
 [example,role="gametranscript"]
-=================================================================
+===================================================================
 >ASK GUSTAV ABOUT APPLE +
-"I must admit I rather prefer them to bananas," Gustav tells you.
+"`I must admit I rather prefer them to bananas,`" Gustav tells you.
 
 >GIVE BANANA TO GUSTAV +
-"No, thank you," Gustav says. "I would rather have an apple."
-=================================================================
+"`No, thank you,`" Gustav says. "`I would rather have an apple.`"
+===================================================================
 
 The grammar for asking an NPC about something looks something like this:
 
@@ -6719,7 +6719,7 @@ The entire place is probably just shy of fifty square feet.
 The bars on the doors and single small window ensure that you won't be going anywhere anytime soon.
 
 >EXAMINE WINDOW +
-You don't need to use the word "window".
+You don't need to use the word "`window`".
 ================================================================================
 
 Depending on the game (and, arguably, the player) that response may be somewhat jarring in light of the window just mentioned in the room description.
@@ -6737,12 +6737,12 @@ scenery prison_window "prison window"
 --------------------------------------------------
 
 The most important characteristic of a scenery object created using the `scenery` class is that it will not be listed by the library as part of the room's contents (in this case, the contents of `prison_cell`).
-The `scenery` class is otherwise relatively unadorned: looking at a scenery object will produce a generic message about seeing nothing special, attempting to take a scenery object will generate a generic "`You can't take that`"-type response, etc.{wj}{fn3}
+The `scenery` class is otherwise relatively unadorned: looking at a scenery object will produce a generic message about seeing nothing special, attempting to take a scenery object will generate a generic "`*You can't take that*`"-type response, etc.{wj}{fn3}
 The scenery object can be fleshed out with a `long_desc` property and `before`/`after` handling for desired verbroutines.
 
 Components are similar to scenery objects in two important respects in that they're not intended to be taken and they're not specifically listed in any itemization of contents.
 Consider a case where a game might contain a machine (for fun, a nefarious machine) and a lever.
-The intention might be that the lever can be manipulated separately from the nefarious machine itself so that "`>PULL LEVER`" elicits a different response than simply "`>PULL MACHINE`".
+The intention might be that the lever can be manipulated separately from the nefarious machine itself so that "`*>PULL LEVER*`" elicits a different response than simply "`*>PULL MACHINE*`".
 At the same time, however, something like the following is probably undesirable:
 
 [example,role="gametranscript"]
@@ -6989,11 +6989,11 @@ object butterscotch_sundae "butterscotch_sundae"
 }{fn4}
 ------------------------------------------------
 
-The `plural_of` property on the `plural` class enumerates the objects which it encompasses; each object encompassed by the `plural` class then points back to the `plural` class in its `plural_is` property.
+The `plural_of` property on the plural class enumerates the objects which it encompasses; each object encompassed by the plural class then points back to the plural class in its `plural_is` property.
 
 The `plural_verbs` property governs which verbs may be used on the plural object.
 The `plural_class` class itself provides a default `plural_verbs` which allows basic verbroutines like `DoLook`, `DoDrop`, `DoGet`, and `DoPutIn` to be used.
-Other actions will result in a response on the order of "`You'll have to do that one at a time`".
+Other actions will result in a response on the order of "`*You'll have to do that one at a time*`".
 To change the possible actions for a given plural object, provide a custom `plural_verbs` replacement that returns true only if the `verbroutine` global variable is a valid verbroutine for the object.
 
 Now, consider the following:

@@ -583,7 +583,7 @@ div.literalblock.hugosyntax div.content pre > sup.footnote a {
 <span id="email" class="email"><a href="mailto:general@generalcoffee.com">general@generalcoffee.com</a></span><br>
 <span id="revnumber">version 1,</span>
 <span id="revdate">2018-10-04</span>
-<br><span id="revremark">Draft 146 -- Porting to AsciiDoc</span>
+<br><span id="revremark">Draft 147 -- Porting to AsciiDoc</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -9393,11 +9393,11 @@ This is traditionally accomplished by implementing NPC responses to the verbrout
 <div class="content">
 <div class="paragraph">
 <p>&gt;ASK GUSTAV ABOUT APPLE<br>
-"I must admit I rather prefer them to bananas," Gustav tells you.</p>
+&#8220;I must admit I rather prefer them to bananas,&#8221; Gustav tells you.</p>
 </div>
 <div class="paragraph">
 <p>&gt;GIVE BANANA TO GUSTAV<br>
-"No, thank you," Gustav says. "I would rather have an apple."</p>
+&#8220;No, thank you,&#8221; Gustav says. &#8220;I would rather have an apple.&#8221;</p>
 </div>
 </div>
 </div>
@@ -9463,7 +9463,7 @@ The bars on the doors and single small window ensure that you won&#8217;t be goi
 </div>
 <div class="paragraph">
 <p>&gt;EXAMINE WINDOW<br>
-You don&#8217;t need to use the word "window".</p>
+You don&#8217;t need to use the word &#8220;window&#8221;.</p>
 </div>
 </div>
 </div>
@@ -9478,13 +9478,13 @@ It may be gotten around by adding an embellishment like this:</p>
 </div>
 <div class="paragraph">
 <p>The most important characteristic of a scenery object created using the <code>scenery</code> class is that it will not be listed by the library as part of the room&#8217;s contents (in this case, the contents of <code>prison_cell</code>).
-The <code>scenery</code> class is otherwise relatively unadorned: looking at a scenery object will produce a generic message about seeing nothing special, attempting to take a scenery object will generate a generic &#8220;You can&#8217;t take that&#8221;-type response, etc.&#8288;<sup class="footnote">[<a id="_footnoteref_50" class="footnote" href="#_footnotedef_50" title="View footnote.">50</a>]</sup>
+The <code>scenery</code> class is otherwise relatively unadorned: looking at a scenery object will produce a generic message about seeing nothing special, attempting to take a scenery object will generate a generic &#8220;<strong>You can&#8217;t take that</strong>&#8221;-type response, etc.&#8288;<sup class="footnote">[<a id="_footnoteref_50" class="footnote" href="#_footnotedef_50" title="View footnote.">50</a>]</sup>
 The scenery object can be fleshed out with a <code>long_desc</code> property and <code>before</code>/<code>after</code> handling for desired verbroutines.</p>
 </div>
 <div class="paragraph">
 <p>Components are similar to scenery objects in two important respects in that they&#8217;re not intended to be taken and they&#8217;re not specifically listed in any itemization of contents.
 Consider a case where a game might contain a machine (for fun, a nefarious machine) and a lever.
-The intention might be that the lever can be manipulated separately from the nefarious machine itself so that &#8220;&gt;PULL LEVER&#8221; elicits a different response than simply &#8220;&gt;PULL MACHINE&#8221;.
+The intention might be that the lever can be manipulated separately from the nefarious machine itself so that &#8220;<strong>&gt;PULL LEVER</strong>&#8221; elicits a different response than simply &#8220;<strong>&gt;PULL MACHINE</strong>&#8221;.
 At the same time, however, something like the following is probably undesirable:</p>
 </div>
 <div class="exampleblock gametranscript">
@@ -9703,12 +9703,12 @@ butterscotch sundae: Taken.</p>
 </div>
 </div>
 <div class="paragraph">
-<p>The <code>plural_of</code> property on the <code>plural</code> class enumerates the objects which it encompasses; each object encompassed by the <code>plural</code> class then points back to the <code>plural</code> class in its <code>plural_is</code> property.</p>
+<p>The <code>plural_of</code> property on the plural class enumerates the objects which it encompasses; each object encompassed by the plural class then points back to the plural class in its <code>plural_is</code> property.</p>
 </div>
 <div class="paragraph">
 <p>The <code>plural_verbs</code> property governs which verbs may be used on the plural object.
 The <code>plural_class</code> class itself provides a default <code>plural_verbs</code> which allows basic verbroutines like <code>DoLook</code>, <code>DoDrop</code>, <code>DoGet</code>, and <code>DoPutIn</code> to be used.
-Other actions will result in a response on the order of &#8220;You&#8217;ll have to do that one at a time&#8221;.
+Other actions will result in a response on the order of &#8220;<strong>You&#8217;ll have to do that one at a time</strong>&#8221;.
 To change the possible actions for a given plural object, provide a custom <code>plural_verbs</code> replacement that returns true only if the <code>verbroutine</code> global variable is a valid verbroutine for the object.</p>
 </div>
 <div class="paragraph">
@@ -9744,7 +9744,7 @@ The <code>identical_class</code> is similar to the <code>plural_class</code> exc
 </div>
 </div>
 <div class="paragraph">
-<p>The identical object <code>bananas</code> will allow a player to use all the facilities of the <code>identical_class</code> in order to manipulate one or more otherwise indistinguishable banana objects.&#8288;<sup class="footnote">[<a id="_footnoteref_53" class="footnote" href="#_footnotedef_53" title="View footnote.">53</a>]</sup>]</p>
+<p>The identical object <code>bananas</code> will allow a player to use all the facilities of the <code>identical_class</code> in order to manipulate one or more otherwise indistinguishable banana objects.&#8288;<sup class="footnote">[<a id="_footnoteref_53" class="footnote" href="#_footnotedef_53" title="View footnote.">53</a>]</sup></p>
 </div>
 </div>
 <div class="sect2">
