@@ -11638,8 +11638,8 @@ Following the verb header giving the number of verb words and the dictionary add
 
 [NOTE]
 ================================================================================
-// @XREF: "The Hugo Programming Manual"
-For an elaboration of valid grammar syntax specification, please see <<book1>>.
+// @XREF: "The Hugo Manual" => §7.1. Grammar Definition
+For an elaboration of valid grammar syntax specification, please see the <<hugo-book1_07#sec_7-1,Hugo Manual>>.
 ================================================================================
 
 Grammar lines are encoded immediately following the verb header, so that in the first example given above,
@@ -12049,8 +12049,8 @@ after
 A simple explanation of the above is that `<object>.after` is called following a call to a verbroutine with which `<object>` was involved.
 If `<object>` was the object of the verbroutine (i.e., the `object` global), and the `verbroutine` global was `DoGet`, the first block runs.
 The second block will run if no previous block has run.
-// @XREF: "The Hugo Programming Manual"
-For a full description of complex properties, see <<book1>>.
+// @XREF: "The Hugo Manual" => §5.3. Before and After Routines
+For a full description of complex properties, see the <<hugo-book1_05#sec_5-3,Hugo Manual>>.
 ================================================================================
 
 First of all, the entry in the property table for `<object>.after` will point to the first line of code in the property routine.
