@@ -183,13 +183,15 @@ All the cross-references to chapters, appendices and sections:
 
 All custom IDs for formal tables, figures, and other captioned block-elements.
 
-| Sec. |    Type   |                   Caption                   |     File Ref     |           XRef ID            |
-|------|-----------|---------------------------------------------|------------------|------------------------------|
-| §2.3 | [Table 1] | List of Hugo Data Types                     | `hugo-book1_02#` | `table-hugo-data-types`      |
-| §4.1 | [Table 2] | Predefined Global Variables                 | `hugo-book1_04#` | `table-engine-variables`     |
-| §4.3 | [Table 3] | Standard Colors Defined by the Hugo Library | `hugo-book1_04#` | `table-hugolib-colors`       |
-| §8.1 | [Table 4] | Predefined Global Variables and Properties  | `hugo-book1_08#` | `table-engine-globals`       |
-| §8.3 | [Table 5] | Default ParseError Responses                | `hugo-book1_08#` | `table-parseerror-responses` |
+|  Sec. |    Type   |                   Caption                   |     File Ref     |           XRef ID            |
+|-------|-----------|---------------------------------------------|------------------|------------------------------|
+| §2.3  | [Table 1] | List of Hugo Data Types                     | `hugo-book1_02#` | `table-hugo-data-types`      |
+| §4.1  | [Table 2] | Predefined Global Variables                 | `hugo-book1_04#` | `table-engine-variables`     |
+| §4.3  | [Table 3] | Standard Colors Defined by the Hugo Library | `hugo-book1_04#` | `table-hugolib-colors`       |
+| §8.1  | [Table 4] | Predefined Global Variables and Properties  | `hugo-book1_08#` | `table-engine-globals`       |
+| §8.3  | [Table 5] | Default ParseError Responses                | `hugo-book1_08#` | `table-parseerror-responses` |
+| §14.1 | [Table 6] | Memory Map of a .HEX File                   | `hugo-book2_02#` | `table-hex-file-map`         |
+| §14.2 | [Table 7] | Memory Map of a .HEX File Header            | `hugo-book2_02#` | `table-hex-file-header-map`  |
 
 ## Custom Anchors
 
@@ -286,6 +288,8 @@ The Travis CI build tests the project against the latest stable versions of thes
 [Table 3]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/docs/hugo-book.html#table-hugolib-colors "Live HTML Preview of captioned Table"
 [Table 4]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/docs/hugo-book.html#table-engine-globals "Live HTML Preview of captioned Table"
 [Table 5]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/docs/hugo-book.html#table-parseerror-responses "Live HTML Preview of captioned Table"
+[Table 6]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/docs/hugo-book.html#table-hex-file-map"Live HTML Preview of captioned Table"
+[Table 7]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/docs/hugo-book.html#table-hex-file-header-map"Live HTML Preview of captioned Table"
 
 <!-- project files -->
 

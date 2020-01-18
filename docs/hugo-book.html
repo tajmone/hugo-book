@@ -583,7 +583,7 @@ div.literalblock.hugosyntax div.content pre > sup.footnote a {
 <span id="email" class="email"><a href="mailto:general@generalcoffee.com">general@generalcoffee.com</a></span><br>
 <span id="revnumber">version 1,</span>
 <span id="revdate">2018-10-04</span>
-<br><span id="revremark">Draft 149 -- Porting to AsciiDoc</span>
+<br><span id="revremark">Draft 150 -- Porting to AsciiDoc</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -16145,7 +16145,8 @@ or<br>
 What this look under the hood attempts to do is to outline the configuration of data and code storage used by Hugo, as well as giving an extensive overview of how the various aspects of the language are compiled and interpreted.</p>
 </div>
 <div class="paragraph">
-<p>This technical specification of the language internals is not a complete programming guide; familiarity with the language and a handy copy of <a href="#book1"><em>The Hugo Programming Manual</em></a> will be helpful, as will access to the Hugo source code (written in ANSI C and available at the time of this writing at <em><a href="ftp://ftp.ifarchive.org/if-archive/programming/hugo/source" class="bare">ftp://ftp.ifarchive.org/if-archive/programming/hugo/source</a></em>).</p>
+<p>This technical specification of the language internals is not a complete programming guide; familiarity with the language and a handy copy of <a href="#book1"><em>The Hugo Programming Manual</em></a> will be helpful, as will access to the Hugo source code (written in ANSI C and available at the time of this writing at
+<a href="https://www.ifarchive.org/indexes/if-archive/programming/hugo/source/" title="Visit the IF Archive section containing the Hugo sources files for various platforms" target="_blank" rel="noopener"><em>ftp://ftp.ifarchive.org/if-archive/programming/hugo/source</em></a>).</p>
 </div>
 <div class="paragraph">
 <p>The standard Hugo source distribution is <strong>hugov31_source.tar.gz</strong>.
@@ -16194,7 +16195,8 @@ These low-level operations are, for the most part, transparent to the programmer
 <div class="paragraph">
 <p>If all the separate segments of a <strong>.HEX</strong> file were stacked contiguously on top of each other, the resulting pile would look something like this:</p>
 </div>
-<table class="tableblock frame-all grid-all stripes-even fit-content center">
+<table id="table-hex-file-map" class="tableblock frame-all grid-all stripes-even fit-content center">
+<caption class="title">Table 6. Memory Map of a .HEX File</caption>
 <colgroup>
 <col>
 <col>
@@ -16255,7 +16257,7 @@ MAXIMUM SIZE: 17792K bytes&#8288;<sup class="footnote">[<a id="_footnoteref_61" 
 </table>
 <div class="paragraph">
 <p>Each new segment begins on a boundary divisible by 16; an end-of-segment is padded with zeroes until the next boundary.
-For each segment, data is general stored in sequential chunks, following two or more bytes giving information about the size of the table.</p>
+For each segment, data is generally stored in sequential chunks, following two or more bytes giving information about the size of the table.</p>
 </div>
 <div class="paragraph">
 <p><strong>Dictionary table:</strong> the first two bytes give the total number of entries.
@@ -16289,7 +16291,8 @@ It contains the bulk of information regarding table offsets, junction routine ad
 <div class="paragraph">
 <p>Compile with the <code>-u</code> switch to display a map of memory usage in the <strong>.HEX</strong> file that reflects the offsets and addresses encoded in the header.</p>
 </div>
-<table class="tableblock frame-all grid-none stripes-even fit-content">
+<table id="table-hex-file-header-map" class="tableblock frame-all grid-none stripes-even fit-content">
+<caption class="title">Table 7. Memory Map of a .HEX File Header</caption>
 <colgroup>
 <col>
 <col>
@@ -16316,7 +16319,9 @@ It contains the bulk of information regarding table offsets, junction routine ad
 <tr>
 <td class="tableblock halign-right valign-top"><p class="tableblock"><code>03</code></p></td>
 <td class="tableblock halign-right valign-top"><p class="tableblock">8</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Serial number</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Serial number</p>
+</div></div></td>
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top" colspan="3"><div class="content"><div class="paragraph">
@@ -16326,7 +16331,9 @@ It contains the bulk of information regarding table offsets, junction routine ad
 <tr>
 <td class="tableblock halign-right valign-top"><p class="tableblock"><code>0B</code></p></td>
 <td class="tableblock halign-right valign-top"><p class="tableblock">2</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Address of start of executable code</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Address of start of executable code</p>
+</div></div></td>
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top" colspan="3"><div class="content"><div class="paragraph">
@@ -16341,27 +16348,37 @@ It contains the bulk of information regarding table offsets, junction routine ad
 <tr>
 <td class="tableblock halign-right valign-top"><p class="tableblock"><code>0F</code></p></td>
 <td class="tableblock halign-right valign-top"><p class="tableblock">2</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Property table offset</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Property table offset</p>
+</div></div></td>
 </tr>
 <tr>
 <td class="tableblock halign-right valign-top"><p class="tableblock"><code>11</code></p></td>
 <td class="tableblock halign-right valign-top"><p class="tableblock">2</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Event table offset</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Event table offset</p>
+</div></div></td>
 </tr>
 <tr>
 <td class="tableblock halign-right valign-top"><p class="tableblock"><code>13</code></p></td>
 <td class="tableblock halign-right valign-top"><p class="tableblock">2</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Array space offset</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Array space offset</p>
+</div></div></td>
 </tr>
 <tr>
 <td class="tableblock halign-right valign-top"><p class="tableblock"><code>15</code></p></td>
 <td class="tableblock halign-right valign-top"><p class="tableblock">2</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Dictionary offset</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Dictionary offset</p>
+</div></div></td>
 </tr>
 <tr>
 <td class="tableblock halign-right valign-top"><p class="tableblock"><code>17</code></p></td>
 <td class="tableblock halign-right valign-top"><p class="tableblock">2</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Special words table offset</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Special words table offset</p>
+</div></div></td>
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top" colspan="3"><div class="content"><div class="paragraph">
@@ -16371,37 +16388,51 @@ It contains the bulk of information regarding table offsets, junction routine ad
 <tr>
 <td class="tableblock halign-right valign-top"><p class="tableblock"><code>19</code></p></td>
 <td class="tableblock halign-right valign-top"><p class="tableblock">2</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Init</code> routine indexed address</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>Init</code> routine indexed address</p>
+</div></div></td>
 </tr>
 <tr>
 <td class="tableblock halign-right valign-top"><p class="tableblock"><code>1B</code></p></td>
 <td class="tableblock halign-right valign-top"><p class="tableblock">2</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Main</code> routine indexed address</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>Main</code> routine indexed address</p>
+</div></div></td>
 </tr>
 <tr>
 <td class="tableblock halign-right valign-top"><p class="tableblock"><code>1D</code></p></td>
 <td class="tableblock halign-right valign-top"><p class="tableblock">2</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Parse</code> routine indexed address</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>Parse</code> routine indexed address</p>
+</div></div></td>
 </tr>
 <tr>
 <td class="tableblock halign-right valign-top"><p class="tableblock"><code>1F</code></p></td>
 <td class="tableblock halign-right valign-top"><p class="tableblock">2</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ParseError</code> routine indexed address</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>ParseError</code> routine indexed address</p>
+</div></div></td>
 </tr>
 <tr>
 <td class="tableblock halign-right valign-top"><p class="tableblock"><code>21</code></p></td>
 <td class="tableblock halign-right valign-top"><p class="tableblock">2</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>FindObject</code> routine indexed address</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>FindObject</code> routine indexed address</p>
+</div></div></td>
 </tr>
 <tr>
 <td class="tableblock halign-right valign-top"><p class="tableblock"><code>23</code></p></td>
 <td class="tableblock halign-right valign-top"><p class="tableblock">2</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>EndGame</code> routine indexed address</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>EndGame</code> routine indexed address</p>
+</div></div></td>
 </tr>
 <tr>
 <td class="tableblock halign-right valign-top"><p class="tableblock"><code>25</code></p></td>
 <td class="tableblock halign-right valign-top"><p class="tableblock">2</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>SpeakTo</code> routine indexed address</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>SpeakTo</code> routine indexed address</p>
+</div></div></td>
 </tr>
 <tr>
 <td class="tableblock halign-right valign-top"><p class="tableblock"><code>27</code></p></td>
@@ -16416,7 +16447,9 @@ It contains the bulk of information regarding table offsets, junction routine ad
 <tr>
 <td class="tableblock halign-right valign-top"><p class="tableblock"><code>29</code></p></td>
 <td class="tableblock halign-right valign-top"><p class="tableblock">2</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Text bank offset</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Text bank offset</p>
+</div></div></td>
 </tr>
 </tbody>
 </table>

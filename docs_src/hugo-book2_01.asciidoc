@@ -12,7 +12,8 @@ What this look under the hood attempts to do is to outline the configuration of 
 
 
 // @XREF: "The Hugo Programming Manual"
-This technical specification of the language internals is not a complete programming guide; familiarity with the language and a handy copy of <<book1>> will be helpful, as will access to the Hugo source code (written in ANSI C and available at the time of this writing at _ftp://ftp.ifarchive.org/if-archive/programming/hugo/source_).
+This technical specification of the language internals is not a complete programming guide; familiarity with the language and a handy copy of <<book1>> will be helpful, as will access to the Hugo source code (written in ANSI C and available at the time of this writing at
+link:https://www.ifarchive.org/indexes/if-archive/programming/hugo/source/[_ftp://ftp.ifarchive.org/if-archive/programming/hugo/source_^,title="Visit the IF Archive section containing the Hugo sources files for various platforms"]).
 
 The standard Hugo source distribution is *hugov31_source.tar.gz*.
 Operating-system-specific sources (i.e., implementations of non-portable functions) are typically *hugov31_OSname_source.zip*.

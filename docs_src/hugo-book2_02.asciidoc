@@ -37,6 +37,8 @@ The pair is coded in low-byte/high-byte order.]]
 
 If all the separate segments of a *.HEX* file were stacked contiguously on top of each other, the resulting pile would look something like this:
 
+[[table-hex-file-map]]
+.Memory Map of a .HEX File
 [.center,cols="<,>",options="autowidth",stripes=even]
 |===============================================================================
 | DATA STORAGE:                 | MAXIMUM SIZE:
@@ -57,7 +59,7 @@ MAXIMUM SIZE: 17792K bytes{wj}{fn1}
 |===============================================================================
 
 Each new segment begins on a boundary divisible by 16; an end-of-segment is padded with zeroes until the next boundary.
-For each segment, data is general stored in sequential chunks, following two or more bytes giving information about the size of the table.
+For each segment, data is generally stored in sequential chunks, following two or more bytes giving information about the size of the table.
 
 *Dictionary table:* the first two bytes give the total number of entries.
 The third byte is always 0, so that dictionary entry 0 is an empty string (`+""+`).
@@ -84,51 +86,53 @@ It contains the bulk of information regarding table offsets, junction routine ad
 
 Compile with the `-u` switch to display a map of memory usage in the *.HEX* file that reflects the offsets and addresses encoded in the header.
 
-[cols=">m,>d,<d",options=autowidth,grid=none,stripes=even]
-|===============================================================================
+// @NOTE TABLES FORMATTING:
+//    In the following table the 3rd column was set to 'a' (AsciiDoc) and then
+//    overriden to 'd' (default) whenever a footnote is present; this was done
+//    to work around Asciidoctor mishandling inline code styling inside table
+//    cells (possibly, a bug in the HTML5 default template).
+
+[[table-hex-file-header-map]]
+.Memory Map of a .HEX File Header
+[cols=">m,>d,<a",options=autowidth,grid=none,stripes=even]
+|===========================================================
 | Byte | Length | Description
 
-| $00 | 1 | Version of Hugo Compiler used{wj}{fn2}
-| 01  | 2 | ID string (compiler-generated){wj}{fn3}
-| 03  | 8 | Serial number
+| $00  | 1     d| Version of Hugo Compiler used{wj}{fn2}
+| 01   | 2     d| ID string (compiler-generated){wj}{fn3}
+| 03   | 8      | Serial number
 3+^a| {blank}
-| 0B  | 2 | Address of start of executable code
+| 0B   | 2      | Address of start of executable code
 3+^a| {blank}
-| 0D  | 2 | Object table offset{wj}{fn4}
-| 0F  | 2 | Property table offset
-| 11  | 2 | Event table offset
-| 13  | 2 | Array space offset
-| 15  | 2 | Dictionary offset
-| 17  | 2 | Special words table offset
+| 0D   | 2     d| Object table offset{wj}{fn4}
+| 0F   | 2      | Property table offset
+| 11   | 2      | Event table offset
+| 13   | 2      | Array space offset
+| 15   | 2      | Dictionary offset
+| 17   | 2      | Special words table offset
 3+^a| {blank}
-| 19  | 2 | `Init` routine indexed address
-| 1B  | 2 | `Main` routine indexed address
-| 1D  | 2 | `Parse` routine indexed address
-| 1F  | 2 | `ParseError` routine indexed address
-| 21  | 2 | `FindObject` routine indexed address
-| 23  | 2 | `EndGame` routine indexed address
-| 25  | 2 | `SpeakTo` routine indexed address
-| 27  | 2 | `Perform` routine indexed address{wj}{fn5}
+| 19   | 2      | `Init` routine indexed address
+| 1B   | 2      | `Main` routine indexed address
+| 1D   | 2      | `Parse` routine indexed address
+| 1F   | 2      | `ParseError` routine indexed address
+| 21   | 2      | `FindObject` routine indexed address
+| 23   | 2      | `EndGame` routine indexed address
+| 25   | 2      | `SpeakTo` routine indexed address
+| 27   | 2     d| `Perform` routine indexed address{wj}{fn5}
 3+^a| {blank}
-| 29  | 2 | Text bank offset
-|===============================================================================
-// 3+<d| In *.HDX* (debuggable) Hugo executables only:
-// | 3A  | 1 | Debuggable flag, set to 1
-// | 3B  | 3 | Absolute start of debugging information
-// | 3E  | 2 | Debug workspace (in array table)
-// |===============================================================================
-
+| 29   | 2      | Text bank offset
+|===========================================================
 
 In *.HDX* (debuggable) Hugo executables only:
 
 [cols=">m,>d,<d",options=autowidth,grid=none,stripes=even]
-|===============================================================================
+|=========================================================
 | Byte | Length | Description
 
-| 3A  | 1 | Debuggable flag, set to 1
-| 3B  | 3 | Absolute start of debugging information
-| 3E  | 2 | Debug workspace (in array table)
-|===============================================================================
+| 3A   | 1      | Debuggable flag, set to 1
+| 3B   | 3      | Absolute start of debugging information
+| 3E   | 2      | Debug workspace (in array table)
+|=========================================================
 
 
 [TIP]
