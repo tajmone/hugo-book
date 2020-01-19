@@ -17,7 +17,7 @@ That is, if several additional grammar files are to be included, or new grammar 
 
 The syntax used for grammar definition is:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 ..................................................
 [x]verb "<verb1>" [, "<verb2>", "<verb3>",...]
     * <syntax specification 1>      <VerbRoutine1>
@@ -166,17 +166,17 @@ That is, in the input line:
 
 the syntax line
 
-[source,hugo, subs="+attributes"]
------------------------------
+[source,hugo,subs="+attributes"]
+-------------------------------------
 {wj}    * object "out" "of" container
------------------------------
+-------------------------------------
 
 will be matched, while
 
-[source,hugo, subs="+attributes"]
----------------------------
+[source,hugo,subs="+attributes"]
+-----------------------------------
 {wj}    * object "out of" container
----------------------------
+-----------------------------------
 
 would never be recognized, since the engine will automatically parse "`out`" and "`of`" as two separate words; the parser will never find a match for "`out of`".
 
@@ -208,26 +208,26 @@ You haven't seen any "up box", nor are you likely to in the near future even if 
 
 (assuming that "`up`" has been defined elsewhere as part of a different object name, as in *objlib.h*), because the processor processes the syntax
 
-[source,hugo, subs="+attributes"]
----------------------------------
+[source,hugo,subs="+attributes"]
+--------------------------------
 {wj}    * object
----------------------------------
+--------------------------------
 
 and determines that an invalid object name is being used; it never gets to
 
-[source,hugo, subs="+attributes"]
----------------------------------
+[source,hugo,subs="+attributes"]
+--------------------------------
 {wj}    * "up" object
----------------------------------
+--------------------------------
 
 The proper verb definition would be ordered like
 
 [source,hugo]
----------------------------------
+-----------------------------
 verb "pick"
     * "up" object       DoGet
     * object            DoGet
----------------------------------
+-----------------------------
 
 so that both "`pick <object>`" and "`pick up <object>`" are valid player commands.
 It's generally good practice to make sure that more specific grammar precedes more general grammar for this reason.
@@ -243,20 +243,20 @@ As a rule, unless you need to preempt the library's normal grammar processing, i
 A single object may be specified as the only valid object for a particular syntax:
 
 [source,hugo]
-------------------------------------------
+--------------------------------------
 verb "rub"
     * (magic_lamp)      DoRubMagicLamp
-------------------------------------------
+--------------------------------------
 
 will produce a "`*You can't do that with...*`" error for any object other than the `magic_lamp` object.
 
 Using a routine name to specify an object is slightly more involved: the engine calls the given routine with the object specified in the input line as its argument; if the routine returns true, the object is valid -- if not, a parsing error is expected to have been printed by the routine.
 If two routine names are used in a particular syntax, such as
 
-[source,hugo, subs="+attributes"]
----------------------------------------------------
+[source,hugo,subs="+attributes"]
+-----------------------------------------------
 {wj}    * (FirstRoutine) "with" (SecondRoutine)
----------------------------------------------------
+-----------------------------------------------
 
 then `FirstRoutine` validates the object and `SecondRoutine` validates the xobject.
 
@@ -287,7 +287,7 @@ The next step is to process the four types of special "`words`" which may be def
 These are simply words that are to be automatically removed from any input line, and are generally limited to words such as "`a`" and "`the`" which would, generally speaking, only make grammar matching more complicated and difficult.
 The syntax for defining a removal is:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 .............................................
 removal "<word1>"[, "<word2>", "word<3>",...]
 .............................................
@@ -301,7 +301,7 @@ removal "a", "an", "the"
 
 [.big.red]#_Punctuation_# is similar to a removal, except it specifies the removal of individual characters instead of whole words:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 ...........................................
 punctuation "<character1>[<character2>...]"
 ...........................................
@@ -316,7 +316,7 @@ punctuation "$%"
 [.big.red]#_Synonyms_# are slightly more complex.
 These are words that will never be found in the parsed input line; they are replaced by the specified word for which they are a synonym.
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 ................................
 synonym "<synonym>" for "<word>"
 ................................
@@ -336,7 +336,7 @@ Usage of synonyms will likely not be extensive, since of course it is possible t
 
 [.big.red]#_Compounds_# are the final type of special word, specified as:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 .............................
 compound "<word1>", "<word2>"
 .............................
@@ -499,7 +499,7 @@ verb "get"
 Now, this must come both before any other code or definitions as well as the _existing_ grammar for "`*>GET <object>*`" (from *verblib.g*).
 Otherwise, the regular grammar for
 
-[source,hugo, subs="+attributes"]
+[source,hugo,subs="+attributes"]
 ---------------------------------
 {wj}    * object            DoGet
 ---------------------------------

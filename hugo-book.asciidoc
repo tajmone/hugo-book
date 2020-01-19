@@ -377,28 +377,28 @@ If you're using a GUI version of the compiler (such as the one for Windows), whe
 If you're running a command-line version of the compiler, it will behave pretty much the same regardless of what system you're on.
 Type
 
-[literal, role="cmd"]
-................................................................................
+[literal,role="cmd"]
+....................
 hc
-................................................................................
+....................
+
 
 without any parameters to get a full listing of available compiler options and specifications.
 For example, the Unix and MS-DOS syntax for running the compiler is
 
-[literal, role="cmd"]
-................................................................................
+[literal,role="cmd"]
+..............................................
 hc [-switches] <sourcefile[.hug]> <objectfile>
-................................................................................
-
+..............................................
 
 
 It is not absolutely necessary to specify any switches, the name of the objectfile, or the sourcefile extension.
 The bare-bones version of the compiler invocation is
 
-[literal, role="cmd"]
-................................................................................
+[literal,role="cmd"]
+....................
 hc <sourcefile>
-................................................................................
+....................
 
 
 With no other parameters explicitly described, the compiler assumes an extension of *.hug*.
@@ -409,17 +409,17 @@ The default object filename is *<sourcefile>.hex*.
 Here's how to compile the sample game from the *sample.hug* source code mentioned earlier in <<sec_1-5>>.
 Make sure the compiler executable, library files, and sample game source code are all in the current directory, then type
 
-[literal, role="cmd"]
-................................................................................
+[literal,role="cmd"]
+....................
 hc -ls sample.hug
-................................................................................
+....................
 
 or simply
 
-[literal, role="cmd"]
-................................................................................
+[literal,role="cmd"]
+....................
 hc -ls sample
-................................................................................
+....................
 
 and after a few seconds (or more, or less, depending on your processor and configuration) a screenful of statistical information will appear following the completed compilation (because of the `-s` switch).
 The new file *sample.hex* will have appeared in current directory.
@@ -507,16 +507,16 @@ For the most part, you won't need to worry about upping any of these settings un
 
 To list the settings, type:
 
-[literal, role="cmd"]
-................................................................................
+[literal,role="cmd"]
+....................
 hc $list
-................................................................................
+....................
 
 You'll see something like:
 
 // @NOTE: Output below was re-generated using HUGO COMPILER v3.1.03.
-[literal, role="cmd"]
-................................................................................
+[literal,role="cmd"]
+...............................................................
 ---------------------------------------------------------------
 Static limits (non-modifiable):
         MAXATTRIBUTES     128   MAXGLOBALS        240
@@ -533,14 +533,14 @@ Default limits:
 
 Modify non-static default limits using:  $<setting>=<new limit>
 ---------------------------------------------------------------
-................................................................................
+...............................................................
 
 To change a non-static limit (and compile a source file), type:
 
-[literal, role="cmd"]
-................................................................................
+[literal,role="cmd"]
+.........................................
 hc $<setting>=<new limit> <sourcefile>...
-................................................................................
+.........................................
 
 // @EDITED TYPO: (Issue #20)
 //    Fixed missing '$' in: "or `'list'`" --> "or `'$list'`"
@@ -553,10 +553,10 @@ Users of Unix or similar systems (including OS X, BeOS, and others) may, dependi
 
 For example, to compile the sample game with the maximum number of dictionary entries doubled from the default limit of 1024, and with the `-l` and `-s` switches set,
 
-[literal, role="cmd"]
-................................................................................
+[literal,role="cmd"]
+...........................
 hc -ls $MAXDICT=2048 sample
-................................................................................
+...........................
 
 If a compile-time error is generated indicating that too many symbols of a particular type have been declared, it is probably possible to overcome this simply by recompiling with a higher limit for that setting specified in the invocation line.
 
@@ -570,17 +570,17 @@ See <<appendix_c>> for a complete listing of valid limit settings.
 It is possible to specify where the Hugo Compiler will look for different types of files.
 This can be done in the command line via:
 
-[literal, role="cmd"]
-................................................................................
+[literal,role="cmd"]
+................................
 hc @<directory>=<real directory>
-................................................................................
+................................
 
 For example, to specify that the source files are to be taken from the directory *c:\hugo\source*, invoke the compiler with
 
-[literal, role="cmd"]
-................................................................................
+[literal,role="cmd"]
+....................................
 hc @source=c:\hugo\source <filename>
-................................................................................
+....................................
 
 
 Valid directories (which can be listed using `hc @list`) are:
@@ -620,10 +620,10 @@ The way in which you do this will vary depending on what platform you're using.
 . Command-line versions of the engine require you to specify the name of the *.HEX* file you want to run.
 Having compiled the sample game, run it by invoking
 +
-[literal, role="cmd"]
-................................................................................
+[literal,role="cmd"]
+....................
 he sample
-................................................................................
+....................
 +
 at the command line (replacing `he` with the name of the engine executable for your system, if necessary).
 Again, it should not be necessary to specify the extension.
@@ -655,7 +655,7 @@ It's possible to call the compiler to compile _Future Boy!_ with a number of dif
 
 Here's how that's done:
 
-[literal, role="cmd"]
+[literal,role="cmd"]
 ...................................................
 hc -lios $maxobjects=512 @source=fb @lib=lib future
 ...................................................
@@ -863,10 +863,10 @@ A variable that holds the count of a number of objects _could_ be called `n`, bu
 
 At this point it's probably helpful to know that you can assign a value to a variable using the form:
 
-[literal, role="hugosyntax", subs="+attributes,macros"]
-.......................................................
+[literal,role="hugosyntax",subs="+attributes,macros"]
+.....................................................
 <some variable> = <some value>{wj}{fn5}
-.......................................................
+.....................................................
 
 For instance, to set the variable `x` equal to 5, you would use:
 
@@ -1140,20 +1140,20 @@ When it encounters something in your source code that doesn't make sense, or is 
 A compiler error is generally of one of two types.
 A fatal error looks like this:
 
-[literal, role="cmd"]
-................................................................................
+[literal,role="cmd"]
+.......................
 Fatal error:  <message>
-................................................................................
+.......................
 
 and halts compiler execution.
 Fatal errors include things like not being able to find a requested file, encountering some sort of i/o difficulty (such as not being able to read from or write to a necessary file), or having encountered something in the source code that makes it impossible to continue with compilation.
 
 A non-fatal error typically looks like:
 
-[literal, role="cmd"]
-................................................................................
+[literal,role="cmd"]
+.....................................
 <filename>:<line>:  Error:  <message>
-................................................................................
+.....................................
 
 Non-fatal errors are usually programming mistakes: either doing something illegal (like trying to assign a value to something to which you're not allowed to assign a value), making a syntax error such as using a symbol name that the compiler doesn't know about (often due to a typing mistake), or making a formatting mistake (like missing something that the compiler knows is supposed to be coming next but you forgot to include).
 Unless the `-a` switch is specified at invocation to tell the compiler to quit after the first error, multiple non-fatal errors may be printed.
@@ -1161,21 +1161,21 @@ The side-effect of this is that a specific error (particularly a formatting erro
 
 When a compiler issues a warning, it looks like:
 
-[literal, role="cmd"]
-................................................................................
+[literal,role="cmd"]
+.......................................
 <filename>:<line>:  Warning:  <message>
-................................................................................
+.......................................
 
 Compilation will continue, but this is an indication that the compiler suspects a problem at compile-time.
 
 If the `-e` switch has been set during invocation to generate expanded-format errors, error output looks like:
 
-[literal, role="cmd"]
-................................................................................
+[literal,role="cmd"]
+.........................
 <FILENAME>:  <LOCATION>
 (Error-causing line)
 "ERROR:  <error message>"
-................................................................................
+.........................
 
 It prints the section of code that caused the error, followed by an explanation of the problem.
 Compilation will generally continue unless the `-a` switch has been set.
@@ -1194,10 +1194,10 @@ These special commands or instructions are called _compiler directives_, and are
 
 To set switches within the source code so that they do not have to be specified each time the compiler is invoked for that particular program, the line
 
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 #switches -<sequence>
-............................
+...........................
 
 will set the switches specified by `<sequence>`, where `<sequence>` is a string of characters representing valid switches, without any separators between characters.
 Many programmers may find it useful to make
@@ -1211,7 +1211,7 @@ the first line in every new program, which will automatically print a statistica
 
 Using
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 ...............................
 #version <version>[.<revision>]
 ...............................
@@ -1228,10 +1228,10 @@ Its general usage is largely deprecated.
 
 To include the contents of another file at the specified point in the current file, use
 
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 #include "<filename>"
-............................
+...........................
 
 where `<filename>` is the full path and name of the file to be read.
 When `<filename>` has been read completely, the compiler resumes with the statement immediately following the `#include` directive.
@@ -1253,17 +1253,17 @@ Only if it has do they include the *hugofix.h* and *hugofix.g* files, which in t
 
 To set and clear flags, use
 
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 #set <flagname>
-............................
+...........................
 
 and
 
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 #clear <flagname>
-............................
+...........................
 
 respectively.
 
@@ -1272,31 +1272,31 @@ respectively.
 ================================================================================
 Flags can also be explicitly set on the command line during compiler invocation via
 
-[literal, role="cmd"]
-................................................................................
+[literal,role="cmd"]
+..............................
 hc #<flagname> <sourcefile>...
-................................................................................
+..............................
 
 similarly to compiler limit settings and directories, with the same caveat that on some systems it may be necessary to enclose `#<flagname>` in single quotes or otherwise escape it, if required.
 ================================================================================
 
 Then, check to see if a flag is set or not (and include or exclude the specified block of source code) by using
 
-[literal, role="hugosyntax", subs="+quotes"]
-............................................
+[literal,role="hugosyntax",subs="+quotes"]
+..........................................
 #ifset <flagname>
     _...conditional block of code..._
 #endif
-............................................
+..........................................
 
 or
 
-[literal, role="hugosyntax", subs="+quotes"]
-............................................
+[literal,role="hugosyntax",subs="+quotes"]
+..........................................
 #ifclear <flagname>
     _...conditional block of code..._
 #endif
-............................................
+..........................................
 
 Conditional compilation constructions may be nested up to 32 levels deep.
 (Note also that compiler flags can be specified in the invocation line as `#<flag name>`.)
@@ -1321,26 +1321,26 @@ Use `#if defined <symbol>` and `#if undefined <symbol>` to test if objects, prop
 
 As seen above, the `#message` directive can be used as
 
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 #message "<text>"
-............................
+...........................
 
 to output `<text>` when (or if) that statement is processed during the first compilation pass.
 
 Including `error` or `warning` before `<text>` as in
 
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 #message error "<text>"
-............................
+...........................
 
 or
 
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 #message warning "<text>"
-............................
+...........................
 
 will force the compiler to issue an error or warning, respectively, as it prints `<text>`.
 
@@ -1352,10 +1352,10 @@ That is, it's printed only when the compiler initially compiles the source code,
 
 It is also possible to include inline limit settings, such as
 
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 $<setting>=<limit>
-............................
+...........................
 
 in the same way as in the invocation line.
 However, an error will be issued if, for example, an attempt is made to reset `MAXOBJECTS` if one or more objects have already been defined.
@@ -1391,10 +1391,10 @@ asdf#set DEBUG
 Now, when you compile, you'll see:
 
 // @NOTE: Output below was re-generated using HUGO COMPILER v3.1.03.
-[literal, role="cmd"]
-................................................................................
+[literal,role="cmd"]
+.......................................................
 test.hug:12:  Error:  Unknown compiler directive:  asdf
-................................................................................
+.......................................................
 
 [NOTE]
 =========================================================================
@@ -1416,10 +1416,10 @@ Most importantly are the first couple, which look something like:
 // @NOTE: The output text below was replaced with real output generated using
 //        HUGO COMPILER v3.1.03 and HUGO LIBRARY v3.1.03.2.
 //        (got "test.hug:610:" instead of "691", but the rest was identical)
-[literal, role="cmd"]
-................................................................................
+[literal,role="cmd"]
+.....................................................
 test.hug:610:  Error:  Maximum of 50 objects exceeded
-................................................................................
+.....................................................
 
 [NOTE]
 =========================================================================
@@ -1488,7 +1488,7 @@ Objects are the building blocks of any Hugo program.
 Anything that will be accessible to a player during the game -- including items, rooms, other characters, and even directions -- will most likely be defined as an object.
 The basic object definition looks like this:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 .................................
 object <objectname> "object name"
 {
@@ -1669,24 +1669,24 @@ Compiling with the `-d` switch will generate a debuggable (*.HDX*) version of th
 
 To initially place an object in the object tree, use
 
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 in <parent>
-............................
+...........................
 
 in the object definition, or, alternatively
 
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 nearby <object>
-............................
+...........................
 
 or simply
 
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 nearby
-............................
+...........................
 
 to give the object the same parent as `<object>` or, if `<object>` is not specified, the same parent as the last-defined object.
 If no such specification is given (i.e., if you don't tell the compiler explicitly where to place the new object), the parent object defaults to 0 -- the `nothing` object as defined in the library.
@@ -1694,7 +1694,7 @@ All normal room objects have 0 as their parent.
 
 Therefore, the expanded basic case of an object definition is
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 .................................
 object <objectname> "object name"
 {
@@ -1708,7 +1708,7 @@ object <objectname> "object name"
 Ensure that the opening brace `{` does not come on the same line as the `object` definition.
 Trying to do:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 ......................................
 object <objectname> "object name" {...
 ......................................
@@ -1739,7 +1739,7 @@ object mysuitcase "suitcase"
 
 Objects can later be moved around the object tree using the `move` command as in:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 .............................
 move <object> to <new parent>
 .............................
@@ -1760,27 +1760,27 @@ image::hugo-book1_03_object-tree3.svg[align="center",width=40%]
 
 There is also a command to remove an object from its position in the tree:
 
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 remove <object>
-............................
+...........................
 
 which is the same as
 
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 move <object> to 0
-............................
+...........................
 
 The object may of course be moved to any position later.
 
 Logical tests can also be evaluated with regard to objects and children.
 The structure
 
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 <object> [not] in <parent>
-............................
+...........................
 
 will be true if `<object>` is in `<parent>` (or false if `not` is used).
 In this way, you can write a piece of code that looks something like:
@@ -1813,10 +1813,10 @@ We'll cover the `if...else...` structure in <<sec_4-7>>.
 Attributes are essentially qualities that every object either does or doesn't have.{wj}{fn3}
 An attribute is defined as
 
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 attribute <attribute name>
-............................
+...........................
 
 Up to 128 attributes may be defined.
 Those defined in *hugolib.h* include:
@@ -1858,7 +1858,7 @@ Those defined in *hugolib.h* include:
 Some of these attributes are actually the same attribute with different names.
 This is primarily just to save on the absolute number of attributes defined and is accomplished via
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 .........................................
 attribute <attribute2> alias <attribute1>
 .........................................
@@ -1876,7 +1876,7 @@ For the most part, you should never need to alias your own attributes, although 
 
 Attributes are given to an object during its definition as follows:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 ..................................................
 object <objectname> "object name"
 {
@@ -1905,7 +1905,7 @@ object mysuitcase "suitcase"
 
 Even if an object was not given a particular attribute in its object definition, it may be given that attribute at any later point in the program with the command
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 .............................
 <object> is [not] <attribute>
 .............................
@@ -1929,7 +1929,7 @@ mysuitcase is not open
 Attributes can also be read using the `is` and `is not` structures and evaluate to either true or false.
 In code, the expression
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 .............................
 <object> is [not] <attribute>
 .............................
@@ -1968,7 +1968,7 @@ They are sets of valid data associated with an object, where the values may repr
 
 These are some valid properties as they would appear in an object definition (using property names defined in *hugolib.h*):{wj}{fn6}
 
-[source,hugo, subs="+attributes,macros"]
+[source,hugo,subs="+attributes,macros"]
 ---------------------------------------------
 nouns "tree", "bush", "shrub", "plant"
 
@@ -2022,15 +2022,15 @@ For now, think of a property as simply containing one or more values of some kin
 
 A property is defined similiarly to an attribute as
 
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 property <property name>
-............................
+...........................
 
 A default value may be defined for the property using
 
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 ........................................
 property <property name> <default value>
 ........................................
@@ -2122,7 +2122,7 @@ The following properties are also defined and used exclusively by the display ob
 
 Property names may be aliased similarly to attributes using:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 ......................................
 property <property2> alias <property1>
 ......................................
@@ -2140,22 +2140,22 @@ pronouns alias pronoun
 
 Whereas a simple property is expressed as
 
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 <object>.<property>
-............................
+...........................
 
 The number of elements to a property with more than a single value can be found via
 
 
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 <object>.#<property>
-............................
+...........................
 
 and a single element is expressed as
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 .....................................
 <object>.<property> #<element number>
 .....................................
@@ -2191,7 +2191,7 @@ Even "`big green`" and "`suit`" may be valid, provided that these don't also ref
 ================================================================================
 The basic form for identification by the parser is
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 .................................................
 <adjective 1> <adj. 2> <adj. 3>...<adj. n> <noun>
 .................................................
@@ -2199,17 +2199,17 @@ The basic form for identification by the parser is
 where any subset of these elements is allowable.
 However, the noun must come last, and only one noun is recognized, so that
 
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 <noun> <noun>
-............................
+...........................
 
 and
 
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 <noun> <adjective>
-............................
+...........................
 
 as in "`luggage case`" and "`suitcase green`" are not recognized.
 ================================================================================
@@ -2224,7 +2224,7 @@ found_in kitchen
 
 and later, the program tries to set
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 .................................
 <object>.found_in #2 = livingroom
 .................................
@@ -2234,7 +2234,7 @@ That is, there will be no space initialized in `<object>`{wj}`'s property table 
 Trying to read `<object>.found_in #2` will return a value of 0 -- a non-existent property -- not the number of the `livingroom` object.
 
 To overcome this, if it is known that eventually a second (or third, or fourth, or ninth) value is going to be set -- even if only one value is defined at the outset -- use
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 ...............................
 found_in kitchen, 0[, 0, 0,...]
 ...............................
@@ -2285,7 +2285,7 @@ Classes are objects that are specifically intended to be used as prototypes for 
 They're extremely useful for when you want to create a number of objects that will all share certain basic characteristics.
 Here is how a class is defined:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 .....................................
 class <classname> ["<optional name>"]
 {
@@ -2371,7 +2371,7 @@ We created what amounts to a "`copy`" of `largebox`, with a different name ("`la
 Occasionally, it may be necessary to have an object or class inherit from more than one previously defined class.
 This can be done using the `inherits` instruction.
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 .....................................
 <class1> <objectname> "name"
 {
@@ -2382,7 +2382,7 @@ This can be done using the `inherits` instruction.
 
 or even
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 ...............................................
 object <objectname> "name"
 {
@@ -2399,7 +2399,7 @@ Sometimes, however, it may be desirable to use a different definition for, say, 
 
 Instead of actually editing *objlib.h*,{wj}{fn9} use:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 ............................................
 replace <class> ["<optional name>"]
 {
@@ -2519,7 +2519,7 @@ temp_word = "the"
 _Global_ variables are visible throughout the program.
 They must be defined similarly to properties and attributes as
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 .................................................
 global <global variable name>[ = <initial value>]
 .................................................
@@ -2527,7 +2527,7 @@ global <global variable name>[ = <initial value>]
 _Local_ variables, on the other hand, are recognized only within the routine in which they are defined.
 They are defined using
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 ...............................................
 local <local variable name>[ = <initial value>]
 ...............................................
@@ -2689,13 +2689,13 @@ A = 1, B = 2, C = 4, D = 8.
 
 Enumeration of global variables is also possible, using the `globals` specifier, as in:
 
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 enumerate globals
 {
     <global1>, <global2>,...
 }
-............................
+...........................
 
 Otherwise the specifier `constants` (as opposed to `globals`) is implied as the default.
 
@@ -2706,10 +2706,10 @@ Otherwise the specifier `constants` (as opposed to `globals`) is implied as the 
 Text can be printed -- that is, output to the screen during running of a Hugo program -- using two different methods.
 The first is the basic `print` command, the simplest form of which is
 
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 print "<string>"
-............................
+...........................
 
 where `<string>` consists of a series of alphanumeric characters and punctuation.
 
@@ -2918,7 +2918,7 @@ is illegal.
 The color of text may be changed using the `color` command (also valid with the U.K. spelling `colour`).
 The format is
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 ...................................................
 color <foreground>[, <background>[, <input color>]]
 ...................................................
@@ -3006,10 +3006,10 @@ Date:
 
 Text can be specifically located using the `locate` command via
 
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 locate <column>, <row>
-............................
+...........................
 
 where
 
@@ -3062,10 +3062,10 @@ A **bold string with some _italics_ and [.underline]#underline#** [.underline]#t
 
 Print style can also be changed using the `Font` routine in *hugolib.h*, so that in
 
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 Font(<font change code>)
-............................
+...........................
 
 the `<font change code>` can be one or more of:
 
@@ -3277,7 +3277,7 @@ FindLight(location) + a   ! return value and variable
 
 Expressions can be evaluated and assigned to either a variable, a property, or an array element.
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 ...............................................
 <variable> = <expression>
 
@@ -3397,7 +3397,7 @@ Prior to this point, little has been said about arrays.
 Arrays are sets of values that share a common name, and where the elements are referenced by number.
 Arrays are defined by
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 ................................
 array <arrayname> [<array size>]
 ................................
@@ -3437,7 +3437,7 @@ would result in `10`.
 
 Array elements can be assigned more than one at a time, as in
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 .........................................
 <arrayname> = <element1>, <element2>, ...
 .........................................
@@ -3525,7 +3525,7 @@ socks
 even though `v` is an argument (i.e., local variable), and technically not an array.
 The line
 
-[source,hugo, subs="+attributes"]
+[source,hugo,subs="+attributes"]
 ---------------------------------
 {wj}    print array v[2]
 ---------------------------------
@@ -3550,7 +3550,7 @@ apple_array[5] = 0
 
 Hugo provides a handy way to store a dictionary entry in an array as a series of characters using the `string` built-in function:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 .....................................................
 string(<array address>, <dict. entry>, <max. length>)
 .....................................................
@@ -3584,7 +3584,7 @@ The Hugo Library defines the functions `StringCopy`, `StringEqual`, `StringLengt
 
 `StringCopy` copies one string array to another array.
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 ................................................
 StringCopy(<new array>, <old array>[, <length>])
 ................................................
@@ -3605,7 +3605,7 @@ StringCopy(a, b, 5)
 
 copies only up to 5 characters of `b` to `a`.
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 .......................................
 x = StringEqual(<string1>, <string2>)
 x = StringCompare(<string1>, <string2>)
@@ -3623,7 +3623,7 @@ len = StringLength(a)
 
 and `StringPrint` prints a string array (or part of it).
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 ..............................................
 StringPrint(<array address>[, <start>, <end>])
 ..............................................
@@ -3663,7 +3663,7 @@ That is, while a dictionary entry is a simple value representing an address, a s
 
 The library provides the following to overcome this:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 .........................................
 StringDictCompare(<array>, <dict. entry>)
 .........................................
@@ -3673,21 +3673,21 @@ which returns the same values (1, -1, 0) as `StringCompare`, depending on whethe
 There is also a complement to `string`: the `dict` built-in function, that dynamically creates a new dictionary entry at runtime.
 Its syntax is:
 
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 x = dict(<array>, <maxlen>)
 x = dict(parse$, <maxlen>)
-............................
+...........................
 
 where the contents of `<array>` or `parse$` are written into the dictionary, to a maximum of `<maxlen>` characters, and the address of the new word is returned.
 
 However, since this requires extending the actual length of the dictionary table in the game file, it is necessary to provide for this during compilation.
 Inserting
 
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 $MAXDICTEXTEND=<number>
-............................
+...........................
 
 at the start of the source file will write a buffer of `<number>` empty bytes at the end of the dictionary.
 (`MAXDICTEXTEND` is, by default, 0.)
@@ -3704,7 +3704,7 @@ Program flow can be controlled using a variety of constructions, each of which i
 
 The most basic of these is the `if` statement.
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 ..................................
 if <expression>
     {...conditional code block...}
@@ -3713,7 +3713,7 @@ if <expression>
 The enclosing braces are not necessary if the code block is a single line.
 Note also that the conditional block may begin (and even end) on the same line as the `if` statement provided that braces are used.
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 ..............................................
 if <expression>
     ...single line...
@@ -3724,7 +3724,7 @@ if <expression> {...conditional code block...}
 If braces are not used for a single line, the compiler automatically inserts them, although special care must be taken when constructing a block of code nesting several single-line conditionals.
 While
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 ....................................
 if <expression1>
     if <expression2>
@@ -3734,7 +3734,7 @@ if <expression1>
 may be properly interpreted, other constructions (particularly those involving some of the more complex program-flow concepts we're about to get into) may not be.
 Therefore, it's always best to be as clear as possible about your intent, more along the lines of:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 ....................................
 if <expression1>
 {
@@ -3745,7 +3745,7 @@ if <expression1>
 
 More elaborate uses of `if` involve the use of `elseif` and `else`.
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 .......................................
 if <expression1>
     ...first conditional code block...
@@ -3768,8 +3768,8 @@ Of course, all three (`if`, `elseif`, and `else`) need not be used every time, a
 In certain cases, the `if` statement may not lend itself perfectly to clarity, and the `select`-`case` construction may be more appropriate.
 The general form is:
 
-[literal, role="hugosyntax", subs="+attributes,macros"]
-.......................................................
+[literal,role="hugosyntax",subs="+attributes,macros"]
+.....................................................
 select <var>
     case <value1>[, <value2>, ...]
         ...first conditional code block...
@@ -3778,11 +3778,11 @@ select <var>
     ...
     case else
         ...default code block...{wj}{fn7}
-.......................................................
+.....................................................
 
 In this case, the evaluation is essentially
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 .............................................
 if <var> = <value1> [or <var> = <value2> ...]
 .............................................
@@ -3792,13 +3792,13 @@ The same rules for bracing multiple-line code blocks apply as with `if` (as well
 
 Basic loops may be coded using `while` and `do`-`while`.
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 ................................
 while <expression>
     ...conditional code block...
 ................................
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 ...............................
 do
     ..conditional code block...
@@ -3835,7 +3835,7 @@ The most important side effect of this is that if you're doing something in the 
 
 The most complex loop construction uses the `for` statement:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 ............................................
 for (<assignment>; <expression>; <modifier>)
     ...conditional code block...
@@ -3877,7 +3877,7 @@ It may be a routine that modifies a global variable, for example, which is then 
 
 A second form of a `for` loop is:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 ................................
 for <var> in <object>
     ...conditional code block...
@@ -3912,8 +3912,8 @@ At any point during a loop, it may be necessary to exit immediately (and probabl
 The `break` statement passes control to the statement immediately following the current loop.
 In the example:
 
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 do
 {
     while <expression2>
@@ -3926,7 +3926,7 @@ do
     ...
 }
 while <expression1>
-............................
+...........................
 
 the `break` causes the immediately running `while <expression2>` loop to terminate, even if `<expression2>` is true.
 However, the external `do`-`while <expression1>` loop continues to run.
@@ -3995,7 +3995,7 @@ The compiler looks after this translation for you.
 === Example: Mixing Text Styles
 
 [source,hugo]
------------------------------------------------
+--------------------------------------------------
 ! Sample to print various typefaces/colors:
 
 #include "hugolib.h"
@@ -4011,7 +4011,7 @@ routine main
     color GREEN             ! color 2
     print "Go!"
 }
------------------------------------------------
+--------------------------------------------------
 
 The output will be:
 
@@ -4042,7 +4042,7 @@ The basic Unix and MS-DOS ports, for example, use color changes instead of actua
 === Example: Managing Strings
 
 [source,hugo]
---------------------------------------------------------------------------------
+-------------------------------------------------
 #include "hugolib.h"
 
 routine main
@@ -4077,7 +4077,7 @@ routine StringTests
     "StringCompare(s1, s3) = ";
     print number StringCompare(s1, s3)
 }
---------------------------------------------------------------------------------
+-------------------------------------------------
 
 The output will be:
 
@@ -4089,7 +4089,7 @@ The output will be:
 //     "(Array address:  "      -> "(Array address =" (":  " vs "= ")
 
 [example,role="gametranscript"]
-======================================
+========================================
 a = "This is a sample string." +
 (Dictionary address:  1040) +
 s1 contains "This is a sample string." +
@@ -4098,7 +4098,7 @@ s2 is "Apple", s3 is "Tomato"
 
 StringCompare(s1, s2) = 1 +
 StringCompare(s1, s3) = -1
-======================================
+========================================
 
 As is evident above, a dictionary entry does not need to be a single word; any piece of text which is referred to by the program as a value gets entered into the dictionary table.
 
@@ -4160,7 +4160,7 @@ A routine may or may not return a value, and it may or may not require a list of
 
 A routine is defined as:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 .............................................
 routine <routinename> [(<arg1>, <arg2>, ...)]
 {
@@ -4174,7 +4174,7 @@ once again ensuring that the opening brace (`{`) comes on a new line following t
 ================================================================================
 To substitute a new routine for an existing one with the same name (such as in a library file), define the new one using `replace` instead of `routine`.
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 .............................................
 replace <routinename> [(<arg1>, <arg2>, ...)]
 .............................................
@@ -4197,17 +4197,17 @@ Where `TestRoutine` takes a single value as an argument, assigns it to a local v
 The `return` keyword exits the current routine, and returns a value if specified.
 Both
 
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 return
-............................
+...........................
 
 and
 
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 return <expression>
-............................
+...........................
 
 are valid.
 If no expression is given, the routine returns 0.
@@ -4423,10 +4423,10 @@ For those wondering why the true (i.e., equal to 1) return value in the second c
 
 Property routines may be run directly using the `run` command:
 
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 run <object>.<property>
-............................
+...........................
 
 If `<object>` does not have `<property>`, or if `<object>.<property>` is not a routine, nothing happens.
 Otherwise, the property routine executes.
@@ -4434,14 +4434,14 @@ Property routines do not take arguments.
 
 Remember that at any point in a program, an existing property may be changed using
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 .............................
 <object>.<property> = <value>
 .............................
 
 A property routine may be changed using
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 ................................................
 <object>.<property> =
 {
@@ -4455,17 +4455,17 @@ It is entirely possible to change what was once a property routine into a simple
 Even if a property routine is to be assigned later in the program, the property itself must still be defined at the outset in the original object definition.
 A simple
 
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 <property> 0
-............................
+...........................
 
 or
 
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 <property> {return false}
-............................
+...........................
 
 will suffice.
 
@@ -4499,10 +4499,10 @@ because the engine now believes `<object>.found_in` to have only one element -- 
 Finally, keep in mind that whenever calling a property routine, the global variable `self` is normally set to the object number.
 To avoid this, such as when "`borrowing`" a property from another object from within a different object, reference the property via
 
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 <object>..<property>
-............................
+...........................
 
 using `..` instead of the normal property operator.
 
@@ -4518,7 +4518,7 @@ They are unique in that not only are they always routines, but they are much mor
 
 _Complex_ properties like `before` and `after` are defined with
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 .................................
 property <property name> $complex
 .................................
@@ -4533,7 +4533,7 @@ property after $complex
 
 Here is the syntax for the `before` property:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 .................................................
 before
 {
@@ -4640,7 +4640,7 @@ It is important to remember that, unlike other property routines, `before` and `
 Instead, the definition for the routine is -- in essence -- added onto.
 An additive property is defined using the `$additive` qualifier, as in:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 ..................................................
 property <property name> $additive <default value>
 ..................................................
@@ -4654,7 +4654,7 @@ To force a `before` or `after` property routine to apply to _any_ verbroutine, d
 
 For example:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 ..............................
 before
 {
@@ -4681,8 +4681,8 @@ This can be particularly undesirable in the case of location `before`/`after` pr
 To get around this, the library provides a function `AnyVerb`, which takes an object as its argument and returns that object number if the current verbroutine is not within the group of xverbs; otherwise it returns false.
 Therefore, it can be used via:
 
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 before
 {
     AnyVerb(location)
@@ -4690,13 +4690,13 @@ before
         ...
     }
 }
-............................
+...........................
 
 
 instead of
 
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 
 before
 {
@@ -4705,7 +4705,7 @@ before
         ...
     }
 }
-............................
+...........................
 
 
 The former will execute the conditional block of code whenever the `location` global matches the current object and the current verbroutine is not an xverb.
@@ -4741,14 +4741,14 @@ routine init
 
 * _Start the counter at one turn before 0 turns, since `Main` will increment it to begin the game:_
 +
-[source,hugo, subs="+attributes"]
+[source,hugo,subs="+attributes"]
 ---------------------------------
 {wj}        counter = -1
 ---------------------------------
 
 * _Set up the kind of statusline we're going to be displaying, as well as define the default text colors:_{wj}{fn7}
 +
-[source,hugo, subs="+attributes"]
+[source,hugo,subs="+attributes"]
 ---------------------------------------------------------
 {wj}        STATUSTYPE = 1                  ! score/turns
         TEXTCOLOR = DEF_FOREGROUND
@@ -4759,7 +4759,7 @@ routine init
 
 * _Set the player prompt to the default `>`, and set the starting foreground and background colors:_
 +
-[source,hugo, subs="+attributes"]
+[source,hugo,subs="+attributes"]
 ---------------------------------
 {wj}        prompt = ">"
         color TEXTCOLOR, BGCOLOR
@@ -4767,7 +4767,7 @@ routine init
 
 * _Clear the screen before starting the game, set the font to the default font, and print the game title ("`SHELL`", in this case) and a subtitle, followed by the `BANNER` constant:_
 +
-[source,hugo, subs="+attributes"]
+[source,hugo,subs="+attributes"]
 -----------------------------------------
 {wj}        cls
         Font(BOLD_ON | DEFAULT_FONT)
@@ -4779,7 +4779,7 @@ routine init
 
 * _Set the player to the `you` object (from **objlib.h**), and set up the starting location:_
 +
-[source,hugo, subs="+attributes"]
+[source,hugo,subs="+attributes"]
 -------------------------------------------------------------------
 {wj}        player = you                    ! player initialization
         location = emptyroom
@@ -4789,7 +4789,7 @@ routine init
 * _Move the player to the starting location, run the library rules to see if there's light in the location, then describe the starting location and flag it as visited.
 Also, determine the starting bulk of whatever the player is carrying at the outset (if anything):_
 +
-[source,hugo, subs="+attributes"]
+[source,hugo,subs="+attributes"]
 -----------------------------------
 {wj}        move player to location
         FindLight(location)
@@ -4823,7 +4823,7 @@ routine main
 
 * _The `counter` global gets incremented each turn, and the statusline gets updated:_
 +
-[source,hugo, subs="+attributes"]
+[source,hugo,subs="+attributes"]
 ---------------------------------
 {wj}        counter = counter + 1
         PrintStatusLine
@@ -4833,7 +4833,7 @@ routine main
 The `runevents` statement runs all valid events.
 The `RunScripts` library routine runs any active scripts:_
 +
-[source,hugo, subs="+attributes"]
+[source,hugo,subs="+attributes"]
 ---------------------------------
 {wj}        run location.each_turn
         runevents
@@ -4842,7 +4842,7 @@ The `RunScripts` library routine runs any active scripts:_
 
 * _Finally, we check to see if the player is currently engaged in conversation with a character (if the `speaking` global is set) and, if so, if the character in question has left the current location:_
 +
-[source,hugo, subs="+attributes"]
+[source,hugo,subs="+attributes"]
 -----------------------------------------
 {wj}        if parent(speaking)~=location
                 speaking = 0
@@ -4858,23 +4858,23 @@ Events are useful for bringing a game to life, so that little quirks, behaviors,
 Events are also routines, but their special characteristic is that they may be attached to a particular object, and they are run as a group by the `runevents` command.
 Events are defined as:
 
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 event
 {
     ...Event routine...
 }
-............................
+...........................
 
 for global events, and
 
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 event [in] <object>
 {
     ...Event routine...
 }
-............................
+...........................
 
 
 for events attached to a particular object.
@@ -5016,7 +5016,7 @@ The cabinet can now be entered via: "`go cabinet`", "`get into cabinet`", "`ente
 Suppose that there is a clock object in a room.
 Here is a possible event:
 
-[source,hugo, subs="+attributes,macros"]
+[source,hugo,subs="+attributes,macros"]
 ------------------------------------------
 event in clock
 {
@@ -5047,7 +5047,7 @@ Now, suppose the clock should be audible throughout the entire game -- i.e., in 
 Simply changing the event definition to:
 
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 ................................
 event       ! no object is given
 {
@@ -5090,40 +5090,40 @@ A _daemon_ is the traditional name for a recurring activity.
 Hugo handles daemons as special events attached to objects that may be activated or deactivated (i.e., moved in and out of the scope of `runevents`).
 Since the daemon class is defined in the library, define a daemon itself using:
 
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 daemon <name>
 {}
-............................
+...........................
 
 The body of the daemon definition is empty.
 The daemon object is only needed to attach the daemon event to, so the daemon definition must be followed by:
 
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 event [in] <name>
 {
     ...
 }
-............................
+...........................
 
 
 Activate it by:
 
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 Activate(<name>)
-............................
+...........................
 
 which moves the specified daemon object into scope of the player.
 This way, whenever a `runevents` command is given (as it should be in the `Main` routine), the event attached to `<name>` will run.
 
 Deactivate the daemon using:
 
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 Deactivate(<name>)
-............................
+...........................
 
 which removes the daemon object from scope.
 
@@ -5141,8 +5141,8 @@ The fuse itself is a slightly more complex version of a daemon object, containin
 
 Similarly to a daemon, define a fuse in two steps:
 
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 fuse <name>
 {}
 
@@ -5154,21 +5154,21 @@ event [in] <name>
         ...
     }
 }
-............................
+...........................
 
 and turn it on or off by:
 
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 Activate(<name>, <setting>)
-............................
+...........................
 
 and
 
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 Deactivate(<name>)
-............................
+...........................
 
 where `<setting>` is the initial value of the `timer` property.
 
@@ -5177,10 +5177,10 @@ where `<setting>` is the initial value of the `timer` property.
 Note that it is up to the event itself to run the `timer` and check for its expiration.
 The line
 
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 if not self.tick
-............................
+...........................
 
 runs the `tick` property -- defined in the library, which is responsible for decrementing the timer -- and executes the following conditional block if `self.timer` is 0.
 ================================================================================
@@ -5199,7 +5199,7 @@ Here's why:
 
 To define a script, use the following notation:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 ......................................................
 setscript[Script(<char>, <num>)] =  &CharRoutine, obj,
                                     &CharRoutine, obj,
@@ -5283,8 +5283,8 @@ It continues with the default action -- i.e., the character action routine speci
 
 To override a default character action routine, include a `before` property for the character object using the following form:
 
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 before
 {
     actor <CharRoutine>
@@ -5292,7 +5292,7 @@ before
         ...
     }
 }
-............................
+...........................
 
 where `<CharRoutine>` is `CharWait`, `CharMove`, `CharGet`, `CharDrop`, etc.
 
@@ -5394,7 +5394,7 @@ That is, if several additional grammar files are to be included, or new grammar 
 
 The syntax used for grammar definition is:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 ..................................................
 [x]verb "<verb1>" [, "<verb2>", "<verb3>",...]
     * <syntax specification 1>      <VerbRoutine1>
@@ -5543,17 +5543,17 @@ That is, in the input line:
 
 the syntax line
 
-[source,hugo, subs="+attributes"]
------------------------------
+[source,hugo,subs="+attributes"]
+-------------------------------------
 {wj}    * object "out" "of" container
------------------------------
+-------------------------------------
 
 will be matched, while
 
-[source,hugo, subs="+attributes"]
----------------------------
+[source,hugo,subs="+attributes"]
+-----------------------------------
 {wj}    * object "out of" container
----------------------------
+-----------------------------------
 
 would never be recognized, since the engine will automatically parse "`out`" and "`of`" as two separate words; the parser will never find a match for "`out of`".
 
@@ -5585,26 +5585,26 @@ You haven't seen any "up box", nor are you likely to in the near future even if 
 
 (assuming that "`up`" has been defined elsewhere as part of a different object name, as in *objlib.h*), because the processor processes the syntax
 
-[source,hugo, subs="+attributes"]
----------------------------------
+[source,hugo,subs="+attributes"]
+--------------------------------
 {wj}    * object
----------------------------------
+--------------------------------
 
 and determines that an invalid object name is being used; it never gets to
 
-[source,hugo, subs="+attributes"]
----------------------------------
+[source,hugo,subs="+attributes"]
+--------------------------------
 {wj}    * "up" object
----------------------------------
+--------------------------------
 
 The proper verb definition would be ordered like
 
 [source,hugo]
----------------------------------
+-----------------------------
 verb "pick"
     * "up" object       DoGet
     * object            DoGet
----------------------------------
+-----------------------------
 
 so that both "`pick <object>`" and "`pick up <object>`" are valid player commands.
 It's generally good practice to make sure that more specific grammar precedes more general grammar for this reason.
@@ -5620,20 +5620,20 @@ As a rule, unless you need to preempt the library's normal grammar processing, i
 A single object may be specified as the only valid object for a particular syntax:
 
 [source,hugo]
-------------------------------------------
+--------------------------------------
 verb "rub"
     * (magic_lamp)      DoRubMagicLamp
-------------------------------------------
+--------------------------------------
 
 will produce a "`*You can't do that with...*`" error for any object other than the `magic_lamp` object.
 
 Using a routine name to specify an object is slightly more involved: the engine calls the given routine with the object specified in the input line as its argument; if the routine returns true, the object is valid -- if not, a parsing error is expected to have been printed by the routine.
 If two routine names are used in a particular syntax, such as
 
-[source,hugo, subs="+attributes"]
----------------------------------------------------
+[source,hugo,subs="+attributes"]
+-----------------------------------------------
 {wj}    * (FirstRoutine) "with" (SecondRoutine)
----------------------------------------------------
+-----------------------------------------------
 
 then `FirstRoutine` validates the object and `SecondRoutine` validates the xobject.
 
@@ -5664,7 +5664,7 @@ The next step is to process the four types of special "`words`" which may be def
 These are simply words that are to be automatically removed from any input line, and are generally limited to words such as "`a`" and "`the`" which would, generally speaking, only make grammar matching more complicated and difficult.
 The syntax for defining a removal is:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 .............................................
 removal "<word1>"[, "<word2>", "word<3>",...]
 .............................................
@@ -5678,7 +5678,7 @@ removal "a", "an", "the"
 
 [.big.red]#_Punctuation_# is similar to a removal, except it specifies the removal of individual characters instead of whole words:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 ...........................................
 punctuation "<character1>[<character2>...]"
 ...........................................
@@ -5693,7 +5693,7 @@ punctuation "$%"
 [.big.red]#_Synonyms_# are slightly more complex.
 These are words that will never be found in the parsed input line; they are replaced by the specified word for which they are a synonym.
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 ................................
 synonym "<synonym>" for "<word>"
 ................................
@@ -5713,7 +5713,7 @@ Usage of synonyms will likely not be extensive, since of course it is possible t
 
 [.big.red]#_Compounds_# are the final type of special word, specified as:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 .............................
 compound "<word1>", "<word2>"
 .............................
@@ -5876,7 +5876,7 @@ verb "get"
 Now, this must come both before any other code or definitions as well as the _existing_ grammar for "`*>GET <object>*`" (from *verblib.g*).
 Otherwise, the regular grammar for
 
-[source,hugo, subs="+attributes"]
+[source,hugo,subs="+attributes"]
 ---------------------------------
 {wj}    * object            DoGet
 ---------------------------------
@@ -5990,7 +5990,7 @@ Since the library's `Parse` routine is rather extensive, a provision is made for
 The `ParseError` routine is called whenever a command is invalid.
 `ParseError` is called in the form:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 ...................................
 ParseError(<errornumber>, <object>)
 ...................................
@@ -6083,7 +6083,7 @@ The `FindObject` routine takes into account all the relevant properties, attribu
 For example, the child of a parent object may be available if the parent is a platform, but unavailable if the parent is a container (and closed) -- although internally, the object hierarchy is the same.
 `FindObject` is called via:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 ................................
 FindObject(<object>, <location>)
 ................................
@@ -6126,10 +6126,10 @@ For example:
 It is up to the `SpeakTo` routine to properly interpret the instruction.
 `SpeakTo` is called via:
 
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 SpeakTo(<character>)
-............................
+...........................
 
 where `<character>` in the above example would be the Professor Plum object.
 The globals `object`, `xobject`, and `verbroutine` are all set up as normal.
@@ -6195,7 +6195,7 @@ The `Perform` routine is what is called by the engine in order to execute the ap
 It is the responsibility of `Perform` to do the appropriate checking of `before` routines to determine if execution actually gets to the verbroutine.
 `Perform` is called as:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 ...............................................................
 Perform(<verbroutine>, <object>, <xobject>, <queue>, <isxverb>)
 ...............................................................
@@ -6879,7 +6879,7 @@ In the `vehicle` class the `preposition` property defaults to "in" and "out", bu
 It is also necessary to provide grammar to relate the words in the `vehicle_verb` list to the object library's `DoMoveInVehicle` routine.
 Grammar such as the following is recommended:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 .......................................
 verb "<verb1>"[, "<verb2>",...]
     *                   DoMoveinVehicle
@@ -6963,7 +6963,7 @@ butterscotch sundae: Taken.
 
 That's where the `plural_class` comes in.
 
-[source,hugo, subs="+attributes,macros"]
+[source,hugo,subs="+attributes,macros"]
 ------------------------------------------------
 plural_class sundaes "sundaes"
 {
@@ -7016,7 +7016,7 @@ There are three bananas here.
 Something like that can be done easily by creating an identical object from the `identical_class` in the object library.
 The `identical_class` is similar to the `plural_class` except for a couple details of implementation and behavior.
 
-[source,hugo, subs="+attributes,macros"]
+[source,hugo,subs="+attributes,macros"]
 ----------------------------------------
 identical_class bananas "bananas"
 {
@@ -7086,7 +7086,7 @@ If `attach_drop` is true, the object is automatically dropped after it is attach
 The `attach_verbs` and `detach_verbs` properties contain lists of all valid verbs to attach or detach the object.
 The `DoAttachObject` and `DoDetachObject` verbroutines can be used by all basic attachables, with new grammar specified for the object (corresponding exactly to the verb lists in `attach_verbs` and `detach_verbs`) as in:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 ..............................................
 
 verb "<verb1>"[, "<verb2>",...]
@@ -7247,7 +7247,7 @@ To clear the record of any window and restore the main text window to the full-s
 
 A windowing library file exists called *window.h* which defines a `window_class` and the associated properties so a window object can be created via:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 ..............................................
 window_class <window name> "title"
 {
@@ -7293,20 +7293,20 @@ To accomplish this, use the `writefile` and `readfile` operations.
 
 The structure
 
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 writefile <filename>
 {
     ...
 }
-............................
+...........................
 
 will, at the start of the `writefile` block, open `<filename>` for writing and position `<filename>` to the start of the (empty) file.
 (If the file exists, it will be cleared/erased.) At the conclusion of the block, the file will be closed again.
 
 Within a `writefile` block, write individual values using
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 ..................................
 writeval <value1>[, <value2>, ...]
 ..................................
@@ -7315,13 +7315,13 @@ where one or more values can be specified.
 
 To read the file, use the structure
 
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 readfile <filename>
 {
     ...
 }
-............................
+...........................
 
 which will contain the assignment
 
@@ -7421,15 +7421,15 @@ The engine allows a Hugo program to access external media data (called resources
 Resourcefiles contain sounds, music, images, and video files used by the program.
 A resourcefile is created using:
 
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 resource "<resourcefile>"
 {
     "<resource1>"
     "<resource2>"
     ...
 }
-............................
+...........................
 
 
 
@@ -7490,7 +7490,7 @@ If `system_status` is non-zero (where zero signifies normal status), it will con
 
 A picture is displayed as a resource in a resourcefile using:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 .....................................
 picture "<resourcefile>", "<picture>"
 .....................................
@@ -7524,7 +7524,7 @@ If the picture is not found or a recoverable error occurs during loading, normal
 // @EDITED CODE: (Issue #36)
 //    Parameters enclosed within angular brackets for code consistency.
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 .................................................................
 LoadPicture("<resourcefile>", "<picture>")
 LoadPicture("<picture>")
@@ -7554,7 +7554,7 @@ Wherever possible, however, it is recommended to always specify the resourcefile
 
 Sounds and music are played as follows:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 ..................................................
 sound [repeat] <resourcefile>, <resource>[, <vol>]
 music [repeat] <resourcefile>, <resource>[, <vol>]
@@ -7575,7 +7575,7 @@ music 0
 //    Parameters enclosed within angular brackets for code consistency.
 //    Addded missing <volume> parameter.
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 ....................................................................
 PlaySound(<resourcefile>, <sample>[, <volume>[, <loop>[, <force>]]])
 PlayMusic(<resourcefile>, <song>[, <volume>[, <loop>[, <force>]]])
@@ -7598,7 +7598,7 @@ PlayMusic(MUSIC_STOP)
 Video is displayed similarly to static graphic images (that is, it is displayed in the currently window) and controlled similarly to music and sound.
 The syntax for playing video looks like:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 ....................................................
 video [repeat] <resfile>, <res>[, <vol>, <bkground>]
 ....................................................
@@ -7632,10 +7632,10 @@ In combination with the `repeat` token, this is useful for creating background/s
 s| Description: a| Logical AND.
 
 s| Syntax: a|
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 x = <value1> and <value2>
-............................
+...........................
 {blank}
 
 s| Result: a|
@@ -7658,10 +7658,10 @@ s| Description: a|
 When used as a data type modifier, specifies that the following value is to be treated as an array address.
 
 s| Example: a|
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 <var1> = array <var2>[<n>]
-............................
+...........................
 
 The variable `<var2>` will be treated as an array address.
 
@@ -7673,8 +7673,8 @@ The variable `<var2>` will be treated as an array address.
 s| Description: a| Terminates the immediate enclosing loop.
 
 s| Example: a|
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 while <expression1>
 {
     while <expression2>
@@ -7685,7 +7685,7 @@ while <expression1>
     }
     ...
 }
-............................
+...........................
 
 The `break` statement, if encountered, will terminate the innermost loop.
 
@@ -7698,17 +7698,17 @@ s| Description: a|
 Calls a routine indirectly, i.e., when the routine address has been stored in a variable, object property, etc.
 
 s| Syntax: a|
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 ..................................
 call <value>[(<arg1>, <arg2>,...)]
 ..................................
 
 or
 
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 x = call <value>(...)
-............................
+...........................
 
 where `<value>` is a valid data type holding the routine address.
 
@@ -7724,10 +7724,10 @@ s| Description: a|
 `Print` statement modifier, indicating that the next word should be printed with the first letter capitalized.
 
 s| Syntax: a|
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 print capital <address>
-............................
+...........................
 
 where `<address>` is any dictionary word, such as, for example, an `object.name` property.
 
@@ -7740,7 +7740,7 @@ where `<address>` is any dictionary word, such as, for example, an `object.name`
 s| Description: a| Specifies a conditional case in a `select` structure.
 
 s| Syntax: a|
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 ...............................
 select <val>
     case <case1>[, <case2>,...]
@@ -7757,10 +7757,10 @@ where `<val>` is value such as a variable, routine return value, object property
 .2+| {blank}
 
 s| Syntax: a|
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 x = child(<parent>)
-............................
+...........................
 {blank}
 
 s| Return{nbsp}value: a|
@@ -7772,10 +7772,10 @@ The object number of the immediate child object of `<parent>`, or 0 if `<parent>
 .2+| {blank}
 
 s| Syntax: a|
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 x = children(<parent>)
-............................
+...........................
 {blank}
 
 s| Return{nbsp}value: a| The number of child objects possessed by `<parent>`.
@@ -7789,10 +7789,10 @@ s| Description: a|
 Clears the current text window and repositions the output coordinates at the bottom left of the text window.
 
 s| Syntax: a|
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 cls
-............................
+...........................
 {blank}
 
 // ****//   color   //****
@@ -7803,7 +7803,7 @@ cls
 s| Description: a| Sets the display colors for text output.
 
 s| Syntax: a|
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 ..................................
 color <foreground>[, <background>]
 ..................................
@@ -7846,12 +7846,12 @@ Standard color values for `<foreground>` and `<background>` with constants defin
 s| Description: a| Dynamically creates a new dictionary entry at runtime.
 
 s| Syntax: a|
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 x = dict(<array>, <maxlen>)
 
 x = dict(parse$, <maxlen>)
-............................
+...........................
 
 where `<array>` or `parse$` holds the string to be written into the dictionary, and `<maxlen>` represents the maximum number of characters to be written. Returns the new dictionary address.
 
@@ -7868,7 +7868,7 @@ Space should be reserved for any dictionary entries to be created at runtime usi
 s| Description: a| Marks the starting point of a `do`-`while` loop.
 
 s| Syntax: a|
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 ............................
 do
 {
@@ -7885,10 +7885,10 @@ The loop will continue to run as long as `<expr>` holds true.
 .2+| {blank}
 
 s| Syntax: a|
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 x = elder(<object>)
-............................
+...........................
 {blank}
 
 s| Return{nbsp}value: a|
@@ -7911,13 +7911,13 @@ s| Description: a|
 In an `if`-`elseif`-`else` conditional block, indicates the default operation if no previous condition has been met.
 
 s| Syntax: a|
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 if <condition>
     ...
 else
     ...
-............................
+...........................
 {blank}
 
 // ****//   elseif   //****
@@ -7929,15 +7929,15 @@ s| Description: a|
 In an `if`-`elseif`-`else` conditional block, indicates a condition that will be checked only if no preceding condition has been met.
 
 s| Syntax: a|
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 if <condition1>
     ...
 elseif <condition2>
     ...
 elseif <condition3>
     ...
-............................
+...........................
 {blank}
 
 // ****//   false   //****
@@ -7955,7 +7955,7 @@ s| Description: a| A predefined constant value: 0.
 s| Description: a| Loop construction.
 
 s| Syntax: a|
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 ..............................
 for (<initial>; <test>; <mod>)
 {
@@ -7963,13 +7963,13 @@ for (<initial>; <test>; <mod>)
 }
 ..............................
 
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 for <var> in <object>
 {
     ...
 }
-............................
+...........................
 
 For the first form, where `<initial>` is the initial assignment expression (e.g. `a = 1`), `<test>` is the test expression (e.g. `a < 10`), and `<mod>` is the modifying expression (e.g. `a = a + 1`).
 The loop will execute as long as `<test>` holds true.
@@ -7993,10 +7993,10 @@ s| Description: a|
 `Print` statement modifier signifying that the following value is not a dictionary address, but should be printed as a hexadecimal number.
 
 s| Syntax: a|
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 print hex <var>
-............................
+...........................
 
 where, for example, `<var>` is equal to 26, will print "`1A`".
 
@@ -8008,11 +8008,11 @@ where, for example, `<var>` is equal to 26, will print "`1A`".
 s| Description: a| A conditional expression.
 
 s| Syntax: a|
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 if <condition>
     ...
-............................
+...........................
 
 where `<condition>` is an expression or value, will run the following statement block only if `<condition>` is true.
 
@@ -8026,20 +8026,20 @@ When used in an object definition, places the object in the object tree as a pos
 When used in an expression, returns true if the object is in the specified parent.
 
 s| Syntax: a|
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 in <parent>
-............................
+...........................
 
 or, for example:
 
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+.............................
 if <object> [not] in <parent>
 {
     ...
 }
-............................
+.............................
 {blank}
 
 // ****//   input   //****
@@ -8052,10 +8052,10 @@ Receive input from keyboard, storing the dictionary addresses of the individual 
 Unrecognized words are given a value of 0.
 
 s| Syntax: a|
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 input
-............................
+...........................
 {blank}
 
 // ****//   is   //****
@@ -8066,7 +8066,7 @@ input
 s| Description: a| Attribute assignment/testing.
 
 s| Syntax: a|
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 .............................
 <object> is [not] <attribute>
 .............................
@@ -8088,17 +8088,17 @@ Otherwise, it returns false.
 s| Description: a| Jumps to a specified label.
 
 s| Syntax: a|
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 jump <label>
-............................
+...........................
 
 where a unique `<label>` exists on a separate line somewhere in the program, in the form:
 
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 :<label>
-............................
+...........................
 {blank}
 
 // ****//   local   //****
@@ -8109,7 +8109,7 @@ where a unique `<label>` exists on a separate line somewhere in the program, in 
 s| Description: a| Defines one or more variables local to the current routine.
 
 s| Syntax: a|
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 ..................................
 local <var1>[, <var2>, <var3>,...]
 ..................................
@@ -8123,10 +8123,10 @@ local <var1>[, <var2>, <var3>,...]
 s| Description: a| Sets the cursor position within the current text window.
 
 s| Syntax: a|
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 locate(<row>, <column>)
-............................
+...........................
 {blank}
 
 s| Note: a|
@@ -8141,7 +8141,7 @@ The cursor position is calculated in fixed-width character coordinates.
 s| Description: a| Moves an object with all its possessions to a new parent.
 
 s| Syntax: a|
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 .............................
 move <object> to <new parent>
 .............................
@@ -8179,7 +8179,7 @@ Object specifier in grammar syntax line, indicating that multiple objects explic
 s| Description: a| Load and play a music resource (if audio output is available).
 
 s| Syntax: a|
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 ....................................
 music [repeat] "file", "song"[, vol]
 music 0
@@ -8198,17 +8198,17 @@ s| Description: a|
 Used in an object definition to place the object in the specified position in the object tree.
 
 s| Syntax: a|
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 nearby <object>
-............................
+...........................
 
 Gives the current object the same parent as `<object>`.
 
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 nearby
-............................
+...........................
 
 Gives the current object the same parent as the last-defined object.
 
@@ -8221,10 +8221,10 @@ s| Description: a|
 `Print` statement modifier, indicating that a line feed and carriage return should be issued if the current output position is not already at the start of a blank line.
 
 s| Syntax: a|
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 print newline
-............................
+...........................
 {blank}
 
 // ****//   not   //****
@@ -8235,15 +8235,15 @@ print newline
 s| Description: a| Logical NOT.
 
 s| Syntax: a|
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 x = not <value>
-............................
+...........................
 
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 <object> is not <attribute>
-............................
+...........................
 {blank}
 
 s| Result: a|
@@ -8273,10 +8273,10 @@ When used as a `print` statement modifier, indicates that the following value is
 s| Syntax: a|
 (for usage as a `print` statement modifier)
 
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 print number <val>
-............................
+...........................
 
 where, for example, `<val>` is equal to 100, will print "`100`" instead of the word beginning at the address 100 in the dictionary table.
 
@@ -8298,10 +8298,10 @@ When used in a grammar syntax line, indicates that a single available object is 
 s| Description: a| Logical OR.
 
 s| Syntax: a|
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 x = <value1> or <value2>
-............................
+...........................
 {blank}
 
 s| Result: a|
@@ -8314,10 +8314,10 @@ s| Result: a|
 
 2+d| (Usage 1)
 s| Syntax: a|
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 x = parent(<object>)
-............................
+...........................
 {blank}
 
 s| Return{nbsp}value: a|
@@ -8353,7 +8353,7 @@ s| Description: a|
 Load and display an image resource in the currently defined window (if graphics are available).
 
 s| Syntax: a|
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 .....................................
 picture "<resourcefile>", "<picture>"
 picture "<picturefile>"
@@ -8370,10 +8370,10 @@ s| Description: a|
 Plays back recorded commands from a file in place of keyboard input (by prompting the user).
 
 s| Syntax: a|
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 x = playback
-............................
+...........................
 {blank}
 
 s| Return{nbsp}value: a| True if successful, false if not.
@@ -8386,10 +8386,10 @@ s| Return{nbsp}value: a| True if successful, false if not.
 s| Description: a| Print text output.
 
 s| Syntax: a|
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 print <output>
-............................
+...........................
 
 // @EDITED TYPO: (Issue #28)
 //    "both TEST strings" --> "both TEXT strings"
@@ -8407,7 +8407,7 @@ Prints a character or series of characters at the current cursor position.
 No newline is printed.
 
 s| Syntax: a|
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 ..............................
 printchar <val1>[, <val2>,...]
 ..............................
@@ -8421,10 +8421,10 @@ printchar <val1>[, <val2>,...]
 s| Description: a| Terminates the game loop.
 
 s| Syntax: a|
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 quit
-............................
+...........................
 {blank}
 
 // ****//   random   //****
@@ -8435,10 +8435,10 @@ quit
 s| Description: a| Engine function which generates a random number.
 
 s| Syntax: a|
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 x = random(<val>)
-............................
+...........................
 {blank}
 
 s| Return{nbsp}value: a|
@@ -8453,13 +8453,13 @@ s| Description: a|
 A structure that allows values to be read from a file written using `writefile`.
 
 s| Syntax: a|
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 readfile <filename>
 {
     ...
 }
-............................
+...........................
 
 The file is opened and positioned to the start at the beginning of the `readfile` block, and closed at the end.
 
@@ -8471,10 +8471,10 @@ The file is opened and positioned to the start at the beginning of the `readfile
 s| Description: a| Reads a value in a `readfile` block.
 
 s| Syntax: a|
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 x = readval
-............................
+...........................
 {blank}
 
 s| Value: a|
@@ -8490,10 +8490,10 @@ Use the `FILE_CHECK` constant defined in *hugolib.h* to determine if a `readfile
 s| Description: a| Ends recording commands to a file.
 
 s| Syntax: a|
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 x = recordoff
-............................
+...........................
 {blank}
 
 s| Value: a| True if successful, false if not.
@@ -8507,10 +8507,10 @@ s| Description: a|
 Begins recording commands to a file (by prompting the user).
 
 s| Syntax: a|
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 x = recordon
-............................
+...........................
 {blank}
 
 s| Value: a| True if successful, false if not.
@@ -8523,10 +8523,10 @@ s| Value: a| True if successful, false if not.
 s| Description: a| Removes an object from the object tree.
 
 s| Syntax: a|
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 remove <object>
-............................
+...........................
 
 (The same as: `move <object> to 0`)
 
@@ -8539,10 +8539,10 @@ s| Description: a|
 Reloads the initial game data from the *.HEX* file and calls the `Init` routine.
 
 s| Syntax: a|
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 x = restart
-............................
+...........................
 {blank}
 
 s| Note: a|
@@ -8559,10 +8559,10 @@ s| Description: a|
 Restores a saved game's state data from a previously saved file (by prompting the user).
 
 s| Syntax: a|
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 x = restore
-............................
+...........................
 {blank}
 
 s| Value: a| True if successful, false if not.
@@ -8575,10 +8575,10 @@ s| Value: a| True if successful, false if not.
 s| Description: a| Returns from a called routine.
 
 s| Syntax: a|
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 return [<expression>]
-............................
+...........................
 
 {blank}
 
@@ -8593,10 +8593,10 @@ Returns `<expression>` if provided, otherwise returns false.
 s| Description: a| Runs an object property routine if one exists.
 
 s| Syntax: a|
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 run <object>.<property>
-............................
+...........................
 {blank}
 
 s| Return{nbsp}value: a|
@@ -8611,10 +8611,10 @@ s| Description: a|
 Calls all events which are either global or currently within the event scope of the player object.
 
 s| Syntax: a|
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 runevents
-............................
+...........................
 {blank}
 
 // ****//   save   //****
@@ -8625,10 +8625,10 @@ runevents
 s| Description: a| Saves the current game state to a file (by prompting the user).
 
 s| Syntax: a|
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 x = save
-............................
+...........................
 {blank}
 
 s| Value: a| True if successful, false if not.
@@ -8641,11 +8641,10 @@ s| Value: a| True if successful, false if not.
 s| Description: a| Turns transcription off.
 
 s| Syntax: a|
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 x = scriptoff
-............................
-
+...........................
 {blank}
 
 s| Value: a| True if successful, false if not.
@@ -8659,10 +8658,10 @@ s| Description: a|
 Turns transcription (i.e., recording output to a file or to a printer) on.
 
 s| Syntax: a|
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 x = scripton
-............................
+...........................
 {blank}
 
 s| Value: a| True if successful, false if not.
@@ -8675,7 +8674,8 @@ s| Value: a| True if successful, false if not.
 s| Description: a|
 Specifies the value for comparison in a `select`-`case` conditional structure.
 
-s| Syntax: a|[literal, role="hugosyntax"]
+s| Syntax: a|
+[literal,role="hugosyntax"]
 ...............................
 select <val>
     case <case1>[, <case2>,...]
@@ -8700,10 +8700,10 @@ Read-only engine variable that contains the serial number as written by the comp
 .2+| {blank}
 
 s| Syntax: a|
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 x = sibling(<object>)
-............................
+...........................
 
 {blank}
 
@@ -8719,7 +8719,7 @@ s| Description: a|
 Load and play an audio sample resource (if waveform audio output is available).
 
 s| Syntax: a|
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 ......................................
 sound [repeat] "file", "sample"[, vol]
 sound 0
@@ -8740,7 +8740,7 @@ When used in a grammar syntax line, indicates that a string array enclosed in qu
 When used as a function, stores a dictionary entry in a string array.
 
 s| Syntax: a|
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 .....................................
 x = string(<array>, <dict>, <maxlen>)
 x = string(<array>, parse$, <maxlen>)
@@ -8757,10 +8757,10 @@ Returns the length of the string stored in `<array>`.
 s| Description: a| Built-in function to call low-level system functions.
 
 s| Syntax: a|
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 system(<function>)
-............................
+...........................
 
 [cols=">m,<m,<a",options=autowidth,grid=none,stripes=even]
 !=====================================
@@ -8800,10 +8800,10 @@ s| Description: a|
 In a `print` statement, prints blank spaces in the current background color to the specified position.
 
 s| Syntax: a|
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 print to <val>
-............................
+...........................
 
 where `<val>` is a positive integer less than or equal to the maximum column position
 
@@ -8823,10 +8823,10 @@ s| Description: a|
 Attempts to recover the state of the game data before the last player command.
 
 s| Syntax: a|
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 x = undo
-............................
+...........................
 {blank}
 
 s| Value: a| True if successful, false if not.
@@ -8841,10 +8841,10 @@ Begins definition of a regular verb.
 Upon returning true from the verb routine, `Main` is called.
 
 s| Syntax: a|
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...............................
 verb "<word1>"[, "<word2>",...]
-............................
+...............................
 {blank}
 
 // ****//   while   //****
@@ -8854,24 +8854,25 @@ verb "<word1>"[, "<word2>",...]
 
 s| Description: a| Component of `while` or `do`-`while` loop construct.
 
-s| Syntax: a|[literal, role="hugosyntax"]
-............................
+s| Syntax: a|
+[literal,role="hugosyntax"]
+...........................
 while <expr>
 {
     ...
 }
-............................
+...........................
 
 or
 
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 do
 {
     ...
 }
 while <expr>
-............................
+...........................
 
 where the loop will run as long as `<expr>` holds true.
 
@@ -8883,26 +8884,26 @@ where the loop will run as long as `<expr>` holds true.
 s| Description: a| Switches output to the status window.
 
 s| Syntax: a|
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 window a[, b, c, d]
 {...}
-............................
+...........................
 
 or
 
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 window
 {...}
-............................
+...........................
 
 or
 
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 window 0
-............................
+...........................
 
 If only a single value `<a>` is given, a window of `<a>` lines from the top of the screen is created.
 If more values are given, a window from top-left (`a`, `b`) to bottom-right (`c`, `d`) is created.
@@ -8921,13 +8922,13 @@ s| Description: a|
 A structure that writes values to a file that may be read using `readfile`.
 
 s| Syntax: a|
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 writefile <filename>
 {
     ...
 }
-............................
+...........................
 
 The file is opened and positioned to the start at the beginning of the `writefile` block, and closed at the end.
 
@@ -8939,7 +8940,7 @@ The file is opened and positioned to the start at the beginning of the `writefil
 s| Description: a| Writes one or more values in a `writefile` block.
 
 s| Syntax: a|
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 ...............................
 writefile value1[, value2, ...]
 ...............................
@@ -8965,7 +8966,7 @@ Begins definition of non-action verb.
 Upon returning from the verb routine, `Main` is not called.
 
 s| Syntax: a|
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 .................................
 xverb "<word1>"[, "<word2>", ...]
 .................................
@@ -8984,10 +8985,10 @@ xverb "<word1>"[, "<word2>", ...]
 .2+| {blank}
 
 s| Syntax: a|
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 x = youngest(<parent>)
-............................
+...........................
 {blank}
 
 s| Return{nbsp}value: a|
@@ -9496,7 +9497,7 @@ First, the junction routines:
 | [.big]#EndGame#
 | called by the engine via:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 EndGame(end_type)
 
 If `end_type` = 1, the game is won; if 2, the game is lost.
@@ -9513,7 +9514,7 @@ Also calls: `PrintEndGame` and `PrintScore`
 | [.big]#FindObject#
 | called by the engine via:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 FindObject(object, location)
 
 Returns true (1) if the specified object is available in the specified location, or false (0) if it is not.
@@ -9528,7 +9529,7 @@ Also calls: `ObjectisKnown`, `ExcludeFromAll`
 | [.big]#Parse#
 | called by the engine via:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 Parse()
 
 Performs all library-side parsing of the player input.
@@ -9541,7 +9542,7 @@ Also calls: `PreParse`, `AssignPronoun` and `SetObjWord`
 | [.big]#ParseError#
 | called by the engine via:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 ParseError(errornumber, object)
 
 Prints the parsing message/error given by `errornumber`, where an additional object value may also be provided.
@@ -9554,7 +9555,7 @@ May also call: `CustomError`
 | [.big]#Perform#
 | called by the engine via:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 Perform(verbroutine, object, xobject, queue, isxverb)
 
 Runs the requested verbroutine, setting up the `object` and `xobject` globals if necessary.
@@ -9564,7 +9565,7 @@ The `queue` argument is true if more than one call to `Perform` is being made fo
 | [.big]#SpeakTo#
 | called by the engine via:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 SpeakTo(character)
 
 Handles character responses to directed actions.
@@ -9587,7 +9588,7 @@ And the routines for grammatically-correct printing:
 | [.big]#Art#
 | calling form:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 Art(object)
 
 Prints the indefinite article form of the object name, e.g. "`*an apple*`"
@@ -9597,7 +9598,7 @@ Prints the indefinite article form of the object name, e.g. "`*an apple*`"
 | [.big]#The#
 | calling form:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 The(object)
 
 Prints the definite article form of the object name, e.g. "`*the apple*`"
@@ -9607,7 +9608,7 @@ Prints the definite article form of the object name, e.g. "`*the apple*`"
 | [.big]#CArt#
 | calling form:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 CArt(object)
 
 Prints the capitalized indefinite article form of the object name, e.g. "`*An apple*`"
@@ -9617,7 +9618,7 @@ Prints the capitalized indefinite article form of the object name, e.g. "`*An ap
 | [.big]#CThe#
 | calling form:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 CThe(object)
 
 Prints the capitalized definite article form of the object name, e.g. "`*The apple*`"
@@ -9627,7 +9628,7 @@ Prints the capitalized definite article form of the object name, e.g. "`*The app
 | [.big]#IsorAre#
 | calling form:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 IsorAre(object[, formal])
 
 where the parameter `formal` is optional
@@ -9641,7 +9642,7 @@ Depending on whether or not the specified object is `plural` or singular, prints
 | [.big]#MatchPlural#
 | calling form:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 MatchPlural(object, w1, w2)
 
 Prints the dictionary entry given by `w1` if the supplied object is not plural, or `w2` if it is.
@@ -9651,7 +9652,7 @@ Prints the dictionary entry given by `w1` if the supplied object is not plural, 
 | [.big]#MatchSubject#
 | calling form:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 MatchSubject(object)
 
 Matches a verb to the given subject `object`.
@@ -9689,7 +9690,7 @@ Other library routines:
 | [.big]#Acquire#
 | calling form:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 Acquire(parent, object)
 
 Checks to see if `parent.capacity` is greater than or equal to `parent.holding` plus `object.size`.
@@ -9703,7 +9704,7 @@ Also calls: `CalculateHolding`
 | [.big]#AnyVerb#
 | calling form:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 AnyVerb(value)
 
 Returns `value` if the current verbroutine is not an xverb; otherwise it returns false.
@@ -9713,7 +9714,7 @@ Returns `value` if the current verbroutine is not an xverb; otherwise it returns
 | [.big]#AssignPronoun#
 | calling form:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 AssignPronoun(object)
 
 Sets the appropriate global `it_obj`, `them_obj`, `him_obj`, or `her_obj` to the specified object.
@@ -9723,7 +9724,7 @@ Sets the appropriate global `it_obj`, `them_obj`, `him_obj`, or `her_obj` to the
 | [.big]#CalculateHolding#
 | calling form:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 CalculateHolding(object)
 
 Properly recalculates `object.holding` based on the sizes of all child objects.
@@ -9733,7 +9734,7 @@ Properly recalculates `object.holding` based on the sizes of all child objects.
 | [.big]#CenterTitle#
 | calling form:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 CenterTitle(text[, lines])
 
 Clears the screen and centers the text given by the specified dictionary entry in the top window.
@@ -9744,7 +9745,7 @@ The default height of the title (i.e., one line) can be overridden with a second
 | [.big]#CheckReach#
 | calling form:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 CheckReach(object)
 
 Checks to see if the specified object is within reach of the player object.
@@ -9755,7 +9756,7 @@ Returns true if accessible; returns false and prints an appropriate message if n
 | [.big]#Contains#
 | calling form:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 Contains(parent, object)
 
 Returns `object` if the specified object is present as a possession of the specified parent, even as a grandchild,{wj}{fn2} otherwise returns false.
@@ -9765,7 +9766,7 @@ Returns `object` if the specified object is present as a possession of the speci
 | [.big]#CustomError#
 | calling form:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 CustomError(errornumber, object)
 
 Replace if custom error messages are desired.
@@ -9777,7 +9778,7 @@ Should return false if no user message is found.
 | [.big]#DarkWarning#
 | calling form:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 DarkWarning
 
 Is called by `MovePlayer` whenever the player object is moved into a location without a light source.
@@ -9788,7 +9789,7 @@ The default library routine simply prints a message; for a more sinister respons
 | [.big]#DeleteWord#
 | calling form:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 DeleteWord(wordnumber[, number])
 
 Deletes `number` words -- or only one word if no second argument is given -- starting with `word[wordnumber]`.
@@ -9799,7 +9800,7 @@ Returns the number of words deleted.
 | [.big]#DescribePlace#
 | calling form:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 DescribePlace(location[, long])
 
 Prints the location `name` and, when appropriate, a location description (i.e., its `long_desc`).
@@ -9810,7 +9811,7 @@ Including a non-false long parameter will always force a location description.
 | [.big]#ExcludeFromAll#
 | calling form:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 ExcludeFromAll(object)
 
 Returns true if, based on the current circumstances (verbroutine, etc.), the supplied `object` should be excluded from actions using "`*ALL*`" -- such as `multi`, `multiheld`, and `multinotheld` grammar tokens.
@@ -9820,7 +9821,7 @@ Returns true if, based on the current circumstances (verbroutine, etc.), the sup
 | [.big]#FindLight#
 | calling form:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 FindLight(location)
 
 Checks to see if a light source is available in `location`; if so, it sets the global `light_source` to the object number of the source and returns that value.
@@ -9832,7 +9833,7 @@ Also calls: `ObjectIsLight`
 | [.big]#Font#
 | calling form:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 Font(bitmask)
 
 // @XREF: "B.4. Constants" (INTERNAL XREF)
@@ -9843,7 +9844,7 @@ Sets the current font attributes as specified by `bitmask`, where `bitmask` is o
 | [.big]#GetInput#
 | calling form:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 GetInput([prompt string])
 
 Receives input from the keyboard, storing individual words in the `word` array; unknown words -- i.e., those that are not in the dictionary -- are assigned the empty string, 0 or `+""+`.
@@ -9855,7 +9856,7 @@ If no argument is passed, no prompt is printed.
 | [.big]#HoursMinutes#
 | calling form:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 HoursMinutes(counter[, military])
 
 Prints the time in "`__hh__:__mm__`" format given that `counter` represents the time in minutes from 12:00 a.m.
@@ -9866,7 +9867,7 @@ If the optional `military` value is given as a true value, the time is printed i
 | [.big]#Indent#
 | calling form:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 Indent
 
 If the `NOINDENT_F` bit is not set in the `FORMAT` mask, `Indent` prints `INDENT_SIZE` spaces without printing a newline.
@@ -9876,7 +9877,7 @@ If the `NOINDENT_F` bit is not set in the `FORMAT` mask, `Indent` prints `INDENT
 | [.big]#InList#
 | calling form:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 InList(object, property, value)
 
 If the `value` is in the list of values held in `object.property`, returns the element number of the (first) `property` element equal to `value`; otherwise returns 0.
@@ -9886,7 +9887,7 @@ If the `value` is in the list of values held in `object.property`, returns the e
 | [.big]#InsertWord#
 | calling form:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 InsertWord(wordnumber[, number])
 
 Makes space for either the number of words given by the `number` argument -- or one word if no second argument is given -- if possible, at `word[wordnumber]`, shifting upward all words from that point to the end of the input line.
@@ -9897,7 +9898,7 @@ Returns the number of words inserted.
 | [.big]#IsPossibleXobject#
 | calling form:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 IsPossibleXobject(object)
 
 Returns true if the object is potentially the xobject in the current command.
@@ -9908,14 +9909,14 @@ Does not, however, guarantee that the object _is_ an xobject, but is instead a q
 | [.big]#ListObjects#
 | calling form:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 ListObjects(object)
 
 Lists all the possessions of the specified object in the appropriate form (according to the global `FORMAT`).
 Possessions of possessions are listed recursively if `FORMAT` does not contain the `NORECURSE_F` bit.
 Format masks are combined, as in:
 
-[literal, role="hugosyntax", subs="+attributes"]
+[literal,role="hugosyntax",subs="+attributes"]
 FORMAT = LIST_F {vbar} NORECURSE_F {vbar} ...
 
 Also calls: `WhatsIn`
@@ -9925,7 +9926,7 @@ Also calls: `WhatsIn`
 | [.big]#Menu#
 | calling form:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 Menu(number, [width[, selection]])
 
 Prints a menu, given that the possible `number` of choices (up to 10) are contained in the `menuitem` array, with `menuitem[0]` is the title of the menu.
@@ -9939,7 +9940,7 @@ Also calls: `CenterTitle`
 | [.big]#Message#
 | calling form:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 Message(&routine, num, a, b)
 
 Used by most routines in *hugolib.h* for text output, so that the bulk of the library text is centralized in one location.
@@ -9952,7 +9953,7 @@ TIP: Similar routines are provided in `VMessage` in *verblib.h* and `OMessage` i
 | [.big]#MovePlayer#
 | calling form:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 MovePlayer(loc[, silent[, none]])
 MovePlayer(dir[, silent[, none]])
 
@@ -9977,7 +9978,7 @@ May also call: `DarkWarning`
 | [.big]#NumberWord#
 | calling form:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 NumberWord(number[, true])
 
 Prints a number in non-numerical word format, where `<number>` is between -32768 to 32767.
@@ -9989,7 +9990,7 @@ If a second true argument is supplied, the word is capitalized.
 | [.big]#ObjectIs#
 | calling form:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 ObjectIs(object)
 
 Lists certain attributes, such as providing `light` or being `worn`, of the given object in parenthetical form.
@@ -9999,7 +10000,7 @@ Lists certain attributes, such as providing `light` or being `worn`, of the give
 | [.big]#ObjectisKnown#
 | calling form:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 ObjectisKnown(object)
 
 Returns true if the object is `known` to the player.
@@ -10009,7 +10010,7 @@ Returns true if the object is `known` to the player.
 | [.big]#ObjectisLight#
 | calling form:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 ObjectisLight(object)
 
 Returns true if the object or one of its visible possessions is providing `light`.
@@ -10020,7 +10021,7 @@ If so, it also sets the global `light_source` to the object number of the source
 | [.big]#ObjWord#
 | calling form:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 ObjWord(word, object)
 
 // @EDITED TEXT: (undocumented & waiting approval: Issue #47)
@@ -10032,7 +10033,7 @@ Returns either `adjective` or `noun` (i.e., the property number) if the given `w
 | [.big]#PreParse#
 | calling form:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 PreParse
 
 Provided so that, if needed, this routine may be replaced instead of the more extensive library `Parse` routine.
@@ -10043,7 +10044,7 @@ The default `PreParse` routine defined in the library is empty.
 | [.big]#PrintEndGame#
 | calling form:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 PrintEndGame(end_type)
 
 Depending on whether `end_type` is 1 or 2, prints, respectively:
@@ -10063,7 +10064,7 @@ If `end_type` is some other value, nothing is printed.
 | [.big]#PrintScore#
 | calling form:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 PrintScore(end_of_game)
 
 Prints the `score` in the appropriate form, depending on whether or not `end_of_game` is true.
@@ -10073,7 +10074,7 @@ Prints the `score` in the appropriate form, depending on whether or not `end_of_
 | [.big]#PrintStatusLine#
 | calling form:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 PrintStatusLine
 
 Prints the statusline in the appropriate format, according to the global `STATUSTYPE`.
@@ -10083,7 +10084,7 @@ Prints the statusline in the appropriate format, according to the global `STATUS
 | [.big]#PropertyList#
 | calling form:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 PropertyList(object, property)
 
 Lists the objects held in `object.property` (if any), returning the number of objects listed.
@@ -10093,7 +10094,7 @@ Lists the objects held in `object.property` (if any), returning the number of ob
 | [.big]#PutInScope#
 | calling form:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 PutInScope(object, actor)
 
 Makes the given object accessible to the specified actor, regardless of their respective locations, and providing that the `in_scope` property of the object has at least one empty slot -- i.e., one that equals 0.
@@ -10104,7 +10105,7 @@ Returns true if successful.
 | [.big]#RemoveFromScope#
 | calling form:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 RemoveFromScope(object, actor)
 
 Removes the given object from the scope of the specified actor.
@@ -10115,12 +10116,12 @@ Returns true if successful, or false if the object was never in scope of the act
 | [.big]#SetObjWord#
 | calling form:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 SetObjWord(position, object)
 
 Inserts the specified object in the `word` array in the format:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 "adjective1 adjective2 ... noun"
 
 {blank}
@@ -10130,7 +10131,7 @@ Inserts the specified object in the `word` array in the format:
 | [.big]#ShortDescribe#
 | calling form:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 ShortDescribe(object)
 
 Prints the short description (`short_desc`) of the given object, first checking to see if it should run `initial_desc`, `when_open`, or `when_closed`, as appropriate.
@@ -10143,7 +10144,7 @@ Also calls: `WhatsIn`
 | [.big]#SpecialDesc#
 | calling form:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 SpecialDesc(object)
 
 Checks each child object of the specified object, running any appropriate `initial_desc` or `inv_desc` property routines (depending on the calling situation).
@@ -10154,7 +10155,7 @@ Sets the global variable `list_count` to the number of remaining (i.e., non-list
 | [.big]#VerbWord#
 | calling form:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 VerbWord
 
 Returns the dictionary word used as the verb in a typed command.
@@ -10164,7 +10165,7 @@ Returns the dictionary word used as the verb in a typed command.
 | [.big]#WhatsIn#
 | calling form:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 WhatsIn(parent)
 
 Lists the possessions of the specified parent, according the form given by the global `FORMAT`.
@@ -10177,7 +10178,7 @@ Also calls: `SpecialDesc`, `ListObjects`
 | [.big]#YesorNo#
 | calling form:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 YesorNo
 
 Checks to see if the just-received input is "`*YES*`", "`*Y*`", "`*NO*`", or "`*N*`".
@@ -10198,7 +10199,7 @@ Once a valid answer is received, it returns true (if yes) or false (if no).
 | [.big]#abs#
 | calling form:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 abs(a)
 
 Returns an absolute value given a supplied value.
@@ -10208,7 +10209,7 @@ Returns an absolute value given a supplied value.
 | [.big]#higher#
 | calling form:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 higher(a, b)
 
 Returns the higher number of two supplied values.
@@ -10218,7 +10219,7 @@ Returns the higher number of two supplied values.
 | [.big]#lower#
 | calling form:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 lower(a, b)
 
 Returns the lower number of two supplied values.
@@ -10228,7 +10229,7 @@ Returns the lower number of two supplied values.
 | [.big]#mod#
 | calling form:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 mod(a, b)
 
 Returns the remainder of one number divided by a second number.
@@ -10238,7 +10239,7 @@ Returns the remainder of one number divided by a second number.
 | [.big]#pow#
 | calling form:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 pow(a, b)
 
 Returns one number to the power of another number.
@@ -10259,7 +10260,7 @@ WARNING: The return value is undefined if the result is outside the boundary of 
 | [.big]#StringCompare#
 | calling form:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 StringCompare(array1, array2)
 
 Returns 1 if `array1` is lexically greater than `array2`, -1 if `array1` is lexically less than `array2`, and 0 if the strings are identical.
@@ -10269,7 +10270,7 @@ Returns 1 if `array1` is lexically greater than `array2`, -1 if `array1` is lexi
 | [.big]#StringCopy#
 | calling form:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 StringCopy(new, old[, len])
 
 Copies the contents of the array at the address given by `old` to the array at `new`, to a maximum of `len` characters if `len` is given, or the length of `old` if it isn't.
@@ -10279,7 +10280,7 @@ Copies the contents of the array at the address given by `old` to the array at `
 | [.big]#StringDictCompare#
 | calling form:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 StringDictCompare(array, dictentry)
 
 Performs a `StringCompare`-like comparison of a string array given by `array` and the dictionary entry `dictentry`, returning 1, -1, or 0 if `array` is lexically greater than, less than, or equal to `dictentry`, respectively.
@@ -10289,7 +10290,7 @@ Performs a `StringCompare`-like comparison of a string array given by `array` an
 | [.big]#StringEqual#
 | calling form:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 StringEqual(array1, array2)
 
 Returns true only if `array1` and `array2` are identical.
@@ -10299,7 +10300,7 @@ Returns true only if `array1` and `array2` are identical.
 | [.big]#StringLength#
 | calling form:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 StringLength(array)
 
 Returns the length of the string stored as `array`.
@@ -10309,7 +10310,7 @@ Returns the length of the string stored as `array`.
 | [.big]#StringPrint#
 | calling form:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 StringPrint(array[, start, end])
 
 Prints the string stored as `array`, beginning with `start` and ending with `end` if given.
@@ -10328,7 +10329,7 @@ Prints the string stored as `array`, beginning with `start` and ending with `end
 | [.big]#Activate#
 | calling form:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 Activate(object[, setting])
 
 Activates the specified `fuse` or `daemon` object.
@@ -10339,7 +10340,7 @@ The setting value is only specified for fuses, where it represents the initial v
 | [.big]#Deactivate#
 | calling form:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 Deactivate(object)
 
 Deactivates the specified `fuse` or `daemon` object.
@@ -10358,7 +10359,7 @@ Deactivates the specified `fuse` or `daemon` object.
 | [.big]#CancelScript#
 | calling form:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 CancelScript(character)
 
 Immediately cancels the character script associated with the object `character`.
@@ -10369,7 +10370,7 @@ Returns true if successful, i.e., if a script for `character` is found.
 | [.big]#PauseScript#
 | calling form:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 PauseScript(character)
 
 Temporarily pauses the character script associated with the given `character`.
@@ -10380,7 +10381,7 @@ Returns true if successful.
 | [.big]#ResumeScript#
 | calling form:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 ResumeScript(character)
 
 Resumes execution of a paused script for the given `character`.
@@ -10391,7 +10392,7 @@ Returns true if successful.
 | [.big]#SkipScript#
 | calling form:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 SkipScript(character)
 
 Skips execution of the script for a given `character` during the next call to `RunScripts` only.
@@ -10401,7 +10402,7 @@ Skips execution of the script for a given `character` during the next call to `R
 | [.big]#Script#
 | calling form:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 Script(character, steps)
 
 Initializes space for the requested number of `steps` in the `setscript` array, sets up the data for the script in the `scriptdata` array, and returns the location of the script in `setscript`.
@@ -10412,12 +10413,12 @@ Returns -1 if `MAX_SCRIPTS` is exceeded.
 | [.big]#RunScripts#
 | calling form:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 RunScripts
 
 Runs all active scripts, calling them in the form:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 CharRoutine(character, object)
 
 {blank}
@@ -10475,10 +10476,10 @@ A number of compiler flags may be set to exclude certain portions of *hugolib.h*
 
 The default settings for the complete set of limits may be obtained by invoking the compiler via:
 
-[literal, role="cmd"]
-.....................
+[literal,role="cmd"]
+....................
 hc $list
-.....................
+....................
 
 
 The following limits are static and non-modifiable, since they reflect the internal configuration of the Hugo Engine:
@@ -10499,7 +10500,7 @@ The following limits are static and non-modifiable, since they reflect the inter
 
 The following are the modifiable settings, which may be set using:
 
-[literal, role="cmd"]
+[literal,role="cmd"]
 ......................
 $<setting>=<new limit>
 ......................
@@ -10636,10 +10637,10 @@ TIP: It's useful to have generated debugging information by passing the `–i` s
 
 Essentially the same as the Hugo statement:
 
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 move <object> to <parent>.
-............................
+...........................
 
 The object will become the youngest child of the parent object.
 
@@ -10647,10 +10648,10 @@ The object will become the youngest child of the parent object.
 
 Essentially the same as the Hugo Library function call:
 
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 MovePlayer(<obj.>).
-............................
+...........................
 
 The function may fail (and print an appropriate error message) if the specified parent object is not a valid location (i.e., room or room-equivalent object).
 
@@ -10753,7 +10754,7 @@ In order to be used with the debugger, a Hugo program must be compiled using the
 
 The Unix or MS-DOS convention for running the debugger is:
 
-[literal, role="cmd"]
+[literal,role="cmd"]
 hd <filename>
 
 from the command line.
@@ -10853,12 +10854,12 @@ A game that takes 2 seconds to compile normally will compile in 1.
 
 It is possible to precompile files that would normally be included using the `#include` directive into a precompiled header file that may be linked using `#link`, as in:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 #link "<filename.hlb>"
 
 instead of:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 #include "<filename.h>"
 
 The advantage of doing this is primarily one of faster compilation speed; files that are used over and over again without alteration (such as the Hugo Library) may be precompiled so that they are not recompiled every time.
@@ -10870,7 +10871,7 @@ To create a precompiled header, use the `-h` directive when invoking the Hugo Co
 The file *hugolib.hug* serves as a good example: it is a small wrapper which compiles the standard Hugo Library.
 Compile it via
 
-[literal, role="cmd"]
+[literal,role="cmd"]
 hc -h hugolib.hug
 
 in order to generate *hugolib.hlb*.
@@ -12897,11 +12898,11 @@ The reading of values from data types or expressions begins with `GetValue()` in
 
 >s| As in:  <a|
 
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 if <expression>
 {...}
-............................
+...........................
 
 Where the two bytes of `<skip{nbsp}distance>` are the absolute distance -- in low-byte/high-byte order -- from the first byte of the pair to the next line of code that will execute if `<expression>` evaluates to false, i.e., the distance to `<next{nbsp}statement>`.
 If `<expression>` evaluates to a non-false value, `<conditional{nbsp}block>` is run.
@@ -12931,11 +12932,11 @@ Note that $4C indicates end-of-line.
 
 >s| As in:  <a|
 
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 else
 {...}
-............................
+...........................
 
 Where `<conditional{nbsp}block>` runs only if no immediately preceding `if` or `elseif` condition has been met.
 If a previous condition has been met, control passes ahead to `<next{nbsp}statment>`, i.e., forward the number of bytes given by the two bytes of `<skip{nbsp}distance>`.
@@ -12958,7 +12959,7 @@ If a previous condition has been met, control passes ahead to `<next{nbsp}statme
 
 >s| As in:  <a|
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 ............................
 elseif <expression>
 {...}
@@ -12988,11 +12989,11 @@ elseif <expression>
 
 >s| As in:  <a|
 
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 while <expression>
 {...}
-............................
+...........................
 
 As long as `<expression>` evaluates to a non-false value, `<conditional{nbsp}block>` is run.
 Note the implicit `jump` ($25) coded by the compiler to maintain the loop -- `<starting{nbsp}point>` is only an address; only the two-byte address following $25 is written as a jump-back point.
@@ -13021,12 +13022,12 @@ IMPORTANT: Note that because the `<starting{nbsp}point>` is written as a two-byt
 
 >s| As in:  <a|
 
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 do
 {...}
 while <expression>
-............................
+...........................
 
 If, after `<block>` executes, `<expression>` evaluates to a non-false value, the engine returns to `<starting{nbsp}point>` (which must begin on an address boundary).
 The two bytes following `while` ($1C) match the syntax of the normal `while` loop, but are undefined for this usage.
@@ -13104,7 +13105,7 @@ Note that $1A is the `else` token, $05 is the `=` token, and that the two bytes 
 
 >s| As in:  <a|
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 ...................................
 for (<assign>; <expr>; <modifying>)
 {...}
@@ -13134,10 +13135,10 @@ This, like the `<assignment>` is simply a regular executable assignment.
 
 >s| As in:  <a|
 
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 return <expression>
-............................
+...........................
 
 Where `<expression>` is optional, so that a standalone return order can be coded as:
 
@@ -13169,10 +13170,10 @@ Where `<expression>` is optional, so that a standalone return order can be coded
 
 >s| As in:  <a|
 
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 jump <label>
-............................
+...........................
 
 Where `<address>` is two bytes giving the indexed address of the next statement to be executed. +
 (The `<label>` is coded as `<address>`.)
@@ -13291,10 +13292,10 @@ Signals that the following dictionary entry should have its first letter capital
 
 >s| As in:  <a|
 
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 text to n
-............................
+...........................
 
 Where `<value>` is either an address in the array table, or constant 0 (to restore text output to the standard display).
 
@@ -13317,7 +13318,7 @@ Where `<value>` is either an address in the array table, or constant 0 (to resto
 
 >s| As in:  <a|
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 ........................................
 color foreground
 color foreground, background
@@ -13339,10 +13340,10 @@ If a third value is given, separated by a comma ($19), it represents the input c
 
 >s| As in:  <a|
 
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 remove <object>
-............................
+...........................
 {blank}
 
 >s| Source: <a|
@@ -13360,10 +13361,10 @@ remove <object>
 
 >s| As in:  <a|
 
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 move <object1> to <object2>
-............................
+...........................
 {blank}
 
 >s| Source: <a|
@@ -13395,10 +13396,10 @@ Typically found in `print to n`, `text to n`, etc., in which case the line will 
 
 >s| As in:  <a|
 
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 parent(...)
-............................
+...........................
 
 Returns the parent object of the object resulting from `<expression>`.
 
@@ -13415,10 +13416,10 @@ NOTE: Alternate usage is as a grammar token, coded simply as $3C with no followi
 
 >s| As in:  <a|
 
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 sibling(...)
-............................
+...........................
 
 Returns the sibling of the object resulting from `<expression>`.
 
@@ -13433,10 +13434,10 @@ Returns the sibling of the object resulting from `<expression>`.
 
 >s| As in:  <a|
 
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 child(...)
-............................
+...........................
 
 Returns the child object of the object resulting from `<expression>`.
 
@@ -13451,10 +13452,10 @@ Returns the child object of the object resulting from `<expression>`.
 
 >s| As in:  <a|
 
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 youngest(...)
-............................
+...........................
 
 Returns the youngest (most recently added) child object of the object resulting from `<expression>`.
 
@@ -13469,10 +13470,10 @@ Returns the youngest (most recently added) child object of the object resulting 
 
 >s| As in:  <a|
 
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 eldest(...)
-............................
+...........................
 
 Interpreted identically to `child(...)`.
 
@@ -13487,10 +13488,10 @@ Interpreted identically to `child(...)`.
 
 >s| As in:  <a|
 
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 younger(...)
-............................
+...........................
 
 Interpreted identically to `sibling(...)`.
 
@@ -13505,10 +13506,10 @@ Interpreted identically to `sibling(...)`.
 
 >s| As in:  <a|
 
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 elder(...)
-............................
+...........................
 
 Returns the object number of the object more recently added to the parent of the object resulting from `<expression>`.
 
@@ -13606,10 +13607,10 @@ End-of-line marker.
 
 >s| As in:  <a|
 
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 system(<value>)
-............................
+...........................
 
 
 Calls the system-level function designated by `<value>`.
@@ -13636,31 +13637,31 @@ Where `<value>` is some Hugo data type giving the number of the system function 
 
 .2+| 50 | [.big.red]#window# | *STATEMENT*
 
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 window n
-............................
+...........................
 
     50 <value> 4C
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 ...............................
 window left, top, right, bottom
 ...............................
 
     50 <v1> 19 <v2> 19 <v3> 19 <v4> 4C
 
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 window
-............................
+...........................
 
     50 4C
 
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 window 0
-............................
+...........................
 
     50 4B 00 00 4C
 
@@ -13691,10 +13692,10 @@ The result was a window beginning at the top of the screen, reaching down to the
 
 >s| As in:  <a|
 
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 random(...)
-............................
+...........................
 
 Returns a random value between 1 and `<expression>`.
 
@@ -13711,10 +13712,10 @@ Returns a random value between 1 and `<expression>`.
 
 *As in:*
 
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 word[...]
-............................
+...........................
 
 Returns the dictionary address of `word[<expression>`].
 
@@ -13730,11 +13731,11 @@ Returns the dictionary address of `word[<expression>`].
 
 >s| As in:  <a|
 
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 locate x
 locate x, y
-............................
+...........................
 
 Where `<value>` is the column position to reposition the cursor to within the currently defined window.
 If a second value is given, it represents the new row position.
@@ -13761,10 +13762,10 @@ Read-only engine variable representing the engine parser's internal `parse$` str
 
 >s| As in:  <a|
 
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 children(...)
-............................
+...........................
 
 Returns the number of children owned by the object resulting from `<expression>`.
 
@@ -13774,14 +13775,14 @@ Returns the number of children owned by the object resulting from `<expression>`
 
 >s| As in:  <a|
 
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 for <object> in <parent>
-............................
+...........................
 
 or
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 .............................
 if <object> [not] in <parent>
 .............................
@@ -13837,10 +13838,10 @@ Where `<array>` is two bytes giving the address of the array in the array table.
 
 >s| As in:  <a|
 
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 call <routine address>
-............................
+...........................
 
 Where `<value>` gives the indexed address of the routine to be called.
 
@@ -13866,10 +13867,10 @@ Valid only in a `print` statement.
 
 >s| As in:  <a|
 
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 x = save
-............................
+...........................
 
 Calls the engine's save-game procedure (which includes filename input); returns a true value on success, or false on failure.
 
@@ -13883,10 +13884,10 @@ Calls the engine's save-game procedure (which includes filename input); returns 
 
 >s| As in:  <a|
 
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 x = restore
-............................
+...........................
 
 Calls the engine's restore-game procedure (which includes filename input); returns a true value on success, or false on failure.
 
@@ -13938,10 +13939,10 @@ Clears the currently defined text window.
 .2+| 62 | [.big.red]#scripton# | *VALUE*
 *As in:*
 
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 x = scripton
-............................
+...........................
 
 Calls the engine's begin-scripting procedure (which includes filename input); returns a true value on success, or false on failure.
 
@@ -13955,10 +13956,10 @@ Calls the engine's begin-scripting procedure (which includes filename input); re
 
 >s| As in:  <a|
 
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 x = scriptoff
-............................
+...........................
 
 Calls the engine's end-scripting procedure; returns a true value on success, or false on failure.
 
@@ -13972,10 +13973,10 @@ Calls the engine's end-scripting procedure; returns a true value on success, or 
 
 >s| As in:  <a|
 
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 x = restart
-............................
+...........................
 
 Attempts to reload the dynamic game data and restart the game loop; returns a true value on success or false on failure.
 
@@ -14008,10 +14009,10 @@ NOTE: Removed as a token after grammar table is compiled so that `xobject` can r
 
 >s| As in:  <a|
 
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 x = string(a, "apple", 8)
-............................
+...........................
 
 Calls the engine string-writing function to write the dictionary entry `<expr2>` into the array table at the array address given by `<expr1>`, to a maximum of `<expr3>` characters.
 `<expr1>` is any data type or expression; `<expr2>` is either a value or the `parse$` token ($54); `<expr3>` is optional, and if it is not given, the $02 token comes in place of the second $19.
@@ -14043,10 +14044,10 @@ Forces `<value>` to be used as an address in the array table, so that `array <va
 
 >s| As in:  <a|
 
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 printchar 'A', 'B',...
-............................
+...........................
 
 Outputs a single ASCII character value at the current screen position.
 Multiple values are separated by $19; the sequence is terminated by $4C.
@@ -14057,10 +14058,10 @@ Multiple values are separated by $19; the sequence is terminated by $4C.
 
 >s| As in:  <a|
 
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 x = undo
-............................
+...........................
 
 Attempts to restore all data changes made since the last typed input; returns a true value on success or false on failure.
 
@@ -14079,10 +14080,10 @@ Attempts to restore all data changes made since the last typed input; returns a 
 
 >s| As in:  <a|
 
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 x = dict(<array>, <len>)
-............................
+...........................
 
 Calls the engine dictionary-writing function to write the given string into the dictionary, to a maximum of `<len>` characters.
 If `<expr1>` is `parse$` ($54), then the value of `parse$` is used; otherwise `<expr1>` is an array address in the array table.
@@ -14099,10 +14100,10 @@ Otherwise, it is appended to the end of the table, and the new location is retur
 
 >s| As in:  <a|
 
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 x = recordon
-............................
+...........................
 
 Calls the engine's begin-command-recording procedure (which includes filename input); returns a true value on success, or false on failure.
 
@@ -14116,10 +14117,10 @@ Calls the engine's begin-command-recording procedure (which includes filename in
 
 >s| As in:  <a|
 
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 x = recordoff
-............................
+...........................
 
 Calls the engine's end-command-recording procedure; returns a true value on success, or false on failure.
 
@@ -14139,11 +14140,11 @@ Calls the engine's end-command-recording procedure; returns a true value on succ
 
 >s| As in:  <a|
 
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 writefile <file>
 {...}
-............................
+...........................
 
 
 Opens the file named by the dictionary entry `<value>`, erasing it if it previously exists, and runs the following code block.
@@ -14165,11 +14166,11 @@ Upon any error, jumps to the end of the file i/o code block and closes `<file>`.
 
 >s| As in:  <a|
 
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 readfile <file>
 {...}
-............................
+...........................
 
 Opens the file named by the dictionary entry `<value>` and runs the following code block.
 Upon any error, jumps to the end of the file i/o code block and closes `<file>`.
@@ -14191,10 +14192,10 @@ Multiple values are separated by $19.
 
 >s| As in:  <a|
 
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 x = readval
-............................
+...........................
 
 Valid only in a `readfile` block.
 Reads a 16-bit integer from the currently open file.
@@ -14205,10 +14206,10 @@ Reads a 16-bit integer from the currently open file.
 
 >s| As in:  <a|
 
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 x = playback
-............................
+...........................
 
 Calls the engines command-playback procedure (including filename input) and attempts to begin command playback from the requested file.
 If found, player input in `RunGame()` is overridden by commands in the file until end-of-file.

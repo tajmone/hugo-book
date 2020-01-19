@@ -26,15 +26,15 @@ The engine allows a Hugo program to access external media data (called resources
 Resourcefiles contain sounds, music, images, and video files used by the program.
 A resourcefile is created using:
 
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 resource "<resourcefile>"
 {
     "<resource1>"
     "<resource2>"
     ...
 }
-............................
+...........................
 
 
 
@@ -95,7 +95,7 @@ If `system_status` is non-zero (where zero signifies normal status), it will con
 
 A picture is displayed as a resource in a resourcefile using:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 .....................................
 picture "<resourcefile>", "<picture>"
 .....................................
@@ -129,7 +129,7 @@ If the picture is not found or a recoverable error occurs during loading, normal
 // @EDITED CODE: (Issue #36)
 //    Parameters enclosed within angular brackets for code consistency.
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 .................................................................
 LoadPicture("<resourcefile>", "<picture>")
 LoadPicture("<picture>")
@@ -159,7 +159,7 @@ Wherever possible, however, it is recommended to always specify the resourcefile
 
 Sounds and music are played as follows:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 ..................................................
 sound [repeat] <resourcefile>, <resource>[, <vol>]
 music [repeat] <resourcefile>, <resource>[, <vol>]
@@ -180,7 +180,7 @@ music 0
 //    Parameters enclosed within angular brackets for code consistency.
 //    Addded missing <volume> parameter.
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 ....................................................................
 PlaySound(<resourcefile>, <sample>[, <volume>[, <loop>[, <force>]]])
 PlayMusic(<resourcefile>, <song>[, <volume>[, <loop>[, <force>]]])
@@ -203,7 +203,7 @@ PlayMusic(MUSIC_STOP)
 Video is displayed similarly to static graphic images (that is, it is displayed in the currently window) and controlled similarly to music and sound.
 The syntax for playing video looks like:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 ....................................................
 video [repeat] <resfile>, <res>[, <vol>, <bkground>]
 ....................................................

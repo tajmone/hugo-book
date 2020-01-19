@@ -88,10 +88,10 @@ TIP: It's useful to have generated debugging information by passing the `–i` s
 
 Essentially the same as the Hugo statement:
 
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 move <object> to <parent>.
-............................
+...........................
 
 The object will become the youngest child of the parent object.
 
@@ -99,10 +99,10 @@ The object will become the youngest child of the parent object.
 
 Essentially the same as the Hugo Library function call:
 
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 MovePlayer(<obj.>).
-............................
+...........................
 
 The function may fail (and print an appropriate error message) if the specified parent object is not a valid location (i.e., room or room-equivalent object).
 
@@ -205,7 +205,7 @@ In order to be used with the debugger, a Hugo program must be compiled using the
 
 The Unix or MS-DOS convention for running the debugger is:
 
-[literal, role="cmd"]
+[literal,role="cmd"]
 hd <filename>
 
 from the command line.

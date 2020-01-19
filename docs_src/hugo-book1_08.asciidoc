@@ -101,7 +101,7 @@ Since the library's `Parse` routine is rather extensive, a provision is made for
 The `ParseError` routine is called whenever a command is invalid.
 `ParseError` is called in the form:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 ...................................
 ParseError(<errornumber>, <object>)
 ...................................
@@ -194,7 +194,7 @@ The `FindObject` routine takes into account all the relevant properties, attribu
 For example, the child of a parent object may be available if the parent is a platform, but unavailable if the parent is a container (and closed) -- although internally, the object hierarchy is the same.
 `FindObject` is called via:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 ................................
 FindObject(<object>, <location>)
 ................................
@@ -237,10 +237,10 @@ For example:
 It is up to the `SpeakTo` routine to properly interpret the instruction.
 `SpeakTo` is called via:
 
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 SpeakTo(<character>)
-............................
+...........................
 
 where `<character>` in the above example would be the Professor Plum object.
 The globals `object`, `xobject`, and `verbroutine` are all set up as normal.
@@ -306,7 +306,7 @@ The `Perform` routine is what is called by the engine in order to execute the ap
 It is the responsibility of `Perform` to do the appropriate checking of `before` routines to determine if execution actually gets to the verbroutine.
 `Perform` is called as:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 ...............................................................
 Perform(<verbroutine>, <object>, <xobject>, <queue>, <isxverb>)
 ...............................................................

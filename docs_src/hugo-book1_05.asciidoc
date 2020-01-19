@@ -48,7 +48,7 @@ A routine may or may not return a value, and it may or may not require a list of
 
 A routine is defined as:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 .............................................
 routine <routinename> [(<arg1>, <arg2>, ...)]
 {
@@ -62,7 +62,7 @@ once again ensuring that the opening brace (`{`) comes on a new line following t
 ================================================================================
 To substitute a new routine for an existing one with the same name (such as in a library file), define the new one using `replace` instead of `routine`.
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 .............................................
 replace <routinename> [(<arg1>, <arg2>, ...)]
 .............................................
@@ -85,17 +85,17 @@ Where `TestRoutine` takes a single value as an argument, assigns it to a local v
 The `return` keyword exits the current routine, and returns a value if specified.
 Both
 
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 return
-............................
+...........................
 
 and
 
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 return <expression>
-............................
+...........................
 
 are valid.
 If no expression is given, the routine returns 0.
@@ -311,10 +311,10 @@ For those wondering why the true (i.e., equal to 1) return value in the second c
 
 Property routines may be run directly using the `run` command:
 
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 run <object>.<property>
-............................
+...........................
 
 If `<object>` does not have `<property>`, or if `<object>.<property>` is not a routine, nothing happens.
 Otherwise, the property routine executes.
@@ -322,14 +322,14 @@ Property routines do not take arguments.
 
 Remember that at any point in a program, an existing property may be changed using
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 .............................
 <object>.<property> = <value>
 .............................
 
 A property routine may be changed using
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 ................................................
 <object>.<property> =
 {
@@ -343,17 +343,17 @@ It is entirely possible to change what was once a property routine into a simple
 Even if a property routine is to be assigned later in the program, the property itself must still be defined at the outset in the original object definition.
 A simple
 
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 <property> 0
-............................
+...........................
 
 or
 
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 <property> {return false}
-............................
+...........................
 
 will suffice.
 
@@ -387,10 +387,10 @@ because the engine now believes `<object>.found_in` to have only one element -- 
 Finally, keep in mind that whenever calling a property routine, the global variable `self` is normally set to the object number.
 To avoid this, such as when "`borrowing`" a property from another object from within a different object, reference the property via
 
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 <object>..<property>
-............................
+...........................
 
 using `..` instead of the normal property operator.
 
@@ -406,7 +406,7 @@ They are unique in that not only are they always routines, but they are much mor
 
 _Complex_ properties like `before` and `after` are defined with
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 .................................
 property <property name> $complex
 .................................
@@ -421,7 +421,7 @@ property after $complex
 
 Here is the syntax for the `before` property:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 .................................................
 before
 {
@@ -528,7 +528,7 @@ It is important to remember that, unlike other property routines, `before` and `
 Instead, the definition for the routine is -- in essence -- added onto.
 An additive property is defined using the `$additive` qualifier, as in:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 ..................................................
 property <property name> $additive <default value>
 ..................................................
@@ -542,7 +542,7 @@ To force a `before` or `after` property routine to apply to _any_ verbroutine, d
 
 For example:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 ..............................
 before
 {
@@ -569,8 +569,8 @@ This can be particularly undesirable in the case of location `before`/`after` pr
 To get around this, the library provides a function `AnyVerb`, which takes an object as its argument and returns that object number if the current verbroutine is not within the group of xverbs; otherwise it returns false.
 Therefore, it can be used via:
 
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 before
 {
     AnyVerb(location)
@@ -578,13 +578,13 @@ before
         ...
     }
 }
-............................
+...........................
 
 
 instead of
 
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 
 before
 {
@@ -593,7 +593,7 @@ before
         ...
     }
 }
-............................
+...........................
 
 
 The former will execute the conditional block of code whenever the `location` global matches the current object and the current verbroutine is not an xverb.
@@ -629,14 +629,14 @@ routine init
 
 * _Start the counter at one turn before 0 turns, since `Main` will increment it to begin the game:_
 +
-[source,hugo, subs="+attributes"]
+[source,hugo,subs="+attributes"]
 ---------------------------------
 {wj}        counter = -1
 ---------------------------------
 
 * _Set up the kind of statusline we're going to be displaying, as well as define the default text colors:_{wj}{fn7}
 +
-[source,hugo, subs="+attributes"]
+[source,hugo,subs="+attributes"]
 ---------------------------------------------------------
 {wj}        STATUSTYPE = 1                  ! score/turns
         TEXTCOLOR = DEF_FOREGROUND
@@ -647,7 +647,7 @@ routine init
 
 * _Set the player prompt to the default `>`, and set the starting foreground and background colors:_
 +
-[source,hugo, subs="+attributes"]
+[source,hugo,subs="+attributes"]
 ---------------------------------
 {wj}        prompt = ">"
         color TEXTCOLOR, BGCOLOR
@@ -655,7 +655,7 @@ routine init
 
 * _Clear the screen before starting the game, set the font to the default font, and print the game title ("`SHELL`", in this case) and a subtitle, followed by the `BANNER` constant:_
 +
-[source,hugo, subs="+attributes"]
+[source,hugo,subs="+attributes"]
 -----------------------------------------
 {wj}        cls
         Font(BOLD_ON | DEFAULT_FONT)
@@ -667,7 +667,7 @@ routine init
 
 * _Set the player to the `you` object (from **objlib.h**), and set up the starting location:_
 +
-[source,hugo, subs="+attributes"]
+[source,hugo,subs="+attributes"]
 -------------------------------------------------------------------
 {wj}        player = you                    ! player initialization
         location = emptyroom
@@ -677,7 +677,7 @@ routine init
 * _Move the player to the starting location, run the library rules to see if there's light in the location, then describe the starting location and flag it as visited.
 Also, determine the starting bulk of whatever the player is carrying at the outset (if anything):_
 +
-[source,hugo, subs="+attributes"]
+[source,hugo,subs="+attributes"]
 -----------------------------------
 {wj}        move player to location
         FindLight(location)
@@ -711,7 +711,7 @@ routine main
 
 * _The `counter` global gets incremented each turn, and the statusline gets updated:_
 +
-[source,hugo, subs="+attributes"]
+[source,hugo,subs="+attributes"]
 ---------------------------------
 {wj}        counter = counter + 1
         PrintStatusLine
@@ -721,7 +721,7 @@ routine main
 The `runevents` statement runs all valid events.
 The `RunScripts` library routine runs any active scripts:_
 +
-[source,hugo, subs="+attributes"]
+[source,hugo,subs="+attributes"]
 ---------------------------------
 {wj}        run location.each_turn
         runevents
@@ -730,7 +730,7 @@ The `RunScripts` library routine runs any active scripts:_
 
 * _Finally, we check to see if the player is currently engaged in conversation with a character (if the `speaking` global is set) and, if so, if the character in question has left the current location:_
 +
-[source,hugo, subs="+attributes"]
+[source,hugo,subs="+attributes"]
 -----------------------------------------
 {wj}        if parent(speaking)~=location
                 speaking = 0
@@ -746,23 +746,23 @@ Events are useful for bringing a game to life, so that little quirks, behaviors,
 Events are also routines, but their special characteristic is that they may be attached to a particular object, and they are run as a group by the `runevents` command.
 Events are defined as:
 
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 event
 {
     ...Event routine...
 }
-............................
+...........................
 
 for global events, and
 
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 event [in] <object>
 {
     ...Event routine...
 }
-............................
+...........................
 
 
 for events attached to a particular object.
@@ -904,7 +904,7 @@ The cabinet can now be entered via: "`go cabinet`", "`get into cabinet`", "`ente
 Suppose that there is a clock object in a room.
 Here is a possible event:
 
-[source,hugo, subs="+attributes,macros"]
+[source,hugo,subs="+attributes,macros"]
 ------------------------------------------
 event in clock
 {
@@ -935,7 +935,7 @@ Now, suppose the clock should be audible throughout the entire game -- i.e., in 
 Simply changing the event definition to:
 
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 ................................
 event       ! no object is given
 {

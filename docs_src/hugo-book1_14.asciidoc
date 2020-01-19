@@ -498,7 +498,7 @@ First, the junction routines:
 | [.big]#EndGame#
 | called by the engine via:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 EndGame(end_type)
 
 If `end_type` = 1, the game is won; if 2, the game is lost.
@@ -515,7 +515,7 @@ Also calls: `PrintEndGame` and `PrintScore`
 | [.big]#FindObject#
 | called by the engine via:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 FindObject(object, location)
 
 Returns true (1) if the specified object is available in the specified location, or false (0) if it is not.
@@ -530,7 +530,7 @@ Also calls: `ObjectisKnown`, `ExcludeFromAll`
 | [.big]#Parse#
 | called by the engine via:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 Parse()
 
 Performs all library-side parsing of the player input.
@@ -543,7 +543,7 @@ Also calls: `PreParse`, `AssignPronoun` and `SetObjWord`
 | [.big]#ParseError#
 | called by the engine via:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 ParseError(errornumber, object)
 
 Prints the parsing message/error given by `errornumber`, where an additional object value may also be provided.
@@ -556,7 +556,7 @@ May also call: `CustomError`
 | [.big]#Perform#
 | called by the engine via:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 Perform(verbroutine, object, xobject, queue, isxverb)
 
 Runs the requested verbroutine, setting up the `object` and `xobject` globals if necessary.
@@ -566,7 +566,7 @@ The `queue` argument is true if more than one call to `Perform` is being made fo
 | [.big]#SpeakTo#
 | called by the engine via:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 SpeakTo(character)
 
 Handles character responses to directed actions.
@@ -589,7 +589,7 @@ And the routines for grammatically-correct printing:
 | [.big]#Art#
 | calling form:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 Art(object)
 
 Prints the indefinite article form of the object name, e.g. "`*an apple*`"
@@ -599,7 +599,7 @@ Prints the indefinite article form of the object name, e.g. "`*an apple*`"
 | [.big]#The#
 | calling form:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 The(object)
 
 Prints the definite article form of the object name, e.g. "`*the apple*`"
@@ -609,7 +609,7 @@ Prints the definite article form of the object name, e.g. "`*the apple*`"
 | [.big]#CArt#
 | calling form:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 CArt(object)
 
 Prints the capitalized indefinite article form of the object name, e.g. "`*An apple*`"
@@ -619,7 +619,7 @@ Prints the capitalized indefinite article form of the object name, e.g. "`*An ap
 | [.big]#CThe#
 | calling form:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 CThe(object)
 
 Prints the capitalized definite article form of the object name, e.g. "`*The apple*`"
@@ -629,7 +629,7 @@ Prints the capitalized definite article form of the object name, e.g. "`*The app
 | [.big]#IsorAre#
 | calling form:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 IsorAre(object[, formal])
 
 where the parameter `formal` is optional
@@ -643,7 +643,7 @@ Depending on whether or not the specified object is `plural` or singular, prints
 | [.big]#MatchPlural#
 | calling form:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 MatchPlural(object, w1, w2)
 
 Prints the dictionary entry given by `w1` if the supplied object is not plural, or `w2` if it is.
@@ -653,7 +653,7 @@ Prints the dictionary entry given by `w1` if the supplied object is not plural, 
 | [.big]#MatchSubject#
 | calling form:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 MatchSubject(object)
 
 Matches a verb to the given subject `object`.
@@ -691,7 +691,7 @@ Other library routines:
 | [.big]#Acquire#
 | calling form:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 Acquire(parent, object)
 
 Checks to see if `parent.capacity` is greater than or equal to `parent.holding` plus `object.size`.
@@ -705,7 +705,7 @@ Also calls: `CalculateHolding`
 | [.big]#AnyVerb#
 | calling form:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 AnyVerb(value)
 
 Returns `value` if the current verbroutine is not an xverb; otherwise it returns false.
@@ -715,7 +715,7 @@ Returns `value` if the current verbroutine is not an xverb; otherwise it returns
 | [.big]#AssignPronoun#
 | calling form:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 AssignPronoun(object)
 
 Sets the appropriate global `it_obj`, `them_obj`, `him_obj`, or `her_obj` to the specified object.
@@ -725,7 +725,7 @@ Sets the appropriate global `it_obj`, `them_obj`, `him_obj`, or `her_obj` to the
 | [.big]#CalculateHolding#
 | calling form:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 CalculateHolding(object)
 
 Properly recalculates `object.holding` based on the sizes of all child objects.
@@ -735,7 +735,7 @@ Properly recalculates `object.holding` based on the sizes of all child objects.
 | [.big]#CenterTitle#
 | calling form:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 CenterTitle(text[, lines])
 
 Clears the screen and centers the text given by the specified dictionary entry in the top window.
@@ -746,7 +746,7 @@ The default height of the title (i.e., one line) can be overridden with a second
 | [.big]#CheckReach#
 | calling form:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 CheckReach(object)
 
 Checks to see if the specified object is within reach of the player object.
@@ -757,7 +757,7 @@ Returns true if accessible; returns false and prints an appropriate message if n
 | [.big]#Contains#
 | calling form:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 Contains(parent, object)
 
 Returns `object` if the specified object is present as a possession of the specified parent, even as a grandchild,{wj}{fn2} otherwise returns false.
@@ -767,7 +767,7 @@ Returns `object` if the specified object is present as a possession of the speci
 | [.big]#CustomError#
 | calling form:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 CustomError(errornumber, object)
 
 Replace if custom error messages are desired.
@@ -779,7 +779,7 @@ Should return false if no user message is found.
 | [.big]#DarkWarning#
 | calling form:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 DarkWarning
 
 Is called by `MovePlayer` whenever the player object is moved into a location without a light source.
@@ -790,7 +790,7 @@ The default library routine simply prints a message; for a more sinister respons
 | [.big]#DeleteWord#
 | calling form:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 DeleteWord(wordnumber[, number])
 
 Deletes `number` words -- or only one word if no second argument is given -- starting with `word[wordnumber]`.
@@ -801,7 +801,7 @@ Returns the number of words deleted.
 | [.big]#DescribePlace#
 | calling form:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 DescribePlace(location[, long])
 
 Prints the location `name` and, when appropriate, a location description (i.e., its `long_desc`).
@@ -812,7 +812,7 @@ Including a non-false long parameter will always force a location description.
 | [.big]#ExcludeFromAll#
 | calling form:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 ExcludeFromAll(object)
 
 Returns true if, based on the current circumstances (verbroutine, etc.), the supplied `object` should be excluded from actions using "`*ALL*`" -- such as `multi`, `multiheld`, and `multinotheld` grammar tokens.
@@ -822,7 +822,7 @@ Returns true if, based on the current circumstances (verbroutine, etc.), the sup
 | [.big]#FindLight#
 | calling form:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 FindLight(location)
 
 Checks to see if a light source is available in `location`; if so, it sets the global `light_source` to the object number of the source and returns that value.
@@ -834,7 +834,7 @@ Also calls: `ObjectIsLight`
 | [.big]#Font#
 | calling form:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 Font(bitmask)
 
 // @XREF: "B.4. Constants" (INTERNAL XREF)
@@ -845,7 +845,7 @@ Sets the current font attributes as specified by `bitmask`, where `bitmask` is o
 | [.big]#GetInput#
 | calling form:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 GetInput([prompt string])
 
 Receives input from the keyboard, storing individual words in the `word` array; unknown words -- i.e., those that are not in the dictionary -- are assigned the empty string, 0 or `+""+`.
@@ -857,7 +857,7 @@ If no argument is passed, no prompt is printed.
 | [.big]#HoursMinutes#
 | calling form:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 HoursMinutes(counter[, military])
 
 Prints the time in "`__hh__:__mm__`" format given that `counter` represents the time in minutes from 12:00 a.m.
@@ -868,7 +868,7 @@ If the optional `military` value is given as a true value, the time is printed i
 | [.big]#Indent#
 | calling form:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 Indent
 
 If the `NOINDENT_F` bit is not set in the `FORMAT` mask, `Indent` prints `INDENT_SIZE` spaces without printing a newline.
@@ -878,7 +878,7 @@ If the `NOINDENT_F` bit is not set in the `FORMAT` mask, `Indent` prints `INDENT
 | [.big]#InList#
 | calling form:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 InList(object, property, value)
 
 If the `value` is in the list of values held in `object.property`, returns the element number of the (first) `property` element equal to `value`; otherwise returns 0.
@@ -888,7 +888,7 @@ If the `value` is in the list of values held in `object.property`, returns the e
 | [.big]#InsertWord#
 | calling form:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 InsertWord(wordnumber[, number])
 
 Makes space for either the number of words given by the `number` argument -- or one word if no second argument is given -- if possible, at `word[wordnumber]`, shifting upward all words from that point to the end of the input line.
@@ -899,7 +899,7 @@ Returns the number of words inserted.
 | [.big]#IsPossibleXobject#
 | calling form:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 IsPossibleXobject(object)
 
 Returns true if the object is potentially the xobject in the current command.
@@ -910,14 +910,14 @@ Does not, however, guarantee that the object _is_ an xobject, but is instead a q
 | [.big]#ListObjects#
 | calling form:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 ListObjects(object)
 
 Lists all the possessions of the specified object in the appropriate form (according to the global `FORMAT`).
 Possessions of possessions are listed recursively if `FORMAT` does not contain the `NORECURSE_F` bit.
 Format masks are combined, as in:
 
-[literal, role="hugosyntax", subs="+attributes"]
+[literal,role="hugosyntax",subs="+attributes"]
 FORMAT = LIST_F {vbar} NORECURSE_F {vbar} ...
 
 Also calls: `WhatsIn`
@@ -927,7 +927,7 @@ Also calls: `WhatsIn`
 | [.big]#Menu#
 | calling form:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 Menu(number, [width[, selection]])
 
 Prints a menu, given that the possible `number` of choices (up to 10) are contained in the `menuitem` array, with `menuitem[0]` is the title of the menu.
@@ -941,7 +941,7 @@ Also calls: `CenterTitle`
 | [.big]#Message#
 | calling form:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 Message(&routine, num, a, b)
 
 Used by most routines in *hugolib.h* for text output, so that the bulk of the library text is centralized in one location.
@@ -954,7 +954,7 @@ TIP: Similar routines are provided in `VMessage` in *verblib.h* and `OMessage` i
 | [.big]#MovePlayer#
 | calling form:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 MovePlayer(loc[, silent[, none]])
 MovePlayer(dir[, silent[, none]])
 
@@ -979,7 +979,7 @@ May also call: `DarkWarning`
 | [.big]#NumberWord#
 | calling form:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 NumberWord(number[, true])
 
 Prints a number in non-numerical word format, where `<number>` is between -32768 to 32767.
@@ -991,7 +991,7 @@ If a second true argument is supplied, the word is capitalized.
 | [.big]#ObjectIs#
 | calling form:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 ObjectIs(object)
 
 Lists certain attributes, such as providing `light` or being `worn`, of the given object in parenthetical form.
@@ -1001,7 +1001,7 @@ Lists certain attributes, such as providing `light` or being `worn`, of the give
 | [.big]#ObjectisKnown#
 | calling form:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 ObjectisKnown(object)
 
 Returns true if the object is `known` to the player.
@@ -1011,7 +1011,7 @@ Returns true if the object is `known` to the player.
 | [.big]#ObjectisLight#
 | calling form:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 ObjectisLight(object)
 
 Returns true if the object or one of its visible possessions is providing `light`.
@@ -1022,7 +1022,7 @@ If so, it also sets the global `light_source` to the object number of the source
 | [.big]#ObjWord#
 | calling form:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 ObjWord(word, object)
 
 // @EDITED TEXT: (undocumented & waiting approval: Issue #47)
@@ -1034,7 +1034,7 @@ Returns either `adjective` or `noun` (i.e., the property number) if the given `w
 | [.big]#PreParse#
 | calling form:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 PreParse
 
 Provided so that, if needed, this routine may be replaced instead of the more extensive library `Parse` routine.
@@ -1045,7 +1045,7 @@ The default `PreParse` routine defined in the library is empty.
 | [.big]#PrintEndGame#
 | calling form:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 PrintEndGame(end_type)
 
 Depending on whether `end_type` is 1 or 2, prints, respectively:
@@ -1065,7 +1065,7 @@ If `end_type` is some other value, nothing is printed.
 | [.big]#PrintScore#
 | calling form:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 PrintScore(end_of_game)
 
 Prints the `score` in the appropriate form, depending on whether or not `end_of_game` is true.
@@ -1075,7 +1075,7 @@ Prints the `score` in the appropriate form, depending on whether or not `end_of_
 | [.big]#PrintStatusLine#
 | calling form:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 PrintStatusLine
 
 Prints the statusline in the appropriate format, according to the global `STATUSTYPE`.
@@ -1085,7 +1085,7 @@ Prints the statusline in the appropriate format, according to the global `STATUS
 | [.big]#PropertyList#
 | calling form:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 PropertyList(object, property)
 
 Lists the objects held in `object.property` (if any), returning the number of objects listed.
@@ -1095,7 +1095,7 @@ Lists the objects held in `object.property` (if any), returning the number of ob
 | [.big]#PutInScope#
 | calling form:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 PutInScope(object, actor)
 
 Makes the given object accessible to the specified actor, regardless of their respective locations, and providing that the `in_scope` property of the object has at least one empty slot -- i.e., one that equals 0.
@@ -1106,7 +1106,7 @@ Returns true if successful.
 | [.big]#RemoveFromScope#
 | calling form:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 RemoveFromScope(object, actor)
 
 Removes the given object from the scope of the specified actor.
@@ -1117,12 +1117,12 @@ Returns true if successful, or false if the object was never in scope of the act
 | [.big]#SetObjWord#
 | calling form:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 SetObjWord(position, object)
 
 Inserts the specified object in the `word` array in the format:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 "adjective1 adjective2 ... noun"
 
 {blank}
@@ -1132,7 +1132,7 @@ Inserts the specified object in the `word` array in the format:
 | [.big]#ShortDescribe#
 | calling form:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 ShortDescribe(object)
 
 Prints the short description (`short_desc`) of the given object, first checking to see if it should run `initial_desc`, `when_open`, or `when_closed`, as appropriate.
@@ -1145,7 +1145,7 @@ Also calls: `WhatsIn`
 | [.big]#SpecialDesc#
 | calling form:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 SpecialDesc(object)
 
 Checks each child object of the specified object, running any appropriate `initial_desc` or `inv_desc` property routines (depending on the calling situation).
@@ -1156,7 +1156,7 @@ Sets the global variable `list_count` to the number of remaining (i.e., non-list
 | [.big]#VerbWord#
 | calling form:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 VerbWord
 
 Returns the dictionary word used as the verb in a typed command.
@@ -1166,7 +1166,7 @@ Returns the dictionary word used as the verb in a typed command.
 | [.big]#WhatsIn#
 | calling form:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 WhatsIn(parent)
 
 Lists the possessions of the specified parent, according the form given by the global `FORMAT`.
@@ -1179,7 +1179,7 @@ Also calls: `SpecialDesc`, `ListObjects`
 | [.big]#YesorNo#
 | calling form:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 YesorNo
 
 Checks to see if the just-received input is "`*YES*`", "`*Y*`", "`*NO*`", or "`*N*`".
@@ -1200,7 +1200,7 @@ Once a valid answer is received, it returns true (if yes) or false (if no).
 | [.big]#abs#
 | calling form:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 abs(a)
 
 Returns an absolute value given a supplied value.
@@ -1210,7 +1210,7 @@ Returns an absolute value given a supplied value.
 | [.big]#higher#
 | calling form:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 higher(a, b)
 
 Returns the higher number of two supplied values.
@@ -1220,7 +1220,7 @@ Returns the higher number of two supplied values.
 | [.big]#lower#
 | calling form:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 lower(a, b)
 
 Returns the lower number of two supplied values.
@@ -1230,7 +1230,7 @@ Returns the lower number of two supplied values.
 | [.big]#mod#
 | calling form:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 mod(a, b)
 
 Returns the remainder of one number divided by a second number.
@@ -1240,7 +1240,7 @@ Returns the remainder of one number divided by a second number.
 | [.big]#pow#
 | calling form:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 pow(a, b)
 
 Returns one number to the power of another number.
@@ -1261,7 +1261,7 @@ WARNING: The return value is undefined if the result is outside the boundary of 
 | [.big]#StringCompare#
 | calling form:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 StringCompare(array1, array2)
 
 Returns 1 if `array1` is lexically greater than `array2`, -1 if `array1` is lexically less than `array2`, and 0 if the strings are identical.
@@ -1271,7 +1271,7 @@ Returns 1 if `array1` is lexically greater than `array2`, -1 if `array1` is lexi
 | [.big]#StringCopy#
 | calling form:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 StringCopy(new, old[, len])
 
 Copies the contents of the array at the address given by `old` to the array at `new`, to a maximum of `len` characters if `len` is given, or the length of `old` if it isn't.
@@ -1281,7 +1281,7 @@ Copies the contents of the array at the address given by `old` to the array at `
 | [.big]#StringDictCompare#
 | calling form:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 StringDictCompare(array, dictentry)
 
 Performs a `StringCompare`-like comparison of a string array given by `array` and the dictionary entry `dictentry`, returning 1, -1, or 0 if `array` is lexically greater than, less than, or equal to `dictentry`, respectively.
@@ -1291,7 +1291,7 @@ Performs a `StringCompare`-like comparison of a string array given by `array` an
 | [.big]#StringEqual#
 | calling form:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 StringEqual(array1, array2)
 
 Returns true only if `array1` and `array2` are identical.
@@ -1301,7 +1301,7 @@ Returns true only if `array1` and `array2` are identical.
 | [.big]#StringLength#
 | calling form:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 StringLength(array)
 
 Returns the length of the string stored as `array`.
@@ -1311,7 +1311,7 @@ Returns the length of the string stored as `array`.
 | [.big]#StringPrint#
 | calling form:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 StringPrint(array[, start, end])
 
 Prints the string stored as `array`, beginning with `start` and ending with `end` if given.
@@ -1330,7 +1330,7 @@ Prints the string stored as `array`, beginning with `start` and ending with `end
 | [.big]#Activate#
 | calling form:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 Activate(object[, setting])
 
 Activates the specified `fuse` or `daemon` object.
@@ -1341,7 +1341,7 @@ The setting value is only specified for fuses, where it represents the initial v
 | [.big]#Deactivate#
 | calling form:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 Deactivate(object)
 
 Deactivates the specified `fuse` or `daemon` object.
@@ -1360,7 +1360,7 @@ Deactivates the specified `fuse` or `daemon` object.
 | [.big]#CancelScript#
 | calling form:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 CancelScript(character)
 
 Immediately cancels the character script associated with the object `character`.
@@ -1371,7 +1371,7 @@ Returns true if successful, i.e., if a script for `character` is found.
 | [.big]#PauseScript#
 | calling form:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 PauseScript(character)
 
 Temporarily pauses the character script associated with the given `character`.
@@ -1382,7 +1382,7 @@ Returns true if successful.
 | [.big]#ResumeScript#
 | calling form:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 ResumeScript(character)
 
 Resumes execution of a paused script for the given `character`.
@@ -1393,7 +1393,7 @@ Returns true if successful.
 | [.big]#SkipScript#
 | calling form:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 SkipScript(character)
 
 Skips execution of the script for a given `character` during the next call to `RunScripts` only.
@@ -1403,7 +1403,7 @@ Skips execution of the script for a given `character` during the next call to `R
 | [.big]#Script#
 | calling form:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 Script(character, steps)
 
 Initializes space for the requested number of `steps` in the `setscript` array, sets up the data for the script in the `scriptdata` array, and returns the location of the script in `setscript`.
@@ -1414,12 +1414,12 @@ Returns -1 if `MAX_SCRIPTS` is exceeded.
 | [.big]#RunScripts#
 | calling form:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 RunScripts
 
 Runs all active scripts, calling them in the form:
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 CharRoutine(character, object)
 
 {blank}

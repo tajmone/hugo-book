@@ -97,11 +97,11 @@ The reading of values from data types or expressions begins with `GetValue()` in
 
 >s| As in:  <a|
 
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 if <expression>
 {...}
-............................
+...........................
 
 Where the two bytes of `<skip{nbsp}distance>` are the absolute distance -- in low-byte/high-byte order -- from the first byte of the pair to the next line of code that will execute if `<expression>` evaluates to false, i.e., the distance to `<next{nbsp}statement>`.
 If `<expression>` evaluates to a non-false value, `<conditional{nbsp}block>` is run.
@@ -131,11 +131,11 @@ Note that $4C indicates end-of-line.
 
 >s| As in:  <a|
 
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 else
 {...}
-............................
+...........................
 
 Where `<conditional{nbsp}block>` runs only if no immediately preceding `if` or `elseif` condition has been met.
 If a previous condition has been met, control passes ahead to `<next{nbsp}statment>`, i.e., forward the number of bytes given by the two bytes of `<skip{nbsp}distance>`.
@@ -158,7 +158,7 @@ If a previous condition has been met, control passes ahead to `<next{nbsp}statme
 
 >s| As in:  <a|
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 ............................
 elseif <expression>
 {...}
@@ -188,11 +188,11 @@ elseif <expression>
 
 >s| As in:  <a|
 
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 while <expression>
 {...}
-............................
+...........................
 
 As long as `<expression>` evaluates to a non-false value, `<conditional{nbsp}block>` is run.
 Note the implicit `jump` ($25) coded by the compiler to maintain the loop -- `<starting{nbsp}point>` is only an address; only the two-byte address following $25 is written as a jump-back point.
@@ -221,12 +221,12 @@ IMPORTANT: Note that because the `<starting{nbsp}point>` is written as a two-byt
 
 >s| As in:  <a|
 
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 do
 {...}
 while <expression>
-............................
+...........................
 
 If, after `<block>` executes, `<expression>` evaluates to a non-false value, the engine returns to `<starting{nbsp}point>` (which must begin on an address boundary).
 The two bytes following `while` ($1C) match the syntax of the normal `while` loop, but are undefined for this usage.
@@ -304,7 +304,7 @@ Note that $1A is the `else` token, $05 is the `=` token, and that the two bytes 
 
 >s| As in:  <a|
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 ...................................
 for (<assign>; <expr>; <modifying>)
 {...}
@@ -334,10 +334,10 @@ This, like the `<assignment>` is simply a regular executable assignment.
 
 >s| As in:  <a|
 
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 return <expression>
-............................
+...........................
 
 Where `<expression>` is optional, so that a standalone return order can be coded as:
 
@@ -369,10 +369,10 @@ Where `<expression>` is optional, so that a standalone return order can be coded
 
 >s| As in:  <a|
 
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 jump <label>
-............................
+...........................
 
 Where `<address>` is two bytes giving the indexed address of the next statement to be executed. +
 (The `<label>` is coded as `<address>`.)
@@ -491,10 +491,10 @@ Signals that the following dictionary entry should have its first letter capital
 
 >s| As in:  <a|
 
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 text to n
-............................
+...........................
 
 Where `<value>` is either an address in the array table, or constant 0 (to restore text output to the standard display).
 
@@ -517,7 +517,7 @@ Where `<value>` is either an address in the array table, or constant 0 (to resto
 
 >s| As in:  <a|
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 ........................................
 color foreground
 color foreground, background
@@ -539,10 +539,10 @@ If a third value is given, separated by a comma ($19), it represents the input c
 
 >s| As in:  <a|
 
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 remove <object>
-............................
+...........................
 {blank}
 
 >s| Source: <a|
@@ -560,10 +560,10 @@ remove <object>
 
 >s| As in:  <a|
 
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 move <object1> to <object2>
-............................
+...........................
 {blank}
 
 >s| Source: <a|
@@ -595,10 +595,10 @@ Typically found in `print to n`, `text to n`, etc., in which case the line will 
 
 >s| As in:  <a|
 
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 parent(...)
-............................
+...........................
 
 Returns the parent object of the object resulting from `<expression>`.
 
@@ -615,10 +615,10 @@ NOTE: Alternate usage is as a grammar token, coded simply as $3C with no followi
 
 >s| As in:  <a|
 
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 sibling(...)
-............................
+...........................
 
 Returns the sibling of the object resulting from `<expression>`.
 
@@ -633,10 +633,10 @@ Returns the sibling of the object resulting from `<expression>`.
 
 >s| As in:  <a|
 
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 child(...)
-............................
+...........................
 
 Returns the child object of the object resulting from `<expression>`.
 
@@ -651,10 +651,10 @@ Returns the child object of the object resulting from `<expression>`.
 
 >s| As in:  <a|
 
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 youngest(...)
-............................
+...........................
 
 Returns the youngest (most recently added) child object of the object resulting from `<expression>`.
 
@@ -669,10 +669,10 @@ Returns the youngest (most recently added) child object of the object resulting 
 
 >s| As in:  <a|
 
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 eldest(...)
-............................
+...........................
 
 Interpreted identically to `child(...)`.
 
@@ -687,10 +687,10 @@ Interpreted identically to `child(...)`.
 
 >s| As in:  <a|
 
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 younger(...)
-............................
+...........................
 
 Interpreted identically to `sibling(...)`.
 
@@ -705,10 +705,10 @@ Interpreted identically to `sibling(...)`.
 
 >s| As in:  <a|
 
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 elder(...)
-............................
+...........................
 
 Returns the object number of the object more recently added to the parent of the object resulting from `<expression>`.
 
@@ -806,10 +806,10 @@ End-of-line marker.
 
 >s| As in:  <a|
 
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 system(<value>)
-............................
+...........................
 
 
 Calls the system-level function designated by `<value>`.
@@ -836,31 +836,31 @@ Where `<value>` is some Hugo data type giving the number of the system function 
 
 .2+| 50 | [.big.red]#window# | *STATEMENT*
 
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 window n
-............................
+...........................
 
     50 <value> 4C
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 ...............................
 window left, top, right, bottom
 ...............................
 
     50 <v1> 19 <v2> 19 <v3> 19 <v4> 4C
 
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 window
-............................
+...........................
 
     50 4C
 
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 window 0
-............................
+...........................
 
     50 4B 00 00 4C
 
@@ -891,10 +891,10 @@ The result was a window beginning at the top of the screen, reaching down to the
 
 >s| As in:  <a|
 
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 random(...)
-............................
+...........................
 
 Returns a random value between 1 and `<expression>`.
 
@@ -911,10 +911,10 @@ Returns a random value between 1 and `<expression>`.
 
 *As in:*
 
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 word[...]
-............................
+...........................
 
 Returns the dictionary address of `word[<expression>`].
 
@@ -930,11 +930,11 @@ Returns the dictionary address of `word[<expression>`].
 
 >s| As in:  <a|
 
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 locate x
 locate x, y
-............................
+...........................
 
 Where `<value>` is the column position to reposition the cursor to within the currently defined window.
 If a second value is given, it represents the new row position.
@@ -961,10 +961,10 @@ Read-only engine variable representing the engine parser's internal `parse$` str
 
 >s| As in:  <a|
 
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 children(...)
-............................
+...........................
 
 Returns the number of children owned by the object resulting from `<expression>`.
 
@@ -974,14 +974,14 @@ Returns the number of children owned by the object resulting from `<expression>`
 
 >s| As in:  <a|
 
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 for <object> in <parent>
-............................
+...........................
 
 or
 
-[literal, role="hugosyntax"]
+[literal,role="hugosyntax"]
 .............................
 if <object> [not] in <parent>
 .............................
@@ -1037,10 +1037,10 @@ Where `<array>` is two bytes giving the address of the array in the array table.
 
 >s| As in:  <a|
 
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 call <routine address>
-............................
+...........................
 
 Where `<value>` gives the indexed address of the routine to be called.
 
@@ -1066,10 +1066,10 @@ Valid only in a `print` statement.
 
 >s| As in:  <a|
 
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 x = save
-............................
+...........................
 
 Calls the engine's save-game procedure (which includes filename input); returns a true value on success, or false on failure.
 
@@ -1083,10 +1083,10 @@ Calls the engine's save-game procedure (which includes filename input); returns 
 
 >s| As in:  <a|
 
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 x = restore
-............................
+...........................
 
 Calls the engine's restore-game procedure (which includes filename input); returns a true value on success, or false on failure.
 
@@ -1138,10 +1138,10 @@ Clears the currently defined text window.
 .2+| 62 | [.big.red]#scripton# | *VALUE*
 *As in:*
 
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 x = scripton
-............................
+...........................
 
 Calls the engine's begin-scripting procedure (which includes filename input); returns a true value on success, or false on failure.
 
@@ -1155,10 +1155,10 @@ Calls the engine's begin-scripting procedure (which includes filename input); re
 
 >s| As in:  <a|
 
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 x = scriptoff
-............................
+...........................
 
 Calls the engine's end-scripting procedure; returns a true value on success, or false on failure.
 
@@ -1172,10 +1172,10 @@ Calls the engine's end-scripting procedure; returns a true value on success, or 
 
 >s| As in:  <a|
 
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 x = restart
-............................
+...........................
 
 Attempts to reload the dynamic game data and restart the game loop; returns a true value on success or false on failure.
 
@@ -1208,10 +1208,10 @@ NOTE: Removed as a token after grammar table is compiled so that `xobject` can r
 
 >s| As in:  <a|
 
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 x = string(a, "apple", 8)
-............................
+...........................
 
 Calls the engine string-writing function to write the dictionary entry `<expr2>` into the array table at the array address given by `<expr1>`, to a maximum of `<expr3>` characters.
 `<expr1>` is any data type or expression; `<expr2>` is either a value or the `parse$` token ($54); `<expr3>` is optional, and if it is not given, the $02 token comes in place of the second $19.
@@ -1243,10 +1243,10 @@ Forces `<value>` to be used as an address in the array table, so that `array <va
 
 >s| As in:  <a|
 
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 printchar 'A', 'B',...
-............................
+...........................
 
 Outputs a single ASCII character value at the current screen position.
 Multiple values are separated by $19; the sequence is terminated by $4C.
@@ -1257,10 +1257,10 @@ Multiple values are separated by $19; the sequence is terminated by $4C.
 
 >s| As in:  <a|
 
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 x = undo
-............................
+...........................
 
 Attempts to restore all data changes made since the last typed input; returns a true value on success or false on failure.
 
@@ -1279,10 +1279,10 @@ Attempts to restore all data changes made since the last typed input; returns a 
 
 >s| As in:  <a|
 
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 x = dict(<array>, <len>)
-............................
+...........................
 
 Calls the engine dictionary-writing function to write the given string into the dictionary, to a maximum of `<len>` characters.
 If `<expr1>` is `parse$` ($54), then the value of `parse$` is used; otherwise `<expr1>` is an array address in the array table.
@@ -1299,10 +1299,10 @@ Otherwise, it is appended to the end of the table, and the new location is retur
 
 >s| As in:  <a|
 
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 x = recordon
-............................
+...........................
 
 Calls the engine's begin-command-recording procedure (which includes filename input); returns a true value on success, or false on failure.
 
@@ -1316,10 +1316,10 @@ Calls the engine's begin-command-recording procedure (which includes filename in
 
 >s| As in:  <a|
 
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 x = recordoff
-............................
+...........................
 
 Calls the engine's end-command-recording procedure; returns a true value on success, or false on failure.
 
@@ -1339,11 +1339,11 @@ Calls the engine's end-command-recording procedure; returns a true value on succ
 
 >s| As in:  <a|
 
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 writefile <file>
 {...}
-............................
+...........................
 
 
 Opens the file named by the dictionary entry `<value>`, erasing it if it previously exists, and runs the following code block.
@@ -1365,11 +1365,11 @@ Upon any error, jumps to the end of the file i/o code block and closes `<file>`.
 
 >s| As in:  <a|
 
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 readfile <file>
 {...}
-............................
+...........................
 
 Opens the file named by the dictionary entry `<value>` and runs the following code block.
 Upon any error, jumps to the end of the file i/o code block and closes `<file>`.
@@ -1391,10 +1391,10 @@ Multiple values are separated by $19.
 
 >s| As in:  <a|
 
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 x = readval
-............................
+...........................
 
 Valid only in a `readfile` block.
 Reads a 16-bit integer from the currently open file.
@@ -1405,10 +1405,10 @@ Reads a 16-bit integer from the currently open file.
 
 >s| As in:  <a|
 
-[literal, role="hugosyntax"]
-............................
+[literal,role="hugosyntax"]
+...........................
 x = playback
-............................
+...........................
 
 Calls the engines command-playback procedure (including filename input) and attempts to begin command playback from the requested file.
 If found, player input in `RunGame()` is overridden by commands in the file until end-of-file.

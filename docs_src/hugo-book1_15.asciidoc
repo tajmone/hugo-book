@@ -10,10 +10,10 @@
 
 The default settings for the complete set of limits may be obtained by invoking the compiler via:
 
-[literal, role="cmd"]
-.....................
+[literal,role="cmd"]
+....................
 hc $list
-.....................
+....................
 
 
 The following limits are static and non-modifiable, since they reflect the internal configuration of the Hugo Engine:
@@ -34,7 +34,7 @@ The following limits are static and non-modifiable, since they reflect the inter
 
 The following are the modifiable settings, which may be set using:
 
-[literal, role="cmd"]
+[literal,role="cmd"]
 ......................
 $<setting>=<new limit>
 ......................
