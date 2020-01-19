@@ -1,6 +1,6 @@
 = The Hugo Book
 Kent Tessman <general@generalcoffee.com>
-v1, 2018-10-04: Draft 151 -- Porting to AsciiDoc
+v1, 2018-10-04: Draft 152 -- Porting to AsciiDoc
 :lang: en
 :doctype: book
 // TOC Settings for GitHub previewing (override via CLI):
@@ -12858,35 +12858,35 @@ The reading of values from data types or expressions begins with `GetValue()` in
 // [cols=">m,<m,<a",options=autowidth,grid=none,stripes=even]
 [cols="^s,^m,<a",options=autowidth,frame=all,grid=rows,stripes=none]
 |===============================================================================
-| 01 | (      | *TOKEN*
-| 02 | )      | *TOKEN*
-| 03 | .      | *TOKEN*
-| 04 | :      | _**reserved**_ (not coded)
-| 05 | =      | *TOKEN*
-| 06 | -      | *TOKEN*
-| 07 | +      | *TOKEN*
-| 08 | *      | *TOKEN*
-| 09 | /      | *TOKEN*
-| 0A | \|     | *TOKEN*
-| 0B | ;      | *TOKEN*
-| 0C | {      | *TOKEN*
-| 0D | }      | *TOKEN*
+| 01 | [.big.red]#(#      | *TOKEN*
+| 02 | [.big.red]#)#      | *TOKEN*
+| 03 | [.big.red]#.#      | *TOKEN*
+| 04 | [.big.red]#:#      | _**reserved**_ (not coded)
+| 05 | [.big.red]#=#      | *TOKEN*
+| 06 | [.big.red]#-#      | *TOKEN*
+| 07 | [.big.red]#+#      | *TOKEN*
+| 08 | [.big.red]#*#      | *TOKEN*
+| 09 | [.big.red]#/#      | *TOKEN*
+| 0A | [.big.red]#\|#     | *TOKEN*
+| 0B | [.big.red]#;#      | *TOKEN*
+| 0C | [.big.red]#{#      | *TOKEN*
+| 0D | [.big.red]#}#      | *TOKEN*
 
 (Signifies the end of a code block)
-| 0E | [      | *TOKEN*
-| 0F | ]      | *TOKEN*
-| 10 | #      | *TOKEN*
-| 11 | ~      | *TOKEN*
-| 12 | >{wj}= | *TOKEN*
-| 13 | <{wj}= | *TOKEN*
-| 14 | ~{wj}= | *TOKEN*
-| 15 | &      | *TOKEN*
-| 16 | >      | *TOKEN*
-| 17 | <      | *TOKEN*
+| 0E | [.big.red]#[#      | *TOKEN*
+| 0F | [.big.red]#]#      | *TOKEN*
+| 10 | [.big.red]#&num;#  | *TOKEN*
+| 11 | [.big.red]#~#      | *TOKEN*
+| 12 | [.big.red]#>{wj}=# | *TOKEN*
+| 13 | [.big.red]#<{wj}=# | *TOKEN*
+| 14 | [.big.red]#~{wj}=# | *TOKEN*
+| 15 | [.big.red]#&#      | *TOKEN*
+| 16 | [.big.red]#>#      | *TOKEN*
+| 17 | [.big.red]#<#      | *TOKEN*
 
 //-----{ 18 }-------------------------------------------------------------------
 
-.3+| 18 | [[token-if]]if | *STATEMENT*
+.3+| 18 | [[token-if]][.big.red]#if# | *STATEMENT*
 
 ..................................
 18 <skip distance> <expression> 4C
@@ -12903,8 +12903,8 @@ if <expression>
 {...}
 ............................
 
-Where the two bytes of `<skip distance>` are the absolute distance -- in low-byte/high-byte order -- from the first byte of the pair to the next line of code that will execute if `<expression>` evaluates to false, i.e., the distance to `<next statement>`.
-If `<expression>` evaluates to a non-false value, `<conditional block>` is run.
+Where the two bytes of `<skip{nbsp}distance>` are the absolute distance -- in low-byte/high-byte order -- from the first byte of the pair to the next line of code that will execute if `<expression>` evaluates to false, i.e., the distance to `<next{nbsp}statement>`.
+If `<expression>` evaluates to a non-false value, `<conditional{nbsp}block>` is run.
 Note that $4C indicates end-of-line.
 
 `<expression>` is simply a tokenized representation of the expression as it appears in the source line.
@@ -12916,8 +12916,11 @@ Note that $4C indicates end-of-line.
 
 //-----{ 19 }-------------------------------------------------------------------
 
-| 19 | ,    | *TOKEN*
-.3+| 1A | else | *STATEMENT*
+| 19 | [.big.red]#,#    | *TOKEN*
+
+//-----{ 1A }-------------------------------------------------------------------
+
+.3+| 1A | [.big.red]#else# | *STATEMENT*
 
 ........................
 1A <skip distance>
@@ -12934,8 +12937,8 @@ else
 {...}
 ............................
 
-Where `<conditional block>` runs only if no immediately preceding `if` or `elseif` condition has been met.
-If a previous condition has been met, control passes ahead to `<next statment>`, i.e., forward the number of bytes given by the two bytes of `<skip distance>`.
+Where `<conditional{nbsp}block>` runs only if no immediately preceding `if` or `elseif` condition has been met.
+If a previous condition has been met, control passes ahead to `<next{nbsp}statment>`, i.e., forward the number of bytes given by the two bytes of `<skip{nbsp}distance>`.
 
 >s| Source: <a|
 
@@ -12944,7 +12947,7 @@ If a previous condition has been met, control passes ahead to `<next statment>`,
 
 //-----{ 1B }-------------------------------------------------------------------
 
-.3+| 1B | elseif | *STATEMENT*
+.3+| 1B | [.big.red]#elseif# | *STATEMENT*
 
 ..................................
 1B <skip distance> <expression> 4C
@@ -12972,7 +12975,7 @@ elseif <expression>
 
 //-----{ 1C }-------------------------------------------------------------------
 
-.3+| 1C | while | *STATEMENT*
+.3+| 1C | [.big.red]#while# | *STATEMENT*
 
 ..................................
 :<starting point>
@@ -12991,12 +12994,12 @@ while <expression>
 {...}
 ............................
 
-As long as `<expression>` evaluates to a non-false value, <conditional block> is run.
-Note the implicit jump ($25) coded by the compiler to maintain the loop -- `<starting point>` is only an address; only the two-byte address following $25 is written as a jump-back point.
+As long as `<expression>` evaluates to a non-false value, `<conditional{nbsp}block>` is run.
+Note the implicit `jump` ($25) coded by the compiler to maintain the loop -- `<starting{nbsp}point>` is only an address; only the two-byte address following $25 is written as a jump-back point.
 // @XREF INTERNAL: 'if' token entry in same table (custom anchor).
 <<token-if,See `if`>>.
 
-Note that because the `<starting point>` is written as a two-byte indexed address, it must begin on an address boundary, padded with empty ($00) values, if necessary.
+IMPORTANT: Note that because the `<starting{nbsp}point>` is written as a two-byte indexed address, it must begin on an address boundary, padded with empty ($00) values, if necessary.
 
 >s| Source: <a|
 
@@ -13005,7 +13008,7 @@ Note that because the `<starting point>` is written as a two-byte indexed addres
 
 //-----{ 1D }-------------------------------------------------------------------
 
-.3+| 1D | do | *STATEMENT*
+.3+| 1D | [.big.red]#do# | *STATEMENT*
 
 ..............................
 1D <skip distance>
@@ -13025,9 +13028,9 @@ do
 while <expression>
 ............................
 
-If, after `<block>` executes, `<expression>` evaluates to a non-false value, the engine returns to `<starting point>` (which must begin on an address boundary).
-The two bytes following while ($1C) match the syntax of the normal while loop, but are undefined for this usage.
-Instead, the distance to the next statement is given after the do token ($1D) in the two bytes of `<skip distance>`.
+If, after `<block>` executes, `<expression>` evaluates to a non-false value, the engine returns to `<starting{nbsp}point>` (which must begin on an address boundary).
+The two bytes following `while` ($1C) match the syntax of the normal `while` loop, but are undefined for this usage.
+Instead, the distance to the next statement is given after the `do` token ($1D) in the two bytes of `<skip{nbsp}distance>`.
 
 >s| Source: <a|
 
@@ -13036,11 +13039,11 @@ Instead, the distance to the next statement is given after the do token ($1D) in
 
 //-----{ 1E }-------------------------------------------------------------------
 
-.2+| 1E | select | *STATEMENT*
+.2+| 1E | [.big.red]#select# | *STATEMENT*
 
     1E
 
-When encountered by the engine, resets the conditional-statement evaluator, i.e., so that the next case conditional is treated as an `if` instead of an `elseif`.
+When encountered by the engine, resets the conditional-statement evaluator, i.e., so that the next `case` conditional is treated as an `if` instead of an `elseif`.
 Note that the variable that follows `select` in a line of source code is not coded here (but it is needed by the compiler to construct subsequent `case` statements).
 
 // @XREF INTERNAL: 'case' token entry in same table (custom anchor).
@@ -13053,9 +13056,9 @@ Note that the variable that follows `select` in a line of source code is not cod
 
 //-----{ 1F }-------------------------------------------------------------------
 
-.2+| 1F | [[token-case]]case | *STATEMENT*
+.2+| 1F | [[token-case]][.big.red]#case# | *STATEMENT*
 
-Treated identically by the engine to `elseif` once a select `token` ($1E) has reset the conditional-statement evaluator to no previous matches.
+Treated identically by the engine to `elseif` once a `select` token ($1E) has reset the conditional-statement evaluator to no previous matches.
 
 In other words, what the compiler does is take:
 
@@ -13077,7 +13080,7 @@ and restructure it into:
     1A <skip distance>
         <default conditional block>
 
-Note that $1A is the `else` token, $05 is the `=` token, and that the two bytes of `<skip distance>` give the distance to the next `case`.
+Note that $1A is the `else` token, $05 is the `=` token, and that the two bytes of `<skip{nbsp}distance>` give the distance to the next `case`.
 
 >s| Source: <a|
 
@@ -13086,7 +13089,7 @@ Note that $1A is the `else` token, $05 is the `=` token, and that the two bytes 
 
 //-----{ 20 }-------------------------------------------------------------------
 
-.3+| 20 | for | *STATEMENT*
+.3+| 20 | [.big.red]#for# | *STATEMENT*
 
 ..................................
 <assignment>
@@ -13109,10 +13112,10 @@ for (<assign>; <expr>; <modifying>)
 
 
 The `<assignment>`, if given in the source code, is coded as a regular executable assignment of some data type.
-Again, nothing is explicitly coded at `<starting point>` -- it is simply a reference point for the `jump` ($25) to return to.
+Again, nothing is explicitly coded at `<starting{nbsp}point>` -- it is simply a reference point for the `jump` ($25) to return to.
 // @XREF INTERNAL: 'if' token entry in same table (custom anchor).
 The `for` ($20) line operates as a regular conditional test (<<token-if,see `if`>>.).
-The `<modifying expression>` is appended after the conditional block is coded.
+The `<modifying{nbsp}expression>` is appended after the conditional block is coded.
 This, like the `<assignment>` is simply a regular executable assignment.
 
 >s| Source: <a|
@@ -13122,7 +13125,7 @@ This, like the `<assignment>` is simply a regular executable assignment.
 
 //-----{ 21 }-------------------------------------------------------------------
 
-.2+| 21 | return | *STATEMENT*
+.2+| 21 | [.big.red]#return# | *STATEMENT*
 
 ..................
 21 <expression> 4C
@@ -13144,7 +13147,7 @@ Where `<expression>` is optional, so that a standalone return order can be coded
 
 //-----{ 22 }-------------------------------------------------------------------
 
-| 22 | break | *STATEMENT*
+| 22 | [.big.red]#break# | *STATEMENT*
 
     22
 
@@ -13152,12 +13155,12 @@ Where `<expression>` is optional, so that a standalone return order can be coded
 
 //-----{ 23-24 }----------------------------------------------------------------
 
-| 23 | and  | *TOKEN*
-| 24 | or   | *TOKEN*
+| 23 | [.big.red]#and#  | *TOKEN*
+| 24 | [.big.red]#or#   | *TOKEN*
 
 //-----{ 25 }-------------------------------------------------------------------
 
-.2+| 25 | jump | *STATEMENT*
+.2+| 25 | [.big.red]#jump# | *STATEMENT*
 
 ............
 25 <address>
@@ -13176,7 +13179,7 @@ Where `<address>` is two bytes giving the indexed address of the next statement 
 
 //-----{ 26  }------------------------------------------------------------------
 
-| 26 | run | *STATEMENT*
+| 26 | [.big.red]#run# | *STATEMENT*
 
 [literal,subs="+attributes,macros"]
 26 <value> 4C{wj}{fn1}
@@ -13185,7 +13188,7 @@ Where `<value>` is simply read and forgotten, as in running an `object.property`
 
 //-----{ 27 }-------------------------------------------------------------------
 
-.2+| 27 | is | *TOKEN*
+.2+| 27 | [.big.red]#is# | *TOKEN*
 
 >s| As in:  <a|
 
@@ -13195,8 +13198,8 @@ Where `<value>` is simply read and forgotten, as in running an `object.property`
 
 //-----{ 28-29  }---------------------------------------------------------------
 
-| 28 | not  | *TOKEN*
-| 29 | true | *VALUE*
+| 28 | [.big.red]#not#  | *TOKEN*
+| 29 | [.big.red]#true# | *VALUE*
 
     29
 
@@ -13204,7 +13207,7 @@ Hard-coded Boolean constant meaning 1.
 
 //-----{ 2A }-------------------------------------------------------------------
 
-| 2A | false | *VALUE*
+| 2A | [.big.red]#false# | *VALUE*
 
     2A
 
@@ -13212,8 +13215,8 @@ Hard-coded Boolean constant meaning 0.
 
 //-----{ 2B-2C }----------------------------------------------------------------
 
-| 2B | local | _**reserved**_ (not coded)
-| 2C | verb  | *STATEMENT*
+| 2B | [.big.red]#local# | _**reserved**_ (not coded)
+| 2C | [.big.red]#verb#  | *STATEMENT*
 
     2C <n> <dict_1> <dict_2>...<dict_n>
 
@@ -13221,7 +13224,7 @@ Occurs in the grammar table and explicitly denotes the beginning of a new verb, 
 
 //-----{ 2D }-------------------------------------------------------------------
 
-| 2D | xverb | *STATEMENT*
+| 2D | [.big.red]#xverb# | *STATEMENT*
 
     2D <n> <dict_1> <dict_2>...<dict_n>
 
@@ -13229,26 +13232,26 @@ Coded and handled identically to `verb`, except that it is flagged differently s
 
 //-----{ 2E-31 }----------------------------------------------------------------
 
-| 2E | held      | **GRAMMAR TOKEN**
-| 2F | multi     | **GRAMMAR TOKEN**
-| 30 | multiheld | **GRAMMAR TOKEN**
-| 31 | newline   | *PRINT TOKEN*
+| 2E | [.big.red]#held#      | **GRAMMAR TOKEN**
+| 2F | [.big.red]#multi#     | **GRAMMAR TOKEN**
+| 30 | [.big.red]#multiheld# | **GRAMMAR TOKEN**
+| 31 | [.big.red]#newline#   | *PRINT TOKEN*
 
 Signals a `print` statement to issue a newline _only_ if one is needed.
 
 //-----{ 32 }-------------------------------------------------------------------
 
-| 32 | anything  | **GRAMMAR TOKEN**
+| 32 | [.big.red]#anything#  | **GRAMMAR TOKEN**
 
 //-----{ 33 }-------------------------------------------------------------------
 
-.2+| 33 | print     | *STATEMENT*
+.2+| 33 | [.big.red]#print#     | *STATEMENT*
 
     33 <print data> 4C
 
     33 <print data> 0B <print data> ... 4C
 
-Where `<print data>` is one of the following:
+Where `<print{nbsp}data>` is one of the following:
 
 * `stringdata#`
 * any value, treated as a dictionary entry
@@ -13259,7 +13262,7 @@ Where `<print data>` is one of the following:
 * `number`
 * `hex`
 
-Multiple `<print data>` sequences are separated by a semicolon (`;`) token ($0B).
+Multiple `<print{nbsp}data>` sequences are separated by a semicolon (`;`) token ($0B).
 
 >s| Source: <a|
 
@@ -13267,7 +13270,7 @@ Multiple `<print data>` sequences are separated by a semicolon (`;`) token ($0B)
 
 //-----{ 34 }-------------------------------------------------------------------
 
-| 34 | number | **GRAMMAR TOKEN** or *PRINT TOKEN*
+| 34 | [.big.red]#number# | **GRAMMAR TOKEN** or *PRINT TOKEN*
 
 In a `print` statement, signals that the following value should be printed as a number, not as the corresponding dictionary entry.
 
@@ -13275,13 +13278,13 @@ In a grammar line, represents any integer number.
 
 //-----{ 35 }-------------------------------------------------------------------
 
-| 35 | capital | *PRINT TOKEN*
+| 35 | [.big.red]#capital# | *PRINT TOKEN*
 
 Signals that the following dictionary entry should have its first letter capitalized.
 
 //-----{ 36 }-------------------------------------------------------------------
 
-.2+| 36 | text | *STATEMENT*
+.2+| 36 | [.big.red]#text# | *STATEMENT*
 
 [literal,subs="+attributes,macros"]
 36 3B <value> 4C{wj}{fn2}
@@ -13297,13 +13300,13 @@ Where `<value>` is either an address in the array table, or constant 0 (to resto
 
 //-----{ 37 }-------------------------------------------------------------------
 
-| 37 | graphics | *STATEMENT*
+| 37 | [.big.red]#graphics# | *STATEMENT*
 
 (Not implemented.)
 
 //-----{ 38 }-------------------------------------------------------------------
 
-.2+| 38 | color | *STATEMENT*
+.2+| 38 | [.big.red]#color# | *STATEMENT*
 
 ...................................
 38 <value> 4C
@@ -13327,7 +13330,7 @@ If a third value is given, separated by a comma ($19), it represents the input c
 
 //-----{ 39 }-------------------------------------------------------------------
 
-.3+| 39 | remove | *STATEMENT*
+.3+| 39 | [.big.red]#remove# | *STATEMENT*
 
 [literal,subs="+attributes,macros"]
 39 <value> 4C{wj}{fn3}
@@ -13348,7 +13351,7 @@ remove <object>
 
 //-----{ 3A }-------------------------------------------------------------------
 
-.3+| 3A | move | *STATEMENT*
+.3+| 3A | [.big.red]#move# | *STATEMENT*
 
 [literal,subs="+attributes,macros"]
 3A <value> 3B <value> 4C{wj}{fn4}
@@ -13369,7 +13372,7 @@ move <object1> to <object2>
 
 //-----{ 3B }-------------------------------------------------------------------
 
-| 3B | to | *TOKEN*
+| 3B | [.big.red]#to# | *TOKEN*
 
 Followed by a value, as in:
 
@@ -13383,7 +13386,7 @@ Typically found in `print to n`, `text to n`, etc., in which case the line will 
 
 //-----{ 3C }-------------------------------------------------------------------
 
-.2+| 3C | parent | *VALUE*
+.2+| 3C | [.big.red]#parent# | *VALUE*
 
 .....................
 3C 01 <expression> 02
@@ -13403,7 +13406,7 @@ NOTE: Alternate usage is as a grammar token, coded simply as $3C with no followi
 
 //-----{ 3D }-------------------------------------------------------------------
 
-.2+| 3D | sibling | *VALUE*
+.2+| 3D | [.big.red]#sibling# | *VALUE*
 
 .....................
 3D 01 <expression> 02
@@ -13421,7 +13424,7 @@ Returns the sibling of the object resulting from `<expression>`.
 
 //-----{ 3E }-------------------------------------------------------------------
 
-.2+| 3E | child | *VALUE*
+.2+| 3E | [.big.red]#child# | *VALUE*
 
 .....................
 3E 01 <expression> 02
@@ -13439,7 +13442,7 @@ Returns the child object of the object resulting from `<expression>`.
 
 //-----{ 3F }-------------------------------------------------------------------
 
-.2+| 3F | youngest | *VALUE*
+.2+| 3F | [.big.red]#youngest# | *VALUE*
 
 .....................
 3F 01 <expression> 02
@@ -13457,7 +13460,7 @@ Returns the youngest (most recently added) child object of the object resulting 
 
 //-----{ 40 }-------------------------------------------------------------------
 
-.2+| 40 | eldest | *VALUE*
+.2+| 40 | [.big.red]#eldest# | *VALUE*
 
 .....................
 40 01 <expression> 02
@@ -13475,7 +13478,7 @@ Interpreted identically to `child(...)`.
 
 //-----{ 41 }-------------------------------------------------------------------
 
-.2+| 41 | younger | *VALUE*
+.2+| 41 | [.big.red]#younger# | *VALUE*
 
 .....................
 41 01 <expression> 02
@@ -13493,7 +13496,7 @@ Interpreted identically to `sibling(...)`.
 
 //-----{ 42 }-------------------------------------------------------------------
 
-.2+| 42 | elder | *VALUE*
+.2+| 42 | [.big.red]#elder# | *VALUE*
 
 .....................
 42 01 <expression> 02
@@ -13511,7 +13514,7 @@ Returns the object number of the object more recently added to the parent of the
 
 //-----{ 43 }-------------------------------------------------------------------
 
-| 43 | prop# | *INTERNAL VALUE*
+| 43 | [.big.red]#prop&num;# | *INTERNAL VALUE*
 
     43 <property>
 
@@ -13519,7 +13522,7 @@ Where `<property>` is a single byte giving the property number.
 
 //-----{ 44 }-------------------------------------------------------------------
 
-| 44 | attr# | *INTERNAL VALUE*
+| 44 | [.big.red]#attr&num;# | *INTERNAL VALUE*
 
     44 <attribute>
 
@@ -13527,7 +13530,7 @@ Where `<attribute>` is a single byte giving the attribute number.
 
 //-----{ 45 }-------------------------------------------------------------------
 
-| 45 | var# | *INTERNAL VALUE*
+| 45 | [.big.red]#var&num;# | *INTERNAL VALUE*
 
     45 <variable>
 
@@ -13535,31 +13538,31 @@ Where `<variable>` is a single byte giving the variable number. 0-239 are global
 
 //-----{ 46 }-------------------------------------------------------------------
 
-| 46 | dictentry# | *INTERNAL VALUE*
+| 46 | [.big.red]#dictentry&num;# | *INTERNAL VALUE*
 
     46 <dictionary entry>
 
-Where `<dictionary entry>` is two bytes (in low-byte/high-byte order) giving the address of the entry in the dictionary table.
+Where `<dictionary{nbsp}entry>` is two bytes (in low-byte/high-byte order) giving the address of the entry in the dictionary table.
 
 //-----{ 47 }-------------------------------------------------------------------
 
-| 47 | text# | *INTERNAL STATEMENT*
+| 47 | [.big.red]#text&num;# | *INTERNAL STATEMENT*
 
     47 <text address>
 
-Where `<text address>` is three bytes (in lowest-to-highest byte order) giving the address of the entry in the text bank.
+Where `<text{nbsp}address>` is three bytes (in lowest-to-highest byte order) giving the address of the entry in the text bank.
 
 //-----{ 48 }-------------------------------------------------------------------
 
-| 48 | routine# | *INTERNAL STATEMENT* or *VALUE*
+| 48 | [.big.red]#routine&num;# | *INTERNAL STATEMENT* or *VALUE*
 
     48 <routine address>
 
-Where `<routine address>` is two bytes giving the indexed address of the specified routine.
+Where `<routine{nbsp}address>` is two bytes giving the indexed address of the specified routine.
 
 //-----{ 49 }-------------------------------------------------------------------
 
-| 49 | debugdata# | *INTERNAL DATA*
+| 49 | [.big.red]#debugdata&num;# | *INTERNAL DATA*
 
 Is followed by data that is helpful to the engine at runtime -- not visible in, for example, the debugger's code window.
 
@@ -13572,15 +13575,15 @@ Read by the debugger; ignored by the engine.
 
 //-----{ 4A }-------------------------------------------------------------------
 
-| 4A | object# | *INTERNAL VALUE*
+| 4A | [.big.red]#object&num;# | *INTERNAL VALUE*
 
     4A <object number>
 
-Where `<object number>` is two bytes giving the number of the specified object.
+Where `<object{nbsp}number>` is two bytes giving the number of the specified object.
 
 //-----{ 4B }-------------------------------------------------------------------
 
-| 4B | value# | *INTERNAL VALUE*
+| 4B | [.big.red]#value&num;# | *INTERNAL VALUE*
 
     4B <number>
 
@@ -13588,13 +13591,13 @@ Where `<number>` is two bytes giving the specified constant value.
 
 //-----{ 4C }-------------------------------------------------------------------
 
-| 4C | eol# | *INTERNAL TOKEN*
+| 4C | [.big.red]#eol&num;# | *INTERNAL TOKEN*
 
 End-of-line marker.
 
 //-----{ 4D }-------------------------------------------------------------------
 
-.3+| 4D | system | *INTERNAL STATEMENT* or *VALUE*
+.3+| 4D | [.big.red]#system# | *INTERNAL STATEMENT* or *VALUE*
 
 [literal,subs="+attributes,macros"]
 4D 01 <value> 02 4C{wj}{fn5}
@@ -13626,12 +13629,12 @@ Where `<value>` is some Hugo data type giving the number of the system function 
 
 //-----{ 4E-4F }----------------------------------------------------------------
 
-| 4E | notheld | **GRAMMAR TOKEN**
-| 4F | multinotheld | **GRAMMAR TOKEN**
+| 4E | [.big.red]#notheld#      | **GRAMMAR TOKEN**
+| 4F | [.big.red]#multinotheld# | **GRAMMAR TOKEN**
 
 //-----{ 50 }-------------------------------------------------------------------
 
-.2+| 50 | window | *STATEMENT*
+.2+| 50 | [.big.red]#window# | *STATEMENT*
 
 [literal, role="hugosyntax"]
 ............................
@@ -13679,7 +13682,7 @@ The result was a window beginning at the top of the screen, reaching down to the
 
 //-----{ 51 }-------------------------------------------------------------------
 
-.2+| 51 | random | *VALUE*
+.2+| 51 | [.big.red]#random# | *VALUE*
 
 .....................
 51 01 <expression> 02
@@ -13697,7 +13700,7 @@ Returns a random value between 1 and `<expression>`.
 
 //-----{ 52 }-------------------------------------------------------------------
 
-.2+| 52 | word | *VALUE*
+.2+| 52 | [.big.red]#word# | *VALUE*
 
 .....................
 52 0E <expression> 0F
@@ -13717,7 +13720,7 @@ Returns the dictionary address of `word[<expression>`].
 
 //-----{ 53 }-------------------------------------------------------------------
 
-.2+| 53 | locate | *STATEMENT*
+.2+| 53 | [.big.red]#locate# | *STATEMENT*
 
 ........................
 53 <value> 4C
@@ -13738,7 +13741,7 @@ If a second value is given, it represents the new row position.
 
 //-----{ 54 }-------------------------------------------------------------------
 
-.2+| 54 | parse$ | *TOKEN*
+.2+| 54 | [.big.red]#parse$# | *TOKEN*
 
 Read-only engine variable representing the engine parser's internal `parse$` string.
 
@@ -13749,7 +13752,7 @@ Read-only engine variable representing the engine parser's internal `parse$` str
 
 //-----{ 55 }-------------------------------------------------------------------
 
-.2+| 55 | children | *VALUE*
+.2+| 55 | [.big.red]#children# | *VALUE*
 
 .....................
 55 01 <expression> 02
@@ -13767,7 +13770,7 @@ Returns the number of children owned by the object resulting from `<expression>`
 
 //-----{ 56 }-------------------------------------------------------------------
 
-.2+| 56 | in | *TOKEN*
+.2+| 56 | [.big.red]#in# | *TOKEN*
 
 >s| As in:  <a|
 
@@ -13786,7 +13789,7 @@ if <object> [not] in <parent>
 
 //-----{ 57 }-------------------------------------------------------------------
 
-| 57 | pause | *STATEMENT*
+| 57 | [.big.red]#pause# | *STATEMENT*
 
     57
 
@@ -13795,7 +13798,7 @@ Stores the resulting key value in `word[0]`.
 
 //-----{ 58 }-------------------------------------------------------------------
 
-| 58 | runevents | *STATEMENT*
+| 58 | [.big.red]#runevents# | *STATEMENT*
 
     58
 
@@ -13803,7 +13806,7 @@ Runs all events in scope.
 
 //-----{ 59 }-------------------------------------------------------------------
 
-| 59 | arraydata# | *VALUE*
+| 59 | [.big.red]#arraydata&num;# | *VALUE*
 
 * `array[<expression>]` -- element `<expression>` of array `<array>`
 +
@@ -13825,7 +13828,7 @@ Where `<array>` is two bytes giving the address of the array in the array table.
 
 //-----{ 5A }-------------------------------------------------------------------
 
-.2+| 5A | call | STATEMENT or VALUE
+.2+| 5A | [.big.red]#call# | STATEMENT or VALUE
 
 [literal,subs="+attributes,macros"]
 5A <value> 4C{wj}{fn7}
@@ -13843,7 +13846,7 @@ Where `<value>` gives the indexed address of the routine to be called.
 
 //-----{ 5B }-------------------------------------------------------------------
 
-.2+| 5B | stringdata# | *PRINT TOKEN*
+.2+| 5B | [.big.red]#stringdata&num;# | *PRINT TOKEN*
 
 [literal,subs="+quotes"]
 ..................................................
@@ -13851,7 +13854,7 @@ Where `<value>` gives the indexed address of the routine to be called.
 ..................................................
 
 Valid only in a `print` statement.
-`<__n__>` gives the number of characters contained in the print string.
+`<__n__>` gives the number of characters contained in the `print` string.
 
 >s| Source: <a|
 
@@ -13859,7 +13862,7 @@ Valid only in a `print` statement.
 
 //-----{ 5C }-------------------------------------------------------------------
 
-.3+| 5C | save | *VALUE*
+.3+| 5C | [.big.red]#save# | *VALUE*
 
 >s| As in:  <a|
 
@@ -13876,7 +13879,7 @@ Calls the engine's save-game procedure (which includes filename input); returns 
 
 //-----{ 5D }-------------------------------------------------------------------
 
-.3+| 5D | restore | *VALUE*
+.3+| 5D | [.big.red]#restore# | *VALUE*
 
 >s| As in:  <a|
 
@@ -13893,7 +13896,7 @@ Calls the engine's restore-game procedure (which includes filename input); retur
 
 //-----{ 5E }-------------------------------------------------------------------
 
-| 5E | quit | *STATEMENT*
+| 5E | [.big.red]#quit# | *STATEMENT*
 
     5E
 
@@ -13901,7 +13904,7 @@ Terminates program execution and exits the engine.
 
 //-----{ 5F }-------------------------------------------------------------------
 
-.2+| 5F | input | *STATEMENT*
+.2+| 5F | [.big.red]#input# | *STATEMENT*
 
     5F
 
@@ -13914,7 +13917,7 @@ Unknown (i.e., non-dictionary) words become 0, or `+""+`; the last unknown word 
 
 //-----{ 60 }-------------------------------------------------------------------
 
-.2+| 60 | serial$ | *PRINT TOKEN*
+.2+| 60 | [.big.red]#serial$# | *PRINT TOKEN*
 
 Read-only engine variable representing the compiler-determined serial number.
 
@@ -13924,7 +13927,7 @@ Read-only engine variable representing the compiler-determined serial number.
 
 //-----{ 61 }-------------------------------------------------------------------
 
-| 61 | cls | *STATEMENT*
+| 61 | [.big.red]#cls# | *STATEMENT*
 
     61
 
@@ -13932,7 +13935,7 @@ Clears the currently defined text window.
 
 //-----{ 62 }-------------------------------------------------------------------
 
-.2+| 62 | scripton | *VALUE*
+.2+| 62 | [.big.red]#scripton# | *VALUE*
 *As in:*
 
 [literal, role="hugosyntax"]
@@ -13948,7 +13951,7 @@ Calls the engine's begin-scripting procedure (which includes filename input); re
 
 //-----{ 63 }-------------------------------------------------------------------
 
-.3+| 63 | scriptoff | *VALUE*
+.3+| 63 | [.big.red]#scriptoff# | *VALUE*
 
 >s| As in:  <a|
 
@@ -13965,7 +13968,7 @@ Calls the engine's end-scripting procedure; returns a true value on success, or 
 
 //-----{ 64 }-------------------------------------------------------------------
 
-.2+| 64 | restart | *VALUE*
+.2+| 64 | [.big.red]#restart# | *VALUE*
 
 >s| As in:  <a|
 
@@ -13978,25 +13981,25 @@ Attempts to reload the dynamic game data and restart the game loop; returns a tr
 
 //-----{ 65 }-------------------------------------------------------------------
 
-| 65 | hex | *PRINT TOKEN*
+| 65 | [.big.red]#hex# | *PRINT TOKEN*
 
 Signals that the following value should be printed as a hexadecimal number, not as the corresponding dictionary entry.
 
 //-----{ 66 }-------------------------------------------------------------------
 
-| 66 | object | *GRAMMAR TOKEN*
+| 66 | [.big.red]#object# | *GRAMMAR TOKEN*
 
 NOTE: Removed as a token after grammar table is compiled so that `object` can refer to the object global variable.
 
 //-----{ 67 }-------------------------------------------------------------------
 
-| 67 | xobject | *GRAMMAR TOKEN*
+| 67 | [.big.red]#xobject# | *GRAMMAR TOKEN*
 
 NOTE: Removed as a token after grammar table is compiled so that `xobject` can refer to the xobject global variable.
 
 //-----{ 68 }-------------------------------------------------------------------
 
-.3+| 68 | string | *VALUE*
+.3+| 68 | [.big.red]#string# | *VALUE*
 
 ......................................
 68 01 <expr1> 19 <expr2> 19 <expr3> 02
@@ -14019,7 +14022,7 @@ Calls the engine string-writing function to write the dictionary entry `<expr2>`
 
 //-----{ 69 }-------------------------------------------------------------------
 
-.2+| 69 | array | *VALUE*
+.2+| 69 | [.big.red]#array# | *VALUE*
 
     69 <value>
 
@@ -14031,7 +14034,7 @@ Forces `<value>` to be used as an address in the array table, so that `array <va
 
 //-----{ 6A }-------------------------------------------------------------------
 
-.2+| 6A | printchar | *STATEMENT*
+.2+| 6A | [.big.red]#printchar# | *STATEMENT*
 
 ..................................
 6A <value1> 19 <value2> 19 ... 4C
@@ -14050,7 +14053,7 @@ Multiple values are separated by $19; the sequence is terminated by $4C.
 
 //-----{ 6B }-------------------------------------------------------------------
 
-.3+| 6B | undo | *VALUE*
+.3+| 6B | [.big.red]#undo# | *VALUE*
 
 >s| As in:  <a|
 
@@ -14067,7 +14070,7 @@ Attempts to restore all data changes made since the last typed input; returns a 
 
 //-----{ 6C }-------------------------------------------------------------------
 
-.3+| 6C | dict | *VALUE*
+.3+| 6C | [.big.red]#dict# | *VALUE*
 
 ...........................
 6C 01 <expr1> 19 <expr2> 02
@@ -14092,7 +14095,7 @@ Otherwise, it is appended to the end of the table, and the new location is retur
 
 //-----{ 6D }-------------------------------------------------------------------
 
-.3+| 6D | recordon | *VALUE*
+.3+| 6D | [.big.red]#recordon# | *VALUE*
 
 >s| As in:  <a|
 
@@ -14109,7 +14112,7 @@ Calls the engine's begin-command-recording procedure (which includes filename in
 
 //-----{ 6E }-------------------------------------------------------------------
 
-.3+| 6E | recordoff | *VALUE*
+.3+| 6E | [.big.red]#recordoff# | *VALUE*
 
 >s| As in:  <a|
 
@@ -14126,7 +14129,7 @@ Calls the engine's end-command-recording procedure; returns a true value on succ
 
 //-----{ 6F }-------------------------------------------------------------------
 
-.3+| 6F | writefile | *STATEMENT*
+.3+| 6F | [.big.red]#writefile# | *STATEMENT*
 
 [literal,subs="+attributes,macros"]
 6F <value> 4C{wj}{fn8}
@@ -14152,7 +14155,7 @@ Upon any error, jumps to the end of the file i/o code block and closes `<file>`.
 
 //-----{ 70 }-------------------------------------------------------------------
 
-.2+| 70 | readfile | *STATEMENT*
+.2+| 70 | [.big.red]#readfile# | *STATEMENT*
 
 [literal,subs="+attributes,macros"]
 70 <value> 4C{wj}{fn9}
@@ -14173,7 +14176,7 @@ Upon any error, jumps to the end of the file i/o code block and closes `<file>`.
 
 //-----{ 71 }-------------------------------------------------------------------
 
-| 71 | writeval | *STATEMENT*
+| 71 | [.big.red]#writeval# | *STATEMENT*
 
 [literal,subs="+attributes,macros"]
 71 <value> 19 <value> 19 ... 4C{wj}{fn10}
@@ -14184,7 +14187,7 @@ Multiple values are separated by $19.
 
 //-----{ 72 }-------------------------------------------------------------------
 
-.2+| 72 | readval | *VALUE*
+.2+| 72 | [.big.red]#readval# | *VALUE*
 
 >s| As in:  <a|
 
@@ -14198,7 +14201,7 @@ Reads a 16-bit integer from the currently open file.
 
 //-----{ 73 }-------------------------------------------------------------------
 
-.2+| 73 | playback | *VALUE*
+.2+| 73 | [.big.red]#playback# | *VALUE*
 
 >s| As in:  <a|
 
@@ -14213,13 +14216,13 @@ Returns true on success, false on failure.
 
 //-----{ 74 }-------------------------------------------------------------------
 
-| 74 | colour | *STATEMENT*
+| 74 | [.big.red]#colour# | *STATEMENT*
 
 Treated identically to $38: `color`.
 
 //-----{ 75 }-------------------------------------------------------------------
 
-| 75 | picture | *STATEMENT*
+| 75 | [.big.red]#picture# | *STATEMENT*
 
     75 <value1> 19 <value2> 4C
     75 <value1> 4C
@@ -14230,8 +14233,8 @@ If there is an error, the `system_status` global variable is set.
 
 //-----{ 76-77 }----------------------------------------------------------------
 
-| 76 | label# | *INTERNAL DATA*
-| 77 | sound | *STATEMENT*
+| 76 | [.big.red]#label&num;# | *INTERNAL DATA*
+| 77 | [.big.red]#sound#      | *STATEMENT*
 
     77 [79] <value1> 19 <value2> [19 <value3>] 4C
     77 <value1> 4C
@@ -14244,7 +14247,7 @@ If there is an error, the `system_status` global variable is set.
 
 //-----{ 78 }-------------------------------------------------------------------
 
-| 78 | music | *STATEMENT*
+| 78 | [.big.red]#music# | *STATEMENT*
 
     78 [79] <value1> 19 <value2> [19 <value3>] 4C
     78 <value1> 4C
@@ -14257,7 +14260,7 @@ If there is an error, the `system_status` global variable is set.
 
 //-----{ 79 }-------------------------------------------------------------------
 
-| 79 | repeat | *TOKEN*
+| 79 | [.big.red]#repeat# | *TOKEN*
 
 Used by `sound` and `music` statements.
 |===============================================================================
