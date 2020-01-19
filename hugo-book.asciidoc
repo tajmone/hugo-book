@@ -1,6 +1,6 @@
 = The Hugo Book
 Kent Tessman <general@generalcoffee.com>
-v1, 2018-10-04: Draft 150 -- Porting to AsciiDoc
+v1, 2018-10-04: Draft 151 -- Porting to AsciiDoc
 :lang: en
 :doctype: book
 // TOC Settings for GitHub previewing (override via CLI):
@@ -12260,6 +12260,8 @@ Resources are then appended sequentially immediately following the index.
 For reference, here is a simplified map of the compiler's function calls, along with the source files in which they are located.
 The leftmost functions are all called from `main()` in *hc.c*:
 
+[[fig-compiler-flowchart]]
+.Flowchart of the Hugo Compiler
 image::hugo-book2_13_flowchart-compiler.svg[align="center",width=50%]
 
 In *Pass 1*, the initial source file and any included files are read into one contiguous temporary file (called `allfile` in the source).
@@ -12511,6 +12513,8 @@ Additionally, those properties with a "`length`" of 254 are adjusted so that the
 
 Here is a simple map of the main engine loop and the associated functions:
 
+[[fig-engine-flowchart]]
+.Flowchart of the Hugo Engine
 image::hugo-book2_14_flowchart-engine.svg[align="center",width=60%]
 
 The functions in *herun.c* comprise most of the core game loop and calling points. `RunGame()` manages the game loop itself [.red]#[1.1]#, which can be thought of as being:
@@ -12563,24 +12567,24 @@ The expression currently in `eval[]` is solved by calling `EvalExpr()`.
 | fcolor +
   bgcolor +
   icolor +
-  default_bgcolor | colors for foreground, background, input, and default background
-| currentfont     | current font bitmask
-| textto          | if non-zero, text is printed to this array
+  default_bgcolor .^| colors for foreground, background, input, and default background
+| currentfont       | current font bitmask
+| textto            | if non-zero, text is printed to this array
 | SCREENWIDTH +
-  SCREENHEIGHT    | maximum possible screen dimensions
-| inwindow        | true if in a window
+  SCREENHEIGHT    .^| maximum possible screen dimensions
+| inwindow          | true if in a window
 | physical_windowwidth +
   physical_windowheight +
   physical_windowleft +
   physical_windowtop +
   physical_windowright +
-  physical_windowbottom | "`physical`" window dimensions, in pixels or characters
+  physical_windowbottom .^| "`physical`" window dimensions, in pixels or characters
 | charwidth +
   lineheight +
   FIXEDCHARWIDTH +
   FIXEDLINEHEIGHT +
   current_text_x +
-  current_text_y | for font output management
+  current_text_y  .^| for font output management
 |===============================================================================
 
 [caption=]
@@ -12713,6 +12717,8 @@ The Hugo Debugger is basically a modified build of the Hugo Engine; the two shar
 
 The key difference with the debugger build of the engine is in `RunRoutine()`, which in the debugger looks more like this:
 
+[[fig-debugger-flowchart]]
+.Flowchart of the Hugo Debugger
 image::hugo-book2_15_flowchart-debugger.svg[align="center",width=60%]
 
 The debugger build contains a global flag called `debugger_interrupt`; if this flag is non-false, `RunRoutine()` is interrupted before executing the next instruction.
@@ -12758,8 +12764,9 @@ After writing the expression, the debugger can then set `codeptr` to the start o
 // @XREF: "14.2. The Header"
 The *.HDX* file format for Hugo debuggable executables, as well as having some additional information in the header (see <<sec_14-2>>) and a 256 byte workspace reserved at the end of the array table, appends symbolic debugging data as follows:
 
-[.center,caption=]
-[cols="<s,<d",options=autowidth,grid=none,stripes=even]
+[[table-hdx-file-map]]
+.Memory Map of a .HDX File
+[.center,cols="<s,<d",options=autowidth,grid=none,stripes=even]
 |===============================================================================
 | Object names    | For each object: 1 byte giving the length, followed by the name as a string
 2+^a| {blank}

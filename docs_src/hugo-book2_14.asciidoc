@@ -16,6 +16,8 @@
 
 Here is a simple map of the main engine loop and the associated functions:
 
+[[fig-engine-flowchart]]
+.Flowchart of the Hugo Engine
 image::hugo-book2_14_flowchart-engine.svg[align="center",width=60%]
 
 The functions in *herun.c* comprise most of the core game loop and calling points. `RunGame()` manages the game loop itself [.red]#[1.1]#, which can be thought of as being:
@@ -68,24 +70,24 @@ The expression currently in `eval[]` is solved by calling `EvalExpr()`.
 | fcolor +
   bgcolor +
   icolor +
-  default_bgcolor | colors for foreground, background, input, and default background
-| currentfont     | current font bitmask
-| textto          | if non-zero, text is printed to this array
+  default_bgcolor .^| colors for foreground, background, input, and default background
+| currentfont       | current font bitmask
+| textto            | if non-zero, text is printed to this array
 | SCREENWIDTH +
-  SCREENHEIGHT    | maximum possible screen dimensions
-| inwindow        | true if in a window
+  SCREENHEIGHT    .^| maximum possible screen dimensions
+| inwindow          | true if in a window
 | physical_windowwidth +
   physical_windowheight +
   physical_windowleft +
   physical_windowtop +
   physical_windowright +
-  physical_windowbottom | "`physical`" window dimensions, in pixels or characters
+  physical_windowbottom .^| "`physical`" window dimensions, in pixels or characters
 | charwidth +
   lineheight +
   FIXEDCHARWIDTH +
   FIXEDLINEHEIGHT +
   current_text_x +
-  current_text_y | for font output management
+  current_text_y  .^| for font output management
 |===============================================================================
 
 [caption=]

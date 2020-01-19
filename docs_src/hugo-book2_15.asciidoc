@@ -11,6 +11,8 @@ The Hugo Debugger is basically a modified build of the Hugo Engine; the two shar
 
 The key difference with the debugger build of the engine is in `RunRoutine()`, which in the debugger looks more like this:
 
+[[fig-debugger-flowchart]]
+.Flowchart of the Hugo Debugger
 image::hugo-book2_15_flowchart-debugger.svg[align="center",width=60%]
 
 The debugger build contains a global flag called `debugger_interrupt`; if this flag is non-false, `RunRoutine()` is interrupted before executing the next instruction.
@@ -56,8 +58,9 @@ After writing the expression, the debugger can then set `codeptr` to the start o
 // @XREF: "14.2. The Header"
 The *.HDX* file format for Hugo debuggable executables, as well as having some additional information in the header (see <<sec_14-2>>) and a 256 byte workspace reserved at the end of the array table, appends symbolic debugging data as follows:
 
-[.center,caption=]
-[cols="<s,<d",options=autowidth,grid=none,stripes=even]
+[[table-hdx-file-map]]
+.Memory Map of a .HDX File
+[.center,cols="<s,<d",options=autowidth,grid=none,stripes=even]
 |===============================================================================
 | Object names    | For each object: 1 byte giving the length, followed by the name as a string
 2+^a| {blank}

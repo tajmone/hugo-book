@@ -10,6 +10,8 @@
 For reference, here is a simplified map of the compiler's function calls, along with the source files in which they are located.
 The leftmost functions are all called from `main()` in *hc.c*:
 
+[[fig-compiler-flowchart]]
+.Flowchart of the Hugo Compiler
 image::hugo-book2_13_flowchart-compiler.svg[align="center",width=50%]
 
 In *Pass 1*, the initial source file and any included files are read into one contiguous temporary file (called `allfile` in the source).
