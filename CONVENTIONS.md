@@ -23,6 +23,9 @@ The AsciiDoc formatting and style conventions adopted in _The Hugo Book_.
     - [Syntax Highlighting](#syntax-highlighting)
         - [Escapes in File Paths](#escapes-in-file-paths)
         - [Unsupported Asciidoctor Features](#unsupported-asciidoctor-features)
+- [Custom Styles](#custom-styles)
+    - [Block Elements](#block-elements)
+    - [Inline Elements](#inline-elements)
 
 <!-- /MarkdownTOC -->
 
@@ -54,10 +57,12 @@ These are then injected in the main text via attributes substitutions (`{fn1}`, 
 
 
 ```asciidoc
-A paragraph with footnotes{fn1} via custom attributes.{fn2}
+A paragraph with footnotes{wj}{fn1} via custom attributes.{wj}{fn2}
 ```
 
-This allows to access all footnotes in a chapter at once, without having to sift the document to find them.
+As the above example shows, each footnote is preceded by a [word-joiner attribute] (`{wj}`) to prevent word wrapping from separating the footnote marker from the text to which it belongs.
+
+This system of placing all footnotes definitions at the beginning of a chapter allows accessing all footnotes at once, without having to sift through the document to find them.
 
 The footnote attributes of every document are named starting from 1 (`:fn1:`) regardless of the actual note number in the final document (Asciidoctor will take care of that).
 
@@ -65,6 +70,7 @@ For more info:
 
 - [Asciidoctor Manual: §61. Footnotes]
 - [Asciidoctor Manual: §61.1. Externalizing a Footnote]
+- [Asciidoctor Manual: §A.3. Predefined Attributes for Character Replacements]
 
 ## Handling Identical Footnotes
 
@@ -247,11 +253,44 @@ Any help in solving the above problems would be much appreciated; in the meantim
 
 Of course, if another (static and cross platform) syntax highlighter for Hugo becomes available, without the above limitations, we'll be happy to adopt it as a replacement for Highlight.
 
+# Custom Styles
+
+In order to build _The Hugo Book_ to other formats than those covered by this repository, here's a list of custom styles used in the book, which need to be covered by the template system used by the conversion backend.
+
+## Block Elements
+
+Custom roles are assigned to a variety of block elements:
+
+|    Block Type    |          AsciiDoc Styling         |
+|------------------|-----------------------------------|
+| Game transcript  | `[example,role="gametranscript"]` |
+| Hugo syntax      | `[literal,role="hugosyntax"]`     |
+| Hugo source code | `[source,hugo]`                   |
+| CMD/Shell        | `[literal,role="cmd"]`            |
+
+
+## Inline Elements
+
+The following inline styles are used in the book:
+
+| Style Type |    AsciiDoc Styling   |
+|------------|-----------------------|
+| Big        | `[.big]#<...>#`       |
+| Big + Red  | `[.big.red]#<...>#`   |
+| Green      | `[.green]#<...>#`     |
+| Red        | `[.red]#<...>#`       |
+| Underlined | `[.underline]#<...>#` |
+| Yellow     | `[.yellow]#<...>#`    |
+
+Some of the above styles are part of the default Asciidoctor template (e.g. the HTML5 template), but others were added to cover specific needs.
+Just ensure that your template correctly covers all the above styles, using the default HTML book of this project as a reference for the desired style results.
+
 <!-----------------------------------------------------------------------------
                                REFERENCE LINKS
 ------------------------------------------------------------------------------>
 
 [externalized]: https://asciidoctor.org/docs/user-manual/#externalizing-a-footnote "See Asciidoctor Manual on externalizing footnote"
+[word-joiner attribute]: https://asciidoctor.org/docs/user-manual/#charref-attributes "See Asciidoctor Manual on predefined attributes for character replacements regarding the use of {wj}"
 
 [The Chicago Manual of Style]: https://www.chicagomanualofstyle.org "Go to The Chicago Manual of Style website"
 
@@ -283,6 +322,8 @@ Of course, if another (static and cross platform) syntax highlighter for Hugo be
 
 [Asciidoctor Manual: §61. Footnotes]: https://asciidoctor.org/docs/user-manual/#user-footnotes
 [Asciidoctor Manual: §61.1. Externalizing a Footnote]: https://asciidoctor.org/docs/user-manual/#externalizing-a-footnote
+
+[Asciidoctor Manual: §A.3. Predefined Attributes for Character Replacements]: https://asciidoctor.org/docs/user-manual/#charref-attributes
 
 [callouts]: https://asciidoctor.org/docs/user-manual/#callouts "Learn more about Asciidoctor callouts"
 [subs]: https://asciidoctor.org/docs/user-manual/#applying-substitutions "Learn more about Asciidoctor substitutions"
