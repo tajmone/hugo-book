@@ -1,6 +1,6 @@
 = The Hugo Book
 Kent Tessman <general@generalcoffee.com>
-v1, 2018-10-04: Draft 152 -- Porting to AsciiDoc
+v1, 2018-10-04: Draft 153 -- Porting to AsciiDoc
 :lang: en
 :doctype: book
 // TOC Settings for GitHub previewing (override via CLI):
@@ -239,7 +239,7 @@ A number of files are part of the basic Hugo package.
 You'll need to make sure to have these before you get started; a good starting point is the Hugo web page at
 link:https://www.generalcoffee.com/hugo[_https://www.generalcoffee.com/hugo_^,title="Visit Hugo website"].
 
-[.big.red]#*Executable package.*#
+[.big.red]*Executable package.*
 You'll need, first and foremost, a version of Hugo compiled for your particular computer system, which will allow you to run existing Hugo programs, as well as compile and run your own.
 Usually the package itself is named something like:
 
@@ -263,7 +263,7 @@ Please note that the Hugo Compiler and the Hugo Debugger are not available for a
 To develop and compile your own games, the Hugo Compiler is necessary.
 The Hugo Debugger is a useful and powerful tool, but it is not essential for Hugo development.
 
-[.big.red]#*Library package.*#
+[.big.red]*Library package.*
 You may be relieved to learn that you don't have to write every last part of a Hugo game yourself.
 In fact, much of the basic infrastructure is provided by the Hugo Library, a set of existing Hugo source code files that you include in your game to manage the game world.
 Using the Hugo Library, you can easily create a small game that incorporates the basic behavior of a standard Hugo game.
@@ -293,7 +293,7 @@ verbstub.g  :: Additional verb grammar
 // @EDITED TYPO: (Issue #28)
 //    "you're probably want" -> "you're going to want"
 
-[.big.red]#*Sources.*#
+[.big.red]*Sources.*
 It's probably a good idea as you delve into Hugo programming to have some existing source code to look at.
 *sample.hug* is a valuable resource to have handy since it contains examples of most aspects of Hugo programming.
 Additionally, you're going to want to download *shell.hug*, which provides the very bare bones of a Hugo game for you to start building on:
@@ -308,7 +308,7 @@ An additional Hugo source file demonstrates the ability to create precompiled he
 [horizontal]
 hugolib.hug  :: To create a linkable version of *hugolib.h*
 
-[.big.red]#*Extras.*#
+[.big.red]*Extras.*
 The last essential remaining piece you'll need to begin Hugo development in earnest is a _text editor_ of some sort.
 This is what you'll use to edit the Hugo source files that you'll write and ultimately compile into working Hugo programs.
 On Windows or Macintosh you could use the pre-packaged Notepad or SimpleText (or TextEdit on Mac OS X) applications, respectively, but it's really not recommended: there are far better inexpensive or even freeware editors available (and once you get deeper into programming, you'll realize that the one sure investment you can make is an editor you're comfortable with).
@@ -3057,7 +3057,7 @@ will result in output like:
 
 [example,role="gametranscript"]
 ================================================================================
-A **bold string with some _italics_ and [.underline]#underline#** [.underline]#thrown in.#
+A **bold string with some _italics_ and [.underline]##underline##** [.underline]##thrown in.##
 ================================================================================
 
 Print style can also be changed using the `Font` routine in *hugolib.h*, so that in
@@ -4021,11 +4021,11 @@ The output will be:
 
 [example,role="gametranscript"]
 ================================================================================
-Text may be printed in *boldface*, _italics_, or [.underline]#underlined# typefaces.
+Text may be printed in *boldface*, _italics_, or [.underline]##underlined## typefaces.
 
-[.red]#Get ready. {nbsp}#
-[.yellow]#Get set. {nbsp}#
-[.green]#Go!#
+[.red]##Get ready. {nbsp}##
+[.yellow]##Get set. {nbsp}##
+[.green]##Go!##
 ================================================================================
 
 with "`boldface`", "`italics`" and "`underlined`" printed in their respective typefaces. "`Get ready`", "`Get set`", and "`Go!`" will all appear on the same line in three different colors.
@@ -5660,7 +5660,7 @@ The next step is to process the four types of special "`words`" which may be def
 //    Added extra [.big.red] styles to the four special words, to make them
 //    stand out more.
 
-[.big.red]#_Removals_# are the simplest.
+[.big.red]_Removals_ are the simplest.
 These are simply words that are to be automatically removed from any input line, and are generally limited to words such as "`a`" and "`the`" which would, generally speaking, only make grammar matching more complicated and difficult.
 The syntax for defining a removal is:
 
@@ -5676,7 +5676,7 @@ as in
 removal "a", "an", "the"
 ------------------------
 
-[.big.red]#_Punctuation_# is similar to a removal, except it specifies the removal of individual characters instead of whole words:
+[.big.red]_Punctuation_ is similar to a removal, except it specifies the removal of individual characters instead of whole words:
 
 [literal,role="hugosyntax"]
 ...........................................
@@ -5690,7 +5690,7 @@ as in
 punctuation "$%"
 ----------------
 
-[.big.red]#_Synonyms_# are slightly more complex.
+[.big.red]_Synonyms_ are slightly more complex.
 These are words that will never be found in the parsed input line; they are replaced by the specified word for which they are a synonym.
 
 [literal,role="hugosyntax"]
@@ -5711,7 +5711,7 @@ synonym "myself" for "me"
 The above example will replace every occurrence of "`myself`" in the input line with "`me`".
 Usage of synonyms will likely not be extensive, since of course it is possible to, particularly in the case of object nouns and adjectives, specify synonymous words which are still treated as distinct.
 
-[.big.red]#_Compounds_# are the final type of special word, specified as:
+[.big.red]_Compounds_ are the final type of special word, specified as:
 
 [literal,role="hugosyntax"]
 .............................
@@ -7626,7 +7626,7 @@ In combination with the `repeat` token, this is useful for creating background/s
 
 // ****//   and   //****
 
-3+<.^| [.big.red]#and#
+3+<.^| [.big.red]##and##
 .3+| {blank}
 
 s| Description: a| Logical AND.
@@ -7643,7 +7643,7 @@ s| Result: a|
 
 // ****//   anything   //****
 
-3+<.^| [.big.red]#anything#
+3+<.^| [.big.red]##anything##
 | {blank}
 
 s| Description: a|
@@ -7651,7 +7651,7 @@ Object specifier in grammar syntax line, indicating that any nameable object in 
 
 // ****//   array   //****
 
-3+<.^| [.big.red]#array#
+3+<.^| [.big.red]##array##
 .2+| {blank}
 
 s| Description: a|
@@ -7667,7 +7667,7 @@ The variable `<var2>` will be treated as an array address.
 
 // ****//   break   //****
 
-3+<.^| [.big.red]#break#
+3+<.^| [.big.red]##break##
 .2+| {blank}
 
 s| Description: a| Terminates the immediate enclosing loop.
@@ -7691,7 +7691,7 @@ The `break` statement, if encountered, will terminate the innermost loop.
 
 // ****//   call   //****
 
-3+<.^| [.big.red]#call#
+3+<.^| [.big.red]##call##
 .3+| {blank}
 
 s| Description: a|
@@ -7717,7 +7717,7 @@ When used as a function, returns the value returned by the specified routine.
 
 // ****//   capital   //****
 
-3+<.^| [.big.red]#capital#
+3+<.^| [.big.red]##capital##
 .2+| {blank}
 
 s| Description: a|
@@ -7733,7 +7733,7 @@ where `<address>` is any dictionary word, such as, for example, an `object.name`
 
 // ****//   case   //****
 
-3+<.^| [.big.red]#case#
+3+<.^| [.big.red]##case##
 .2+| {blank}
 
 
@@ -7753,7 +7753,7 @@ where `<val>` is value such as a variable, routine return value, object property
 
 // ****//   child   //****
 
-3+<.^| [.big.red]#child#
+3+<.^| [.big.red]##child##
 .2+| {blank}
 
 s| Syntax: a|
@@ -7768,7 +7768,7 @@ The object number of the immediate child object of `<parent>`, or 0 if `<parent>
 
 // ****//   children   //****
 
-3+<.^| [.big.red]#children#
+3+<.^| [.big.red]##children##
 .2+| {blank}
 
 s| Syntax: a|
@@ -7782,7 +7782,7 @@ s| Return{nbsp}value: a| The number of child objects possessed by `<parent>`.
 
 // ****//   cls   //****
 
-3+<.^| [.big.red]#cls#
+3+<.^| [.big.red]##cls##
 .2+| {blank}
 
 s| Description: a|
@@ -7797,7 +7797,7 @@ cls
 
 // ****//   color   //****
 
-3+<.^| [.big.red]#color (colour)#
+3+<.^| [.big.red]##color (colour)##
 .3+| {blank}
 
 s| Description: a| Sets the display colors for text output.
@@ -7840,7 +7840,7 @@ Standard color values for `<foreground>` and `<background>` with constants defin
 
 // ****//   dict   //****
 
-3+<.^| [.big.red]#dict#
+3+<.^| [.big.red]##dict##
 .2+| {blank}
 
 s| Description: a| Dynamically creates a new dictionary entry at runtime.
@@ -7862,7 +7862,7 @@ Space should be reserved for any dictionary entries to be created at runtime usi
 
 // ****//   do   //****
 
-3+<.^| [.big.red]#do#
+3+<.^| [.big.red]##do##
 .2+| {blank}
 
 s| Description: a| Marks the starting point of a `do`-`while` loop.
@@ -7881,7 +7881,7 @@ The loop will continue to run as long as `<expr>` holds true.
 
 // ****//   elder   //****
 
-3+<.^| [.big.red]#elder#
+3+<.^| [.big.red]##elder##
 .2+| {blank}
 
 s| Syntax: a|
@@ -7898,13 +7898,13 @@ The reverse of `sibling`.
 
 // ****//   eldest   //****
 
-3+<.^| [.big.red]#eldest#
+3+<.^| [.big.red]##eldest##
 
 | {blank} 2+a| Same as `child`.
 
 // ****//   else   //****
 
-3+<.^| [.big.red]#else#
+3+<.^| [.big.red]##else##
 .2+| {blank}
 
 s| Description: a|
@@ -7922,7 +7922,7 @@ else
 
 // ****//   elseif   //****
 
-3+<.^| [.big.red]#elseif#
+3+<.^| [.big.red]##elseif##
 .2+| {blank}
 
 s| Description: a|
@@ -7942,14 +7942,14 @@ elseif <condition3>
 
 // ****//   false   //****
 
-3+<.^| [.big.red]#false#
+3+<.^| [.big.red]##false##
 | {blank}
 
 s| Description: a| A predefined constant value: 0.
 
 // ****//   for   //****
 
-3+<.^| [.big.red]#for#
+3+<.^| [.big.red]##for##
 .2+| {blank}
 
 s| Description: a| Loop construction.
@@ -7978,7 +7978,7 @@ The second form loops through all the children of `<object>` (if any), setting `
 
 // ****//   held   //****
 
-3+<.^| [.big.red]#held#
+3+<.^| [.big.red]##held##
 | {blank}
 
 s| Description: a|
@@ -7986,7 +7986,7 @@ Object specifier in grammar syntax line, indicating that any single object posse
 
 // ****//   hex   //****
 
-3+<.^| [.big.red]#hex#
+3+<.^| [.big.red]##hex##
 .2+| {blank}
 
 s| Description: a|
@@ -8002,7 +8002,7 @@ where, for example, `<var>` is equal to 26, will print "`1A`".
 
 // ****//   if   //****
 
-3+<.^| [.big.red]#if#
+3+<.^| [.big.red]##if##
 .2+| {blank}
 
 s| Description: a| A conditional expression.
@@ -8018,7 +8018,7 @@ where `<condition>` is an expression or value, will run the following statement 
 
 // ****//   in   //****
 
-3+<.^| [.big.red]#in#
+3+<.^| [.big.red]##in##
 .2+| {blank}
 
 s| Description: a|
@@ -8044,7 +8044,7 @@ if <object> [not] in <parent>
 
 // ****//   input   //****
 
-3+<.^| [.big.red]#input#
+3+<.^| [.big.red]##input##
 .2+| {blank}
 
 s| Description: a|
@@ -8060,7 +8060,7 @@ input
 
 // ****//   is   //****
 
-3+<.^| [.big.red]#is#
+3+<.^| [.big.red]##is##
 .4+| {blank}
 
 s| Description: a| Attribute assignment/testing.
@@ -8082,7 +8082,7 @@ Otherwise, it returns false.
 
 // ****//   jump   //****
 
-3+<.^| [.big.red]#jump#
+3+<.^| [.big.red]##jump##
 .2+| {blank}
 
 s| Description: a| Jumps to a specified label.
@@ -8103,7 +8103,7 @@ where a unique `<label>` exists on a separate line somewhere in the program, in 
 
 // ****//   local   //****
 
-3+<.^| [.big.red]#local#
+3+<.^| [.big.red]##local##
 .2+| {blank}
 
 s| Description: a| Defines one or more variables local to the current routine.
@@ -8117,7 +8117,7 @@ local <var1>[, <var2>, <var3>,...]
 
 // ****//   locate   //****
 
-3+<.^| [.big.red]#locate#
+3+<.^| [.big.red]##locate##
 .3+| {blank}
 
 s| Description: a| Sets the cursor position within the current text window.
@@ -8135,7 +8135,7 @@ The cursor position is calculated in fixed-width character coordinates.
 
 // ****//   move   //****
 
-3+<.^| [.big.red]#move#
+3+<.^| [.big.red]##move##
 .2+| {blank}
 
 s| Description: a| Moves an object with all its possessions to a new parent.
@@ -8149,7 +8149,7 @@ move <object> to <new parent>
 
 // ****//   multi   //****
 
-3+<.^| [.big.red]#multi#
+3+<.^| [.big.red]##multi##
 | {blank}
 
 s| Description: a|
@@ -8157,7 +8157,7 @@ Object specifier in grammar syntax line, indicating that multiple available obje
 
 // ****//   multiheld   //****
 
-3+<.^| [.big.red]#multiheld#
+3+<.^| [.big.red]##multiheld##
 | {blank}
 
 s| Description: a|
@@ -8165,7 +8165,7 @@ Object specifier in grammar syntax line, indicating that multiple objects posses
 
 // ****//   multinotheld   //****
 
-3+<.^| [.big.red]#multinotheld#
+3+<.^| [.big.red]##multinotheld##
 | {blank}
 
 s| Description: a|
@@ -8173,7 +8173,7 @@ Object specifier in grammar syntax line, indicating that multiple objects explic
 
 // ****//   music   //****
 
-3+<.^| [.big.red]#music#
+3+<.^| [.big.red]##music##
 .2+| {blank}
 
 s| Description: a| Load and play a music resource (if audio output is available).
@@ -8191,7 +8191,7 @@ If the `repeat` token is used, the song continues to loop until either a new son
 
 // ****//   nearby   //****
 
-3+<.^| [.big.red]#nearby#
+3+<.^| [.big.red]##nearby##
 .2+| {blank}
 
 s| Description: a|
@@ -8214,7 +8214,7 @@ Gives the current object the same parent as the last-defined object.
 
 // ****//   newline   //****
 
-3+<.^| [.big.red]#newline#
+3+<.^| [.big.red]##newline##
 .2+| {blank}
 
 s| Description: a|
@@ -8229,7 +8229,7 @@ print newline
 
 // ****//   not   //****
 
-3+<.^| [.big.red]#not#
+3+<.^| [.big.red]##not##
 .3+| {blank}
 
 s| Description: a| Logical NOT.
@@ -8254,7 +8254,7 @@ As part of an expression, it will return true only if `<object>` does not have `
 
 // ****//   notheld   //****
 
-3+<.^| [.big.red]#notheld#
+3+<.^| [.big.red]##notheld##
 | {blank}
 
 s| Description: a|
@@ -8262,7 +8262,7 @@ Object specifier in grammar syntax line, indicating that a single object explici
 
 // ****//   number   //****
 
-3+<.^| [.big.red]#number#
+3+<.^| [.big.red]##number##
 .2+| {blank}
 
 s| Description: a|
@@ -8282,7 +8282,7 @@ where, for example, `<val>` is equal to 100, will print "`100`" instead of the w
 
 // ****//   object   //****
 
-3+<.^| [.big.red]#object#
+3+<.^| [.big.red]##object##
 | {blank}
 
 s| Description: a|
@@ -8292,7 +8292,7 @@ When used in a grammar syntax line, indicates that a single available object is 
 
 // ****//   or   //****
 
-3+<.^| [.big.red]#or#
+3+<.^| [.big.red]##or##
 .3+| {blank}
 
 s| Description: a| Logical OR.
@@ -8309,7 +8309,7 @@ s| Result: a|
 
 // ****//   parent   //****
 
-3+<.^| [.big.red]#parent#
+3+<.^| [.big.red]##parent##
 .5+| {blank}
 
 2+d| (Usage 1)
@@ -8329,7 +8329,7 @@ When used in a grammar syntax line, indicates that the domain for validating the
 
 // ****//   parse$   //****
 
-3+<.^| [.big.red]#parse$#
+3+<.^| [.big.red]##parse$##
 | {blank}
 
 s| Description: a|
@@ -8337,7 +8337,7 @@ Read-only engine variable that contains either the offending portion of an inval
 
 // ****//   pause   //****
 
-3+<.^| [.big.red]#pause#
+3+<.^| [.big.red]##pause##
 | {blank}
 
 s| Description: a|
@@ -8346,7 +8346,7 @@ The value of the key is stored in `word[0]`.
 
 // ****//   picture   //****
 
-3+<.^| [.big.red]#picture#
+3+<.^| [.big.red]##picture##
 .2+| {blank}
 
 s| Description: a|
@@ -8363,7 +8363,7 @@ where, while `<resourcefile>` is optional, it is very highly recommended (otherw
 
 // ****//   playback   //****
 
-3+<.^| [.big.red]#playback#
+3+<.^| [.big.red]##playback##
 .3+| {blank}
 
 s| Description: a|
@@ -8380,7 +8380,7 @@ s| Return{nbsp}value: a| True if successful, false if not.
 
 // ****//   print   //****
 
-3+<.^| [.big.red]#print#
+3+<.^| [.big.red]##print##
 .2+| {blank}
 
 s| Description: a| Print text output.
@@ -8399,7 +8399,7 @@ Each component may also be preceded by a modifier such as `capital`, `hex`, or `
 
 // ****//   printchar   //****
 
-3+<.^| [.big.red]#printchar#
+3+<.^| [.big.red]##printchar##
 .2+| {blank}
 
 s| Description: a|
@@ -8415,7 +8415,7 @@ printchar <val1>[, <val2>,...]
 
 // ****//   quit   //****
 
-3+<.^| [.big.red]#quit#
+3+<.^| [.big.red]##quit##
 .2+| {blank}
 
 s| Description: a| Terminates the game loop.
@@ -8429,7 +8429,7 @@ quit
 
 // ****//   random   //****
 
-3+<.^| [.big.red]#random#
+3+<.^| [.big.red]##random##
 .3+| {blank}
 
 s| Description: a| Engine function which generates a random number.
@@ -8446,7 +8446,7 @@ Where `<val>` is a positive integer number, will return a random number between 
 
 // ****//   readfile   //****
 
-3+<.^| [.big.red]#readfile#
+3+<.^| [.big.red]##readfile##
 .2+| {blank}
 
 s| Description: a|
@@ -8465,7 +8465,7 @@ The file is opened and positioned to the start at the beginning of the `readfile
 
 // ****//   readval   //****
 
-3+<.^| [.big.red]#readval#
+3+<.^| [.big.red]##readval##
 .3+| {blank}
 
 s| Description: a| Reads a value in a `readfile` block.
@@ -8484,7 +8484,7 @@ Use the `FILE_CHECK` constant defined in *hugolib.h* to determine if a `readfile
 
 // ****//   recordoff   //****
 
-3+<.^| [.big.red]#recordoff#
+3+<.^| [.big.red]##recordoff##
 .3+| {blank}
 
 s| Description: a| Ends recording commands to a file.
@@ -8500,7 +8500,7 @@ s| Value: a| True if successful, false if not.
 
 // ****//   recordon   //****
 
-3+<.^| [.big.red]#recordon#
+3+<.^| [.big.red]##recordon##
 .3+| {blank}
 
 s| Description: a|
@@ -8517,7 +8517,7 @@ s| Value: a| True if successful, false if not.
 
 // ****//   remove   //****
 
-3+<.^| [.big.red]#remove#
+3+<.^| [.big.red]##remove##
 .2+| {blank}
 
 s| Description: a| Removes an object from the object tree.
@@ -8532,7 +8532,7 @@ remove <object>
 
 // ****//   restart   //****
 
-3+<.^| [.big.red]#restart#
+3+<.^| [.big.red]##restart##
 .4+| {blank}
 
 s| Description: a|
@@ -8552,7 +8552,7 @@ s| Value: a| True if successful, false if not.
 
 // ****//   restore   //****
 
-3+<.^| [.big.red]#restore#
+3+<.^| [.big.red]##restore##
 .3+| {blank}
 
 s| Description: a|
@@ -8569,7 +8569,7 @@ s| Value: a| True if successful, false if not.
 
 // ****//   return   //****
 
-3+<.^| [.big.red]#return#
+3+<.^| [.big.red]##return##
 .3+| {blank}
 
 s| Description: a| Returns from a called routine.
@@ -8587,7 +8587,7 @@ Returns `<expression>` if provided, otherwise returns false.
 
 // ****//   run   //****
 
-3+<.^| [.big.red]#run#
+3+<.^| [.big.red]##run##
 .3+| {blank}
 
 s| Description: a| Runs an object property routine if one exists.
@@ -8604,7 +8604,7 @@ None; any value returned by the property routine is discarded.
 
 // ****//   runevents   //****
 
-3+<.^| [.big.red]#runevents#
+3+<.^| [.big.red]##runevents##
 .2+| {blank}
 
 s| Description: a|
@@ -8619,7 +8619,7 @@ runevents
 
 // ****//   save   //****
 
-3+<.^| [.big.red]#save#
+3+<.^| [.big.red]##save##
 .3+| {blank}
 
 s| Description: a| Saves the current game state to a file (by prompting the user).
@@ -8635,7 +8635,7 @@ s| Value: a| True if successful, false if not.
 
 // ****//   scriptoff   //****
 
-3+<.^| [.big.red]#scriptoff#
+3+<.^| [.big.red]##scriptoff##
 .3+| {blank}
 
 s| Description: a| Turns transcription off.
@@ -8651,7 +8651,7 @@ s| Value: a| True if successful, false if not.
 
 // ****//   scripton   //****
 
-3+<.^| [.big.red]#scripton#
+3+<.^| [.big.red]##scripton##
 .3+| {blank}
 
 s| Description: a|
@@ -8668,7 +8668,7 @@ s| Value: a| True if successful, false if not.
 
 // ****//   select   //****
 
-3+<.^| [.big.red]#select#
+3+<.^| [.big.red]##select##
 .2+| {blank}
 
 s| Description: a|
@@ -8688,7 +8688,7 @@ where `<val>` is value such as a variable, routine return value, object property
 
 // ****//   serial$   //****
 
-3+<.^| [.big.red]#serial$#
+3+<.^| [.big.red]##serial$##
 | {blank}
 
 s| Description: a|
@@ -8696,7 +8696,7 @@ Read-only engine variable that contains the serial number as written by the comp
 
 // ****//   sibling   //****
 
-3+<.^| [.big.red]#sibling#
+3+<.^| [.big.red]##sibling##
 .2+| {blank}
 
 s| Syntax: a|
@@ -8712,7 +8712,7 @@ The number of the object next to `<object>` on the same branch of the object tre
 
 // ****//   sound   //****
 
-3+<.^| [.big.red]#sound#
+3+<.^| [.big.red]##sound##
 .2+| {blank}
 
 s| Description: a|
@@ -8731,7 +8731,7 @@ If the `repeat` token is used, the sample continues to loop until either a new s
 
 // ****//   string   //****
 
-3+<.^| [.big.red]#string#
+3+<.^| [.big.red]##string##
 .2+| {blank}
 
 s| Description: a|
@@ -8751,7 +8751,7 @@ Returns the length of the string stored in `<array>`.
 
 // ****//   system   //****
 
-3+<.^| [.big.red]#system#
+3+<.^| [.big.red]##system##
 .2+| {blank}
 
 s| Description: a| Built-in function to call low-level system functions.
@@ -8783,7 +8783,7 @@ If `<function>` is unavailable, the engine may set `system_status` to -1 (`STAT_
 
 // ****//   text   //****
 
-3+<.^| [.big.red]#text#
+3+<.^| [.big.red]##text##
 .2+| {blank}
 
 m| text{nbsp}to{nbsp}<val> a|
@@ -8793,7 +8793,7 @@ m| text to 0 | Restores normal printing.
 
 // ****//   to   //****
 
-3+<.^| [.big.red]#to#
+3+<.^| [.big.red]##to##
 .2+| {blank}
 
 s| Description: a|
@@ -8809,14 +8809,14 @@ where `<val>` is a positive integer less than or equal to the maximum column pos
 
 // ****//   true   //****
 
-3+<.^| [.big.red]#true#
+3+<.^| [.big.red]##true##
 | {blank}
 
 s| Description: a| Predefined constant: 1.
 
 // ****//   undo   //****
 
-3+<.^| [.big.red]#undo#
+3+<.^| [.big.red]##undo##
 .3+| {blank}
 
 s| Description: a|
@@ -8833,7 +8833,7 @@ s| Value: a| True if successful, false if not.
 
 // ****//   verb   //****
 
-3+<.^| [.big.red]#verb#
+3+<.^| [.big.red]##verb##
 .2+| {blank}
 
 s| Description: a|
@@ -8849,7 +8849,7 @@ verb "<word1>"[, "<word2>",...]
 
 // ****//   while   //****
 
-3+<.^| [.big.red]#while#
+3+<.^| [.big.red]##while##
 .2+| {blank}
 
 s| Description: a| Component of `while` or `do`-`while` loop construct.
@@ -8878,7 +8878,7 @@ where the loop will run as long as `<expr>` holds true.
 
 // ****//   window   //****
 
-3+<.^| [.big.red]#window#
+3+<.^| [.big.red]##window##
 .2+| {blank}
 
 s| Description: a| Switches output to the status window.
@@ -8915,7 +8915,7 @@ There is no following code block.
 
 // ****//   writefile   //****
 
-3+<.^| [.big.red]#writefile#
+3+<.^| [.big.red]##writefile##
 .2+| {blank}
 
 s| Description: a|
@@ -8934,7 +8934,7 @@ The file is opened and positioned to the start at the beginning of the `writefil
 
 // ****//   writeval   //****
 
-3+<.^| [.big.red]#writeval#
+3+<.^| [.big.red]##writeval##
 .2+| {blank}
 
 s| Description: a| Writes one or more values in a `writefile` block.
@@ -8948,7 +8948,7 @@ writefile value1[, value2, ...]
 
 // ****//   xobject   //****
 
-3+<.^| [.big.red]#xobject#
+3+<.^| [.big.red]##xobject##
 | {blank}
 
 s| Description: a|
@@ -8958,7 +8958,7 @@ When used in a grammar syntax line, indicates that a single available object is 
 
 // ****//   xverb   //****
 
-3+<.^| [.big.red]#xverb#
+3+<.^| [.big.red]##xverb##
 .2+| {blank}
 
 s| Description: a|
@@ -8974,14 +8974,14 @@ xverb "<word1>"[, "<word2>", ...]
 
 // ****//   younger   //****
 
-3+<.^| [.big.red]#younger#
+3+<.^| [.big.red]##younger##
 | {blank}
 
 2+a| Same as `sibling`.
 
 // ****//   youngest   //****
 
-3+<.^| [.big.red]#youngest#
+3+<.^| [.big.red]##youngest##
 .2+| {blank}
 
 s| Syntax: a|
@@ -9494,7 +9494,7 @@ First, the junction routines:
 
 //-----{ EndGame }--------------------------------------------------------------
 
-| [.big]#EndGame#
+| [.big]##EndGame##
 | called by the engine via:
 
 [literal,role="hugosyntax"]
@@ -9511,7 +9511,7 @@ Also calls: `PrintEndGame` and `PrintScore`
 
 //-----{ FindObject }-----------------------------------------------------------
 
-| [.big]#FindObject#
+| [.big]##FindObject##
 | called by the engine via:
 
 [literal,role="hugosyntax"]
@@ -9526,7 +9526,7 @@ Also calls: `ObjectisKnown`, `ExcludeFromAll`
 
 //-----{ Parse }----------------------------------------------------------------
 
-| [.big]#Parse#
+| [.big]##Parse##
 | called by the engine via:
 
 [literal,role="hugosyntax"]
@@ -9539,7 +9539,7 @@ Also calls: `PreParse`, `AssignPronoun` and `SetObjWord`
 
 //-----{ ParseError }-----------------------------------------------------------
 
-| [.big]#ParseError#
+| [.big]##ParseError##
 | called by the engine via:
 
 [literal,role="hugosyntax"]
@@ -9552,7 +9552,7 @@ Return 2 to force the existing line to be reparsed as is.
 May also call: `CustomError`
 
 //-----{ Perform }--------------------------------------------------------------
-| [.big]#Perform#
+| [.big]##Perform##
 | called by the engine via:
 
 [literal,role="hugosyntax"]
@@ -9562,7 +9562,7 @@ Runs the requested verbroutine, setting up the `object` and `xobject` globals if
 The `queue` argument is true if more than one call to `Perform` is being made for multiple objects, and the `isxverb` argument is true for verbroutine calls associated with xverb grammar.
 
 //-----{ SpeakTo }--------------------------------------------------------------
-| [.big]#SpeakTo#
+| [.big]##SpeakTo##
 | called by the engine via:
 
 [literal,role="hugosyntax"]
@@ -9585,7 +9585,7 @@ And the routines for grammatically-correct printing:
 
 //-----{ Art }------------------------------------------------------------------
 
-| [.big]#Art#
+| [.big]##Art##
 | calling form:
 
 [literal,role="hugosyntax"]
@@ -9595,7 +9595,7 @@ Prints the indefinite article form of the object name, e.g. "`*an apple*`"
 
 //-----{ The }------------------------------------------------------------------
 
-| [.big]#The#
+| [.big]##The##
 | calling form:
 
 [literal,role="hugosyntax"]
@@ -9605,7 +9605,7 @@ Prints the definite article form of the object name, e.g. "`*the apple*`"
 
 //-----{ CArt }-----------------------------------------------------------------
 
-| [.big]#CArt#
+| [.big]##CArt##
 | calling form:
 
 [literal,role="hugosyntax"]
@@ -9615,7 +9615,7 @@ Prints the capitalized indefinite article form of the object name, e.g. "`*An ap
 
 //-----{ CThe }-----------------------------------------------------------------
 
-| [.big]#CThe#
+| [.big]##CThe##
 | calling form:
 
 [literal,role="hugosyntax"]
@@ -9625,7 +9625,7 @@ Prints the capitalized definite article form of the object name, e.g. "`*The app
 
 //-----{ IsorAre }--------------------------------------------------------------
 
-| [.big]#IsorAre#
+| [.big]##IsorAre##
 | calling form:
 
 [literal,role="hugosyntax"]
@@ -9639,7 +9639,7 @@ Depending on whether or not the specified object is `plural` or singular, prints
 
 //-----{ MatchPlural }----------------------------------------------------------
 
-| [.big]#MatchPlural#
+| [.big]##MatchPlural##
 | calling form:
 
 [literal,role="hugosyntax"]
@@ -9649,7 +9649,7 @@ Prints the dictionary entry given by `w1` if the supplied object is not plural, 
 
 //-----{ MatchSubject }---------------------------------------------------------
 
-| [.big]#MatchSubject#
+| [.big]##MatchSubject##
 | calling form:
 
 [literal,role="hugosyntax"]
@@ -9687,7 +9687,7 @@ Other library routines:
 
 //-----{ Acquire }--------------------------------------------------------------
 
-| [.big]#Acquire#
+| [.big]##Acquire##
 | calling form:
 
 [literal,role="hugosyntax"]
@@ -9701,7 +9701,7 @@ Also calls: `CalculateHolding`
 
 //-----{ AnyVerb }--------------------------------------------------------------
 
-| [.big]#AnyVerb#
+| [.big]##AnyVerb##
 | calling form:
 
 [literal,role="hugosyntax"]
@@ -9711,7 +9711,7 @@ Returns `value` if the current verbroutine is not an xverb; otherwise it returns
 
 //-----{ AssignPronoun }--------------------------------------------------------
 
-| [.big]#AssignPronoun#
+| [.big]##AssignPronoun##
 | calling form:
 
 [literal,role="hugosyntax"]
@@ -9721,7 +9721,7 @@ Sets the appropriate global `it_obj`, `them_obj`, `him_obj`, or `her_obj` to the
 
 //-----{ CalculateHolding }-----------------------------------------------------
 
-| [.big]#CalculateHolding#
+| [.big]##CalculateHolding##
 | calling form:
 
 [literal,role="hugosyntax"]
@@ -9731,7 +9731,7 @@ Properly recalculates `object.holding` based on the sizes of all child objects.
 
 //-----{ CenterTitle }----------------------------------------------------------
 
-| [.big]#CenterTitle#
+| [.big]##CenterTitle##
 | calling form:
 
 [literal,role="hugosyntax"]
@@ -9742,7 +9742,7 @@ The default height of the title (i.e., one line) can be overridden with a second
 
 //-----{ CheckReach }-----------------------------------------------------------
 
-| [.big]#CheckReach#
+| [.big]##CheckReach##
 | calling form:
 
 [literal,role="hugosyntax"]
@@ -9753,7 +9753,7 @@ Returns true if accessible; returns false and prints an appropriate message if n
 
 //-----{ Contains }-------------------------------------------------------------
 
-| [.big]#Contains#
+| [.big]##Contains##
 | calling form:
 
 [literal,role="hugosyntax"]
@@ -9763,7 +9763,7 @@ Returns `object` if the specified object is present as a possession of the speci
 
 //-----{ CustomError }----------------------------------------------------------
 
-| [.big]#CustomError#
+| [.big]##CustomError##
 | calling form:
 
 [literal,role="hugosyntax"]
@@ -9775,7 +9775,7 @@ Should return false if no user message is found.
 
 //-----{ DarkWarning }----------------------------------------------------------
 
-| [.big]#DarkWarning#
+| [.big]##DarkWarning##
 | calling form:
 
 [literal,role="hugosyntax"]
@@ -9786,7 +9786,7 @@ The default library routine simply prints a message; for a more sinister respons
 
 //-----{ DeleteWord }-----------------------------------------------------------
 
-| [.big]#DeleteWord#
+| [.big]##DeleteWord##
 | calling form:
 
 [literal,role="hugosyntax"]
@@ -9797,7 +9797,7 @@ Returns the number of words deleted.
 
 //-----{ DescribePlace }--------------------------------------------------------
 
-| [.big]#DescribePlace#
+| [.big]##DescribePlace##
 | calling form:
 
 [literal,role="hugosyntax"]
@@ -9808,7 +9808,7 @@ Including a non-false long parameter will always force a location description.
 
 //-----{ ExcludeFromAll }-------------------------------------------------------
 
-| [.big]#ExcludeFromAll#
+| [.big]##ExcludeFromAll##
 | calling form:
 
 [literal,role="hugosyntax"]
@@ -9818,7 +9818,7 @@ Returns true if, based on the current circumstances (verbroutine, etc.), the sup
 
 //-----{ FindLight }------------------------------------------------------------
 
-| [.big]#FindLight#
+| [.big]##FindLight##
 | calling form:
 
 [literal,role="hugosyntax"]
@@ -9830,7 +9830,7 @@ Also calls: `ObjectIsLight`
 
 //-----{ Font }-----------------------------------------------------------------
 
-| [.big]#Font#
+| [.big]##Font##
 | calling form:
 
 [literal,role="hugosyntax"]
@@ -9841,7 +9841,7 @@ Sets the current font attributes as specified by `bitmask`, where `bitmask` is o
 
 //-----{ GetInput }-------------------------------------------------------------
 
-| [.big]#GetInput#
+| [.big]##GetInput##
 | calling form:
 
 [literal,role="hugosyntax"]
@@ -9853,7 +9853,7 @@ If no argument is passed, no prompt is printed.
 
 //-----{ HoursMinutes }---------------------------------------------------------
 
-| [.big]#HoursMinutes#
+| [.big]##HoursMinutes##
 | calling form:
 
 [literal,role="hugosyntax"]
@@ -9864,7 +9864,7 @@ If the optional `military` value is given as a true value, the time is printed i
 
 //-----{ Indent }---------------------------------------------------------------
 
-| [.big]#Indent#
+| [.big]##Indent##
 | calling form:
 
 [literal,role="hugosyntax"]
@@ -9874,7 +9874,7 @@ If the `NOINDENT_F` bit is not set in the `FORMAT` mask, `Indent` prints `INDENT
 
 //-----{ InList }---------------------------------------------------------------
 
-| [.big]#InList#
+| [.big]##InList##
 | calling form:
 
 [literal,role="hugosyntax"]
@@ -9884,7 +9884,7 @@ If the `value` is in the list of values held in `object.property`, returns the e
 
 //-----{ InsertWord }-----------------------------------------------------------
 
-| [.big]#InsertWord#
+| [.big]##InsertWord##
 | calling form:
 
 [literal,role="hugosyntax"]
@@ -9895,7 +9895,7 @@ Returns the number of words inserted.
 
 //-----{ IsPossibleXobject }----------------------------------------------------
 
-| [.big]#IsPossibleXobject#
+| [.big]##IsPossibleXobject##
 | calling form:
 
 [literal,role="hugosyntax"]
@@ -9906,7 +9906,7 @@ Does not, however, guarantee that the object _is_ an xobject, but is instead a q
 
 //-----{ ListObjects }----------------------------------------------------------
 
-| [.big]#ListObjects#
+| [.big]##ListObjects##
 | calling form:
 
 [literal,role="hugosyntax"]
@@ -9923,7 +9923,7 @@ Also calls: `WhatsIn`
 
 //-----{ Menu }-----------------------------------------------------------------
 
-| [.big]#Menu#
+| [.big]##Menu##
 | calling form:
 
 [literal,role="hugosyntax"]
@@ -9937,7 +9937,7 @@ Also calls: `CenterTitle`
 
 //-----{ Message }--------------------------------------------------------------
 
-| [.big]#Message#
+| [.big]##Message##
 | calling form:
 
 [literal,role="hugosyntax"]
@@ -9950,7 +9950,7 @@ TIP: Similar routines are provided in `VMessage` in *verblib.h* and `OMessage` i
 
 //-----{ MovePlayer }-----------------------------------------------------------
 
-| [.big]#MovePlayer#
+| [.big]##MovePlayer##
 | calling form:
 
 [literal,role="hugosyntax"]
@@ -9975,7 +9975,7 @@ May also call: `DarkWarning`
 
 //-----{ NumberWord }-----------------------------------------------------------
 
-| [.big]#NumberWord#
+| [.big]##NumberWord##
 | calling form:
 
 [literal,role="hugosyntax"]
@@ -9987,7 +9987,7 @@ If a second true argument is supplied, the word is capitalized.
 
 //-----{ ObjectIs }-------------------------------------------------------------
 
-| [.big]#ObjectIs#
+| [.big]##ObjectIs##
 | calling form:
 
 [literal,role="hugosyntax"]
@@ -9997,7 +9997,7 @@ Lists certain attributes, such as providing `light` or being `worn`, of the give
 
 //-----{ ObjectisKnown }--------------------------------------------------------
 
-| [.big]#ObjectisKnown#
+| [.big]##ObjectisKnown##
 | calling form:
 
 [literal,role="hugosyntax"]
@@ -10007,7 +10007,7 @@ Returns true if the object is `known` to the player.
 
 //-----{ ObjectisLight }--------------------------------------------------------
 
-| [.big]#ObjectisLight#
+| [.big]##ObjectisLight##
 | calling form:
 
 [literal,role="hugosyntax"]
@@ -10018,7 +10018,7 @@ If so, it also sets the global `light_source` to the object number of the source
 
 //-----{ ObjWord }--------------------------------------------------------------
 
-| [.big]#ObjWord#
+| [.big]##ObjWord##
 | calling form:
 
 [literal,role="hugosyntax"]
@@ -10030,7 +10030,7 @@ Returns either `adjective` or `noun` (i.e., the property number) if the given `w
 
 //-----{ PreParse }-------------------------------------------------------------
 
-| [.big]#PreParse#
+| [.big]##PreParse##
 | calling form:
 
 [literal,role="hugosyntax"]
@@ -10041,7 +10041,7 @@ The default `PreParse` routine defined in the library is empty.
 
 //-----{ PrintEndGame }---------------------------------------------------------
 
-| [.big]#PrintEndGame#
+| [.big]##PrintEndGame##
 | calling form:
 
 [literal,role="hugosyntax"]
@@ -10061,7 +10061,7 @@ If `end_type` is some other value, nothing is printed.
 
 //-----{ PrintScore }-----------------------------------------------------------
 
-| [.big]#PrintScore#
+| [.big]##PrintScore##
 | calling form:
 
 [literal,role="hugosyntax"]
@@ -10071,7 +10071,7 @@ Prints the `score` in the appropriate form, depending on whether or not `end_of_
 
 //-----{ PrintStatusLine }------------------------------------------------------
 
-| [.big]#PrintStatusLine#
+| [.big]##PrintStatusLine##
 | calling form:
 
 [literal,role="hugosyntax"]
@@ -10081,7 +10081,7 @@ Prints the statusline in the appropriate format, according to the global `STATUS
 
 //-----{ PropertyList }---------------------------------------------------------
 
-| [.big]#PropertyList#
+| [.big]##PropertyList##
 | calling form:
 
 [literal,role="hugosyntax"]
@@ -10091,7 +10091,7 @@ Lists the objects held in `object.property` (if any), returning the number of ob
 
 //-----{ PutInScope }-----------------------------------------------------------
 
-| [.big]#PutInScope#
+| [.big]##PutInScope##
 | calling form:
 
 [literal,role="hugosyntax"]
@@ -10102,7 +10102,7 @@ Returns true if successful.
 
 //-----{ RemoveFromScope }------------------------------------------------------
 
-| [.big]#RemoveFromScope#
+| [.big]##RemoveFromScope##
 | calling form:
 
 [literal,role="hugosyntax"]
@@ -10113,7 +10113,7 @@ Returns true if successful, or false if the object was never in scope of the act
 
 //-----{ SetObjWord }-----------------------------------------------------------
 
-| [.big]#SetObjWord#
+| [.big]##SetObjWord##
 | calling form:
 
 [literal,role="hugosyntax"]
@@ -10128,7 +10128,7 @@ Inserts the specified object in the `word` array in the format:
 
 //-----{ ShortDescribe }--------------------------------------------------------
 
-| [.big]#ShortDescribe#
+| [.big]##ShortDescribe##
 | calling form:
 
 [literal,role="hugosyntax"]
@@ -10141,7 +10141,7 @@ Also calls: `WhatsIn`
 
 //-----{ SpecialDesc }----------------------------------------------------------
 
-| [.big]#SpecialDesc#
+| [.big]##SpecialDesc##
 | calling form:
 
 [literal,role="hugosyntax"]
@@ -10152,7 +10152,7 @@ Sets the global variable `list_count` to the number of remaining (i.e., non-list
 
 //-----{ VerbWord }-------------------------------------------------------------
 
-| [.big]#VerbWord#
+| [.big]##VerbWord##
 | calling form:
 
 [literal,role="hugosyntax"]
@@ -10162,7 +10162,7 @@ Returns the dictionary word used as the verb in a typed command.
 
 //-----{ WhatsIn }--------------------------------------------------------------
 
-| [.big]#WhatsIn#
+| [.big]##WhatsIn##
 | calling form:
 
 [literal,role="hugosyntax"]
@@ -10175,7 +10175,7 @@ Also calls: `SpecialDesc`, `ListObjects`
 
 //-----{ YesorNo }--------------------------------------------------------------
 
-| [.big]#YesorNo#
+| [.big]##YesorNo##
 | calling form:
 
 [literal,role="hugosyntax"]
@@ -10196,7 +10196,7 @@ Once a valid answer is received, it returns true (if yes) or false (if no).
 
 //-----{ abs }------------------------------------------------------------------
 
-| [.big]#abs#
+| [.big]##abs##
 | calling form:
 
 [literal,role="hugosyntax"]
@@ -10206,7 +10206,7 @@ Returns an absolute value given a supplied value.
 
 //-----{ higher }---------------------------------------------------------------
 
-| [.big]#higher#
+| [.big]##higher##
 | calling form:
 
 [literal,role="hugosyntax"]
@@ -10216,7 +10216,7 @@ Returns the higher number of two supplied values.
 
 //-----{ lower }----------------------------------------------------------------
 
-| [.big]#lower#
+| [.big]##lower##
 | calling form:
 
 [literal,role="hugosyntax"]
@@ -10226,7 +10226,7 @@ Returns the lower number of two supplied values.
 
 //-----{ mod }------------------------------------------------------------------
 
-| [.big]#mod#
+| [.big]##mod##
 | calling form:
 
 [literal,role="hugosyntax"]
@@ -10236,7 +10236,7 @@ Returns the remainder of one number divided by a second number.
 
 //-----{ pow }------------------------------------------------------------------
 
-| [.big]#pow#
+| [.big]##pow##
 | calling form:
 
 [literal,role="hugosyntax"]
@@ -10257,7 +10257,7 @@ WARNING: The return value is undefined if the result is outside the boundary of 
 
 //-----{ StringCompare }--------------------------------------------------------
 
-| [.big]#StringCompare#
+| [.big]##StringCompare##
 | calling form:
 
 [literal,role="hugosyntax"]
@@ -10267,7 +10267,7 @@ Returns 1 if `array1` is lexically greater than `array2`, -1 if `array1` is lexi
 
 //-----{ StringCopy }-----------------------------------------------------------
 
-| [.big]#StringCopy#
+| [.big]##StringCopy##
 | calling form:
 
 [literal,role="hugosyntax"]
@@ -10277,7 +10277,7 @@ Copies the contents of the array at the address given by `old` to the array at `
 
 //-----{ StringDictCompare }----------------------------------------------------
 
-| [.big]#StringDictCompare#
+| [.big]##StringDictCompare##
 | calling form:
 
 [literal,role="hugosyntax"]
@@ -10287,7 +10287,7 @@ Performs a `StringCompare`-like comparison of a string array given by `array` an
 
 //-----{ StringEqual }----------------------------------------------------------
 
-| [.big]#StringEqual#
+| [.big]##StringEqual##
 | calling form:
 
 [literal,role="hugosyntax"]
@@ -10297,7 +10297,7 @@ Returns true only if `array1` and `array2` are identical.
 
 //-----{ StringLength }---------------------------------------------------------
 
-| [.big]#StringLength#
+| [.big]##StringLength##
 | calling form:
 
 [literal,role="hugosyntax"]
@@ -10307,7 +10307,7 @@ Returns the length of the string stored as `array`.
 
 //-----{ StringPrint }----------------------------------------------------------
 
-| [.big]#StringPrint#
+| [.big]##StringPrint##
 | calling form:
 
 [literal,role="hugosyntax"]
@@ -10326,7 +10326,7 @@ Prints the string stored as `array`, beginning with `start` and ending with `end
 
 //-----{ Activate }-------------------------------------------------------------
 
-| [.big]#Activate#
+| [.big]##Activate##
 | calling form:
 
 [literal,role="hugosyntax"]
@@ -10337,7 +10337,7 @@ The setting value is only specified for fuses, where it represents the initial v
 
 //-----{ Deactivate }-----------------------------------------------------------
 
-| [.big]#Deactivate#
+| [.big]##Deactivate##
 | calling form:
 
 [literal,role="hugosyntax"]
@@ -10356,7 +10356,7 @@ Deactivates the specified `fuse` or `daemon` object.
 
 //-----{ CancelScript }---------------------------------------------------------
 
-| [.big]#CancelScript#
+| [.big]##CancelScript##
 | calling form:
 
 [literal,role="hugosyntax"]
@@ -10367,7 +10367,7 @@ Returns true if successful, i.e., if a script for `character` is found.
 
 //-----{ PauseScript }----------------------------------------------------------
 
-| [.big]#PauseScript#
+| [.big]##PauseScript##
 | calling form:
 
 [literal,role="hugosyntax"]
@@ -10378,7 +10378,7 @@ Returns true if successful.
 
 //-----{ ResumeScript }---------------------------------------------------------
 
-| [.big]#ResumeScript#
+| [.big]##ResumeScript##
 | calling form:
 
 [literal,role="hugosyntax"]
@@ -10389,7 +10389,7 @@ Returns true if successful.
 
 //-----{ SkipScript }-----------------------------------------------------------
 
-| [.big]#SkipScript#
+| [.big]##SkipScript##
 | calling form:
 
 [literal,role="hugosyntax"]
@@ -10399,7 +10399,7 @@ Skips execution of the script for a given `character` during the next call to `R
 
 //-----{ Script }---------------------------------------------------------------
 
-| [.big]#Script#
+| [.big]##Script##
 | calling form:
 
 [literal,role="hugosyntax"]
@@ -10410,7 +10410,7 @@ Returns -1 if `MAX_SCRIPTS` is exceeded.
 
 //-----{ RunScripts }-----------------------------------------------------------
 
-| [.big]#RunScripts#
+| [.big]##RunScripts##
 | calling form:
 
 [literal,role="hugosyntax"]
@@ -12272,12 +12272,12 @@ Once a line of source has been parsed and split into discrete words, it is writt
 *Pass 2* is where the bulk of compilation takes place.
 Lines of pre-parsed source are read from `allfile`.
 After Pass 1, all symbols (except local variables) are known.
-Individual constructs such as verbs, objects, routines, and events are processed via `Build...()` functions (i.e., `BuildVerb()`, `BuildObject()`, etc.) [.red]#[2.1]#.
+Individual constructs such as verbs, objects, routines, and events are processed via `Build...()` functions (i.e., `BuildVerb()`, `BuildObject()`, etc.) [.red]##[2.1]##.
 
 At any point in `Pass2()`, the tokenized line currently being processed is held in the global `word[]` array, with the number of tokens in the current line in `words`.
 
-Sections of executable code, such as routines, events, or property routines, are generated by calling `BuildCode()` [.red]#[2.3]#, which in turn calls appropriate `Code...()` functions as necessary (i.e., `CodeDo()`, `CodeIf()`, `CodeWhile()`, etc.), or simply `CodeLine()` for any line that doesn't require special treatment [.red]#[2.4]#.
-Compiled byte-code is emitted to the objectfile via `WriteCode()` [.red]#[2.5]#.
+Sections of executable code, such as routines, events, or property routines, are generated by calling `BuildCode()` [.red]##[2.3]##, which in turn calls appropriate `Code...()` functions as necessary (i.e., `CodeDo()`, `CodeIf()`, `CodeWhile()`, etc.), or simply `CodeLine()` for any line that doesn't require special treatment [.red]##[2.4]##.
+Compiled byte-code is emitted to the objectfile via `WriteCode()` [.red]##[2.5]##.
 
 [NOTE]
 ================================================================================
@@ -12473,7 +12473,7 @@ In order to do that, it does the following things:
 Immediately following the object table, the compiler, in `Pass3()`, writes all the relevant data for attributes, aliases, globals, constants, routines.
 . The value `$$` is written into the ID string in the header.
 
-Reading back (i.e., linking) an *.HLB* file is done in two steps: `LinkerPass1()` [.red]#[1.3]#, called from `Pass1()`, and `LinkerPass2()` [.red]#[2.2]#, called from `Pass2()`. (The linker routines are found in the source file *hclink.c*.)
+Reading back (i.e., linking) an *.HLB* file is done in two steps: `LinkerPass1()` [.red]##[1.3]##, called from `Pass1()`, and `LinkerPass2()` [.red]##[2.2]##, called from `Pass2()`. (The linker routines are found in the source file *hclink.c*.)
 
 `LinkerPass1()` simply skims the *.HLB* file for symbols and defines them accordingly, along with any relevant data.
 It also reads the *.HLB* file's text bank and writes it to the current file's temporary file containing the current text bank.
@@ -12518,17 +12518,17 @@ Here is a simple map of the main engine loop and the associated functions:
 .Flowchart of the Hugo Engine
 image::hugo-book2_14_flowchart-engine.svg[align="center",width=60%]
 
-The functions in *herun.c* comprise most of the core game loop and calling points. `RunGame()` manages the game loop itself [.red]#[1.1]#, which can be thought of as being:
+The functions in *herun.c* comprise most of the core game loop and calling points. `RunGame()` manages the game loop itself [.red]##[1.1]##, which can be thought of as being:
 
 [.text-center]
 *Main routine* -> *Player input* -> *Parsing* -> *Action* (if valid)
 
-*Player input* [.red]#[1.2]# is the point at which the engine requests a new input line (usually from the keyboard, but possibly from another source such as a file during command playback).
+*Player input* [.red]##[1.2]## is the point at which the engine requests a new input line (usually from the keyboard, but possibly from another source such as a file during command playback).
 
-The *Parsing* section [.red]#[2.1]# refers to the in-engine breakdown and analysis of the input line.
-The input line is matched against the grammar table in `MatchCommand()` [.red]#[2.2]# -- using `MatchWord()` and `MatchObject()` [.red]#[2.3]# to identify either individual words as specified in the grammar, or groups of words that may represent an object name.
+The *Parsing* section [.red]##[2.1]## refers to the in-engine breakdown and analysis of the input line.
+The input line is matched against the grammar table in `MatchCommand()` [.red]##[2.2]## -- using `MatchWord()` and `MatchObject()` [.red]##[2.3]## to identify either individual words as specified in the grammar, or groups of words that may represent an object name.
 
-If a match is made, the appropriate globals (`object`, `xobject`, `verbroutine`) are set, and `Perform()` is called [.red]#[3.1]# (or, if `Perform()` has not been defined, the built-in substitute).
+If a match is made, the appropriate globals (`object`, `xobject`, `verbroutine`) are set, and `Perform()` is called [.red]##[3.1]## (or, if `Perform()` has not been defined, the built-in substitute).
 
 [NOTE]
 ================================================================================
@@ -12539,7 +12539,7 @@ Note that if the command is directed to an object -- i.e., another character -- 
 At any point in `RunRoutine()` (or in functions called by it), the value `mem[codeptr]` is the byte value (i.e., the token number) of the current instruction.
 The value of `codeptr` advances as execution progresses.
 
-Whenever it is necessary for the engine to evaluate an expression, the expression evaluator subsystem in *heexpr.c* is invoked [.red]#[4.1]#.
+Whenever it is necessary for the engine to evaluate an expression, the expression evaluator subsystem in *heexpr.c* is invoked [.red]##[4.1]##.
 Here, the `eval[]` array is initialized with the expression to be evaluated by calling `SetupExpr()` (which will in turn call `GetValue()` to sequentially retrieve the elements of the expression).
 The expression currently in `eval[]` is solved by calling `EvalExpr()`.
 
@@ -12859,35 +12859,35 @@ The reading of values from data types or expressions begins with `GetValue()` in
 // [cols=">m,<m,<a",options=autowidth,grid=none,stripes=even]
 [cols="^s,^m,<a",options=autowidth,frame=all,grid=rows,stripes=none]
 |===============================================================================
-| 01 | [.big.red]#(#      | *TOKEN*
-| 02 | [.big.red]#)#      | *TOKEN*
-| 03 | [.big.red]#.#      | *TOKEN*
-| 04 | [.big.red]#:#      | _**reserved**_ (not coded)
-| 05 | [.big.red]#=#      | *TOKEN*
-| 06 | [.big.red]#-#      | *TOKEN*
-| 07 | [.big.red]#+#      | *TOKEN*
-| 08 | [.big.red]#*#      | *TOKEN*
-| 09 | [.big.red]#/#      | *TOKEN*
-| 0A | [.big.red]#\|#     | *TOKEN*
-| 0B | [.big.red]#;#      | *TOKEN*
-| 0C | [.big.red]#{#      | *TOKEN*
-| 0D | [.big.red]#}#      | *TOKEN*
+| 01 | [.big.red]##(##      | *TOKEN*
+| 02 | [.big.red]##)##      | *TOKEN*
+| 03 | [.big.red]##.##      | *TOKEN*
+| 04 | [.big.red]##:##      | _**reserved**_ (not coded)
+| 05 | [.big.red]##=##      | *TOKEN*
+| 06 | [.big.red]##-##      | *TOKEN*
+| 07 | [.big.red]##+##      | *TOKEN*
+| 08 | [.big.red]##*##      | *TOKEN*
+| 09 | [.big.red]##/##      | *TOKEN*
+| 0A | [.big.red]##\|##     | *TOKEN*
+| 0B | [.big.red]##;##      | *TOKEN*
+| 0C | [.big.red]##{##      | *TOKEN*
+| 0D | [.big.red]##}##      | *TOKEN*
 
 (Signifies the end of a code block)
-| 0E | [.big.red]#[#      | *TOKEN*
-| 0F | [.big.red]#]#      | *TOKEN*
-| 10 | [.big.red]#&num;#  | *TOKEN*
-| 11 | [.big.red]#~#      | *TOKEN*
-| 12 | [.big.red]#>{wj}=# | *TOKEN*
-| 13 | [.big.red]#<{wj}=# | *TOKEN*
-| 14 | [.big.red]#~{wj}=# | *TOKEN*
-| 15 | [.big.red]#&#      | *TOKEN*
-| 16 | [.big.red]#>#      | *TOKEN*
-| 17 | [.big.red]#<#      | *TOKEN*
+| 0E | [.big.red]##[##      | *TOKEN*
+| 0F | [.big.red]##]##      | *TOKEN*
+| 10 | [.big.red]##&num;##  | *TOKEN*
+| 11 | [.big.red]##~##      | *TOKEN*
+| 12 | [.big.red]##>{wj}=## | *TOKEN*
+| 13 | [.big.red]##<{wj}=## | *TOKEN*
+| 14 | [.big.red]##~{wj}=## | *TOKEN*
+| 15 | [.big.red]##&##      | *TOKEN*
+| 16 | [.big.red]##>##      | *TOKEN*
+| 17 | [.big.red]##<##      | *TOKEN*
 
 //-----{ 18 }-------------------------------------------------------------------
 
-.3+| 18 | [[token-if]][.big.red]#if# | *STATEMENT*
+.3+| 18 | [[token-if]][.big.red]##if## | *STATEMENT*
 
 ..................................
 18 <skip distance> <expression> 4C
@@ -12917,11 +12917,11 @@ Note that $4C indicates end-of-line.
 
 //-----{ 19 }-------------------------------------------------------------------
 
-| 19 | [.big.red]#,#    | *TOKEN*
+| 19 | [.big.red]##,##    | *TOKEN*
 
 //-----{ 1A }-------------------------------------------------------------------
 
-.3+| 1A | [.big.red]#else# | *STATEMENT*
+.3+| 1A | [.big.red]##else## | *STATEMENT*
 
 ........................
 1A <skip distance>
@@ -12948,7 +12948,7 @@ If a previous condition has been met, control passes ahead to `<next{nbsp}statme
 
 //-----{ 1B }-------------------------------------------------------------------
 
-.3+| 1B | [.big.red]#elseif# | *STATEMENT*
+.3+| 1B | [.big.red]##elseif## | *STATEMENT*
 
 ..................................
 1B <skip distance> <expression> 4C
@@ -12976,7 +12976,7 @@ elseif <expression>
 
 //-----{ 1C }-------------------------------------------------------------------
 
-.3+| 1C | [.big.red]#while# | *STATEMENT*
+.3+| 1C | [.big.red]##while## | *STATEMENT*
 
 ..................................
 :<starting point>
@@ -13009,7 +13009,7 @@ IMPORTANT: Note that because the `<starting{nbsp}point>` is written as a two-byt
 
 //-----{ 1D }-------------------------------------------------------------------
 
-.3+| 1D | [.big.red]#do# | *STATEMENT*
+.3+| 1D | [.big.red]##do## | *STATEMENT*
 
 ..............................
 1D <skip distance>
@@ -13040,7 +13040,7 @@ Instead, the distance to the next statement is given after the `do` token ($1D) 
 
 //-----{ 1E }-------------------------------------------------------------------
 
-.2+| 1E | [.big.red]#select# | *STATEMENT*
+.2+| 1E | [.big.red]##select## | *STATEMENT*
 
     1E
 
@@ -13057,7 +13057,7 @@ Note that the variable that follows `select` in a line of source code is not cod
 
 //-----{ 1F }-------------------------------------------------------------------
 
-.2+| 1F | [[token-case]][.big.red]#case# | *STATEMENT*
+.2+| 1F | [[token-case]][.big.red]##case## | *STATEMENT*
 
 Treated identically by the engine to `elseif` once a `select` token ($1E) has reset the conditional-statement evaluator to no previous matches.
 
@@ -13090,7 +13090,7 @@ Note that $1A is the `else` token, $05 is the `=` token, and that the two bytes 
 
 //-----{ 20 }-------------------------------------------------------------------
 
-.3+| 20 | [.big.red]#for# | *STATEMENT*
+.3+| 20 | [.big.red]##for## | *STATEMENT*
 
 ..................................
 <assignment>
@@ -13126,7 +13126,7 @@ This, like the `<assignment>` is simply a regular executable assignment.
 
 //-----{ 21 }-------------------------------------------------------------------
 
-.2+| 21 | [.big.red]#return# | *STATEMENT*
+.2+| 21 | [.big.red]##return## | *STATEMENT*
 
 ..................
 21 <expression> 4C
@@ -13148,7 +13148,7 @@ Where `<expression>` is optional, so that a standalone return order can be coded
 
 //-----{ 22 }-------------------------------------------------------------------
 
-| 22 | [.big.red]#break# | *STATEMENT*
+| 22 | [.big.red]##break## | *STATEMENT*
 
     22
 
@@ -13156,12 +13156,12 @@ Where `<expression>` is optional, so that a standalone return order can be coded
 
 //-----{ 23-24 }----------------------------------------------------------------
 
-| 23 | [.big.red]#and#  | *TOKEN*
-| 24 | [.big.red]#or#   | *TOKEN*
+| 23 | [.big.red]##and##  | *TOKEN*
+| 24 | [.big.red]##or##   | *TOKEN*
 
 //-----{ 25 }-------------------------------------------------------------------
 
-.2+| 25 | [.big.red]#jump# | *STATEMENT*
+.2+| 25 | [.big.red]##jump## | *STATEMENT*
 
 ............
 25 <address>
@@ -13180,7 +13180,7 @@ Where `<address>` is two bytes giving the indexed address of the next statement 
 
 //-----{ 26  }------------------------------------------------------------------
 
-| 26 | [.big.red]#run# | *STATEMENT*
+| 26 | [.big.red]##run## | *STATEMENT*
 
 [literal,subs="+attributes,macros"]
 26 <value> 4C{wj}{fn1}
@@ -13189,7 +13189,7 @@ Where `<value>` is simply read and forgotten, as in running an `object.property`
 
 //-----{ 27 }-------------------------------------------------------------------
 
-.2+| 27 | [.big.red]#is# | *TOKEN*
+.2+| 27 | [.big.red]##is## | *TOKEN*
 
 >s| As in:  <a|
 
@@ -13199,8 +13199,8 @@ Where `<value>` is simply read and forgotten, as in running an `object.property`
 
 //-----{ 28-29  }---------------------------------------------------------------
 
-| 28 | [.big.red]#not#  | *TOKEN*
-| 29 | [.big.red]#true# | *VALUE*
+| 28 | [.big.red]##not##  | *TOKEN*
+| 29 | [.big.red]##true## | *VALUE*
 
     29
 
@@ -13208,7 +13208,7 @@ Hard-coded Boolean constant meaning 1.
 
 //-----{ 2A }-------------------------------------------------------------------
 
-| 2A | [.big.red]#false# | *VALUE*
+| 2A | [.big.red]##false## | *VALUE*
 
     2A
 
@@ -13216,8 +13216,8 @@ Hard-coded Boolean constant meaning 0.
 
 //-----{ 2B-2C }----------------------------------------------------------------
 
-| 2B | [.big.red]#local# | _**reserved**_ (not coded)
-| 2C | [.big.red]#verb#  | *STATEMENT*
+| 2B | [.big.red]##local## | _**reserved**_ (not coded)
+| 2C | [.big.red]##verb##  | *STATEMENT*
 
     2C <n> <dict_1> <dict_2>...<dict_n>
 
@@ -13225,7 +13225,7 @@ Occurs in the grammar table and explicitly denotes the beginning of a new verb, 
 
 //-----{ 2D }-------------------------------------------------------------------
 
-| 2D | [.big.red]#xverb# | *STATEMENT*
+| 2D | [.big.red]##xverb## | *STATEMENT*
 
     2D <n> <dict_1> <dict_2>...<dict_n>
 
@@ -13233,20 +13233,20 @@ Coded and handled identically to `verb`, except that it is flagged differently s
 
 //-----{ 2E-31 }----------------------------------------------------------------
 
-| 2E | [.big.red]#held#      | **GRAMMAR TOKEN**
-| 2F | [.big.red]#multi#     | **GRAMMAR TOKEN**
-| 30 | [.big.red]#multiheld# | **GRAMMAR TOKEN**
-| 31 | [.big.red]#newline#   | *PRINT TOKEN*
+| 2E | [.big.red]##held##      | **GRAMMAR TOKEN**
+| 2F | [.big.red]##multi##     | **GRAMMAR TOKEN**
+| 30 | [.big.red]##multiheld## | **GRAMMAR TOKEN**
+| 31 | [.big.red]##newline##   | *PRINT TOKEN*
 
 Signals a `print` statement to issue a newline _only_ if one is needed.
 
 //-----{ 32 }-------------------------------------------------------------------
 
-| 32 | [.big.red]#anything#  | **GRAMMAR TOKEN**
+| 32 | [.big.red]##anything##  | **GRAMMAR TOKEN**
 
 //-----{ 33 }-------------------------------------------------------------------
 
-.2+| 33 | [.big.red]#print#     | *STATEMENT*
+.2+| 33 | [.big.red]##print##     | *STATEMENT*
 
     33 <print data> 4C
 
@@ -13271,7 +13271,7 @@ Multiple `<print{nbsp}data>` sequences are separated by a semicolon (`;`) token 
 
 //-----{ 34 }-------------------------------------------------------------------
 
-| 34 | [.big.red]#number# | **GRAMMAR TOKEN** or *PRINT TOKEN*
+| 34 | [.big.red]##number## | **GRAMMAR TOKEN** or *PRINT TOKEN*
 
 In a `print` statement, signals that the following value should be printed as a number, not as the corresponding dictionary entry.
 
@@ -13279,13 +13279,13 @@ In a grammar line, represents any integer number.
 
 //-----{ 35 }-------------------------------------------------------------------
 
-| 35 | [.big.red]#capital# | *PRINT TOKEN*
+| 35 | [.big.red]##capital## | *PRINT TOKEN*
 
 Signals that the following dictionary entry should have its first letter capitalized.
 
 //-----{ 36 }-------------------------------------------------------------------
 
-.2+| 36 | [.big.red]#text# | *STATEMENT*
+.2+| 36 | [.big.red]##text## | *STATEMENT*
 
 [literal,subs="+attributes,macros"]
 36 3B <value> 4C{wj}{fn2}
@@ -13301,13 +13301,13 @@ Where `<value>` is either an address in the array table, or constant 0 (to resto
 
 //-----{ 37 }-------------------------------------------------------------------
 
-| 37 | [.big.red]#graphics# | *STATEMENT*
+| 37 | [.big.red]##graphics## | *STATEMENT*
 
 (Not implemented.)
 
 //-----{ 38 }-------------------------------------------------------------------
 
-.2+| 38 | [.big.red]#color# | *STATEMENT*
+.2+| 38 | [.big.red]##color## | *STATEMENT*
 
 ...................................
 38 <value> 4C
@@ -13331,7 +13331,7 @@ If a third value is given, separated by a comma ($19), it represents the input c
 
 //-----{ 39 }-------------------------------------------------------------------
 
-.3+| 39 | [.big.red]#remove# | *STATEMENT*
+.3+| 39 | [.big.red]##remove## | *STATEMENT*
 
 [literal,subs="+attributes,macros"]
 39 <value> 4C{wj}{fn3}
@@ -13352,7 +13352,7 @@ remove <object>
 
 //-----{ 3A }-------------------------------------------------------------------
 
-.3+| 3A | [.big.red]#move# | *STATEMENT*
+.3+| 3A | [.big.red]##move## | *STATEMENT*
 
 [literal,subs="+attributes,macros"]
 3A <value> 3B <value> 4C{wj}{fn4}
@@ -13373,7 +13373,7 @@ move <object1> to <object2>
 
 //-----{ 3B }-------------------------------------------------------------------
 
-| 3B | [.big.red]#to# | *TOKEN*
+| 3B | [.big.red]##to## | *TOKEN*
 
 Followed by a value, as in:
 
@@ -13387,7 +13387,7 @@ Typically found in `print to n`, `text to n`, etc., in which case the line will 
 
 //-----{ 3C }-------------------------------------------------------------------
 
-.2+| 3C | [.big.red]#parent# | *VALUE*
+.2+| 3C | [.big.red]##parent## | *VALUE*
 
 .....................
 3C 01 <expression> 02
@@ -13407,7 +13407,7 @@ NOTE: Alternate usage is as a grammar token, coded simply as $3C with no followi
 
 //-----{ 3D }-------------------------------------------------------------------
 
-.2+| 3D | [.big.red]#sibling# | *VALUE*
+.2+| 3D | [.big.red]##sibling## | *VALUE*
 
 .....................
 3D 01 <expression> 02
@@ -13425,7 +13425,7 @@ Returns the sibling of the object resulting from `<expression>`.
 
 //-----{ 3E }-------------------------------------------------------------------
 
-.2+| 3E | [.big.red]#child# | *VALUE*
+.2+| 3E | [.big.red]##child## | *VALUE*
 
 .....................
 3E 01 <expression> 02
@@ -13443,7 +13443,7 @@ Returns the child object of the object resulting from `<expression>`.
 
 //-----{ 3F }-------------------------------------------------------------------
 
-.2+| 3F | [.big.red]#youngest# | *VALUE*
+.2+| 3F | [.big.red]##youngest## | *VALUE*
 
 .....................
 3F 01 <expression> 02
@@ -13461,7 +13461,7 @@ Returns the youngest (most recently added) child object of the object resulting 
 
 //-----{ 40 }-------------------------------------------------------------------
 
-.2+| 40 | [.big.red]#eldest# | *VALUE*
+.2+| 40 | [.big.red]##eldest## | *VALUE*
 
 .....................
 40 01 <expression> 02
@@ -13479,7 +13479,7 @@ Interpreted identically to `child(...)`.
 
 //-----{ 41 }-------------------------------------------------------------------
 
-.2+| 41 | [.big.red]#younger# | *VALUE*
+.2+| 41 | [.big.red]##younger## | *VALUE*
 
 .....................
 41 01 <expression> 02
@@ -13497,7 +13497,7 @@ Interpreted identically to `sibling(...)`.
 
 //-----{ 42 }-------------------------------------------------------------------
 
-.2+| 42 | [.big.red]#elder# | *VALUE*
+.2+| 42 | [.big.red]##elder## | *VALUE*
 
 .....................
 42 01 <expression> 02
@@ -13515,7 +13515,7 @@ Returns the object number of the object more recently added to the parent of the
 
 //-----{ 43 }-------------------------------------------------------------------
 
-| 43 | [.big.red]#prop&num;# | *INTERNAL VALUE*
+| 43 | [.big.red]##prop&num;## | *INTERNAL VALUE*
 
     43 <property>
 
@@ -13523,7 +13523,7 @@ Where `<property>` is a single byte giving the property number.
 
 //-----{ 44 }-------------------------------------------------------------------
 
-| 44 | [.big.red]#attr&num;# | *INTERNAL VALUE*
+| 44 | [.big.red]##attr&num;## | *INTERNAL VALUE*
 
     44 <attribute>
 
@@ -13531,7 +13531,7 @@ Where `<attribute>` is a single byte giving the attribute number.
 
 //-----{ 45 }-------------------------------------------------------------------
 
-| 45 | [.big.red]#var&num;# | *INTERNAL VALUE*
+| 45 | [.big.red]##var&num;## | *INTERNAL VALUE*
 
     45 <variable>
 
@@ -13539,7 +13539,7 @@ Where `<variable>` is a single byte giving the variable number. 0-239 are global
 
 //-----{ 46 }-------------------------------------------------------------------
 
-| 46 | [.big.red]#dictentry&num;# | *INTERNAL VALUE*
+| 46 | [.big.red]##dictentry&num;## | *INTERNAL VALUE*
 
     46 <dictionary entry>
 
@@ -13547,7 +13547,7 @@ Where `<dictionary{nbsp}entry>` is two bytes (in low-byte/high-byte order) givin
 
 //-----{ 47 }-------------------------------------------------------------------
 
-| 47 | [.big.red]#text&num;# | *INTERNAL STATEMENT*
+| 47 | [.big.red]##text&num;## | *INTERNAL STATEMENT*
 
     47 <text address>
 
@@ -13555,7 +13555,7 @@ Where `<text{nbsp}address>` is three bytes (in lowest-to-highest byte order) giv
 
 //-----{ 48 }-------------------------------------------------------------------
 
-| 48 | [.big.red]#routine&num;# | *INTERNAL STATEMENT* or *VALUE*
+| 48 | [.big.red]##routine&num;## | *INTERNAL STATEMENT* or *VALUE*
 
     48 <routine address>
 
@@ -13563,7 +13563,7 @@ Where `<routine{nbsp}address>` is two bytes giving the indexed address of the sp
 
 //-----{ 49 }-------------------------------------------------------------------
 
-| 49 | [.big.red]#debugdata&num;# | *INTERNAL DATA*
+| 49 | [.big.red]##debugdata&num;## | *INTERNAL DATA*
 
 Is followed by data that is helpful to the engine at runtime -- not visible in, for example, the debugger's code window.
 
@@ -13576,7 +13576,7 @@ Read by the debugger; ignored by the engine.
 
 //-----{ 4A }-------------------------------------------------------------------
 
-| 4A | [.big.red]#object&num;# | *INTERNAL VALUE*
+| 4A | [.big.red]##object&num;## | *INTERNAL VALUE*
 
     4A <object number>
 
@@ -13584,7 +13584,7 @@ Where `<object{nbsp}number>` is two bytes giving the number of the specified obj
 
 //-----{ 4B }-------------------------------------------------------------------
 
-| 4B | [.big.red]#value&num;# | *INTERNAL VALUE*
+| 4B | [.big.red]##value&num;## | *INTERNAL VALUE*
 
     4B <number>
 
@@ -13592,13 +13592,13 @@ Where `<number>` is two bytes giving the specified constant value.
 
 //-----{ 4C }-------------------------------------------------------------------
 
-| 4C | [.big.red]#eol&num;# | *INTERNAL TOKEN*
+| 4C | [.big.red]##eol&num;## | *INTERNAL TOKEN*
 
 End-of-line marker.
 
 //-----{ 4D }-------------------------------------------------------------------
 
-.3+| 4D | [.big.red]#system# | *INTERNAL STATEMENT* or *VALUE*
+.3+| 4D | [.big.red]##system## | *INTERNAL STATEMENT* or *VALUE*
 
 [literal,subs="+attributes,macros"]
 4D 01 <value> 02 4C{wj}{fn5}
@@ -13630,12 +13630,12 @@ Where `<value>` is some Hugo data type giving the number of the system function 
 
 //-----{ 4E-4F }----------------------------------------------------------------
 
-| 4E | [.big.red]#notheld#      | **GRAMMAR TOKEN**
-| 4F | [.big.red]#multinotheld# | **GRAMMAR TOKEN**
+| 4E | [.big.red]##notheld##      | **GRAMMAR TOKEN**
+| 4F | [.big.red]##multinotheld## | **GRAMMAR TOKEN**
 
 //-----{ 50 }-------------------------------------------------------------------
 
-.2+| 50 | [.big.red]#window# | *STATEMENT*
+.2+| 50 | [.big.red]##window## | *STATEMENT*
 
 [literal,role="hugosyntax"]
 ...........................
@@ -13683,7 +13683,7 @@ The result was a window beginning at the top of the screen, reaching down to the
 
 //-----{ 51 }-------------------------------------------------------------------
 
-.2+| 51 | [.big.red]#random# | *VALUE*
+.2+| 51 | [.big.red]##random## | *VALUE*
 
 .....................
 51 01 <expression> 02
@@ -13701,7 +13701,7 @@ Returns a random value between 1 and `<expression>`.
 
 //-----{ 52 }-------------------------------------------------------------------
 
-.2+| 52 | [.big.red]#word# | *VALUE*
+.2+| 52 | [.big.red]##word## | *VALUE*
 
 .....................
 52 0E <expression> 0F
@@ -13721,7 +13721,7 @@ Returns the dictionary address of `word[<expression>`].
 
 //-----{ 53 }-------------------------------------------------------------------
 
-.2+| 53 | [.big.red]#locate# | *STATEMENT*
+.2+| 53 | [.big.red]##locate## | *STATEMENT*
 
 ........................
 53 <value> 4C
@@ -13742,7 +13742,7 @@ If a second value is given, it represents the new row position.
 
 //-----{ 54 }-------------------------------------------------------------------
 
-.2+| 54 | [.big.red]#parse$# | *TOKEN*
+.2+| 54 | [.big.red]##parse$## | *TOKEN*
 
 Read-only engine variable representing the engine parser's internal `parse$` string.
 
@@ -13753,7 +13753,7 @@ Read-only engine variable representing the engine parser's internal `parse$` str
 
 //-----{ 55 }-------------------------------------------------------------------
 
-.2+| 55 | [.big.red]#children# | *VALUE*
+.2+| 55 | [.big.red]##children## | *VALUE*
 
 .....................
 55 01 <expression> 02
@@ -13771,7 +13771,7 @@ Returns the number of children owned by the object resulting from `<expression>`
 
 //-----{ 56 }-------------------------------------------------------------------
 
-.2+| 56 | [.big.red]#in# | *TOKEN*
+.2+| 56 | [.big.red]##in## | *TOKEN*
 
 >s| As in:  <a|
 
@@ -13790,7 +13790,7 @@ if <object> [not] in <parent>
 
 //-----{ 57 }-------------------------------------------------------------------
 
-| 57 | [.big.red]#pause# | *STATEMENT*
+| 57 | [.big.red]##pause## | *STATEMENT*
 
     57
 
@@ -13799,7 +13799,7 @@ Stores the resulting key value in `word[0]`.
 
 //-----{ 58 }-------------------------------------------------------------------
 
-| 58 | [.big.red]#runevents# | *STATEMENT*
+| 58 | [.big.red]##runevents## | *STATEMENT*
 
     58
 
@@ -13807,7 +13807,7 @@ Runs all events in scope.
 
 //-----{ 59 }-------------------------------------------------------------------
 
-| 59 | [.big.red]#arraydata&num;# | *VALUE*
+| 59 | [.big.red]##arraydata&num;## | *VALUE*
 
 * `array[<expression>]` -- element `<expression>` of array `<array>`
 +
@@ -13829,7 +13829,7 @@ Where `<array>` is two bytes giving the address of the array in the array table.
 
 //-----{ 5A }-------------------------------------------------------------------
 
-.2+| 5A | [.big.red]#call# | STATEMENT or VALUE
+.2+| 5A | [.big.red]##call## | STATEMENT or VALUE
 
 [literal,subs="+attributes,macros"]
 5A <value> 4C{wj}{fn7}
@@ -13847,7 +13847,7 @@ Where `<value>` gives the indexed address of the routine to be called.
 
 //-----{ 5B }-------------------------------------------------------------------
 
-.2+| 5B | [.big.red]#stringdata&num;# | *PRINT TOKEN*
+.2+| 5B | [.big.red]##stringdata&num;## | *PRINT TOKEN*
 
 [literal,subs="+quotes"]
 ..................................................
@@ -13863,7 +13863,7 @@ Valid only in a `print` statement.
 
 //-----{ 5C }-------------------------------------------------------------------
 
-.3+| 5C | [.big.red]#save# | *VALUE*
+.3+| 5C | [.big.red]##save## | *VALUE*
 
 >s| As in:  <a|
 
@@ -13880,7 +13880,7 @@ Calls the engine's save-game procedure (which includes filename input); returns 
 
 //-----{ 5D }-------------------------------------------------------------------
 
-.3+| 5D | [.big.red]#restore# | *VALUE*
+.3+| 5D | [.big.red]##restore## | *VALUE*
 
 >s| As in:  <a|
 
@@ -13897,7 +13897,7 @@ Calls the engine's restore-game procedure (which includes filename input); retur
 
 //-----{ 5E }-------------------------------------------------------------------
 
-| 5E | [.big.red]#quit# | *STATEMENT*
+| 5E | [.big.red]##quit## | *STATEMENT*
 
     5E
 
@@ -13905,7 +13905,7 @@ Terminates program execution and exits the engine.
 
 //-----{ 5F }-------------------------------------------------------------------
 
-.2+| 5F | [.big.red]#input# | *STATEMENT*
+.2+| 5F | [.big.red]##input## | *STATEMENT*
 
     5F
 
@@ -13918,7 +13918,7 @@ Unknown (i.e., non-dictionary) words become 0, or `+""+`; the last unknown word 
 
 //-----{ 60 }-------------------------------------------------------------------
 
-.2+| 60 | [.big.red]#serial$# | *PRINT TOKEN*
+.2+| 60 | [.big.red]##serial$## | *PRINT TOKEN*
 
 Read-only engine variable representing the compiler-determined serial number.
 
@@ -13928,7 +13928,7 @@ Read-only engine variable representing the compiler-determined serial number.
 
 //-----{ 61 }-------------------------------------------------------------------
 
-| 61 | [.big.red]#cls# | *STATEMENT*
+| 61 | [.big.red]##cls## | *STATEMENT*
 
     61
 
@@ -13936,7 +13936,7 @@ Clears the currently defined text window.
 
 //-----{ 62 }-------------------------------------------------------------------
 
-.2+| 62 | [.big.red]#scripton# | *VALUE*
+.2+| 62 | [.big.red]##scripton## | *VALUE*
 *As in:*
 
 [literal,role="hugosyntax"]
@@ -13952,7 +13952,7 @@ Calls the engine's begin-scripting procedure (which includes filename input); re
 
 //-----{ 63 }-------------------------------------------------------------------
 
-.3+| 63 | [.big.red]#scriptoff# | *VALUE*
+.3+| 63 | [.big.red]##scriptoff## | *VALUE*
 
 >s| As in:  <a|
 
@@ -13969,7 +13969,7 @@ Calls the engine's end-scripting procedure; returns a true value on success, or 
 
 //-----{ 64 }-------------------------------------------------------------------
 
-.2+| 64 | [.big.red]#restart# | *VALUE*
+.2+| 64 | [.big.red]##restart## | *VALUE*
 
 >s| As in:  <a|
 
@@ -13982,25 +13982,25 @@ Attempts to reload the dynamic game data and restart the game loop; returns a tr
 
 //-----{ 65 }-------------------------------------------------------------------
 
-| 65 | [.big.red]#hex# | *PRINT TOKEN*
+| 65 | [.big.red]##hex## | *PRINT TOKEN*
 
 Signals that the following value should be printed as a hexadecimal number, not as the corresponding dictionary entry.
 
 //-----{ 66 }-------------------------------------------------------------------
 
-| 66 | [.big.red]#object# | *GRAMMAR TOKEN*
+| 66 | [.big.red]##object## | *GRAMMAR TOKEN*
 
 NOTE: Removed as a token after grammar table is compiled so that `object` can refer to the object global variable.
 
 //-----{ 67 }-------------------------------------------------------------------
 
-| 67 | [.big.red]#xobject# | *GRAMMAR TOKEN*
+| 67 | [.big.red]##xobject## | *GRAMMAR TOKEN*
 
 NOTE: Removed as a token after grammar table is compiled so that `xobject` can refer to the xobject global variable.
 
 //-----{ 68 }-------------------------------------------------------------------
 
-.3+| 68 | [.big.red]#string# | *VALUE*
+.3+| 68 | [.big.red]##string## | *VALUE*
 
 ......................................
 68 01 <expr1> 19 <expr2> 19 <expr3> 02
@@ -14023,7 +14023,7 @@ Calls the engine string-writing function to write the dictionary entry `<expr2>`
 
 //-----{ 69 }-------------------------------------------------------------------
 
-.2+| 69 | [.big.red]#array# | *VALUE*
+.2+| 69 | [.big.red]##array## | *VALUE*
 
     69 <value>
 
@@ -14035,7 +14035,7 @@ Forces `<value>` to be used as an address in the array table, so that `array <va
 
 //-----{ 6A }-------------------------------------------------------------------
 
-.2+| 6A | [.big.red]#printchar# | *STATEMENT*
+.2+| 6A | [.big.red]##printchar## | *STATEMENT*
 
 ..................................
 6A <value1> 19 <value2> 19 ... 4C
@@ -14054,7 +14054,7 @@ Multiple values are separated by $19; the sequence is terminated by $4C.
 
 //-----{ 6B }-------------------------------------------------------------------
 
-.3+| 6B | [.big.red]#undo# | *VALUE*
+.3+| 6B | [.big.red]##undo## | *VALUE*
 
 >s| As in:  <a|
 
@@ -14071,7 +14071,7 @@ Attempts to restore all data changes made since the last typed input; returns a 
 
 //-----{ 6C }-------------------------------------------------------------------
 
-.3+| 6C | [.big.red]#dict# | *VALUE*
+.3+| 6C | [.big.red]##dict## | *VALUE*
 
 ...........................
 6C 01 <expr1> 19 <expr2> 02
@@ -14096,7 +14096,7 @@ Otherwise, it is appended to the end of the table, and the new location is retur
 
 //-----{ 6D }-------------------------------------------------------------------
 
-.3+| 6D | [.big.red]#recordon# | *VALUE*
+.3+| 6D | [.big.red]##recordon## | *VALUE*
 
 >s| As in:  <a|
 
@@ -14113,7 +14113,7 @@ Calls the engine's begin-command-recording procedure (which includes filename in
 
 //-----{ 6E }-------------------------------------------------------------------
 
-.3+| 6E | [.big.red]#recordoff# | *VALUE*
+.3+| 6E | [.big.red]##recordoff## | *VALUE*
 
 >s| As in:  <a|
 
@@ -14130,7 +14130,7 @@ Calls the engine's end-command-recording procedure; returns a true value on succ
 
 //-----{ 6F }-------------------------------------------------------------------
 
-.3+| 6F | [.big.red]#writefile# | *STATEMENT*
+.3+| 6F | [.big.red]##writefile## | *STATEMENT*
 
 [literal,subs="+attributes,macros"]
 6F <value> 4C{wj}{fn8}
@@ -14156,7 +14156,7 @@ Upon any error, jumps to the end of the file i/o code block and closes `<file>`.
 
 //-----{ 70 }-------------------------------------------------------------------
 
-.2+| 70 | [.big.red]#readfile# | *STATEMENT*
+.2+| 70 | [.big.red]##readfile## | *STATEMENT*
 
 [literal,subs="+attributes,macros"]
 70 <value> 4C{wj}{fn9}
@@ -14177,7 +14177,7 @@ Upon any error, jumps to the end of the file i/o code block and closes `<file>`.
 
 //-----{ 71 }-------------------------------------------------------------------
 
-| 71 | [.big.red]#writeval# | *STATEMENT*
+| 71 | [.big.red]##writeval## | *STATEMENT*
 
 [literal,subs="+attributes,macros"]
 71 <value> 19 <value> 19 ... 4C{wj}{fn10}
@@ -14188,7 +14188,7 @@ Multiple values are separated by $19.
 
 //-----{ 72 }-------------------------------------------------------------------
 
-.2+| 72 | [.big.red]#readval# | *VALUE*
+.2+| 72 | [.big.red]##readval## | *VALUE*
 
 >s| As in:  <a|
 
@@ -14202,7 +14202,7 @@ Reads a 16-bit integer from the currently open file.
 
 //-----{ 73 }-------------------------------------------------------------------
 
-.2+| 73 | [.big.red]#playback# | *VALUE*
+.2+| 73 | [.big.red]##playback## | *VALUE*
 
 >s| As in:  <a|
 
@@ -14217,13 +14217,13 @@ Returns true on success, false on failure.
 
 //-----{ 74 }-------------------------------------------------------------------
 
-| 74 | [.big.red]#colour# | *STATEMENT*
+| 74 | [.big.red]##colour## | *STATEMENT*
 
 Treated identically to $38: `color`.
 
 //-----{ 75 }-------------------------------------------------------------------
 
-| 75 | [.big.red]#picture# | *STATEMENT*
+| 75 | [.big.red]##picture## | *STATEMENT*
 
     75 <value1> 19 <value2> 4C
     75 <value1> 4C
@@ -14234,8 +14234,8 @@ If there is an error, the `system_status` global variable is set.
 
 //-----{ 76-77 }----------------------------------------------------------------
 
-| 76 | [.big.red]#label&num;# | *INTERNAL DATA*
-| 77 | [.big.red]#sound#      | *STATEMENT*
+| 76 | [.big.red]##label&num;## | *INTERNAL DATA*
+| 77 | [.big.red]##sound##      | *STATEMENT*
 
     77 [79] <value1> 19 <value2> [19 <value3>] 4C
     77 <value1> 4C
@@ -14248,7 +14248,7 @@ If there is an error, the `system_status` global variable is set.
 
 //-----{ 78 }-------------------------------------------------------------------
 
-| 78 | [.big.red]#music# | *STATEMENT*
+| 78 | [.big.red]##music## | *STATEMENT*
 
     78 [79] <value1> 19 <value2> [19 <value3>] 4C
     78 <value1> 4C
@@ -14261,7 +14261,7 @@ If there is an error, the `system_status` global variable is set.
 
 //-----{ 79 }-------------------------------------------------------------------
 
-| 79 | [.big.red]#repeat# | *TOKEN*
+| 79 | [.big.red]##repeat## | *TOKEN*
 
 Used by `sound` and `music` statements.
 |===============================================================================

@@ -20,17 +20,17 @@ Here is a simple map of the main engine loop and the associated functions:
 .Flowchart of the Hugo Engine
 image::hugo-book2_14_flowchart-engine.svg[align="center",width=60%]
 
-The functions in *herun.c* comprise most of the core game loop and calling points. `RunGame()` manages the game loop itself [.red]#[1.1]#, which can be thought of as being:
+The functions in *herun.c* comprise most of the core game loop and calling points. `RunGame()` manages the game loop itself [.red]##[1.1]##, which can be thought of as being:
 
 [.text-center]
 *Main routine* -> *Player input* -> *Parsing* -> *Action* (if valid)
 
-*Player input* [.red]#[1.2]# is the point at which the engine requests a new input line (usually from the keyboard, but possibly from another source such as a file during command playback).
+*Player input* [.red]##[1.2]## is the point at which the engine requests a new input line (usually from the keyboard, but possibly from another source such as a file during command playback).
 
-The *Parsing* section [.red]#[2.1]# refers to the in-engine breakdown and analysis of the input line.
-The input line is matched against the grammar table in `MatchCommand()` [.red]#[2.2]# -- using `MatchWord()` and `MatchObject()` [.red]#[2.3]# to identify either individual words as specified in the grammar, or groups of words that may represent an object name.
+The *Parsing* section [.red]##[2.1]## refers to the in-engine breakdown and analysis of the input line.
+The input line is matched against the grammar table in `MatchCommand()` [.red]##[2.2]## -- using `MatchWord()` and `MatchObject()` [.red]##[2.3]## to identify either individual words as specified in the grammar, or groups of words that may represent an object name.
 
-If a match is made, the appropriate globals (`object`, `xobject`, `verbroutine`) are set, and `Perform()` is called [.red]#[3.1]# (or, if `Perform()` has not been defined, the built-in substitute).
+If a match is made, the appropriate globals (`object`, `xobject`, `verbroutine`) are set, and `Perform()` is called [.red]##[3.1]## (or, if `Perform()` has not been defined, the built-in substitute).
 
 [NOTE]
 ================================================================================
@@ -41,7 +41,7 @@ Note that if the command is directed to an object -- i.e., another character -- 
 At any point in `RunRoutine()` (or in functions called by it), the value `mem[codeptr]` is the byte value (i.e., the token number) of the current instruction.
 The value of `codeptr` advances as execution progresses.
 
-Whenever it is necessary for the engine to evaluate an expression, the expression evaluator subsystem in *heexpr.c* is invoked [.red]#[4.1]#.
+Whenever it is necessary for the engine to evaluate an expression, the expression evaluator subsystem in *heexpr.c* is invoked [.red]##[4.1]##.
 Here, the `eval[]` array is initialized with the expression to be evaluated by calling `SetupExpr()` (which will in turn call `GetValue()` to sequentially retrieve the elements of the expression).
 The expression currently in `eval[]` is solved by calling `EvalExpr()`.
 

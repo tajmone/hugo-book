@@ -626,7 +626,7 @@ will result in output like:
 
 [example,role="gametranscript"]
 ================================================================================
-A **bold string with some _italics_ and [.underline]#underline#** [.underline]#thrown in.#
+A **bold string with some _italics_ and [.underline]##underline##** [.underline]##thrown in.##
 ================================================================================
 
 Print style can also be changed using the `Font` routine in *hugolib.h*, so that in
@@ -1590,11 +1590,11 @@ The output will be:
 
 [example,role="gametranscript"]
 ================================================================================
-Text may be printed in *boldface*, _italics_, or [.underline]#underlined# typefaces.
+Text may be printed in *boldface*, _italics_, or [.underline]##underlined## typefaces.
 
-[.red]#Get ready. {nbsp}#
-[.yellow]#Get set. {nbsp}#
-[.green]#Go!#
+[.red]##Get ready. {nbsp}##
+[.yellow]##Get set. {nbsp}##
+[.green]##Go!##
 ================================================================================
 
 with "`boldface`", "`italics`" and "`underlined`" printed in their respective typefaces. "`Get ready`", "`Get set`", and "`Go!`" will all appear on the same line in three different colors.

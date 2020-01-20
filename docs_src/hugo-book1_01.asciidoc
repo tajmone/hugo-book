@@ -94,7 +94,7 @@ A number of files are part of the basic Hugo package.
 You'll need to make sure to have these before you get started; a good starting point is the Hugo web page at
 link:https://www.generalcoffee.com/hugo[_https://www.generalcoffee.com/hugo_^,title="Visit Hugo website"].
 
-[.big.red]#*Executable package.*#
+[.big.red]*Executable package.*
 You'll need, first and foremost, a version of Hugo compiled for your particular computer system, which will allow you to run existing Hugo programs, as well as compile and run your own.
 Usually the package itself is named something like:
 
@@ -118,7 +118,7 @@ Please note that the Hugo Compiler and the Hugo Debugger are not available for a
 To develop and compile your own games, the Hugo Compiler is necessary.
 The Hugo Debugger is a useful and powerful tool, but it is not essential for Hugo development.
 
-[.big.red]#*Library package.*#
+[.big.red]*Library package.*
 You may be relieved to learn that you don't have to write every last part of a Hugo game yourself.
 In fact, much of the basic infrastructure is provided by the Hugo Library, a set of existing Hugo source code files that you include in your game to manage the game world.
 Using the Hugo Library, you can easily create a small game that incorporates the basic behavior of a standard Hugo game.
@@ -148,7 +148,7 @@ verbstub.g  :: Additional verb grammar
 // @EDITED TYPO: (Issue #28)
 //    "you're probably want" -> "you're going to want"
 
-[.big.red]#*Sources.*#
+[.big.red]*Sources.*
 It's probably a good idea as you delve into Hugo programming to have some existing source code to look at.
 *sample.hug* is a valuable resource to have handy since it contains examples of most aspects of Hugo programming.
 Additionally, you're going to want to download *shell.hug*, which provides the very bare bones of a Hugo game for you to start building on:
@@ -163,7 +163,7 @@ An additional Hugo source file demonstrates the ability to create precompiled he
 [horizontal]
 hugolib.hug  :: To create a linkable version of *hugolib.h*
 
-[.big.red]#*Extras.*#
+[.big.red]*Extras.*
 The last essential remaining piece you'll need to begin Hugo development in earnest is a _text editor_ of some sort.
 This is what you'll use to edit the Hugo source files that you'll write and ultimately compile into working Hugo programs.
 On Windows or Macintosh you could use the pre-packaged Notepad or SimpleText (or TextEdit on Mac OS X) applications, respectively, but it's really not recommended: there are far better inexpensive or even freeware editors available (and once you get deeper into programming, you'll realize that the one sure investment you can make is an editor you're comfortable with).

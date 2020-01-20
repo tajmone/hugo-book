@@ -13,7 +13,7 @@
 
 // ****//   and   //****
 
-3+<.^| [.big.red]#and#
+3+<.^| [.big.red]##and##
 .3+| {blank}
 
 s| Description: a| Logical AND.
@@ -30,7 +30,7 @@ s| Result: a|
 
 // ****//   anything   //****
 
-3+<.^| [.big.red]#anything#
+3+<.^| [.big.red]##anything##
 | {blank}
 
 s| Description: a|
@@ -38,7 +38,7 @@ Object specifier in grammar syntax line, indicating that any nameable object in 
 
 // ****//   array   //****
 
-3+<.^| [.big.red]#array#
+3+<.^| [.big.red]##array##
 .2+| {blank}
 
 s| Description: a|
@@ -54,7 +54,7 @@ The variable `<var2>` will be treated as an array address.
 
 // ****//   break   //****
 
-3+<.^| [.big.red]#break#
+3+<.^| [.big.red]##break##
 .2+| {blank}
 
 s| Description: a| Terminates the immediate enclosing loop.
@@ -78,7 +78,7 @@ The `break` statement, if encountered, will terminate the innermost loop.
 
 // ****//   call   //****
 
-3+<.^| [.big.red]#call#
+3+<.^| [.big.red]##call##
 .3+| {blank}
 
 s| Description: a|
@@ -104,7 +104,7 @@ When used as a function, returns the value returned by the specified routine.
 
 // ****//   capital   //****
 
-3+<.^| [.big.red]#capital#
+3+<.^| [.big.red]##capital##
 .2+| {blank}
 
 s| Description: a|
@@ -120,7 +120,7 @@ where `<address>` is any dictionary word, such as, for example, an `object.name`
 
 // ****//   case   //****
 
-3+<.^| [.big.red]#case#
+3+<.^| [.big.red]##case##
 .2+| {blank}
 
 
@@ -140,7 +140,7 @@ where `<val>` is value such as a variable, routine return value, object property
 
 // ****//   child   //****
 
-3+<.^| [.big.red]#child#
+3+<.^| [.big.red]##child##
 .2+| {blank}
 
 s| Syntax: a|
@@ -155,7 +155,7 @@ The object number of the immediate child object of `<parent>`, or 0 if `<parent>
 
 // ****//   children   //****
 
-3+<.^| [.big.red]#children#
+3+<.^| [.big.red]##children##
 .2+| {blank}
 
 s| Syntax: a|
@@ -169,7 +169,7 @@ s| Return{nbsp}value: a| The number of child objects possessed by `<parent>`.
 
 // ****//   cls   //****
 
-3+<.^| [.big.red]#cls#
+3+<.^| [.big.red]##cls##
 .2+| {blank}
 
 s| Description: a|
@@ -184,7 +184,7 @@ cls
 
 // ****//   color   //****
 
-3+<.^| [.big.red]#color (colour)#
+3+<.^| [.big.red]##color (colour)##
 .3+| {blank}
 
 s| Description: a| Sets the display colors for text output.
@@ -227,7 +227,7 @@ Standard color values for `<foreground>` and `<background>` with constants defin
 
 // ****//   dict   //****
 
-3+<.^| [.big.red]#dict#
+3+<.^| [.big.red]##dict##
 .2+| {blank}
 
 s| Description: a| Dynamically creates a new dictionary entry at runtime.
@@ -249,7 +249,7 @@ Space should be reserved for any dictionary entries to be created at runtime usi
 
 // ****//   do   //****
 
-3+<.^| [.big.red]#do#
+3+<.^| [.big.red]##do##
 .2+| {blank}
 
 s| Description: a| Marks the starting point of a `do`-`while` loop.
@@ -268,7 +268,7 @@ The loop will continue to run as long as `<expr>` holds true.
 
 // ****//   elder   //****
 
-3+<.^| [.big.red]#elder#
+3+<.^| [.big.red]##elder##
 .2+| {blank}
 
 s| Syntax: a|
@@ -285,13 +285,13 @@ The reverse of `sibling`.
 
 // ****//   eldest   //****
 
-3+<.^| [.big.red]#eldest#
+3+<.^| [.big.red]##eldest##
 
 | {blank} 2+a| Same as `child`.
 
 // ****//   else   //****
 
-3+<.^| [.big.red]#else#
+3+<.^| [.big.red]##else##
 .2+| {blank}
 
 s| Description: a|
@@ -309,7 +309,7 @@ else
 
 // ****//   elseif   //****
 
-3+<.^| [.big.red]#elseif#
+3+<.^| [.big.red]##elseif##
 .2+| {blank}
 
 s| Description: a|
@@ -329,14 +329,14 @@ elseif <condition3>
 
 // ****//   false   //****
 
-3+<.^| [.big.red]#false#
+3+<.^| [.big.red]##false##
 | {blank}
 
 s| Description: a| A predefined constant value: 0.
 
 // ****//   for   //****
 
-3+<.^| [.big.red]#for#
+3+<.^| [.big.red]##for##
 .2+| {blank}
 
 s| Description: a| Loop construction.
@@ -365,7 +365,7 @@ The second form loops through all the children of `<object>` (if any), setting `
 
 // ****//   held   //****
 
-3+<.^| [.big.red]#held#
+3+<.^| [.big.red]##held##
 | {blank}
 
 s| Description: a|
@@ -373,7 +373,7 @@ Object specifier in grammar syntax line, indicating that any single object posse
 
 // ****//   hex   //****
 
-3+<.^| [.big.red]#hex#
+3+<.^| [.big.red]##hex##
 .2+| {blank}
 
 s| Description: a|
@@ -389,7 +389,7 @@ where, for example, `<var>` is equal to 26, will print "`1A`".
 
 // ****//   if   //****
 
-3+<.^| [.big.red]#if#
+3+<.^| [.big.red]##if##
 .2+| {blank}
 
 s| Description: a| A conditional expression.
@@ -405,7 +405,7 @@ where `<condition>` is an expression or value, will run the following statement 
 
 // ****//   in   //****
 
-3+<.^| [.big.red]#in#
+3+<.^| [.big.red]##in##
 .2+| {blank}
 
 s| Description: a|
@@ -431,7 +431,7 @@ if <object> [not] in <parent>
 
 // ****//   input   //****
 
-3+<.^| [.big.red]#input#
+3+<.^| [.big.red]##input##
 .2+| {blank}
 
 s| Description: a|
@@ -447,7 +447,7 @@ input
 
 // ****//   is   //****
 
-3+<.^| [.big.red]#is#
+3+<.^| [.big.red]##is##
 .4+| {blank}
 
 s| Description: a| Attribute assignment/testing.
@@ -469,7 +469,7 @@ Otherwise, it returns false.
 
 // ****//   jump   //****
 
-3+<.^| [.big.red]#jump#
+3+<.^| [.big.red]##jump##
 .2+| {blank}
 
 s| Description: a| Jumps to a specified label.
@@ -490,7 +490,7 @@ where a unique `<label>` exists on a separate line somewhere in the program, in 
 
 // ****//   local   //****
 
-3+<.^| [.big.red]#local#
+3+<.^| [.big.red]##local##
 .2+| {blank}
 
 s| Description: a| Defines one or more variables local to the current routine.
@@ -504,7 +504,7 @@ local <var1>[, <var2>, <var3>,...]
 
 // ****//   locate   //****
 
-3+<.^| [.big.red]#locate#
+3+<.^| [.big.red]##locate##
 .3+| {blank}
 
 s| Description: a| Sets the cursor position within the current text window.
@@ -522,7 +522,7 @@ The cursor position is calculated in fixed-width character coordinates.
 
 // ****//   move   //****
 
-3+<.^| [.big.red]#move#
+3+<.^| [.big.red]##move##
 .2+| {blank}
 
 s| Description: a| Moves an object with all its possessions to a new parent.
@@ -536,7 +536,7 @@ move <object> to <new parent>
 
 // ****//   multi   //****
 
-3+<.^| [.big.red]#multi#
+3+<.^| [.big.red]##multi##
 | {blank}
 
 s| Description: a|
@@ -544,7 +544,7 @@ Object specifier in grammar syntax line, indicating that multiple available obje
 
 // ****//   multiheld   //****
 
-3+<.^| [.big.red]#multiheld#
+3+<.^| [.big.red]##multiheld##
 | {blank}
 
 s| Description: a|
@@ -552,7 +552,7 @@ Object specifier in grammar syntax line, indicating that multiple objects posses
 
 // ****//   multinotheld   //****
 
-3+<.^| [.big.red]#multinotheld#
+3+<.^| [.big.red]##multinotheld##
 | {blank}
 
 s| Description: a|
@@ -560,7 +560,7 @@ Object specifier in grammar syntax line, indicating that multiple objects explic
 
 // ****//   music   //****
 
-3+<.^| [.big.red]#music#
+3+<.^| [.big.red]##music##
 .2+| {blank}
 
 s| Description: a| Load and play a music resource (if audio output is available).
@@ -578,7 +578,7 @@ If the `repeat` token is used, the song continues to loop until either a new son
 
 // ****//   nearby   //****
 
-3+<.^| [.big.red]#nearby#
+3+<.^| [.big.red]##nearby##
 .2+| {blank}
 
 s| Description: a|
@@ -601,7 +601,7 @@ Gives the current object the same parent as the last-defined object.
 
 // ****//   newline   //****
 
-3+<.^| [.big.red]#newline#
+3+<.^| [.big.red]##newline##
 .2+| {blank}
 
 s| Description: a|
@@ -616,7 +616,7 @@ print newline
 
 // ****//   not   //****
 
-3+<.^| [.big.red]#not#
+3+<.^| [.big.red]##not##
 .3+| {blank}
 
 s| Description: a| Logical NOT.
@@ -641,7 +641,7 @@ As part of an expression, it will return true only if `<object>` does not have `
 
 // ****//   notheld   //****
 
-3+<.^| [.big.red]#notheld#
+3+<.^| [.big.red]##notheld##
 | {blank}
 
 s| Description: a|
@@ -649,7 +649,7 @@ Object specifier in grammar syntax line, indicating that a single object explici
 
 // ****//   number   //****
 
-3+<.^| [.big.red]#number#
+3+<.^| [.big.red]##number##
 .2+| {blank}
 
 s| Description: a|
@@ -669,7 +669,7 @@ where, for example, `<val>` is equal to 100, will print "`100`" instead of the w
 
 // ****//   object   //****
 
-3+<.^| [.big.red]#object#
+3+<.^| [.big.red]##object##
 | {blank}
 
 s| Description: a|
@@ -679,7 +679,7 @@ When used in a grammar syntax line, indicates that a single available object is 
 
 // ****//   or   //****
 
-3+<.^| [.big.red]#or#
+3+<.^| [.big.red]##or##
 .3+| {blank}
 
 s| Description: a| Logical OR.
@@ -696,7 +696,7 @@ s| Result: a|
 
 // ****//   parent   //****
 
-3+<.^| [.big.red]#parent#
+3+<.^| [.big.red]##parent##
 .5+| {blank}
 
 2+d| (Usage 1)
@@ -716,7 +716,7 @@ When used in a grammar syntax line, indicates that the domain for validating the
 
 // ****//   parse$   //****
 
-3+<.^| [.big.red]#parse$#
+3+<.^| [.big.red]##parse$##
 | {blank}
 
 s| Description: a|
@@ -724,7 +724,7 @@ Read-only engine variable that contains either the offending portion of an inval
 
 // ****//   pause   //****
 
-3+<.^| [.big.red]#pause#
+3+<.^| [.big.red]##pause##
 | {blank}
 
 s| Description: a|
@@ -733,7 +733,7 @@ The value of the key is stored in `word[0]`.
 
 // ****//   picture   //****
 
-3+<.^| [.big.red]#picture#
+3+<.^| [.big.red]##picture##
 .2+| {blank}
 
 s| Description: a|
@@ -750,7 +750,7 @@ where, while `<resourcefile>` is optional, it is very highly recommended (otherw
 
 // ****//   playback   //****
 
-3+<.^| [.big.red]#playback#
+3+<.^| [.big.red]##playback##
 .3+| {blank}
 
 s| Description: a|
@@ -767,7 +767,7 @@ s| Return{nbsp}value: a| True if successful, false if not.
 
 // ****//   print   //****
 
-3+<.^| [.big.red]#print#
+3+<.^| [.big.red]##print##
 .2+| {blank}
 
 s| Description: a| Print text output.
@@ -786,7 +786,7 @@ Each component may also be preceded by a modifier such as `capital`, `hex`, or `
 
 // ****//   printchar   //****
 
-3+<.^| [.big.red]#printchar#
+3+<.^| [.big.red]##printchar##
 .2+| {blank}
 
 s| Description: a|
@@ -802,7 +802,7 @@ printchar <val1>[, <val2>,...]
 
 // ****//   quit   //****
 
-3+<.^| [.big.red]#quit#
+3+<.^| [.big.red]##quit##
 .2+| {blank}
 
 s| Description: a| Terminates the game loop.
@@ -816,7 +816,7 @@ quit
 
 // ****//   random   //****
 
-3+<.^| [.big.red]#random#
+3+<.^| [.big.red]##random##
 .3+| {blank}
 
 s| Description: a| Engine function which generates a random number.
@@ -833,7 +833,7 @@ Where `<val>` is a positive integer number, will return a random number between 
 
 // ****//   readfile   //****
 
-3+<.^| [.big.red]#readfile#
+3+<.^| [.big.red]##readfile##
 .2+| {blank}
 
 s| Description: a|
@@ -852,7 +852,7 @@ The file is opened and positioned to the start at the beginning of the `readfile
 
 // ****//   readval   //****
 
-3+<.^| [.big.red]#readval#
+3+<.^| [.big.red]##readval##
 .3+| {blank}
 
 s| Description: a| Reads a value in a `readfile` block.
@@ -871,7 +871,7 @@ Use the `FILE_CHECK` constant defined in *hugolib.h* to determine if a `readfile
 
 // ****//   recordoff   //****
 
-3+<.^| [.big.red]#recordoff#
+3+<.^| [.big.red]##recordoff##
 .3+| {blank}
 
 s| Description: a| Ends recording commands to a file.
@@ -887,7 +887,7 @@ s| Value: a| True if successful, false if not.
 
 // ****//   recordon   //****
 
-3+<.^| [.big.red]#recordon#
+3+<.^| [.big.red]##recordon##
 .3+| {blank}
 
 s| Description: a|
@@ -904,7 +904,7 @@ s| Value: a| True if successful, false if not.
 
 // ****//   remove   //****
 
-3+<.^| [.big.red]#remove#
+3+<.^| [.big.red]##remove##
 .2+| {blank}
 
 s| Description: a| Removes an object from the object tree.
@@ -919,7 +919,7 @@ remove <object>
 
 // ****//   restart   //****
 
-3+<.^| [.big.red]#restart#
+3+<.^| [.big.red]##restart##
 .4+| {blank}
 
 s| Description: a|
@@ -939,7 +939,7 @@ s| Value: a| True if successful, false if not.
 
 // ****//   restore   //****
 
-3+<.^| [.big.red]#restore#
+3+<.^| [.big.red]##restore##
 .3+| {blank}
 
 s| Description: a|
@@ -956,7 +956,7 @@ s| Value: a| True if successful, false if not.
 
 // ****//   return   //****
 
-3+<.^| [.big.red]#return#
+3+<.^| [.big.red]##return##
 .3+| {blank}
 
 s| Description: a| Returns from a called routine.
@@ -974,7 +974,7 @@ Returns `<expression>` if provided, otherwise returns false.
 
 // ****//   run   //****
 
-3+<.^| [.big.red]#run#
+3+<.^| [.big.red]##run##
 .3+| {blank}
 
 s| Description: a| Runs an object property routine if one exists.
@@ -991,7 +991,7 @@ None; any value returned by the property routine is discarded.
 
 // ****//   runevents   //****
 
-3+<.^| [.big.red]#runevents#
+3+<.^| [.big.red]##runevents##
 .2+| {blank}
 
 s| Description: a|
@@ -1006,7 +1006,7 @@ runevents
 
 // ****//   save   //****
 
-3+<.^| [.big.red]#save#
+3+<.^| [.big.red]##save##
 .3+| {blank}
 
 s| Description: a| Saves the current game state to a file (by prompting the user).
@@ -1022,7 +1022,7 @@ s| Value: a| True if successful, false if not.
 
 // ****//   scriptoff   //****
 
-3+<.^| [.big.red]#scriptoff#
+3+<.^| [.big.red]##scriptoff##
 .3+| {blank}
 
 s| Description: a| Turns transcription off.
@@ -1038,7 +1038,7 @@ s| Value: a| True if successful, false if not.
 
 // ****//   scripton   //****
 
-3+<.^| [.big.red]#scripton#
+3+<.^| [.big.red]##scripton##
 .3+| {blank}
 
 s| Description: a|
@@ -1055,7 +1055,7 @@ s| Value: a| True if successful, false if not.
 
 // ****//   select   //****
 
-3+<.^| [.big.red]#select#
+3+<.^| [.big.red]##select##
 .2+| {blank}
 
 s| Description: a|
@@ -1075,7 +1075,7 @@ where `<val>` is value such as a variable, routine return value, object property
 
 // ****//   serial$   //****
 
-3+<.^| [.big.red]#serial$#
+3+<.^| [.big.red]##serial$##
 | {blank}
 
 s| Description: a|
@@ -1083,7 +1083,7 @@ Read-only engine variable that contains the serial number as written by the comp
 
 // ****//   sibling   //****
 
-3+<.^| [.big.red]#sibling#
+3+<.^| [.big.red]##sibling##
 .2+| {blank}
 
 s| Syntax: a|
@@ -1099,7 +1099,7 @@ The number of the object next to `<object>` on the same branch of the object tre
 
 // ****//   sound   //****
 
-3+<.^| [.big.red]#sound#
+3+<.^| [.big.red]##sound##
 .2+| {blank}
 
 s| Description: a|
@@ -1118,7 +1118,7 @@ If the `repeat` token is used, the sample continues to loop until either a new s
 
 // ****//   string   //****
 
-3+<.^| [.big.red]#string#
+3+<.^| [.big.red]##string##
 .2+| {blank}
 
 s| Description: a|
@@ -1138,7 +1138,7 @@ Returns the length of the string stored in `<array>`.
 
 // ****//   system   //****
 
-3+<.^| [.big.red]#system#
+3+<.^| [.big.red]##system##
 .2+| {blank}
 
 s| Description: a| Built-in function to call low-level system functions.
@@ -1170,7 +1170,7 @@ If `<function>` is unavailable, the engine may set `system_status` to -1 (`STAT_
 
 // ****//   text   //****
 
-3+<.^| [.big.red]#text#
+3+<.^| [.big.red]##text##
 .2+| {blank}
 
 m| text{nbsp}to{nbsp}<val> a|
@@ -1180,7 +1180,7 @@ m| text to 0 | Restores normal printing.
 
 // ****//   to   //****
 
-3+<.^| [.big.red]#to#
+3+<.^| [.big.red]##to##
 .2+| {blank}
 
 s| Description: a|
@@ -1196,14 +1196,14 @@ where `<val>` is a positive integer less than or equal to the maximum column pos
 
 // ****//   true   //****
 
-3+<.^| [.big.red]#true#
+3+<.^| [.big.red]##true##
 | {blank}
 
 s| Description: a| Predefined constant: 1.
 
 // ****//   undo   //****
 
-3+<.^| [.big.red]#undo#
+3+<.^| [.big.red]##undo##
 .3+| {blank}
 
 s| Description: a|
@@ -1220,7 +1220,7 @@ s| Value: a| True if successful, false if not.
 
 // ****//   verb   //****
 
-3+<.^| [.big.red]#verb#
+3+<.^| [.big.red]##verb##
 .2+| {blank}
 
 s| Description: a|
@@ -1236,7 +1236,7 @@ verb "<word1>"[, "<word2>",...]
 
 // ****//   while   //****
 
-3+<.^| [.big.red]#while#
+3+<.^| [.big.red]##while##
 .2+| {blank}
 
 s| Description: a| Component of `while` or `do`-`while` loop construct.
@@ -1265,7 +1265,7 @@ where the loop will run as long as `<expr>` holds true.
 
 // ****//   window   //****
 
-3+<.^| [.big.red]#window#
+3+<.^| [.big.red]##window##
 .2+| {blank}
 
 s| Description: a| Switches output to the status window.
@@ -1302,7 +1302,7 @@ There is no following code block.
 
 // ****//   writefile   //****
 
-3+<.^| [.big.red]#writefile#
+3+<.^| [.big.red]##writefile##
 .2+| {blank}
 
 s| Description: a|
@@ -1321,7 +1321,7 @@ The file is opened and positioned to the start at the beginning of the `writefil
 
 // ****//   writeval   //****
 
-3+<.^| [.big.red]#writeval#
+3+<.^| [.big.red]##writeval##
 .2+| {blank}
 
 s| Description: a| Writes one or more values in a `writefile` block.
@@ -1335,7 +1335,7 @@ writefile value1[, value2, ...]
 
 // ****//   xobject   //****
 
-3+<.^| [.big.red]#xobject#
+3+<.^| [.big.red]##xobject##
 | {blank}
 
 s| Description: a|
@@ -1345,7 +1345,7 @@ When used in a grammar syntax line, indicates that a single available object is 
 
 // ****//   xverb   //****
 
-3+<.^| [.big.red]#xverb#
+3+<.^| [.big.red]##xverb##
 .2+| {blank}
 
 s| Description: a|
@@ -1361,14 +1361,14 @@ xverb "<word1>"[, "<word2>", ...]
 
 // ****//   younger   //****
 
-3+<.^| [.big.red]#younger#
+3+<.^| [.big.red]##younger##
 | {blank}
 
 2+a| Same as `sibling`.
 
 // ****//   youngest   //****
 
-3+<.^| [.big.red]#youngest#
+3+<.^| [.big.red]##youngest##
 .2+| {blank}
 
 s| Syntax: a|

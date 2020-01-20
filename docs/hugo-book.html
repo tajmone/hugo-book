@@ -583,7 +583,7 @@ div.literalblock.hugosyntax div.content pre > sup.footnote a {
 <span id="email" class="email"><a href="mailto:general@generalcoffee.com">general@generalcoffee.com</a></span><br>
 <span id="revnumber">version 1,</span>
 <span id="revdate">2018-10-04</span>
-<br><span id="revremark">Draft 152 -- Porting to AsciiDoc</span>
+<br><span id="revremark">Draft 153 -- Porting to AsciiDoc</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -862,7 +862,7 @@ You&#8217;ll need to make sure to have these before you get started; a good star
 <a href="https://www.generalcoffee.com/hugo" title="Visit Hugo website" target="_blank" rel="noopener"><em>https://www.generalcoffee.com/hugo</em></a>.</p>
 </div>
 <div class="paragraph">
-<p><span class="big red"><strong>Executable package.</strong></span>
+<p><strong class="big red">Executable package.</strong>
 You&#8217;ll need, first and foremost, a version of Hugo compiled for your particular computer system, which will allow you to run existing Hugo programs, as well as compile and run your own.
 Usually the package itself is named something like:</p>
 </div>
@@ -949,7 +949,7 @@ To develop and compile your own games, the Hugo Compiler is necessary.
 The Hugo Debugger is a useful and powerful tool, but it is not essential for Hugo development.</p>
 </div>
 <div class="paragraph">
-<p><span class="big red"><strong>Library package.</strong></span>
+<p><strong class="big red">Library package.</strong>
 You may be relieved to learn that you don&#8217;t have to write every last part of a Hugo game yourself.
 In fact, much of the basic infrastructure is provided by the Hugo Library, a set of existing Hugo source code files that you include in your game to manage the game world.
 Using the Hugo Library, you can easily create a small game that incorporates the basic behavior of a standard Hugo game.
@@ -1062,7 +1062,7 @@ verbstub.g
 </table>
 </div>
 <div class="paragraph">
-<p><span class="big red"><strong>Sources.</strong></span>
+<p><strong class="big red">Sources.</strong>
 It&#8217;s probably a good idea as you delve into Hugo programming to have some existing source code to look at.
 <strong>sample.hug</strong> is a valuable resource to have handy since it contains examples of most aspects of Hugo programming.
 Additionally, you&#8217;re going to want to download <strong>shell.hug</strong>, which provides the very bare bones of a Hugo game for you to start building on:</p>
@@ -1103,7 +1103,7 @@ hugolib.hug
 </table>
 </div>
 <div class="paragraph">
-<p><span class="big red"><strong>Extras.</strong></span>
+<p><strong class="big red">Extras.</strong>
 The last essential remaining piece you&#8217;ll need to begin Hugo development in earnest is a <em>text editor</em> of some sort.
 This is what you&#8217;ll use to edit the Hugo source files that you&#8217;ll write and ultimately compile into working Hugo programs.
 On Windows or Macintosh you could use the pre-packaged Notepad or SimpleText (or TextEdit on Mac OS X) applications, respectively, but it&#8217;s really not recommended: there are far better inexpensive or even freeware editors available (and once you get deeper into programming, you&#8217;ll realize that the one sure investment you can make is an editor you&#8217;re comfortable with).
@@ -7973,7 +7973,7 @@ All characters in an input line are converted to lowercase (except those inside 
 <p>The next step is to process the four types of special &#8220;words&#8221; which may be defined in the source code.</p>
 </div>
 <div class="paragraph">
-<p><span class="big red"><em>Removals</em></span> are the simplest.
+<p><em class="big red">Removals</em> are the simplest.
 These are simply words that are to be automatically removed from any input line, and are generally limited to words such as &#8220;a&#8221; and &#8220;the&#8221; which would, generally speaking, only make grammar matching more complicated and difficult.
 The syntax for defining a removal is:</p>
 </div>
@@ -7991,7 +7991,7 @@ The syntax for defining a removal is:</p>
 </div>
 </div>
 <div class="paragraph">
-<p><span class="big red"><em>Punctuation</em></span> is similar to a removal, except it specifies the removal of individual characters instead of whole words:</p>
+<p><em class="big red">Punctuation</em> is similar to a removal, except it specifies the removal of individual characters instead of whole words:</p>
 </div>
 <div class="literalblock hugosyntax">
 <div class="content">
@@ -8007,7 +8007,7 @@ The syntax for defining a removal is:</p>
 </div>
 </div>
 <div class="paragraph">
-<p><span class="big red"><em>Synonyms</em></span> are slightly more complex.
+<p><em class="big red">Synonyms</em> are slightly more complex.
 These are words that will never be found in the parsed input line; they are replaced by the specified word for which they are a synonym.</p>
 </div>
 <div class="literalblock hugosyntax">
@@ -8028,7 +8028,7 @@ These are words that will never be found in the parsed input line; they are repl
 Usage of synonyms will likely not be extensive, since of course it is possible to, particularly in the case of object nouns and adjectives, specify synonymous words which are still treated as distinct.</p>
 </div>
 <div class="paragraph">
-<p><span class="big red"><em>Compounds</em></span> are the final type of special word, specified as:</p>
+<p><em class="big red">Compounds</em> are the final type of special word, specified as:</p>
 </div>
 <div class="literalblock hugosyntax">
 <div class="content">
