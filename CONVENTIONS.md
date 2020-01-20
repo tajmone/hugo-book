@@ -255,42 +255,64 @@ Of course, if another (static and cross platform) syntax highlighter for Hugo be
 
 # Custom Styles
 
-In order to build _The Hugo Book_ to other formats than those covered by this repository, here's a list of custom styles used in the book, which need to be covered by the template system used by the conversion backend.
+In order to build _The Hugo Book_ to other formats than those covered by this repository, here's a list of custom roles-styles used in the book, which need to be covered by the template system used by the conversion backend.
 
 ## Block Elements
 
 Custom roles are assigned to a variety of block elements:
 
-|    Block Type    |          AsciiDoc Styling         |
-|------------------|-----------------------------------|
-| Game transcript  | `[example,role="gametranscript"]` |
-| Hugo syntax      | `[literal,role="hugosyntax"]`     |
-| Hugo source code | `[source,hugo]`                   |
-| CMD/Shell        | `[literal,role="cmd"]`            |
+|    Block Type    |          AsciiDoc Styling         |                  Usage                  |
+|------------------|-----------------------------------|-----------------------------------------|
+| CMD/Shell        | `[literal,role="cmd"]`            | Mock-up Windows command prompt          |
+| Game transcript  | `[example,role="gametranscript"]` | Mock-up game sessions                   |
+| Hugo source code | `[source,hugo]`                   | Themed syntax highlighting of Hugo code |
+| Hugo syntax      | `[literal,role="hugosyntax"]`     | Mock-up Hugo syntax definitions         |
 
+With the exception of `[source,hugo]` (which is handled by the syntax highlighter, and might require separate styling, depending on the backend employed), all elements in the above list require custom styles in the template in order to be coloured.
+
+__Game transcripts__ are rendered in proportional fonts, using smart typography.
+Font styles (italic, bold, underlined) and colours may apply if the example requires it.
+The idea is to present the reader with a game session as if it was played on a modern IF interpreter capable of handling smart typography (curly quote, em dashes, etc.).
+
+__Hugo syntax__ blocks differ from actual Hugo source code examples for they contain parameter place-holders (e.g. `<file name>`) and various symbols to indicate alternative (i.e. `|`) and optional arguments (e.g. `[, <param2>]`).
+They are not treated as code, so they are not syntax highlighted (the presence of those place-holders prevents correct parsing of the syntax), and the custom styling simply provides some default background and foreground colours to simplify visual identification of the element.
+
+__Hugo source code__ examples require syntax highlighting and a custom colour theme.
+Different backends will rely on different syntax highlighters, so there's no standard way of syntax colouring Hugo sources.
+For this project, we've created a custom Hugo syntax definition for the [Highlight] tool, which supports a variety of output formats and might be useful with different backends.
+Some backends might depend on a dedicate highlighter (e.g. the [asciidoctor-fopub] PDF backend relies on [XSLT syntax highlighting]) and therefore require creating a new dedicated definition of the Hugo syntax.
+
+__CMD/Shell__ blocks are just a mock-up of a terminal session, employed to illustrate how to invoke Hugo tools via the command line and their output.
+In the default HTML template, we adopted the Windows command prompt colour scheme as a mere convenience to easily associate this element with a command line session, for other OSs don't have a universally standard colour scheme for terminal windows.
 
 ## Inline Elements
 
-The following inline styles are used in the book:
+The following inline styles are used in the book, via the [shorthand dot-notation for inline role assignment]:
 
-| Style Type |    AsciiDoc Styling   |
-|------------|-----------------------|
-| Big        | `[.big]#<...>#`       |
-| Big + Red  | `[.big.red]#<...>#`   |
-| Green      | `[.green]#<...>#`     |
-| Red        | `[.red]#<...>#`       |
-| Underlined | `[.underline]#<...>#` |
-| Yellow     | `[.yellow]#<...>#`    |
 
-Some of the above styles are part of the default Asciidoctor template (e.g. the HTML5 template), but others were added to cover specific needs.
-Just ensure that your template correctly covers all the above styles, using the default HTML book of this project as a reference for the desired style results.
+|   Style Type   |       AsciiDoc Styling       |                             Usage                             |
+|----------------|------------------------------|---------------------------------------------------------------|
+| Big            | `[.big]`                     | In [App. B] "The Hugo Library"                                |
+| Big + Red      | `[.big.red]`                 | In many places                                                |
+| Green          | `[.green]`                   | Once: in [§4.8] "Mixing Text Styles" example                  |
+| Red            | `[.red]`                     | In [§4.8] "Mixing Text Styles" example, and many other places |
+| Underlined     | `[.underline]`               | Twice: in [§4.4] and in [§4.8] "Mixing Text Styles" example   |
+| Yellow         | `[.yellow]`                  | Once: in [§4.8] "Mixing Text Styles" example                  |
+| Alt book title | `[.text-center.big.ortitle]` | Secondary book titles in _[Book I]_ and _[Book II]_           |
+
+Some of the above styles are predefined in the default Asciidoctor templates (e.g. `.big.`, `red` and `.text-center`), but others were added to cover specific needs.
+Just ensure that your template correctly covers all the above styles, using the CSS stylesheets of the HTML edition of this project as a reference for the desired style results.
+
+In some cases, these styles are mandatory, like the use of `.green`, `.red`, `.yellow` and `.underline` in the of Hugo formatting examples of [§4.4] and [§4.8], where they need to emulate styled output in game transcripts.
+
+In the majority of other cases, these styles were added just to facilitate sifting through the book and quickly detecting key elements of interest.
+In these cases, omission of custom styles would not affect the book contents, and often the roles `.big` and `.red` were added along with strong or emphasis formatting, as extra styles.
+
+It's also possible to suppress colours altogether by overriding these styles so that they will be coloured in black (e.g. when targeting a document to be printed in black and white), although usually printer devices should already offer this type of functionality in their drivers advanced settings panel.
 
 <!-----------------------------------------------------------------------------
                                REFERENCE LINKS
 ------------------------------------------------------------------------------>
-
-[externalized]: https://asciidoctor.org/docs/user-manual/#externalizing-a-footnote "See Asciidoctor Manual on externalizing footnote"
-[word-joiner attribute]: https://asciidoctor.org/docs/user-manual/#charref-attributes "See Asciidoctor Manual on predefined attributes for character replacements regarding the use of {wj}"
 
 [The Chicago Manual of Style]: https://www.chicagomanualofstyle.org "Go to The Chicago Manual of Style website"
 
@@ -302,6 +324,17 @@ Just ensure that your template correctly covers all the above styles, using the 
 [#26]: https://github.com/tajmone/hugo-book/issues/26 "Issue #26: Customize IDs of Every Book Sections"
 [#33]: https://github.com/tajmone/hugo-book/issues/33 "Issue #33: Highlighting Filepath Strings: Prevent Escapes"
 [#4]: https://github.com/tajmone/hugo-book/issues/4 "Issue #4: Section Numbering in Book II"
+
+<!-- Hugo Book Live HTML Links -->
+
+[Book I]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/docs/hugo-book.html#book1 "Live HTML Preview"
+[Book II]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/docs/hugo-book.html#book2 "Live HTML Preview"
+
+[§4.4]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/docs/hugo-book.html#sec_4-4 "Live HTML Preview"
+[§4.8]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/docs/hugo-book.html#sec_4-8 "Live HTML Preview"
+
+[App. B]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/docs/hugo-book.html#appendix_b "Live HTML Preview"
+
 
 <!-- Asciidoctor ------------------------------------------------------------>
 
@@ -328,9 +361,15 @@ Just ensure that your template correctly covers all the above styles, using the 
 [callouts]: https://asciidoctor.org/docs/user-manual/#callouts "Learn more about Asciidoctor callouts"
 [subs]: https://asciidoctor.org/docs/user-manual/#applying-substitutions "Learn more about Asciidoctor substitutions"
 
+[externalized]: https://asciidoctor.org/docs/user-manual/#externalizing-a-footnote "See Asciidoctor Manual on externalizing footnote"
+[shorthand dot-notation for inline role assignment]: https://asciidoctor.org/docs/user-manual/#inline-assignment-2 "See Asciidoctor Manual on inline role assignment"
+[word-joiner attribute]: https://asciidoctor.org/docs/user-manual/#charref-attributes "See Asciidoctor Manual on predefined attributes for character replacements regarding the use of {wj}"
+
 <!-- 3rd party tools---------------------------------------------------------->
 
+[asciidoctor-fopub]: https://github.com/asciidoctor/asciidoctor-fopub "Visit the asciidoctor-fopub repository on GitHub"
 [Highlight]: http://www.andre-simon.de/ "Visit Highlight website"
+[XSLT syntax highlighting]: https://sourceforge.net/projects/xslthl/ "Visit the XSLT project at SourceForge"
 
 <!-- people ------------------------------------------------------------------>
 

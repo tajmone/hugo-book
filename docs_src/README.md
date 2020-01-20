@@ -241,7 +241,7 @@ The Travis CI build tests the project against the latest stable versions of thes
 [Highlight]: http://www.andre-simon.de/ "Visit Highlight website"
 [GitHub Pages]: https://pages.github.com/ "Visit GitHub Pages website"
 
-<!-- Live HTML Links -->
+<!-- Hugo Book Live HTML Links -->
 
 [HTML Live Preview]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/docs/hugo-book.html "Click here to preview The Hugo Book via GitHub & BitBucket HTML Preview"
 
