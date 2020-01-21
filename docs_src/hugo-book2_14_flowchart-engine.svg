@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/PR-SVG-20010719/DTD/svg10.dtd">
-<svg width="34cm" height="41cm" viewBox="198 118 663 803" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg width="34cm" height="41cm" viewBox="198 118 673 803" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
   <g>
-    <path style="fill: #f8cecc" d="M 560 120 L 800,120 C 833.137,120 860,137.909 860,160 C 860,182.091 833.137,200 800,200 L 560,200 C 526.863,200 500,182.091 500,160 C 500,137.909 526.863,120 560,120z"/>
-    <path style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" d="M 560 120 L 800,120 C 833.137,120 860,137.909 860,160 C 860,182.091 833.137,200 800,200 L 560,200 C 526.863,200 500,182.091 500,160 C 500,137.909 526.863,120 560,120"/>
-    <text font-size="15.8044" style="fill: #000000;text-anchor:middle;font-family:Consolas;font-style:normal;font-weight:normal" x="680" y="155.061">
-      <tspan x="680" y="155.061">RunRoutine("init" routine)</tspan>
-      <tspan x="680" y="174.817">herun.c</tspan>
+    <path style="fill: #f8cecc" d="M 553.5 120 L 806.5,120 C 841.432,120 869.75,137.909 869.75,160 C 869.75,182.091 841.432,200 806.5,200 L 553.5,200 C 518.568,200 490.25,182.091 490.25,160 C 490.25,137.909 518.568,120 553.5,120z"/>
+    <path style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" d="M 553.5 120 L 806.5,120 C 841.432,120 869.75,137.909 869.75,160 C 869.75,182.091 841.432,200 806.5,200 L 553.5,200 C 518.568,200 490.25,182.091 490.25,160 C 490.25,137.909 518.568,120 553.5,120"/>
+    <text font-size="15.8044" style="fill: #000000;text-anchor:middle;font-family:Courier New;font-style:normal;font-weight:700" x="680" y="153.086">
+      <tspan x="680" y="153.086">RunRoutine("init" routine)</tspan>
+      <tspan x="680" y="172.841">herun.c</tspan>
     </text>
   </g>
   <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="680" y="160">
@@ -15,36 +15,36 @@
   <g>
     <rect style="fill: #ffe599" x="200" y="120" width="120" height="80"/>
     <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="200" y="120" width="120" height="80"/>
-    <text font-size="15.8044" style="fill: #000000;text-anchor:middle;font-family:Consolas;font-style:normal;font-weight:normal" x="260" y="154.794">
-      <tspan x="260" y="154.794">RunGame()</tspan>
-      <tspan x="260" y="174.55">herun.c</tspan>
+    <text font-size="15.8044" style="fill: #000000;text-anchor:middle;font-family:Courier New;font-style:normal;font-weight:700" x="260" y="153.394">
+      <tspan x="260" y="153.394">RunGame()</tspan>
+      <tspan x="260" y="173.15">herun.c</tspan>
     </text>
   </g>
   <g>
-    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="500.018" y1="160" x2="331.959" y2="160"/>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="490.245" y1="160" x2="331.959" y2="160"/>
     <polygon style="fill: #000000" points="331.959,155 321.959,160 331.959,165 "/>
     <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="331.959,155 321.959,160 331.959,165 "/>
   </g>
   <g>
-    <rect style="fill: #ffe599" x="320" y="240" width="260" height="80"/>
-    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="320" y="240" width="260" height="80"/>
-    <text font-size="15.8044" style="fill: #000000;text-anchor:middle;font-family:Consolas;font-style:normal;font-weight:normal" x="450" y="274.794">
-      <tspan x="450" y="274.794">RunRoutine("main" routine)</tspan>
-      <tspan x="450" y="294.55">herun.c</tspan>
+    <rect style="fill: #ffe599" x="315.5" y="240" width="269" height="80"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="315.5" y="240" width="269" height="80"/>
+    <text font-size="15.8044" style="fill: #000000;text-anchor:middle;font-family:Courier New;font-style:normal;font-weight:700" x="450" y="273.394">
+      <tspan x="450" y="273.394">RunRoutine("main" routine)</tspan>
+      <tspan x="450" y="293.15">herun.c</tspan>
     </text>
   </g>
   <g>
     <polygon style="fill: #d4e1f5" points="349.118,360 580,360 550.882,440 320,440 "/>
     <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="349.118,360 580,360 550.882,440 320,440 "/>
-    <text font-size="15.8044" style="fill: #000000;text-anchor:middle;font-family:Consolas;font-style:normal;font-weight:normal" x="450" y="404.672">
-      <tspan x="450" y="404.672">Player input</tspan>
+    <text font-size="15.8044" style="fill: #000000;text-anchor:middle;font-family:Courier New;font-style:normal;font-weight:700" x="450" y="403.272">
+      <tspan x="450" y="403.272">Player input</tspan>
     </text>
   </g>
   <g>
-    <polygon style="fill: #ffce9f" points="450,718.668 581.252,759.334 450,800 318.748,759.334 "/>
-    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="450,718.668 581.252,759.334 450,800 318.748,759.334 "/>
-    <text font-size="15.8044" style="fill: #000000;text-anchor:middle;font-family:Consolas;font-style:normal;font-weight:normal" x="450" y="764.006">
-      <tspan x="450" y="764.006">Input is valid?</tspan>
+    <polygon style="fill: #ffce9f" points="450,716.81 587.252,759.335 450,801.86 312.748,759.335 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="450,716.81 587.252,759.335 450,801.86 312.748,759.335 "/>
+    <text font-size="15.8044" style="fill: #000000;text-anchor:middle;font-family:Courier New;font-style:normal;font-weight:700" x="450" y="762.607">
+      <tspan x="450" y="762.607">Input is valid?</tspan>
     </text>
   </g>
   <g>
@@ -52,23 +52,23 @@
     <polygon style="fill: #000000" points="445,348.102 450,358.102 455,348.102 "/>
     <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="445,348.102 450,358.102 455,348.102 "/>
   </g>
-  <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="280,200 280,759.334 318.748,759.334 "/>
+  <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="280,200 280,759.334 312.748,759.334 "/>
   <g>
     <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="280" y1="400" x2="323.558" y2="400"/>
     <polygon style="fill: #000000" points="323.558,405 333.558,400 323.558,395 "/>
     <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="323.558,405 333.558,400 323.558,395 "/>
   </g>
   <g>
-    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="280" y1="280" x2="309" y2="280"/>
-    <polygon style="fill: #000000" points="309,285 319,280 309,275 "/>
-    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="309,285 319,280 309,275 "/>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="280" y1="280" x2="304.5" y2="280"/>
+    <polygon style="fill: #000000" points="304.5,285 314.5,280 304.5,275 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="304.5,285 314.5,280 304.5,275 "/>
   </g>
   <g>
     <rect style="fill: #ffe599" x="320" y="480" width="260" height="80"/>
     <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="320" y="480" width="260" height="80"/>
-    <text font-size="15.8044" style="fill: #000000;text-anchor:middle;font-family:Consolas;font-style:normal;font-weight:normal" x="450" y="514.794">
-      <tspan x="450" y="514.794">Parse()</tspan>
-      <tspan x="450" y="534.55">heparse.c</tspan>
+    <text font-size="15.8044" style="fill: #000000;text-anchor:middle;font-family:Courier New;font-style:normal;font-weight:700" x="450" y="513.394">
+      <tspan x="450" y="513.394">Parse()</tspan>
+      <tspan x="450" y="533.15">heparse.c</tspan>
     </text>
   </g>
   <g>
@@ -84,22 +84,22 @@
   <g>
     <rect style="fill: #ffe599" x="320" y="600" width="260" height="80"/>
     <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="320" y="600" width="260" height="80"/>
-    <text font-size="15.8044" style="fill: #000000;text-anchor:middle;font-family:Consolas;font-style:normal;font-weight:normal" x="450" y="634.794">
-      <tspan x="450" y="634.794">MatchCommand()</tspan>
-      <tspan x="450" y="654.55">heparse.c</tspan>
+    <text font-size="15.8044" style="fill: #000000;text-anchor:middle;font-family:Courier New;font-style:normal;font-weight:700" x="450" y="633.394">
+      <tspan x="450" y="633.394">MatchCommand()</tspan>
+      <tspan x="450" y="653.15">heparse.c</tspan>
     </text>
   </g>
   <g>
-    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="450" y1="680.999" x2="450" y2="706.668"/>
-    <polygon style="fill: #000000" points="445,706.668 450,716.668 455,706.668 "/>
-    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="445,706.668 450,716.668 455,706.668 "/>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="450" y1="681" x2="450" y2="704.81"/>
+    <polygon style="fill: #000000" points="445,704.81 450,714.81 455,704.81 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="445,704.81 450,714.81 455,704.81 "/>
   </g>
   <g>
-    <rect style="fill: #ffe599" x="620" y="600" width="240" height="80"/>
-    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="620" y="600" width="240" height="80"/>
-    <text font-size="15.8044" style="fill: #000000;text-anchor:start;font-family:Consolas;font-style:normal;font-weight:normal" x="629" y="634.794">
-      <tspan x="629" y="634.794">MatchWord()   - heparse.c</tspan>
-      <tspan x="629" y="654.55">MatchObject() - heparse.c</tspan>
+    <rect style="fill: #ffe599" x="620" y="600" width="250" height="80"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="620" y="600" width="250" height="80"/>
+    <text font-size="15.8044" style="fill: #000000;text-anchor:start;font-family:Courier New;font-style:normal;font-weight:700" x="629" y="633.394">
+      <tspan x="629" y="633.394">MatchWord()</tspan>
+      <tspan x="629" y="653.15">MatchObject()</tspan>
     </text>
   </g>
   <g>
@@ -115,9 +115,9 @@
   <g>
     <rect style="fill: #ffe599" x="320" y="840" width="260" height="80"/>
     <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="320" y="840" width="260" height="80"/>
-    <text font-size="15.8044" style="fill: #000000;text-anchor:middle;font-family:Consolas;font-style:normal;font-weight:normal" x="450" y="874.794">
-      <tspan x="450" y="874.794">RunRoutine(performaddr)</tspan>
-      <tspan x="450" y="894.55">herun.c</tspan>
+    <text font-size="15.8044" style="fill: #000000;text-anchor:middle;font-family:Courier New;font-style:normal;font-weight:700" x="450" y="873.394">
+      <tspan x="450" y="873.394">RunRoutine(performaddr)</tspan>
+      <tspan x="450" y="893.15">herun.c</tspan>
     </text>
   </g>
   <g>
@@ -126,28 +126,28 @@
     <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="245,211.98 240,201.98 235,211.98 "/>
   </g>
   <g>
-    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="450" y1="800" x2="450" y2="829"/>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="450" y1="801.86" x2="450" y2="829"/>
     <polygon style="fill: #000000" points="445,829 450,839 455,829 "/>
     <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="445,829 450,839 455,829 "/>
   </g>
-  <text font-size="15.8044" style="fill: #000000;text-anchor:start;font-family:Consolas;font-style:normal;font-weight:normal" x="460" y="820">
+  <text font-size="15.8044" style="fill: #000000;text-anchor:start;font-family:Courier New;font-style:normal;font-weight:700" x="460" y="820">
     <tspan x="460" y="820">Yes</tspan>
   </text>
-  <text font-size="15.8044" style="fill: #000000;text-anchor:start;font-family:Consolas;font-style:normal;font-weight:normal" x="300" y="740">
+  <text font-size="15.8044" style="fill: #000000;text-anchor:start;font-family:Courier New;font-style:normal;font-weight:700" x="300" y="740">
     <tspan x="300" y="740">No</tspan>
   </text>
   <g>
-    <rect style="fill: #ffe599" x="620" y="740" width="240" height="180.044"/>
-    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="620" y="740" width="240" height="180.044"/>
-    <text font-size="15.8044" style="fill: #000000;text-anchor:start;font-family:Consolas;font-style:normal;font-weight:normal" x="629" y="765.55">
-      <tspan x="629" y="765.55">Expression evaluator:</tspan>
-      <tspan x="629" y="785.306">heexpr.c</tspan>
-      <tspan x="629" y="805.061"></tspan>
-      <tspan x="629" y="824.817">SetupExpr()          </tspan>
-      <tspan x="629" y="844.572">  |            </tspan>
-      <tspan x="629" y="864.328">GetValue() - GetVal()</tspan>
-      <tspan x="629" y="884.083">  |           </tspan>
-      <tspan x="629" y="903.839">EvalExpr()           </tspan>
+    <rect style="fill: #ffe599" x="620" y="740" width="250" height="180.044"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="620" y="740" width="250" height="180.044"/>
+    <text font-size="15.8044" style="fill: #000000;text-anchor:start;font-family:Courier New;font-style:normal;font-weight:700" x="629" y="764.15">
+      <tspan x="629" y="764.15">Expression evaluator:</tspan>
+      <tspan x="629" y="783.906">heexpr.c</tspan>
+      <tspan x="629" y="803.661"></tspan>
+      <tspan x="629" y="823.417">SetupExpr()          </tspan>
+      <tspan x="629" y="843.172">            </tspan>
+      <tspan x="629" y="862.928">GetValue() - GetVal()</tspan>
+      <tspan x="629" y="882.683">           </tspan>
+      <tspan x="629" y="902.439">EvalExpr()           </tspan>
     </text>
   </g>
   <g>
@@ -160,28 +160,37 @@
     <polygon style="fill: #000000" points="582.236,900 592.236,895 589.736,900 592.236,905 "/>
     <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="582.236,900 592.236,895 589.736,900 592.236,905 "/>
   </g>
-  <text font-size="15.8044" style="fill: #2660bf;text-anchor:start;font-family:Consolas;font-style:normal;font-weight:700" x="320" y="234.55">
-    <tspan x="320" y="234.55">MAIN EXECUTION LOOP</tspan>
+  <text font-size="15.8044" style="fill: #2660bf;text-anchor:start;font-family:Courier New;font-style:normal;font-weight:700" x="320" y="233.15">
+    <tspan x="320" y="233.15">MAIN EXECUTION LOOP</tspan>
   </text>
-  <text font-size="15.8044" style="fill: #ba3925;text-anchor:end;font-family:Consolas;font-style:normal;font-weight:700" x="580" y="234.55">
-    <tspan x="580" y="234.55">1.1</tspan>
+  <text font-size="15.8044" style="fill: #ba3925;text-anchor:end;font-family:Courier New;font-style:normal;font-weight:700" x="580" y="233.15">
+    <tspan x="580" y="233.15">1.1</tspan>
   </text>
-  <text font-size="15.8044" style="fill: #ba3925;text-anchor:end;font-family:Consolas;font-style:normal;font-weight:700" x="580" y="354.55">
-    <tspan x="580" y="354.55">1.2</tspan>
+  <text font-size="15.8044" style="fill: #ba3925;text-anchor:end;font-family:Courier New;font-style:normal;font-weight:700" x="580" y="353.15">
+    <tspan x="580" y="353.15">1.2</tspan>
   </text>
-  <text font-size="15.8044" style="fill: #ba3925;text-anchor:end;font-family:Consolas;font-style:normal;font-weight:700" x="580" y="474.55">
-    <tspan x="580" y="474.55">2.1</tspan>
+  <text font-size="15.8044" style="fill: #ba3925;text-anchor:end;font-family:Courier New;font-style:normal;font-weight:700" x="580" y="473.15">
+    <tspan x="580" y="473.15">2.1</tspan>
   </text>
-  <text font-size="15.8044" style="fill: #ba3925;text-anchor:end;font-family:Consolas;font-style:normal;font-weight:700" x="580" y="594.55">
-    <tspan x="580" y="594.55">2.2</tspan>
+  <text font-size="15.8044" style="fill: #ba3925;text-anchor:end;font-family:Courier New;font-style:normal;font-weight:700" x="580" y="593.15">
+    <tspan x="580" y="593.15">2.2</tspan>
   </text>
-  <text font-size="15.8044" style="fill: #ba3925;text-anchor:end;font-family:Consolas;font-style:normal;font-weight:700" x="860" y="594.55">
-    <tspan x="860" y="594.55">2.3</tspan>
+  <text font-size="15.8044" style="fill: #ba3925;text-anchor:end;font-family:Courier New;font-style:normal;font-weight:700" x="870" y="593.15">
+    <tspan x="870" y="593.15">2.3</tspan>
   </text>
-  <text font-size="15.8044" style="fill: #ba3925;text-anchor:end;font-family:Consolas;font-style:normal;font-weight:700" x="860" y="734.55">
-    <tspan x="860" y="734.55">4.1</tspan>
+  <text font-size="15.8044" style="fill: #ba3925;text-anchor:end;font-family:Courier New;font-style:normal;font-weight:700" x="870" y="733.15">
+    <tspan x="870" y="733.15">4.1</tspan>
   </text>
-  <text font-size="15.8044" style="fill: #ba3925;text-anchor:end;font-family:Consolas;font-style:normal;font-weight:700" x="580" y="834.55">
-    <tspan x="580" y="834.55">3.1</tspan>
+  <text font-size="15.8044" style="fill: #ba3925;text-anchor:end;font-family:Courier New;font-style:normal;font-weight:700" x="580" y="833.15">
+    <tspan x="580" y="833.15">3.1</tspan>
+  </text>
+  <text font-size="15.8044" style="fill: #000000;text-anchor:start;font-family:Courier New;font-style:normal;font-weight:700" x="758" y="633.5">
+    <tspan x="758" y="633.5">- heparse.c</tspan>
+    <tspan x="758" y="653.256">- heparse.c</tspan>
+  </text>
+  <text font-size="15.8044" style="fill: #000000;text-anchor:start;font-family:Courier New;font-style:normal;font-weight:700" x="660.708" y="843.536">
+    <tspan x="660.708" y="843.536">|</tspan>
+    <tspan x="660.708" y="863.292"></tspan>
+    <tspan x="660.708" y="883.047">|</tspan>
   </text>
 </svg>

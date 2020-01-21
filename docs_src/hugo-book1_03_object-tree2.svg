@@ -8,64 +8,64 @@
   <g>
     <rect style="fill: #ffffff" x="460" y="260" width="80.9" height="19.7556"/>
     <rect style="fill: none; fill-opacity:0; stroke-width: 2.35099e-037; stroke: #ffffff" x="460" y="260" width="80.9" height="19.7556"/>
-    <text font-size="15.8044" style="fill: #000000;text-anchor:middle;font-family:Consolas;font-style:normal;font-weight:normal" x="500.45" y="274.55">
-      <tspan x="500.45" y="274.55">nothing</tspan>
+    <text font-size="15.8044" style="fill: #000000;text-anchor:middle;font-family:Courier New;font-style:normal;font-weight:700" x="500.45" y="273.15">
+      <tspan x="500.45" y="273.15">nothing</tspan>
     </text>
   </g>
   <g>
     <rect style="fill: #ffffff" x="460" y="300" width="80" height="20"/>
     <rect style="fill: none; fill-opacity:0; stroke-width: 2.35099e-037; stroke: #ffffff" x="460" y="300" width="80" height="20"/>
-    <text font-size="15.8044" style="fill: #000000;text-anchor:middle;font-family:Consolas;font-style:normal;font-weight:normal" x="500" y="314.672">
-      <tspan x="500" y="314.672">Room</tspan>
+    <text font-size="15.8044" style="fill: #000000;text-anchor:middle;font-family:Courier New;font-style:normal;font-weight:700" x="500" y="313.272">
+      <tspan x="500" y="313.272">Room</tspan>
     </text>
   </g>
   <g>
     <rect style="fill: #ffffff" x="380" y="360" width="80" height="20"/>
     <rect style="fill: none; fill-opacity:0; stroke-width: 2.35099e-037; stroke: #ffffff" x="380" y="360" width="80" height="20"/>
-    <text font-size="15.8044" style="fill: #000000;text-anchor:middle;font-family:Consolas;font-style:normal;font-weight:normal" x="420" y="374.672">
-      <tspan x="420" y="374.672">Table</tspan>
+    <text font-size="15.8044" style="fill: #000000;text-anchor:middle;font-family:Courier New;font-style:normal;font-weight:700" x="420" y="373.272">
+      <tspan x="420" y="373.272">Table</tspan>
     </text>
   </g>
   <g>
     <rect style="fill: #ffffff" x="460" y="360" width="80" height="20"/>
     <rect style="fill: none; fill-opacity:0; stroke-width: 2.35099e-037; stroke: #ffffff" x="460" y="360" width="80" height="20"/>
-    <text font-size="15.8044" style="fill: #000000;text-anchor:middle;font-family:Consolas;font-style:normal;font-weight:normal" x="500" y="374.672">
-      <tspan x="500" y="374.672">Chair</tspan>
+    <text font-size="15.8044" style="fill: #000000;text-anchor:middle;font-family:Courier New;font-style:normal;font-weight:700" x="500" y="373.272">
+      <tspan x="500" y="373.272">Chair</tspan>
     </text>
   </g>
   <g>
     <rect style="fill: #ffffff" x="540" y="360" width="80" height="20"/>
     <rect style="fill: none; fill-opacity:0; stroke-width: 2.35099e-037; stroke: #ffffff" x="540" y="360" width="80" height="20"/>
-    <text font-size="15.8044" style="fill: #000000;text-anchor:middle;font-family:Consolas;font-style:normal;font-weight:normal" x="580" y="374.672">
-      <tspan x="580" y="374.672">Book</tspan>
+    <text font-size="15.8044" style="fill: #000000;text-anchor:middle;font-family:Courier New;font-style:normal;font-weight:700" x="580" y="373.272">
+      <tspan x="580" y="373.272">Book</tspan>
     </text>
   </g>
   <g>
     <rect style="fill: #ffffff" x="460" y="400" width="80" height="20"/>
     <rect style="fill: none; fill-opacity:0; stroke-width: 2.35099e-037; stroke: #ffffff" x="460" y="400" width="80" height="20"/>
-    <text font-size="15.8044" style="fill: #000000;text-anchor:middle;font-family:Consolas;font-style:normal;font-weight:normal" x="500" y="414.672">
-      <tspan x="500" y="414.672">Player</tspan>
+    <text font-size="15.8044" style="fill: #000000;text-anchor:middle;font-family:Courier New;font-style:normal;font-weight:700" x="500" y="413.272">
+      <tspan x="500" y="413.272">Player</tspan>
     </text>
   </g>
   <g>
     <rect style="fill: #ffffff" x="380" y="400" width="80" height="20"/>
     <rect style="fill: none; fill-opacity:0; stroke-width: 2.35099e-037; stroke: #ffffff" x="380" y="400" width="80" height="20"/>
-    <text font-size="15.8044" style="fill: #000000;text-anchor:middle;font-family:Consolas;font-style:normal;font-weight:normal" x="420" y="414.672">
-      <tspan x="420" y="414.672">Bowl</tspan>
+    <text font-size="15.8044" style="fill: #000000;text-anchor:middle;font-family:Courier New;font-style:normal;font-weight:700" x="420" y="413.272">
+      <tspan x="420" y="413.272">Bowl</tspan>
     </text>
   </g>
   <g>
     <rect style="fill: #ffffff" x="380" y="440" width="80" height="20"/>
     <rect style="fill: none; fill-opacity:0; stroke-width: 2.35099e-037; stroke: #ffffff" x="380" y="440" width="80" height="20"/>
-    <text font-size="15.8044" style="fill: #000000;text-anchor:middle;font-family:Consolas;font-style:normal;font-weight:normal" x="420" y="454.672">
-      <tspan x="420" y="454.672">Spoon</tspan>
+    <text font-size="15.8044" style="fill: #000000;text-anchor:middle;font-family:Courier New;font-style:normal;font-weight:700" x="420" y="453.272">
+      <tspan x="420" y="453.272">Spoon</tspan>
     </text>
   </g>
   <g>
     <rect style="fill: #ffffff" x="540" y="400" width="80" height="20"/>
     <rect style="fill: none; fill-opacity:0; stroke-width: 2.35099e-037; stroke: #ffffff" x="540" y="400" width="80" height="20"/>
-    <text font-size="15.8044" style="fill: #000000;text-anchor:middle;font-family:Consolas;font-style:normal;font-weight:normal" x="580" y="414.672">
-      <tspan x="580" y="414.672">Bookmark</tspan>
+    <text font-size="15.8044" style="fill: #000000;text-anchor:middle;font-family:Courier New;font-style:normal;font-weight:700" x="580" y="413.272">
+      <tspan x="580" y="413.272">Bookmark</tspan>
     </text>
   </g>
   <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="500,320.01 500,340 420,340 420,359.99 "/>

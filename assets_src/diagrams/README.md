@@ -19,10 +19,9 @@ Source files to generate the diagram images in SVG using [Dia].
     - [Hugo Debugger Flowchart](#hugo-debugger-flowchart)
 - [System Requirements](#system-requirements)
 - [Diagrams Editing Notes](#diagrams-editing-notes)
-    - [Object Trees Fonts and Colors](#object-trees-fonts-and-colors)
-    - [Flowcharts Fonts and Colors](#flowcharts-fonts-and-colors)
-    - [Spacing Characters](#spacing-characters)
-    - [Special Chars Table](#special-chars-table)
+    - [Object Trees Fonts and Colours](#object-trees-fonts-and-colours)
+    - [Flowcharts Fonts and Colours](#flowcharts-fonts-and-colours)
+    - [Text Overlays](#text-overlays)
 - [External Links](#external-links)
     - [Dia Diagram Editor](#dia-diagram-editor)
     - [Flowcharts](#flowcharts)
@@ -77,12 +76,16 @@ Used in [§3.2. The Object Tree][§3.2].
 
 ![Object Tree example 1][OT1]
 
+-------------------------------------------------------------------------------
+
 ### 2nd Diagram
 
 - `hugo-book1_03_object-tree2.dia`
 - [`hugo-book1_03_object-tree2.svg`][OT2]
 
 ![Object Tree example 2][OT2]
+
+-------------------------------------------------------------------------------
 
 ### 3rd Diagram
 
@@ -91,6 +94,7 @@ Used in [§3.2. The Object Tree][§3.2].
 
 ![Object Tree example 3][OT3]
 
+-------------------------------------------------------------------------------
 
 ## Hugo Compiler Flowchart
 
@@ -101,6 +105,8 @@ Used in [§25. THE HUGO COMPILER AND HOW IT WORKS][§25].
 
 ![Hugo Compiler Diagram][FC2:13]
 
+-------------------------------------------------------------------------------
+
 ## Hugo Engine Flowchart
 
 - `hugo-book2_14_flowchart-engine.dia`
@@ -109,6 +115,8 @@ Used in [§25. THE HUGO COMPILER AND HOW IT WORKS][§25].
 Used in [§26. THE HUGO ENGINE AND HOW IT WORKS][§26].
 
 ![Hugo Engine Diagram][FC2:14]
+
+-------------------------------------------------------------------------------
 
 ## Hugo Debugger Flowchart
 
@@ -119,6 +127,7 @@ Used in [§27. DARK SECRETS OF THE HUGO DEBUGGER][§27].
 
 ![Hugo Debugger Diagram][FC2:15]
 
+-------------------------------------------------------------------------------
 
 # System Requirements
 
@@ -129,52 +138,51 @@ In order to edit the diagram's sourcefile, or to run the scripts in this folder,
 
 Some annotations on Dia assets and settings used in the creation of the SVG diagrams sources.
 
-## Object Trees Fonts and Colors
+> **NOTE** — The __Courier New__ font was chosen because it's a universally safe font that should be available on all OSs, including smart phones and tablets.
+>
+> Attempts to use "monospace" instead of a specific font name didn't turn out to provide reliable cross-browser behaviour, and was deemed as potentially unsafe to use with other backends.
+>
+> __Courier New__ is expected to be supported by all conversion backends as well as being properly previewed in all formats on all OSs.
+
+## Object Trees Fonts and Colours
 
 For the Dia Object Trees diagrams, I've used the built-in [Flowchart Shapes].
 
 And the following fonts:
 
-- Consolas, 28 pt.
+- __Courier New__ (bold), 28 pt.
 
-## Flowcharts Fonts and Colors
+## Flowcharts Fonts and Colours
 
 For the Dia flowchart diagrams, I've used the built-in [Flowchart Shapes].
 
 And the following fonts:
 
-- Consolas, 28 pt.
+- __Courier New__ (normal, bold), 28 pt.
 
-Text color variations:
+Text coluor variations:
 
-|    element    | text color | description |
-|---------------|------------|-------------|
-| Element Title | `#2660BF`  | Medium Blue |
-| Ref. Number   | `#BA3925`  | Dark Red    |
+|    element    | text coluor | description |
+|---------------|-------------|-------------|
+| Element Title | `#2660BF`   | Medium Blue |
+| Ref. Number   | `#BA3925`   | Dark Red    |
 
-For the diagrams shapes background colors, I've used the same color scheme adopted by [VisualParadigm Online Diagrams]:
+For the diagrams shapes background colours, I've used the same coluor scheme adopted by [VisualParadigm Online Diagrams]:
 
-|   symbol   |  bg-color |
+|   symbol   | bg-coluor |
 |------------|-----------|
 | Terminator | `#F8CECC` |
 | Process    | `#FFE599` |
 | Decision   | `#FFCE9F` |
 | Data       | `#D4E1F5` |
 
-## Spacing Characters
+## Text Overlays
 
-In order to preserve multiple-spaces for indentation purposes, use the [Figure-space] character (`&numsp;`) instead of ordinary spaces or non-breaking spaces.
+In order to achieve special alignments in the same diagram box, an extra text overlay was used in some places, position on top of the main box to ensure that right aligned texts (usually filenames) will be preserved.
 
-Since [Dia] doesn't allow insertion of special characters via numeric keypad alt-codes (Win OS), you'll need to copy and paste any required special characters from some plain text file.
+This was necessary due to multiple spaces being treated as one, and the impossibility of using special spaces with the __Courier New__ font (e.g. non-breaking spaces or numeric spaces).
 
-## Special Chars Table
-
-Below is a table with some characters that were employed in the diagrams.
-Every character representation can be copied to the clipbloard from the _sample_ column — including invisible characters like spaces.
-
-|   char name    | xml entity |  sample |
-|----------------|------------|---------|
-| [Figure-space] | `&numsp;`  | &numsp; |
+When editing the diagrams, be mindful of the presence of these text boxes.
 
 # External Links
 
@@ -205,8 +213,6 @@ Resources and articles on which fonts are safe to use based on common OSs' avail
 <!-----------------------------------------------------------------------------
                                REFERENCE LINKS
 ------------------------------------------------------------------------------>
-
-[Figure-space]: https://en.wikipedia.org/wiki/Figure_space "See Wikipedia page on Figure space"
 
 [Wikipedia » Flowchart]: https://en.wikipedia.org/wiki/Flowchart "See Wikipedia page on 'Flowchart'"
 
