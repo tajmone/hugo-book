@@ -316,9 +316,9 @@ which, essentially, disengages `<object>` from its old parent, makes the sibling
 Therefore, in the original example, the command
 
 [example,role="gametranscript"]
-================================================================================
-&gt; _move bowl to player_
-================================================================================
+===============================
+>move bowl to player
+===============================
 
 would result in altering the object tree to this:
 

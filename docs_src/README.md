@@ -215,13 +215,16 @@ These are the custom inline anchors pointing to specific points in the text:
 
 In order to convert _The Hugo Book_ to HTML you'll need to install the following tools on your system:
 
-- [AsciiDoctor]  (Ruby)
+- [AsciiDoctor]  (Ruby) and the following Ruby gems:
+    + concurrent-ruby
+    + haml
+    + tilt
 - [Highlight]
 
 This project was build by its maintainer under MS Windows 10 x64, using:
 
 - Asciidoctor 2.0.10
-- Ruby 2.6.5p114
+- Ruby 2.7.0p0
 - Highlight 3.54
 
 The Travis CI build tests the project against the latest stable versions of these packages, to ensure that any compatibility breaking updates are caught in time.

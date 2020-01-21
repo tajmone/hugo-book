@@ -1,6 +1,6 @@
 = The Hugo Book
 Kent Tessman <general@generalcoffee.com>
-v1, 2018-10-04: Draft 154 -- Porting to AsciiDoc
+v1, 2018-10-04: Draft 155 -- Porting to AsciiDoc
 :lang: en
 :doctype: book
 // TOC Settings for GitHub previewing (override via CLI):
@@ -1749,9 +1749,9 @@ which, essentially, disengages `<object>` from its old parent, makes the sibling
 Therefore, in the original example, the command
 
 [example,role="gametranscript"]
-================================================================================
-&gt; _move bowl to player_
-================================================================================
+===============================
+>move bowl to player
+===============================
 
 would result in altering the object tree to this:
 
@@ -2733,7 +2733,7 @@ print "\"Hello!\""
 
 [example,role="gametranscript"]
 ===============================
-"Hello!"
+"`Hello!`"
 ===============================
 
 [source,hugo]
@@ -2903,7 +2903,7 @@ will write
 
 [example,role="gametranscript"]
 ===============================
-"Hello," he said.
+"`Hello,`" he said.
 ===============================
 
 to the *.HEX* file text bank, but
@@ -4089,16 +4089,16 @@ The output will be:
 //     "(Array address:  "      -> "(Array address =" (":  " vs "= ")
 
 [example,role="gametranscript"]
-========================================
-a = "This is a sample string." +
+==========================================
+a = "`This is a sample string.`" +
 (Dictionary address:  1040) +
-s1 contains "This is a sample string." +
+s1 contains "`This is a sample string.`" +
 (Array address:  1643, length = 24) +
-s2 is "Apple", s3 is "Tomato"
+s2 is "`Apple`", s3 is "`Tomato`"
 
 StringCompare(s1, s2) = 1 +
 StringCompare(s1, s3) = -1
-========================================
+==========================================
 
 As is evident above, a dictionary entry does not need to be a single word; any piece of text which is referred to by the program as a value gets entered into the dictionary table.
 
