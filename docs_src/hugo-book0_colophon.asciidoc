@@ -16,6 +16,8 @@ link:https://www.generalcoffee.com[www.generalcoffee.com^]
 
 _First Edition_
 
-_ISBN 0-9735652-0-9_
+// Original book ISBN:
+// ISBN 0-9735652-0-9
+// (does not apply to the digital edition!)
 
 // EOF //

@@ -1,6 +1,12 @@
 = The Hugo Book
 Kent Tessman <general@generalcoffee.com>
-v1, 2018-10-04: Draft 155 -- Porting to AsciiDoc
+:revnumber: 1.0.0-RC1
+:revdate: 2020/01/21
+:edition: 1st Ed.
+:editionrev: January 2020
+:revremark:  {edition} revised {editionrev}
+:version-label: v
+// v1, 2018-10-04: Draft 155 -- Porting to AsciiDoc
 :lang: en
 :doctype: book
 // TOC Settings for GitHub previewing (override via CLI):

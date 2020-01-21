@@ -4,18 +4,32 @@
 // *                                                                           *
 // *****************************************************************************
 
-// -----------------------------------------------------------------------------
-// The Hugo Book
-// Hugo: An Interactive Fiction Design System
-// By Kent Tessman
-// First Edition
-// -----------------------------------------------------------------------------
+:CC-BY-SA-40: link:https://creativecommons.org/licenses/by-nc-sa/4.0/[CC BY-NC-SA 4.0^,title="View the CC BY-NC-SA 4.0 License at Creative Commons"]
 
-AsciiDoc port of _The Hugo Book_, written by Kent Tessman, 2004.
+AsciiDoc port of _The Hugo Book_ ({edition}, 2004) written by Kent Tessman.
 
-Released under
-link:https://creativecommons.org/licenses/by-nc-sa/4.0/[CC BY-NC-SA 4.0^,title="View the CC BY-NC-SA 4.0 License at Creative Commons"]
-license with explicit permission by Kent Tessman.
+Contents revised by the editor with the author's supervision in {editionrev}. +
+AsciiDoc edition by
+link:https://github.com/tajmone/[Tristano Ajmone^,title="Visit Tristano Ajmone's profile on GitHub"], publicly available on GitHub:
+
+* https://github.com/tajmone/hugo-book
+
+.License Information
+--
+================================================================================
+_The Hugo Book_ is now released under {CC-BY-SA-40} license with explicit permission by Kent Tessman.
+
+The Hugo applications, their source code, and the Hugo Library are now released under BSD-2-Clause license.
+
+[WARNING]
+====================================
+This book contains some statements regarding legal restrictions on usage of _The Hubo Book_, the Hugo software and the Hugo Library which apparently contradict the above license terms.
+These statements pre-date the open source licensing of the Hugo suite, and were kept unaltered in this book for historical preservation reasons.
+
+The above mentioned license terms supersede any previous restrictions mentioned in this book, in the source files comments, or any other documentation.
+====================================
+================================================================================
+--
 
 .About the Author
 --
