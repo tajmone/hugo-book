@@ -1,7 +1,7 @@
 = The Hugo Book
 Kent Tessman <general@generalcoffee.com>
-:revnumber: 1.0.0-RC1
-:revdate: 2020/01/21
+:revnumber: 1.0.0-RC2
+:revdate: 2020/01/28
 :edition: 1st Ed.
 :editionrev: January 2020
 :revremark:  {edition} revised {editionrev}
@@ -9,6 +9,12 @@ Kent Tessman <general@generalcoffee.com>
 // v1, 2018-10-04: Draft 155 -- Porting to AsciiDoc
 :lang: en
 :doctype: book
+// Metadata
+:description: pass:q,r[*The Hugo Book* -- \
+    Official manual of the Hugo Interactive Fiction Design System.]
+:keywords: hugo, if, interactive fiction, text adventures, programming, \
+           language, development, authoring, tools
+:title: pass:r[The Hugo Book -- Hugo: An Interactive Fiction Design System]
 // TOC Settings for GitHub previewing (override via CLI):
 :toc: preamble
 :toclevels: 5
