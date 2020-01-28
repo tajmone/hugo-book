@@ -84,10 +84,12 @@ List of _The Hugo Book_ AsciiDoc sources and contents-assets:
 
 ## Build Toolchain
 
-- [`build.sh`][build.sh] — (***slow***) generates the two final build documents:
-    1. The HTML version of the book in the [`../docs/`][docs] folder (served on the WWW via [GitHub Pages]) — fully standalone, embedded graphics, syntax highlighted, custom CSS:
-        * [`../docs/hugo-book.html`][HB.html] ( [HTML Live Preview] )
-    2. A standalone AsciiDoc version of the book as a single file, via the [`asciidoc-coalescer.rb`][coalescer.rb] script:
+- [`build.sh`][build.sh] — (***slow***) generates the three final build documents:
+    1. The HTML release of the book in the root folder — fully standalone, embedded graphics, syntax highlighted, custom CSS:
+        * [`../hugo-book.html`][HB.html] ( [HTML Live Preview] )
+    2. A renamed copy of the HTML version of the book in the [`../docs/`][docs] folder, served on the WWW via [GitHub Pages]:
+        * [`../docs/index.html`](../docs/index.html)
+    3. A standalone AsciiDoc version of the book as a single file, via the [`asciidoc-coalescer.rb`][coalescer.rb] script:
         * [`../hugo-book.asciidoc`](../hugo-book.asciidoc)
 - [`preview.sh`][preview.sh] — (***fast***) generates a quick HTML preview of the book:
     + `preview.html` — (ignored by Git) no syntax highlighting, no embedded graphics, use default template.
@@ -246,62 +248,62 @@ The Travis CI build tests the project against the latest stable versions of thes
 
 <!-- Hugo Book Live HTML Links -->
 
-[HTML Live Preview]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/docs/hugo-book.html "Click here to preview The Hugo Book via GitHub & BitBucket HTML Preview"
+[HTML Live Preview]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/hugo-book.html "Click here to preview The Hugo Book via GitHub & BitBucket HTML Preview"
 
-[Colophon]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/docs/hugo-book.html#colophon "Jump to Live HTML Preview of: COLOPHON"
-[Author's Foreword]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/docs/hugo-book.html#preface "Jump to Live HTML Preview of: AUTHOR’S FOREWORD"
+[Colophon]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/hugo-book.html#colophon "Jump to Live HTML Preview of: COLOPHON"
+[Author's Foreword]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/hugo-book.html#preface "Jump to Live HTML Preview of: AUTHOR’S FOREWORD"
 
-[Book I]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/docs/hugo-book.html#book1 "Jump to Live HTML Preview of: Book I"
-[Ch1]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/docs/hugo-book.html#chapter_1 "Jump to Live HTML Preview of: Book I » 1. INTRODUCTION"
-[Ch2]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/docs/hugo-book.html#chapter_2 "Jump to Live HTML Preview of: Book I » 2. A FIRST LOOK AT HUGO"
-[Ch3]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/docs/hugo-book.html#chapter_3 "Jump to Live HTML Preview of: Book I » 3. OBJECTS"
-[Ch4]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/docs/hugo-book.html#chapter_4 "Jump to Live HTML Preview of: Book I » 4. HUGO PROGRAMMING"
-[Ch5]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/docs/hugo-book.html#chapter_5 "Jump to Live HTML Preview of: Book I » 5. ROUTINES AND EVENTS"
-[Ch6]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/docs/hugo-book.html#chapter_6 "Jump to Live HTML Preview of: Book I » 6. FUSES, DAEMONS, AND SCRIPTS"
-[Ch7]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/docs/hugo-book.html#chapter_7 "Jump to Live HTML Preview of: Book I » 7. GRAMMAR AND PARSING"
-[Ch8]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/docs/hugo-book.html#chapter_8 "Jump to Live HTML Preview of: Book I » 8. JUNCTION ROUTINES"
-[Ch9]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/docs/hugo-book.html#chapter_9 "Jump to Live HTML Preview of: Book I » 9. THE GAME LOOP"
-[Ch10]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/docs/hugo-book.html#chapter_10 "Jump to Live HTML Preview of: Book I » 10. USING THE OBJECT LIBRARY"
-[Ch11]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/docs/hugo-book.html#chapter_11 "Jump to Live HTML Preview of: Book I » 11. ADVANCED FEATURES"
-[Ch12]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/docs/hugo-book.html#chapter_12 "Jump to Live HTML Preview of: Book I » 12. RESOURCES"
-[AppA]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/docs/hugo-book.html#appendix_a "Jump to Live HTML Preview of: Book I » Appendix A: SUMMARY OF KEYWORDS AND COMMANDS"
-[AppB]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/docs/hugo-book.html#appendix_b "Jump to Live HTML Preview of: Book I » Appendix B: THE HUGO LIBRARY"
-[AppC]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/docs/hugo-book.html#appendix_c "Jump to Live HTML Preview of: Book I » Appendix C: LIMIT SETTINGS"
-[AppD]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/docs/hugo-book.html#appendix_d "Jump to Live HTML Preview of: Book I » Appendix D: HUGOFIX AND THE HUGO DEBUGGER"
-[AppE]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/docs/hugo-book.html#appendix_e "Jump to Live HTML Preview of: Book I » Appendix E: PRECOMPILED HEADERS"
-[AppF]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/docs/hugo-book.html#appendix_f "Jump to Live HTML Preview of: Book I » Appendix F: HUGO VERSIONS"
-[AppG]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/docs/hugo-book.html#appendix_g "Jump to Live HTML Preview of: Book I » Appendix G: ADDITIONAL RESOURCES"
+[Book I]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/hugo-book.html#book1 "Jump to Live HTML Preview of: Book I"
+[Ch1]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/hugo-book.html#chapter_1 "Jump to Live HTML Preview of: Book I » 1. INTRODUCTION"
+[Ch2]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/hugo-book.html#chapter_2 "Jump to Live HTML Preview of: Book I » 2. A FIRST LOOK AT HUGO"
+[Ch3]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/hugo-book.html#chapter_3 "Jump to Live HTML Preview of: Book I » 3. OBJECTS"
+[Ch4]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/hugo-book.html#chapter_4 "Jump to Live HTML Preview of: Book I » 4. HUGO PROGRAMMING"
+[Ch5]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/hugo-book.html#chapter_5 "Jump to Live HTML Preview of: Book I » 5. ROUTINES AND EVENTS"
+[Ch6]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/hugo-book.html#chapter_6 "Jump to Live HTML Preview of: Book I » 6. FUSES, DAEMONS, AND SCRIPTS"
+[Ch7]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/hugo-book.html#chapter_7 "Jump to Live HTML Preview of: Book I » 7. GRAMMAR AND PARSING"
+[Ch8]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/hugo-book.html#chapter_8 "Jump to Live HTML Preview of: Book I » 8. JUNCTION ROUTINES"
+[Ch9]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/hugo-book.html#chapter_9 "Jump to Live HTML Preview of: Book I » 9. THE GAME LOOP"
+[Ch10]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/hugo-book.html#chapter_10 "Jump to Live HTML Preview of: Book I » 10. USING THE OBJECT LIBRARY"
+[Ch11]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/hugo-book.html#chapter_11 "Jump to Live HTML Preview of: Book I » 11. ADVANCED FEATURES"
+[Ch12]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/hugo-book.html#chapter_12 "Jump to Live HTML Preview of: Book I » 12. RESOURCES"
+[AppA]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/hugo-book.html#appendix_a "Jump to Live HTML Preview of: Book I » Appendix A: SUMMARY OF KEYWORDS AND COMMANDS"
+[AppB]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/hugo-book.html#appendix_b "Jump to Live HTML Preview of: Book I » Appendix B: THE HUGO LIBRARY"
+[AppC]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/hugo-book.html#appendix_c "Jump to Live HTML Preview of: Book I » Appendix C: LIMIT SETTINGS"
+[AppD]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/hugo-book.html#appendix_d "Jump to Live HTML Preview of: Book I » Appendix D: HUGOFIX AND THE HUGO DEBUGGER"
+[AppE]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/hugo-book.html#appendix_e "Jump to Live HTML Preview of: Book I » Appendix E: PRECOMPILED HEADERS"
+[AppF]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/hugo-book.html#appendix_f "Jump to Live HTML Preview of: Book I » Appendix F: HUGO VERSIONS"
+[AppG]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/hugo-book.html#appendix_g "Jump to Live HTML Preview of: Book I » Appendix G: ADDITIONAL RESOURCES"
 
-[Book II]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/docs/hugo-book.html#book2 "Jump to Live HTML Preview of: Book II"
-[Ch13]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/docs/hugo-book.html#chapter_13 "Jump to Live HTML Preview of: Book II » 13. INTRODUCTION"
-[Ch14]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/docs/hugo-book.html#chapter_14 "Jump to Live HTML Preview of: Book II » 14. ORGANIZATION OF THE .HEX FILE"
-[Ch15]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/docs/hugo-book.html#chapter_15 "Jump to Live HTML Preview of: Book II » 15. TOKENS AND DATA TYPES"
-[Ch16]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/docs/hugo-book.html#chapter_16 "Jump to Live HTML Preview of: Book II » 16. ENGINE PARSING"
-[Ch17]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/docs/hugo-book.html#chapter_17 "Jump to Live HTML Preview of: Book II » 17. GRAMMAR"
-[Ch18]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/docs/hugo-book.html#chapter_18 "Jump to Live HTML Preview of: Book II » 18. EXECUTABLE CODE"
-[Ch19]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/docs/hugo-book.html#chapter_19 "Jump to Live HTML Preview of: Book II » 19. ENCODING TEXT"
-[Ch20]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/docs/hugo-book.html#chapter_20 "Jump to Live HTML Preview of: Book II » 20. THE OBJECT TABLE"
-[Ch21]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/docs/hugo-book.html#chapter_21 "Jump to Live HTML Preview of: Book II » 21. THE PROPERTY TABLE"
-[Ch22]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/docs/hugo-book.html#chapter_22 "Jump to Live HTML Preview of: Book II » 22. THE EVENT TABLE"
-[Ch23]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/docs/hugo-book.html#chapter_23 "Jump to Live HTML Preview of: Book II » 23. THE DICTIONARY AND SPECIAL WORDS"
-[Ch24]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/docs/hugo-book.html#chapter_24 "Jump to Live HTML Preview of: Book II » 24. RESOURCEFILES"
-[Ch25]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/docs/hugo-book.html#chapter_25 "Jump to Live HTML Preview of: Book II » 25. THE HUGO COMPILER AND HOW IT WORKS"
-[Ch26]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/docs/hugo-book.html#chapter_26 "Jump to Live HTML Preview of: Book II » 26. THE HUGO ENGINE AND HOW IT WORKS"
-[Ch27]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/docs/hugo-book.html#chapter_27 "Jump to Live HTML Preview of: Book II » 27. DARK SECRETS OF THE HUGO DEBUGGER"
-[AppH]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/docs/hugo-book.html#appendix_h "Jump to Live HTML Preview of: Book II » Appendix H: CODE PATTERNS"
+[Book II]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/hugo-book.html#book2 "Jump to Live HTML Preview of: Book II"
+[Ch13]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/hugo-book.html#chapter_13 "Jump to Live HTML Preview of: Book II » 13. INTRODUCTION"
+[Ch14]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/hugo-book.html#chapter_14 "Jump to Live HTML Preview of: Book II » 14. ORGANIZATION OF THE .HEX FILE"
+[Ch15]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/hugo-book.html#chapter_15 "Jump to Live HTML Preview of: Book II » 15. TOKENS AND DATA TYPES"
+[Ch16]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/hugo-book.html#chapter_16 "Jump to Live HTML Preview of: Book II » 16. ENGINE PARSING"
+[Ch17]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/hugo-book.html#chapter_17 "Jump to Live HTML Preview of: Book II » 17. GRAMMAR"
+[Ch18]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/hugo-book.html#chapter_18 "Jump to Live HTML Preview of: Book II » 18. EXECUTABLE CODE"
+[Ch19]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/hugo-book.html#chapter_19 "Jump to Live HTML Preview of: Book II » 19. ENCODING TEXT"
+[Ch20]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/hugo-book.html#chapter_20 "Jump to Live HTML Preview of: Book II » 20. THE OBJECT TABLE"
+[Ch21]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/hugo-book.html#chapter_21 "Jump to Live HTML Preview of: Book II » 21. THE PROPERTY TABLE"
+[Ch22]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/hugo-book.html#chapter_22 "Jump to Live HTML Preview of: Book II » 22. THE EVENT TABLE"
+[Ch23]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/hugo-book.html#chapter_23 "Jump to Live HTML Preview of: Book II » 23. THE DICTIONARY AND SPECIAL WORDS"
+[Ch24]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/hugo-book.html#chapter_24 "Jump to Live HTML Preview of: Book II » 24. RESOURCEFILES"
+[Ch25]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/hugo-book.html#chapter_25 "Jump to Live HTML Preview of: Book II » 25. THE HUGO COMPILER AND HOW IT WORKS"
+[Ch26]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/hugo-book.html#chapter_26 "Jump to Live HTML Preview of: Book II » 26. THE HUGO ENGINE AND HOW IT WORKS"
+[Ch27]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/hugo-book.html#chapter_27 "Jump to Live HTML Preview of: Book II » 27. DARK SECRETS OF THE HUGO DEBUGGER"
+[AppH]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/hugo-book.html#appendix_h "Jump to Live HTML Preview of: Book II » Appendix H: CODE PATTERNS"
 
-[Table 1]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/docs/hugo-book.html#table-hugo-data-types "Live HTML Preview of captioned Table"
-[Table 2]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/docs/hugo-book.html#table-engine-variables "Live HTML Preview of captioned Table"
-[Table 3]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/docs/hugo-book.html#table-hugolib-colors "Live HTML Preview of captioned Table"
-[Table 4]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/docs/hugo-book.html#table-engine-globals "Live HTML Preview of captioned Table"
-[Table 5]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/docs/hugo-book.html#table-parseerror-responses "Live HTML Preview of captioned Table"
-[Table 6]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/docs/hugo-book.html#table-hex-file-map"Live HTML Preview of captioned Table"
-[Table 7]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/docs/hugo-book.html#table-hex-file-header-map"Live HTML Preview of captioned Table"
-[Table 8]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/docs/hugo-book.html#table-hdx-file-map"Live HTML Preview of captioned Table"
+[Table 1]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/hugo-book.html#table-hugo-data-types "Live HTML Preview of captioned Table"
+[Table 2]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/hugo-book.html#table-engine-variables "Live HTML Preview of captioned Table"
+[Table 3]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/hugo-book.html#table-hugolib-colors "Live HTML Preview of captioned Table"
+[Table 4]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/hugo-book.html#table-engine-globals "Live HTML Preview of captioned Table"
+[Table 5]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/hugo-book.html#table-parseerror-responses "Live HTML Preview of captioned Table"
+[Table 6]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/hugo-book.html#table-hex-file-map"Live HTML Preview of captioned Table"
+[Table 7]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/hugo-book.html#table-hex-file-header-map"Live HTML Preview of captioned Table"
+[Table 8]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/hugo-book.html#table-hdx-file-map"Live HTML Preview of captioned Table"
 
-[Figure 1]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/docs/hugo-book.html#fig-compiler-flowchart "Live HTML Preview of captioned Figure"
-[Figure 2]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/docs/hugo-book.html#fig-engine-flowchart "Live HTML Preview of captioned Figure"
-[Figure 3]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/docs/hugo-book.html#fig-debugger-flowchart "Live HTML Preview of captioned Figure"
+[Figure 1]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/hugo-book.html#fig-compiler-flowchart "Live HTML Preview of captioned Figure"
+[Figure 2]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/hugo-book.html#fig-engine-flowchart "Live HTML Preview of captioned Figure"
+[Figure 3]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/hugo-book.html#fig-debugger-flowchart "Live HTML Preview of captioned Figure"
 
 <!-- project files -->
 

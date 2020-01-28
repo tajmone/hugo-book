@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# "docs_src/build.sh"                                      | v0.3.0 | 2019/12/26
+# "docs_src/build.sh"                                      | v0.4.0 | 2020/01/28
 # ------------------------------------------------------------------------------
 # By Tristano Ajmone, released into the public domain via the Unlicense.
 # ------------------------------------------------------------------------------
@@ -15,8 +15,9 @@
 source=hugo-book.asciidoc
 
 HTML_output=hugo-book.html
-HTML_outDir=../docs
+HTML_outDir=..
 HTML_TOCLev=1
+WWW=../docs/index.html
 
 ADoc_output=../hugo-book.asciidoc
 
@@ -74,12 +75,24 @@ asciidoctor \
 	--destination-dir $HTML_outDir \
 	-o  $HTML_output \
 		$source || {
-			printBuildFailed;
-			exit 1;
+			printBuildFailed
+			exit 1
 			}
 printBuildPassed
 
-# 2. Build AsciiDoc Preprocessed Document
+# 2. Copy HTML Book to "docs/"
+# ============================
+printHeading1 "Deploy HTML Book to GitHub Pages Folder"
+echo -e "\033[37;1mCopying the built HTML document to: \033[33;1m$WWW\033[0m"
+printSeparator
+echo -en "\033[31;1m"
+cp "$HTML_outDir/$HTML_output" $WWW || {
+	printBuildFailed
+	exit 1
+	}
+printBuildPassed
+
+# 3. Build AsciiDoc Preprocessed Document
 # =======================================
 printHeading1 "Hugo Book: Build Standalone AsciiDoc Document"
 echo -e "\033[37;1mPreprocessing to single-file AsciiDoc document: \033[33;1m$ADoc_output\033[0m"
@@ -95,7 +108,7 @@ if [ -n "$result" ]
 		printSeparator
 		echo -en "\033[31;1m"
 		cat $coalescerLog
-		printBuildFailed;
+		printBuildFailed
 		rm $coalescerLog
 		exit 1
 fi

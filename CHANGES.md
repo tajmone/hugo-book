@@ -441,31 +441,31 @@ In the definition of `print`, after the `print <output>` syntax:
 
 <!-- Live HTML Links -->
 
-[Book1]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/docs/hugo-book.html#book1 "Jump to Live HTML Preview of: Book I"
+[Book1]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/hugo-book.html#book1 "Jump to Live HTML Preview of: Book I"
 
-[Ch1]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/docs/hugo-book.html#chapter_1 "Jump to Live HTML Preview of: Book I » 1. INTRODUCTION"
-[Ch2]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/docs/hugo-book.html#chapter_2 "Jump to Live HTML Preview of: Book I » 2. A FIRST LOOK AT HUGO"
-[Ch3]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/docs/hugo-book.html#chapter_3 "Jump to Live HTML Preview of: Book I » 3. OBJECTS"
-[Ch4]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/docs/hugo-book.html#chapter_4 "Jump to Live HTML Preview of: Book I » 4. HUGO PROGRAMMING"
-[Ch5]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/docs/hugo-book.html#chapter_5 "Jump to Live HTML Preview of: Book I » 5. ROUTINES AND EVENTS"
-[Ch6]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/docs/hugo-book.html#chapter_6 "Jump to Live HTML Preview of: Book I » 6. FUSES, DAEMONS, AND SCRIPTS"
-[Ch9]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/docs/hugo-book.html#chapter_9 "Jump to Live HTML Preview of: Book I » 9. THE GAME LOOP"
-[Ch10]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/docs/hugo-book.html#chapter_10 "Jump to Live HTML Preview of: Book I » 10. USING THE OBJECT LIBRARY"
-[Ch12]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/docs/hugo-book.html#chapter_12 "Jump to Live HTML Preview of: Book I » 12. RESOURCES"
-[AppA]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/docs/hugo-book.html#appendix_a "Jump to Live HTML Preview of: Book I » Appendix A: SUMMARY OF KEYWORDS AND COMMANDS"
+[Ch1]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/hugo-book.html#chapter_1 "Jump to Live HTML Preview of: Book I » 1. INTRODUCTION"
+[Ch2]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/hugo-book.html#chapter_2 "Jump to Live HTML Preview of: Book I » 2. A FIRST LOOK AT HUGO"
+[Ch3]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/hugo-book.html#chapter_3 "Jump to Live HTML Preview of: Book I » 3. OBJECTS"
+[Ch4]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/hugo-book.html#chapter_4 "Jump to Live HTML Preview of: Book I » 4. HUGO PROGRAMMING"
+[Ch5]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/hugo-book.html#chapter_5 "Jump to Live HTML Preview of: Book I » 5. ROUTINES AND EVENTS"
+[Ch6]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/hugo-book.html#chapter_6 "Jump to Live HTML Preview of: Book I » 6. FUSES, DAEMONS, AND SCRIPTS"
+[Ch9]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/hugo-book.html#chapter_9 "Jump to Live HTML Preview of: Book I » 9. THE GAME LOOP"
+[Ch10]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/hugo-book.html#chapter_10 "Jump to Live HTML Preview of: Book I » 10. USING THE OBJECT LIBRARY"
+[Ch12]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/hugo-book.html#chapter_12 "Jump to Live HTML Preview of: Book I » 12. RESOURCES"
+[AppA]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/hugo-book.html#appendix_a "Jump to Live HTML Preview of: Book I » Appendix A: SUMMARY OF KEYWORDS AND COMMANDS"
 
-[§1.5. Packing List]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/docs/hugo-book.html#sec_1-5 "Live HTML Preview"
-[§1.10. Limit Settings]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/docs/hugo-book.html#sec_1-10 "Live HTML Preview"
-[§2.4. Multiple Lines]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/docs/hugo-book.html#sec_2-4 "Live HTML Preview"
-[§4.8. What Should I Be Able to Do Now?]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/docs/hugo-book.html#sec_4-8 "Live HTML Preview"
-[§5.3. Before And After Routines]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/docs/hugo-book.html#sec_5-3 "Live HTML Preview"
-[§9.2. What Should I Be Able to Do Now?]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/docs/hugo-book.html#sec_9-2 "Live HTML Preview"
-[§10.5. Doors]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/docs/hugo-book.html#sec_10-5 "Live HTML Preview"
-[§10.6. Vehicles]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/docs/hugo-book.html#sec_10-6 "Live HTML Preview"
-[§12.2. Pictures]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/docs/hugo-book.html#sec_12-2 "Live HTML Preview"
-[§12.3. Sound and Music]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/docs/hugo-book.html#sec_12-3 "Live HTML Preview"
+[§1.5. Packing List]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/hugo-book.html#sec_1-5 "Live HTML Preview"
+[§1.10. Limit Settings]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/hugo-book.html#sec_1-10 "Live HTML Preview"
+[§2.4. Multiple Lines]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/hugo-book.html#sec_2-4 "Live HTML Preview"
+[§4.8. What Should I Be Able to Do Now?]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/hugo-book.html#sec_4-8 "Live HTML Preview"
+[§5.3. Before And After Routines]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/hugo-book.html#sec_5-3 "Live HTML Preview"
+[§9.2. What Should I Be Able to Do Now?]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/hugo-book.html#sec_9-2 "Live HTML Preview"
+[§10.5. Doors]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/hugo-book.html#sec_10-5 "Live HTML Preview"
+[§10.6. Vehicles]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/hugo-book.html#sec_10-6 "Live HTML Preview"
+[§12.2. Pictures]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/hugo-book.html#sec_12-2 "Live HTML Preview"
+[§12.3. Sound and Music]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/hugo-book.html#sec_12-3 "Live HTML Preview"
 
-[Sec. 4.3]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/docs/hugo-book.html#hugolib-colors "Live HTML Preview"
+[Sec. 4.3]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/hugo-book.html#hugolib-colors "Live HTML Preview"
 
 
 

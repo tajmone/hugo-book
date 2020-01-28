@@ -2,7 +2,6 @@
 ![project status][status badge]&nbsp;
 ![build status][travis badge]
 
-
 # The Hugo Book
 
 AsciiDoc port of _[The Hugo Book]_, written by [Kent Tessman], 2004.
@@ -11,6 +10,7 @@ Released under [CC BY-NC-SA 4.0] license with explicit permission by Kent Tessma
 
 Project created by [Tristano Ajmone] in 2019/09/29.
 
+- https://github.com/tajmone/hugo-book
 
 -----
 
@@ -48,6 +48,7 @@ Project created by [Tristano Ajmone] in 2019/09/29.
 - [`CHANGES.md`][CHANGES.md] — list of changes from the original book.
 - [`CONVENTIONS.md`][CONVENTIONS.md] — formatting, styles and code conventions.
 - [`hugo-book.asciidoc`][HB Adoc] — standalone preprocessed AsciiDoc version of _The Hugo Book_.
+- [`hugo-book.html`][HB HTML] — _The Hugo Book_, HTML release.
 - [`LICENSE`][LICENSE] —  [CC BY-NC-SA 4.0] license.
 - [`validate.sh`][validate.sh] — [EditorConfig] code styles validation via [EClint].
 
@@ -86,7 +87,7 @@ This standalone version is provided for simplifying handling the book as a singl
 
 Currently _The Hugo Book_ is available only in HTML format in this project:
 
-- [`/docs/hugo-book.html`][HB HTML]
+- [`hugo-book.html`][HB HTML]
 
 We're planning to add more output formats to the build toolchain, at some point in the future — any help on this front is highly appreciated.
 
@@ -341,7 +342,7 @@ Released under MIT License:
 [LICENSE]: ./LICENSE "View License file"
 [validate.sh]: ./validate.sh "View file"
 [HB Adoc]: ./hugo-book.asciidoc "View the Hugo Book single-file AsciiDoc preprocessed version"
-[HB HTML]: ./docs/hugo-book.html "View the Hugo Book in HTML format"
+[HB HTML]: ./hugo-book.html "View the Hugo Book in HTML format"
 
 [AsciiDoc Coalescer]: ./assets/adoc/asciidoc-coalescer.rb "View the AsciiDoc Coalescer script (Ruby)"
 

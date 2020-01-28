@@ -327,13 +327,13 @@ It's also possible to suppress colours altogether by overriding these styles so 
 
 <!-- Hugo Book Live HTML Links -->
 
-[Book I]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/docs/hugo-book.html#book1 "Live HTML Preview"
-[Book II]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/docs/hugo-book.html#book2 "Live HTML Preview"
+[Book I]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/hugo-book.html#book1 "Live HTML Preview"
+[Book II]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/hugo-book.html#book2 "Live HTML Preview"
 
-[§4.4]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/docs/hugo-book.html#sec_4-4 "Live HTML Preview"
-[§4.8]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/docs/hugo-book.html#sec_4-8 "Live HTML Preview"
+[§4.4]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/hugo-book.html#sec_4-4 "Live HTML Preview"
+[§4.8]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/hugo-book.html#sec_4-8 "Live HTML Preview"
 
-[App. B]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/docs/hugo-book.html#appendix_b "Live HTML Preview"
+[App. B]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/hugo-book.html#appendix_b "Live HTML Preview"
 
 
 <!-- Asciidoctor ------------------------------------------------------------>
