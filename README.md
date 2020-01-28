@@ -55,7 +55,7 @@ Project created by [Tristano Ajmone] in 2019/09/29.
 
 # About
 
-_[The Hugo Book]_ is the official manual for the [Hugo Interactive Fiction] authoring system (1995–2006), a cross platform system for creating and playing text adventures with advanced multimedia support, created by Kent Tessman and released under BSD 2-Clause License.
+_[The Hugo Book]_ is the official manual for the [Hugo Interactive Fiction] authoring system (1995–2006), a cross platform system for creating and playing text adventures with advanced multimedia support, created by [Kent Tessman] and released under BSD 2-Clause License.
 
 Historically, _The Hugo Book_ was distributed in PDF format, which can be downloaded in the Hugo section of the [IF Archive]:
 
@@ -72,9 +72,11 @@ For comparison between the AsciiDoc version and the original book, please refer 
 
 _The Hugo Book_ was split into multiple AsciiDoc files to simplify maintainance as well as to allow republishing single chapters individually.
 
+To convert the AsciiDoc sources into HTML, run the [`docs_src/build.sh`][build.sh] script.
+
 ## Single-File AsciDoc Version
 
-For convenience, the `build.sh` script also creates a single-file AsciiDoc version, by preprocessing the source files via the __[AsciiDoc Coalescer]__:
+For convenience, the [`docs_src/build.sh`][build.sh] script also creates a single-file AsciiDoc version, by preprocessing the source files via the __[AsciiDoc Coalescer]__:
 
 - [`hugo-book.asciidoc`][HB Adoc]
 
@@ -95,8 +97,8 @@ We're planning to add more output formats to the build toolchain, at some point 
 
 AsciiDoc being format-agnostic, you should be able to build the book with any Asciidoctor backend, out of the box.
 
-To optimize the final look of the book, you might have to tweak the template used by the backend/converter to cover the custom styles adopted in this project.
-Also, to beautify the Hugo code examples you'll probably have to create your own Hugo syntax definition for the syntax highlighter employed by the specific backend/converter.
+To optimize the final look of the book, you might have to tweak the template used by the backend/converter to cover the custom styles adopted in this project (see [`CONVENTIONS.md`][CONVENTIONS.md]).
+Furthermore, to beautify the Hugo code examples you'll probably have to create your own Hugo syntax definition for the syntax highlighter employed by the specific backend/converter.
 
 If you've converted _The Hugo Book_ to other formats, please let use know about it.
 
@@ -109,12 +111,11 @@ These are the main reasons why I wanted to make _The Hugo Book_ available in Asc
     AsciiDoc source documents are very versatile when it comes to their final use, for they can be converted to a variety of output formats beside PDF, including HTML based formats (websites, ePub, Mobi/Kindle, Microsoft CHM Help), and many other formats.
 
     For example, someone wishing to create a dedicated Hugo IDE could reuse these sources to include _The Hugo Book_ as a CHM Help file.
-    Someone wishing to create a website dedicated to IF documents could just drop these sources into the CMS sources folder and be up and running.
 
-    Many CMSs and static website generators support AsciiDoc, which means that these sources can be simply dropped in the sources folder and they're ready to be served online as website pages.
+    Many CMSs and static website generators support AsciiDoc, which means that someone wishing to create a website dedicated to IF documents could just drop these sources into the CMS sources folder and be up and running.
 
     The list of supported output formats will grow in time, as the AsciiDoc projects evolve.
-    Since the advent of the [Asciidoctor] implementation we've seen a new wave of interest in the AsciiDoc format, and many new projects have come into being, including new backends for output formats.
+    Since the advent of the [Asciidoctor] implementation we've seen a new wave of interest in the AsciiDoc format, and many new projects have come into being, including new output formats backends.
 
 - __Separation between styles and contents__.
 
@@ -125,8 +126,8 @@ These are the main reasons why I wanted to make _The Hugo Book_ available in Asc
 
     Being a text-based syntax, AsciiDoc documents can be version controlled like any other source files, which makes it simple to edit documents collaboratively via tools like Git, Fossil, Mercurial, etc.
 
-    Since [Hugo] is an open source software, people might wish to take on its development, or create new derivative tools based on the Hugo code-base.
-    In such cases, having access to _The Hugo Book_ in AsciiDoc source format is going to be a blessing for the sake of documenting the project.
+    Since [Hugo] is an open source software, people might wish to take on its development, or create new derivative tools based on the Hugo sources.
+    In such cases, having access to _The Hugo Book_ in AsciiDoc format is going to be a blessing for the sake of documenting the project.
 
     The ability to version-control the book also simplifies translating it to other languages by working directly overt the original English sources and being able to easily track changes, resolve conflicts, and undo changes.
 
@@ -137,7 +138,7 @@ These are the main reasons why I wanted to make _The Hugo Book_ available in Asc
 
 - __Long-term document preservation.__
 
-    The AsciiDoc standard is well established enough to grant that in the future it will always be possible to reproduce or recover an AsciiDoc document.
+    The AsciiDoc standard is well established enough to grant that in the future it should always be possible to reproduce or recover an AsciiDoc document.
     Unlike proprietary document file formats, AsciiDoc is both open source and text-based, which is a guarantee that there will always be a backward compatible tool capable of parsing AsciiDoc sources.
     Since AsciiDoc sources only deal with contents and their semantics, it's going to be easy to convert them to other formats in a lossless manner.
 
@@ -278,9 +279,16 @@ Released under MIT License:
 - [IFWiki » Hugo]
 - [IF Archive » Hugo]
     + _[The Hugo Book]_ (PDF) — for Hugo v3.1, by Kent Tessman, 2004.
-- [curiousdannii/hugo] — Hugo sources on GitHub, courtesy of [Dannii Willis].
 - [Awesome IF » Hugo]
 - [Not Dead Hugo] — an active blog with precious news on Hugo.
+
+Other Hugo-related projects on GitHub:
+
+- Hugo sources:
+    + [curiousdannii/hugo] — courtesy of [Dannii Willis].
+    + [tajmone/hugo] — my edited fork of curiousdannii/hugo.
+- [tajmone/hugo-library] — The Hugo Library.
+- [tajmone/sublime-hugo-if] — A WIP Hugo syntax for [Sublime Text 3].
 
 <!-----------------------------------------------------------------------------
                                REFERENCE LINKS
@@ -310,6 +318,7 @@ Released under MIT License:
 [EditorConfig]: https://editorconfig.org/ "Visit EditorConfig website"
 [GitHub Pages]: https://pages.github.com/ "Visit GitHub Pages website"
 [IF Archive]: https://www.ifarchive.org/ "Visit the IF Archive"
+[Sublime Text 3]: https://www.sublimetext.com/ "Visit Sublime Text website"
 
 <!-- 3rd party upstream links -->
 
@@ -326,23 +335,30 @@ Released under MIT License:
 <!-- Hugo links 3rd party -->
 
 [Awesome IF » Hugo]: https://github.com/tajmone/awesome-interactive-fiction#hugo "View Hugo entry at the Awesome Interactive Fiction repository"
-[curiousdannii/hugo]: https://github.com/curiousdannii/hugo "Visit the Hugo sources repository on GitHub, maintained by Dannii Willis"
 [IF Archive » Hugo]: https://www.ifarchive.org/indexes/if-archive/programming/hugo/ "Visit the IF Archive section on Hugo"
 [IFWiki » Hugo]: http://ifwiki.org/index.php/Hugo "Go to the Hugo page on IFWiki"
 [Not Dead Hugo]: http://notdeadhugo.blogspot.com/ "Visit the 'Not Dead Hugo' blog"
 [The Hugo Book]: https://www.ifarchive.org/if-archive/programming/hugo/manuals/hugo_book.pdf "Download 'The Hugo Book' (PDF) for Hugo v3.1"
 
+<!-- Hugo GitHub -->
+
+[curiousdannii/hugo]: https://github.com/curiousdannii/hugo "Visit the Hugo sources repository on GitHub, maintained by Dannii Willis"
+[tajmone/hugo]: https://github.com/tajmone/hugo "Visit the Hugo sources repository on GitHub, maintained by Tristano Ajmone"
+[tajmone/hugo-library]: https://github.com/tajmone/hugo-library "Visit the Hugo Library repository on GitHub, maintained by Tristano Ajmone"
+[tajmone/sublime-hugo-if]: https://github.com/tajmone/sublime-hugo-if "Visit the Sublime Hugo IF repository on GitHub"
+
 <!-- project files -->
 
+[build.sh]: ./docs_src/build.sh "View script source"
 [CHANGES.md]: ./CHANGES.md "View file"
-[CONVENTIONS.md]: ./CONVENTIONS.md "View file"
-[HL rb]: ./assets/adoc/highlight-treeprocessor_mod.rb "View Ruby source file"
 [coalescer.rb]: ./assets/adoc/asciidoc-coalescer.rb "View Ruby source file"
-[LICENSE]: ./LICENSE "View file"
-[LICENSE]: ./LICENSE "View License file"
-[validate.sh]: ./validate.sh "View file"
+[CONVENTIONS.md]: ./CONVENTIONS.md "View file"
 [HB Adoc]: ./hugo-book.asciidoc "View the Hugo Book single-file AsciiDoc preprocessed version"
 [HB HTML]: ./hugo-book.html "View the Hugo Book in HTML format"
+[HL rb]: ./assets/adoc/highlight-treeprocessor_mod.rb "View Ruby source file"
+[LICENSE]: ./LICENSE "View file"
+[LICENSE]: ./LICENSE "View License file"
+[validate.sh]: ./validate.sh "View script source"
 
 [AsciiDoc Coalescer]: ./assets/adoc/asciidoc-coalescer.rb "View the AsciiDoc Coalescer script (Ruby)"
 

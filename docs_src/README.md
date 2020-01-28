@@ -84,17 +84,17 @@ List of _The Hugo Book_ AsciiDoc sources and contents-assets:
 
 ## Build Toolchain
 
-- [`build.sh`][build.sh] — (***slow***) generates the three final build documents:
+- [`build.sh`][build.sh] — (***slow***) generates three documents:
     1. The HTML release of the book in the root folder — fully standalone, embedded graphics, syntax highlighted, custom CSS:
         * [`../hugo-book.html`][HB.html] ( [HTML Live Preview] )
-    2. A renamed copy of the HTML version of the book in the [`../docs/`][docs] folder, served on the WWW via [GitHub Pages]:
+    2. A renamed copy of the HTML release, inside the [`../docs/`][docs] folder, served on the WWW via [GitHub Pages]:
         * [`../docs/index.html`](../docs/index.html)
     3. A standalone AsciiDoc version of the book as a single file, via the [`asciidoc-coalescer.rb`][coalescer.rb] script:
         * [`../hugo-book.asciidoc`](../hugo-book.asciidoc)
 - [`preview.sh`][preview.sh] — (***fast***) generates a quick HTML preview of the book:
     + `preview.html` — (ignored by Git) no syntax highlighting, no embedded graphics, use default template.
 
-> __NOTE 1__ — Since the overhead introduced by using the external Highlight tool is considerable on a big document like this one, the `preview.sh` script is very handy when editing the document, for it provides a very fast-updating preview of the changes (without syntax highlighting).
+> __NOTE 1__ — Since the overhead introduced by using the external Highlight tool is considerable on a big document like this one, the `preview.sh` script is very handy when editing the document, for it provides a very fast-updating preview of the changes (without syntax highlighting and custom style).
 >
 > Furthermore, the `preview.html` doesn't embed graphics via data-URIs, so you won't need to rebuild the whole document to view changed images, but only refresh the page since images are loaded from disk.
 
