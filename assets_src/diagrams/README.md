@@ -101,7 +101,7 @@ Used in [§3.2. The Object Tree][§3.2].
 - `hugo-book2_13_flowchart-compiler.dia`
 - [`hugo-book2_13_flowchart-compiler.svg`][FC2:13]
 
-Used in [§25. THE HUGO COMPILER AND HOW IT WORKS][§25].
+Used in [§25. The Hugo Compiler and How It Works][§25].
 
 ![Hugo Compiler Diagram][FC2:13]
 
@@ -112,7 +112,7 @@ Used in [§25. THE HUGO COMPILER AND HOW IT WORKS][§25].
 - `hugo-book2_14_flowchart-engine.dia`
 - [`hugo-book2_14_flowchart-engine.svg`][FC2:14]
 
-Used in [§26. THE HUGO ENGINE AND HOW IT WORKS][§26].
+Used in [§26. The Hugo Engine and How It Works][§26].
 
 ![Hugo Engine Diagram][FC2:14]
 
@@ -123,7 +123,7 @@ Used in [§26. THE HUGO ENGINE AND HOW IT WORKS][§26].
 - `hugo-book2_15_flowchart-debugger.dia`
 - [`hugo-book2_15_flowchart-debugger.svg`][FC2:15]
 
-Used in [§27. DARK SECRETS OF THE HUGO DEBUGGER][§27].
+Used in [§27. Dark Secrets of the Hugo Debugger][§27].
 
 ![Hugo Debugger Diagram][FC2:15]
 
@@ -146,7 +146,7 @@ Some annotations on Dia assets and settings used in the creation of the SVG diag
 
 ## Object Trees Fonts and Colours
 
-For the Dia Object Trees diagrams, I've used the built-in [Flowchart Shapes].
+For the Object Trees diagrams, I've used Dia's built-in [Flowchart Shapes].
 
 And the following fonts:
 
@@ -154,22 +154,22 @@ And the following fonts:
 
 ## Flowcharts Fonts and Colours
 
-For the Dia flowchart diagrams, I've used the built-in [Flowchart Shapes].
+For the flowchart diagrams, I've used Dia's built-in [Flowchart Shapes].
 
 And the following fonts:
 
 - __Courier New__ (normal, bold), 28 pt.
 
-Text coluor variations:
+Text colour variations:
 
-|    element    | text coluor | description |
+|    element    | text colour | description |
 |---------------|-------------|-------------|
 | Element Title | `#2660BF`   | Medium Blue |
 | Ref. Number   | `#BA3925`   | Dark Red    |
 
-For the diagrams shapes background colours, I've used the same coluor scheme adopted by [VisualParadigm Online Diagrams]:
+For the diagrams shapes background colours, I've used the same colour scheme adopted by [VisualParadigm Online Diagrams]:
 
-|   symbol   | bg-coluor |
+|   symbol   | bg-colour |
 |------------|-----------|
 | Terminator | `#F8CECC` |
 | Process    | `#FFE599` |
@@ -178,7 +178,7 @@ For the diagrams shapes background colours, I've used the same coluor scheme ado
 
 ## Text Overlays
 
-In order to achieve special alignments in the same diagram box, an extra text overlay was used in some places, position on top of the main box to ensure that right aligned texts (usually filenames) will be preserved.
+In order to achieve special alignments in the same diagram box, an extra text overlay was used in some places, positioned on top of the main box to ensure that right aligned texts (usually, file names) will be preserved.
 
 This was necessary due to multiple spaces being treated as one, and the impossibility of using special spaces with the __Courier New__ font (e.g. non-breaking spaces or numeric spaces).
 
