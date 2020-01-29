@@ -1,7 +1,7 @@
 = The Hugo Book
 Kent Tessman <general@generalcoffee.com>
-:revnumber: 1.0.0-RC2
-:revdate: 2020/01/28
+:revnumber: 1.0.0-RC3
+:revdate: 2020/01/29
 :edition: 1st Ed.
 :editionrev: January 2020
 :revremark:  {edition} revised {editionrev}
@@ -5480,7 +5480,7 @@ which will have the effect of, instead of defining the verb with a dictionary wo
 What this allows is for the `some_object.noun` property to be a routine that can return varying values at runtime in order to provide for dynamic grammar, if required.
 However, since this sort of dynamic grammar isn't often required, static grammar definitions are far more common.
 
-// @EDITED XREF ADDED: (undocumented & waiting approval: Issue #48)
+// @EDITED XREF ADDED: (Issue #48)
 //    The following admonition block was added to the original book to provide
 //    a cross reference to learn more about dynamic grammars.
 
@@ -10052,7 +10052,7 @@ If so, it also sets the global `light_source` to the object number of the source
 [literal,role="hugosyntax"]
 ObjWord(word, object)
 
-// @EDITED TEXT: (undocumented & waiting approval: Issue #47)
+// @EDITED TEXT: (Issue #47)
 //    Reconstucted missing word: "if the given [`word`] is either"
 Returns either `adjective` or `noun` (i.e., the property number) if the given `word` is either an adjective or noun of the specified object.
 
@@ -11658,7 +11658,7 @@ The grammar table in this case would look like
 
 where $FFFF is the signal that instead of a dictionary word address, the engine must read the following discrete value, where $4A is the `object#` token, and $__x1x2__ is the object number of `get_object`.
 This extension is provided so that grammar may be dynamically coded and changed at runtime.
-// @EDITED XREF ADDED: (undocumented & waiting approval: Issue #48)
+// @EDITED XREF ADDED: (Issue #48)
 //    The following cross reference was added to the original book:
 (See also <<dynamic-grammars1,_Book I_ on dynamic grammars definitions>>.)
 

@@ -1025,7 +1025,7 @@ If so, it also sets the global `light_source` to the object number of the source
 [literal,role="hugosyntax"]
 ObjWord(word, object)
 
-// @EDITED TEXT: (undocumented & waiting approval: Issue #47)
+// @EDITED TEXT: (Issue #47)
 //    Reconstucted missing word: "if the given [`word`] is either"
 Returns either `adjective` or `noun` (i.e., the property number) if the given `word` is either an adjective or noun of the specified object.
 

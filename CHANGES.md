@@ -24,6 +24,8 @@ This document lists all the contents changes that theAsciiDoc edition has introd
             - [4.8. _What Should I Be Able to Do Now?_](#48-what-should-i-be-able-to-do-now)
         - [5. Routines and Events](#5-routines-and-events)
             - [5.3. _Before And After Routines_](#53-before-and-after-routines)
+        - [7. Grammar and Parsing](#7-grammar-and-parsing)
+            - [7.1. Grammar Definition](#71-grammar-definition)
         - [9. The Game Loop](#9-the-game-loop)
             - [9.2. _What Should I Be Able to Do Now?_](#92-what-should-i-be-able-to-do-now)
         - [10. Using the Object Library](#10-using-the-object-library)
@@ -33,6 +35,10 @@ This document lists all the contents changes that theAsciiDoc edition has introd
             - [12.2. _Pictures_](#122-pictures)
             - [12.3. _Sound and Music_](#123-sound-and-music)
         - [App. A. Summary of Keywords and Commands](#app-a-summary-of-keywords-and-commands)
+        - [App. B. The Hugo Library](#app-b-the-hugo-library)
+            - [B.7.Utility Routines, Etc.](#b7utility-routines-etc)
+    - [Book II](#book-ii)
+        - [17. Grammar](#17-grammar)
 
 <!-- /MarkdownTOC -->
 
@@ -240,6 +246,24 @@ The paragraph end was amended by Kent Tessman to:
 (See [Issue #14])
 
 
+### 7. Grammar and Parsing
+
+List of changes to Chapter [7. _Grammar and Parsing_][Ch7].
+
+#### 7.1. Grammar Definition
+
+<!-- Issue #48 --------------------------------------------------------------->
+
+In _[§7.1. Grammar Definition]_, where [dynamic grammars are being discussed][dyngramm1], the following TIP admonition block was added:
+
+> For more details on dynamic grammars, see the [_Grammar_ chapter in _Book II_][dyngramm2].
+
+Because dynamic grammars are only briefly mentioned in the book, custom anchors were added in the only two places where they are discussed, along with a side note cross-referencing them to each other.
+
+For the other added cross reference, see the changes in [17. Grammar](#17-grammar).
+
+(See [Issue #48])
+
 ### 9. The Game Loop
 
 List of changes to Chapter [9. _The Game Loop_][Ch9].
@@ -378,7 +402,6 @@ PlayMusic(<resourcefile>, <song>[, <volume>[, <loop>[, <force>]]])
 
 List of changes to Appendix [A. _Summary of Keywords and Commands_][AppA].
 
-
 ---
 
 <!-- Issue #27 --------------------------------------------------------------->
@@ -397,7 +420,6 @@ This was necessary because not all output formats have page numbers (HTML docume
 
 (See [Issue #27])
 
-
 ---
 
 <!-- Issue #28 --------------------------------------------------------------->
@@ -410,9 +432,55 @@ In the definition of `print`, after the `print <output>` syntax:
 
 > where `<output>` can consist of both text strings enclosed in quotation marks (`"…​"`), and values representing dictionary addresses
 
-
 (See [Issue #28])
 
+
+### App. B. The Hugo Library
+
+List of changes to Appendix [B. _The Hugo Library_][AppB].
+
+#### B.7.Utility Routines, Etc.
+
+<!-- Issue #47 --------------------------------------------------------------->
+
+In [§B.7. _Utility Routines, Etc._], in the definition of the `ObjWord` Library routine:
+
+> calling form:
+>
+> ```
+> ObjWord(word, object)
+> ```
+>
+> Returns either `adjective` or `noun` (i.e., the property number) if the given is either an adjective or noun of the specified object.
+
+The missing term "`word`" was added after "if the given":
+
+> if the given `word` is either an adjective ...
+
+(See [Issue #47])
+
+
+## Book II
+
+List of changes to [Book II: _Technical System Specification_][Book2].
+
+### 17. Grammar
+
+List of changes to Chapter [17. _Grammar_][Ch17].
+
+---
+
+<!-- Issue #48 --------------------------------------------------------------->
+
+In Chapter [17. _Grammar_][Ch17], where [dynamic grammars are being discussed][dyngramm2], the following note within parenthesis was added:
+
+> (See also [_Book I_ on dynamic grammars][dyngramm1].)
+
+Because dynamic grammars are only briefly mentioned in the book, custom anchors were added in the only two places where they are discussed, along with a side note cross-referencing them to each other.
+
+For the other added cross reference, see the changes in [7.1. Grammar Definition](#71-grammar-definition).
+
+(See [Issue #48])
 
 <!-----------------------------------------------------------------------------
                                REFERENCE LINKS
@@ -438,35 +506,45 @@ In the definition of `print`, after the `print <output>` syntax:
 [Issue #30]: https://github.com/tajmone/hugo-book/issues/30 "View Issue #30 regarding this text amendment"
 [Issue #36]: https://github.com/tajmone/hugo-book/issues/36 "View Issue #36 regarding this text amendment"
 [Issue #38]: https://github.com/tajmone/hugo-book/issues/38 "View Issue #38 regarding this text amendment"
+[Issue #47]: https://github.com/tajmone/hugo-book/issues/47 "View Issue #47 regarding this text amendment"
+[Issue #48]: https://github.com/tajmone/hugo-book/issues/48 "View Issue #48 regarding this text amendment"
 
 <!-- Live HTML Links -->
 
 [Book1]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/hugo-book.html#book1 "Jump to Live HTML Preview of: Book I"
-
 [Ch1]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/hugo-book.html#chapter_1 "Jump to Live HTML Preview of: Book I » 1. INTRODUCTION"
 [Ch2]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/hugo-book.html#chapter_2 "Jump to Live HTML Preview of: Book I » 2. A FIRST LOOK AT HUGO"
 [Ch3]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/hugo-book.html#chapter_3 "Jump to Live HTML Preview of: Book I » 3. OBJECTS"
 [Ch4]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/hugo-book.html#chapter_4 "Jump to Live HTML Preview of: Book I » 4. HUGO PROGRAMMING"
 [Ch5]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/hugo-book.html#chapter_5 "Jump to Live HTML Preview of: Book I » 5. ROUTINES AND EVENTS"
 [Ch6]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/hugo-book.html#chapter_6 "Jump to Live HTML Preview of: Book I » 6. FUSES, DAEMONS, AND SCRIPTS"
+[Ch7]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/hugo-book.html#chapter_7 "Jump to Live HTML Preview of: Book I » 7. GRAMMAR AND PARSING"
 [Ch9]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/hugo-book.html#chapter_9 "Jump to Live HTML Preview of: Book I » 9. THE GAME LOOP"
 [Ch10]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/hugo-book.html#chapter_10 "Jump to Live HTML Preview of: Book I » 10. USING THE OBJECT LIBRARY"
 [Ch12]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/hugo-book.html#chapter_12 "Jump to Live HTML Preview of: Book I » 12. RESOURCES"
 [AppA]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/hugo-book.html#appendix_a "Jump to Live HTML Preview of: Book I » Appendix A: SUMMARY OF KEYWORDS AND COMMANDS"
+[AppB]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/hugo-book.html#appendix_b "Jump to Live HTML Preview of: Book I » Appendix A: SUMMARY OF KEYWORDS AND COMMANDS"
+
+[Book2]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/hugo-book.html#book2 "Jump to Live HTML Preview of: Book II"
+[Ch17]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/hugo-book.html#chapter_17 "Jump to Live HTML Preview of: Book II » 17. GRAMMAR"
+
 
 [§1.5. Packing List]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/hugo-book.html#sec_1-5 "Live HTML Preview"
 [§1.10. Limit Settings]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/hugo-book.html#sec_1-10 "Live HTML Preview"
 [§2.4. Multiple Lines]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/hugo-book.html#sec_2-4 "Live HTML Preview"
 [§4.8. What Should I Be Able to Do Now?]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/hugo-book.html#sec_4-8 "Live HTML Preview"
 [§5.3. Before And After Routines]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/hugo-book.html#sec_5-3 "Live HTML Preview"
+[§7.1. Grammar Definition]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/hugo-book.html#sec_7-1 "Live HTML Preview"
 [§9.2. What Should I Be Able to Do Now?]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/hugo-book.html#sec_9-2 "Live HTML Preview"
 [§10.5. Doors]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/hugo-book.html#sec_10-5 "Live HTML Preview"
 [§10.6. Vehicles]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/hugo-book.html#sec_10-6 "Live HTML Preview"
 [§12.2. Pictures]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/hugo-book.html#sec_12-2 "Live HTML Preview"
 [§12.3. Sound and Music]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/hugo-book.html#sec_12-3 "Live HTML Preview"
+[§B.7. _Utility Routines, Etc._]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/hugo-book.html#sec_b-7 "Live HTML Preview"
 
 [Sec. 4.3]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/hugo-book.html#hugolib-colors "Live HTML Preview"
 
-
+[dyngramm1]: https://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/hugo-book.html#dynamic-grammars1 "Live HTML Preview"
+[dyngramm2]: https://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/hugo-book.html#dynamic-grammars2 "Live HTML Preview"
 
 <!-- EOF -->

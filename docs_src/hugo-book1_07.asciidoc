@@ -75,7 +75,7 @@ which will have the effect of, instead of defining the verb with a dictionary wo
 What this allows is for the `some_object.noun` property to be a routine that can return varying values at runtime in order to provide for dynamic grammar, if required.
 However, since this sort of dynamic grammar isn't often required, static grammar definitions are far more common.
 
-// @EDITED XREF ADDED: (undocumented & waiting approval: Issue #48)
+// @EDITED XREF ADDED: (Issue #48)
 //    The following admonition block was added to the original book to provide
 //    a cross reference to learn more about dynamic grammars.
 
