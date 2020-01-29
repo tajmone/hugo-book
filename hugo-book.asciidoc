@@ -1,6 +1,6 @@
 = The Hugo Book
 Kent Tessman <general@generalcoffee.com>
-:revnumber: 1.0.0-RC3
+:revnumber: 1.0.0-RC4
 :revdate: 2020/01/29
 :edition: 1st Ed.
 :editionrev: January 2020
@@ -11,7 +11,7 @@ Kent Tessman <general@generalcoffee.com>
 :doctype: book
 // Metadata
 :description: pass:q,r[*The Hugo Book* -- \
-    Official manual of the Hugo Interactive Fiction Design System.]
+    Official programming manual and technical reference for the Hugo Interactive Fiction Design System.]
 :keywords: hugo, if, interactive fiction, text adventures, programming, \
            language, development, authoring, tools
 :title: pass:r[The Hugo Book -- Hugo: An Interactive Fiction Design System]
