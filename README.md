@@ -25,6 +25,7 @@ Project created by [Tristano Ajmone] in 2019/09/29.
     - [HTML Version](#html-version)
     - [Converting to Other Formats](#converting-to-other-formats)
 - [Why AsciiDoc?](#why-asciidoc)
+- [Contributing](#contributing)
 - [License](#license)
 - [Acknowledgements](#acknowledgements)
 - [Credits](#credits)
@@ -65,6 +66,10 @@ I wanted to port the book to AsciiDoc using an open source license, so I e-maile
 
 I chose not to share the original Word document in the repository due to the [potential leaks of personal information associated with MS Word files].
 For comparison between the AsciiDoc version and the original book, please refer to the [PDF version from the IF Archive].
+
+Having the chance and honour to consult directly the original author, I grabbed the opportunity to fix a few typos and propose some minor edits here and there, all of which were supervised and approved by [Kent Tessman] — all changes are listed in the [`CHANGES.md`][CHANGES.md] document, with links to the repository Issues were these changes were proposed, discussed and approved.
+
+None of these changes are significant beyond what might be part of an _Errata_, so this AsciiDoc port of _The Hugo Book_ still qualifies as the _first edition_, but was revised in January, 2020 with the author's supervision.
 
 ## AsciiDoc Sources
 
@@ -150,6 +155,17 @@ These are the main reasons why I wanted to make _The Hugo Book_ available in Asc
     Being a text-based document format, there here are no hidden tags and metadata containing private information — what you see in the source document is all there is to it.
 
 I strongly believe that AsciiDoc is an excellent format for sharing documents, and I hope that in the future we'll see more IF-related documents being ported to AsciiDoc, which could greatly simplify preservation and maintenance of the IF literature and its re-usability across different projects and output formats.
+
+# Contributing
+
+The project is open to contributions.
+Right now there are no strategies in place regarding how to submit contents, so all pull requested can be made directly to the `master` branch.
+
+Just ensure that your pull request passes the Travis CI build tests, which you can verify locally by running the [`validate.sh`][validate.sh] script, before submitting the PR.
+
+There are no plans to update the book contents, so contributions should be limited to AsciiDoc formatting and styling, the build chain, supporting new output formats, improving existing templates, and similar enhancements that don't affect the actual text of the book.
+
+If you really want to work on the book contents, you should do so in a fork of this repository, because the goal of this project is to provide the latest _Hugo Book_ edition officially approved by the original author, [Kent Tessman].
 
 # License
 
