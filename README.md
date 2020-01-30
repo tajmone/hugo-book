@@ -12,6 +12,10 @@ Project created by [Tristano Ajmone] in 2019/09/29.
 
 - https://github.com/tajmone/hugo-book
 
+To read _The Hugo Book_ on-line, as a single HTML document:
+
+- https://tajmone.github.io/hugo-book/
+
 -----
 
 **Table of Contents**
