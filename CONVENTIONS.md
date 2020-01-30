@@ -113,7 +113,7 @@ For more info:
 ## Book Sections
 
 > __NOTE__ — In the Asciidoctor documentation the term "section" refers to any level of titles (parts, chapter, appendices, and their subsections).
-> In this document, to avoid confusion, we'll use the term "subsection" to refer to sub-sections of chapters and appendices (i.e. Level 3-4 headings).
+> In this document, to avoid confusion, we'll use the term "subsection" to refer to sub-sections of chapters and appendices.
 
 _The Hugo Book_ consists of two parts (_Book I_ and _Book II_), with 12 chapters and 7 appendices in _Book I_ (Chs 1-12, Apps A-F), and 15 chapters and 1 appendix in _Book II_ (Chs 13-27, App A), for a total of 35 book sections (19 + 16) plus the _Colophon_ and the _Author's Foreword_.
 
@@ -127,10 +127,7 @@ This might be an issue when trying to publish _Book I_ and _Book II_ as independ
 Ideally, we would have preferred to preserve the original section numbering system, which would prevent similar discrepancies, regardless of the output format and parts-splitting.
 Unfortunately, there seems to be no easy way to achieve this right now (at least, not with HTML backend).
 
-
-> ### TODO:
->
-> - [ ] Mention that the original PDF employed roman numerals.
+Also, section numbering in the original book adopted Roman numerals and letters, whereas AsciiDoc currently enforces Arabic numerals on section numbers.
 
 For more info:
 
@@ -164,11 +161,7 @@ Every section title in the book has been given a custom ID according to the foll
     + **Level 3 Subsections** — `sec_a-1`, `sec_a-2`, etc.
     + **Level 4 Subsections** — `sec_a-1-1`, `sec_a-1-2`, etc.
 
-> ### TODO:
->
-> - [ ] Spell out the above rules and the rationale behind them.
-> - [ ] Mention that the choice of relying on predefined section numbering in IDs is justified by the fact that there are no plans to further develop the book, therefore we don't expect new contents additions that would alter the current sections numbering.
-
+The adopted IDs scheme should be intuitive enough to allow deducing from the above examples how to create a link targeting the anchor of any specific book section.
 
 For more info:
 
@@ -185,7 +178,7 @@ The following conventions, notes and considerations apply to Hugo code snippets,
 
 ## Indentation Conventions
 
-In the various Hugo code snippets and examples in the book, we've opted to use four-spaces indentation, except for Hugo Library excerpts (and other official boilerplates, like `sample.hug` and `shell.hug`) where we've preserved the original eight-spaces indentation.
+In the various Hugo code snippets and examples in the book, I've opted to use four-spaces indentation, except for Hugo Library excerpts (and other official boilerplates, like `sample.hug` and `shell.hug`) where I've preserved the original eight-spaces indentation.
 
 In a couple of places, an exception to the above rule was made in order to show that strings running across multiple lines can be smart-aligned to increase code readability — e.g. in _§2.4. Multiple Lines_:
 
@@ -230,7 +223,7 @@ resource "GAMERES1"
 where the Windows directory separator `\` is matched as a special formatting sequences in some cases (i.e. `\b`, `\i`).
 
 The current workaround for this problem was to introduce an extra `.noescapes` CSS class that would colour escape sequences with the same colour as the string, effectively hiding the problem from view.
-Hugo code blocks display this problem are given the `noescapes` role:
+Hugo code blocks affected by this problem are given the `noescapes` role:
 
 ```asciidoc
 [source,hugo,role="noescapes"]

@@ -76,6 +76,8 @@ The switch for Word to AsciiDoc called for some aesthetic adaptations — e.g. c
 
 Aesthetic changes include resorting to colour and bigger font sizes to highlight key elements in lists or tables, and similar visual enhancements that can be easily controlled (and even suppressed, if so desired) via custom stylesheets or templates.
 
+Some changes were dictated by AsciiDoc specific conventions, or limitations in the converter backend — e.g. the fact that chapters numbering in _Book II_ resumes from _Book I_, instead of restarting from scratch, or the need to adopt Arabic numerals for chapters numbers instead of the Roman numerals, as in the original.
+
 For the sake of better game transcripts emulation, in some places inline transcripts where substituted with block elements, which also required removing surrounding quotes.
 The rationale for this was that using _ad hoc_ styled for transcripts examples would have a higher visual impact (especially on the HTML document, which uses colours) and simplify quick reading through chapters and finding required references.
 
