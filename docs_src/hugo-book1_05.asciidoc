@@ -1,0 +1,951 @@
+// *****************************************************************************
+// *                                                                           *
+// *               Hugo Book I: 5/19 -- 5. Routines and Events                 *
+// *                                                                           *
+// *****************************************************************************
+//
+[[chapter_5]]
+= Routines and Events
+
+// >>> footnotes definitions >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+:fn1: pass:q[footnote:[Routines return 0 by default, with the exception of _property routines_, which we'll discuss shortly and which return true (or 1) by default.]]
+
+:fn2: pass:q[footnote:[Remember here that both zero (0) and the empty string `""` are equal in value.]]
+
+// @XREF: "8.7. Perform" (in footnote!)
+:fn3: footnote:[The actual mechanics are described in xref:sec_8-7[].]
+
+:fn4: pass:q[footnote:[In the imperative sentence "`Put the book on the shelf`", the book is the direct object, and the shelf is the indirect object.]]
+
+// @XREF: "9. The Game Loop" (in footonote!)
+:fn5: footnote:[See xref:chapter_9[].]
+
+// @XREF: "7.1. Grammar Definition" (in footnote!)
+:fn6: pass:q[footnote:[ \
+_Verbs_ are actions that the player uses to interact with the physical world of the game. \
+_Xverbs_ are "`non-action`" verbs that generally deal with system functions, such as getting help, saving a game, etc. but don't otherwise affect the state of the game world. \
+See xref:sec_7-1[].]]
+
+:fn7: pass:q[footnote:[All of the capitalized `CONSTANTS` used here are defined in *hugolib.h*.]]
+
+:fn8: pass:q[footnote:[A constant that tells *objlib.h* that we're implementing a special class of plural/identical objects for use in the game.]]
+
+:fn9: footnote:[Events and scripts are discussed next.]
+
+:fn10: pass:q[footnote:[That is, by the `FindObject` routine in *hugolib.h*, as called by the engine.]]
+
+:fn11: pass:q[footnote:[You can actually use the `NumberWord` routine from *hugolib.h* to do this a lot more efficiently.]]
+
+// <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+[[sec_5-1]]
+== Routines
+
+Routines are blocks of code that may be called at any point in a program.
+A routine may or may not return a value, and it may or may not require a list of _parameters_ or _arguments_.
+(Some different uses of routines have already been encountered in previous examples, but here is the formal explication.) Routines are also sometimes referred to _subroutines_ or _functions_, the latter particularly when they're returning a value, i.e., performing some function and reporting the result.
+
+A routine is defined as:
+
+[literal,role="hugosyntax"]
+.............................................
+routine <routinename> [(<arg1>, <arg2>, ...)]
+{
+    ...
+}
+.............................................
+
+once again ensuring that the opening brace (`{`) comes on a new line following the `routine` specifier.
+
+[TIP]
+================================================================================
+To substitute a new routine for an existing one with the same name (such as in a library file), define the new one using `replace` instead of `routine`.
+
+[literal,role="hugosyntax"]
+.............................................
+replace <routinename> [(<arg1>, <arg2>, ...)]
+.............................................
+================================================================================
+
+An example of a simple routine definition is:
+
+[source,hugo]
+----------------------------------------------
+routine TestRoutine(obj)
+{
+    print "The "; obj.name; " has a size of ";
+    print obj.size; "."
+    return obj.size
+}
+----------------------------------------------
+
+Where `TestRoutine` takes a single value as an argument, assigns it to a local variable `obj`, executes a simple printing sequence, and returns the property value: `obj.size`.
+
+The `return` keyword exits the current routine, and returns a value if specified.
+Both
+
+[literal,role="hugosyntax"]
+...........................
+return
+...........................
+
+and
+
+[literal,role="hugosyntax"]
+...........................
+return <expression>
+...........................
+
+are valid.
+If no expression is given, the routine returns 0.
+If no `return` statement at all is encountered, the routine continues until the closing brace (`}`), then returns 0.{wj}{fn1}
+
+Once defined, `TestRoutine` can be called several ways:
+
+[source,hugo]
+-----------------------
+TestRoutine(mysuitcase)
+-----------------------
+
+will (assuming the `mysuitcase` object as been defined as previously illustrated) print
+
+// @EDITED PUNCTUATION:
+//    Removed enclosing quotes ("") to emulate a real transcript.
+
+[example,role="gametranscript"]
+The big green suitcase has a size of 25.
+
+The return value will be ignored.
+On the other hand,
+
+[source,hugo]
+---------------------------
+x = TestRoutine(mysuitcase)
+---------------------------
+
+will print the same output, but will assign the return value of `TestRoutine` to the variable `x`.
+
+Now, unlike C and similar languages, Hugo does not require that routines follow a strict prototype.
+Therefore, both
+
+[source,hugo]
+-------------
+TestRoutine
+-------------
+
+and
+
+[source,hugo]
+--------------------------
+TestRoutine(mysuitcase, 5)
+--------------------------
+
+are valid calls for the above routine.
+In the first case, the argument `obj` defaults to 0, since no value is passed.
+(The parentheses are not necessary if no arguments are passed.) In the second case, the value 5 is passed to `TestRoutine`, but ignored.
+
+Arguments are always passed by value, not by reference or address.
+A local variable in one routine can never be altered by another routine.
+What this means is that, for example, in the following routines:
+
+[source,hugo]
+-------------------
+routine TestRoutine
+{
+    local a
+
+    a = 5
+    Double(a)
+    print number a
+}
+
+routine Double(a)
+{
+    a = a * 2
+}
+-------------------
+
+calling `TestRoutine` would print "`5`" and not "`10`" because the local variable `a` in `Double` is only a copy of the variable passed to it as an argument.
+
+These two routines would, on the other hand, print "`10`":
+
+[source,hugo]
+-------------------
+routine TestRoutine
+{
+    local a
+
+    a = 5
+    a = Double(a)
+    print number a
+}
+
+routine Double(a)
+{
+    return a * 2
+}
+-------------------
+
+The local `a` in `TestRoutine` is reassigned with the return value from the `Double` routine.
+
+An interesting side-effect of a zero (0) return value can be seen using the `print` command.{wj}{fn2}
+Consider the `The` routine in *hugolib.h*, which prints an object's definite article (i.e., "`the`", if appropriate), followed by the object's `name` property.
+
+[source,hugo]
+-----------------------------------
+print "You open "; The(object); "."
+-----------------------------------
+
+might result in
+
+[example,role="gametranscript"]
+You open the suitcase.
+
+Note that the above `print` command itself really only prints
+
+...........
+"You open "
+...........
+
+
+and
+
+......
+"."
+......
+
+
+It is the `The` routine that prints
+
+..............
+"the suitcase"
+..............
+
+Since `The` returns 0 (the empty string, or `+""+`), the `print` command is actually displaying
+
+........................
+"You open ", "", and "."
+........................
+
+where the empty string (`+""+`) is preceded on the output line by `The`{wj}`'s printing of `"++the ++"` (notice the trailing space) and the object name.
+
+
+[[sec_5-2]]
+== Property Routines
+
+Property routines are slightly more complex than the simple routines described so far, but follow the same basic rules.
+Normally, a property routine runs when the program attempts to get the value of a property that contains a routine.
+
+That is, instead of having the property value:
+
+[source,hugo]
+-------------
+size 10
+-------------
+
+an object may contain the property:
+
+[source,hugo]
+-------------------------
+size
+{
+    return some_value + 5
+}
+-------------------------
+
+Trying to read `object.size` in either case will return an integer value, although in the second case it is calculated by a routine.
+
+[IMPORTANT]
+================================================================================
+While normal routines return false (or 0) by default, property routines return true (or 1) by default.
+================================================================================
+
+Here's another example.
+Normally, if `<object>` is the current room object, then `<object>.n_to` would contain the object number of the room to the north (if there is one).
+The library checks `<object>.n_to` to see if a value exists for it; if none does, the move is invalid.
+
+Consider this:
+
+[source,hugo]
+-------------
+n_to office
+-------------
+
+and
+
+[source,hugo]
+--------------------------------
+n_to
+{
+    "The office door is locked."
+}
+--------------------------------
+
+or
+
+[source,hugo]
+----------------------------------
+n_to
+{
+    "The office door is locked. ";
+    return false
+}
+----------------------------------
+
+In the first case, an attempt on the part of the player to move north would result in `parent(player)` being changed to the `office` object.
+In the second case, a custom invalid-move message would be displayed.
+In the third case, the custom invalid-move message would be displayed, but then the library would continue as if it had not found a `n_to` property for `<object>`, and it would print the standard invalid-move message (without a newline, thanks to the semicolon):
+
+// @EDITED PUNCTUATION:
+//    Removed enclosing quotes ("") to emulate a real transcript.
+
+[example,role="gametranscript"]
+The office door is locked.
+You can't go that way.
+
+[NOTE]
+================================================================================
+For those wondering why the true (i.e., equal to 1) return value in the second case doesn't prompt a move to object number 1, the library `DoGo` routine assumes that there will never be a room object numbered one, since there are all manner of system objects that get defined first.
+================================================================================
+
+Property routines may be run directly using the `run` command:
+
+[literal,role="hugosyntax"]
+...........................
+run <object>.<property>
+...........................
+
+If `<object>` does not have `<property>`, or if `<object>.<property>` is not a routine, nothing happens.
+Otherwise, the property routine executes.
+Property routines do not take arguments.
+
+Remember that at any point in a program, an existing property may be changed using
+
+[literal,role="hugosyntax"]
+.............................
+<object>.<property> = <value>
+.............................
+
+A property routine may be changed using
+
+[literal,role="hugosyntax"]
+................................................
+<object>.<property> =
+{
+    ...the new code for this property routine...
+}
+................................................
+
+where the new routine must be enclosed in braces.
+
+It is entirely possible to change what was once a property routine into a simple value, or vice-versa, providing that space for the routine (and the required number of elements) was allowed for in the original object definition.
+Even if a property routine is to be assigned later in the program, the property itself must still be defined at the outset in the original object definition.
+A simple
+
+[literal,role="hugosyntax"]
+...........................
+<property> 0
+...........................
+
+or
+
+[literal,role="hugosyntax"]
+...........................
+<property> {return false}
+...........................
+
+will suffice.
+
+There is, however, one drawback to this reassignment of property values to routines and vice-versa.
+A property routine is given a "`length`" of one value, which is the property address.
+When assigning a value or set of values to a property routine, the engine behaves as if the property was originally defined for this object with only one word of data, since it has no way of knowing the original length of the property data.
+
+For example, if the original property specification in the object definition was:
+
+[source,hugo]
+------------------------------------
+found_in bedroom, livingroom, garage
+------------------------------------
+
+and at some point the following was executed:
+
+[source,hugo]
+------------------------------
+found_in = { return basement }
+------------------------------
+
+then the following would not subsequently work:
+
+[source,hugo]
+-------------------
+found_in #3 = attic
+-------------------
+
+because the engine now believes `<object>.found_in` to have only one element -- a routine address -- attached to it.
+
+Finally, keep in mind that whenever calling a property routine, the global variable `self` is normally set to the object number.
+To avoid this, such as when "`borrowing`" a property from another object from within a different object, reference the property via
+
+[literal,role="hugosyntax"]
+...........................
+<object>..<property>
+...........................
+
+using `..` instead of the normal property operator.
+
+
+[[sec_5-3]]
+== Before and After Routines
+
+// @NOTE: "After" was capitalized in "Before and After Routines" because it's
+//        the name of a routine, not a preposition.
+
+The Hugo Compiler predefines two special properties: `before` and `after`.
+They are unique in that not only are they always routines, but they are much more complex (and versatile) than a standard property routine.
+
+_Complex_ properties like `before` and `after` are defined with
+
+[literal,role="hugosyntax"]
+.................................
+property <property name> $complex
+.................................
+
+as in:
+
+[source,hugo]
+------------------------
+property before $complex
+property after $complex
+------------------------
+
+Here is the syntax for the `before` property:
+
+[literal,role="hugosyntax"]
+.................................................
+before
+{
+    <usage1> <verbroutine1>[, <verbroutine2>,...]
+    {
+        ...
+    }
+    <usage2> <verbroutine3>[, <verbroutine4>,...]
+    {
+        ...
+    }
+    ...
+}
+.................................................
+
+[IMPORTANT]
+====================================================================
+The `after` property is the same, substituting `after` for `before`.
+====================================================================
+
+The `<usage>` specifier is a value against which the specified object is matched.
+Most commonly, it is `object`, `xobject`, `location`, `actor`, `parent(object)`, etc.
+The `<verbroutine>` is the name of a verb routine to which the usage in question applies.
+
+When the Hugo Engine goes to execute a player command, it runs a series of tests on the various elements of the command, such as the object on which the specified verb is to be enacted.{wj}{fn3}
+Know for now that when a player command is executed, the `before` properties of the `object` (i.e., the direct object) and `xobject` (i.e., the indirect object){wj}{fn4} are checked, then if neither has returned non-false, the appropriate `<verbroutine>` is run.
+Afterward, the `after` properties are checked; if neither returns non-false, a default message is normally printed by the verbroutine.
+In other words, `before` routines typically pre-empt the execution of a verbroutine, and `after` routines typically pre-empt the default response of a verbroutine.
+
+When the `<object>.before` property is checked, with the global verbroutine set to one of the specified verbroutines in the `before` property, and `<usage>` in that instance is `object`, then the following block of code is executed.
+If no match is found, `<object>.before` returns false.
+
+Here is an example applied to the `mysuitcase` object created previously:
+
+[source,hugo]
+--------------------------------------------
+before
+{
+    object DoEat
+    {
+        "You can't eat the suitcase!"
+    }
+}
+
+after
+{
+    object DoGet
+    {
+        "With a vigorous effort, you pick up
+        the suitcase."
+    }
+    xobject DoPutIn
+    {
+        "You put ";
+        The(object)
+        " into the suitcase."
+    }
+}
+--------------------------------------------
+
+When the player tries the command "`eat suitcase`", the response printed will be:
+
+[example,role="gametranscript"]
+You can't eat the suitcase!
+
+and the normal verbroutine for `eat`, the library's `DoEat` verbroutine, will not be run.
+When the player tries to "`get the suitcase`", the library's `DoGet` verbroutine will be run (since no `before` property interrupts it), but instead of the default library response (which is a simple "`*Taken.*`"), the game will print:
+
+[example,role="gametranscript"]
+With a vigorous effort, you pick up the suitcase.
+
+Finally, when the player tries to put something into the suitcase using, say, "`put the book in the suitcase`", the normal `DoPutIn` routine will be run, but the custom response of the suitcase will be printed instead:
+
+[example,role="gametranscript"]
+You put the book into the suitcase.
+
+Each of these examples will return true (as property routines do by default), thereby overriding the engine's default operation.{wj}{fn5}
+In order to fool the engine into continuing normally, as if no `before` or `after` property has been found, return false from the property routine.
+
+[source,hugo]
+--------------------
+after
+{
+    object DoGet
+    {
+        "Fine. ";
+        return false
+    }
+}
+--------------------
+
+will result in:
+
+[example,role="gametranscript"]
+===============================
+>GET SUITCASE
+
+Fine. Taken.
+===============================
+
+Since the `after` routine returns false, and the library's default response for a successful call to `DoGet` is "`*Taken.*`"
+
+It is important to remember that, unlike other property routines, `before` and `after` routines are also _additive_; i.e., a `before` (or `after`) routine defined in an inherited class or object is not overwritten by a new property routine in the new object.
+Instead, the definition for the routine is -- in essence -- added onto.
+An additive property is defined using the `$additive` qualifier, as in:
+
+[literal,role="hugosyntax"]
+..................................................
+property <property name> $additive <default value>
+..................................................
+
+All previously inherited `before`/`after` subroutines are carried over.
+However, the processing of a `before`/`after` property begins with the present object, progressing backward through the object's ancestry until a usage/verbroutine match is found; once a match is made, no further preceding class inheritances are processed (unless the property routine in question returns false).
+
+[TIP]
+================================================================================
+To force a `before` or `after` property routine to apply to _any_ verbroutine, do not explicitly specify a verbroutine.
+
+For example:
+
+[literal,role="hugosyntax"]
+..............................
+before
+{
+    xobject
+    {
+        ...property routine...
+    }
+}
+..............................
+
+The specified routine will be run whenever the object in question is the `xobject` of any valid input.
+================================================================================
+
+If a non-specific block occurs before any block(s) specifying verbroutines, then the following blocks, if matched, will run as well so long as the block does not return true.
+If the non-specific block comes after any other blocks, then it will run only if no other object/verbroutine combination is matched.
+
+// @EDITED LOST TEXT: (Issue #14)
+//    Some accidentally lost text after "restore, etc. (i.e.," was restored
+//    by K.Tessman.
+A drawback of this non-specification is that all verbroutines are matched -- both verbs and xverbs.{wj}{fn6}
+This can be particularly undesirable in the case of location `before`/`after` properties, where you may wish to be circumventing any action the player tries to perform in that location, but where the non-specific response will be triggered even for `save`, `restore`, etc.
+(i.e., xverbs).
+
+To get around this, the library provides a function `AnyVerb`, which takes an object as its argument and returns that object number if the current verbroutine is not within the group of xverbs; otherwise it returns false.
+Therefore, it can be used via:
+
+[literal,role="hugosyntax"]
+...........................
+before
+{
+    AnyVerb(location)
+    {
+        ...
+    }
+}
+...........................
+
+
+instead of
+
+[literal,role="hugosyntax"]
+...........................
+
+before
+{
+    location
+    {
+        ...
+    }
+}
+...........................
+
+
+The former will execute the conditional block of code whenever the `location` global matches the current object and the current verbroutine is not an xverb.
+The latter (without using `AnyVerb`), will run for verbs and xverbs.
+
+[NOTE]
+================================================================================
+The reason for this, simply put, is that the `location` global always equals the `location` global (of course!).
+But `AnyVerb(location)` will only equal the `location` global if the verbroutine is not an xverb.
+================================================================================
+
+
+
+[[sec_5-4]]
+== Init and Main
+
+At least two routines are typically part of every Hugo problem: `Init` and `Main`.
+`Init` is optional but almost always implemented.
+If it exists, is called once at the start of the program (as well as during a `restart` command).
+The routine should configure all variables, objects, and arrays needed to set up the game state and begin the game.
+Here's the `Init` routine from *shell.hug*:
+
+// @NOTE: Source code taken from the actual "shell.hug" file!
+* {blank}
++
+[source,hugo]
+-------------
+
+routine init
+{
+-------------
+
+
+* _Start the counter at one turn before 0 turns, since `Main` will increment it to begin the game:_
++
+[source,hugo,subs="+attributes"]
+---------------------------------
+{wj}        counter = -1
+---------------------------------
+
+* _Set up the kind of statusline we're going to be displaying, as well as define the default text colors:_{wj}{fn7}
++
+[source,hugo,subs="+attributes"]
+---------------------------------------------------------
+{wj}        STATUSTYPE = 1                  ! score/turns
+        TEXTCOLOR = DEF_FOREGROUND
+        BGCOLOR = DEF_BACKGROUND
+        SL_TEXTCOLOR = DEF_SL_FOREGROUND
+        SL_BGCOLOR = DEF_SL_BACKGROUND
+---------------------------------------------------------
+
+* _Set the player prompt to the default `>`, and set the starting foreground and background colors:_
++
+[source,hugo,subs="+attributes"]
+---------------------------------
+{wj}        prompt = ">"
+        color TEXTCOLOR, BGCOLOR
+---------------------------------
+
+* _Clear the screen before starting the game, set the font to the default font, and print the game title ("`SHELL`", in this case) and a subtitle, followed by the `BANNER` constant:_
++
+[source,hugo,subs="+attributes"]
+-----------------------------------------
+{wj}        cls
+        Font(BOLD_ON | DEFAULT_FONT)
+        "SHELL"
+        Font(BOLD_OFF)
+        "An Interactive Starting Point\n"
+        print BANNER
+-----------------------------------------
+
+* _Set the player to the `you` object (from **objlib.h**), and set up the starting location:_
++
+[source,hugo,subs="+attributes"]
+-------------------------------------------------------------------
+{wj}        player = you                    ! player initialization
+        location = emptyroom
+        old_location = location
+-------------------------------------------------------------------
+
+* _Move the player to the starting location, run the library rules to see if there's light in the location, then describe the starting location and flag it as visited.
+Also, determine the starting bulk of whatever the player is carrying at the outset (if anything):_
++
+[source,hugo,subs="+attributes"]
+-----------------------------------
+{wj}        move player to location
+        FindLight(location)
+        DescribePlace(location)
+        location is visited
+        CalculateHolding(player)
+-----------------------------------
+
+* _Finally, if we've defined ``USE_PLURAL_OBJECTS``,_{wj}{fn8} _call the appropriate initialization routine:_
++
+[source,hugo]
+-------------------------
+#ifset USE_PLURAL_OBJECTS
+        InitPluralObjects
+#endif
+}
+-------------------------
+
+
+`Main` is called every turn.
+It should take care of general game management such as moving ahead the counter, as well as running events and scripts.{wj}{fn9}
+The `Main` routine from *shell.hug* is as follows:
+
+* {blank}
++
+[source,hugo]
+-------------
+routine main
+{
+-------------
+
+* _The `counter` global gets incremented each turn, and the statusline gets updated:_
++
+[source,hugo,subs="+attributes"]
+---------------------------------
+{wj}        counter = counter + 1
+        PrintStatusLine
+---------------------------------
+
+* _The `each_turn` property of the current `location` object gets run.
+The `runevents` statement runs all valid events.
+The `RunScripts` library routine runs any active scripts:_
++
+[source,hugo,subs="+attributes"]
+---------------------------------
+{wj}        run location.each_turn
+        runevents
+        RunScripts
+---------------------------------
+
+* _Finally, we check to see if the player is currently engaged in conversation with a character (if the `speaking` global is set) and, if so, if the character in question has left the current location:_
++
+[source,hugo,subs="+attributes"]
+-----------------------------------------
+{wj}        if parent(speaking)~=location
+                speaking = 0
+}
+-----------------------------------------
+
+
+
+[[sec_5-5]]
+== Events
+
+Events are useful for bringing a game to life, so that little quirks, behaviors, and occurrences can be provided for with little difficulty or complexity.
+Events are also routines, but their special characteristic is that they may be attached to a particular object, and they are run as a group by the `runevents` command.
+Events are defined as:
+
+[literal,role="hugosyntax"]
+...........................
+event
+{
+    ...Event routine...
+}
+...........................
+
+for global events, and
+
+[literal,role="hugosyntax"]
+...........................
+event [in] <object>
+{
+    ...Event routine...
+}
+...........................
+
+
+for events attached to a particular object.
+
+TIP: The `in` is optional, but is recommended for legibility.
+
+If an event is attached to an object, it is run only when that object has the same grandparent as the player object, where "`grandparent`" refers to the last object before 0 (the `nothing` object as defined in *hugolib.h*), or can otherwise be determined to be in the player's current location.{wj}{fn10}
+
+[IMPORTANT]
+================================================================================
+If the event is not a global event, the `self` global is set to the number of the object to which the event is attached.
+================================================================================
+
+
+[[sec_5-6]]
+== _What Should I Be Able to Do Now?_
+
+
+[[sec_5-6-1]]
+=== Example: "`Borrowing`" Property Routines
+
+Consider a situation where a class provides a particular property routine.
+Normally, that routine is inherited by all objects defined using that class.
+But there may arise a situation where one of those objects must have a variation or expansion on the original routine.
+
+[source,hugo]
+---------------------------------------------
+class food
+{
+    bites_left 5
+    eating
+    {
+        self.bites_left = self.bites_left - 1
+        if self.bites_left = 0
+        remove self              ! all gone
+    }
+}
+
+food health_food
+{
+    eating
+    {
+        actor.health = actor.health + 1
+        run food..eating
+    }
+}
+---------------------------------------------
+
+(Assuming that `bites_left`, `eating`, and `health` are defined as properties, with `eating` being called whenever a `food` object is eaten.)
+
+In this case, it would be inconvenient to have to retype the entire `food.eating` routine for the `health_food` object just because the latter must also increase `actor.health`.
+Using `..` calls `food.eating` with `self` set to `health_food`, not the `food` class, so that `food.eating` affects `health_food`.
+This also allows changes to be made to any property, attribute, or property routine in a class, and that change will be reflected in all objects built from that class.
+
+
+[[sec_5-6-2]]
+=== Example: Building a (More) Complex Object
+
+At this point, enough material has been covered to develop a comprehensive example of a functional object that will serve as a summary of concepts introduced so far, as well as providing instances of a number of common properties from *hugolib.h*.
+
+[source,hugo]
+---------------------------------------------------
+object woodcabinet "wooden cabinet"
+{
+    in emptyroom
+    article "a"
+    nouns "cabinet", "shelf", "shelves", \
+        "furniture", "doors", "door"
+    adjectives "wooden", "wood", "fine", "mahogany"
+
+    short_desc
+        "A wooden cabinet sits along one wall."
+    when_open
+        "An open wooden cabinet sits along
+        one wall."
+    long_desc
+    {
+        "The cabinet is made of fine mahogany wood,
+        hand-crafted by a master cabinetmaker. In
+        front are two doors (presently ";
+        if self is open
+            print "open";
+        else: print "closed";
+        print ")."
+    }
+    contains_desc
+        "Behind the open doors of the cabinet you
+        can see";           ! note semicolon--
+                            ! no line feed
+    key_object cabinetkey   ! a cabinetkey object
+                            ! must also be created
+
+    holding 0               ! starts off empty
+    capacity 100
+
+    before
+    {
+        object DoLookUnder
+            {"Nothing there but dust."}
+        object DoGet
+            {"The cabinet is far too heavy
+            to lift!"}
+    }
+    after
+    {
+        object DoLock
+            {"With a twist of the key, you lock the
+            cabinet up tight."}
+    }
+
+    is container, openable, not open
+    is lockable, static
+}
+---------------------------------------------------
+
+
+
+// @XREF: "Appendix B: The Hugo Library"
+
+Now, for bonus points for those who have looked ahead to <<appendix_b>> to see what things like `when_open`, `contains_desc`, and `static` are for, how could the cabinet be converted into, say, a secret passage into another room?
+
+The answer is: by adding a `door_to` property, such as:
+
+[source,hugo]
+door_to secondroom      ! a new room object
+
+and
+
+[source,hugo]
+is enterable
+
+as a new attribute.
+The cabinet can now be entered via: "`go cabinet`", "`get into cabinet`", "`enter cabinet`", etc.
+
+
+[[sec_5-6-3]]
+=== Example: Building a Clock Event
+
+Suppose that there is a clock object in a room.
+Here is a possible event:
+
+[source,hugo,subs="+attributes,macros"]
+------------------------------------------
+event in clock
+{
+    local minutes, hours
+
+    hours = counter / 60
+    minutes = counter - (hours * 60)
+
+    if minutes = 0
+    {
+        print "The clock chimes ";
+        select hour
+            case 1: print "one";
+            case 2: print "two";
+            case 3: print "three";
+            .
+            .
+            .
+            case 12: print "twelve";{wj}{fn11}
+        print " o'clock."
+    }
+}
+------------------------------------------
+
+Whenever the player and the clock are in the same room (when a `runevents` command is given), the event will run.
+
+Now, suppose the clock should be audible throughout the entire game -- i.e., in any location on the game map.
+Simply changing the event definition to:
+
+
+[literal,role="hugosyntax"]
+................................
+event       ! no object is given
+{
+    ...
+}
+................................
+
+
+will make the event a global one.
+(In this case, the `self` global is not altered.)
+
+
+// EOF //

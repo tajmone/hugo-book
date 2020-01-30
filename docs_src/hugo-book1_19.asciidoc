@@ -1,0 +1,55 @@
+// *****************************************************************************
+// *                                                                           *
+// *            Hugo Book I: 19/19 -- App. G. Additional Resources             *
+// *                                                                           *
+// *****************************************************************************
+//
+[appendix]
+[[appendix_g]]
+= Additional Resources
+
+WARNING: Please note that while these links were up-to-date as of this writing, the ephemeral nature of the Internet may result in changes, relocations, old sites closing and new sites appearing.
+
+*The Interactive Fiction Archive* is the world's number-one repository of publicly available information and tools relating to interactive fiction work and play. It can be found at
+link:https://www.ifarchive.org[_**https://www.ifarchive.org**_^,title="Visit the IF Archive"],
+with a mirror at
+link:https://mirror.ifarchive.org[_**https://mirror.ifarchive.org**_^,title="Visit the IF Archive mirror"].
+
+
+// @EDITED DEAD LINKS:
+//    Links updated to point to current URLs at Google Groups:
+Two newsgroups serve as the hubs of the interactive fiction community:
+link:++https://groups.google.com/forum/#!forum/rec.arts.int-fiction++[_**rec.arts.int-fiction**_^,title="Visit rec.arts.int-fiction at Google Groups"]
+where the focus is on writing games, and
+link:++https://groups.google.com/forum/#!forum/rec.games.int-fiction++[_**rec.games.int-fiction**_^,title="Visit rec.games.int-fiction at Google Groups"],
+which talks about playing them.
+
+// @NOTE: Neither the Developers Laboratory nor the Future Boy! Forum exist
+//        any longer, although the page is still there.
+// @NOTE: The actual link skips the Flash intro page, due to Flash being no
+//        longer supported in browsers.
+The *Developers Laboratory* at the _Future Boy!_ Forum
+(link:https://www.generalcoffee.com/futureboy/about.html[_**https://www.generalcoffee.com/futureboy**_^,title="Visit Future Boy! website"])
+provides a place for Hugo programming discussion.
+
+// @NOTE: I couldn't find any archived copies of hugonomicon.sf.net anywhere!
+
+The *Hugonomicon* by Cena Mayo at
+link:http://ifwiki.org/index.php/Hugonomicon[_**http://hugonomicon.sf.net**_^,title="View IF Wiki page on Hugonomicon"]
+provides additional resources for Hugo use and development.
+
+Gilles Duschesne has made available an excellent introduction to Hugo programming in the form of a tutorial available from _**https://www.ifarchive.org/if-archive/programming/hugo/examples/ScavHuntFull.zip**_.
+
+A host of general IF-related materials are available at **Brass Lantern**
+(link:http://www.brasslantern.org[_**http://www.brasslantern.org**_^,title="Visit the Brass Lantern"])
+and PARSIFAL
+(link:http://www.firthworks.com/roger/parsifal/[_**http://www.firthworks.com/roger/parsifal/index.html**_^,title="Visit PARSIFAL (People And Resource Summary -- Interactive Fiction Authorship Links)"]).
+
+Graham Nelson's *Inform*
+(link:https://www.inform-fiction.org[_**https://www.inform-fiction.org**_^,title="Visit Inform website"])
+and *TADS*, the Text Adventure Design System by Mike Roberts
+(link:https://www.tads.org[_**https://www.tads.org**_^,title="Visit TADS website"]),
+are two other interactive-fiction programming languages.
+
+
+// EOF //

@@ -1,0 +1,445 @@
+! ******************************************************************************
+! *                                                                            *
+! *                              All Hugo Tokens                               *
+! *                                                                            *
+! ******************************************************************************
+! This test files contains all the Hugo tokens in one file, to quickly check
+! that they are all captured as expected.
+
+! ==============================================================================
+! [opt]                             Operators
+! ==============================================================================
+
+! Comparison operators
+< <= == ~= >= >
+!<^^ ^^ ^^ ^^ ^ opt
+
+! Mathematical operators:
+*  /  -  +
+!<^   ^  ^ opt
+
+! Bitwise operators:
+&  |  ~
+!< ^  ^ opt
+
+! ------------------------------------------------------------------------------
+!                                 Special Tokens
+! ------------------------------------------------------------------------------
+! Hash (#) for properties count, and ampersand  (&) for addresses:
+#  &
+!< ^ opt
+
+if obj.#adjectives
+!      ^ opt
+!       ^^^^^^^^^^ std
+
+x = &object.property
+!   ^ opt
+!    ^^^^^^ kwb
+!           ^^^^^^^^ kwa
+
+! ==============================================================================
+! [std]                            Punctuation
+! ==============================================================================
+
+{ } [ ] ( ) ; .
+!<^ ^ ^ ^ ^ ^ ^ std
+
+! ==============================================================================
+! [kwa]                           Hugo keywords
+! ==============================================================================
+! The full list of Hugo keywords, currently all captured as Keywords Group 1.
+
+addcontext
+!<^^^^^^^^ kwa
+alias
+!<^^^ kwa
+and
+!<^ kwa
+anything
+!<^^^^^^ kwa
+array
+!<^^^ kwa
+attribute
+!<^^^^^^^ kwa
+break
+!<^^^ kwa
+call
+!<^^ kwa
+capital
+!<^^^^^ kwa
+case
+!<^^ kwa
+child
+!<^^^ kwa
+children
+!<^^^^^^ kwa
+class
+!<^^^ kwa
+cls
+!<^ kwa
+color
+!<^^^ kwa
+colour
+!<^^^^ kwa
+compound
+!<^^^^^^ kwa
+constant
+!<^^^^^^ kwa
+dict
+!<^^ kwa
+do
+!< kwa
+elder
+!<^^^ kwa
+eldest
+!<^^^^ kwa
+else
+!<^^ kwa
+elseif
+!<^^^^ kwa
+enumerate
+!<^^^^^^^ kwa
+event
+!<^^^ kwa
+for
+!<^ kwa
+global
+!<^^^^ kwa
+graphics
+!<^^^^^^ kwa
+held
+!<^^ kwa
+hex
+!<^ kwa
+if
+!< kwa
+in
+!< kwa
+input
+!<^^^ kwa
+is
+!< kwa
+jump
+!<^^ kwa
+local
+!<^^^ kwa
+locate
+!<^^^^ kwa
+move
+!<^^ kwa
+multi
+!<^^^ kwa
+multiheld
+!<^^^^^^^ kwa
+multinotheld
+!<^^^^^^^^^^ kwa
+music
+!<^^^ kwa
+nearby
+!<^^^^ kwa
+newline
+!<^^^^^ kwa
+not
+!<^ kwa
+notheld
+!<^^^^^ kwa
+number
+!<^^^^ kwa
+or
+!<^ kwa
+parent
+!<^^^^ kwa
+pause
+!<^^^ kwa
+picture
+!<^^^^^ kwa
+playback
+!<^^^^^^ kwa
+print
+!<^^^ kwa
+printchar
+!<^^^^^^^ kwa
+property
+!<^^^^^^ kwa
+punctuation
+!<^^^^^^^^^ kwa
+quit
+!<^^ kwa
+random
+!<^^^^ kwa
+readfile
+!<^^^^^^ kwa
+readval
+!<^^^^^ kwa
+recordoff
+!<^^^^^^^ kwa
+recordon
+!<^^^^^^ kwa
+removal
+!<^^^^^ kwa
+remove
+!<^^^^ kwa
+repeat
+!<^^^^ kwa
+replace
+!<^^^^^ kwa
+resource
+!<^^^^^^ kwa
+restart
+!<^^^^^ kwa
+restore
+!<^^^^^ kwa
+return
+!<^^^^ kwa
+routine
+!<^^^^^ kwa
+run
+!<^ kwa
+runevents
+!<^^^^^^^ kwa
+save
+!<^^ kwa
+scriptoff
+!<^^^^^^^ kwa
+scripton
+!<^^^^^^ kwa
+select
+!<^^^^ kwa
+sibling
+!<^^^^^ kwa
+sound
+!<^^^ kwa
+start
+!<^^^ kwa
+step
+!<^^ kwa
+string
+!<^^^^ kwa
+synonym
+!<^^^^^ kwa
+system
+!<^^^^ kwa
+text
+!<^^ kwa
+to
+!<^ kwa
+undo
+!<^^ kwa
+verb
+!<^^ kwa
+video
+!<^^^ kwa
+while
+!<^^^ kwa
+window
+!<^^^^ kwa
+word
+!<^^ kwa
+writefile
+!<^^^^^^^ kwa
+writeval
+!<^^^^^^ kwa
+xverb
+!<^^^ kwa
+younger
+!<^^^^^ kwa
+youngest
+!<^^^^^^ kwa
+! ==============================================================================
+! [kwb]                  Predefined Engine Stored Values
+! ==============================================================================
+! Keywords Group 2 gathers various predefined global engines values, variables
+! and constants.
+
+! ------------------------------------------------------------------------------
+!                            Builtin Global Variables
+! ------------------------------------------------------------------------------
+actor
+!<^^^ kwb
+endflag
+!<^^^^^ kwb
+location
+!<^^^^^^ kwb
+object
+!<^^^^ kwb
+objects
+!<^^^^^ kwb
+player
+!<^^^^ kwb
+prompt
+!<^^^^ kwb
+self
+!<^^ kwb
+system_status
+!<^^^^^^^^^^^ kwb
+verbroutine
+!<^^^^^^^^^ kwb
+words
+!<^^^ kwb
+xobject
+!<^^^^^ kwb
+! ------------------------------------------------------------------------------
+!                               Builtin Properties
+! ------------------------------------------------------------------------------
+! NOTE: "adjectives" and "nouns" are aliases defined by hugo library, and not
+! 		 tokens defined in the Hugo engine and compiler.
+
+adjective
+!<^^^^^^^ kwb
+after
+!<^^^ kwb
+article
+!<^^^^^ kwb
+before
+!<^^^^ kwb
+name
+!<^^ kwb
+noun
+!<^^ kwb
+! ------------------------------------------------------------------------------
+!                           Built-in Engine Variables
+! ------------------------------------------------------------------------------
+parse$
+!<^^^ kwb
+serial$
+!<^^^^ kwb
+! ==============================================================================
+! [kwc]                          Special System Words
+! ==============================================================================
+! Keywords Group 3, includes Char constants and other special system- defined
+! tokens that didn't fit elsewhere.
+! ------------------------------------------------------------------------------
+!                           ASCII Characters Constants
+! ------------------------------------------------------------------------------
+printchar 'A', 'B'
+!         ^^^  ^^^ kwc
+! ------------------------------------------------------------------------------
+!                          Hardcoded Boolean Constants
+! ------------------------------------------------------------------------------
+true
+!<^^ kwc
+false
+!<^^^ kwc
+! ------------------------------------------------------------------------------
+!                                  System Words
+! ------------------------------------------------------------------------------
+~all
+!<^^ kwc
+~and
+!<^^ kwc
+~any
+!<^^ kwc
+~except
+!<^^^^^ kwc
+~oops
+!<^^^ kwc
+! ------------------------------------------------------------------------------
+!                             Properties Qualifiers
+! ------------------------------------------------------------------------------
+$additive
+!<^^^^^^^ kwc
+$complex
+!<^^^^^^ kwc
+! ==============================================================================
+! [kwd]                            Limit Settings
+! ==============================================================================
+! Limit settings are currently captured as Keywords Group 4.
+! See The Hugo Book: Appendix C: Limit Settings.
+
+! Static and non-modifiable limits:
+$MAXATTRIBUTES
+!<^^^^^^^^^^^^ kwd
+$MAXGLOBALS
+!<^^^^^^^^^ kwd
+$MAXLOCALS
+!<^^^^^^^^ kwd
+
+! Modifiable limits settings:
+$MAXALIASES
+!<^^^^^^^^^ kwd
+$MAXARRAYS
+!<^^^^^^^^ kwd
+$MAXCONSTANTS
+!<^^^^^^^^^^^ kwd
+$MAXDICTEXTEND
+!<^^^^^^^^^^^^ kwd
+$MAXDICT
+!<^^^^^^ kwd
+$MAXDIRECTORIES
+!<^^^^^^^^^^^^^ kwd
+$MAXEVENTS
+!<^^^^^^^^ kwd
+$MAXFLAGS
+!<^^^^^^^ kwd
+$MAXLABELS
+!<^^^^^^^^ kwd
+$MAXOBJECTS
+!<^^^^^^^^^ kwd
+$MAXPROPERTIES
+!<^^^^^^^^^^^^ kwd
+$MAXROUTINES
+!<^^^^^^^^^^ kwd
+$MAXSPECIALWORDS
+!<^^^^^^^^^^^^^^ kwd
+
+! ==============================================================================
+!                              Compiler Directives
+! ==============================================================================
+#if
+!<^ ppc
+#ifclear SOME_FLAG
+!<^^^^^^ ^^^^^^^^^ ppc
+#if clear SOME_FLAG
+!<^^^^^^^ ^^^^^^^^^ ppc
+
+#ifdefined SOME_FLAG
+!<^^^^^^^^ ^^^^^^^^^ ppc
+#if defined SOME_FLAG
+!<^^^^^^^^^ ^^^^^^^^^ ppc
+
+#ifset SOME_FLAG
+!<^^^^ ^^^^^^^^^ ppc
+#if set SOME_FLAG
+!<^^^^^ ^^^^^^^^^ ppc
+
+#ifundefined SOME_FLAG
+!<^^^^^^^^^^ ^^^^^^^^^ ppc
+#if undefined SOME_FLAG
+!<^^^^^^^^^^^ ^^^^^^^^^ ppc
+
+#else
+!<^^^ ppc
+#elseif
+!<^^^^^ ppc
+#endif
+!<^^^^ ppc
+
+#clear SOME_FLAG
+!<^^^^ ^^^^^^^^^ ppc
+#set SOME_FLAG
+!<^^ ^^^^^^^^^ ppc
+
+#include "filename"
+!<^^^^^^ ppc
+!         ^^^^^^^^^ pps
+#link"filename"
+!<^^^ ppc
+!     ^^^^^^^^^ pps
+
+#message "Hello world!"
+!<^^^^^^ ppc
+!         ^^^^^^^^^^^^^ pps
+
+#message warning "Be careful!"
+!<^^^^^^ ^^^^^^^ ppc
+!                ^^^^^^^^^^^^^ pps
+
+#message error "Thigs went down the drain!"
+!<^^^^^^ ^^^^^ ppc
+!              ^^^^^^^^^^^^^^^^^^^^^^^^^^^ pps
+
+#switches -ls
+!<^^^^^^^ ^^^ ppc
+#version 2.5
+!<^^^^^^ ^^^ ppc

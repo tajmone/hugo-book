@@ -1,0 +1,1469 @@
+// *****************************************************************************
+// *                                                                           *
+// *               Hugo Book II: 16/16 -- App. H. Code Patterns                *
+// *                                                                           *
+// *****************************************************************************
+//
+[appendix]
+[[appendix_h]]
+= Code Patterns
+
+// >>> footnotes definitions >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+// @FOOTNOTE SAME TEXT: 73-77, 80-82 (i.e. 1-5, 8-10)
+:fn-eol: pass:q[Pre-v2.3 omitted the `eol#` marker ($4C).]
+
+:fn1: footnote:[{wj}{fn-eol}]
+:fn2: footnote:[{wj}{fn-eol}]
+:fn3: footnote:[{wj}{fn-eol}]
+:fn4: footnote:[{wj}{fn-eol}]
+:fn5: footnote:[{wj}{fn-eol}]
+:fn8: footnote:[{wj}{fn-eol}]
+:fn9: footnote:[{wj}{fn-eol}]
+:fn10: footnote:[{wj}{fn-eol}]
+
+:fn6: footnote:[Not implemented post-v2.2.]
+
+:fn7: pass:q[footnote:[Pre-v2.3 omitted the `eol#` marker ($4C) when used as a statement.]]
+
+:fn11: footnote:[ \
+Version 2.5 supports MOD, S3M, and XM-format music modules. \
+Version 3.0 and later additionally support MIDI and MP3 files.]
+
+// <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+What follows is a detailed breakdown of how the set of valid tokens in Hugo is encoded and read within compiled code.
+
+Tokens simply marked *TOKEN* are coded just as the byte value of the token in question; no other formatting or necessary token/value is required to follow.
+These are typically used for delimitation, signaling the end of a structure or structure component, etc.
+
+*STATEMENTS* are those tokens that are read by the engine as some sort of operation -- typically, these are "`start of line`" tokens, with some exceptions.
+
+// @XREF: "15.2. Data Types"
+*VALUES* return an integer value to the engine within the context of an expression.
+See <<sec_15-2>>, which describes all the valid types of values.
+
+*INTERNAL* tokens never appear in source code.
+These are added by the compiler for use by the engine.
+
+A "`code block`" is any executable statement or statements followed by a terminating $0D (`}`).
+
+Constructions may include _expressions_ or _values_; the difference between the two is that values are expected to be discrete data types.
+Note also that `GetVal()` in *heexpr.c* allows a solvable expression bracketed by $01 (`(`) and $02 (`)`) to be treated as a discrete value.
+
+Source references point to places in the Hugo C source code that may help to clarify how a particular construction is coded/interpreted.
+While not specifically mentioned, the compiling of many tokens is localized in `CodeLine()` in *hccode.c*, and the execution of many simple statements is localized in `RunRoutine()` in *herun.c*.
+The reading of values from data types or expressions begins with `GetValue()` in *heexpr.c*, with the basic identification of values in `GetVal()`.
+
+// [cols=">m,<m,<a",options=autowidth,grid=none,stripes=even]
+[cols="^s,^m,<a",options=autowidth,frame=all,grid=rows,stripes=none]
+|===============================================================================
+| 01 | [.big.red]##(##      | *TOKEN*
+| 02 | [.big.red]##)##      | *TOKEN*
+| 03 | [.big.red]##.##      | *TOKEN*
+| 04 | [.big.red]##:##      | _**reserved**_ (not coded)
+| 05 | [.big.red]##=##      | *TOKEN*
+| 06 | [.big.red]##-##      | *TOKEN*
+| 07 | [.big.red]##+##      | *TOKEN*
+| 08 | [.big.red]##*##      | *TOKEN*
+| 09 | [.big.red]##/##      | *TOKEN*
+| 0A | [.big.red]##\|##     | *TOKEN*
+| 0B | [.big.red]##;##      | *TOKEN*
+| 0C | [.big.red]##{##      | *TOKEN*
+| 0D | [.big.red]##}##      | *TOKEN*
+
+(Signifies the end of a code block)
+| 0E | [.big.red]##[##      | *TOKEN*
+| 0F | [.big.red]##]##      | *TOKEN*
+| 10 | [.big.red]##&num;##  | *TOKEN*
+| 11 | [.big.red]##~##      | *TOKEN*
+| 12 | [.big.red]##>{wj}=## | *TOKEN*
+| 13 | [.big.red]##<{wj}=## | *TOKEN*
+| 14 | [.big.red]##~{wj}=## | *TOKEN*
+| 15 | [.big.red]##&##      | *TOKEN*
+| 16 | [.big.red]##>##      | *TOKEN*
+| 17 | [.big.red]##<##      | *TOKEN*
+
+//-----{ 18 }-------------------------------------------------------------------
+
+.3+| 18 | [[token-if]][.big.red]##if## | *STATEMENT*
+
+..................................
+18 <skip distance> <expression> 4C
+    <conditional block>
+<next statement>
+..................................
+{blank}
+
+>s| As in:  <a|
+
+[literal,role="hugosyntax"]
+...........................
+if <expression>
+{...}
+...........................
+
+Where the two bytes of `<skip{nbsp}distance>` are the absolute distance -- in low-byte/high-byte order -- from the first byte of the pair to the next line of code that will execute if `<expression>` evaluates to false, i.e., the distance to `<next{nbsp}statement>`.
+If `<expression>` evaluates to a non-false value, `<conditional{nbsp}block>` is run.
+Note that $4C indicates end-of-line.
+
+`<expression>` is simply a tokenized representation of the expression as it appears in the source line.
+
+>s| Source: <a|
+
+* *hccode.c* -- `CodeIf()`
+* *herun.c*  -- `RunIf()`
+
+//-----{ 19 }-------------------------------------------------------------------
+
+| 19 | [.big.red]##,##    | *TOKEN*
+
+//-----{ 1A }-------------------------------------------------------------------
+
+.3+| 1A | [.big.red]##else## | *STATEMENT*
+
+........................
+1A <skip distance>
+    <conditional block>
+<next statement>
+........................
+{blank}
+
+>s| As in:  <a|
+
+[literal,role="hugosyntax"]
+...........................
+else
+{...}
+...........................
+
+Where `<conditional{nbsp}block>` runs only if no immediately preceding `if` or `elseif` condition has been met.
+If a previous condition has been met, control passes ahead to `<next{nbsp}statment>`, i.e., forward the number of bytes given by the two bytes of `<skip{nbsp}distance>`.
+
+>s| Source: <a|
+
+* *hccode.c* -- `CodeLine()`
+* *herun.c* -- `RunIf()`
+
+//-----{ 1B }-------------------------------------------------------------------
+
+.3+| 1B | [.big.red]##elseif## | *STATEMENT*
+
+..................................
+1B <skip distance> <expression> 4C
+    <conditional block>
+<next statement>
+..................................
+{blank}
+
+>s| As in:  <a|
+
+[literal,role="hugosyntax"]
+............................
+elseif <expression>
+{...}
+............................
+
+
+// @XREF INTERNAL: 'if' token entry in same table (custom anchor).
+<<token-if,See `if`>>.
+
+>s| Source: <a|
+
+* *hccode.c* -- `CodeIf()`
+* *herun.c* -- `RunIf()`
+
+//-----{ 1C }-------------------------------------------------------------------
+
+.3+| 1C | [.big.red]##while## | *STATEMENT*
+
+..................................
+:<starting point>
+1C <skip distance> <expression> 4C
+    <conditional block>
+25 <starting point>
+<next statement>
+..................................
+{blank}
+
+>s| As in:  <a|
+
+[literal,role="hugosyntax"]
+...........................
+while <expression>
+{...}
+...........................
+
+As long as `<expression>` evaluates to a non-false value, `<conditional{nbsp}block>` is run.
+Note the implicit `jump` ($25) coded by the compiler to maintain the loop -- `<starting{nbsp}point>` is only an address; only the two-byte address following $25 is written as a jump-back point.
+// @XREF INTERNAL: 'if' token entry in same table (custom anchor).
+<<token-if,See `if`>>.
+
+IMPORTANT: Note that because the `<starting{nbsp}point>` is written as a two-byte indexed address, it must begin on an address boundary, padded with empty ($00) values, if necessary.
+
+>s| Source: <a|
+
+* *hccode.c* -- `CodeWhile()`
+* *herun.c* -- `RunIf()`
+
+//-----{ 1D }-------------------------------------------------------------------
+
+.3+| 1D | [.big.red]##do## | *STATEMENT*
+
+..............................
+1D <skip distance>
+:<starting point>
+    <block>
+1C <two bytes> <expression> 4C
+<next statement>
+..............................
+{blank}
+
+>s| As in:  <a|
+
+[literal,role="hugosyntax"]
+...........................
+do
+{...}
+while <expression>
+...........................
+
+If, after `<block>` executes, `<expression>` evaluates to a non-false value, the engine returns to `<starting{nbsp}point>` (which must begin on an address boundary).
+The two bytes following `while` ($1C) match the syntax of the normal `while` loop, but are undefined for this usage.
+Instead, the distance to the next statement is given after the `do` token ($1D) in the two bytes of `<skip{nbsp}distance>`.
+
+>s| Source: <a|
+
+* *hccode.c* -- `CodeDo()`
+* *herun.c* -- `RunDo()`
+
+//-----{ 1E }-------------------------------------------------------------------
+
+.2+| 1E | [.big.red]##select## | *STATEMENT*
+
+    1E
+
+When encountered by the engine, resets the conditional-statement evaluator, i.e., so that the next `case` conditional is treated as an `if` instead of an `elseif`.
+Note that the variable that follows `select` in a line of source code is not coded here (but it is needed by the compiler to construct subsequent `case` statements).
+
+// @XREF INTERNAL: 'case' token entry in same table (custom anchor).
+<<token-case,See `case`>>.
+
+>s| Source: <a|
+
+* *hccode.c* -- `CodeSelect()`
+* *herun.c* -- `RunIf()`
+
+//-----{ 1F }-------------------------------------------------------------------
+
+.2+| 1F | [[token-case]][.big.red]##case## | *STATEMENT*
+
+Treated identically by the engine to `elseif` once a `select` token ($1E) has reset the conditional-statement evaluator to no previous matches.
+
+In other words, what the compiler does is take:
+
+    select <expression>
+        case <test1>
+            <first conditional block>
+        case <test2>
+            <second conditional block>
+        ...
+        case else
+            <default conditional block>
+
+and restructure it into:
+
+    1F <skip distance> <expression> 05 <test1> 4C
+        <first conditional block>
+    1F <skip distance> <expression> 05 <test2> 4C
+        <second conditional block>
+    1A <skip distance>
+        <default conditional block>
+
+Note that $1A is the `else` token, $05 is the `=` token, and that the two bytes of `<skip{nbsp}distance>` give the distance to the next `case`.
+
+>s| Source: <a|
+
+* *hccode.c* -- `CodeSelect()`
+* *herun.c* -- `RunIf()`
+
+//-----{ 20 }-------------------------------------------------------------------
+
+.3+| 20 | [.big.red]##for## | *STATEMENT*
+
+..................................
+<assignment>
+:<starting point>
+20 <skip distance> <expression> 4C
+    <conditional block>
+    <modifying expression>
+    25 <starting point>
+<next statement>
+..................................
+{blank}
+
+>s| As in:  <a|
+
+[literal,role="hugosyntax"]
+...................................
+for (<assign>; <expr>; <modifying>)
+{...}
+...................................
+
+
+The `<assignment>`, if given in the source code, is coded as a regular executable assignment of some data type.
+Again, nothing is explicitly coded at `<starting{nbsp}point>` -- it is simply a reference point for the `jump` ($25) to return to.
+// @XREF INTERNAL: 'if' token entry in same table (custom anchor).
+The `for` ($20) line operates as a regular conditional test (<<token-if,see `if`>>.).
+The `<modifying{nbsp}expression>` is appended after the conditional block is coded.
+This, like the `<assignment>` is simply a regular executable assignment.
+
+>s| Source: <a|
+
+* *hccode.c* -- `CodeFor()`
+* *herun.c* -- `RunIf()`
+
+//-----{ 21 }-------------------------------------------------------------------
+
+.2+| 21 | [.big.red]##return## | *STATEMENT*
+
+..................
+21 <expression> 4C
+..................
+{blank}
+
+>s| As in:  <a|
+
+[literal,role="hugosyntax"]
+...........................
+return <expression>
+...........................
+
+Where `<expression>` is optional, so that a standalone return order can be coded as:
+
+    21 4C
+
+{blank}
+
+//-----{ 22 }-------------------------------------------------------------------
+
+| 22 | [.big.red]##break## | *STATEMENT*
+
+    22
+
+{blank}
+
+//-----{ 23-24 }----------------------------------------------------------------
+
+| 23 | [.big.red]##and##  | *TOKEN*
+| 24 | [.big.red]##or##   | *TOKEN*
+
+//-----{ 25 }-------------------------------------------------------------------
+
+.2+| 25 | [.big.red]##jump## | *STATEMENT*
+
+............
+25 <address>
+............
+{blank}
+
+>s| As in:  <a|
+
+[literal,role="hugosyntax"]
+...........................
+jump <label>
+...........................
+
+Where `<address>` is two bytes giving the indexed address of the next statement to be executed. +
+(The `<label>` is coded as `<address>`.)
+
+//-----{ 26  }------------------------------------------------------------------
+
+| 26 | [.big.red]##run## | *STATEMENT*
+
+[literal,subs="+attributes,macros"]
+26 <value> 4C{wj}{fn1}
+
+Where `<value>` is simply read and forgotten, as in running an `object.property` property routine and throwing away the value.
+
+//-----{ 27 }-------------------------------------------------------------------
+
+.2+| 27 | [.big.red]##is## | *TOKEN*
+
+>s| As in:  <a|
+
+`<object> is <attribute>` (statement form) +
+`<object> is <attribute>` (value form).
+
+
+//-----{ 28-29  }---------------------------------------------------------------
+
+| 28 | [.big.red]##not##  | *TOKEN*
+| 29 | [.big.red]##true## | *VALUE*
+
+    29
+
+Hard-coded Boolean constant meaning 1.
+
+//-----{ 2A }-------------------------------------------------------------------
+
+| 2A | [.big.red]##false## | *VALUE*
+
+    2A
+
+Hard-coded Boolean constant meaning 0.
+
+//-----{ 2B-2C }----------------------------------------------------------------
+
+| 2B | [.big.red]##local## | _**reserved**_ (not coded)
+| 2C | [.big.red]##verb##  | *STATEMENT*
+
+    2C <n> <dict_1> <dict_2>...<dict_n>
+
+Occurs in the grammar table and explicitly denotes the beginning of a new verb, where the single byte `<n>` gives the number of dictionary words coded immediately following representing synonyms for this verb.
+
+//-----{ 2D }-------------------------------------------------------------------
+
+| 2D | [.big.red]##xverb## | *STATEMENT*
+
+    2D <n> <dict_1> <dict_2>...<dict_n>
+
+Coded and handled identically to `verb`, except that it is flagged differently so the engine knows it is a "`non-action`".
+
+//-----{ 2E-31 }----------------------------------------------------------------
+
+| 2E | [.big.red]##held##      | **GRAMMAR TOKEN**
+| 2F | [.big.red]##multi##     | **GRAMMAR TOKEN**
+| 30 | [.big.red]##multiheld## | **GRAMMAR TOKEN**
+| 31 | [.big.red]##newline##   | *PRINT TOKEN*
+
+Signals a `print` statement to issue a newline _only_ if one is needed.
+
+//-----{ 32 }-------------------------------------------------------------------
+
+| 32 | [.big.red]##anything##  | **GRAMMAR TOKEN**
+
+//-----{ 33 }-------------------------------------------------------------------
+
+.2+| 33 | [.big.red]##print##     | *STATEMENT*
+
+    33 <print data> 4C
+
+    33 <print data> 0B <print data> ... 4C
+
+Where `<print{nbsp}data>` is one of the following:
+
+* `stringdata#`
+* any value, treated as a dictionary entry
+* `parse$`
+* `serial$`
+* `newline`
+* `capital`
+* `number`
+* `hex`
+
+Multiple `<print{nbsp}data>` sequences are separated by a semicolon (`;`) token ($0B).
+
+>s| Source: <a|
+
+* *herun.c* -- `RunPrint()`
+
+//-----{ 34 }-------------------------------------------------------------------
+
+| 34 | [.big.red]##number## | **GRAMMAR TOKEN** or *PRINT TOKEN*
+
+In a `print` statement, signals that the following value should be printed as a number, not as the corresponding dictionary entry.
+
+In a grammar line, represents any integer number.
+
+//-----{ 35 }-------------------------------------------------------------------
+
+| 35 | [.big.red]##capital## | *PRINT TOKEN*
+
+Signals that the following dictionary entry should have its first letter capitalized.
+
+//-----{ 36 }-------------------------------------------------------------------
+
+.2+| 36 | [.big.red]##text## | *STATEMENT*
+
+[literal,subs="+attributes,macros"]
+36 3B <value> 4C{wj}{fn2}
+
+>s| As in:  <a|
+
+[literal,role="hugosyntax"]
+...........................
+text to n
+...........................
+
+Where `<value>` is either an address in the array table, or constant 0 (to restore text output to the standard display).
+
+//-----{ 37 }-------------------------------------------------------------------
+
+| 37 | [.big.red]##graphics## | *STATEMENT*
+
+(Not implemented.)
+
+//-----{ 38 }-------------------------------------------------------------------
+
+.2+| 38 | [.big.red]##color## | *STATEMENT*
+
+...................................
+38 <value> 4C
+38 <value> 19 <value> 4C
+38 <value> 19 <value> 19 <value> 4C
+...................................
+{blank}
+
+>s| As in:  <a|
+
+[literal,role="hugosyntax"]
+........................................
+color foreground
+color foreground, background
+color foreground, background, inputcolor
+........................................
+
+Where `<value>` is a Hugo color value from 0 to 17 giving the foreground text color.
+If a second value is given, separated by a comma ($19), it represents the background color.
+If a third value is given, separated by a comma ($19), it represents the input color.
+
+//-----{ 39 }-------------------------------------------------------------------
+
+.3+| 39 | [.big.red]##remove## | *STATEMENT*
+
+[literal,subs="+attributes,macros"]
+39 <value> 4C{wj}{fn3}
+
+{blank}
+
+>s| As in:  <a|
+
+[literal,role="hugosyntax"]
+...........................
+remove <object>
+...........................
+{blank}
+
+>s| Source: <a|
+
+* *herun.c* -- `RunMove()`
+
+//-----{ 3A }-------------------------------------------------------------------
+
+.3+| 3A | [.big.red]##move## | *STATEMENT*
+
+[literal,subs="+attributes,macros"]
+3A <value> 3B <value> 4C{wj}{fn4}
+
+{blank}
+
+>s| As in:  <a|
+
+[literal,role="hugosyntax"]
+...........................
+move <object1> to <object2>
+...........................
+{blank}
+
+>s| Source: <a|
+
+* *herun.c* -- `RunMove()`
+
+//-----{ 3B }-------------------------------------------------------------------
+
+| 3B | [.big.red]##to## | *TOKEN*
+
+Followed by a value, as in:
+
+    3B <value>
+
+Typically found in `print to n`, `text to n`, etc., in which case the line will finish with `eol#`:
+
+    ...3B <value> 4C
+
+{blank}
+
+//-----{ 3C }-------------------------------------------------------------------
+
+.2+| 3C | [.big.red]##parent## | *VALUE*
+
+.....................
+3C 01 <expression> 02
+.....................
+{blank}
+
+>s| As in:  <a|
+
+[literal,role="hugosyntax"]
+...........................
+parent(...)
+...........................
+
+Returns the parent object of the object resulting from `<expression>`.
+
+NOTE: Alternate usage is as a grammar token, coded simply as $3C with no following parenthetical expression.
+
+//-----{ 3D }-------------------------------------------------------------------
+
+.2+| 3D | [.big.red]##sibling## | *VALUE*
+
+.....................
+3D 01 <expression> 02
+.....................
+{blank}
+
+>s| As in:  <a|
+
+[literal,role="hugosyntax"]
+...........................
+sibling(...)
+...........................
+
+Returns the sibling of the object resulting from `<expression>`.
+
+//-----{ 3E }-------------------------------------------------------------------
+
+.2+| 3E | [.big.red]##child## | *VALUE*
+
+.....................
+3E 01 <expression> 02
+.....................
+{blank}
+
+>s| As in:  <a|
+
+[literal,role="hugosyntax"]
+...........................
+child(...)
+...........................
+
+Returns the child object of the object resulting from `<expression>`.
+
+//-----{ 3F }-------------------------------------------------------------------
+
+.2+| 3F | [.big.red]##youngest## | *VALUE*
+
+.....................
+3F 01 <expression> 02
+.....................
+{blank}
+
+>s| As in:  <a|
+
+[literal,role="hugosyntax"]
+...........................
+youngest(...)
+...........................
+
+Returns the youngest (most recently added) child object of the object resulting from `<expression>`.
+
+//-----{ 40 }-------------------------------------------------------------------
+
+.2+| 40 | [.big.red]##eldest## | *VALUE*
+
+.....................
+40 01 <expression> 02
+.....................
+{blank}
+
+>s| As in:  <a|
+
+[literal,role="hugosyntax"]
+...........................
+eldest(...)
+...........................
+
+Interpreted identically to `child(...)`.
+
+//-----{ 41 }-------------------------------------------------------------------
+
+.2+| 41 | [.big.red]##younger## | *VALUE*
+
+.....................
+41 01 <expression> 02
+.....................
+{blank}
+
+>s| As in:  <a|
+
+[literal,role="hugosyntax"]
+...........................
+younger(...)
+...........................
+
+Interpreted identically to `sibling(...)`.
+
+//-----{ 42 }-------------------------------------------------------------------
+
+.2+| 42 | [.big.red]##elder## | *VALUE*
+
+.....................
+42 01 <expression> 02
+.....................
+{blank}
+
+>s| As in:  <a|
+
+[literal,role="hugosyntax"]
+...........................
+elder(...)
+...........................
+
+Returns the object number of the object more recently added to the parent of the object resulting from `<expression>`.
+
+//-----{ 43 }-------------------------------------------------------------------
+
+| 43 | [.big.red]##prop&num;## | *INTERNAL VALUE*
+
+    43 <property>
+
+Where `<property>` is a single byte giving the property number.
+
+//-----{ 44 }-------------------------------------------------------------------
+
+| 44 | [.big.red]##attr&num;## | *INTERNAL VALUE*
+
+    44 <attribute>
+
+Where `<attribute>` is a single byte giving the attribute number.
+
+//-----{ 45 }-------------------------------------------------------------------
+
+| 45 | [.big.red]##var&num;## | *INTERNAL VALUE*
+
+    45 <variable>
+
+Where `<variable>` is a single byte giving the variable number. 0-239 are global variables, and 240-255 are local to this routine/event/etc.
+
+//-----{ 46 }-------------------------------------------------------------------
+
+| 46 | [.big.red]##dictentry&num;## | *INTERNAL VALUE*
+
+    46 <dictionary entry>
+
+Where `<dictionary{nbsp}entry>` is two bytes (in low-byte/high-byte order) giving the address of the entry in the dictionary table.
+
+//-----{ 47 }-------------------------------------------------------------------
+
+| 47 | [.big.red]##text&num;## | *INTERNAL STATEMENT*
+
+    47 <text address>
+
+Where `<text{nbsp}address>` is three bytes (in lowest-to-highest byte order) giving the address of the entry in the text bank.
+
+//-----{ 48 }-------------------------------------------------------------------
+
+| 48 | [.big.red]##routine&num;## | *INTERNAL STATEMENT* or *VALUE*
+
+    48 <routine address>
+
+Where `<routine{nbsp}address>` is two bytes giving the indexed address of the specified routine.
+
+//-----{ 49 }-------------------------------------------------------------------
+
+| 49 | [.big.red]##debugdata&num;## | *INTERNAL DATA*
+
+Is followed by data that is helpful to the engine at runtime -- not visible in, for example, the debugger's code window.
+
+E.g., local variable name:
+
+    49 45 <byte> <data>
+
+Where `<byte>` is a single byte giving the number of following `<data>` bytes, which give the name of the next local variable as an ASCII string.
+Read by the debugger; ignored by the engine.
+
+//-----{ 4A }-------------------------------------------------------------------
+
+| 4A | [.big.red]##object&num;## | *INTERNAL VALUE*
+
+    4A <object number>
+
+Where `<object{nbsp}number>` is two bytes giving the number of the specified object.
+
+//-----{ 4B }-------------------------------------------------------------------
+
+| 4B | [.big.red]##value&num;## | *INTERNAL VALUE*
+
+    4B <number>
+
+Where `<number>` is two bytes giving the specified constant value.
+
+//-----{ 4C }-------------------------------------------------------------------
+
+| 4C | [.big.red]##eol&num;## | *INTERNAL TOKEN*
+
+End-of-line marker.
+
+//-----{ 4D }-------------------------------------------------------------------
+
+.3+| 4D | [.big.red]##system## | *INTERNAL STATEMENT* or *VALUE*
+
+[literal,subs="+attributes,macros"]
+4D 01 <value> 02 4C{wj}{fn5}
+
+{blank}
+
+>s| As in:  <a|
+
+[literal,role="hugosyntax"]
+...........................
+system(<value>)
+...........................
+
+
+Calls the system-level function designated by `<value>`.
+
+// @XREF: "The Hugo Programming Manual"
+TIP: See <<book1>> for further elaboration on the `system` statement.
+
+Obsolete usage:{wj}{fn6}
+
+    4D <value>
+
+Where `<value>` is some Hugo data type giving the number of the system function to call.
+
+>s| Source: <a|
+
+* *herun.c* -- `RunSystem()`
+
+//-----{ 4E-4F }----------------------------------------------------------------
+
+| 4E | [.big.red]##notheld##      | **GRAMMAR TOKEN**
+| 4F | [.big.red]##multinotheld## | **GRAMMAR TOKEN**
+
+//-----{ 50 }-------------------------------------------------------------------
+
+.2+| 50 | [.big.red]##window## | *STATEMENT*
+
+[literal,role="hugosyntax"]
+...........................
+window n
+...........................
+
+    50 <value> 4C
+
+[literal,role="hugosyntax"]
+...............................
+window left, top, right, bottom
+...............................
+
+    50 <v1> 19 <v2> 19 <v3> 19 <v4> 4C
+
+[literal,role="hugosyntax"]
+...........................
+window
+...........................
+
+    50 4C
+
+[literal,role="hugosyntax"]
+...........................
+window 0
+...........................
+
+    50 4B 00 00 4C
+
+Where `<value>` or `<v__n__>`, if present, gives a number of lines or screen coordinate.
+All instances of the `window` statement are followed by a code block except for `window 0`.
+
+// @XREF: "The Hugo Programming Manual"
+TIP: See <<book1>> for further elaboration on the `window` statement.
+
+[NOTE]
+================================================================================
+Prior to v2.4, the third syntax, i.e., `window` alone, complied as `50 4C` in v2.3 or simply `50` in early versions, followed by a code block, was the only usage.
+The result was a window beginning at the top of the screen, reaching down to the current cursor row at the termination of the block, and protected then from scrolling of the bottom/main window.
+================================================================================
+
+>s| Source: <a|
+
+* *herun.c* -- `RunWindow()`
+
+//-----{ 51 }-------------------------------------------------------------------
+
+.2+| 51 | [.big.red]##random## | *VALUE*
+
+.....................
+51 01 <expression> 02
+.....................
+{blank}
+
+>s| As in:  <a|
+
+[literal,role="hugosyntax"]
+...........................
+random(...)
+...........................
+
+Returns a random value between 1 and `<expression>`.
+
+//-----{ 52 }-------------------------------------------------------------------
+
+.2+| 52 | [.big.red]##word## | *VALUE*
+
+.....................
+52 0E <expression> 0F
+.....................
+{blank}
+
+>s| As in:  <a|
+
+*As in:*
+
+[literal,role="hugosyntax"]
+...........................
+word[...]
+...........................
+
+Returns the dictionary address of `word[<expression>`].
+
+//-----{ 53 }-------------------------------------------------------------------
+
+.2+| 53 | [.big.red]##locate## | *STATEMENT*
+
+........................
+53 <value> 4C
+53 <value> 19 <value> 4C
+........................
+{blank}
+
+>s| As in:  <a|
+
+[literal,role="hugosyntax"]
+...........................
+locate x
+locate x, y
+...........................
+
+Where `<value>` is the column position to reposition the cursor to within the currently defined window.
+If a second value is given, it represents the new row position.
+
+//-----{ 54 }-------------------------------------------------------------------
+
+.2+| 54 | [.big.red]##parse$## | *TOKEN*
+
+Read-only engine variable representing the engine parser's internal `parse$` string.
+
+>s| Source: <a|
+
+* *herun.c* -- `RunPrint()`
+* *hemisc.c* -- `Dict()`, `GetWord()`
+
+//-----{ 55 }-------------------------------------------------------------------
+
+.2+| 55 | [.big.red]##children## | *VALUE*
+
+.....................
+55 01 <expression> 02
+.....................
+{blank}
+
+>s| As in:  <a|
+
+[literal,role="hugosyntax"]
+...........................
+children(...)
+...........................
+
+Returns the number of children owned by the object resulting from `<expression>`.
+
+//-----{ 56 }-------------------------------------------------------------------
+
+.2+| 56 | [.big.red]##in## | *TOKEN*
+
+>s| As in:  <a|
+
+[literal,role="hugosyntax"]
+...........................
+for <object> in <parent>
+...........................
+
+or
+
+[literal,role="hugosyntax"]
+.............................
+if <object> [not] in <parent>
+.............................
+{blank}
+
+//-----{ 57 }-------------------------------------------------------------------
+
+| 57 | [.big.red]##pause## | *STATEMENT*
+
+    57
+
+Waits for a keypress.
+Stores the resulting key value in `word[0]`.
+
+//-----{ 58 }-------------------------------------------------------------------
+
+| 58 | [.big.red]##runevents## | *STATEMENT*
+
+    58
+
+Runs all events in scope.
+
+//-----{ 59 }-------------------------------------------------------------------
+
+| 59 | [.big.red]##arraydata&num;## | *VALUE*
+
+* `array[<expression>]` -- element `<expression>` of array `<array>`
++
+........................
+59 <array> 0E <value> 0F
+........................
+* `array[]` -– length of array `<array>`
++
+........................
+59 <array> 0E 0F
+........................
+* `array` -– address of array `<array>`
++
+........................
+59 <array>
+........................
++
+Where `<array>` is two bytes giving the address of the array in the array table.
+
+//-----{ 5A }-------------------------------------------------------------------
+
+.2+| 5A | [.big.red]##call## | STATEMENT or VALUE
+
+[literal,subs="+attributes,macros"]
+5A <value> 4C{wj}{fn7}
+
+{blank}
+
+>s| As in:  <a|
+
+[literal,role="hugosyntax"]
+...........................
+call <routine address>
+...........................
+
+Where `<value>` gives the indexed address of the routine to be called.
+
+//-----{ 5B }-------------------------------------------------------------------
+
+.2+| 5B | [.big.red]##stringdata&num;## | *PRINT TOKEN*
+
+[literal,subs="+quotes"]
+..................................................
+5B <__n__> <char1> <char2> <char3> ... <char__n__>
+..................................................
+
+Valid only in a `print` statement.
+`<__n__>` gives the number of characters contained in the `print` string.
+
+>s| Source: <a|
+
+* *herun.c* -- `RunPrint()`
+
+//-----{ 5C }-------------------------------------------------------------------
+
+.3+| 5C | [.big.red]##save## | *VALUE*
+
+>s| As in:  <a|
+
+[literal,role="hugosyntax"]
+...........................
+x = save
+...........................
+
+Calls the engine's save-game procedure (which includes filename input); returns a true value on success, or false on failure.
+
+>s| Source: <a|
+
+* *herun.c* -- `RunSave()`
+
+//-----{ 5D }-------------------------------------------------------------------
+
+.3+| 5D | [.big.red]##restore## | *VALUE*
+
+>s| As in:  <a|
+
+[literal,role="hugosyntax"]
+...........................
+x = restore
+...........................
+
+Calls the engine's restore-game procedure (which includes filename input); returns a true value on success, or false on failure.
+
+>s| Source: <a|
+
+* *herun.c* -- `RunRestore()`
+
+//-----{ 5E }-------------------------------------------------------------------
+
+| 5E | [.big.red]##quit## | *STATEMENT*
+
+    5E
+
+Terminates program execution and exits the engine.
+
+//-----{ 5F }-------------------------------------------------------------------
+
+.2+| 5F | [.big.red]##input## | *STATEMENT*
+
+    5F
+
+Prompts for user input, storing the resulting word(s) in the `word[]` array.
+Unknown (i.e., non-dictionary) words become 0, or `+""+`; the last unknown word is stored in `parse$`.
+
+>s| Source: <a|
+
+* *herun.c* -- `RunInput()`
+
+//-----{ 60 }-------------------------------------------------------------------
+
+.2+| 60 | [.big.red]##serial$## | *PRINT TOKEN*
+
+Read-only engine variable representing the compiler-determined serial number.
+
+>s| Source: <a|
+
+* *hemisc.c* -- `GetWord()`
+
+//-----{ 61 }-------------------------------------------------------------------
+
+| 61 | [.big.red]##cls## | *STATEMENT*
+
+    61
+
+Clears the currently defined text window.
+
+//-----{ 62 }-------------------------------------------------------------------
+
+.2+| 62 | [.big.red]##scripton## | *VALUE*
+*As in:*
+
+[literal,role="hugosyntax"]
+...........................
+x = scripton
+...........................
+
+Calls the engine's begin-scripting procedure (which includes filename input); returns a true value on success, or false on failure.
+
+>s| Source: <a|
+
+* *herun.c* -- `RunScript()`
+
+//-----{ 63 }-------------------------------------------------------------------
+
+.3+| 63 | [.big.red]##scriptoff## | *VALUE*
+
+>s| As in:  <a|
+
+[literal,role="hugosyntax"]
+...........................
+x = scriptoff
+...........................
+
+Calls the engine's end-scripting procedure; returns a true value on success, or false on failure.
+
+>s| Source: <a|
+
+* *herun.c* -- `RunScript()`
+
+//-----{ 64 }-------------------------------------------------------------------
+
+.2+| 64 | [.big.red]##restart## | *VALUE*
+
+>s| As in:  <a|
+
+[literal,role="hugosyntax"]
+...........................
+x = restart
+...........................
+
+Attempts to reload the dynamic game data and restart the game loop; returns a true value on success or false on failure.
+
+//-----{ 65 }-------------------------------------------------------------------
+
+| 65 | [.big.red]##hex## | *PRINT TOKEN*
+
+Signals that the following value should be printed as a hexadecimal number, not as the corresponding dictionary entry.
+
+//-----{ 66 }-------------------------------------------------------------------
+
+| 66 | [.big.red]##object## | *GRAMMAR TOKEN*
+
+NOTE: Removed as a token after grammar table is compiled so that `object` can refer to the object global variable.
+
+//-----{ 67 }-------------------------------------------------------------------
+
+| 67 | [.big.red]##xobject## | *GRAMMAR TOKEN*
+
+NOTE: Removed as a token after grammar table is compiled so that `xobject` can refer to the xobject global variable.
+
+//-----{ 68 }-------------------------------------------------------------------
+
+.3+| 68 | [.big.red]##string## | *VALUE*
+
+......................................
+68 01 <expr1> 19 <expr2> 19 <expr3> 02
+......................................
+{blank}
+
+>s| As in:  <a|
+
+[literal,role="hugosyntax"]
+...........................
+x = string(a, "apple", 8)
+...........................
+
+Calls the engine string-writing function to write the dictionary entry `<expr2>` into the array table at the array address given by `<expr1>`, to a maximum of `<expr3>` characters.
+`<expr1>` is any data type or expression; `<expr2>` is either a value or the `parse$` token ($54); `<expr3>` is optional, and if it is not given, the $02 token comes in place of the second $19.
+
+>s| Source: <a|
+
+* *herun.c* -- `RunString()`
+
+//-----{ 69 }-------------------------------------------------------------------
+
+.2+| 69 | [.big.red]##array## | *VALUE*
+
+    69 <value>
+
+Forces `<value>` to be used as an address in the array table, so that `array <value>` can be used as `arraydata#`.
+
+>s| Source: <a|
+
+* *heexpr.c* -- `GetVal()`
+
+//-----{ 6A }-------------------------------------------------------------------
+
+.2+| 6A | [.big.red]##printchar## | *STATEMENT*
+
+..................................
+6A <value1> 19 <value2> 19 ... 4C
+..................................
+{blank}
+
+>s| As in:  <a|
+
+[literal,role="hugosyntax"]
+...........................
+printchar 'A', 'B',...
+...........................
+
+Outputs a single ASCII character value at the current screen position.
+Multiple values are separated by $19; the sequence is terminated by $4C.
+
+//-----{ 6B }-------------------------------------------------------------------
+
+.3+| 6B | [.big.red]##undo## | *VALUE*
+
+>s| As in:  <a|
+
+[literal,role="hugosyntax"]
+...........................
+x = undo
+...........................
+
+Attempts to restore all data changes made since the last typed input; returns a true value on success or false on failure.
+
+>s| Source: <a|
+
+* *hemisc.c* -- `SaveUndo()`, `Undo()`
+
+//-----{ 6C }-------------------------------------------------------------------
+
+.3+| 6C | [.big.red]##dict## | *VALUE*
+
+...........................
+6C 01 <expr1> 19 <expr2> 02
+...........................
+{blank}
+
+>s| As in:  <a|
+
+[literal,role="hugosyntax"]
+...........................
+x = dict(<array>, <len>)
+...........................
+
+Calls the engine dictionary-writing function to write the given string into the dictionary, to a maximum of `<len>` characters.
+If `<expr1>` is `parse$` ($54), then the value of `parse$` is used; otherwise `<expr1>` is an array address in the array table.
+If the string is already a dictionary entry, its location is returned.
+Otherwise, it is appended to the end of the table, and the new location is returned.
+
+>s| Source: <a|
+
+* *hemisc.c* -- `Dict()`
+
+//-----{ 6D }-------------------------------------------------------------------
+
+.3+| 6D | [.big.red]##recordon## | *VALUE*
+
+>s| As in:  <a|
+
+[literal,role="hugosyntax"]
+...........................
+x = recordon
+...........................
+
+Calls the engine's begin-command-recording procedure (which includes filename input); returns a true value on success, or false on failure.
+
+>s| Source: <a|
+
+* *hemisc.c* -- `RecordCommands()`
+
+//-----{ 6E }-------------------------------------------------------------------
+
+.3+| 6E | [.big.red]##recordoff## | *VALUE*
+
+>s| As in:  <a|
+
+[literal,role="hugosyntax"]
+...........................
+x = recordoff
+...........................
+
+Calls the engine's end-command-recording procedure; returns a true value on success, or false on failure.
+
+>s| Source: <a|
+
+* *hemisc.c* -- `RecordCommands()`
+
+//-----{ 6F }-------------------------------------------------------------------
+
+.3+| 6F | [.big.red]##writefile## | *STATEMENT*
+
+[literal,subs="+attributes,macros"]
+6F <value> 4C{wj}{fn8}
+    ...file i/o code block...
+
+{blank}
+
+>s| As in:  <a|
+
+[literal,role="hugosyntax"]
+...........................
+writefile <file>
+{...}
+...........................
+
+
+Opens the file named by the dictionary entry `<value>`, erasing it if it previously exists, and runs the following code block.
+Upon any error, jumps to the end of the file i/o code block and closes `<file>`.
+
+>s| Source: <a|
+
+* *hemisc.c* -- `FileIO()`
+
+//-----{ 70 }-------------------------------------------------------------------
+
+.2+| 70 | [.big.red]##readfile## | *STATEMENT*
+
+[literal,subs="+attributes,macros"]
+70 <value> 4C{wj}{fn9}
+    ...file i/o code block...
+
+{blank}
+
+>s| As in:  <a|
+
+[literal,role="hugosyntax"]
+...........................
+readfile <file>
+{...}
+...........................
+
+Opens the file named by the dictionary entry `<value>` and runs the following code block.
+Upon any error, jumps to the end of the file i/o code block and closes `<file>`.
+
+//-----{ 71 }-------------------------------------------------------------------
+
+| 71 | [.big.red]##writeval## | *STATEMENT*
+
+[literal,subs="+attributes,macros"]
+71 <value> 19 <value> 19 ... 4C{wj}{fn10}
+
+Valid only in a `writefile` block.
+Writes `<value>` as a 16-bit integer to the currently open file.
+Multiple values are separated by $19.
+
+//-----{ 72 }-------------------------------------------------------------------
+
+.2+| 72 | [.big.red]##readval## | *VALUE*
+
+>s| As in:  <a|
+
+[literal,role="hugosyntax"]
+...........................
+x = readval
+...........................
+
+Valid only in a `readfile` block.
+Reads a 16-bit integer from the currently open file.
+
+//-----{ 73 }-------------------------------------------------------------------
+
+.2+| 73 | [.big.red]##playback## | *VALUE*
+
+>s| As in:  <a|
+
+[literal,role="hugosyntax"]
+...........................
+x = playback
+...........................
+
+Calls the engines command-playback procedure (including filename input) and attempts to begin command playback from the requested file.
+If found, player input in `RunGame()` is overridden by commands in the file until end-of-file.
+Returns true on success, false on failure.
+
+//-----{ 74 }-------------------------------------------------------------------
+
+| 74 | [.big.red]##colour## | *STATEMENT*
+
+Treated identically to $38: `color`.
+
+//-----{ 75 }-------------------------------------------------------------------
+
+| 75 | [.big.red]##picture## | *STATEMENT*
+
+    75 <value1> 19 <value2> 4C
+    75 <value1> 4C
+
+Attempts to load and display a JPEG-format picture either as resource `<value2>` in resourcefile `<value1>`, or, if `<value2>` is not given, simply as filename `<value1>`.
+(All `<values>` are dictionary entries.)
+If there is an error, the `system_status` global variable is set.
+
+//-----{ 76-77 }----------------------------------------------------------------
+
+| 76 | [.big.red]##label&num;## | *INTERNAL DATA*
+| 77 | [.big.red]##sound##      | *STATEMENT*
+
+    77 [79] <value1> 19 <value2> [19 <value3>] 4C
+    77 <value1> 4C
+
+Attempts to load and play a WAV-format sample as resource `<value2>` in resourcefile `<value1>`.
+(`<value1>` and `<value2>` are dictionary entries.)
+If `<value3>` is given, the sample output volume is set to `<value3>` (as a percentage of normal output).
+If `<value1>` is 0, the current sound is stopped.
+If there is an error, the `system_status` global variable is set.
+
+//-----{ 78 }-------------------------------------------------------------------
+
+| 78 | [.big.red]##music## | *STATEMENT*
+
+    78 [79] <value1> 19 <value2> [19 <value3>] 4C
+    78 <value1> 4C
+
+Attempts to load and play a music resource{wj}{fn11} as resource `<value2>` in resourcefile `<value1>`.
+(`<value1>` and `<value2>` are dictionary entries.)
+If `<value3>` is given, the music output volume is set to `<value3>` (as a percentage of normal output).
+If `<value1>` is 0, the current music is stopped.
+If there is an error, the `system_status` global variable is set.
+
+//-----{ 79 }-------------------------------------------------------------------
+
+| 79 | [.big.red]##repeat## | *TOKEN*
+
+Used by `sound` and `music` statements.
+|===============================================================================
+
+
+// EOF //

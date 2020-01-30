@@ -1,0 +1,284 @@
+// *****************************************************************************
+// *                                                                           *
+// *       Hugo Book I: 16/19 -- App. D. HugoFix and the Hugo Debugger         *
+// *                                                                           *
+// *****************************************************************************
+//
+[appendix]
+[[appendix_d]]
+= HugoFix and the Hugo Debugger
+
+// >>> footnotes definitions >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+:fn1: pass:q[footnote:[ \
+The HugoFix library should only be included during development. \
+As always, when compiling a version for public release, the `DEBUG` flag should be omitted both to keep the filesize of the final Hugo executable down as well as to ensure that debugging functionality is not included in release builds.]]
+
+:fn2: pass:q[footnote:[ \
+The Hugo Debugger is not technically a source-level debugger, however. \
+During its development, its author has referred to it as a source(ish) level debugger -- what the debugger does, in effect, is to "`decompile`" compiled code into the tokens and symbols that comprise each line of code. \
+The result is a very close approximation of the original source code.]]
+
+// <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+
+[[sec_d-1]]
+== The HugoFix Debugging Library
+
+The HugoFix Debugging Library is a suite of routines that can be used via typed commands in a running Hugo game without the use of any special debugger program.
+To use HugoFix, set the compiler flag `DEBUG` before including *hugolib.h* or any other standard Hugo library files.{wj}{fn1}
+Then, from the player input line, type:
+
+[example,role="gametranscript"]
+================================================================================
+>$?
+================================================================================
+
+to get a list of all HugoFix debugging commands.
+
+[cols="25d,75a",frame=all,grid=all,stripes=none]
+|===============================================================================
+
+| $? a| *Display help menu*
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2+h| Monitoring:
+
+| $fd | *Fuse/daemon monitor on/off*
+
+Fuse/daemon monitoring prints verbose information about all starting or stopping fuses or daemons, as well as the value of the `tick` property for any running fuses.
+
+| $fi | *FindObject monitoring on/off*
+
+`FindObject` monitoring traces calls to the library's `FindObject` routine and their results.
+This can be extremely useful for debugging things like scope and disambiguation problems.
+
+| $on | *Toggle object numbers*
+
+Toggling object numbers on causes an object's numerical value to be displayed after the object name whenever the library functions `The`, `CThe`, `Art`, and `CArt` are called.
+Can be turned used in conjunction with any other HugoFix function that outputs object names.
+
+| $pm | *Parser monitoring on/off*
+
+Parser monitoring provides information during calls to `Parse`, `ParseError`, and `Perform` (or `SpeakTo`, as applicable) to trace the breakdown, parsing, and execution of a given player input line.
+
+| $sc | *Script monitor on/off*
+
+Script monitoring prints verbose information about all starting, stopping, or otherwise running scripts each turn.
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2+h| Object manipulation:
+
+// NOTE: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//       Use {nbsp} on longest entry to prevent this column from shrinking
+//       and causing wrapping on low-resolution monitors or if the user
+//       reduces the browser window with manually.
+//
+//          $at <obj.> is [not] <attr. #>
+//       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+| $at{nbsp}<obj.>{nbsp}is{nbsp}[not]{nbsp}<attr.{nbsp}#>{nbsp}
+a| *Set or clear object attribute*
+
+The object will have attribute number `<attr. #>` set or cleared.
+
+TIP: It's useful to have generated debugging information by passing the `–i` switch to the compiler in order to get attribute numbers and other useful information.
+
+| $mo <obj.> to <obj.> a| *Move object to new parent*
+
+Essentially the same as the Hugo statement:
+
+[literal,role="hugosyntax"]
+...........................
+move <object> to <parent>.
+...........................
+
+The object will become the youngest child of the parent object.
+
+| $mp <obj.> a| *Move player object to new parent*
+
+Essentially the same as the Hugo Library function call:
+
+[literal,role="hugosyntax"]
+...........................
+MovePlayer(<obj.>).
+...........................
+
+The function may fail (and print an appropriate error message) if the specified parent object is not a valid location (i.e., room or room-equivalent object).
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2+h| Object testing:
+
+| $fo [obj.] a| *Find object (or player, if no object given)*
+
+Prints the name of the parent object of a given object (or the player object).
+
+| $na <obj. #> a| *Print name of object number*
+
+Prints the name of the object specified by object number.
+
+| $nu <obj.> a| *Print number of named object*
+
+Prints the object number of a given object.
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2+h| Parser testing:
+
+| $ca a| *Check articles for all objects*
+
+Useful for preventing forgotten articles in order to avoid something like "`*You get apple*`" when it should be "`*You get the apple*`", etc.
+
+| $pc [$all] [obj.] a| *Check parser conflicts (for object)*
+
+Attempts to determine what objects might be confused with `<obj>` by the parser.
+May take quite a while if `$all` is specified for a large number of objects.
+
+| $pr a| *`parse_rank` monitoring*
+
+Monitors how various objects' `parse_rank` property values are evaluated during parsing.
+Particularly useful with `$fi` and `$pm`.
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2+h| Other utilities:
+
+| $ac <obj.> [timer] a| *Activate fuse (with timer) or daemon*
+
+Generally `<obj.>` is an object number, since fuses and daemons are normally not otherwise referred to.
+
+| $de <obj.> a| *Deactivate fuse or daemon*
+
+Generally `<obj.>` is an object number, since fuses and daemons are normally not otherwise referred to.
+
+| $di [obj.] a| *Audit directions (for room object)*
+
+Attempts to print out all the possible exits from a given location, or from the present `location` if none is given.
+
+| $kn [<obj. #>] a| *Make all object(s) known*
+
+Sets the `known` attribute for for an object (or for all objects in the game if no single object is specified).
+
+| $nr a| *Normalize random numbers*
+
+Sets random number generation to predictable values which can be replicated on subsequent playthroughs.
+Handy for testing things that may be affected by use of the built-in `random` function.
+
+| $ot [obj. \| $loc] a| *Print object tree (beginning with object)*
+
+Prints all the children (beneath a particular object, if given) in tree format.
+
+| $rr a| *Restore "`random`" random numbers*
+
+Resets random number generation to produce unpredictable values.
+
+| $uk [<obj. #>] a| *Make object unknown*
+
+Again for testing involving the `known` attribute.
+(See `$kn`, above)
+
+| $wo <number> a| *Print dictionary word entry `<number>`*
+
+Where `<number>` is a value representing a dictionary table address.
+
+| $wn <word> a| *Value/dictionary address of (lowercase) word*
+
+Where `<word>` is a dictionary entry.
+
+| $au a| *Run HugoFix Audit*
+
+Runs a number of tests to ensure the validity of certain data, including necessary related properties on individual objects and proper usage of object library classes.
+|===============================================================================
+
+
+[[sec_d-2]]
+== The Hugo Debugger
+
+The Hugo Debugger is a valuable part of the Hugo design system.
+It allows a programmer to monitor all aspects of program execution, including watching expressions, modifying values, moving objects, etc. -- all things expected of a modern source-level debugger.{wj}{fn2}
+
+In order to be used with the debugger, a Hugo program must be compiled using the `-d` switch in order to create an *.HDX* debuggable file with additional data such as names for objects, variables, properties, etc.
+
+[WARNING]
+================================================================================
+*.HDX* files can be run by the engine, but *.HEX* files cannot be run by the debugger because of the additional data required.
+================================================================================
+
+
+The Unix or MS-DOS convention for running the debugger is:
+
+[literal,role="cmd"]
+hd <filename>
+
+from the command line.
+In Windows, one may just double-click the debugger's icon to launch it.
+In either case, the debugger will begin on the debugging screen.
+Switch back-and-forth from the actual game screen by pressing Tab.
+At this point, it is probably best to select "`Shortcut Keys`" from the Help menu, since the actual keystrokes for running the debugger may vary from system to system.
+
+NOTE: It is possible to operate the debugger entirely through menus, but this soon becomes tedious for operations like stepping line-by-line.
+
+The file *hdhelp.hlp* should be in the same directory as the debugger program -- this is the online help file for the debugger, containing information on such things as:
+
+[cols="5m,<.<25e,70a",frame=none,grid=none,stripes=none]
+|===============================================================================
+
+3+<s| Printing Windows and Views, including:
+
+| {blank} | Code Window
+| Showing the current program exactly as executed, in (almost) source-level format
+
+| {blank} | Watch Window
+| Allowing any variable expression to be watched/evaluated at any time during execution
+
+| {blank} | Calls
+| Giving the sequence of nested routine calls at any given point
+
+| {blank} | Breakpoints
+| Listing all active breakpoints
+
+| {blank} | Local Variables
+| Listing all local variables, as values, objects, dictionary entries, etc.
+
+| {blank} | Property/Attribute Aliases  | {blank}
+| {blank} | Auxiliary Window            | {blank}
+| {blank} | Output                      | {blank}
+
+3+<s| Running a program, including:
+
+| {blank} | Finish Routine
+| While stepping, continues execution without stepping to the end of the current routine
+
+| {blank} | Stepping Through Code
+| Allows line-by-line execution
+
+| {blank} | Skipping Over Code
+| Allows the next statement to be passed over without executing
+
+| {blank} | Stepping Backward
+| Allows retracing of code execution, possibly after values are changed, etc.
+
+2+<s| Searching Code
+d| Searches the record of executed code for any given string
+
+2+<s| Watch Expressions
+d| Allows watching multiple variable values or expressions, and to set a breakpoint should a desired value/expression evaluate non-false
+
+2+<s| Setting or Modifying Values
+d| Any variable, property, array value, or object attribute can be set or reset to a valid value at any point during execution
+
+2+<s| Breakpoints
+d| A code address, routine, or property routine can be given -- control is then passed to the debugger on encountering a breakpoint
+
+2+<s| Object Tree
+d| At any point, the entire object tree (or just a branch of it) may be displayed
+
+2+<s| Moving Objects
+d| It is possible to dynamically move objects around the object tree, independent of the program itself
+
+2+<s| Runtime Warnings
+d| Optional runtime warnings instruct the debugger to alert the user to common causes of problem code which, while syntactically valid and therefore acceptable to the compiler, is in context probably not what was intended.
+
+2+<s| Setup
+d| Allowing changes (where applicable) in color scheme, printer, etc.
+|===============================================================================
+
+// EOF //

@@ -1,0 +1,41 @@
+// *****************************************************************************
+// *                                                                           *
+// *                 Hugo Book II: 4/16 -- 16. Engine Parsing                  *
+// *                                                                           *
+// *****************************************************************************
+//
+[[chapter_16]]
+= Engine Parsing
+
+
+// >>> footnotes definitions >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+// @XREF: "23.2. Special Words" (in footnote!)
+:fn1: footnote:[See xref:sec_23-2[].]
+
+// <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+The engine is responsible for all the low-level parsing of an input line (i.e., player command).
+Upon receiving an input, the engine parses the line into separate words, storing them in the word array.
+The word array -- i.e., that which is referenced in a Hugo program via `word[_n_]` -- is an internal structure coded using the `word` token instead of `array#`.
+A static, read-only parser string called `parse$` is used for storage of important data, such as a parser-error-causing word/phrase that cannot otherwise be communicated as an existing dictionary entry.
+
+The first parsing pass also does the following:
+
+[arabic]
+. Allows integer numbers for -32768 to 32767.
+. Time given in "`__hh__:__mm__`" (hours:minutes) format is converted to an integer number representing the total minutes since midnight, i.e., through the formula: _hh_ * 60 + _mm_.
+The original "`__hh__:__mm__`" is stored in `parse$`.
+. Up to one word (or set of words) in quotation marks is allowed; if found, it is stored in `parse$`.
+. Special words are processed, i.e., removals and user-defined punctuation are removed, compounds are combined, and synonyms are replaced.{wj}{fn1}
+
+If a user-defined `Parse` routine exists (i.e., if bytes $1D-1E in the header are not $0000), it is called next.
+If the routine returns true, the engine parsing routine is called a second time to reconcile any changes to the word set.
+
+If at any point the parser is unable to continue, either because an unknown word -- one not found in the dictionary table -- is found, or because there is a problem later, in grammar matching (described below), a parser error is generated, and parsing is stopped. (The unknown or otherwise problem-causing word is stored in `parse$`.)
+
+The engine has a set of standard parser errors that may be overridden by a user-provided `ParseError` (i.e., if bytes $1F-20 in the header are not $0000).
+If there is no `ParseError` routine, or if `ParseError` returns false, the default parser error message is printed.
+
+
+// EOF //

@@ -1,0 +1,26 @@
+// -----------------------------------------------------------------------------
+/* Windows CMD */
+// -----------------------------------------------------------------------------
+// This isn't a syntax highlighted block, it's just a literal block with custom
+// styles to emulate the look and feel of a Windows CMD, but we throw it in here
+// to keep it simpler...
+
+// Based on Windows 10 new CMD default colors:
+// https://blogs.msdn.microsoft.com/commandline/2017/08/02/updating-the-windows-console-colors/
+$CMD-Black: #0C0C0C;
+$CMD-White: #F2F2F2;
+// Callouts BG:
+$CMD-callouts-background: #FFF945; // bright yellow
+
+div.literalblock.cmd pre {
+  background-color: $CMD-Black;
+  color: $CMD-White;
+
+  // AsciiDoc Callouts
+  .conum {
+    background: $CMD-callouts-background !important;
+    color: $CMD-Black !important;
+  }
+}
+
+// EOF //

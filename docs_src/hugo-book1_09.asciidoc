@@ -1,0 +1,174 @@
+// *****************************************************************************
+// *                                                                           *
+// *                  Hugo Book I: 9/19 -- 9. The Game Loop                    *
+// *                                                                           *
+// *****************************************************************************
+//
+[[chapter_9]]
+= The Game Loop
+
+[[sec_9-1]]
+== Overview of the Game Loop
+
+This the basic execution pattern that the Hugo Engine follows during program execution.
+
+[NOTE]
+================================================================================
+Also mentioned are the calling of `before` routines and the `verbroutine` by `Perform` in *hugolib.h*.
+While not necessarily part of the game loop -- since they may or may not be included in a program -- they are mentioned here because they are relevant to any Hugo program that uses the standard Hugo Library.
+================================================================================
+
+// [cols="<.<2s,<.<8a",frame=all,grid=all,stripes=none]
+[cols="<.<2s,<.<8a",frame=all,grid=rows,stripes=none]
+|===============================================================================
+// 2+^a| {blank}
+
+| Init:
+| The `Init` routine is called only when the program is first run, or when a `restart` command is issued.
+
+| Main:
+| At the start of the game loop, the engine calls the `Main` routine.
+The routine should -- as in the provided sample programs -- take care of advancing the turn counter, executing the `runevents` command, and calling such library routines as `RunScripts` and `PrintStatusLine`.
+
+| Input:
+| Keyboard input is received.
+
+| Parsing:
+| The input line is checked for validity, synonyms and other special words are checked, and the user `Parse` routine (if any) is called.
+
+| Grammar{nbsp}matching:
+| The engine attempts to match the input line with a valid verb and syntax in the grammar table.
+If no match is found, the engine loops back to *Input*.
+
+Otherwise, a successful grammar match results in at least the `verbroutine` global being set, as well as potentially `object` and `xobject`.
+
+2+s| Before routines (as called by `Perform` in hugolib.h):
+| {blank}
+| If any objects were specified in the input line, their `before` properties are checked in the following order, for each object:
+
+[horizontal]
+`player.before`   :: {blank}
+`location.before` :: {blank}
+`xobject.before`  :: (if applicable)
+`object.before`   :: (if applicable)
+
+
+If any of these property routines returns true, the engine skips the verb routine.
+
+NOTE: The `react_before` property for relevant objects is checked at this time as well.
+
+2+s| Verb routine (as called by `Perform` in hugolib.h):
+| {blank}
+| If no `before` property routine returns true, the verb routine is run.
+
+If an action is successfully completed, the verb routine should return true.
+Returning false negates any remaining commands in the input line.
+
+`Perform` does not run any `after` property routines for `object` or `xobject`; that is up to the verb routine.
+It does run both `player.after` and `location.after` if the verbroutine returns true.
+
+NOTE: The `react_after` property for relevant objects is checked at this time as well.
+
+IMPORTANT: Control returns from the library `Perform` routine to the engine.
+
+When finished, the engine loops back to *Main*, calling the `Main` routine only if the last verb matched was not an `xverb`.
+|===============================================================================
+
+[WARNING]
+================================================================================
+Setting the global `endflag` at any point to a non-zero value will terminate the game loop and run the `EndGame` junction routine.
+================================================================================
+
+[[sec_9-2]]
+== _What Should I Be Able to Do Now?_
+
+By this point, you've been introduced to the basic facilities through which the Hugo Engine communicates with a running Hugo game: the junction routines `EndGame`, `FindObject`, `Parse`, `ParseError`, `Perform`, and `SpeakTo`.
+Becoming familiar with their implementation and use (and even inner workings) is an important step toward mastering an understanding of the Hugo game loop, including determining how a player input line is parsed, what objects are available or in scope, and how a command is either dispatched to a verbroutine or directed to another character.
+You should be able to create your own verbroutines (and grammar) to handle actions not provided by default in the library.
+You should now understand how to create an `order_response` property for characters to respond to actions passed to them by `SpeakTo`.
+
+It should be apparent how a game can implement custom versions of things like end-of-game behavior, parser messages, etc. without editing the library itself by using the compiler's `replace` directive with library routines such as `EndGame` and `ParseError`.
+Most often, a programmer will copy the selected routine out of *hugolib.h* (or wherever it comes from) and paste it into the game's source, changing (for instance):
+
+[source,hugo]
+-------------------
+routine EndGame ...
+-------------------
+
+to
+
+[source,hugo]
+-------------------
+replace EndGame ...
+-------------------
+
+and customize the `EndGame` routine's messages, behavior, or whatever the desired modifications may involve.
+
+For instance, to change the default parser error message
+
+[example,role="gametranscript"]
+You don't need to use the word "`<unknown word>`".
+
+to something along the lines of
+
+[example,role="gametranscript"]
+{empty}[This game does not recognize "`<unknown word>`".]
+
+first copy the `ParseError` routine from *hugolib.h* to the game's source, and change, in the copied `ParseError`,
+
+// @EDITED CODE HUGO LIB:
+//    Changed "object" into "obj", to match current "hugolib.h" code!
+[source,hugo]
+routine ParseError(errornumber, obj)
+
+to
+
+[source,hugo]
+replace ParseError(errornumber, obj)
+
+and modify the case for the error message in question from
+
+// @EDITED CODE: (Issue #38)
+//    Fixed missing `" ` before `need to use the word \""; \`
+
+[source,hugo]
+-------------------------------------------------
+case 1
+    print CThe(player); \
+        MatchPlural(player, "doesn't", "don't"); \
+        " need to use the word \""; \
+        parse$; "\"."
+-------------------------------------------------
+
+to
+
+[source,hugo]
+------------------------------------------------
+case 1
+    print "[This game does not recognize \""; \
+        parse$; "\".]"
+------------------------------------------------
+
+You should also by now have an understanding of how to override the game loop using `before` and `after` routines in order to provide for custom responses and/or behavior not directly provided by the library.
+Normally, for example, an object having the `static` attribute is automatically treated as untakeable by the library.
+But what if you created a heavy boulder and wanted to have the response
+
+[example,role="gametranscript"]
+The boulder is far too heavy to lift!
+
+in place of the library's default "`*You can't take that.*`" message?
+You would simply interrupt the `DoGet` routine before it even executes via a `before` property on the boulder object:
+
+[source,hugo]
+------------------------------------------------
+before
+{
+    object DoGet
+    {
+        "The boulder is far too heavy to lift!"
+    }
+}
+------------------------------------------------
+
+
+// EOF //

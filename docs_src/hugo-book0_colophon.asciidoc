@@ -1,0 +1,23 @@
+// ******************************************************************************
+// *                                                                            *
+// *                           Hugo Book -- Colophon                            *
+// *                                                                            *
+// ******************************************************************************
+//
+[colophon]
+= Colophon
+
+The Hugo Book +
+Hugo: An Interactive Fiction Design System
+
+Copyright (C) 2004 by Kent Tessman +
+The General Coffee Company Film Productions +
+link:https://www.generalcoffee.com[www.generalcoffee.com^]
+
+_First Edition_
+
+// Original book ISBN:
+// ISBN 0-9735652-0-9
+// (does not apply to the digital edition!)
+
+// EOF //

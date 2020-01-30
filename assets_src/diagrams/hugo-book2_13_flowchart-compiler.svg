@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/PR-SVG-20010719/DTD/svg10.dtd">
+<svg width="30cm" height="52cm" viewBox="198 -2 590 1023" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <g>
+    <rect style="fill: #ffe599" x="200" y="120" width="180" height="80"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="200" y="120" width="180" height="80"/>
+    <text font-size="15.8044" style="fill: #000000;text-anchor:middle;font-family:Courier New;font-style:normal;font-weight:700" x="290" y="153.394">
+      <tspan x="290" y="153.394">OpenFiles()</tspan>
+      <tspan x="290" y="173.15">hcfile.c</tspan>
+    </text>
+  </g>
+  <text font-size="15.8044" style="fill: #ba3925;text-anchor:start;font-family:Courier New;font-style:normal;font-weight:700" x="760" y="304.2">
+    <tspan x="760" y="304.2">1.1</tspan>
+  </text>
+  <g>
+    <rect style="fill: #ffe599" x="200" y="0" width="180" height="80"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="200" y="0" width="180" height="80"/>
+    <text font-size="15.8044" style="fill: #000000;text-anchor:middle;font-family:Courier New;font-style:normal;font-weight:700" x="290" y="33.3944">
+      <tspan x="290" y="33.3944">ParseCommand()</tspan>
+      <tspan x="290" y="53.15">hcmisc.c</tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #ffe599" x="200" y="240" width="180" height="101.022"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="200" y="240" width="180" height="101.022"/>
+    <text font-size="15.8044" style="fill: #000000;text-anchor:middle;font-family:Courier New;font-style:normal;font-weight:700" x="290" y="264.15">
+      <tspan x="290" y="264.15">Pass1()</tspan>
+      <tspan x="290" y="283.906">hcpass.c</tspan>
+      <tspan x="290" y="303.661"></tspan>
+      <tspan x="290" y="323.417">(Definitions)</tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #ffe599" x="200" y="520" width="180" height="101.022"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="200" y="520" width="180" height="101.022"/>
+    <text font-size="15.8044" style="fill: #000000;text-anchor:middle;font-family:Courier New;font-style:normal;font-weight:700" x="290" y="544.15">
+      <tspan x="290" y="544.15">Pass2()</tspan>
+      <tspan x="290" y="563.906">hcpass.c</tspan>
+      <tspan x="290" y="583.661"></tspan>
+      <tspan x="290" y="603.417">(Build)</tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #ffe599" x="200" y="700" width="180" height="101.022"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="200" y="700" width="180" height="101.022"/>
+    <text font-size="15.8044" style="fill: #000000;text-anchor:middle;font-family:Courier New;font-style:normal;font-weight:700" x="290" y="724.15">
+      <tspan x="290" y="724.15">Pass3()</tspan>
+      <tspan x="290" y="743.906">hcpass.c</tspan>
+      <tspan x="290" y="763.661"></tspan>
+      <tspan x="290" y="783.417">(Resolve/Link)</tspan>
+    </text>
+  </g>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="290" y1="80.8984" x2="290" y2="108.102"/>
+    <polygon style="fill: #000000" points="285,108.102 290,118.102 295,108.102 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="285,108.102 290,118.102 295,108.102 "/>
+  </g>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="290" y1="200.992" x2="290" y2="228.004"/>
+    <polygon style="fill: #000000" points="285,228.004 290,238.004 295,228.004 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="285,228.004 290,238.004 295,228.004 "/>
+  </g>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="290" y1="342.028" x2="290" y2="507.994"/>
+    <polygon style="fill: #000000" points="285,507.994 290,517.994 295,507.994 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="285,507.994 290,517.994 295,507.994 "/>
+  </g>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="290" y1="622.026" x2="290" y2="687.996"/>
+    <polygon style="fill: #000000" points="285,687.996 290,697.996 295,687.996 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="285,687.996 290,697.996 295,687.996 "/>
+  </g>
+  <g>
+    <rect style="fill: #ffe599" x="420" y="240" width="320" height="239.311"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="420" y="240" width="320" height="239.311"/>
+    <text font-size="15.8044" style="fill: #000000;text-anchor:start;font-family:Courier New;font-style:normal;font-weight:700" x="429" y="264.15">
+      <tspan x="429" y="264.15">GetLine()</tspan>
+      <tspan x="429" y="283.906"></tspan>
+      <tspan x="429" y="303.661">CompilerDirective()</tspan>
+      <tspan x="429" y="323.417">CompilerMem()</tspan>
+      <tspan x="429" y="343.172">AddDirectory()</tspan>
+      <tspan x="429" y="362.928"></tspan>
+      <tspan x="429" y="382.683">Def...()</tspan>
+      <tspan x="429" y="402.439"></tspan>
+      <tspan x="429" y="422.194">PrinttoAll()</tspan>
+      <tspan x="429" y="441.95"></tspan>
+      <tspan x="429" y="461.706">(LinkerPass1()</tspan>
+    </text>
+  </g>
+  <text font-size="15.8044" style="fill: #ba3925;text-anchor:start;font-family:Courier New;font-style:normal;font-weight:700" x="760" y="384.2">
+    <tspan x="760" y="384.2">1.2</tspan>
+  </text>
+  <text font-size="15.8044" style="fill: #ba3925;text-anchor:start;font-family:Courier New;font-style:normal;font-weight:700" x="760" y="464.2">
+    <tspan x="760" y="464.2">1.3</tspan>
+  </text>
+  <g>
+    <rect style="fill: #ffe599" x="420" y="520" width="320" height="140.533"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="420" y="520" width="320" height="140.533"/>
+    <text font-size="15.8044" style="fill: #000000;text-anchor:start;font-family:Courier New;font-style:normal;font-weight:700" x="429" y="544.15">
+      <tspan x="429" y="544.15">GetWords()</tspan>
+      <tspan x="429" y="563.906"></tspan>
+      <tspan x="429" y="583.661">Build...()</tspan>
+      <tspan x="429" y="603.417"></tspan>
+      <tspan x="429" y="623.172">(LinkerPass2()</tspan>
+      <tspan x="429" y="642.928"></tspan>
+    </text>
+  </g>
+  <text font-size="15.8044" style="fill: #ba3925;text-anchor:start;font-family:Courier New;font-style:normal;font-weight:700" x="760" y="584.2">
+    <tspan x="760" y="584.2">2.1</tspan>
+  </text>
+  <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="580" y="590.266">
+    <tspan x="580" y="590.266"></tspan>
+  </text>
+  <text font-size="15.8044" style="fill: #ba3925;text-anchor:start;font-family:Courier New;font-style:normal;font-weight:700" x="760" y="624.2">
+    <tspan x="760" y="624.2">2.2</tspan>
+  </text>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="380" y1="560" x2="409" y2="560"/>
+    <polygon style="fill: #000000" points="409,565 419,560 409,555 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="409,565 419,560 409,555 "/>
+  </g>
+  <g>
+    <rect style="fill: #ffe599" x="420" y="700" width="320" height="80"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="420" y="700" width="320" height="80"/>
+    <text font-size="15.8044" style="fill: #000000;text-anchor:start;font-family:Courier New;font-style:normal;font-weight:700" x="429" y="743.272">
+      <tspan x="429" y="743.272">BuildCode()</tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #ffe599" x="420" y="820" width="320" height="80.7556"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="420" y="820" width="320" height="80.7556"/>
+    <text font-size="15.8044" style="fill: #000000;text-anchor:start;font-family:Courier New;font-style:normal;font-weight:700" x="429" y="853.772">
+      <tspan x="429" y="853.772">Code...()</tspan>
+      <tspan x="429" y="873.528">Codeline()</tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #ffe599" x="420" y="940" width="320" height="80"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="420" y="940" width="320" height="80"/>
+    <text font-size="15.8044" style="fill: #000000;text-anchor:start;font-family:Courier New;font-style:normal;font-weight:700" x="429" y="973.394">
+      <tspan x="429" y="973.394">Write...()</tspan>
+      <tspan x="429" y="993.15">WriteCode()</tspan>
+    </text>
+  </g>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="580" y1="661.514" x2="580" y2="688.021"/>
+    <polygon style="fill: #000000" points="575,688.021 580,698.021 585,688.021 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="575,688.021 580,698.021 585,688.021 "/>
+  </g>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="580" y1="781.005" x2="580" y2="809.879"/>
+    <polygon style="fill: #000000" points="575,809.879 580,819.879 585,809.879 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="575,809.879 580,819.879 585,809.879 "/>
+  </g>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="580" y1="901.746" x2="580" y2="928.055"/>
+    <polygon style="fill: #000000" points="575,928.055 580,938.055 585,928.055 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="575,928.055 580,938.055 585,928.055 "/>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="290,802.014 290,980 408.07,980 "/>
+    <polygon style="fill: #000000" points="408.07,985 418.07,980 408.07,975 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="408.07,985 418.07,980 408.07,975 "/>
+  </g>
+  <text font-size="15.8044" style="fill: #ba3925;text-anchor:start;font-family:Courier New;font-style:normal;font-weight:700" x="760" y="744.2">
+    <tspan x="760" y="744.2">2.3</tspan>
+  </text>
+  <text font-size="15.8044" style="fill: #ba3925;text-anchor:start;font-family:Courier New;font-style:normal;font-weight:700" x="760" y="864.2">
+    <tspan x="760" y="864.2">2.4</tspan>
+  </text>
+  <text font-size="15.8044" style="fill: #ba3925;text-anchor:start;font-family:Courier New;font-style:normal;font-weight:700" x="760" y="984.2">
+    <tspan x="760" y="984.2">2.5</tspan>
+  </text>
+  <text font-size="15.8044" style="fill: #000000;text-anchor:start;font-family:Courier New;font-style:normal;font-weight:normal" x="400" y="34.3222">
+    <tspan x="400" y="34.3222">Parse command line, including filenames,</tspan>
+    <tspan x="400" y="54.0778">switches, and other settings</tspan>
+  </text>
+  <text font-size="15.8044" style="fill: #000000;text-anchor:start;font-family:Courier New;font-style:normal;font-weight:normal" x="400" y="154.322">
+    <tspan x="400" y="154.322">Open initial source file, objectfile,</tspan>
+    <tspan x="400" y="174.078">listing, and temporary files</tspan>
+  </text>
+  <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="580" y="359.656">
+    <tspan x="580" y="359.656"></tspan>
+  </text>
+  <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="580" y="359.656">
+    <tspan x="580" y="359.656"></tspan>
+  </text>
+  <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="580" y="590.266">
+    <tspan x="580" y="590.266"></tspan>
+  </text>
+  <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="580" y="590.266">
+    <tspan x="580" y="590.266"></tspan>
+  </text>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="380" y1="280" x2="409" y2="280"/>
+    <polygon style="fill: #000000" points="409,285 419,280 409,275 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="409,285 419,280 409,275 "/>
+  </g>
+  <text font-size="15.8044" style="fill: #000000;text-anchor:start;font-family:Courier New;font-style:normal;font-weight:700" x="627.072" y="264">
+    <tspan x="627.072" y="264">- hcfile.c</tspan>
+    <tspan x="627.072" y="283.756"></tspan>
+    <tspan x="627.072" y="303.511">- hccomp.c</tspan>
+    <tspan x="627.072" y="323.267">- hccomp.c</tspan>
+    <tspan x="627.072" y="343.022">- hcmisc.c</tspan>
+    <tspan x="627.072" y="362.778"></tspan>
+    <tspan x="627.072" y="382.533">- hcdef.c</tspan>
+    <tspan x="627.072" y="402.289"></tspan>
+    <tspan x="627.072" y="422.044">- hcmisc.c</tspan>
+    <tspan x="627.072" y="441.8"></tspan>
+    <tspan x="627.072" y="461.556">- hclink.c)</tspan>
+  </text>
+  <text font-size="15.8044" style="fill: #000000;text-anchor:start;font-family:Courier New;font-style:normal;font-weight:700" x="627.072" y="544.242">
+    <tspan x="627.072" y="544.242">- hcfile.c</tspan>
+    <tspan x="627.072" y="563.998"></tspan>
+    <tspan x="627.072" y="583.753">- hcbuild.c</tspan>
+    <tspan x="627.072" y="603.509"></tspan>
+    <tspan x="627.072" y="623.264">- hclink.c)</tspan>
+  </text>
+  <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="920" y="540">
+    <tspan x="920" y="540"></tspan>
+  </text>
+  <text font-size="15.8044" style="fill: #000000;text-anchor:start;font-family:Courier New;font-style:normal;font-weight:700" x="627.072" y="743.536">
+    <tspan x="627.072" y="743.536">- hcbuild.c</tspan>
+  </text>
+  <text font-size="15.8044" style="fill: #000000;text-anchor:start;font-family:Courier New;font-style:normal;font-weight:700" x="626.878" y="852.928">
+    <tspan x="626.878" y="852.928">- hccode.c</tspan>
+    <tspan x="626.878" y="872.684">- hccode.c</tspan>
+  </text>
+  <text font-size="15.8044" style="fill: #000000;text-anchor:start;font-family:Courier New;font-style:normal;font-weight:700" x="630.918" y="972.928">
+    <tspan x="630.918" y="972.928">- hcfile.c</tspan>
+    <tspan x="630.918" y="992.684">- hcfile.c</tspan>
+  </text>
+</svg>

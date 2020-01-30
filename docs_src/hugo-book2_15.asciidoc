@@ -1,0 +1,93 @@
+// *****************************************************************************
+// *                                                                           *
+// *       Hugo Book II: 15/16 -- 27. Dark Secrets of the Hugo Debugger        *
+// *                                                                           *
+// *****************************************************************************
+//
+[[chapter_27]]
+= Dark Secrets of the Hugo Debugger
+
+The Hugo Debugger is basically a modified build of the Hugo Engine; the two share the same core code for program execution, but the debugger wraps it in a calling framework that allows the user (or the debugger itself) to control -- i.e., start, stop, or step through -- execution.
+
+The key difference with the debugger build of the engine is in `RunRoutine()`, which in the debugger looks more like this:
+
+[[fig-debugger-flowchart]]
+.Flowchart of the Hugo Debugger
+image::hugo-book2_15_flowchart-debugger.svg[align="center",width=60%]
+
+The debugger build contains a global flag called `debugger_interrupt`; if this flag is non-false, `RunRoutine()` is interrupted before executing the next instruction.
+
+The `Debugger()` function is responsible for switching to and updating the debugger display.
+`Debugger()` is also the hub for any debugger functions initiated by the user, such as setting breakpoints, setting watch expressions, changing values, moving objects, etc.
+
+The debugger controls program execution by returning from `Debugger()` to `RunRoutine()`.
+If `debugger_interrupt` is true, only the current instruction will execute, then control will pass back to `Debugger()` (i.e., stepping).
+In order to resume free execution, `Debugger()` returns with `debugger_interrupt` set to false.
+
+A number of other variables in the debugger influence program execution in addition to `debugger_interrupt`:
+
+[horizontal]
+`debugger_run`        :: true when engine is running freely
+`debugger_collapsing` :: true when collapsing the call
+`debugger_step_over`  :: true if stepping over (i.e., same-level stepping)
+`debugger_skip`       :: true if skipping next instruction
+`debugger_finish`     :: true if finishing current routine
+`debugger_step_back`  :: true if stepping backward
+`step_nest`           :: for stepping over nested calls (i.e., with `debugger_step_over`)
+
+
+[[sec_27-1]]
+== Debugger Expression Evaluation
+
+The debugger must evaluate expressions in several contexts, including when solving watch expressions and when changing an existing value.
+
+TIP: In-debugger expression management is contained primarily in *hdval.c*.
+
+In order to do this, the debugger includes a minimal version of the compiler's expression parser.
+It parses a user-supplied expression in the function `ParseExpression()`.
+What `ParseExpression()` does is to essentially compile that expression, storing the result in the debug workspace in the array table.
+
+TIP: Remember that the address of the debug workspace -- 256 bytes after any user-defined array storage -- is found in the header in *.HDX* files.
+
+After writing the expression, the debugger can then set `codeptr` to the start of the debug workspace, then call the engine's `SetupExpr()` and `EvalExpr()` functions as it would to evaluate any other expression.
+
+[[sec_27-2]]
+== The .HDX File Format
+
+
+// @XREF: "14.2. The Header"
+The *.HDX* file format for Hugo debuggable executables, as well as having some additional information in the header (see <<sec_14-2>>) and a 256 byte workspace reserved at the end of the array table, appends symbolic debugging data as follows:
+
+[[table-hdx-file-map]]
+.Memory Map of a .HDX File
+[.center,cols="<s,<d",options=autowidth,grid=none,stripes=even]
+|===============================================================================
+| Object names    | For each object: 1 byte giving the length, followed by the name as a string
+2+^a| {blank}
+| # of properties | 2 bytes
+| Property names  | For each property: 1 byte (length), then the name
+2+^a| {blank}
+| # of attributes | 2 bytes
+| Attribute names | For each attribute: 1 byte (length), then the name
+2+^a| {blank}
+| # of aliases    | 2 bytes
+| Alias names     | For each alias: 1 byte (length), then the name, then two bytes for the association
+2+^a| {blank}
+| # of routines   | 2 bytes
+| Routine names   | For each routine: 1 byte (length), then the name
+2+^a| {blank}
+| # of events     | 2 bytes
+| Event data      | 4 bytes for each -- 2 bytes for the parent; 2 bytes for the address
+2+^a| {blank}
+| # of arrays     | 2 bytes
+| Array data      | For each array: 1 byte for the name length, followed by the name, followed by 2 bytes for the address
+|===============================================================================
+
+[NOTE]
+================================================================================
+Note that it isn't necessary to store the total number of objects, since that is already available at the start of the normal object table.
+================================================================================
+
+
+
+// EOF //

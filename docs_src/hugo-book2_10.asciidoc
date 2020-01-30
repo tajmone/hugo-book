@@ -1,0 +1,22 @@
+// *****************************************************************************
+// *                                                                           *
+// *                Hugo Book II: 10/16 -- 22. The Event Table                 *
+// *                                                                           *
+// *****************************************************************************
+//
+[[chapter_22]]
+= The Event Table
+
+The event table begins with two bytes giving the total number of events.
+Each event requires 2 bytes:
+
+[.center,caption=]
+[cols=">m,<d",options=autowidth,grid=none,stripes=odd]
+|===============================================================================
+^h| Bytes | {blank}
+| 0 - 1   | Associated object (0 for a global event)
+| 2 - 3   | Address of event routine
+|===============================================================================
+
+
+// EOF //

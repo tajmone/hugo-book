@@ -1,0 +1,1466 @@
+// *****************************************************************************
+// *                                                                           *
+// *              Hugo Book I: 14/19 -- App. B. The Hugo Library               *
+// *                                                                           *
+// *****************************************************************************
+//
+[appendix]
+[[appendix_b]]
+= The Hugo Library
+
+
+// >>> footnotes definitions >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+// @FOOTNOTE IN TABLE: 1 inside cell, 2 at doc end.
+
+:fn1: footnote:[Used generally for room objects in order to give a grammatically correct description if necessary; also for containers and platforms.]
+
+:fn2: pass:q[footnote:[A "`grandchild`" of an object is a child of a child of a given parent object, or a child object thereof, recursively searched.]]
+
+// <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+[[sec_b-1]]
+== Attributes
+
+[cols="<2m,<8a",options=grid=rows,stripes=none]
+|===============================================================================
+
+| clothing    | for objects that can be worn
+| container   | if an object can hold other objects
+| enterable   | if an object is enterable
+| female      | if a character is female
+| hidden      | if an object is not to be listed
+| known       | if an object is known to the player
+| light       | if an object is or provides light
+| living      | if an object is a character
+| lockable    | if an object can be locked
+| locked      | if an object is locked
+| mobile      | if an object can be rolled, etc.
+| moved       | if an object has been moved
+| open        | if an object is open
+| openable    | if an object can be opened
+| platform    | if other objects can be placed on it
+
+NOTE: `container` and `platform` are generally mutually exclusive
+
+| plural      | for plural objects (i.e., some hats)
+| quiet       | if container or platform is quiet (i.e., the initial listing of contents is suppressed)
+| readable    | if an object can be read
+| special     | for miscellaneous use
+| static      | if an object cannot be taken
+| switchable  | if an object can be turned on or off
+| switchedon  | if an object is on
+| transparent | if an object is not opaque
+| unfriendly  | if a character is unfriendly
+| visited     | if a room has been visited
+| worn        | if an object is being worn
+
+2+h| For system use:
+
+| already_listed | if object has been pre-listed (i.e., before, for example, a `WhatsIn` listing)
+| workflag       | for system use
+|===============================================================================
+
+
+
+[[sec_b-2]]
+== Globals
+
+[cols="<2m,<8a",options=grid=rows,stripes=none]
+|===============================================================================
+
+2+h| The first 12 globals are pre-defined by the compiler:
+
+| object        | direct object of a verb action
+| xobject       | indirect object
+| self          | self-referential object
+| words         | total number of words
+| player        | the player object
+| actor         | player, or another char. (for scripts)
+| location      | location of the player object
+| verbroutine   | the verb routine
+| endflag       | if not false (0), run `EndGame`
+| prompt        | for the player input line
+| objects       | the total number of objects
+| system_status | after certain operations
+
+2+h| Game setup global variables:
+
+| MAX_SCORE     | total possible score
+| MAX_RANK      | up to `x` levels of player ranking
+| player_person | first (1), second (2), or third (3)
+
+2+h| Formatting/output global variables:
+
+| FORMAT        | specifies text-printing format
+| DEFAULT_FONT  | initially 0; could be set to, e.g., `PROP_ON`
+| STATUSTYPE    | 0=none, 1=score/turns, 2=time
+| TEXTCOLOR     | normal text color
+| BGCOLOR       | normal background color
+| SL_TEXTCOLOR  | statusline text color
+| SL_BGCOLOR    | statusline background color
+| INDENT_SIZE   | for paragraph indenting
+| AFTER_PERIOD  | string of spaces following a full-stop
+
+2+h| Runtime global variables:
+
+| counter         | elapsed turns (or time, as desired)
+| event_flag      | set when something happens (see `DoWait`)
+| general         | for general use
+| light_source    | light source in location
+| number_scripts  | number of active character scripts
+| obstacle        | if something is stopping the player
+| score           | accumulated score
+| speaking        | if the player is talking to a character
+| verbosity       | for room descriptions
+
+2+| {nbsp}
+| it_obj       .4+.^| to reference objects via pronouns
+| her_obj
+| him_obj
+| them_obj
+
+2+h| The following are generally for system use, but may be accessed if necessary:
+
+| customerror_flag | true once `CustomError` is called
+| last_object      | set by `Perform` to value of `object`
+| list_nest        | used by `ListObjects`
+| need_newline     | true when newline should be printed
+| old_location     | whenever location changes
+| override_indent  | true if no indent should be printed
+|===============================================================================
+
+
+
+[[sec_b-3]]
+== Arrays
+
+[cols="<2m,<8a",options=grid=rows,stripes=none]
+|===============================================================================
+| +++_temp_array[256]+++  | used by string manipulation functions
+| menuitem[11]            | required by the `Menu` function
+| oldword[MAX_WORDS]      | for "`again`" command
+| parse_rank[]            | for library parser state
+| ranking[]               | in tandem with scoring
+| replace_pronoun[]       | for `it_obj`, `him_obj`, etc.
+| scriptdata[]            | for object scripts
+| setscript[]             | the actual scripts
+|===============================================================================
+
+
+
+[[sec_b-4]]
+== Constants
+
+[cols="2*<2m,<6a",options=grid=rows,stripes=none]
+|===============================================================================
+| BANNER        2+a| should be printed in every game header
+| MAX_SCRIPTS   2+a| that may be active at one time
+| MAX_WORDS     2+a| in a parsed input line
+
+3+h| Color constants:
+
+| BLACK        2+m| DARK_GRAY
+| BLUE         2+m| LIGHT_BLUE
+| GREEN        2+m| LIGHT_GREEN
+| CYAN         2+m| LIGHT_CYAN
+| RED          2+m| LIGHT_RED
+| MAGENTA      2+m| LIGHT_MAGENTA
+| BROWN        2+m| YELLOW
+| WHITE        2+m| BRIGHT_WHITE
+
+3+| {nbsp}
+| DEF_FOREGROUND       2+m| DEF_BACKGROUND
+| DEF_SL_FOREGROUND    2+m| DEF_SL_BACKGROUND
+| MATCH_FOREGROUND     2+m| {blank}
+
+3+h| Printing format mask constants (for setting the `FORMAT` global):
+
+| LIST_F           2+a| print itemized lists, not sentences
+| NORECURSE_F      2+a| do not recurse object contents
+| NOINDENT_F       2+a| do not indent listings
+| DESCFORM_F       2+a| alternate room description formatting
+| GROUPPLURALS_F   2+a| list plurals together where possible
+
+3+h| Font style mask constants (for use with the `Font` routine):
+
+| BOLD_ON      | BOLD_OFF      | boldface
+| ITALIC_ON    | ITALIC_OFF    | italics
+| UNDERLINE_ON | UNDERLINE_OFF | underline
+| PROP_ON      | PROP_OFF      | proportional printing
+
+3+h| Additional constants:
+
+| UP_ARROW       | LEFT_ARROW   .4+.^| for reading keystrokes
+| DOWN_ARROW     | ENTER_KEY
+| RIGHT_ARROW    | ESCAPE_KEY
+| MOUSE_CLICK    | {blank}
+
+3+| {nbsp}
+d| `AND_WORD`  {nbsp}{nbsp}("`and`")    2+d| `IN_WORD` {nbsp}{nbsp}("`in`")
+d| `ARE_WORD`  {nbsp}{nbsp}("`are`")    2+d| `IS_WORD` {nbsp}{nbsp}("`is`")
+d| `HERE_WORD`       {nbsp}("`here`")   2+d| `ON_WORD` {nbsp}{nbsp}("`on`")
+
+3+| {nbsp}
+| FILE_CHECK           2+a| for verifying `writefile` and `readfile` operations
+
+3+| {nbsp}
+| MENU_TEXTCOLOR       2+a| normal menu text color
+| MENU_BGCOLOR         2+a| normal menu background color
+| MENU_SELECTCOLOR     2+a| menu highlight color
+| MENU_SELECTBGCOLOR   2+a| menu highlight background color
+|===============================================================================
+
+[[sec_b-5]]
+== Properties
+
+[cols="<2m,<8a",options=grid=rows,stripes=none]
+|===============================================================================
+
+2+h| The first 6 properties are pre-defined by the compiler:
+
+| name    | basic object name
+| before  | pre-verb routines
+| after   | post-verb routines
+| noun (nouns)           | noun(s) for referring to object
+| adjective (adjectives) | adjective(s) describing object
+| article | "`a`", "`an`", "`the`", "`some`", etc.
+
+| preposition (prep)
+d| "`in`", "`inside`", "`outside of`", etc.{wj}{fn1}
+
+| capacity
+| contains a value representing the capacity of a container or platform
+
+| exclude_from_all
+| returns true if the object should be excluded from actions such as "`*>GET ALL*`"
+
+| found_in
+| in case of multiple virtual (not "`physical`") parents, `found_in` may hold one or more object numbers; in this case, an `in <object>` specifier should probably not be included in the object definition, since `found_in` values are unrelated to `<object> in <parent>` relationships
+
+| holding
+| contains a value representing the current encumbrance of a container or platform
+
+| in_scope
+| contains a list of actors or objects to which the object is accessible beyond the use of the object tree or the `found_in` property; generally contains either the player object (or, less commonly, another character) and is set using `PutInScope` or cleared using `RemoveFromScope`
+
+| initial_desc
+| routine; same as above, but if object has not been moved and an `initial_desc` exists, it is called in place of `short_desc`
+
+| list_contents
+| a routine that overrides the normal contents listing for a room or object; normal listing is only carried out if it returns false
+
+| long_desc | routine; detailed description of an object
+| misc      | miscellaneous use
+
+| parse_rank
+| when there is ambiguity between similarly named objects, the parser will choose the one with a higher `parse_rank` over one with a lower (or non-existent) value; used when `FindObject(<object>, 0)` is called
+
+| pronoun
+| "`he`", "`him`", "`his`" or equivalent, so that an object is properly referred to
+
+| reach
+| for `enterable` objects such as chairs, vehicles, etc., if the accessibility of objects outside the object in question is limited, `reach` contains a list of the objects which may be accessed
+
+| react_before  .2+.^| to allow reaction by an object that is not directly involved in the action
+| react_after
+
+| short_desc     | routine; basic "`*X is here*`" description
+
+| size
+| for holding/inventory purposes, contains a value representing the size of an individual object
+
+| type
+| to identify the type of object, used primarily by class definitions in *objlib.h*
+
+
+2+h| For room objects only:
+
+| n_to   .12+.^| If a player can move to another location to the north, then `n_to` holds the new room object; if the new object is to the south, `s_to` holds the new object, etc.
+| ne_to
+| e_to
+| se_to
+| s_to
+| sw_to
+| w_to
+| nw_to
+| u_to
+| d_to
+| in_to
+| out_to
+
+2+| {nbsp}
+| cant_go
+| routine; message instead of the default "`*You can't go that way.*`"
+
+2+h| For non-room objects only:
+
+| contains_desc
+| a routine that prints the introduction to a list of child objects, instead of the default "`*Inside <object> are ...*`" or "`*<Character> has ...*`"; `contains_desc` should always conclude with a semicolon (`;`) instead of a new line
+
+| desc_detail
+| a routine that prints a parenthetical detail following an object listing, such as: "`**{nbsp}(which is open)**`"; the leading space is expected, as are the parentheses, and the `print` statement should conclude with a semicolon (`;`)
+
+| door_to
+| for handling "`**>ENTER <object>**`", holds the object number of the object to which an object enters (where the latter behaves as a door or portal)
+
+
+| ignore_response
+| for characters, a routine that runs if the character ignores a player's question, request, etc., instead of the default "`*X ignores you.*`"
+
+| inv_desc
+| a routine that prints a special description when the object is listed as part of the player's inventory; `inv_desc` should conclude with a semicolon (`;`)
+
+| key_object
+| if `lockable`, contains the object number of the key
+
+| order_response
+| also for characters, a routine that processes an imperative command addressed to the character by the player; it should return false if no response is provided
+
+| when_open .2+.^| routines; special short descriptions for `openable` objects, where if one exists it is called in place of `short_desc` (when the object is `open` or `not open`, as appropriate) if an `initial_desc` does not exist, or if the object has been `moved`
+| when_closed
+|===============================================================================
+
+
+[IMPORTANT]
+===================
+It is recommended for property routines that print a description -- such as `short_desc`, `initial_desc`, etc. -- that the routine not simply return true without printing anything as a means of "`hiding`" the object; such a method may throw text formatting into disarray.
+The proper means of omitting an object from a list is to set the `hidden` attribute.
+===================
+
+[cols="<2m,<8a",options=grid=rows,stripes=none]
+|===============================================================================
+
+2+h| For the display object only:
+
+2+e| Read-only:
+
+| cursor_column .2+.^| horizontal and vertical position of the cursor in the current text window
+| cursor_row
+
+| hasgraphics   | true if graphics display is available
+| hasvideo      | true if video playback is available
+| linelength    | width of the current text window
+| pointer_x     | fixed-width column of last mouse click
+| pointer_y     | fixed-width row of last mouse click
+| screenwidth   | width of the display, in characters
+| screenheight  | height of the display, in characters
+| windowlines   | height of the current text window
+
+2+e| Read/writable:
+
+| needs_repaint
+| true if the operating system has requested a repaint (for ports which support it)
+
+| statusline_height
+| the number of lines used to print the statusline
+
+| title_caption
+| dictionary entry giving the full proper name of the program (optional)
+|===============================================================================
+
+[NOTE]
+===================
+While `screenwidth` through `title_caption` are technically defined by *hugolib.h* as constants, they are used as property numbers to reference data on the display object.
+===================
+
+
+[[sec_b-6]]
+== Verb Routines
+
+The library file *verblib.h* (included by *hugolib.h*) contains a fairly extensive set of basic actions, each of which takes the form `Do<verb>`, so that the action for taking an object is `DoGet`, the action for basic player movement is `DoGo`, etc.
+Each is called by the engine when a grammar syntax line specifying the particular verb routine is matched.
+The globals `object` and `xobject` are set up by the engine, and the routine is called with no parameters.
+
+Here is a list of the provided verb routines for action verbs:
+
+// NOTE: 39 entries in list
+[.center,cols="5*d",options=autowidth,frame=none,grid=none,stripes=none]
+|===============================================================
+| DoAsk
+| DoAskQuestion
+| DoClose
+| DoDrink
+| DoDrop
+| DoEat
+| DoEmpty
+| DoEnter
+| DoExit
+| DoGet
+| DoGive
+| DoGo
+| DoHello
+| DoHit
+| DoInventory
+| DoListen
+| DoLock
+| DoLook
+| DoLookAround
+| DoLookIn
+| DoLookThrough
+| DoLookUnder
+| DoMove
+| DoOpen
+| DoPutIn
+| DoPutOnGround
+| DoShow
+| DoSit
+| DoSwitchOff
+| DoSwitchOn
+| DoTakeOff
+| DoTalk
+| DoTell
+| DoUnlock
+| DoVague
+| DoWait
+| DoWaitforChar
+| DoWaitUntil
+| DoWear
+| {blank}
+|===============================================================
+
+Here are the non-action verb routines:
+
+
+// NOTE: 11 entries in list
+[.center,cols="4*d",options=autowidth,frame=none,grid=none,stripes=none]
+|===============================================================
+| DoBrief
+| DoRecordOnOff
+| DoRestart
+| DoRestore
+| DoSave
+| DoScriptOnOff
+| DoScore
+| DoSuperbrief
+| DoUndo
+| DoVerbose
+| DoQuit
+| {blank}
+|===============================================================
+
+
+Output messages for these verbroutines are handled by the routine `VMessage` in *verblib.h*.
+
+A set of verb stub routines is also available in *verbstub.h*, including the actions:
+
+// NOTE: 29 entries in list
+[.center,cols="5*d",options=autowidth,frame=none,grid=none,stripes=none]
+|===============================================================
+| DoBurn
+| DoClimb
+| DoClimbOut
+| DoCut
+| DoDig
+| DoFollow
+| DoHelp
+| DoHelpChar
+| DoJump
+| DoKiss
+| DoNo
+| DoPull
+| DoPush
+| DoSearch
+| DoSleep
+| DoSmell
+| DoSorry
+| DoSwim
+| DoThrowAt
+| DoTie
+| DoTouch
+| DoUntie
+| DoUse
+| DoWake
+| DoWakeCharacter
+| DoWave
+| DoWaveHands
+| DoYell
+| DoYes
+| {blank}
+|===============================================================
+
+The default response for each of these stub routines is a more colorful variation of "`*Try something else.*`"
+Any more meaningful responses must be incorporated into `before` property routines.
+To use these verbs, set the `VERBSTUBS` flag before compiling *hugolib.h*.
+
+
+
+[[sec_b-7]]
+== Utility Routines, Etc.
+
+First, the junction routines:
+
+[cols="<2m,<8a",options=grid=rows,stripes=none]
+|===============================================================================
+
+//-----{ EndGame }--------------------------------------------------------------
+
+| [.big]##EndGame##
+| called by the engine via:
+
+[literal,role="hugosyntax"]
+EndGame(end_type)
+
+If `end_type` = 1, the game is won; if 2, the game is lost.
+
+NOTE: Since `endflag` may be any value, a value of, for example, 0 will still call `EndGame`, but with no additional effects via the default `PrintEndGame` routine.
+
+The global `endflag` is cleared upon calling.
+Returning false from `EndGame` terminates the Hugo Engine.
+
+Also calls: `PrintEndGame` and `PrintScore`
+
+//-----{ FindObject }-----------------------------------------------------------
+
+| [.big]##FindObject##
+| called by the engine via:
+
+[literal,role="hugosyntax"]
+FindObject(object, location)
+
+Returns true (1) if the specified object is available in the specified location, or false (0) if it is not.
+Returns 2 if the object is visible but not physically accessible.
+
+The location argument is 0 during object disambiguation performed by the engine.
+
+Also calls: `ObjectisKnown`, `ExcludeFromAll`
+
+//-----{ Parse }----------------------------------------------------------------
+
+| [.big]##Parse##
+| called by the engine via:
+
+[literal,role="hugosyntax"]
+Parse()
+
+Performs all library-side parsing of the player input.
+Returning true forces the engine to reparse the modified input line.
+
+Also calls: `PreParse`, `AssignPronoun` and `SetObjWord`
+
+//-----{ ParseError }-----------------------------------------------------------
+
+| [.big]##ParseError##
+| called by the engine via:
+
+[literal,role="hugosyntax"]
+ParseError(errornumber, object)
+
+Prints the parsing message/error given by `errornumber`, where an additional object value may also be provided.
+Returning false signals the engine to print the engine's default error message.
+Return 2 to force the existing line to be reparsed as is.
+
+May also call: `CustomError`
+
+//-----{ Perform }--------------------------------------------------------------
+| [.big]##Perform##
+| called by the engine via:
+
+[literal,role="hugosyntax"]
+Perform(verbroutine, object, xobject, queue, isxverb)
+
+Runs the requested verbroutine, setting up the `object` and `xobject` globals if necessary.
+The `queue` argument is true if more than one call to `Perform` is being made for multiple objects, and the `isxverb` argument is true for verbroutine calls associated with xverb grammar.
+
+//-----{ SpeakTo }--------------------------------------------------------------
+| [.big]##SpeakTo##
+| called by the engine via:
+
+[literal,role="hugosyntax"]
+SpeakTo(character)
+
+Handles character responses to directed actions.
+Globals `object`, `xobject`, and `verbroutine` are set up as in a normal verb routine call.
+
+Also calls: `AssignPronoun`
+|===============================================================================
+
+
+
+And the routines for grammatically-correct printing:
+
+
+
+[cols="<2m,<8a",options=grid=rows,stripes=none]
+|===============================================================================
+
+//-----{ Art }------------------------------------------------------------------
+
+| [.big]##Art##
+| calling form:
+
+[literal,role="hugosyntax"]
+Art(object)
+
+Prints the indefinite article form of the object name, e.g. "`*an apple*`"
+
+//-----{ The }------------------------------------------------------------------
+
+| [.big]##The##
+| calling form:
+
+[literal,role="hugosyntax"]
+The(object)
+
+Prints the definite article form of the object name, e.g. "`*the apple*`"
+
+//-----{ CArt }-----------------------------------------------------------------
+
+| [.big]##CArt##
+| calling form:
+
+[literal,role="hugosyntax"]
+CArt(object)
+
+Prints the capitalized indefinite article form of the object name, e.g. "`*An apple*`"
+
+//-----{ CThe }-----------------------------------------------------------------
+
+| [.big]##CThe##
+| calling form:
+
+[literal,role="hugosyntax"]
+CThe(object)
+
+Prints the capitalized definite article form of the object name, e.g. "`*The apple*`"
+
+//-----{ IsorAre }--------------------------------------------------------------
+
+| [.big]##IsorAre##
+| calling form:
+
+[literal,role="hugosyntax"]
+IsorAre(object[, formal])
+
+where the parameter `formal` is optional
+
+// @EDITED: Used monospace instead of enclosing in typographical quotes,
+//  becaue it's more readble and less messy.
+Depending on whether or not the specified object is `plural` or singular, prints `+'re+` or `+'s+`, respectively (or ``{nbsp}are`` or ``{nbsp}is`` if a non-false `formal` parameter is passed).
+
+//-----{ MatchPlural }----------------------------------------------------------
+
+| [.big]##MatchPlural##
+| calling form:
+
+[literal,role="hugosyntax"]
+MatchPlural(object, w1, w2)
+
+Prints the dictionary entry given by `w1` if the supplied object is not plural, or `w2` if it is.
+
+//-----{ MatchSubject }---------------------------------------------------------
+
+| [.big]##MatchSubject##
+| calling form:
+
+[literal,role="hugosyntax"]
+MatchSubject(object)
+
+Matches a verb to the given subject `object`.
+If the object is `plural`, nothing is printed; if the object is singular, an "`s`" is printed.
+|===============================================================================
+
+
+[NOTE]
+=====================
+None of the above printing routines prints a carriage return, and all return 0 (the empty string).
+Therefore, either of the following uses are valid:
+
+[source,hugo]
+-----------------
+CThe(apple)
+print " is here."
+-----------------
+
+or
+
+[source,hugo]
+------------------------------
+print CThe(apple); " is here."
+------------------------------
+=====================
+
+
+Other library routines:
+
+[cols="<2m,<8a",options=grid=rows,stripes=none]
+|===============================================================================
+
+//-----{ Acquire }--------------------------------------------------------------
+
+| [.big]##Acquire##
+| calling form:
+
+[literal,role="hugosyntax"]
+Acquire(parent, object)
+
+Checks to see if `parent.capacity` is greater than or equal to `parent.holding` plus `object.size`.
+If so, it moves the object to the specified parent, and returns true.
+If the object cannot be moved, `Acquire` returns false.
+
+Also calls: `CalculateHolding`
+
+//-----{ AnyVerb }--------------------------------------------------------------
+
+| [.big]##AnyVerb##
+| calling form:
+
+[literal,role="hugosyntax"]
+AnyVerb(value)
+
+Returns `value` if the current verbroutine is not an xverb; otherwise it returns false.
+
+//-----{ AssignPronoun }--------------------------------------------------------
+
+| [.big]##AssignPronoun##
+| calling form:
+
+[literal,role="hugosyntax"]
+AssignPronoun(object)
+
+Sets the appropriate global `it_obj`, `them_obj`, `him_obj`, or `her_obj` to the specified object.
+
+//-----{ CalculateHolding }-----------------------------------------------------
+
+| [.big]##CalculateHolding##
+| calling form:
+
+[literal,role="hugosyntax"]
+CalculateHolding(object)
+
+Properly recalculates `object.holding` based on the sizes of all child objects.
+
+//-----{ CenterTitle }----------------------------------------------------------
+
+| [.big]##CenterTitle##
+| calling form:
+
+[literal,role="hugosyntax"]
+CenterTitle(text[, lines])
+
+Clears the screen and centers the text given by the specified dictionary entry in the top window.
+The default height of the title (i.e., one line) can be overridden with a second argument giving the number of lines.
+
+//-----{ CheckReach }-----------------------------------------------------------
+
+| [.big]##CheckReach##
+| calling form:
+
+[literal,role="hugosyntax"]
+CheckReach(object)
+
+Checks to see if the specified object is within reach of the player object.
+Returns true if accessible; returns false and prints an appropriate message if not accessible.
+
+//-----{ Contains }-------------------------------------------------------------
+
+| [.big]##Contains##
+| calling form:
+
+[literal,role="hugosyntax"]
+Contains(parent, object)
+
+Returns `object` if the specified object is present as a possession of the specified parent, even as a grandchild,{wj}{fn2} otherwise returns false.
+
+//-----{ CustomError }----------------------------------------------------------
+
+| [.big]##CustomError##
+| calling form:
+
+[literal,role="hugosyntax"]
+CustomError(errornumber, object)
+
+Replace if custom error messages are desired.
+Is called by `ParseError` whenever `errornumber` is greater than or equal to 100, specifying a user-provided and user-called parser error.
+Should return false if no user message is found.
+
+//-----{ DarkWarning }----------------------------------------------------------
+
+| [.big]##DarkWarning##
+| calling form:
+
+[literal,role="hugosyntax"]
+DarkWarning
+
+Is called by `MovePlayer` whenever the player object is moved into a location without a light source.
+The default library routine simply prints a message; for a more sinister response or action, such as the demise of the player, replace the default with a new `DarkWarning` routine.
+
+//-----{ DeleteWord }-----------------------------------------------------------
+
+| [.big]##DeleteWord##
+| calling form:
+
+[literal,role="hugosyntax"]
+DeleteWord(wordnumber[, number])
+
+Deletes `number` words -- or only one word if no second argument is given -- starting with `word[wordnumber]`.
+Returns the number of words deleted.
+
+//-----{ DescribePlace }--------------------------------------------------------
+
+| [.big]##DescribePlace##
+| calling form:
+
+[literal,role="hugosyntax"]
+DescribePlace(location[, long])
+
+Prints the location `name` and, when appropriate, a location description (i.e., its `long_desc`).
+Including a non-false long parameter will always force a location description.
+
+//-----{ ExcludeFromAll }-------------------------------------------------------
+
+| [.big]##ExcludeFromAll##
+| calling form:
+
+[literal,role="hugosyntax"]
+ExcludeFromAll(object)
+
+Returns true if, based on the current circumstances (verbroutine, etc.), the supplied `object` should be excluded from actions using "`*ALL*`" -- such as `multi`, `multiheld`, and `multinotheld` grammar tokens.
+
+//-----{ FindLight }------------------------------------------------------------
+
+| [.big]##FindLight##
+| calling form:
+
+[literal,role="hugosyntax"]
+FindLight(location)
+
+Checks to see if a light source is available in `location`; if so, it sets the global `light_source` to the object number of the source and returns that value.
+
+Also calls: `ObjectIsLight`
+
+//-----{ Font }-----------------------------------------------------------------
+
+| [.big]##Font##
+| calling form:
+
+[literal,role="hugosyntax"]
+Font(bitmask)
+
+// @XREF: "B.4. Constants" (INTERNAL XREF)
+Sets the current font attributes as specified by `bitmask`, where `bitmask` is one or more font-style constants (see <<sec_b-4,library constants>>, above) combined with `{vbar}` or `+`.
+
+//-----{ GetInput }-------------------------------------------------------------
+
+| [.big]##GetInput##
+| calling form:
+
+[literal,role="hugosyntax"]
+GetInput([prompt string])
+
+Receives input from the keyboard, storing individual words in the `word` array; unknown words -- i.e., those that are not in the dictionary -- are assigned the empty string, 0 or `+""+`.
+If an argument is passed, it is assumed to be a dictionary address for the `prompt` string.
+If no argument is passed, no prompt is printed.
+
+//-----{ HoursMinutes }---------------------------------------------------------
+
+| [.big]##HoursMinutes##
+| calling form:
+
+[literal,role="hugosyntax"]
+HoursMinutes(counter[, military])
+
+Prints the time in "`__hh__:__mm__`" format given that `counter` represents the time in minutes from 12:00 a.m.
+If the optional `military` value is given as a true value, the time is printed in 24-hour format.
+
+//-----{ Indent }---------------------------------------------------------------
+
+| [.big]##Indent##
+| calling form:
+
+[literal,role="hugosyntax"]
+Indent
+
+If the `NOINDENT_F` bit is not set in the `FORMAT` mask, `Indent` prints `INDENT_SIZE` spaces without printing a newline.
+
+//-----{ InList }---------------------------------------------------------------
+
+| [.big]##InList##
+| calling form:
+
+[literal,role="hugosyntax"]
+InList(object, property, value)
+
+If the `value` is in the list of values held in `object.property`, returns the element number of the (first) `property` element equal to `value`; otherwise returns 0.
+
+//-----{ InsertWord }-----------------------------------------------------------
+
+| [.big]##InsertWord##
+| calling form:
+
+[literal,role="hugosyntax"]
+InsertWord(wordnumber[, number])
+
+Makes space for either the number of words given by the `number` argument -- or one word if no second argument is given -- if possible, at `word[wordnumber]`, shifting upward all words from that point to the end of the input line.
+Returns the number of words inserted.
+
+//-----{ IsPossibleXobject }----------------------------------------------------
+
+| [.big]##IsPossibleXobject##
+| calling form:
+
+[literal,role="hugosyntax"]
+IsPossibleXobject(object)
+
+Returns true if the object is potentially the xobject in the current command.
+Does not, however, guarantee that the object _is_ an xobject, but is instead a quick and inexpensive utility routine for parsing.
+
+//-----{ ListObjects }----------------------------------------------------------
+
+| [.big]##ListObjects##
+| calling form:
+
+[literal,role="hugosyntax"]
+ListObjects(object)
+
+Lists all the possessions of the specified object in the appropriate form (according to the global `FORMAT`).
+Possessions of possessions are listed recursively if `FORMAT` does not contain the `NORECURSE_F` bit.
+Format masks are combined, as in:
+
+[literal,role="hugosyntax",subs="+attributes"]
+FORMAT = LIST_F {vbar} NORECURSE_F {vbar} ...
+
+Also calls: `WhatsIn`
+
+//-----{ Menu }-----------------------------------------------------------------
+
+| [.big]##Menu##
+| calling form:
+
+[literal,role="hugosyntax"]
+Menu(number, [width[, selection]])
+
+Prints a menu, given that the possible `number` of choices (up to 10) are contained in the `menuitem` array, with `menuitem[0]` is the title of the menu.
+A `width` (in characters) argument and a starting `selection` number are optional.
+Returns the number of the item selected, or 0 if none is chosen.
+
+Also calls: `CenterTitle`
+
+//-----{ Message }--------------------------------------------------------------
+
+| [.big]##Message##
+| calling form:
+
+[literal,role="hugosyntax"]
+Message(&routine, num, a, b)
+
+Used by most routines in *hugolib.h* for text output, so that the bulk of the library text is centralized in one location.
+Message number `num` for the specified routine is printed; `a` and `b` are optional parameters that may represent objects, dictionary entries, or any other value.
+
+TIP: Similar routines are provided in `VMessage` in *verblib.h* and `OMessage` in *objlib.h*.
+
+//-----{ MovePlayer }-----------------------------------------------------------
+
+| [.big]##MovePlayer##
+| calling form:
+
+[literal,role="hugosyntax"]
+MovePlayer(loc[, silent[, none]])
+MovePlayer(dir[, silent[, none]])
+
+Moves the player to the new location, properly setting all relevant variables and attributes.
+If `silent` is passed as a true value, no room description is printed following the move.
+
+A direction object (i.e., `n_obj`, `d_obj`) may be specified instead of a location; in that case, `MovePlayer` moves in that direction from present `location`.
+
+If `none` is true, `before` and `after` routines are not run.
+
+`MovePlayer` can be checked in a location's `before` or `after` property as `location MovePlayer` to catch a player's exit from or entrance to a location.
+In a `before` property, `object MovePlayer` can be used to check the target location.
+
+Returns the object number of the new `location`.
+
+`MovePlayer` does not check to see if a move is valid; that must be done before calling the routine.
+
+May also call: `DarkWarning`
+
+//-----{ NumberWord }-----------------------------------------------------------
+
+| [.big]##NumberWord##
+| calling form:
+
+[literal,role="hugosyntax"]
+NumberWord(number[, true])
+
+Prints a number in non-numerical word format, where `<number>` is between -32768 to 32767.
+Always returns 0 (the empty string).
+If a second true argument is supplied, the word is capitalized.
+
+//-----{ ObjectIs }-------------------------------------------------------------
+
+| [.big]##ObjectIs##
+| calling form:
+
+[literal,role="hugosyntax"]
+ObjectIs(object)
+
+Lists certain attributes, such as providing `light` or being `worn`, of the given object in parenthetical form.
+
+//-----{ ObjectisKnown }--------------------------------------------------------
+
+| [.big]##ObjectisKnown##
+| calling form:
+
+[literal,role="hugosyntax"]
+ObjectisKnown(object)
+
+Returns true if the object is `known` to the player.
+
+//-----{ ObjectisLight }--------------------------------------------------------
+
+| [.big]##ObjectisLight##
+| calling form:
+
+[literal,role="hugosyntax"]
+ObjectisLight(object)
+
+Returns true if the object or one of its visible possessions is providing `light`.
+If so, it also sets the global `light_source` to the object number of the source.
+
+//-----{ ObjWord }--------------------------------------------------------------
+
+| [.big]##ObjWord##
+| calling form:
+
+[literal,role="hugosyntax"]
+ObjWord(word, object)
+
+// @EDITED TEXT: (Issue #47)
+//    Reconstucted missing word: "if the given [`word`] is either"
+Returns either `adjective` or `noun` (i.e., the property number) if the given `word` is either an adjective or noun of the specified object.
+
+//-----{ PreParse }-------------------------------------------------------------
+
+| [.big]##PreParse##
+| calling form:
+
+[literal,role="hugosyntax"]
+PreParse
+
+Provided so that, if needed, this routine may be replaced instead of the more extensive library `Parse` routine.
+The default `PreParse` routine defined in the library is empty.
+
+//-----{ PrintEndGame }---------------------------------------------------------
+
+| [.big]##PrintEndGame##
+| calling form:
+
+[literal,role="hugosyntax"]
+PrintEndGame(end_type)
+
+Depending on whether `end_type` is 1 or 2, prints, respectively:
+
+[example,role="gametranscript"]
++++*** YOU'VE WON THE GAME! ***+++
+
+or
+
+[example,role="gametranscript"]
++++*** YOU ARE DEAD. ***+++
+
+If `end_type` is some other value, nothing is printed.
+
+//-----{ PrintScore }-----------------------------------------------------------
+
+| [.big]##PrintScore##
+| calling form:
+
+[literal,role="hugosyntax"]
+PrintScore(end_of_game)
+
+Prints the `score` in the appropriate form, depending on whether or not `end_of_game` is true.
+
+//-----{ PrintStatusLine }------------------------------------------------------
+
+| [.big]##PrintStatusLine##
+| calling form:
+
+[literal,role="hugosyntax"]
+PrintStatusLine
+
+Prints the statusline in the appropriate format, according to the global `STATUSTYPE`.
+
+//-----{ PropertyList }---------------------------------------------------------
+
+| [.big]##PropertyList##
+| calling form:
+
+[literal,role="hugosyntax"]
+PropertyList(object, property)
+
+Lists the objects held in `object.property` (if any), returning the number of objects listed.
+
+//-----{ PutInScope }-----------------------------------------------------------
+
+| [.big]##PutInScope##
+| calling form:
+
+[literal,role="hugosyntax"]
+PutInScope(object, actor)
+
+Makes the given object accessible to the specified actor, regardless of their respective locations, and providing that the `in_scope` property of the object has at least one empty slot -- i.e., one that equals 0.
+Returns true if successful.
+
+//-----{ RemoveFromScope }------------------------------------------------------
+
+| [.big]##RemoveFromScope##
+| calling form:
+
+[literal,role="hugosyntax"]
+RemoveFromScope(object, actor)
+
+Removes the given object from the scope of the specified actor.
+Returns true if successful, or false if the object was never in scope of the actor to begin with.
+
+//-----{ SetObjWord }-----------------------------------------------------------
+
+| [.big]##SetObjWord##
+| calling form:
+
+[literal,role="hugosyntax"]
+SetObjWord(position, object)
+
+Inserts the specified object in the `word` array in the format:
+
+[literal,role="hugosyntax"]
+"adjective1 adjective2 ... noun"
+
+{blank}
+
+//-----{ ShortDescribe }--------------------------------------------------------
+
+| [.big]##ShortDescribe##
+| calling form:
+
+[literal,role="hugosyntax"]
+ShortDescribe(object)
+
+Prints the short description (`short_desc`) of the given object, first checking to see if it should run `initial_desc`, `when_open`, or `when_closed`, as appropriate.
+Then, if no `short_desc` property exists, it prints a default "`*X is here.*`"
+
+Also calls: `WhatsIn`
+
+//-----{ SpecialDesc }----------------------------------------------------------
+
+| [.big]##SpecialDesc##
+| calling form:
+
+[literal,role="hugosyntax"]
+SpecialDesc(object)
+
+Checks each child object of the specified object, running any appropriate `initial_desc` or `inv_desc` property routines (depending on the calling situation).
+Sets the global variable `list_count` to the number of remaining (i.e., non-listed) objects.
+
+//-----{ VerbWord }-------------------------------------------------------------
+
+| [.big]##VerbWord##
+| calling form:
+
+[literal,role="hugosyntax"]
+VerbWord
+
+Returns the dictionary word used as the verb in a typed command.
+
+//-----{ WhatsIn }--------------------------------------------------------------
+
+| [.big]##WhatsIn##
+| calling form:
+
+[literal,role="hugosyntax"]
+WhatsIn(parent)
+
+Lists the possessions of the specified parent, according the form given by the global `FORMAT`.
+Returns the number of objects listed.
+
+Also calls: `SpecialDesc`, `ListObjects`
+
+//-----{ YesorNo }--------------------------------------------------------------
+
+| [.big]##YesorNo##
+| calling form:
+
+[literal,role="hugosyntax"]
+YesorNo
+
+Checks to see if the just-received input is "`*YES*`", "`*Y*`", "`*NO*`", or "`*N*`".
+If none of the above, it prompts for a yes or no answer.
+Once a valid answer is received, it returns true (if yes) or false (if no).
+|===============================================================================
+
+
+[[sec_b-8]]
+== Auxiliary Math Routines
+
+
+[cols="<2m,<8a",options=grid=rows,stripes=none]
+|===============================================================================
+
+//-----{ abs }------------------------------------------------------------------
+
+| [.big]##abs##
+| calling form:
+
+[literal,role="hugosyntax"]
+abs(a)
+
+Returns an absolute value given a supplied value.
+
+//-----{ higher }---------------------------------------------------------------
+
+| [.big]##higher##
+| calling form:
+
+[literal,role="hugosyntax"]
+higher(a, b)
+
+Returns the higher number of two supplied values.
+
+//-----{ lower }----------------------------------------------------------------
+
+| [.big]##lower##
+| calling form:
+
+[literal,role="hugosyntax"]
+lower(a, b)
+
+Returns the lower number of two supplied values.
+
+//-----{ mod }------------------------------------------------------------------
+
+| [.big]##mod##
+| calling form:
+
+[literal,role="hugosyntax"]
+mod(a, b)
+
+Returns the remainder of one number divided by a second number.
+
+//-----{ pow }------------------------------------------------------------------
+
+| [.big]##pow##
+| calling form:
+
+[literal,role="hugosyntax"]
+pow(a, b)
+
+Returns one number to the power of another number.
+
+WARNING: The return value is undefined if the result is outside the boundary of -32768 to 32767.
+|===============================================================================
+
+
+
+[[sec_b-9]]
+== String Array Routines
+
+[cols="<2m,<8a",options=grid=rows,stripes=none]
+|===============================================================================
+
+//-----{ StringCompare }--------------------------------------------------------
+
+| [.big]##StringCompare##
+| calling form:
+
+[literal,role="hugosyntax"]
+StringCompare(array1, array2)
+
+Returns 1 if `array1` is lexically greater than `array2`, -1 if `array1` is lexically less than `array2`, and 0 if the strings are identical.
+
+//-----{ StringCopy }-----------------------------------------------------------
+
+| [.big]##StringCopy##
+| calling form:
+
+[literal,role="hugosyntax"]
+StringCopy(new, old[, len])
+
+Copies the contents of the array at the address given by `old` to the array at `new`, to a maximum of `len` characters if `len` is given, or the length of `old` if it isn't.
+
+//-----{ StringDictCompare }----------------------------------------------------
+
+| [.big]##StringDictCompare##
+| calling form:
+
+[literal,role="hugosyntax"]
+StringDictCompare(array, dictentry)
+
+Performs a `StringCompare`-like comparison of a string array given by `array` and the dictionary entry `dictentry`, returning 1, -1, or 0 if `array` is lexically greater than, less than, or equal to `dictentry`, respectively.
+
+//-----{ StringEqual }----------------------------------------------------------
+
+| [.big]##StringEqual##
+| calling form:
+
+[literal,role="hugosyntax"]
+StringEqual(array1, array2)
+
+Returns true only if `array1` and `array2` are identical.
+
+//-----{ StringLength }---------------------------------------------------------
+
+| [.big]##StringLength##
+| calling form:
+
+[literal,role="hugosyntax"]
+StringLength(array)
+
+Returns the length of the string stored as `array`.
+
+//-----{ StringPrint }----------------------------------------------------------
+
+| [.big]##StringPrint##
+| calling form:
+
+[literal,role="hugosyntax"]
+StringPrint(array[, start, end])
+
+Prints the string stored as `array`, beginning with `start` and ending with `end` if given.
+|===============================================================================
+
+
+
+[[sec_b-10]]
+== Fuse/Daemon Routines
+
+[cols="<2m,<8a",options=grid=rows,stripes=none]
+|===============================================================================
+
+//-----{ Activate }-------------------------------------------------------------
+
+| [.big]##Activate##
+| calling form:
+
+[literal,role="hugosyntax"]
+Activate(object[, setting])
+
+Activates the specified `fuse` or `daemon` object.
+The setting value is only specified for fuses, where it represents the initial value of the timer property.
+
+//-----{ Deactivate }-----------------------------------------------------------
+
+| [.big]##Deactivate##
+| calling form:
+
+[literal,role="hugosyntax"]
+Deactivate(object)
+
+Deactivates the specified `fuse` or `daemon` object.
+|===============================================================================
+
+
+
+[[sec_b-11]]
+== Character Script Routines
+
+[cols="<2m,<8a",options=grid=rows,stripes=none]
+|===============================================================================
+
+//-----{ CancelScript }---------------------------------------------------------
+
+| [.big]##CancelScript##
+| calling form:
+
+[literal,role="hugosyntax"]
+CancelScript(character)
+
+Immediately cancels the character script associated with the object `character`.
+Returns true if successful, i.e., if a script for `character` is found.
+
+//-----{ PauseScript }----------------------------------------------------------
+
+| [.big]##PauseScript##
+| calling form:
+
+[literal,role="hugosyntax"]
+PauseScript(character)
+
+Temporarily pauses the character script associated with the given `character`.
+Returns true if successful.
+
+//-----{ ResumeScript }---------------------------------------------------------
+
+| [.big]##ResumeScript##
+| calling form:
+
+[literal,role="hugosyntax"]
+ResumeScript(character)
+
+Resumes execution of a paused script for the given `character`.
+Returns true if successful.
+
+//-----{ SkipScript }-----------------------------------------------------------
+
+| [.big]##SkipScript##
+| calling form:
+
+[literal,role="hugosyntax"]
+SkipScript(character)
+
+Skips execution of the script for a given `character` during the next call to `RunScripts` only.
+
+//-----{ Script }---------------------------------------------------------------
+
+| [.big]##Script##
+| calling form:
+
+[literal,role="hugosyntax"]
+Script(character, steps)
+
+Initializes space for the requested number of `steps` in the `setscript` array, sets up the data for the script in the `scriptdata` array, and returns the location of the script in `setscript`.
+Returns -1 if `MAX_SCRIPTS` is exceeded.
+
+//-----{ RunScripts }-----------------------------------------------------------
+
+| [.big]##RunScripts##
+| calling form:
+
+[literal,role="hugosyntax"]
+RunScripts
+
+Runs all active scripts, calling them in the form:
+
+[literal,role="hugosyntax"]
+CharRoutine(character, object)
+
+{blank}
+|===============================================================================
+
+
+
+
+[[sec_b-12]]
+== Character Action Routines
+
+As a starting point, the library also provides a limited number of routines for character scripts to use.
+They are:
+
+* `&CharWait, 0`
+* `&CharMove, direction_object` (requires *objlib.h*)
+* `&CharGet, object`
+* `&CharDrop, object`
+
+and
+
+* `&LoopScript, 0`
+
+[[sec_b-13]]
+== Conditional Compilation
+
+A number of compiler flags may be set to exclude certain portions of *hugolib.h* from compilation if these functions or objects are not required.
+
+[.center,cols="<m,<d",options=autowidth,grid=none,stripes=even]
+|======================================================
+| FLAG             | EXCLUDES
+
+| NO_AUX_MATH      | Auxiliary math routines
+| NO_FUSES         | Fuses and daemons
+| NO_MENUS         | Use of the `Menu` function
+| NO_OBJLIB        | The contents of *objlib.h*
+| NO_RECORDING     | Command recording functions
+| NO_SCRIPTS       | Character scripting routines
+| NO_STRING_ARRAYS | String array functions
+| NO_VERBS         | All action verbs
+| NO_XVERBS        | All non-action verbs
+|======================================================
+
+// EOF //

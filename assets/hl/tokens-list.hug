@@ -1,0 +1,265 @@
+! ******************************************************************************
+! *                                                                            *
+! *                              All Hugo Tokens                               *
+! *                                                                            *
+! ******************************************************************************
+! This test files contains all the Hugo tokens in one file, to quickly check
+! that they are all captured as expected.
+
+! ==============================================================================
+! [opt]                             Operators
+! ==============================================================================
+
+! Comparison operators
+< <= == ~= >= >
+
+! Mathematical operators:
+*  /  -  +
+
+! Bitwise operators:
+&  |  ~
+
+! ------------------------------------------------------------------------------
+!                                 Special Tokens
+! ------------------------------------------------------------------------------
+! Hash (#) for properties count, and ampersand  (&) for addresses:
+#  &
+
+if obj.#adjectives
+
+x = &object.property
+
+! ==============================================================================
+! [std]                            Punctuation
+! ==============================================================================
+
+{ } [ ] ( ) ; .
+
+! ==============================================================================
+! [kwa]                           Hugo keywords
+! ==============================================================================
+! The full list of Hugo keywords, currently all captured as Keywords Group 1.
+
+addcontext
+alias
+and
+anything
+array
+attribute
+break
+call
+capital
+case
+child
+children
+class
+cls
+color
+colour
+compound
+constant
+dict
+do
+elder
+eldest
+else
+elseif
+enumerate
+event
+for
+global
+graphics
+held
+hex
+if
+in
+input
+is
+jump
+local
+locate
+move
+multi
+multiheld
+multinotheld
+music
+nearby
+newline
+not
+notheld
+number
+or
+parent
+pause
+picture
+playback
+print
+printchar
+property
+punctuation
+quit
+random
+readfile
+readval
+recordoff
+recordon
+removal
+remove
+repeat
+replace
+resource
+restart
+restore
+return
+routine
+run
+runevents
+save
+scriptoff
+scripton
+select
+sibling
+sound
+start
+step
+string
+synonym
+system
+text
+to
+undo
+verb
+video
+while
+window
+word
+writefile
+writeval
+xverb
+younger
+youngest
+! ==============================================================================
+! [kwb]                  Predefined Engine Stored Values
+! ==============================================================================
+! Keywords Group 2 gathers various predefined global engines values, variables
+! and constants.
+
+! ------------------------------------------------------------------------------
+!                            Builtin Global Variables
+! ------------------------------------------------------------------------------
+actor
+endflag
+location
+object
+objects
+player
+prompt
+self
+system_status
+verbroutine
+words
+xobject
+! ------------------------------------------------------------------------------
+!                               Builtin Properties
+! ------------------------------------------------------------------------------
+! NOTE: "adjectives" and "nouns" are aliases defined by hugo library, and not
+! 		 tokens defined in the Hugo engine and compiler.
+
+adjective
+after
+article
+before
+name
+noun
+! ------------------------------------------------------------------------------
+!                           Built-in Engine Variables
+! ------------------------------------------------------------------------------
+parse$
+serial$
+! ==============================================================================
+! [kwc]                          Special System Words
+! ==============================================================================
+! Keywords Group 3, includes Char constants and other special system- defined
+! tokens that didn't fit elsewhere.
+! ------------------------------------------------------------------------------
+!                           ASCII Characters Constants
+! ------------------------------------------------------------------------------
+printchar 'A', 'B'
+! ------------------------------------------------------------------------------
+!                          Hardcoded Boolean Constants
+! ------------------------------------------------------------------------------
+true
+false
+! ------------------------------------------------------------------------------
+!                                  System Words
+! ------------------------------------------------------------------------------
+~all
+~and
+~any
+~except
+~oops
+! ------------------------------------------------------------------------------
+!                             Properties Qualifiers
+! ------------------------------------------------------------------------------
+$additive
+$complex
+! ==============================================================================
+! [kwd]                            Limit Settings
+! ==============================================================================
+! Limit settings are currently captured as Keywords Group 4.
+! See The Hugo Book: Appendix C: Limit Settings.
+
+! Static and non-modifiable limits:
+$MAXATTRIBUTES
+$MAXGLOBALS
+$MAXLOCALS
+
+! Modifiable limits settings:
+$MAXALIASES
+$MAXARRAYS
+$MAXCONSTANTS
+$MAXDICTEXTEND
+$MAXDICT
+$MAXDIRECTORIES
+$MAXEVENTS
+$MAXFLAGS
+$MAXLABELS
+$MAXOBJECTS
+$MAXPROPERTIES
+$MAXROUTINES
+$MAXSPECIALWORDS
+
+! ==============================================================================
+!                              Compiler Directives
+! ==============================================================================
+#if
+#ifclear SOME_FLAG
+#if clear SOME_FLAG
+
+#ifdefined SOME_FLAG
+#if defined SOME_FLAG
+
+#ifset SOME_FLAG
+#if set SOME_FLAG
+
+#ifundefined SOME_FLAG
+#if undefined SOME_FLAG
+
+#else
+#elseif
+#endif
+
+#clear SOME_FLAG
+#set SOME_FLAG
+
+#include "filename"
+#link"filename"
+
+#message "Hello world!"
+
+#message warning "Be careful!"
+
+#message error "Thigs went down the drain!"
+
+#switches -ls
+#version 2.5

@@ -1,0 +1,95 @@
+// *****************************************************************************
+// *                                                                           *
+// *                    Hugo Book II: 5/16 -- 17. Grammar                      *
+// *                                                                           *
+// *****************************************************************************
+//
+[[chapter_17]]
+= Grammar
+
+The grammar table starts immediately following the header (at $40, or 64 bytes into the *.HEX* file).
+It is used for matching against the player's input line to determine the verbroutine to be called, and if applicable, the object(s) and xobject (i.e, the indirect object).
+
+[NOTE]
+================================================================================
+If the input line begins with an object instead of a verb -- i.e., if it is directed toward a character, as in "`Bob, get the object`", then grammar is matched against the phrase immediately following the initial object.
+================================================================================
+
+The grammar table is comprised of a series of verb or xverb (i.e., non-action verb) blocks, each beginning with either `verb` ($2C) or `xverb` ($2D).
+A $FF value instead of either `verb` or `xverb` indicates the end of the grammar table.
+A grammar table that looks like
+
+    000040: FF
+
+has no entries.
+
+Following the verb type indicator is a single byte giving the number of words (i.e., synonyms) for this particular verb.
+Following that are the dictionary addresses of the individual words.
+
+Think of the simple grammar definition:
+
+[source,hugo]
+--------------------------------------------------------------------------------
+verb "get", "take"
+    * object DoGet
+--------------------------------------------------------------------------------
+
+If this were the first verb defined, the start of the grammar table would look like:
+
+    000040: 2C 02 x2 x1 y2 y1
+
+where $__x1x2__ is the dictionary address of "`get`", and $__y1y2__ is the dictionary address of "`take`".
+
+[[dynamic-grammars2]]
+With v2.5 was introduced a separate -- although rarely used -- variation to the verb header.
+A verb or xverb definition can contain something like
+
+[source,hugo]
+--------------------------------------------------------------------------------
+verb get_object
+--------------------------------------------------------------------------------
+
+where `get_object` is an object or some other value.
+In this case, the verb word is `get_object.noun` instead of an explicitly defined word.
+The grammar table in this case would look like
+
+    000040: 2C 01 FF FF 4A x2 x1
+
+where $FFFF is the signal that instead of a dictionary word address, the engine must read the following discrete value, where $4A is the `object#` token, and $__x1x2__ is the object number of `get_object`.
+This extension is provided so that grammar may be dynamically coded and changed at runtime.
+// @EDITED XREF ADDED: (Issue #48)
+//    The following cross reference was added to the original book:
+(See also <<dynamic-grammars1,_Book I_ on dynamic grammars definitions>>.)
+
+Following the verb header giving the number of verb words and the dictionary address of each is one or more grammar lines, each beginning with a `*` signifying the matched verb word.
+
+
+[NOTE]
+================================================================================
+// @XREF: "The Hugo Manual" => §7.1. Grammar Definition
+For an elaboration of valid grammar syntax specification, please see the <<hugo-book1_07#sec_7-1,Hugo Manual>>.
+================================================================================
+
+Grammar lines are encoded immediately following the verb header, so that in the first example given above,
+
+[source,hugo]
+--------------------------------------------------------------------------------
+verb "get", "take"
+    * object DoGet
+--------------------------------------------------------------------------------
+
+becomes:
+
+.........................
+000040: 2C 02 x2 x1 y2 y1
+000046: 08 66 48 r2 r1
+00004B: FF
+.........................
+
+where $__r1r2__ is the indexed routine address of `DoGet`.
+
+The $FF byte marks the end of the current verb definition.
+Immediately following this is either another `verb` or `xverb` token, or a second $FF to indicate the end of the verb table.
+
+
+// EOF //

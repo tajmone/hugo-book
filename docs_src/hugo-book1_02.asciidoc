@@ -1,0 +1,763 @@
+// *****************************************************************************
+// *                                                                           *
+// *               Hugo Book I: 2/19 -- 2. A First Look at Hugo                *
+// *                                                                           *
+// *****************************************************************************
+//
+[[chapter_2]]
+= A First Look at Hugo
+
+// >>> footnotes definitions >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+// @XREF: "9. The Game Loop" (in footonote!)
+:fn1: pass:q[footnote:[ \
+Normally, unless the `Main` routine explicitly returns -- as opposed to just running through to the closing brace -- the Hugo Engine continues running. \
+Those familiar with the C programming language may notice the slight difference here: whereas in C the `main()` function is the entry point for a C program, in Hugo `Init` is the entry point, and `Main` can be thought of as the "`each-turn routine`". \
+For more elaboration on the execution pattern of a Hugo program, see xref:chapter_9[].]]
+
+:fn2: pass:q[footnote:[ \
+While it's a little beyond the scope of this manual to talk about what exactly a 16-bit integer is (partly because you don't need to worry about it, other than to know they involve a range of 65536, either 0 to 65535 or -32768 to 32767). \
+Essentially, "`bits`" refer to 1s or 0s in a base 2 number system (so that the right-most bit is the 1s, the next-to-right-most is the 2s, the next the 4s, the next the 8s, etc.) For example, the 4-bit number 1100 is equal to decimal 12, since 8+4=12. \
+(If you're familiar with bitwise notation, you already knew that. \
+If you're not, it probably didn't particularly clear anything up, but as always, not to worry.)]]
+
+:fn3: footnote:[Built-in functions are just like other Hugo functions except that they're never defined anywhere in source code or any library file: the compiler and engine always know about them. \
+To distinguish them, they're generally printed in lowercase, whereas program-defined routines (including library routines) are almost always capitalized.]
+
+
+:fn4: footnote:[Routine addresses are also stored as 16-bit integers. \
+However, those versed at all in such calculations will notice that if such a value was treated as an absolute address, then any addressable executable code would be limited to 64K in size (65536 bytes, the maximum size of an unsigned 16-bit integer). \
+Such is not the case, since the routine address is actually an indexed representation of the absolute address, allowing Hugo games to far exceed any such limit in their size of executable code.]
+
+// @EDITED XREF:
+//    Changed "The section Sec. 4.5, “Operators and Assignments” goes into ..."
+//    to -->  "Sec. 4.5, “Operators and Assignments” goes into ..."
+
+// @XREF: "4.5. Operators and Assignments" (in footnote!)
+:fn5: footnote:[xref:sec_4-5[] goes into greater detail on assigning values to variables.]
+
+:fn6: footnote:[ \
+But keep an eye out for issues of comment maintenance. \
+Again, a good comment should add clarity to a section of code, but it (usually) shouldn't restate exactly what the code is doing. \
+Doing that just means that when you change the code, you have to change the comment to keep it accurate, too, which if you've overcommented means doing the same thing twice, and increasing the chances of getting out of sync so that the comment doesn't perfectly reflect the code it's supposed to be commenting.]
+
+:fn7: pass:q[footnote:[Which is why, in certain cases, the `-a` switch can be helpful.]]
+// <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+[[sec_2-1]]
+== Basic Concepts
+
+There are a couple of basic concepts to become familiar with in order to begin working with Hugo.
+Once you begin to become familiar with them, you will hopefully be able to look at a chunk of Hugo source code and -- even if you don't understand everything it's doing -- be able to at least get a sense of the general organization.
+
+First of all, the bulk of programming in Hugo will involve the creation of what are called _objects_.
+The word "`object`" in this sense has two meanings.
+First of all, in a programming sense, objects are discrete subsections of source code.
+They are referred to by individual names, and they "`do something`", whether that something is storing data or performing some set of functions or both.
+In the case of Hugo, however, these are not just abstract tools for structuring a program.
+Hugo objects are, more often than not, also representative of objects in the "`physical world`" of the game: people, places, and things.
+If, for example, you want to create a book in your game, you'll create a book object that may comprise the description of the book, what's written in it, how much it weighs, how many pages it has, what happens when you drop it, and anything else you choose to implement.
+
+The rest of a Hugo program is mostly comprised of _routines_.
+These are the sections of code made up of commands or statements that facilitate the actual behavior of the program at different points in the story.
+(Routines can also be part of a containing object -- we'll get to that in a little while.) Routines are less frequently (although more frequently in other languages) called "`functions`" -- they may be thought of as performing an operation or series of operations, and then optionally _returning_ some kind of answer or result.
+A program may have a routine called `DescribePlace` which, when invoked (or "`called`", in the parlance of programming) would print the description of a given location.
+The point of routines is that you don't have to repeat the same code every time you want a particular task done: you just have to call the routine.
+Write once, use many times.
+
+
+The idea of return values from a routine is an important one and, while sometimes puzzling to novices, is actually quite uncomplicated.
+For instance, often a particular function will be described as "`returning true`" or "`returning false`" -- all this means is that when it's done it returns either a non-zero value (usually 1) or a zero value, usually to indicate whether the function was successful or not at whatever it was being asked to do.
+A program will constantly be checking the return values of the routines it calls to determine if particular operations have been successful in order to decide what to do next.
+// @XREF: "2.3. Data Types"
+A routine can return any kind of value (listed shortly in <<sec_2-3>>).
+A very simple example is a routine that performs a needed operation, such as adding two supplied values, _a_ and _b_.
+Let's call it `AddTwoValues`.
+When `AddTwoValues` is called with the two supplied values, it will _return_ the sum __a__+_b_.
+
+For those familiar with the common programming languages such as C or Basic (including Visual Basic), Hugo will not be entirely visually unfamiliar.
+Individual objects and routines -- as well as conditional blocks -- are enclosed in braces as in C (`{...}`), but unlike C and other C-like languages, a semicolon is not required at the end of each line to tell the compiler when the line is finished, and the language itself is considerably less cryptic.
+Keywords, variables, routine and object names, and other tokens are not case-sensitive.
+
+
+[[sec_2-2]]
+== Hello, Sailor!
+
+In the time-honored tradition of programming texts, the introduction to a new programming language is quite often a description of how to print the optimistic phrase "`Hello, world`" as an example of that particular language's form and substance.
+In the almost-equally time-honored tradition of interactive fiction, we'll start with the rallying cry "`Hello, Sailor!`".
+Here's how one accomplishes that in Hugo:
+
+[source,hugo]
+--------------------------------------------------------------------------------
+routine Main
+{
+    print "Hello, Sailor!"
+    pause
+    quit
+}
+--------------------------------------------------------------------------------
+
+The entire program consists of one routine.
+
+[NOTE]
+================================================================================
+Two routines are normally required for any Hugo program, the other being the `Init` routine, which is omitted in this simple example since there isn't anything required in the way of initialization.
+================================================================================
+
+The `Main` routine is automatically called by the engine.
+It is from here that the central behavior of any Hugo program is controlled.
+In this case the task at hand is the printing of "`Hello, Sailor!`", followed by a wait for a keypress (the `pause`) and an order to exit the program (i.e., `quit` it) so that we don't strand the program waiting for input from the player, which is the normal order of Hugo business.{wj}{fn1}
+
+
+[[sec_2-3]]
+== Data Types
+
+Computer programs are mainly about two things: input and output (called _i/o_, for short), and modifying values.
+In fact, the bulk of a computer program (that is, what happens behind the scenes, whirring away, unbeknownst to the user) consists of setting, changing, and comparing various values.
+Hugo is no exception.
+All data in Hugo is represented in terms of 16-bit integers,{wj}{fn2} treated as signed (-32768 to 32767) or unsigned (0 to 65535) as appropriate.
+It's up to the compiler and engine to decide what a particular value means in a given context.
+The name of any individual data type may contain up to 32 alphanumeric characters (as well as the underscore `_`).
+
+All of the following are valid data types:
+
+[[table-hugo-data-types]]
+.List of Hugo Data Types
+[cols="<s,<m",grid=rows,stripes=odd]
+|===============================================================================
+| Integer values
+| 0, -10, 16800, -25005
+2+e| Constant values that appear in Hugo source code as numbers.
+
+| ASCII characters
+| 'A', 'z', '7'
+2+e| Constant values equal to the common ASCII value for a character; i.e., 65 for '`A`'.
+
+| Objects
+| mysuitcase, emptyroom, player
+2+e| Constant values representing the object number of the given object.
+
+| Variables
+| a, b, score, TEXTCOLOR
+2+e| Changeable value-holders that may be set to equal another variable or constant value.
+
+| Constants
+| true, false, BANNER
+2+e| Constant -- obviously -- values that are given a name similarly to a variable, but are non-modifiable.
+
+| Dictionary entries
+| "a", "the", "basketball"
+2+e| The appearance of `the` in a line of code actually refers to the location in the dictionary table where the word "`**the**`" is stored.
+Dictionary entries are non-modifiable.
+
+| Array elements
+| ranking[1]
+2+e| A series of one or more changeable values that may be referenced from a common base point.
+
+| Array addresses
+| ranking
+2+e| The base point of an array -- see above; the array address itself is non-modifiable, unlike the contents of the array.
+
+| Properties
+| nouns, short_desc, found_in
+2+e| Variable attachments of data relating specifically to objects.
+
+| Attributes
+| open, light, transparent
+2+e| Less complex attachments of data describing an object, which may be specified as either having or not having the given attribute.
+|===============================================================================
+
+Most of these types are relatively straightforward, representing in most cases a simple value.
+As noted, some values are dynamic (modifiable), while others are static (non-modifiable).
+Dictionary entries are addresses in the dictionary table (comprising all dictionary words in the *.HEX* file), with the empty string `+""+` having the value 0.
+Array addresses (as opposed to separate array elements) represent the address at which the array begins in the array table (comprising all array data in the *.HEX* file).
+Properties and attributes treated as discrete values represent the number of that property or attribute, assigned sequentially as the individual property or attribute is defined.
+
+As mentioned, routines also return values, as do built-in{wj}{fn3} engine functions, so that
+
+[source,hugo]
+--------------------------------------------------------------------------------
+FindLight(room)
+--------------------------------------------------------------------------------
+
+and
+
+[source,hugo]
+--------------------------------------------------------------------------------
+parent(object)
+--------------------------------------------------------------------------------
+
+are also valid integer data types.{wj}{fn4}
+
+It's good medicine to be as descriptive as possible in naming symbols, regardless of what you're naming.
+A variable that holds the count of a number of objects _could_ be called `n`, but it's almost always better (especially after the fact, when you're looking at code you've written days or even months before) to call it something more helpful like `object_count`.
+
+At this point it's probably helpful to know that you can assign a value to a variable using the form:
+
+[literal,role="hugosyntax",subs="+attributes,macros"]
+.....................................................
+<some variable> = <some value>{wj}{fn5}
+.....................................................
+
+For instance, to set the variable `x` equal to 5, you would use:
+
+[source,hugo]
+--------------------------------------------------------------------------------
+x = 5
+--------------------------------------------------------------------------------
+
+To set it equal to element 4 of array `some_array`, you would use:
+
+[source,hugo]
+--------------------------------------------------------------------------------
+x = some_array[4]
+--------------------------------------------------------------------------------
+
+[NOTE]
+================================================================================
+What follows is one of those if-you-don't-quite-understand-yet-don't-panic sections of the manual: unless you can think of a place off the top of your head where something like this would be useful, it'll probably be a little while until you need to use it.
+================================================================================
+
+When you want to get the return value of a routine, you would use:
+
+[source,hugo]
+--------------------------------------------------------------------------------
+x = Routine
+--------------------------------------------------------------------------------
+
+
+If, then, you ever need to get the indexed address of a routine to use it as a value, as you may at some point, you obviously won't be able to do:
+
+[source,hugo]
+--------------------------------------------------------------------------------
+x = Routine
+--------------------------------------------------------------------------------
+
+
+again and hope that this time it will assign the address of `Routine` to the variable `x`, since that will assign to `x` the value _returned by_ `Routine`.
+Instead, you can use the address operator `&`, as in:
+
+[source,hugo]
+--------------------------------------------------------------------------------
+x = &Routine
+--------------------------------------------------------------------------------
+
+
+which won't actually call `Routine` but will instead only assign the routine's address to `x`.
+
+[TIP]
+================================================================================
+or, as we'll see later,
+
+[source,hugo]
+--------------------------------------------------------------------------------
+x = &object.property
+--------------------------------------------------------------------------------
+
+
+to get a property routine address instead of calling the property routine itself.
+================================================================================
+
+
+
+[[sec_2-4]]
+== Multiple Lines
+
+If any single command is too long to fit on one line, it may be split across several lines by ending all but the last with the control character `\`.
+
+[source,hugo]
+--------------------------------------------------------------------------------
+"This is an example string."
+--------------------------------------------------------------------------------
+
+and
+
+[source,hugo]
+--------------------------------------------------------------------------------
+x = 5 + 6 * higher(a, b)
+--------------------------------------------------------------------------------
+
+are the same as
+
+[source,hugo]
+--------------------------------------------------------------------------------
+"This is an example \
+string."
+--------------------------------------------------------------------------------
+
+and
+
+[source,hugo]
+--------------------------------------------------------------------------------
+x = 5 + 6 * \
+    higher(a, b)
+--------------------------------------------------------------------------------
+
+
+String constants, such as in the below `print` statement, are an exception in that they do not require the `\` character at the end of each line (although, as shown just above, it's not wrong to use it).
+
+[source,hugo]
+--------------------------------------------------------------------------------
+print "The engine will properly
+       print this text, assuming a
+       single space at the end of each
+       line."
+--------------------------------------------------------------------------------
+
+will result in:
+
+[example,role="gametranscript"]
+================================================================================
+The engine will properly print this text, assuming a single space at the end of each line.
+================================================================================
+
+
+Care must be taken, however, to ensure that the closing quotes are not left off the string constant.
+Failing that, the compiler will likely generate a "`Closing brace missing`" or similar error when it overruns the object/routine/event boundary looking for a resolution to the odd number of quotation marks.
+
+[TIP]
+================================================================================
+Habitual double-space-after-a-period typists may find it useful to use the `\` character for line continuation in situations like this:
+
+[source,hugo]
+--------------------------------------------------------------------------------
+print  "Here, we'll end a sentence on one line. \
+        However, we'd like to make sure there
+        are two spaces before the second sentence."
+--------------------------------------------------------------------------------
+
+giving:
+
+[example,role="gametranscript"]
+===============================
+Here, we'll end a sentence on one line.{nbsp}{nbsp}
+However, we'd like to make sure there are two spaces before the second sentence.
+===============================
+
+// @EDITED TYPO: (Issue #17)
+//    Was "if the `/` were ", but should have been a `\` instead!
+
+since normally, if the `{nbsp}\` were omitted after "`...on one line.`", the compiler would assume only a single space before continuing with "`However...`" from the next line.
+================================================================================
+
+Also, most lines ending in a comma, `and`, or `or` will automatically continue on to the next line (if they occur in a line of code).
+In other words:
+
+[source,hugo]
+--------------------------------------------------------------------------------
+x[0] = 1, 2, 3, ! array assignment x[0]..x[4]
+       4, 5
+--------------------------------------------------------------------------------
+
+
+and
+
+[source,hugo]
+--------------------------------------------------------------------------------
+if a = 5 and
+   b = "tall"
+--------------------------------------------------------------------------------
+
+get compiled the same as:
+
+[source,hugo]
+--------------------------------------------------------------------------------
+x[0] = 1, 2, 3, 4, 5
+--------------------------------------------------------------------------------
+
+and
+
+[source,hugo]
+--------------------------------------------------------------------------------
+if a = 5 and b = "tall"
+--------------------------------------------------------------------------------
+
+This is provided primarily so that lengthy lines and complex expressions do not have to run off the right-hand side of the screen during editing, nor do they continually need to be extended using `\` and the end of each line.
+
+[NOTE]
+================================================================================
+Multiple lines that are not strictly code, such as property assignments in object definitions -- to be discussed shortly -- must still be joined with `\`, as in
+
+[source,hugo]
+--------------------------------------------------------------------------------
+nouns "plant", "flower", "marigold", \
+      "fauna", "greenery"
+--------------------------------------------------------------------------------
+
+
+and similar cases, even if they end in a comma.
+================================================================================
+
+There is a complement to the `\` line-control character: the `:` character allows multiple lines to be put together on a single line, i.e.:
+
+[source,hugo]
+--------------------------------------------------------------------------------
+x = 5 : y = 1
+--------------------------------------------------------------------------------
+
+or
+
+[source,hugo]
+--------------------------------------------------------------------------------
+if i = 1: print "Less than three."
+--------------------------------------------------------------------------------
+
+Which the compiler translates to:
+
+[source,hugo]
+--------------------------------------------------------------------------------
+x = 5
+y = 1
+--------------------------------------------------------------------------------
+
+and
+
+[source,hugo]
+--------------------------------------------------------------------------------
+if i = 1
+    {print "Less than three."}
+--------------------------------------------------------------------------------
+
+
+[NOTE]
+================================================================================
+// @XREF: "4.7. Conditional Expressions and Program Flow"
+We'll get to exactly what that `if...print...` business means in just a little bit in <<sec_4-7>>.
+================================================================================
+
+
+[[sec_2-5]]
+== Comments
+
+Comments allow you to insert notes into source code to serve as reminders, descriptions of what a particular chunk of code does, put a curse upon the libary/language author, or whatever else you want.
+Comments are _very helpful_, and beginning programmers tend to put in either too many comments or too few.
+Despite the complaints that some people may have about over-commented code -- generally referring to commenting a line like:
+
+[source,hugo]
+--------------------------------------------------------------------------------
+x = 5
+--------------------------------------------------------------------------------
+
+with the rather obvious explanation of "`set x equal to 5`" -- it's always better to err on the side of too many comments in order to avoid the situation that every programmer find himself or herself in at least once (and once only if very, very lucky) of trying to remember what a piece of code does that you wrote yesterday, or last week, or several months ago.
+Comment, comment, comment.{wj}{fn6}
+
+There are two types of comments.
+Comments on a single line begin with a `!`.
+Anything following on the line is ignored.
+Multiple-line comments are begun with `!\` and ended with `\!`.
+
+[source,hugo]
+--------------------------------------------------------------------------------
+! A comment on a single line
+
+!\ A multiple-line
+    comment \!
+--------------------------------------------------------------------------------
+
+[IMPORTANT]
+================================================================================
+The `!\` combination must come at the start of a line to be significant; it cannot be preceded by any other statements or remarks.
+Similarly, the `\!` combination must come at the end of a line (or alone on an otherwise blank line).
+================================================================================
+
+
+
+[[sec_2-6]]
+== Compiler Errors and Warnings
+
+The compiler is pretty good about catching you when you do something that isn't going to work.
+When it encounters something in your source code that doesn't make sense, or is illegal in terms of the Hugo language, it'll tell you.
+
+A compiler error is generally of one of two types.
+A fatal error looks like this:
+
+[literal,role="cmd"]
+.......................
+Fatal error:  <message>
+.......................
+
+and halts compiler execution.
+Fatal errors include things like not being able to find a requested file, encountering some sort of i/o difficulty (such as not being able to read from or write to a necessary file), or having encountered something in the source code that makes it impossible to continue with compilation.
+
+A non-fatal error typically looks like:
+
+[literal,role="cmd"]
+.....................................
+<filename>:<line>:  Error:  <message>
+.....................................
+
+Non-fatal errors are usually programming mistakes: either doing something illegal (like trying to assign a value to something to which you're not allowed to assign a value), making a syntax error such as using a symbol name that the compiler doesn't know about (often due to a typing mistake), or making a formatting mistake (like missing something that the compiler knows is supposed to be coming next but you forgot to include).
+Unless the `-a` switch is specified at invocation to tell the compiler to quit after the first error, multiple non-fatal errors may be printed.
+The side-effect of this is that a specific error (particularly a formatting error) may affect many lines of code after it, so that the compiler -- having become lost and not really knowing what you're trying to do -- may report a whole string of errors, even on lines that, if the compiler understood their proper context, would be error free.{wj}{fn7}
+
+When a compiler issues a warning, it looks like:
+
+[literal,role="cmd"]
+.......................................
+<filename>:<line>:  Warning:  <message>
+.......................................
+
+Compilation will continue, but this is an indication that the compiler suspects a problem at compile-time.
+
+If the `-e` switch has been set during invocation to generate expanded-format errors, error output looks like:
+
+[literal,role="cmd"]
+.........................
+<FILENAME>:  <LOCATION>
+(Error-causing line)
+"ERROR:  <error message>"
+.........................
+
+It prints the section of code that caused the error, followed by an explanation of the problem.
+Compilation will generally continue unless the `-a` switch has been set.
+
+[WARNING]
+================================================================================
+The section of offending code may not be printed exactly as it appears in the source when using the `-e` switch, since the compiler occasionally mildly paraphrases and rebuilds the source line into a more rigid format before finally compiling it.
+================================================================================
+
+
+[[sec_2-7]]
+== Compiler Directives
+
+A number of special commands may be used that aren't really part of a Hugo program _per se_, but rather give instructions to the compiler itself to determine (a) how the source code -- or a part thereof -- is read by the compiler and (b) what special output will be generated at compile-time.
+These special commands or instructions are called _compiler directives_, and are preceded with a `#` character to set them apart.
+
+To set switches within the source code so that they do not have to be specified each time the compiler is invoked for that particular program, the line
+
+[literal,role="hugosyntax"]
+...........................
+#switches -<sequence>
+...........................
+
+will set the switches specified by `<sequence>`, where `<sequence>` is a string of characters representing valid switches, without any separators between characters.
+Many programmers may find it useful to make
+
+[source,hugo]
+--------------------------------------------------------------------------------
+#switches -ls
+--------------------------------------------------------------------------------
+
+the first line in every new program, which will automatically print a statistical summary of compilation (plus any warnings or errors) to the *.lst* list file.
+
+Using
+
+[literal,role="hugosyntax"]
+...............................
+#version <version>[.<revision>]
+...............................
+
+specifies that the file is to be used with version `<version>.<revision>` of the compiler.
+If the file and compiler version are mismatched, a warning will be issued.
+
+[CAUTION]
+================================================================================
+The `#version` directive is intended mainly for things like library files, and although you may use it in your own source files, it isn't necessary.
+Its general usage is largely deprecated.
+================================================================================
+
+
+To include the contents of another file at the specified point in the current file, use
+
+[literal,role="hugosyntax"]
+...........................
+#include "<filename>"
+...........................
+
+where `<filename>` is the full path and name of the file to be read.
+When `<filename>` has been read completely, the compiler resumes with the statement immediately following the `#include` directive.
+There is no limit on the number of files that a single file may include; also, a file may include a file which includes another file which includes another file and so on.
+
+[TIP]
+================================================================================
+A file or set of files can be compiled into a precompiled header using the `-h` switch, and then linked using `#link` instead of `#include`.
+// @XREF: "Appendix E: Precompiled Headers"
+See <<appendix_e>>.
+================================================================================
+
+A useful tool for managing Hugo source code is the ability to use compiler flags for conditional compilation.
+A compiler flag is simply a user-defined marker that can control which sections of the source code are compiled.
+In this way, a programmer can demarcate sections of a program that can be included or excluded at will.
+For example, the library files *hugolib.h*, *verblib.h*, and *verblib.g* check to see if a flag called `DEBUG` has been set previously (as it is in *sample.hug*).
+Only if it has do they include the *hugofix.h* and *hugofix.g* files, which in turn provide certain debugging features to a running Hugo program.
+(For a final version to be released to the general public for playing, then, by simply not setting the `DEBUG` flag those special features are not enabled.)
+
+To set and clear flags, use
+
+[literal,role="hugosyntax"]
+...........................
+#set <flagname>
+...........................
+
+and
+
+[literal,role="hugosyntax"]
+...........................
+#clear <flagname>
+...........................
+
+respectively.
+
+
+[TIP]
+================================================================================
+Flags can also be explicitly set on the command line during compiler invocation via
+
+[literal,role="cmd"]
+..............................
+hc #<flagname> <sourcefile>...
+..............................
+
+similarly to compiler limit settings and directories, with the same caveat that on some systems it may be necessary to enclose `#<flagname>` in single quotes or otherwise escape it, if required.
+================================================================================
+
+Then, check to see if a flag is set or not (and include or exclude the specified block of source code) by using
+
+[literal,role="hugosyntax",subs="+quotes"]
+..........................................
+#ifset <flagname>
+    _...conditional block of code..._
+#endif
+..........................................
+
+or
+
+[literal,role="hugosyntax",subs="+quotes"]
+..........................................
+#ifclear <flagname>
+    _...conditional block of code..._
+#endif
+..........................................
+
+Conditional compilation constructions may be nested up to 32 levels deep.
+(Note also that compiler flags can be specified in the invocation line as `#<flag name>`.)
+
+`#if set` and `#if clear` are the long form of `#ifset` and `#ifclear`, allowing usage of `#elseif` for code such as:
+
+[source,hugo]
+--------------------------------------------------------------------------------
+#set THIS_FLAG
+#set THAT_FLAG
+
+#if clear THIS_FLAG
+#message "This will never be printed."
+#elseif set THAT_FLAG
+#message "This will always be printed."
+#else
+#message "But not this if THAT_FLAG is set."
+#endif
+--------------------------------------------------------------------------------
+
+Use `#if defined <symbol>` and `#if undefined <symbol>` to test if objects, properties, routines, etc. have previously been defined, where `<symbol>` is the name of the object, property, routine, etc. in question.
+
+As seen above, the `#message` directive can be used as
+
+[literal,role="hugosyntax"]
+...........................
+#message "<text>"
+...........................
+
+to output `<text>` when (or if) that statement is processed during the first compilation pass.
+
+Including `error` or `warning` before `<text>` as in
+
+[literal,role="hugosyntax"]
+...........................
+#message error "<text>"
+...........................
+
+or
+
+[literal,role="hugosyntax"]
+...........................
+#message warning "<text>"
+...........................
+
+will force the compiler to issue an error or warning, respectively, as it prints `<text>`.
+
+[IMPORTANT]
+================================================================================
+It's worth pointing out that all of the text printed in the above `#if`/`#elseif` example is _compile-time_ output, not _runtime_ output.
+That is, it's printed only when the compiler initially compiles the source code, not when a player plays the actual game.
+================================================================================
+
+It is also possible to include inline limit settings, such as
+
+[literal,role="hugosyntax"]
+...........................
+$<setting>=<limit>
+...........................
+
+in the same way as in the invocation line.
+However, an error will be issued if, for example, an attempt is made to reset `MAXOBJECTS` if one or more objects have already been defined.
+Any limit settings in the code of a program must be done before the particular data type for which a new limit is being set has been used.
+
+
+[[sec_2-8]]
+== _What Should I Be Able to Do Now?_
+
+By now you should:
+
+* be able to look at Hugo source code and start to see the separation into different discrete parts, such as routines;
+* have a general idea about the various Hugo data types, and be able to differentiate them in Hugo source code;
+* know about different aspects of Hugo source code formatting such as multiple lines and comments;
+* know how to read an error produced by the Hugo Compiler; and
+* know how to use inline compiler directives to set switches, flags, limits, and directories.
+
+To experiment a little, make a copy of *sample.hug* and call it something like *test.hug* so that we can modify and use it without changing the original sample game source code.
+Pick a line in the new file *test.hug* like:
+
+[source,hugo]
+--------------------------------------------------------------------------------
+#set DEBUG
+--------------------------------------------------------------------------------
+
+and add some garbage letters to change it to
+
+[source,hugo]
+--------------------------------------------------------------------------------
+asdf#set DEBUG
+--------------------------------------------------------------------------------
+
+Now, when you compile, you'll see:
+
+// @NOTE: Output below was re-generated using HUGO COMPILER v3.1.03.
+[literal,role="cmd"]
+.......................................................
+test.hug:12:  Error:  Unknown compiler directive:  asdf
+.......................................................
+
+[NOTE]
+=========================================================================
+Depending on the contents of *test.hug*, the actual line number may vary.
+=========================================================================
+
+Once we've seen the effect of that, go back and remove the `asdf` from *test.hug*.
+Next, let's try adding the line:
+
+[source,hugo]
+--------------------------------------------------------------------------------
+$MAXOBJECTS=50
+--------------------------------------------------------------------------------
+
+to the start of *test.hug*.
+Compile again, and you'll see this time a whole bunch of compiler errors.
+Most importantly are the first couple, which look something like:
+
+// @NOTE: The output text below was replaced with real output generated using
+//        HUGO COMPILER v3.1.03 and HUGO LIBRARY v3.1.03.2.
+//        (got "test.hug:610:" instead of "691", but the rest was identical)
+[literal,role="cmd"]
+.....................................................
+test.hug:610:  Error:  Maximum of 50 objects exceeded
+.....................................................
+
+[NOTE]
+=========================================================================
+The other errors basically follow from the last few objects in *test.hug* not getting defined, and the compiler subsequently knowing that a particular symbol is the name of an object.
+=========================================================================
+
+Feel free to experiment with *test.hug* by adding comments, changing lines, commenting out various objects or routines or other sections of codes, and seeing what happens when you try to compile it and run it.
+
+
+// EOF //

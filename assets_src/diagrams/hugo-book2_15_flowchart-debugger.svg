@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/PR-SVG-20010719/DTD/svg10.dtd">
+<svg width="37cm" height="11cm" viewBox="418 766 724 218" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <g>
+    <rect style="fill: #ffe599" x="420" y="840" width="160" height="80"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="420" y="840" width="160" height="80"/>
+    <text font-size="15.8044" style="fill: #000000;text-anchor:middle;font-family:Courier New;font-style:normal;font-weight:700" x="500" y="873.394">
+      <tspan x="500" y="873.394">RunRoutine()</tspan>
+      <tspan x="500" y="893.15">herun.c</tspan>
+    </text>
+  </g>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="500" y1="800" x2="500" y2="829"/>
+    <polygon style="fill: #000000" points="495,829 500,839 505,829 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="495,829 500,839 505,829 "/>
+  </g>
+  <g>
+    <rect style="fill: #ffe599" x="620" y="840" width="160" height="80"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="620" y="840" width="160" height="80"/>
+    <text font-size="15.8044" style="fill: #000000;text-anchor:middle;font-family:Courier New;font-style:normal;font-weight:700" x="700" y="873.394">
+      <tspan x="700" y="873.394">Debugger()</tspan>
+      <tspan x="700" y="893.15">hd.c</tspan>
+    </text>
+  </g>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="580" y1="880" x2="608.009" y2="880"/>
+    <polygon style="fill: #000000" points="608.009,885 618.009,880 608.009,875 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="608.009,885 618.009,880 608.009,875 "/>
+  </g>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="500" y1="920.977" x2="500" y2="949"/>
+    <polygon style="fill: #000000" points="495,949 500,959 505,949 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="495,949 500,959 505,949 "/>
+  </g>
+  <text font-size="15.8044" style="fill: #000000;text-anchor:middle;font-family:Courier New;font-style:normal;font-weight:normal" x="500" y="980">
+    <tspan x="500" y="980">...</tspan>
+  </text>
+  <text font-size="15.8044" style="fill: #000000;text-anchor:middle;font-family:Courier New;font-style:normal;font-weight:normal" x="500" y="780">
+    <tspan x="500" y="780">...</tspan>
+  </text>
+  <text font-size="15.8044" style="fill: #000000;text-anchor:start;font-family:Courier New;font-style:normal;font-weight:normal" x="800" y="880">
+    <tspan x="800" y="880">(if debugger_interrupt is non-false)</tspan>
+  </text>
+</svg>

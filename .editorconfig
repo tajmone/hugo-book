@@ -1,0 +1,125 @@
+##########################################
+#  The HUGO Book, by Kent Tessman 2004:  #
+#  https://github.com/tajmone/hugo-book  #
+##########################################
+
+root = true
+
+
+## AsciiDoc
+###########
+[*.{ad,adoc,asciidoc}]
+indent_size = unset
+indent_style = space
+end_of_line = unset
+charset = utf-8
+trim_trailing_whitespace = true
+insert_final_newline = true
+
+
+## Batch Scripts
+################
+[*.bat]
+indent_style = tab
+indent_size = unset
+end_of_line = crlf
+charset = utf-8
+trim_trailing_whitespace = true
+insert_final_newline = true
+
+
+## Configurations
+#################
+[.{git*,editorconfig,*.yml}]
+indent_style = space
+indent_size = unset
+end_of_line = lf
+charset = utf-8
+trim_trailing_whitespace = true
+insert_final_newline = true
+
+
+## CSV
+#######
+[*.csv]
+indent_size = 2
+indent_style = space
+end_of_line = unset
+charset = utf-8
+trim_trailing_whitespace = true
+insert_final_newline = false
+
+
+## Haml Templates
+#################
+[*.haml]
+indent_size = 2
+indent_style = space
+end_of_line = unset
+charset = utf-8
+trim_trailing_whitespace = true
+insert_final_newline = true
+
+
+## Hugo Sources
+###############
+[.{hug,h,g}]
+indent_size = 8
+charset = latin1
+
+
+## Markdown GFM
+###############
+[*.md]
+indent_style = space
+indent_size = unset
+end_of_line = unset
+charset = utf-8
+trim_trailing_whitespace = true
+insert_final_newline = true
+
+
+## Plain-Text Files
+###################
+[{*.txt,LICENSE}]
+indent_style = space
+indent_size = unset
+end_of_line = unset
+charset = utf-8
+trim_trailing_whitespace = true
+insert_final_newline = unset
+
+
+## Ruby
+#######
+[*.rb]
+indent_size = 2
+indent_style = space
+end_of_line = lf
+charset = utf-8
+trim_trailing_whitespace = true
+insert_final_newline = true
+
+
+## Sass/SCSS
+############
+[*.{sass,scss}]
+indent_size = 2
+indent_style = space
+end_of_line = unset
+charset = utf-8
+trim_trailing_whitespace = true
+insert_final_newline = true
+
+
+## Shell Scripts
+################
+[*.sh]
+end_of_line = lf
+indent_style = tab
+indent_size = unset
+charset = utf-8
+trim_trailing_whitespace = true
+insert_final_newline = true
+
+# EOF #

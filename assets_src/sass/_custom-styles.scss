@@ -1,0 +1,25 @@
+// "_custom-styles.scss"                v1.0.0 | 2019/12/27 | by Tristano Ajmone
+// *****************************************************************************
+// *                                                                           *
+// *                  Custom Styles for Asciidoctor Template                   *
+// *                                                                           *
+// *****************************************************************************
+
+// -----------------------------------------------------------------------------
+/* Book I/II Alternative Titles */
+// -----------------------------------------------------------------------------
+// Custom styles for the alternative titles that follow the real title of each
+// Book (e.g. "or How to Write Games and Influence People").
+@media screen and (min-width:768px){
+  div.openblock.partintro.text-center.big.ortitle>.content {
+    line-height: 1.2;
+    font-size: 1.4375em;
+    font-variant: small-caps;
+    font-weight: 300;
+    em {
+      font-weight: 400;
+      color: #2160AB; // Denim blue
+    }
+  }
+}
+// EOF //

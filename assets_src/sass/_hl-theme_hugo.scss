@@ -1,0 +1,83 @@
+/* Highlight theme for Hugo syntax */
+
+@import 'hl-reset'; // Reset template vars for Highlight themes.
+
+$HL-Lang: "hugo";
+
+@import 'base16-eighties';  // Base16 Eighties color scheme.
+
+$HL-Canvas:         $base00;
+$HL-Default:        $base05;
+
+$HL-Border-color:   $base04;
+$HL-LineNum:        $base03;
+
+$HL-LineComment:    $base04;
+$HL-BlockComment: 	$HL-LineComment;
+$HL-Number:         $base0A;
+$HL-Escape:         $base09; // Escape sequences + style escapes
+$HL-Interpolation:  $base0A; // Special character escapes
+$HL-String:         $base0B;
+$HL-Operator:       $base0C;
+$HL-PreProcessor:   $base0E; // Compiler directives
+$HL-StringPreProc:  $base0C; // Strings in compiler directives
+
+$HL-Keywords1:      $base08; // Hugo keywords
+$HL-Keywords2:      $base0D; // Built-in global variables.
+$HL-Keywords3:      $base0A; // ASCII Chars constants
+$HL-Keywords4:      $base0E; // Limits Settings
+
+@import 'hl-adoc-template'; // Reusable template for Highlight themes.
+
+// ============================================
+/* Footnotes in Hugo Code Blocks (Issue #23) */
+// ============================================
+div.listingblock div.content pre[class="highlight"][lang="hugo"] {
+  code {
+    sup.footnote,
+    sup.footnote a {
+      color: #fff;
+      font-weight: normal;
+      font-style: normal;
+    }
+  }
+}
+// ======================================
+/* Hugo Syntax Definitions (Issue #35) */
+// ======================================
+// Just a literal block with custom colors.
+
+// Use Base2Tone Lake color scheme colors.
+@import 'base2tone-lake';
+
+div.literalblock.hugosyntax {
+  pre {
+    background-color: $baseA0;
+    color: $baseB4;
+  }
+  // Inline footnote links colors (Issue #23):
+  div.content pre>sup.footnote,
+  div.content pre>sup.footnote a {
+    color: $baseC7;
+    font-weight: normal;
+    font-style: normal;
+  }
+}
+
+// =============================================
+/* Escapes in File Paths Temp Fix (Issue #33) */
+// =============================================
+// To prevent escape sequences and interpolations from showing up inside
+// file-path strings we'll use the `.noescapes` class to color them the same
+// as strings, so they don't show up. This is a temporary fix until the problem
+// is solved in the Hugo syntax for Highlight.
+
+.listingblock.noescapes pre[class="highlight"][lang=hugo] {
+  .hl {
+    &.esc, &.ipl {
+      // Escape sequences
+      color: $HL-String;
+    }
+  }
+}
+// EOF //

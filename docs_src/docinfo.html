@@ -1,0 +1,137 @@
+<style>
+/* Windows CMD */
+div.literalblock.cmd pre {
+  background-color: #0C0C0C;
+  color: #F2F2F2;
+}
+div.literalblock.cmd pre .conum {
+  background: #FFF945 !important;
+  color: #0C0C0C !important;
+}
+
+/* Game Transcripts */
+.exampleblock.gametranscript > .content {
+  background-color: #F7FDFF;
+  color: #0089B6;
+  border-color: #CCF2FF;
+}
+.exampleblock.gametranscript > .content .red {
+  color: #c80062;
+}
+.exampleblock.gametranscript > .content .yellow {
+  color: #f2c900;
+}
+.exampleblock.gametranscript > .content .green {
+  color: #19a600;
+}
+
+/* Highlight theme for Hugo syntax */
+.listingblock code[data-lang=hugo]::before {
+  color: #a09f93;
+}
+
+.listingblock pre[class=highlight][lang=hugo] {
+  background-color: #2d2d2d;
+  border-radius: 4px;
+  border: 1px solid #a09f93;
+}
+.listingblock pre[class=highlight][lang=hugo] > code {
+  color: #d3d0c8;
+  font-family: Consolas, Monaco, "Courier New", Courier, monospace;
+  font-size: 1em;
+}
+.listingblock pre[class=highlight][lang=hugo] .hl {
+  color: #d3d0c8;
+}
+.listingblock pre[class=highlight][lang=hugo] .hl.num {
+  color: #ffcc66;
+}
+.listingblock pre[class=highlight][lang=hugo] .hl.esc {
+  color: #f99157;
+}
+.listingblock pre[class=highlight][lang=hugo] .hl.ipl {
+  color: #ffcc66;
+}
+.listingblock pre[class=highlight][lang=hugo] .hl.str {
+  color: #99cc99;
+}
+.listingblock pre[class=highlight][lang=hugo] .hl.ppc {
+  color: #cc99cc;
+}
+.listingblock pre[class=highlight][lang=hugo] .hl.pps {
+  color: #66cccc;
+}
+.listingblock pre[class=highlight][lang=hugo] .hl.com {
+  color: #a09f93;
+  font-style: italic;
+}
+.listingblock pre[class=highlight][lang=hugo] .hl.slc {
+  color: #a09f93;
+  font-style: italic;
+}
+.listingblock pre[class=highlight][lang=hugo] .hl.lin {
+  color: #747369;
+}
+.listingblock pre[class=highlight][lang=hugo] .hl.opt {
+  color: #66cccc;
+}
+.listingblock pre[class=highlight][lang=hugo] .hl.kwa {
+  color: #f2777a;
+}
+.listingblock pre[class=highlight][lang=hugo] .hl.kwb {
+  color: #6699cc;
+}
+.listingblock pre[class=highlight][lang=hugo] .hl.kwc {
+  color: #ffcc66;
+}
+.listingblock pre[class=highlight][lang=hugo] .hl.kwd {
+  color: #cc99cc;
+}
+.listingblock pre[class=highlight][lang=hugo] .hl.kwde {
+  color: #66cccc;
+}
+.listingblock pre[class=highlight][lang=hugo] .hl.kwf {
+  color: #d27b53;
+}
+
+/* Footnotes in Hugo Code Blocks (Issue #23) */
+div.listingblock div.content pre[class=highlight][lang=hugo] code sup.footnote,
+div.listingblock div.content pre[class=highlight][lang=hugo] code sup.footnote a {
+  color: #fff;
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Hugo Syntax Definitions (Issue #35) */
+div.literalblock.hugosyntax pre {
+  background-color: #192D34;
+  color: #62B1CB;
+}
+div.literalblock.hugosyntax div.content pre > sup.footnote,
+div.literalblock.hugosyntax div.content pre > sup.footnote a {
+  color: #FAFAF9;
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Escapes in File Paths Temp Fix (Issue #33) */
+.listingblock.noescapes pre[class=highlight][lang=hugo] .hl.esc, .listingblock.noescapes pre[class=highlight][lang=hugo] .hl.ipl {
+  color: #99cc99;
+}
+
+/* Book I/II Alternative Titles */
+@media screen and (min-width: 768px) {
+  div.openblock.partintro.text-center.big.ortitle > .content {
+    line-height: 1.2;
+    font-size: 1.4375em;
+    font-variant: small-caps;
+    font-weight: 300;
+  }
+  div.openblock.partintro.text-center.big.ortitle > .content em {
+    font-weight: 400;
+    color: #2160AB;
+  }
+}
+
+/*# sourceMappingURL=hugo-book.css.map */
+</style>

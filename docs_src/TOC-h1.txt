@@ -1,0 +1,42 @@
+Book I: The Hugo Programming Manual
+
+   1.  Introduction
+   2.  A First Look at Hugo
+   3.  Objects
+   4.  Hugo Programming
+   5.  Routines and Events
+   6.  Fuses, Daemons, and Scripts
+   7.  Grammar and Parsing
+   8.  Junction Routines
+   9.  The Game Loop
+  10.  Using the Object Library
+  11.  Advanced Features
+  12.  Resources
+   A.  Summary of Keywords and Commands
+   B.  The Hugo Library
+   C.  Limit Settings
+   D.  HugoFix and the Hugo Debugger
+   E.  Precompiled Headers
+   F.  Hugo Versions
+   G.  Additional Resources
+
+Book II: Technical System Specification
+
+  13.  Introduction
+  14.  Organization of the .HEX File
+  15.  Tokens and Data Types
+  16.  Engine Parsing
+  17.  Grammar
+  18.  Executable Code
+  19.  Encoding Text
+  20.  The Object Table
+  21.  The Property Table
+  22.  The Event Table
+  23.  The Dictionary and Special Words
+  24.  Resourcefiles
+  25.  The Hugo Compiler and How It Works
+  26.  The Hugo Engine and How It Works
+  27.  Dark Secrets of the Hugo Debugger
+   H.  Code Patterns
+
+Index

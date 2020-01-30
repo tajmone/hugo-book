@@ -1,0 +1,57 @@
+// *****************************************************************************
+// *                                                                           *
+// *                Hugo Book II: 8/16 -- 20. The Object Table                 *
+// *                                                                           *
+// *****************************************************************************
+//
+[[chapter_20]]
+= The Object Table
+
+
+// >>> footnotes definitions >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+:fn1: footnote:[Pre-v2.1 objects had only 32 possible attributes, and the object size was only 12 bytes, with only 4 bytes given to the attribute array.]
+
+:fn2: footnote:[In v2.1 and later; there were only 32 attributes in earlier versions.]
+
+// <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+[[sec_20-1]]
+== Objects
+
+The object table begins with two bytes giving the total number of objects.
+The objects then follow in sequential order.
+Each object requires 24 bytes:{wj}{fn1}
+
+
+[.center,caption=]
+[cols=">m,<d",options=autowidth,grid=none,stripes=odd]
+|===============================================================================
+^h| Bytes | {blank}
+|  0 - 15 | Attributes (128 bits in total, 1 bit/attribute)
+| 16 - 17 | Parent
+| 18 - 19 | Sibling
+| 20 - 21 | Child
+| 22 - 23 | Property table position
+|===============================================================================
+
+The offset of any given object _n_ from the start of the object table can therefore be found using:
+
+=====================
+offset = _n_ * 24 + 2
+=====================
+
+If a parent has no parent, sibling, and/or child, the appropriate two-byte word is set to $0000.
+
+The property table position represents the offset of the beginning of the given object's property data from the start of the property table, as described below.
+
+
+
+[[sec_20-2]]
+== Attributes
+
+The 16 bytes of the attribute array contain 8 bits each, giving a total of 128 possible attributes.{wj}{fn2}
+Essentially, if the bits are thought of sequentially in that the first byte represents attributes 0 to 7, the second byte represents attributes 8 to 15, the third 16 to 23, and the fourth and final byte 24 to 31.
+
+
+// EOF //

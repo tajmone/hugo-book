@@ -1,0 +1,70 @@
+= The Hugo Book
+Kent Tessman <general@generalcoffee.com>
+:revnumber: 1.0.0
+:revdate: 2020/01/30
+:edition: 1st Ed.
+:editionrev: January 2020
+:revremark:  {edition} revised {editionrev}
+:version-label: v
+// v1, 2018-10-04: Draft 155 -- Porting to AsciiDoc
+:lang: en
+:doctype: book
+// Metadata
+:description: pass:q,r[*The Hugo Book* -- \
+    Official programming manual and technical reference for the Hugo Interactive Fiction Design System.]
+:keywords: hugo, if, interactive fiction, text adventures, programming, \
+           language, development, authoring, tools
+:title: pass:r[The Hugo Book -- Hugo: An Interactive Fiction Design System]
+// TOC Settings for GitHub previewing (override via CLI):
+:toc: preamble
+:toclevels: 5
+// Sections Numbering:
+:sectnums:
+:sectnumlevels: 2
+// Cross References:
+:idprefix:
+:xrefstyle: full
+:chapter-refsig: Ch.
+:section-refsig: Sec.
+:appendix-refsig: App.
+// Misc Settings:
+:experimental: true
+:icons: font
+:linkattrs: true
+
+ifdef::coalescer[]
+include::warn-editing.asciidoc[]
+endif::[]
+
+// =============================================================================
+//                         Custom Attributes Definition
+// =============================================================================
+// Some attributes for custom substitution of multiple occurences of same text.
+
+// ***************************
+// *    DOCUMENT PREAMBLE    *
+// ***************************
+// Show document info and AsciiDoc conversion version and date...
+include::hugo-book0_preamble.asciidoc[]
+
+// ******************
+// *    COLOPHON    *
+// ******************
+include::hugo-book0_colophon.asciidoc[]
+
+// ***************************
+// *    AUTHOR'S FOREWORD    *
+// ***************************
+
+include::hugo-book0_preface.asciidoc[]
+
+// *****************************************************************************
+// *                                                                           *
+// *                              INCLUDE BOOKS                                *
+// *                                                                           *
+// *****************************************************************************
+
+include::hugo-book1.asciidoc[]
+include::hugo-book2.asciidoc[]
+
+// EOF //

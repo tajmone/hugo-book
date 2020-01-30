@@ -1,0 +1,88 @@
+// *****************************************************************************
+// *                                                                           *
+// *            Hugo Book I: 17/19 -- App. E. Precompiled Headers              *
+// *                                                                           *
+// *****************************************************************************
+//
+[appendix]
+[[appendix_e]]
+= Precompiled Headers
+
+[NOTE]
+================================================================================
+This section on precompiled headers, while still accurate, becomes less and less vital as computer (and therefore compilation) speeds increase.
+As of this writing, on a relatively fast computer, a game that takes 6 seconds to compile will compile in 4 using a precompiled version of the library.
+A game that takes 2 seconds to compile normally will compile in 1.
+(In other words, the savings are somewhat negligible.)
+================================================================================
+
+
+
+It is possible to precompile files that would normally be included using the `#include` directive into a precompiled header file that may be linked using `#link`, as in:
+
+[literal,role="hugosyntax"]
+#link "<filename.hlb>"
+
+instead of:
+
+[literal,role="hugosyntax"]
+#include "<filename.h>"
+
+The advantage of doing this is primarily one of faster compilation speed; files that are used over and over again without alteration (such as the Hugo Library) may be precompiled so that they are not recompiled every time.
+
+The `#link` directive must come _after_ any grammar, but _before_ any new definitions of attributes, properties, globals, objects, synonyms, etc.
+Grammar is illegal in a precompiled header.
+
+To create a precompiled header, use the `-h` directive when invoking the Hugo Compiler.
+The file *hugolib.hug* serves as a good example: it is a small wrapper which compiles the standard Hugo Library.
+Compile it via
+
+[literal,role="cmd"]
+hc -h hugolib.hug
+
+in order to generate *hugolib.hlb*.
+Next, change the use of
+
+[source,hugo]
+#include "hugolib.h"
+
+in a Hugo program to
+
+[source,hugo]
+#link "hugolib.hlb"
+
+Change the definition for the main routine from
+
+[source,hugo]
+routine main
+{...
+
+to
+
+[source,hugo]
+replace main
+{...
+
+since *hugolib.hug* contains a temporary `main` routine.
+The program will now compile (marginally faster) by linking the precompiled library instead of including each uncompiled library file.
+
+[CAUTION]
+================================================================================
+Note that any conditional compilation flags set in the Hugo program will have no effect on the compiled code in *hugolib.hlb*, since the routines included in or excluded from *hugolib.hlb* are determined by the flags set in *hugolib.hug*.
+It is recommended that a Hugo user using precompiled headers compile a version of *hugolib.hug* that includes *hugofix.h* and/or *verbstub.h* as desired.
+================================================================================
+
+It is generally not possible to include multiple precompiled headers compiled in separate passes via subsequent ``#link``s in the same source file.
+Because of the absolute references assigned to data such as dictionary addresses, attribute numbers, etc., such an attempt will produce an "`incompatible precompiled headers`" error.
+
+However, for games that are composed of separate sections that can be combined into distinct files, it may make sense to precompile one *.hug* file containing all the common elements that will be used by the separate sections -- such as the player object, etc. -- and which ``#include``s or ``#link``s the library in it.
+Then, this new *.hlb* file can be ``#link``ed in each of the separate sections during development and testing.
+Of course, each of the separate sections will have to be ``#include``d in a single master file for building the full release version.
+
+Finally, it is advisable that precompiled headers be used only in building *.HEX* files during the design/testing stage in order to facilitate faster development.
+The reason is that the linker does not selectively include routine calls: the entire *.hlb* file is loaded during the link phase.
+As a result, Hugo files produced using precompiled headers -- especially if existing routines in the *.hlb* file are replaced in the source -- tend to be larger and therefore less economical in their memory usage.
+For this reason, it is recommended that `#include` be used for building release versions instead of ``#link``ing the corresponding precompiled header.
+
+
+// EOF //
