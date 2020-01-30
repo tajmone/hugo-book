@@ -1,5 +1,5 @@
 [![CC BY-NC-SA 4.0 License][license badge]][CC BY-NC-SA 4.0]&nbsp;
-![project status][status badge]&nbsp;
+![book version][release badge]&nbsp;
 ![build status][travis badge]
 
 # The Hugo Book
@@ -24,6 +24,7 @@ Project created by [Tristano Ajmone] in 2019/09/29.
     - [Single-File AsciDoc Version](#single-file-ascidoc-version)
     - [HTML Version](#html-version)
     - [Converting to Other Formats](#converting-to-other-formats)
+    - [Releases and Versioning](#releases-and-versioning)
 - [Why AsciiDoc?](#why-asciidoc)
 - [Contributing](#contributing)
 - [License](#license)
@@ -107,6 +108,22 @@ Furthermore, to beautify the Hugo code examples you'll probably have to create y
 
 If you've converted _The Hugo Book_ to other formats, please let use know about it.
 
+## Releases and Versioning
+
+The project adopts [Semantic Versioning 2.0.0]  (aka _SemVer_) as its releases versioning scheme.
+Release versions refer to the AsciiDoc sources of _The Hugo Book_, for these constitute the core of the project — all other assets (templates, stylesheets, etc.) and converted documents (HTML, etc.) are just added bonuses.
+
+Any changes to the AsciiDoc sources will result in a version change and a new tagged release, whereas changes to other contents won't.
+Commits on `master` branch are not limited to tagged releases, therefore all contents except AsciiDoc sources might undergo any number of changes between tagged releases (including _Hugo Book_ documents in formats like HTML, which might undergo template and stylesheets updates).
+
+End users who rely on this repository for their own projects can count on the following expectations:
+
+- `master` branch will always provide:
+    + the latest version of the AsciiDoc book.
+    + the most up-to-date HTML version of the book.
+- Tags can be used to checkout specific versions of the AsciiDoc book, to ensure compatibility with your project tool chain.
+
+
 # Why AsciiDoc?
 
 These are the main reasons why I wanted to make _The Hugo Book_ available in AsciiDoc format (via the [Asciidoctor] Ruby implementation).
@@ -159,7 +176,7 @@ I strongly believe that AsciiDoc is an excellent format for sharing documents, a
 # Contributing
 
 The project is open to contributions.
-Right now there are no strategies in place regarding how to submit contents, so all pull requested can be made directly to the `master` branch.
+All pull requested should be made to the [`dev`][dev] branch.
 
 Just ensure that your pull request passes the Travis CI build tests, which you can verify locally by running the [`validate.sh`][validate.sh] script, before submitting the PR.
 
@@ -322,8 +339,8 @@ Other Hugo-related projects on GitHub:
 <!-- badges -->
 
 [license badge]: https://img.shields.io/badge/license-CC%20BY--NC--SA%204.0-00b5da.svg
-[status badge]: https://img.shields.io/badge/status-WIP-orange "Currently being ported to AsciiDoc in dev branch"
-[travis badge]: https://travis-ci.org/tajmone/hugo-book.svg?branch=draft "Travis CI Build Status for Asciidoctor Build and EditorConfig Validation"
+[release badge]: https://img.shields.io/badge/release-1.0.0-brightgreen "AsciiDoc book version"
+[travis badge]: https://travis-ci.org/tajmone/hugo-book.svg?branch=master "Travis CI Build Status for Asciidoctor Build and EditorConfig Validation"
 
 <!-- 3rd party links -->
 
@@ -334,6 +351,7 @@ Other Hugo-related projects on GitHub:
 [EditorConfig]: https://editorconfig.org/ "Visit EditorConfig website"
 [GitHub Pages]: https://pages.github.com/ "Visit GitHub Pages website"
 [IF Archive]: https://www.ifarchive.org/ "Visit the IF Archive"
+[Semantic Versioning 2.0.0]: https://semver.org/ "Lear more about Semantic Versioning at semver.org"
 [Sublime Text 3]: https://www.sublimetext.com/ "Visit Sublime Text website"
 
 <!-- 3rd party upstream links -->
@@ -385,6 +403,10 @@ Other Hugo-related projects on GitHub:
 [docs]: ./docs/ "Navigate to folder"
 [docs_src]: ./docs_src/ "Navigate to folder"
 [haml]: ./assets/adoc/haml/ "Navigate to the Haml HTML5 templates folder"
+
+<!-- repo links -->
+
+[dev]: https://github.com/tajmone/hugo-book/tree/dev "View the 'dev' branch of the 'hugo-book' repository"
 
 <!-- people -->
 
