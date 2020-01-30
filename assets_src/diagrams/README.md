@@ -238,10 +238,10 @@ Resources and articles on which fonts are safe to use based on common OSs' avail
 
 <!-- Live HTML Previews Links -->
 
-[§3.2]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/hugo-book.html#sec_3-2 "Live HTML Preview"
-[§25]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/hugo-book.html#chapter_25 "Live HTML Preview"
-[§26]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/hugo-book.html#chapter_26 "Live HTML Preview"
-[§27]: http://htmlpreview.github.io/?https://github.com/tajmone/hugo-book/blob/draft/hugo-book.html#chapter_27 "Live HTML Preview"
+[§3.2]: https://tajmone.github.io/hugo-book/#sec_3-2 "Live HTML Preview"
+[§25]: https://tajmone.github.io/hugo-book/#chapter_25 "Live HTML Preview"
+[§26]: https://tajmone.github.io/hugo-book/#chapter_26 "Live HTML Preview"
+[§27]: https://tajmone.github.io/hugo-book/#chapter_27 "Live HTML Preview"
 
 <!-- project files -->
 
