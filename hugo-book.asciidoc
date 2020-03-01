@@ -1,7 +1,7 @@
 = The Hugo Book
 Kent Tessman <general@generalcoffee.com>
-:revnumber: 1.0.0
-:revdate: 2020/01/30
+:revnumber: 1.1.0-devel
+:revdate: 2020/03/01
 :edition: 1st Ed.
 :editionrev: January 2020
 :revremark:  {edition} revised {editionrev}
@@ -82,7 +82,7 @@ The Hugo applications, their source code, and the Hugo Library are now released 
 
 [WARNING]
 ====================================
-This book contains some statements regarding legal restrictions on usage of _The Hubo Book_, the Hugo software and the Hugo Library which apparently contradict the above license terms.
+This book contains some statements regarding legal restrictions on usage of _The Hugo Book_, the Hugo software and the Hugo Library which apparently contradict the above license terms.
 These statements pre-date the open source licensing of the Hugo suite, and were kept unaltered in this book for historical preservation reasons.
 
 The above mentioned license terms supersede any previous restrictions mentioned in this book, in the source files comments, or any other documentation.
