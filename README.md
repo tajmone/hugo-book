@@ -39,6 +39,7 @@ To read _The Hugo Book_ on-line, as a single HTML document:
     - [The Asciidoctor Project](#the-asciidoctor-project)
         - [Asciidoctor Extensions Lab](#asciidoctor-extensions-lab)
         - [Asciidoctor Backends](#asciidoctor-backends)
+- [Changelog](#changelog)
 - [External Links](#external-links)
 
 <!-- /MarkdownTOC -->
@@ -209,6 +210,8 @@ I would like to thank...
 - __[Kent Tessman]__ for creating Hugo and donating it to the mankind by open sourcing it, and for having granted me permission to republish _The Hugo Book_ under an open source license.
 Hugo is a beautiful tool, as well an historical pillar of the Interactive Fiction history.
 
+- __[Jonathan Blask]__ «Roody Yougurt» for sharing with us [his annotated PDF of _The Hugo Book_][Roody PDF], which contained many precious notes to improve the book contents, along with __[Nikos Chantziaras]__ and __[Juhana Leinonen]__ who contributed to those notes.
+
 - __[The people at the IF Archive]__, for their constant struggle and support in the quest for the preservation of IF historical material and heritage.
 
 - __[Dan Allen]__ and the __[Asciidoctor Project team]__, for their relentless dedication to the development of [Asciidoctor] and the AsciiDoc echo-system.
@@ -309,6 +312,12 @@ Released under MIT License:
 
     Copyright (C) 2012-2016 Dan Allen and the Asciidoctor Project
 
+# Changelog
+
+- **v1.1.0** (2020/??/??)
+    + Applied @roodyyogurt's suggested corrections, taken from [his notes to _The Hugo Book_][Roody PDF].
+- **v1.0.0** (2020/01/30)
+    + First release of the AsciiDoc port.
 
 # External Links
 
@@ -336,6 +345,9 @@ Other Hugo-related projects on GitHub:
 
 [PDF version from the IF Archive]: https://www.ifarchive.org/if-archive/programming/hugo/manuals/hugo_book.pdf "'The Hugo Book' in PDF format at the IF Archive"
 
+[Roody PDF]: https://drive.google.com/file/d/0B_4ZXs4Z_yoWRnA1bzE3X21oTXc/view "See Roody Yogurt's annotated 'Hugo Book' PDF on Google Drive"
+
+
 <!-- CC BY-NC-SA 4.0 -->
 
 [CC BY-NC-SA 4.0]: https://creativecommons.org/licenses/by-nc-sa/4.0/ "View the CC BY-NC-SA 4.0 License at Creative Commons"
@@ -343,7 +355,7 @@ Other Hugo-related projects on GitHub:
 <!-- badges -->
 
 [license badge]: https://img.shields.io/badge/license-CC%20BY--NC--SA%204.0-00b5da.svg
-[release badge]: https://img.shields.io/badge/release-1.0.0-brightgreen "AsciiDoc book version"
+[release badge]: https://img.shields.io/badge/release-1.1.0-brightgreen "AsciiDoc book version"
 [travis badge]: https://travis-ci.org/tajmone/hugo-book.svg?branch=master "Travis CI Build Status for Asciidoctor Build and EditorConfig Validation"
 
 <!-- 3rd party links -->
@@ -419,9 +431,12 @@ Other Hugo-related projects on GitHub:
 [Chris Kempson]: http://chriskempson.com "Visit Chris Kempson's website"
 [Dan Allen]: https://github.com/mojavelinux "View Dan Allen's GitHub profile"
 [Dannii Willis]: https://github.com/curiousdannii "View Dannii Willis's GitHub profile"
+[Jonathan Blask]: https://github.com/roodyyogurt "View Jonathan Blask's GitHub profile"
 [Kent Tessman]: https://github.com/tessman "View Kent Tessman's GitHub profile"
+[Nikos Chantziaras]: https://github.com/realnc "View Nikos Chantziaras's GitHub profile"
 [Simurai]: https://github.com/simurai "View simurai's GitHub profile"
 [Tristano Ajmone]: https://github.com/tajmone "View Tristano Ajmone's GitHub profile"
+[Juhana Leinonen]: https://github.com/juhana "View Juhana Leinonen's GitHub profile"
 
 <!-- organizations -->
 
