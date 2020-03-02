@@ -23,15 +23,22 @@ The first two places to start inspecting how the Hugo compiler writes a *.HEX* f
 [[sec_15-1]]
 == Tokens
 
-// @NOTE: There are 123 tokens -> 5 tokens x table row -> 2 empty cells
+// @NOTE: There are 124 tokens -> 5 tokens x table row -> 1 empty cells
 
 // @FOOTNOTE: There are two footnotes inside CSV file (fn1, fn2 -> 67, 68)
 //            both identical (fn2 -> fn1).
 
+// @EDITED TEXT: (documented & waiting approval: Issue #65)
+//    Some tokens were either misnamed, associated to the wrong value or missing:
+//
+//          $49 = label#      -->   $49 = debugdata#
+//          $75 = colour      -->   $74 = colour
+//          $76 = picture     -->   $75 = picture
+//          $76 = (missing)   -->   $76 = label#
+
 [cols=">2m,<8m,>2m,<8m,>2m,<8m,>2m,<8m,>2m,<8m",format=csv,stripes=even]
 |===============================================================================
 include::hugo-book2_03_tokens-list.csv[]
-,
 ,
 |===============================================================================
 

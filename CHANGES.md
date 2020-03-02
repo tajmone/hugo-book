@@ -38,7 +38,10 @@ This document lists all the contents changes that theAsciiDoc edition has introd
         - [App. B. The Hugo Library](#app-b-the-hugo-library)
             - [B.7.Utility Routines, Etc.](#b7utility-routines-etc)
     - [Book II](#book-ii)
+        - [15. Tokens and Data Types](#15-tokens-and-data-types)
+            - [15.1. Tokens](#151-tokens)
         - [17. Grammar](#17-grammar)
+        - [App. H. Code Patterns](#app-h-code-patterns)
 
 <!-- /MarkdownTOC -->
 
@@ -466,6 +469,28 @@ The missing term "`word`" was added after "if the given":
 
 List of changes to [Book II: _Technical System Specification_][Book2].
 
+### 15. Tokens and Data Types
+
+List of changes to Chapter [15. _Tokens and Data Types_][Ch15].
+
+#### 15.1. Tokens
+
+<!-- Issue #65 --------------------------------------------------------------->
+
+In _[§15.1. Tokens]_ some entries in the tokens table were either misnamed, associated with the wrong hex value or missing.
+
+
+|    original    |       fixed       |    problem    |
+|----------------|-------------------|---------------|
+| 49 = `label#`  | 49 = `debugdata#` | wrong name    |
+| 75 = `colour`  | 74 = `colour`     | wrong value   |
+| 76 = `picture` | 75 = `picture`    | wrong value   |
+| 76 = (missing) | 76 = `label#`     | missing token |
+
+For similar tokens fixes, see also [the changes to App. H. _Code Patterns_](#app-h-code-patterns).
+
+(See [Issue #65])
+
 ### 17. Grammar
 
 List of changes to Chapter [17. _Grammar_][Ch17].
@@ -483,6 +508,17 @@ Because dynamic grammars are only briefly mentioned in the book, custom anchors 
 For the other added cross reference, see the changes in [7.1. Grammar Definition](#71-grammar-definition).
 
 (See [Issue #48])
+
+### App. H. Code Patterns
+
+List of changes to Appendix [H. _Code Patterns_][AppH].
+
+<!-- Issue #65 --------------------------------------------------------------->
+
+- Token 47 was renamed from `text#` to `textdata#`.
+
+
+(See [Issue #65])
 
 <!-----------------------------------------------------------------------------
                                REFERENCE LINKS
@@ -510,6 +546,7 @@ For the other added cross reference, see the changes in [7.1. Grammar Definition
 [Issue #38]: https://github.com/tajmone/hugo-book/issues/38 "View Issue #38 regarding this text amendment"
 [Issue #47]: https://github.com/tajmone/hugo-book/issues/47 "View Issue #47 regarding this text amendment"
 [Issue #48]: https://github.com/tajmone/hugo-book/issues/48 "View Issue #48 regarding this text amendment"
+[Issue #65]: https://github.com/tajmone/hugo-book/issues/65 "View Issue #65 regarding this text amendment"
 
 <!-- Live HTML Links -->
 
@@ -528,7 +565,9 @@ For the other added cross reference, see the changes in [7.1. Grammar Definition
 [AppB]: https://tajmone.github.io/hugo-book/#appendix_b "Jump to Live HTML Preview of: Book I » Appendix A: SUMMARY OF KEYWORDS AND COMMANDS"
 
 [Book2]: https://tajmone.github.io/hugo-book/#book2 "Jump to Live HTML Preview of: Book II"
+[Ch15]: https://tajmone.github.io/hugo-book/#chapter_15 "Jump to Live HTML Preview of: Book II » 15. TOKENS AND DATA TYPES"
 [Ch17]: https://tajmone.github.io/hugo-book/#chapter_17 "Jump to Live HTML Preview of: Book II » 17. GRAMMAR"
+[AppH]: https://tajmone.github.io/hugo-book/#appendix_h "Jump to Live HTML Preview of: Book I » Appendix H: CODE PATTERNS"
 
 
 [§1.5. Packing List]: https://tajmone.github.io/hugo-book/#sec_1-5 "Live HTML Preview"
@@ -542,6 +581,7 @@ For the other added cross reference, see the changes in [7.1. Grammar Definition
 [§10.6. Vehicles]: https://tajmone.github.io/hugo-book/#sec_10-6 "Live HTML Preview"
 [§12.2. Pictures]: https://tajmone.github.io/hugo-book/#sec_12-2 "Live HTML Preview"
 [§12.3. Sound and Music]: https://tajmone.github.io/hugo-book/#sec_12-3 "Live HTML Preview"
+[§15.1. Tokens]: https://tajmone.github.io/hugo-book/#sec_15-1 "Live HTML Preview"
 [§B.7. _Utility Routines, Etc._]: https://tajmone.github.io/hugo-book/#sec_b-7 "Live HTML Preview"
 
 [Sec. 4.3]: https://tajmone.github.io/hugo-book/#hugolib-colors "Live HTML Preview"

@@ -1,7 +1,7 @@
 = The Hugo Book
 Kent Tessman <general@generalcoffee.com>
 :revnumber: 1.1.0-devel
-:revdate: 2020/03/01
+:revdate: 2020/03/02
 :edition: 1st Ed.
 :editionrev: January 2020
 :revremark:  {edition} revised {editionrev}
@@ -11284,10 +11284,18 @@ The first two places to start inspecting how the Hugo compiler writes a *.HEX* f
 [[sec_15-1]]
 == Tokens
 
-// @NOTE: There are 123 tokens -> 5 tokens x table row -> 2 empty cells
+// @NOTE: There are 124 tokens -> 5 tokens x table row -> 1 empty cells
 
 // @FOOTNOTE: There are two footnotes inside CSV file (fn1, fn2 -> 67, 68)
 //            both identical (fn2 -> fn1).
+
+// @EDITED TEXT: (documented & waiting approval: Issue #65)
+//    Some tokens were either misnamed, associated to the wrong value or missing:
+//
+//          $49 = label#      -->   $49 = debugdata#
+//          $75 = colour      -->   $74 = colour
+//          $76 = picture     -->   $75 = picture
+//          $76 = (missing)   -->   $76 = label#
 
 [cols=">2m,<8m,>2m,<8m,>2m,<8m,>2m,<8m,>2m,<8m",format=csv,stripes=even]
 |===============================================================================
@@ -11364,7 +11372,7 @@ The first two places to start inspecting how the Hugo compiler writes a *.HEX* f
 46,dictentry#
 47,textdata#
 48,routine#
-49,label#
+49,debugdata#
 4A,object#
 4B,value#
 4C,eol#
@@ -11407,14 +11415,14 @@ The first two places to start inspecting how the Hugo compiler writes a *.HEX* f
 71,writeval
 72,readval
 73,playback
-75,colour
-76,picture
+74,colour
+75,picture
+76,label#
 77,sound
 78,music
 79,repeat
 7A,addcontext{fn1}
 7B,video{fn2}
-,
 ,
 |===============================================================================
 
@@ -13575,7 +13583,10 @@ Where `<dictionary{nbsp}entry>` is two bytes (in low-byte/high-byte order) givin
 
 //-----{ 47 }-------------------------------------------------------------------
 
-| 47 | [.big.red]##text&num;## | *INTERNAL STATEMENT*
+// @EDITED TEXT: (documented & waiting approval: Issue #65)
+//    text# --> textdata#
+
+| 47 | [.big.red]##textdata&num;## | *INTERNAL STATEMENT*
 
     47 <text address>
 

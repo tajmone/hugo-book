@@ -71,7 +71,7 @@
 46,dictentry#
 47,textdata#
 48,routine#
-49,label#
+49,debugdata#
 4A,object#
 4B,value#
 4C,eol#
@@ -114,8 +114,9 @@
 71,writeval
 72,readval
 73,playback
-75,colour
-76,picture
+74,colour
+75,picture
+76,label#
 77,sound
 78,music
 79,repeat

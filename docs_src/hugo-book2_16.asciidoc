@@ -746,7 +746,10 @@ Where `<dictionary{nbsp}entry>` is two bytes (in low-byte/high-byte order) givin
 
 //-----{ 47 }-------------------------------------------------------------------
 
-| 47 | [.big.red]##text&num;## | *INTERNAL STATEMENT*
+// @EDITED TEXT: (documented & waiting approval: Issue #65)
+//    text# --> textdata#
+
+| 47 | [.big.red]##textdata&num;## | *INTERNAL STATEMENT*
 
     47 <text address>
 
