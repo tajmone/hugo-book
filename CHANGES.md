@@ -34,6 +34,7 @@ This document lists all the contents changes that theAsciiDoc edition has introd
         - [12. Resources](#12-resources)
             - [12.2. _Pictures_](#122-pictures)
             - [12.3. _Sound and Music_](#123-sound-and-music)
+            - [12.4. _Video_](#124-video)
         - [App. A. Summary of Keywords and Commands](#app-a-summary-of-keywords-and-commands)
         - [App. B. The Hugo Library](#app-b-the-hugo-library)
             - [B.7.Utility Routines, Etc.](#b7utility-routines-etc)
@@ -400,8 +401,27 @@ PlaySound(<resourcefile>, <sample>[, <volume>[, <loop>[, <force>]]])
 PlayMusic(<resourcefile>, <song>[, <volume>[, <loop>[, <force>]]])
 ```
 
-
 (See [Issue #36])
+
+
+#### 12.4. _Video_
+
+<!-- Issue #63 --------------------------------------------------------------->
+
+In _[§12.4. Video]_, the following sentence:
+
+> Video is displayed similarly to static graphic images (that is, it is displayed in the currently window) and controlled similarly to music and sound.
+
+"the currently window" was amended to "the currently defined text window":
+
+> Video is displayed similarly to static graphic images (that is, it is displayed in the currently defined text window) and controlled similarly to music and sound.
+
+It looks like some text went lost during editing, for the above fix is consistent with a similar sentence found in _[§12.2. Pictures]_.
+
+> The picture will be displayed in the currently defined text window.
+
+(See [Issue #63])
+
 
 ### App. A. Summary of Keywords and Commands
 
@@ -546,6 +566,7 @@ List of changes to Appendix [H. _Code Patterns_][AppH].
 [Issue #38]: https://github.com/tajmone/hugo-book/issues/38 "View Issue #38 regarding this text amendment"
 [Issue #47]: https://github.com/tajmone/hugo-book/issues/47 "View Issue #47 regarding this text amendment"
 [Issue #48]: https://github.com/tajmone/hugo-book/issues/48 "View Issue #48 regarding this text amendment"
+[Issue #63]: https://github.com/tajmone/hugo-book/issues/63 "View Issue #63 regarding this text amendment"
 [Issue #65]: https://github.com/tajmone/hugo-book/issues/65 "View Issue #65 regarding this text amendment"
 
 <!-- Live HTML Links -->
@@ -581,6 +602,7 @@ List of changes to Appendix [H. _Code Patterns_][AppH].
 [§10.6. Vehicles]: https://tajmone.github.io/hugo-book/#sec_10-6 "Live HTML Preview"
 [§12.2. Pictures]: https://tajmone.github.io/hugo-book/#sec_12-2 "Live HTML Preview"
 [§12.3. Sound and Music]: https://tajmone.github.io/hugo-book/#sec_12-3 "Live HTML Preview"
+[§12.4. Video]: https://tajmone.github.io/hugo-book/#sec_12-4 "Live HTML Preview"
 [§15.1. Tokens]: https://tajmone.github.io/hugo-book/#sec_15-1 "Live HTML Preview"
 [§B.7. _Utility Routines, Etc._]: https://tajmone.github.io/hugo-book/#sec_b-7 "Live HTML Preview"
 

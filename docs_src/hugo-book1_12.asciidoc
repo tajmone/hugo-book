@@ -200,7 +200,10 @@ PlayMusic(MUSIC_STOP)
 [[sec_12-4]]
 == Video
 
-Video is displayed similarly to static graphic images (that is, it is displayed in the currently window) and controlled similarly to music and sound.
+// @EDITED TEXT: (Issue #63)
+//    "in the currently window" --> "in the currently defined text window"
+
+Video is displayed similarly to static graphic images (that is, it is displayed in the currently defined text window) and controlled similarly to music and sound.
 The syntax for playing video looks like:
 
 [literal,role="hugosyntax"]
