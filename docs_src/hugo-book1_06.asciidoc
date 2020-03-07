@@ -190,9 +190,13 @@ will run all active object/character scripts, one turn at a time, freeing the sp
 
 Here is a sample script for a character named "`Ned`":
 
+// @EDITED CODE: (Issue #61)
+//    Fixed wrong parameter (4 -> 5), to cover all steps.
+//    Was:  setscript[Script(ned, 4)]
+
 [source,hugo]
 ---------------------------------------------
-setscript[Script(ned, 4)] = &CharMove, s_obj,
+setscript[Script(ned, 5)] = &CharMove, s_obj,
                             &CharGet,  cannonball,
                             &CharMove, n_obj,
                             &CharWait, 0,

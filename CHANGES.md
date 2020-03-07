@@ -24,6 +24,8 @@ This document lists all the contents changes that theAsciiDoc edition has introd
             - [4.8. _What Should I Be Able to Do Now?_](#48-what-should-i-be-able-to-do-now)
         - [5. Routines and Events](#5-routines-and-events)
             - [5.3. _Before And After Routines_](#53-before-and-after-routines)
+        - [6. Fuses, Daemons, and Scripts](#6-fuses-daemons-and-scripts)
+            - [6.3. Scripts](#63-scripts)
         - [7. Grammar and Parsing](#7-grammar-and-parsing)
             - [7.1. Grammar Definition](#71-grammar-definition)
         - [9. The Game Loop](#9-the-game-loop)
@@ -250,6 +252,35 @@ The paragraph end was amended by Kent Tessman to:
 
 
 (See [Issue #14])
+
+
+### 6. Fuses, Daemons, and Scripts
+
+List of changes to Chapter [6. _Fuses, Daemons, and Scripts_][Ch6].
+
+#### 6.3. Scripts
+
+<!-- Issue #61 --------------------------------------------------------------->
+
+In _[§6.3. Scripts]_, the "Ned" character script example:
+
+```hugo
+setscript[Script(ned, 4)] = &CharMove, s_obj,
+                            &CharGet,  cannonball,
+                            &CharMove, n_obj,
+                            &CharWait, 0,
+                            &CharDrop, cannonball
+```
+
+the parameter in the first line was fixed from 4 to 5:
+
+```hugo
+setscript[Script(ned, 5)] = &CharMove, s_obj,
+```
+
+in order to cover all the script steps.
+
+(See [Issue #61])
 
 
 ### 7. Grammar and Parsing
@@ -566,6 +597,7 @@ List of changes to Appendix [H. _Code Patterns_][AppH].
 [Issue #38]: https://github.com/tajmone/hugo-book/issues/38 "View Issue #38 regarding this text amendment"
 [Issue #47]: https://github.com/tajmone/hugo-book/issues/47 "View Issue #47 regarding this text amendment"
 [Issue #48]: https://github.com/tajmone/hugo-book/issues/48 "View Issue #48 regarding this text amendment"
+[Issue #61]: https://github.com/tajmone/hugo-book/issues/61 "View Issue #61 regarding this text amendment"
 [Issue #63]: https://github.com/tajmone/hugo-book/issues/63 "View Issue #63 regarding this text amendment"
 [Issue #65]: https://github.com/tajmone/hugo-book/issues/65 "View Issue #65 regarding this text amendment"
 
@@ -596,6 +628,7 @@ List of changes to Appendix [H. _Code Patterns_][AppH].
 [§2.4. Multiple Lines]: https://tajmone.github.io/hugo-book/#sec_2-4 "Live HTML Preview"
 [§4.8. What Should I Be Able to Do Now?]: https://tajmone.github.io/hugo-book/#sec_4-8 "Live HTML Preview"
 [§5.3. Before And After Routines]: https://tajmone.github.io/hugo-book/#sec_5-3 "Live HTML Preview"
+[§6.3. Scripts]: https://tajmone.github.io/hugo-book/#sec_6-3 "Live HTML Preview"
 [§7.1. Grammar Definition]: https://tajmone.github.io/hugo-book/#sec_7-1 "Live HTML Preview"
 [§9.2. What Should I Be Able to Do Now?]: https://tajmone.github.io/hugo-book/#sec_9-2 "Live HTML Preview"
 [§10.5. Doors]: https://tajmone.github.io/hugo-book/#sec_10-5 "Live HTML Preview"
