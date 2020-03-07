@@ -1,7 +1,7 @@
 = The Hugo Book
 Kent Tessman <general@generalcoffee.com>
 :revnumber: 1.1.0-devel
-:revdate: 2020/03/07
+:revdate: 2020/03/08
 :edition: 1st Ed.
 :editionrev: January 2020
 :revremark:  {edition} revised {editionrev}
@@ -3426,9 +3426,9 @@ Arrays are sets of values that share a common name, and where the elements are r
 Arrays are defined by
 
 [literal,role="hugosyntax"]
-................................
-array <arrayname> [<array size>]
-................................
+...............................
+array <arrayname>[<array size>]
+...............................
 
 where `<array size>` must be a numerical constant.
 
