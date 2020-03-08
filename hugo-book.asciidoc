@@ -13882,7 +13882,7 @@ Where `<array>` is two bytes giving the address of the array in the array table.
 
 //-----{ 5A }-------------------------------------------------------------------
 
-.2+| 5A | [.big.red]##call## | STATEMENT or VALUE
+.2+| 5A | [.big.red]##call## | *STATEMENT* or *VALUE*
 
 [literal,subs="+attributes,macros"]
 5A <value> 4C{wj}{fn7}
@@ -13989,8 +13989,9 @@ Clears the currently defined text window.
 
 //-----{ 62 }-------------------------------------------------------------------
 
-.2+| 62 | [.big.red]##scripton## | *VALUE*
-*As in:*
+.3+| 62 | [.big.red]##scripton## | *VALUE*
+
+>s| As in:  <a|
 
 [literal,role="hugosyntax"]
 ...........................
