@@ -12032,9 +12032,13 @@ Essentially, if the bits are thought of sequentially in that the first byte repr
 [[chapter_21]]
 = The Property Table
 
+// @EDITED TEXT: (Issue #56)
+//    The second sentence was:
+//          This is followed by a list of default property values, each of one
+//          16-bit (2 byte) word each.
 
 The property table begins with two bytes giving the total number of properties.
-This is followed by a list of default property values, each of one 16-bit (2 byte) word each.
+This is followed by a list of default property values, each one a 16-bit word (2 bytes).
 After this, the properties themselves begin, starting with object 0.
 
 The property values are entered sequentially, with no explicit identification of what object a particular value belongs to.

@@ -37,6 +37,7 @@ This document lists all the contents changes that theAsciiDoc edition has introd
             - [12.2. _Pictures_](#122-pictures)
             - [12.3. _Sound and Music_](#123-sound-and-music)
             - [12.4. _Video_](#124-video)
+        - [21. The Property Table](#21-the-property-table)
         - [App. A. Summary of Keywords and Commands](#app-a-summary-of-keywords-and-commands)
         - [App. B. The Hugo Library](#app-b-the-hugo-library)
             - [B.7.Utility Routines, Etc.](#b7utility-routines-etc)
@@ -454,6 +455,26 @@ It looks like some text went lost during editing, for the above fix is consisten
 (See [Issue #63])
 
 
+### 21. The Property Table
+
+List of changes to Chapter [21. _The Property Table_][Ch21].
+
+---
+
+<!-- Issue #56 --------------------------------------------------------------->
+
+Improved the opening paragraph, from:
+
+> The property table begins with two bytes giving the total number of properties.
+> This is followed by a list of default property values, each of one 16-bit (2 byte) word each.
+
+where the second sentence was changes to:
+
+> This is followed by a list of default property values, each one a 16-bit word (2 bytes).
+
+(See [Issue #56])
+
+
 ### App. A. Summary of Keywords and Commands
 
 List of changes to Appendix [A. _Summary of Keywords and Commands_][AppA].
@@ -597,6 +618,7 @@ List of changes to Appendix [H. _Code Patterns_][AppH].
 [Issue #38]: https://github.com/tajmone/hugo-book/issues/38 "View Issue #38 regarding this text amendment"
 [Issue #47]: https://github.com/tajmone/hugo-book/issues/47 "View Issue #47 regarding this text amendment"
 [Issue #48]: https://github.com/tajmone/hugo-book/issues/48 "View Issue #48 regarding this text amendment"
+[Issue #56]: https://github.com/tajmone/hugo-book/issues/56 "View Issue #56 regarding this text amendment"
 [Issue #61]: https://github.com/tajmone/hugo-book/issues/61 "View Issue #61 regarding this text amendment"
 [Issue #63]: https://github.com/tajmone/hugo-book/issues/63 "View Issue #63 regarding this text amendment"
 [Issue #65]: https://github.com/tajmone/hugo-book/issues/65 "View Issue #65 regarding this text amendment"
@@ -620,6 +642,7 @@ List of changes to Appendix [H. _Code Patterns_][AppH].
 [Book2]: https://tajmone.github.io/hugo-book/#book2 "Jump to Live HTML Preview of: Book II"
 [Ch15]: https://tajmone.github.io/hugo-book/#chapter_15 "Jump to Live HTML Preview of: Book II » 15. TOKENS AND DATA TYPES"
 [Ch17]: https://tajmone.github.io/hugo-book/#chapter_17 "Jump to Live HTML Preview of: Book II » 17. GRAMMAR"
+[Ch21]: https://tajmone.github.io/hugo-book/#chapter_21 "Jump to Live HTML Preview of: Book II » 21. THE PROPERTY TABLE"
 [AppH]: https://tajmone.github.io/hugo-book/#appendix_h "Jump to Live HTML Preview of: Book I » Appendix H: CODE PATTERNS"
 
 
