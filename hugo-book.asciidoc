@@ -12008,7 +12008,10 @@ The offset of any given object _n_ from the start of the object table can theref
 offset = _n_ * 24 + 2
 =====================
 
-If a parent has no parent, sibling, and/or child, the appropriate two-byte word is set to $0000.
+// @EDITED TEXT: (Issue #55)
+//    Was: "If a parent has no parent, ..."
+
+If an object has no parent, sibling, and/or child, the appropriate two-byte word is set to $0000.
 
 The property table position represents the offset of the beginning of the given object's property data from the start of the property table, as described below.
 

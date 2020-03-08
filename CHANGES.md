@@ -37,6 +37,8 @@ This document lists all the contents changes that theAsciiDoc edition has introd
             - [12.2. _Pictures_](#122-pictures)
             - [12.3. _Sound and Music_](#123-sound-and-music)
             - [12.4. _Video_](#124-video)
+        - [20. The Object Table](#20-the-object-table)
+            - [20.1. Objects](#201-objects)
         - [21. The Property Table](#21-the-property-table)
         - [App. A. Summary of Keywords and Commands](#app-a-summary-of-keywords-and-commands)
         - [App. B. The Hugo Library](#app-b-the-hugo-library)
@@ -455,6 +457,27 @@ It looks like some text went lost during editing, for the above fix is consisten
 (See [Issue #63])
 
 
+### 20. The Object Table
+
+List of changes to Chapter [20. _The Object Table_][Ch20].
+
+#### 20.1. Objects
+
+<!-- Issue #55 --------------------------------------------------------------->
+
+In _[§20.1. Objects]_, amended the following sentence:
+
+> If a parent has no parent, sibling, and/or child, the appropriate two-byte word is set to $0000.
+
+to:
+
+> If an object has no parent, […]
+
+which is a more correct wording in the above context.
+
+(See [Issue #55])
+
+
 ### 21. The Property Table
 
 List of changes to Chapter [21. _The Property Table_][Ch21].
@@ -618,6 +641,7 @@ List of changes to Appendix [H. _Code Patterns_][AppH].
 [Issue #38]: https://github.com/tajmone/hugo-book/issues/38 "View Issue #38 regarding this text amendment"
 [Issue #47]: https://github.com/tajmone/hugo-book/issues/47 "View Issue #47 regarding this text amendment"
 [Issue #48]: https://github.com/tajmone/hugo-book/issues/48 "View Issue #48 regarding this text amendment"
+[Issue #55]: https://github.com/tajmone/hugo-book/issues/55 "View Issue #55 regarding this text amendment"
 [Issue #56]: https://github.com/tajmone/hugo-book/issues/56 "View Issue #56 regarding this text amendment"
 [Issue #61]: https://github.com/tajmone/hugo-book/issues/61 "View Issue #61 regarding this text amendment"
 [Issue #63]: https://github.com/tajmone/hugo-book/issues/63 "View Issue #63 regarding this text amendment"
@@ -642,6 +666,7 @@ List of changes to Appendix [H. _Code Patterns_][AppH].
 [Book2]: https://tajmone.github.io/hugo-book/#book2 "Jump to Live HTML Preview of: Book II"
 [Ch15]: https://tajmone.github.io/hugo-book/#chapter_15 "Jump to Live HTML Preview of: Book II » 15. TOKENS AND DATA TYPES"
 [Ch17]: https://tajmone.github.io/hugo-book/#chapter_17 "Jump to Live HTML Preview of: Book II » 17. GRAMMAR"
+[Ch20]: https://tajmone.github.io/hugo-book/#chapter_20 "Jump to Live HTML Preview of: Book II » 20. THE OBJECT TABLE"
 [Ch21]: https://tajmone.github.io/hugo-book/#chapter_21 "Jump to Live HTML Preview of: Book II » 21. THE PROPERTY TABLE"
 [AppH]: https://tajmone.github.io/hugo-book/#appendix_h "Jump to Live HTML Preview of: Book I » Appendix H: CODE PATTERNS"
 
@@ -661,6 +686,7 @@ List of changes to Appendix [H. _Code Patterns_][AppH].
 [§12.4. Video]: https://tajmone.github.io/hugo-book/#sec_12-4 "Live HTML Preview"
 [§15.1. Tokens]: https://tajmone.github.io/hugo-book/#sec_15-1 "Live HTML Preview"
 [§B.7. _Utility Routines, Etc._]: https://tajmone.github.io/hugo-book/#sec_b-7 "Live HTML Preview"
+[§20.1. Objects]: https://tajmone.github.io/hugo-book/#sec_20-1 "Live HTML Preview"
 
 [Sec. 4.3]: https://tajmone.github.io/hugo-book/#hugolib-colors "Live HTML Preview"
 
