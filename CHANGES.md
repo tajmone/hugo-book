@@ -626,12 +626,26 @@ For the other added cross reference, see the changes in [7.1. Grammar Definition
 
 List of changes to Appendix [H. _Code Patterns_][AppH].
 
-<!-- Issue #65 --------------------------------------------------------------->
+---
 
-- Token 47 was renamed from `text#` to `textdata#`.
+<!-- Issues #65 and #67 ------------------------------------------------------>
 
+Token 47 `text#`:
 
-(See [Issue #65])
+- Renamed from `text#` to `textdata#`.
+- It's definition was amended to mirror current Hugo behaviour:
+
+    > `47 <text address>`
+    >
+    > Where `<text address>` is three bytes (in lowest-to-highest byte order) giving the address of the entry in the text bank.
+
+    was changed to:
+
+    > `47 <offset> <text address>`
+    >
+    > Where `<text address>` is two bytes (in lowest-to-highest byte order) giving the address of the entry in the text bank at `<offset>` (one byte).
+
+(See [Issue #65] and [Issue #67])
 
 <!-----------------------------------------------------------------------------
                                REFERENCE LINKS
@@ -665,6 +679,7 @@ List of changes to Appendix [H. _Code Patterns_][AppH].
 [Issue #63]: https://github.com/tajmone/hugo-book/issues/63 "View Issue #63 regarding this text amendment"
 [Issue #64]: https://github.com/tajmone/hugo-book/issues/64 "View Issue #64 regarding this text amendment"
 [Issue #65]: https://github.com/tajmone/hugo-book/issues/65 "View Issue #65 regarding this text amendment"
+[Issue #67]: https://github.com/tajmone/hugo-book/issues/67 "View Issue #67 regarding this text amendment"
 
 <!-- Live HTML Links -->
 

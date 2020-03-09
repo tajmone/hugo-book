@@ -746,14 +746,15 @@ Where `<dictionary{nbsp}entry>` is two bytes (in low-byte/high-byte order) givin
 
 //-----{ 47 }-------------------------------------------------------------------
 
-// @EDITED TEXT: (documented & waiting approval: Issue #65)
-//    text# --> textdata#
+// @EDITED TEXT: (documented & waiting approval: Issues #65 and #67)
+//    - text# --> textdata#
+//    - The whole definition was amended to mirror current Hugo behaviour.
 
 | 47 | [.big.red]##textdata&num;## | *INTERNAL STATEMENT*
 
-    47 <text address>
+    47 <offset> <text address>
 
-Where `<text{nbsp}address>` is three bytes (in lowest-to-highest byte order) giving the address of the entry in the text bank.
+Where `<text{nbsp}address>` is two bytes (in lowest-to-highest byte order) giving the address of the entry in the text bank at `<offset>` (one byte).
 
 //-----{ 48 }-------------------------------------------------------------------
 
