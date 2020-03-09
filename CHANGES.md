@@ -42,6 +42,7 @@ This document lists all the contents changes that theAsciiDoc edition has introd
         - [21. The Property Table](#21-the-property-table)
         - [App. A. Summary of Keywords and Commands](#app-a-summary-of-keywords-and-commands)
         - [App. B. The Hugo Library](#app-b-the-hugo-library)
+            - [B.2. Globals](#b2-globals)
             - [B.7.Utility Routines, Etc.](#b7utility-routines-etc)
     - [Book II](#book-ii)
         - [15. Tokens and Data Types](#15-tokens-and-data-types)
@@ -539,6 +540,23 @@ In the definition of `print`, after the `print <output>` syntax:
 
 List of changes to Appendix [B. _The Hugo Library_][AppB].
 
+#### B.2. Globals
+
+<!-- Issue #64 --------------------------------------------------------------->
+
+In [§B.2. _Globals_], new footnotes were added to two Hugo Library global variables entries:
+
+- `INDENT_SIZE`:
+
+    > `INDENT_SIZE` is actually a constant, to change its value you must define it before including **hugolib.h**.
+
+- `AFTER_PERIOD`:
+
+    > `AFTER_PERIOD` is actually a constant, to change its value you must define it before including **hugolib.h**.
+
+(See [Issue #64])
+
+
 #### B.7.Utility Routines, Etc.
 
 <!-- Issue #47 --------------------------------------------------------------->
@@ -645,6 +663,7 @@ List of changes to Appendix [H. _Code Patterns_][AppH].
 [Issue #56]: https://github.com/tajmone/hugo-book/issues/56 "View Issue #56 regarding this text amendment"
 [Issue #61]: https://github.com/tajmone/hugo-book/issues/61 "View Issue #61 regarding this text amendment"
 [Issue #63]: https://github.com/tajmone/hugo-book/issues/63 "View Issue #63 regarding this text amendment"
+[Issue #64]: https://github.com/tajmone/hugo-book/issues/64 "View Issue #64 regarding this text amendment"
 [Issue #65]: https://github.com/tajmone/hugo-book/issues/65 "View Issue #65 regarding this text amendment"
 
 <!-- Live HTML Links -->
@@ -685,6 +704,7 @@ List of changes to Appendix [H. _Code Patterns_][AppH].
 [§12.3. Sound and Music]: https://tajmone.github.io/hugo-book/#sec_12-3 "Live HTML Preview"
 [§12.4. Video]: https://tajmone.github.io/hugo-book/#sec_12-4 "Live HTML Preview"
 [§15.1. Tokens]: https://tajmone.github.io/hugo-book/#sec_15-1 "Live HTML Preview"
+[§B.2. _Globals_]: https://tajmone.github.io/hugo-book/#sec_b-2 "Live HTML Preview"
 [§B.7. _Utility Routines, Etc._]: https://tajmone.github.io/hugo-book/#sec_b-7 "Live HTML Preview"
 [§20.1. Objects]: https://tajmone.github.io/hugo-book/#sec_20-1 "Live HTML Preview"
 

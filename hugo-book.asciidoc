@@ -1,7 +1,7 @@
 = The Hugo Book
 Kent Tessman <general@generalcoffee.com>
 :revnumber: 1.1.0-devel
-:revdate: 2020/03/08
+:revdate: 2020/03/09
 :edition: 1st Ed.
 :editionrev: January 2020
 :revremark:  {edition} revised {editionrev}
@@ -9045,11 +9045,24 @@ The number of the object most recently added to parent `<parent>`.
 
 // >>> footnotes definitions >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
-// @FOOTNOTE IN TABLE: 1 inside cell, 2 at doc end.
+// @FOOTNOTE IN TABLE: All footnotes occur inside inside cells.
 
-:fn1: footnote:[Used generally for room objects in order to give a grammatically correct description if necessary; also for containers and platforms.]
+// @FOOTNOTE ADDED: (Issue #64)
+//    Footnotes fn1 and fn2 were added to the original.
+//    Based on Roody Yogurt's annotated PDF.
 
-:fn2: pass:q[footnote:[A "`grandchild`" of an object is a child of a child of a given parent object, or a child object thereof, recursively searched.]]
+:fn1: pass:q[footnote:[`INDENT_SIZE` is actually a constant, to change its value you must define it before including *hugolib.h*.]]
+
+:fn2: pass:q[footnote:[`AFTER_PERIOD` is actually a constant, to change its value you must define it before including *hugolib.h*.]]
+
+:fn3: footnote:[Used generally for room objects in order to give a grammatically correct description if necessary; also for containers and platforms.]
+
+// @FOOTNOTE ISSUE: In HTML output, the text of this note is placed at the bottom
+//    of the cell instead of the end of the document, due to the cell being
+//    styled as 'a' (AsciiDoc). This is due to a limitation in Asciidoctor, which
+//    should be fixed in the future (see Issue #22).
+
+:fn4: pass:q[footnote:[A "`grandchild`" of an object is a child of a child of a given parent object, or a child object thereof, recursively searched.]]
 
 // <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
@@ -9126,15 +9139,15 @@ NOTE: `container` and `platform` are generally mutually exclusive
 
 2+h| Formatting/output global variables:
 
-| FORMAT        | specifies text-printing format
-| DEFAULT_FONT  | initially 0; could be set to, e.g., `PROP_ON`
-| STATUSTYPE    | 0=none, 1=score/turns, 2=time
-| TEXTCOLOR     | normal text color
-| BGCOLOR       | normal background color
-| SL_TEXTCOLOR  | statusline text color
-| SL_BGCOLOR    | statusline background color
-| INDENT_SIZE   | for paragraph indenting
-| AFTER_PERIOD  | string of spaces following a full-stop
+| FORMAT                | specifies text-printing format
+| DEFAULT_FONT          | initially 0; could be set to, e.g., `PROP_ON`
+| STATUSTYPE            | 0=none, 1=score/turns, 2=time
+| TEXTCOLOR             | normal text color
+| BGCOLOR               | normal background color
+| SL_TEXTCOLOR          | statusline text color
+| SL_BGCOLOR            | statusline background color
+| INDENT_SIZE{wj}{fn1}  | for paragraph indenting
+| AFTER_PERIOD{wj}{fn2} | string of spaces following a full-stop
 
 2+h| Runtime global variables:
 
@@ -9260,8 +9273,11 @@ d| `HERE_WORD`       {nbsp}("`here`")   2+d| `ON_WORD` {nbsp}{nbsp}("`on`")
 | adjective (adjectives) | adjective(s) describing object
 | article | "`a`", "`an`", "`the`", "`some`", etc.
 
+// @FOOTNOTE HACK: The cell is styled as 'd' (default) so that the footnote text
+//                 will be displayed at the end of the document (in HTML docs).
+
 | preposition (prep)
-d| "`in`", "`inside`", "`outside of`", etc.{wj}{fn1}
+d| "`in`", "`inside`", "`outside of`", etc.{wj}{fn3}
 
 | capacity
 | contains a value representing the capacity of a container or platform
@@ -9794,7 +9810,7 @@ Returns true if accessible; returns false and prints an appropriate message if n
 [literal,role="hugosyntax"]
 Contains(parent, object)
 
-Returns `object` if the specified object is present as a possession of the specified parent, even as a grandchild,{wj}{fn2} otherwise returns false.
+Returns `object` if the specified object is present as a possession of the specified parent, even as a grandchild,{wj}{fn4} otherwise returns false.
 
 //-----{ CustomError }----------------------------------------------------------
 
