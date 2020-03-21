@@ -1,7 +1,7 @@
 = The Hugo Book
 Kent Tessman <general@generalcoffee.com>
 :revnumber: 1.1.0-devel
-:revdate: 2020/03/09
+:revdate: 2020/03/21
 :edition: 1st Ed.
 :editionrev: January 2020
 :revremark:  {edition} revised {editionrev}
@@ -31,7 +31,7 @@ Kent Tessman <general@generalcoffee.com>
 :experimental: true
 :icons: font
 :linkattrs: true
-
+:imagesdir: docs_src
 ////
 ********************************************************************************
 *                                                                              *

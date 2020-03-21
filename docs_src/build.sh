@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# "docs_src/build.sh"                                      | v0.4.0 | 2020/01/28
+# "docs_src/build.sh"                                      | v0.5.0 | 2020/03/21
 # ------------------------------------------------------------------------------
 # By Tristano Ajmone, released into the public domain via the Unlicense.
 # ------------------------------------------------------------------------------
@@ -124,6 +124,37 @@ echo -e "\n// EOF //" >> $ADoc_output
 if [[ $(uname -s) == MINGW* ]];then
 	unix2dos $ADoc_output
 fi
+
+# 4. Tests AsciiDoc Preprocessed Document
+# =======================================
+# Run a quick conversion of the new coalesced doc to ensure that it builds
+# without errors. The main goal is to check that it can locate images correctly,
+# via the embedded `imagesdir` attribute, for the benefit of previewing on
+# GitHub WebUI. No need to use the syntax highlighter for this test.
+# Asciidoctor output is sent to STDOUT and redirected to /dev/null.
+
+printHeading1 "Hugo Book: Tests Standalone AsciiDoc Document"
+echo -e "\033[37;1mTesting HTML5 conversion of single-file AsciiDoc document: \033[33;1m$ADoc_output\033[0m"
+
+# We'll need to test conversion from the project root:
+cd ../
+testSrc=${ADoc_output#../}
+
+printSeparator
+echo -e "\033[30;1m\c"
+asciidoctor \
+	--failure-level WARN \
+	--timings \
+	--verbose \
+	--safe-mode unsafe \
+	-a data-uri \
+	-a experimental \
+	-o - \
+		$testSrc >/dev/null || {
+			printBuildFailed
+			exit 1
+			}
+printBuildPassed
 
 exit
 
