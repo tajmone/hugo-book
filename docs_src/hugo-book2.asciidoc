@@ -11,61 +11,23 @@
 or +
 _Under the Hood of Hugo and the .HEX File Format_
 
-// =============================================================================
-//                               INCLUDE CHAPTERS
-// =============================================================================
 :leveloffset: +1
-
-//  1. INTRODUCTION
 include::hugo-book2_01.asciidoc[]
-
-//  2. ORGANIZATION OF THE .HEX FILE
 include::hugo-book2_02.asciidoc[]
-
-//  3. TOKENS AND DATA TYPES
 include::hugo-book2_03.asciidoc[]
-
-//  4. ENGINE PARSING
 include::hugo-book2_04.asciidoc[]
-
-//  5. GRAMMAR
 include::hugo-book2_05.asciidoc[]
-
-//  6. EXECUTABLE CODE
 include::hugo-book2_06.asciidoc[]
-
-//  7. ENCODING TEXT
 include::hugo-book2_07.asciidoc[]
-
-//  8. THE OBJECT TABLE
 include::hugo-book2_08.asciidoc[]
-
-//  9. THE PROPERTY TABLE
 include::hugo-book2_09.asciidoc[]
-
-// 10. THE EVENT TABLE
 include::hugo-book2_10.asciidoc[]
-
-// 11. THE DICTIONARY AND SPECIAL WORDS
 include::hugo-book2_11.asciidoc[]
-
-// 12. RESOURCEFILES
 include::hugo-book2_12.asciidoc[]
-
-// 13. THE HUGO COMPILER AND HOW IT WORKS
 include::hugo-book2_13.asciidoc[]
-
-// 14. THE HUGO ENGINE AND HOW IT WORKS
 include::hugo-book2_14.asciidoc[]
-
-// 15. DARK SECRETS OF THE HUGO DEBUGGER
 include::hugo-book2_15.asciidoc[]
-
-// APPENDIX A: CODE PATTERNS
 include::hugo-book2_16.asciidoc[]
-
-
 :leveloffset: 0
-
 
 // EOF //

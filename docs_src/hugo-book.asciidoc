@@ -36,33 +36,9 @@ ifdef::coalescer[]
 include::warn-editing.asciidoc[]
 endif::[]
 
-// =============================================================================
-//                         Custom Attributes Definition
-// =============================================================================
-// Some attributes for custom substitution of multiple occurences of same text.
-
-// ***************************
-// *    DOCUMENT PREAMBLE    *
-// ***************************
-// Show document info and AsciiDoc conversion version and date...
 include::hugo-book0_preamble.asciidoc[]
-
-// ******************
-// *    COLOPHON    *
-// ******************
 include::hugo-book0_colophon.asciidoc[]
-
-// ***************************
-// *    AUTHOR'S FOREWORD    *
-// ***************************
-
 include::hugo-book0_preface.asciidoc[]
-
-// *****************************************************************************
-// *                                                                           *
-// *                              INCLUDE BOOKS                                *
-// *                                                                           *
-// *****************************************************************************
 
 include::hugo-book1.asciidoc[]
 include::hugo-book2.asciidoc[]

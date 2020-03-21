@@ -48,22 +48,15 @@ If you want to contribute to this document, edit those source files instead.
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ////
 
-// =============================================================================
-//                         Custom Attributes Definition
-// =============================================================================
-// Some attributes for custom substitution of multiple occurences of same text.
-
-// ***************************
-// *    DOCUMENT PREAMBLE    *
-// ***************************
-// Show document info and AsciiDoc conversion version and date...
 // *****************************************************************************
 // *                                                                           *
 // *                          Hugo Book -- Preamble                            *
 // *                                                                           *
 // *****************************************************************************
 
+// >>> custom attributes definitions >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 :CC-BY-SA-40: link:https://creativecommons.org/licenses/by-nc-sa/4.0/[CC BY-NC-SA 4.0^,title="View the CC BY-NC-SA 4.0 License at Creative Commons"]
+// <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
 AsciiDoc port of _The Hugo Book_ ({edition}, 2004) written by Kent Tessman.
 
@@ -100,15 +93,11 @@ Toronto, Canada
 =========================================================
 --
 
-
-// ******************
-// *    COLOPHON    *
-// ******************
-// ******************************************************************************
-// *                                                                            *
-// *                           Hugo Book -- Colophon                            *
-// *                                                                            *
-// ******************************************************************************
+// *****************************************************************************
+// *                                                                           *
+// *                          Hugo Book -- Colophon                            *
+// *                                                                           *
+// *****************************************************************************
 //
 [colophon]
 = Colophon
@@ -126,11 +115,11 @@ _First Edition_
 // ISBN 0-9735652-0-9
 // (does not apply to the digital edition!)
 
-
-// ***************************
-// *    AUTHOR'S FOREWORD    *
-// ***************************
-
+// *****************************************************************************
+// *                                                                           *
+// *                      Hugo Book -- Author's Foreword                       *
+// *                                                                           *
+// *****************************************************************************
 [preface]
 [[preface]]
 = Author's Foreword
@@ -149,12 +138,6 @@ _2004_
 
 // *****************************************************************************
 // *                                                                           *
-// *                              INCLUDE BOOKS                                *
-// *                                                                           *
-// *****************************************************************************
-
-// *****************************************************************************
-// *                                                                           *
 // *                Hugo Book I -- The Hugo Programming Manual                 *
 // *                                                                           *
 // *****************************************************************************
@@ -165,12 +148,7 @@ _2004_
 or +
 _How to Write Games and Influence People_
 
-// =============================================================================
-//                               INCLUDE CHAPTERS
-// =============================================================================
 :leveloffset: +1
-
-//  1. INTRODUCTION
 // *****************************************************************************
 // *                                                                           *
 // *                   Hugo Book I: 1/19 -- 1. Introduction                    *
@@ -693,8 +671,6 @@ hc -lios $maxobjects=512 @source=fb @lib=lib future
 This makes use of various command-line options, including multiple switches, limit settings, and directory specifications.
 It sets the desired switches, changes the modifiable limit `MAXOBJECTS` from the compiler default, and points the compiler to look for source files in the *source* subdirectory and library files in the *lib* subdirectory (from the current directory).
 
-
-//  2. A FIRST LOOK AT HUGO
 // *****************************************************************************
 // *                                                                           *
 // *               Hugo Book I: 2/19 -- 2. A First Look at Hugo                *
@@ -1457,8 +1433,6 @@ The other errors basically follow from the last few objects in *test.hug* not ge
 Feel free to experiment with *test.hug* by adding comments, changing lines, commenting out various objects or routines or other sections of codes, and seeing what happens when you try to compile it and run it.
 
 
-
-//  3. OBJECTS
 // *****************************************************************************
 // *                                                                           *
 // *                     Hugo Book I: 3/19 -- 3. Objects                       *
@@ -2455,8 +2429,6 @@ By now you should:
 * experiment by adding new objects, giving them different names and starting locations as well as nouns and adjectives to describe them, assigning new property values or modifying existing ones, setting different attributes, etc.;
 * have a basic understanding of how the object tree works in terms of how objects are arranged within the physical world of the game, including rooms or locations, objects within those locations, and objects within other objects.
 
-
-//  4. HUGO PROGRAMMING
 // *****************************************************************************
 // *                                                                           *
 // *                 Hugo Book I: 4/19 -- 4. Hugo Programming                  *
@@ -4136,8 +4108,6 @@ Since "`A(pple)`" is lexically less than "`T(his...)`", comparing the two return
 As "`To(mato)`" is lexically greater than "`Th(is...)`", `StringCompare` returns 1.
 
 
-
-//  5. ROUTINES AND EVENTS
 // *****************************************************************************
 // *                                                                           *
 // *               Hugo Book I: 5/19 -- 5. Routines and Events                 *
@@ -5088,8 +5058,6 @@ will make the event a global one.
 (In this case, the `self` global is not altered.)
 
 
-
-//  6. FUSES, DAEMONS, AND SCRIPTS
 // *****************************************************************************
 // *                                                                           *
 // *           Hugo Book I: 6/19 -- 6. Fuses, Daemons, and Scripts             *
@@ -5405,8 +5373,6 @@ Deactivate(tickingbomb)
 --------------------------------------------------------------------------------
 
 
-
-//  7. GRAMMAR AND PARSING
 // *****************************************************************************
 // *                                                                           *
 // *               Hugo Book I: 7/19 -- 7. Grammar and Parsing                 *
@@ -5917,8 +5883,6 @@ will take precedence.
 By superseding it, however, we ensure that any grammar matching the desired pattern will result in `DoDance` being called instead.
 
 
-
-//  8. JUNCTION ROUTINES
 // *****************************************************************************
 // *                                                                           *
 // *                Hugo Book I: 8/19 -- 8. Junction Routines                  *
@@ -6299,8 +6263,6 @@ Using HugoFix's parser monitoring (`$pm`) at runtime will trace calls to `Perfor
 ================================================================================
 
 
-
-//  9. THE GAME LOOP
 // *****************************************************************************
 // *                                                                           *
 // *                  Hugo Book I: 9/19 -- 9. The Game Loop                    *
@@ -6474,8 +6436,6 @@ before
 ------------------------------------------------
 
 
-
-// 10. USING THE OBJECT LIBRARY
 // *****************************************************************************
 // *                                                                           *
 // *            Hugo Book I: 10/19 -- 10. Using the Object Library             *
@@ -7180,8 +7140,6 @@ You should, for instance, be able to implement the following:
 . A gardener `character` who is capable of answering questions about the things in the shed and the garden.
 
 
-
-// 11. ADVANCED FEATURES
 // *****************************************************************************
 // *                                                                           *
 // *               Hugo Book I: 11/19 -- 11. Advanced Features                 *
@@ -7423,8 +7381,6 @@ The running Hugo program cannot itself monitor mouse input during typed input.
 
 As mentioned above, the display object provides the read-only properties `pointer_x` and `pointer_y`, which give the horizontal and vertical position of the mouse (in characters) respectively.
 
-
-// 12. RESOURCES
 // *****************************************************************************
 // *                                                                           *
 // *                   Hugo Book I: 12/19 -- 12. Resources                     *
@@ -7644,8 +7600,6 @@ Normally the engine waits for the video to finish playing.
 If the `<bkground>` parameter is given and is non-false, the video plays in the background and the program continues to run, the player may type input, etc.
 In combination with the `repeat` token, this is useful for creating background/scenic animations.
 
-
-// APPENDIX A: SUMMARY OF KEYWORDS AND COMMANDS
 // *****************************************************************************
 // *                                                                           *
 // *      Hugo Book I: 13/19 -- App. A. Summary of Keywords and Commands       *
@@ -9030,8 +8984,6 @@ s| Return{nbsp}value: a|
 The number of the object most recently added to parent `<parent>`.
 |===============================================================================
 
-
-// APPENDIX B: THE HUGO LIBRARY
 // *****************************************************************************
 // *                                                                           *
 // *              Hugo Book I: 14/19 -- App. B. The Hugo Library               *
@@ -10513,8 +10465,6 @@ A number of compiler flags may be set to exclude certain portions of *hugolib.h*
 | NO_XVERBS        | All non-action verbs
 |======================================================
 
-
-// APPENDIX C: LIMIT SETTINGS
 // *****************************************************************************
 // *                                                                           *
 // *               Hugo Book I: 15/19 -- App. C. Limit Settings                *
@@ -10596,8 +10546,6 @@ either in the compiler's invocation line or in the source code.
 |===============================================================================
 
 
-
-// APPENDIX D: HUGOFIX AND THE HUGO DEBUGGER
 // *****************************************************************************
 // *                                                                           *
 // *       Hugo Book I: 16/19 -- App. D. HugoFix and the Hugo Debugger         *
@@ -10881,8 +10829,6 @@ d| Optional runtime warnings instruct the debugger to alert the user to common c
 d| Allowing changes (where applicable) in color scheme, printer, etc.
 |===============================================================================
 
-
-// APPENDIX E: PRECOMPILED HEADERS
 // *****************************************************************************
 // *                                                                           *
 // *            Hugo Book I: 17/19 -- App. E. Precompiled Headers              *
@@ -10970,8 +10916,6 @@ As a result, Hugo files produced using precompiled headers -- especially if exis
 For this reason, it is recommended that `#include` be used for building release versions instead of ``#link``ing the corresponding precompiled header.
 
 
-
-// APPENDIX F: HUGO VERSIONS
 // *****************************************************************************
 // *                                                                           *
 // *              // Hugo Book I: 18/19 -- App. F. Hugo Versions               *
@@ -11015,8 +10959,6 @@ Additional multimedia including sound, music, and video playback fully supported
 | Syntactically identical to v3.0; internal format changes.
 |===============================================================================
 
-
-// APPENDIX G: ADDITIONAL RESOURCES
 // *****************************************************************************
 // *                                                                           *
 // *            Hugo Book I: 19/19 -- App. G. Additional Resources             *
@@ -11071,7 +11013,6 @@ and *TADS*, the Text Adventure Design System by Mike Roberts
 are two other interactive-fiction programming languages.
 
 
-
 :leveloffset: 0
 
 // *****************************************************************************
@@ -11087,12 +11028,7 @@ are two other interactive-fiction programming languages.
 or +
 _Under the Hood of Hugo and the .HEX File Format_
 
-// =============================================================================
-//                               INCLUDE CHAPTERS
-// =============================================================================
 :leveloffset: +1
-
-//  1. INTRODUCTION
 // *****************************************************************************
 // *                                                                           *
 // *                  Hugo Book II: 1/16 -- 13. Introduction                   *
@@ -11135,8 +11071,6 @@ The engine in turn reads the file produced by the compiler (called a *.HEX* file
 These low-level operations are, for the most part, transparent to the programmer.
 
 
-
-//  2. ORGANIZATION OF THE .HEX FILE
 // *****************************************************************************
 // *                                                                           *
 // *         Hugo Book II: 2/16 -- 14. Organization of the .HEX File           *
@@ -11280,8 +11214,6 @@ In *.HDX* (debuggable) Hugo executables only:
 ================================================================================
 
 
-
-//  3. TOKENS AND DATA TYPES
 // *****************************************************************************
 // *                                                                           *
 // *             Hugo Book II: 3/16 -- 15. Tokens and Data Types               *
@@ -11586,8 +11518,6 @@ A routine's second argument or local would be numbered 241 (since 240 ($F0) is t
 --
 
 
-
-//  4. ENGINE PARSING
 // *****************************************************************************
 // *                                                                           *
 // *                 Hugo Book II: 4/16 -- 16. Engine Parsing                  *
@@ -11628,8 +11558,6 @@ The engine has a set of standard parser errors that may be overridden by a user-
 If there is no `ParseError` routine, or if `ParseError` returns false, the default parser error message is printed.
 
 
-
-//  5. GRAMMAR
 // *****************************************************************************
 // *                                                                           *
 // *                    Hugo Book II: 5/16 -- 17. Grammar                      *
@@ -11724,8 +11652,6 @@ The $FF byte marks the end of the current verb definition.
 Immediately following this is either another `verb` or `xverb` token, or a second $FF to indicate the end of the verb table.
 
 
-
-//  6. EXECUTABLE CODE
 // *****************************************************************************
 // *                                                                           *
 // *                Hugo Book II: 6/16 -- 18. Executable Code                  *
@@ -11943,8 +11869,6 @@ TIP: See <<appendix_h>> for details on how `if` statements and other conditional
 2 bytes give the skip distance (i.e., $0021 bytes) to the next-executed instruction if the current expression evaluates false.
 --
 
-
-//  7. ENCODING TEXT
 // *****************************************************************************
 // *                                                                           *
 // *                 Hugo Book II: 7/16 -- 19. Encoding Text                   *
@@ -11979,8 +11903,6 @@ where the length of the encoded text is given by the first two bytes
 NOTE: Note that an address in the text bank requires 3 bytes in the game code, however, since the length of the text bank can exceed 64K.
 
 
-
-//  8. THE OBJECT TABLE
 // *****************************************************************************
 // *                                                                           *
 // *                Hugo Book II: 8/16 -- 20. The Object Table                 *
@@ -12040,8 +11962,6 @@ The 16 bytes of the attribute array contain 8 bits each, giving a total of 128 p
 Essentially, if the bits are thought of sequentially in that the first byte represents attributes 0 to 7, the second byte represents attributes 8 to 15, the third 16 to 23, and the fourth and final byte 24 to 31.
 
 
-
-//  9. THE PROPERTY TABLE
 // *****************************************************************************
 // *                                                                           *
 // *               Hugo Book II: 9/16 -- 21. The Property Table                *
@@ -12189,8 +12109,6 @@ A $0D signals the end of the `after` routine.
 Property routines are followed by an automatic $21, $29, and $4C (i.e., `return true`).
 --
 
-
-// 10. THE EVENT TABLE
 // *****************************************************************************
 // *                                                                           *
 // *                Hugo Book II: 10/16 -- 22. The Event Table                 *
@@ -12212,8 +12130,6 @@ Each event requires 2 bytes:
 |===============================================================================
 
 
-
-// 11. THE DICTIONARY AND SPECIAL WORDS
 // *****************************************************************************
 // *                                                                           *
 // *       Hugo Book II: 11/16 -- 23. The Dictionary and Special Words         *
@@ -12254,8 +12170,6 @@ Each entry requires 5 bytes:
 |===============================================================================
 
 
-
-// 12. RESOURCEFILES
 // *****************************************************************************
 // *                                                                           *
 // *                 Hugo Book II: 12/16 -- 24. Resourcefiles                  *
@@ -12313,8 +12227,6 @@ These are still supported by the Hugo Engine, but the compiler now writes 32-bit
 Resources are then appended sequentially immediately following the index.
 
 
-
-// 13. THE HUGO COMPILER AND HOW IT WORKS
 // *****************************************************************************
 // *                                                                           *
 // *      Hugo Book II: 13/16 -- 25. The Hugo Compiler and How It Works        *
@@ -12560,8 +12472,6 @@ In `Pass3()`, `ResolveAddr()` is now able to resolve addresses from the linked f
 Additionally, those properties with a "`length`" of 254 are adjusted so that their values--which are really addresses of property routines--are adjusted as per the offset; the "`length`" of these properties is then written as 255.
 
 
-
-// 14. THE HUGO ENGINE AND HOW IT WORKS
 // ******************************************************************************
 // *                                                                            *
 // *        Hugo Book II: 14/16 -- 26. The Hugo Engine and How It Works         *
@@ -12769,8 +12679,6 @@ If _n_ is 0, the byte __n__+1 gives the value from the memory image. (Although i
 The practical implementation of the Hugo savefile format is found in `RunSave()` and `RunRestore()` in *herun.c*.
 
 
-
-// 15. DARK SECRETS OF THE HUGO DEBUGGER
 // *****************************************************************************
 // *                                                                           *
 // *       Hugo Book II: 15/16 -- 27. Dark Secrets of the Hugo Debugger        *
@@ -12863,8 +12771,6 @@ Note that it isn't necessary to store the total number of objects, since that is
 
 
 
-
-// APPENDIX A: CODE PATTERNS
 // *****************************************************************************
 // *                                                                           *
 // *               Hugo Book II: 16/16 -- App. H. Code Patterns                *
@@ -14338,10 +14244,7 @@ Used by `sound` and `music` statements.
 |===============================================================================
 
 
-
-
 :leveloffset: 0
-
 
 
 

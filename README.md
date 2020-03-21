@@ -318,6 +318,7 @@ Released under MIT License:
     + Applied @roodyyogurt's suggested corrections, taken from [his notes to _The Hugo Book_][Roody PDF].
     + Fixed images path in the single-file (coalesced) AsciiDoc book, by adding the correct `imagesdir` attribute via preprocessor directives.
     Now all images are shown when previewing [`hugo-book.asciidoc`][HB Adoc] on GitHub WebUI.
+    + Polished comments in AsciiDoc sources to produce a cleaner version of the coalesced AsciiDoc book.
 - **v1.0.0** (2020/01/30)
     + First release of the AsciiDoc port.
 
